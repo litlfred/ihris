@@ -1,0 +1,627 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "job-to-isco-88-unit",
+  "url": "https://litlfred.github.io/ihris/dak/ConceptMap/job-to-isco-88-unit",
+  "version": "4.3.3",
+  "name": "JobToIsco88Unit",
+  "title": "iHRIS sample jobs to ISCO-88 unit groups",
+  "status": "draft",
+  "experimental": true,
+  "description": "Derived from the iHRIS SAMPLE job list, whose codes are an ISCO-88 unit group plus a local suffix (e.g. 2221-1D). Illustrative: a deployment's own jobs need their own map.",
+  "sourceUri": "https://litlfred.github.io/ihris/dak/ValueSet/job",
+  "targetUri": "https://litlfred.github.io/ihris/dak/ValueSet/isco_88_unit",
+  "group": [
+    {
+      "source": "https://litlfred.github.io/ihris/dak/CodeSystem/job-example-sampledata-job",
+      "target": "https://litlfred.github.io/ihris/dak/CodeSystem/isco_88_unit",
+      "element": [
+        {
+          "code": "2221-1D",
+          "display": "Medical Doctor",
+          "target": [
+            {
+              "code": "2221",
+              "display": "Medical doctors",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2221-2D",
+          "display": "Specialized Doctor",
+          "target": [
+            {
+              "code": "2221",
+              "display": "Medical doctors",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "5132-1A",
+          "display": "Nurse Aide",
+          "target": [
+            {
+              "code": "5132",
+              "display": "Institution-based personal care workers",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3232-2A",
+          "display": "Nurse Midwife Aid",
+          "target": [
+            {
+              "code": "3232",
+              "display": "Midwifery associate professionals",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3222-1A",
+          "display": "Hygienist Aide",
+          "target": [
+            {
+              "code": "3222",
+              "display": "Sanitarians",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2230-2B",
+          "display": "Midwife",
+          "target": [
+            {
+              "code": "2230",
+              "display": "Nursing and midwifery professionals",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2230-1D",
+          "display": "Chief Nurse",
+          "target": [
+            {
+              "code": "2230",
+              "display": "Nursing and midwifery professionals",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2230-1C",
+          "display": "Deputy Chief Nurse",
+          "target": [
+            {
+              "code": "2230",
+              "display": "Nursing and midwifery professionals",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2230-1B",
+          "display": "Nurse",
+          "target": [
+            {
+              "code": "2230",
+              "display": "Nursing and midwifery professionals",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3226-1A",
+          "display": "Physiotherapy Aide",
+          "target": [
+            {
+              "code": "3226",
+              "display": "Physiotherapists and related associate professionals",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3221-2B",
+          "display": "Anesthesiology Assistant",
+          "target": [
+            {
+              "code": "3221",
+              "display": "Medical assistants",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3229-3A",
+          "display": "Environmental Health Worker",
+          "target": [
+            {
+              "code": "3229",
+              "display": "Modern health associate professionals (except nursing) elsewhere classified",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3228-1B",
+          "display": "Pharmacy Technician",
+          "target": [
+            {
+              "code": "3228",
+              "display": "Pharmaceutical assistants",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2221-5D",
+          "display": "Surgeon",
+          "target": [
+            {
+              "code": "2221",
+              "display": "Medical doctors",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2222-2D",
+          "display": "Dentist",
+          "target": [
+            {
+              "code": "2222",
+              "display": "Dentists",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3225-1B",
+          "display": "Dental Technician",
+          "target": [
+            {
+              "code": "3225",
+              "display": "Dental assistants",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2229-3C",
+          "display": "Epidemiologist",
+          "target": [
+            {
+              "code": "2229",
+              "display": "Health professionals (except nursing) not elsewhere",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3211-2A",
+          "display": "Lab Assistant",
+          "target": [
+            {
+              "code": "3211",
+              "display": "Life science technicians",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2221-4D",
+          "display": "Orthopedist",
+          "target": [
+            {
+              "code": "2221",
+              "display": "Medical doctors",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3211-1C",
+          "display": "Lab Technician",
+          "target": [
+            {
+              "code": "3211",
+              "display": "Life science technicians",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3211-4B",
+          "display": "Orthopedist Aide",
+          "target": [
+            {
+              "code": "3211",
+              "display": "Life science technicians",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3211-1A",
+          "display": "Technician",
+          "target": [
+            {
+              "code": "3211",
+              "display": "Life science technicians",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2432-1B",
+          "display": "Archivist",
+          "target": [
+            {
+              "code": "2432",
+              "display": "Librarians and related information professionals",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3222-1B",
+          "display": "Hygienist",
+          "target": [
+            {
+              "code": "3222",
+              "display": "Sanitarians",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3221-1C",
+          "display": "Medical Assistant",
+          "target": [
+            {
+              "code": "3221",
+              "display": "Medical assistants",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3223-2A",
+          "display": "Nutritionist Aide",
+          "target": [
+            {
+              "code": "3223",
+              "display": "Dietitians and nutritionists",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3223-1C",
+          "display": "Anesthesiologist",
+          "target": [
+            {
+              "code": "3223",
+              "display": "Dietitians and nutritionists",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3223-1B",
+          "display": "Nutritionist",
+          "target": [
+            {
+              "code": "3223",
+              "display": "Dietitians and nutritionists",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2224-1D",
+          "display": "Pharmacist",
+          "target": [
+            {
+              "code": "2224",
+              "display": "Pharmacists",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3226-1B",
+          "display": "Physiotherapist",
+          "target": [
+            {
+              "code": "3226",
+              "display": "Physiotherapists and related associate professionals",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3211-3B",
+          "display": "Radiology Technician",
+          "target": [
+            {
+              "code": "3211",
+              "display": "Life science technicians",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3460-1A",
+          "display": "Social Work Aide",
+          "target": [
+            {
+              "code": "3460",
+              "display": "Social work associate professionals",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2446-1C",
+          "display": "Social Worker",
+          "target": [
+            {
+              "code": "2446",
+              "display": "Social work professionals",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "7137-1B",
+          "display": "Electrician",
+          "target": [
+            {
+              "code": "7137",
+              "display": "Building and related electricians",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2411-1B",
+          "display": "Accountant",
+          "target": [
+            {
+              "code": "2411",
+              "display": "Accountants",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "3431-1D",
+          "display": "Administrator",
+          "target": [
+            {
+              "code": "3431",
+              "display": "Administrative secretaries and related associate professionals",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "1231-1C",
+          "display": "Manager",
+          "target": [
+            {
+              "code": "1231",
+              "display": "Finance and administration department managers",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "4211-1A",
+          "display": "Cashier",
+          "target": [
+            {
+              "code": "4211",
+              "display": "Cashiers and ticket clerks",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "8322-1A",
+          "display": "Driver",
+          "target": [
+            {
+              "code": "8322",
+              "display": "Car, taxi and van drivers",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "6113-1A",
+          "display": "Gardener",
+          "target": [
+            {
+              "code": "6113",
+              "display": "Gardeners, horticultural and nursery growers",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "5169-1A",
+          "display": "Guard",
+          "target": [
+            {
+              "code": "5169",
+              "display": "Protective services workers not elsewhere classified",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "5121-2A",
+          "display": "Laundry Staff",
+          "target": [
+            {
+              "code": "5121",
+              "display": "Housekeepers and related workers",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "4222-1A",
+          "display": "Receptionist",
+          "target": [
+            {
+              "code": "4222",
+              "display": "Receptionists and information clerks",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "4115-1A",
+          "display": "Secretary",
+          "target": [
+            {
+              "code": "4115",
+              "display": "Secretaries",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2221-3D",
+          "display": "Opthalmologist",
+          "target": [
+            {
+              "code": "2221",
+              "display": "Medical doctors",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "7231-1B",
+          "display": "Mechanic",
+          "target": [
+            {
+              "code": "7231",
+              "display": "Motor vehicle mechanics and fitters",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2445-1C",
+          "display": "Clinical Psychologist",
+          "target": [
+            {
+              "code": "2445",
+              "display": "Psychologists",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "2445-1B",
+          "display": "Counselor",
+          "target": [
+            {
+              "code": "2445",
+              "display": "Psychologists",
+              "equivalence": "wider",
+              "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."
+            }
+          ]
+        },
+        {
+          "code": "1420-A",
+          "display": "Administrative Assistant",
+          "target": [
+            {
+              "equivalence": "unmatched",
+              "comment": "Prefix 1420 is not an ISCO-88 unit group iHRIS ships."
+            }
+          ]
+        },
+        {
+          "code": "RM-001",
+          "display": "Records Manager",
+          "target": [
+            {
+              "equivalence": "unmatched",
+              "comment": "The job code has no ISCO prefix."
+            }
+          ]
+        },
+        {
+          "code": "NURS-I",
+          "display": "Nurse I",
+          "target": [
+            {
+              "equivalence": "unmatched",
+              "comment": "The job code has no ISCO prefix."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

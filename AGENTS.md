@@ -44,4 +44,4 @@ A Claude Code cloud session reaches `launchpad.net` (project, series and milesto
 
 ## 6. Derived knowledge assets never invent
 
-`src/ihris-dak` is derived. Columns the source cannot answer (definitions, conditionality, indicator and decision-support linkages) stay null until a person authors them. Never fill them with plausible text.
+`src/ihris-dak` is derived. Columns the source cannot answer (definitions, conditionality, indicator and decision-support linkages) stay null until a person authors them. Never fill them with plausible text. Human decisions go in `src/ihris-dak/authored/` (`ihris-dak-proposal/v1`), which no build writes. Only the owner moves a proposal's `status`.

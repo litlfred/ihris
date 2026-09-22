@@ -34,6 +34,29 @@ Why sample data is kept apart: `SampleData-country` reuses real ISO codes for de
 
 Other lists that a record points to are linked as Coding properties to the CodeSystem that actually holds the code (e.g. a district's `region`). I2CE CURRENCY values (`currency|<id>=<amount>`) become a decimal amount plus a currency Coding.
 
+## Occupations: ISCO-08 and ISCO-88
+
+iHRIS ships **both ISCO classifications as default data**: ISCO-08 with 10 / 43 / 130 / 436 major, sub-major, minor and unit groups (the full structure), and ISCO-88.
+
+| file | what it is | basis |
+|---|---|---|
+| `ValueSet-isco_08_{major,sub_major,minor,unit}.json` | the ISCO-08 groups iHRIS ships, as codes of the ILO ISCO-08 system (`http://www.ilo.org/public/english/bureau/stat/isco/isco08/`, the URL WHO smart-base uses) | iHRIS record ids *are* ISCO-08 codes |
+| `CodeSystem-isco_88_*.json` | ISCO-88 as shipped (smart-base has no ISCO-88 canonical) | shipped default data |
+| `ConceptMap-job-to-isco-88-unit.json` | sample jobs → ISCO-88 unit group: 48 mapped, 3 unmatched | the job code's four-digit prefix, kept only where it is a shipped ISCO-88 unit group |
+| `ConceptMap-classification-to-isco-88-minor.json` | sample classifications → ISCO-88 minor group: 5 mapped, 1 unmatched | the record's own `code` field |
+| `ConceptMap-cadre-to-isco-88-minor.json` | sample cadres → ISCO-88 minor groups: 3 mapped, 1 unmatched | through the cadre's sample jobs; `inexact`, citing the jobs |
+
+Why the maps target **ISCO-88** and not ISCO-08: iHRIS's own sample data is keyed on ISCO-88. For example, job `2221-1D` Medical Doctor sits under ISCO-88 unit 2221, and classification code `223` is ISCO-88 "Nursing and midwifery professionals". Going from ISCO-88 to ISCO-08 is many-to-many and needs the ILO correspondence table. That step is **blocked**, not guessed; see `authored/isco-08.json`, item P2.
+
+## Authored overlay (`authored/`)
+
+The only part of this instance that a person writes and the build never touches. Each file is an `ihris-dak-proposal/v1`: proposals with a rationale, evidence and a status that only the owner changes.
+
+- [`authored/isco-08.json`](authored/isco-08.json):
+  - **P1 (proposed):** each deployment maps its cadre and job codes to ISCO-08 unit groups.
+  - **P2 (blocked):** ISCO-88 → ISCO-08, pending the ILO correspondence table.
+  - **O1 (to verify):** smart-base's ISCO08 CodeSystem holds 182 of 619 groups while declaring `content: complete`, and has a `913` that iHRIS lacks.
+
 ## How fields were mapped
 
 | iHRIS (I2CE) | DAK data type |

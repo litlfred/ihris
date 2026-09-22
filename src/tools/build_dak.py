@@ -318,6 +318,95 @@ def slug_(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 
 
+ILO_ISCO08 = "http://www.ilo.org/public/english/bureau/stat/isco/isco08/"  # the system URL smart-base's CodeSystem ISCO08 uses
+
+
+def build_isco(fdisp):
+    """ISCO-08 / ISCO-88 terminology and the occupation mappings the source itself supports.
+
+    - ValueSet isco-08-unit: the 436 ISCO-08 unit groups iHRIS ships (default data), bound to the
+      ILO system URL smart-base uses. iHRIS's record ids ARE ISCO-08 codes, so no ConceptMap is
+      needed between them; the level lists become ValueSets too.
+    - ISCO-88 has no canonical in smart-base, so iHRIS's shipped ISCO-88 lists become CodeSystems
+      here (via build_terminology).
+    - job -> ISCO-88 unit group: the first four digits of the job code, kept ONLY when that prefix
+      is an ISCO-88 unit group iHRIS ships. classification -> ISCO-88 minor group: its own `code`.
+      cadre -> ISCO-88 minor groups: through the jobs that name the cadre (inexact, sample data).
+    - ISCO-88 -> ISCO-08 is NOT produced: it needs the ILO correspondence table, not guesswork.
+    """
+    lists = load_data_lists()
+    tdir = os.path.join(OUT, "terminology")
+    rec = lambda form: [r for r in lists.get(form, []) if r["provenance"] == "default"]  # noqa: E731
+    report = {"isco08": {}, "maps": {}}
+    for lvl, n in [("major", 1), ("sub_major", 2), ("minor", 3), ("unit", 4)]:
+        rs = rec(f"isco_08_{lvl}")
+        vs = {"resourceType": "ValueSet", "id": f"ihris-isco-08-{lvl.replace('_', '-')}", "url": f"{CANONICAL}/ValueSet/isco_08_{lvl}",
+              "version": RELEASE, "name": f"IHRISISCO08{_pascal(lvl)}VS", "title": f"ISCO-08 {lvl.replace('_', '-')} groups (as shipped in iHRIS)",
+              "status": "draft", "experimental": True,
+              "description": f"The {len(rs)} ISCO-08 {lvl.replace('_', '-')} groups iHRIS {RELEASE} ships by default (`isco_08_{lvl}`), "
+                             f"as codes of the ILO ISCO-08 system under the URL WHO smart-base uses for it ({ILO_ISCO08}).",
+              "compose": {"include": [{"system": ILO_ISCO08, "concept": [{"code": r["id"], "display": r["fields"].get("name", r["id"])} for r in rs]}]}}
+        write_json(os.path.join(tdir, f"ValueSet-isco_08_{lvl}.json"), vs)
+        report["isco08"][lvl] = len(rs)
+    u88 = {r["id"]: r["fields"].get("name") for r in rec("isco_88_unit")}
+    m88 = {r["id"]: r["fields"].get("name") for r in rec("isco_88_minor")}
+    samples = lambda form: [r for r in lists.get(form, []) if r["provenance"] == "sample"]  # noqa: E731
+
+    def cmap(cid, title, src_form, tgt_form, elements, unmapped, desc):
+        src_mods = sorted({r["definedIn"] for r in samples(src_form)})
+        src = f"{CANONICAL}/CodeSystem/{src_form}-example-{slug_(src_mods[0].split('/module/')[1])}" if src_mods else f"{CANONICAL}/CodeSystem/{src_form}"
+        cm = {"resourceType": "ConceptMap", "id": cid, "url": f"{CANONICAL}/ConceptMap/{cid}", "version": RELEASE,
+              "name": _pascal(cid), "title": title, "status": "draft", "experimental": True, "description": desc,
+              "sourceUri": f"{CANONICAL}/ValueSet/{src_form}", "targetUri": f"{CANONICAL}/ValueSet/{tgt_form}",
+              "group": [{"source": src, "target": f"{CANONICAL}/CodeSystem/{tgt_form}", "element": elements + unmapped}]}
+        write_json(os.path.join(tdir, f"ConceptMap-{cid}.json"), cm)
+        report["maps"][cid] = {"mapped": len(elements), "unmapped": len(unmapped)}
+
+    jobs = samples("job")
+    el, un = [], []
+    for r in jobs:
+        p = re.match(r"(\d{4})-", r["id"])
+        if p and p.group(1) in u88:
+            el.append({"code": r["id"], "display": r["fields"].get("title"), "target": [{"code": p.group(1), "display": u88[p.group(1)],
+                       "equivalence": "wider", "comment": "The job code's four-digit prefix is this ISCO-88 unit group (verified against iHRIS's shipped ISCO-88 list)."}]})
+        else:
+            un.append({"code": r["id"], "display": r["fields"].get("title"), "target": [{"equivalence": "unmatched",
+                       "comment": (f"Prefix {p.group(1)} is not an ISCO-88 unit group iHRIS ships." if p else "The job code has no ISCO prefix.")}]})
+    cmap("job-to-isco-88-unit", "iHRIS sample jobs to ISCO-88 unit groups", "job", "isco_88_unit", el, un,
+         "Derived from the iHRIS SAMPLE job list, whose codes are an ISCO-88 unit group plus a local suffix (e.g. 2221-1D). Illustrative: a deployment's own jobs need their own map.")
+    cls = samples("classification")
+    el, un = [], []
+    for r in cls:
+        c = r["fields"].get("code")
+        if c in m88:
+            el.append({"code": r["id"], "display": r["fields"].get("name"), "target": [{"code": c, "display": m88[c], "equivalence": "equivalent",
+                       "comment": "Asserted by the record's own `code` field; verified against iHRIS's shipped ISCO-88 minor groups."}]})
+        else:
+            un.append({"code": r["id"], "display": r["fields"].get("name"), "target": [{"equivalence": "unmatched",
+                       "comment": "The record carries no ISCO-88 code." if not c else f"Code {c} is not an ISCO-88 minor group iHRIS ships."}]})
+    cmap("classification-to-isco-88-minor", "iHRIS sample classifications to ISCO-88 minor groups", "classification", "isco_88_minor", el, un,
+         "Derived from the iHRIS SAMPLE classification list, whose `code` field holds an ISCO-88 minor group.")
+    cad = {r["id"]: r["fields"].get("name") for r in samples("cadre")}
+    via = collections.defaultdict(lambda: collections.defaultdict(list))
+    for r in jobs:
+        cd = (r["fields"].get("cadre") or "").split("|")[-1]
+        p = re.match(r"(\d{3})\d-", r["id"])
+        if cd in cad and p and p.group(1) in m88:
+            via[cd][p.group(1)].append(r["id"])
+    el, un = [], []
+    for cid_, name in sorted(cad.items()):
+        if via[cid_]:
+            el.append({"code": cid_, "display": name, "target": [{"code": g, "display": m88[g], "equivalence": "inexact",
+                       "comment": f"Sample jobs of this cadre fall in this ISCO-88 minor group: {', '.join(sorted(js))}."} for g, js in sorted(via[cid_].items())]})
+        else:
+            un.append({"code": cid_, "display": name, "target": [{"equivalence": "unmatched", "comment": "No sample job of this cadre carries an ISCO-88 prefix."}]})
+    cmap("cadre-to-isco-88-minor", "iHRIS sample cadres to ISCO-88 minor groups (via jobs)", "cadre", "isco_88_minor", el, un,
+         "A cadre is broader than any one occupation group, so each target is `inexact` and lists the sample jobs that justify it. "
+         "Derived from SAMPLE data only; a deployment's cadres need their own map.")
+    report["isco88to08"] = "not produced: needs the ILO ISCO-88/ISCO-08 correspondence table (not reachable from the building session)"
+    return report
+
+
 def _normalize_zip(path):
     """Rewrite a zip with fixed entry timestamps so the .xlsx is byte-identical across runs."""
     import zipfile
@@ -436,7 +525,9 @@ def main():
             "resourceType": "CoreDataElement", "type": "valueset", "id": f"{DAK_PREFIX}.VS.{form}",
             "canonical": f"{CANONICAL}/ValueSet/{form}"})
 
-    term = {e["form"]: e for e in build_terminology(sorted(lists_used), form_to_class, fdisp, merged)}
+    term = {e["form"]: e for e in build_terminology(sorted(set(lists_used) | {"isco_88_unit", "isco_88_minor"}), form_to_class, fdisp, merged)}
+    isco = build_isco(fdisp)
+    write_json(os.path.join(OUT, "isco-report.json"), isco)
     for f in term:
         if f not in lists_used:  # reached only through another list's MAP property (e.g. district -> region)
             write_json(os.path.join(OUT, "core-data-elements", f"VS-{f}.json"), {

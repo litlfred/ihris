@@ -45,6 +45,13 @@ Records under `//I2CE/formsData/forms/<list>/<id>` are stored in two formats: a 
 
 A MAP value `list|id` becomes a Coding to whichever CodeSystem **holds** that id. It prefers the referring record's own package, because the Manage and Qualify sample lists disagree. A CURRENCY value `currency|id=amount` becomes a decimal plus a currency Coding. Records that repeat an id are merged, as I2CE's configuration tree merges them, and the CodeSystem description says so.
 
+## Occupations (ISCO)
+
+- iHRIS record ids in `isco_08_*` **are** ISCO-08 codes. Emit ValueSets on the ILO system URL smart-base uses. Do not mint an ISCO-08 CodeSystem.
+- Map only what a record itself states. A job code's ISCO-88 prefix counts only when it is a shipped ISCO-88 unit group. A classification's `code` field counts. A cadre is reached only through its jobs, and the map is `inexact` and lists the jobs.
+- **Never** map ISCO-88 to ISCO-08 from memory. It needs ILO's correspondence table. Record the gap as a `blocked` item in `authored/`.
+- Anything a person decides (a binding, a definition) goes in `authored/` as an `ihris-dak-proposal/v1`. Builds never write there.
+
 ## Steps
 
 1. `python3 src/tools/build_dak.py`

@@ -1,0 +1,540 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-isco-08-minor",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/isco_08_minor",
+  "version": "4.3.3",
+  "name": "IHRISISCO08MinorVS",
+  "title": "ISCO-08 minor groups (as shipped in iHRIS)",
+  "status": "draft",
+  "experimental": true,
+  "description": "The 130 ISCO-08 minor groups iHRIS 4.3.3 ships by default (`isco_08_minor`), as codes of the ILO ISCO-08 system under the URL WHO smart-base uses for it (http://www.ilo.org/public/english/bureau/stat/isco/isco08/).",
+  "compose": {
+    "include": [
+      {
+        "system": "http://www.ilo.org/public/english/bureau/stat/isco/isco08/",
+        "concept": [
+          {
+            "code": "111",
+            "display": "Legislators and senior officials"
+          },
+          {
+            "code": "112",
+            "display": "Managing directors and chief executives"
+          },
+          {
+            "code": "121",
+            "display": "Business services and administration managers"
+          },
+          {
+            "code": "122",
+            "display": "Sales, marketing and development managers"
+          },
+          {
+            "code": "131",
+            "display": "Production managers in agriculture, forestry and fisheries"
+          },
+          {
+            "code": "132",
+            "display": "Manufacturing, mining, construction, and distribution managers"
+          },
+          {
+            "code": "133",
+            "display": "Information and communications technology service managers"
+          },
+          {
+            "code": "134",
+            "display": "Professional services managers"
+          },
+          {
+            "code": "141",
+            "display": "Hotel and restaurant managers"
+          },
+          {
+            "code": "142",
+            "display": "Retail and wholesale trade managers"
+          },
+          {
+            "code": "143",
+            "display": "Other services managers"
+          },
+          {
+            "code": "011",
+            "display": "Commissioned armed forces officers"
+          },
+          {
+            "code": "211",
+            "display": "Physical and earth science professionals"
+          },
+          {
+            "code": "212",
+            "display": "Mathematicians, actuaries and statisticians"
+          },
+          {
+            "code": "213",
+            "display": "Life science professionals"
+          },
+          {
+            "code": "214",
+            "display": "Engineering professionals (excluding electrotechnology)"
+          },
+          {
+            "code": "215",
+            "display": "Electrotechnology engineers"
+          },
+          {
+            "code": "216",
+            "display": "Architects, planners, surveyors and designers"
+          },
+          {
+            "code": "221",
+            "display": "Medical doctors"
+          },
+          {
+            "code": "222",
+            "display": "Nursing and midwifery professionals"
+          },
+          {
+            "code": "223",
+            "display": "Traditional and complementary medicine professionals"
+          },
+          {
+            "code": "224",
+            "display": "Paramedical practitioners"
+          },
+          {
+            "code": "225",
+            "display": "Veterinarians"
+          },
+          {
+            "code": "226",
+            "display": "Other health professionals"
+          },
+          {
+            "code": "231",
+            "display": "University and higher education teachers"
+          },
+          {
+            "code": "232",
+            "display": "Vocational education teachers"
+          },
+          {
+            "code": "233",
+            "display": "Secondary education teachers"
+          },
+          {
+            "code": "234",
+            "display": "Primary school and early childhood teachers"
+          },
+          {
+            "code": "235",
+            "display": "Other teaching professionals"
+          },
+          {
+            "code": "241",
+            "display": "Finance professionals"
+          },
+          {
+            "code": "242",
+            "display": "Administration professionals"
+          },
+          {
+            "code": "243",
+            "display": "Sales, marketing and public relations professionals"
+          },
+          {
+            "code": "251",
+            "display": "Software and applications developers and analysts"
+          },
+          {
+            "code": "252",
+            "display": "Database and network professionals"
+          },
+          {
+            "code": "261",
+            "display": "Legal professionals"
+          },
+          {
+            "code": "262",
+            "display": "Librarians, archivists and curators"
+          },
+          {
+            "code": "263",
+            "display": "Social and religious professionals"
+          },
+          {
+            "code": "264",
+            "display": "Authors, journalists and linguists"
+          },
+          {
+            "code": "265",
+            "display": "Creative and performing artists"
+          },
+          {
+            "code": "021",
+            "display": "Non-commissioned armed forces officers"
+          },
+          {
+            "code": "311",
+            "display": "Physical and engineering science technicians"
+          },
+          {
+            "code": "312",
+            "display": "Mining, manufacturing and construction supervisors"
+          },
+          {
+            "code": "313",
+            "display": "Process control technicians"
+          },
+          {
+            "code": "314",
+            "display": "Life science technicians and related associate professionals"
+          },
+          {
+            "code": "315",
+            "display": "Ship and aircraft controllers and technicians"
+          },
+          {
+            "code": "321",
+            "display": "Medical and pharmaceutical technicians"
+          },
+          {
+            "code": "322",
+            "display": "Nursing and midwifery associate professionals"
+          },
+          {
+            "code": "323",
+            "display": "Traditional and complementary medicine associate professionals"
+          },
+          {
+            "code": "324",
+            "display": "Veterinary technicians and assistants"
+          },
+          {
+            "code": "325",
+            "display": "Other health associate professionals"
+          },
+          {
+            "code": "331",
+            "display": "Financial and mathematical associate professionals"
+          },
+          {
+            "code": "332",
+            "display": "Sales and purchasing agents and brokers"
+          },
+          {
+            "code": "333",
+            "display": "Business services agents"
+          },
+          {
+            "code": "334",
+            "display": "Administrative and specialised secretaries"
+          },
+          {
+            "code": "335",
+            "display": "Regulatory government associate professionals"
+          },
+          {
+            "code": "341",
+            "display": "Legal, social and religious associate professionals"
+          },
+          {
+            "code": "342",
+            "display": "Sports and fitness workers"
+          },
+          {
+            "code": "343",
+            "display": "Artistic, cultural and culinary associate professionals"
+          },
+          {
+            "code": "351",
+            "display": "Information and communications technology operations and user support technicians"
+          },
+          {
+            "code": "352",
+            "display": "Telecommunications and broadcasting technicians"
+          },
+          {
+            "code": "031",
+            "display": "Armed forces occupations, other ranks"
+          },
+          {
+            "code": "411",
+            "display": "General office clerks"
+          },
+          {
+            "code": "412",
+            "display": "Secretaries (general)"
+          },
+          {
+            "code": "413",
+            "display": "Keyboard operators"
+          },
+          {
+            "code": "421",
+            "display": "Tellers, money collectors and related clerks"
+          },
+          {
+            "code": "422",
+            "display": "Client information workers"
+          },
+          {
+            "code": "431",
+            "display": "Numerical clerks"
+          },
+          {
+            "code": "432",
+            "display": "Material-recording and transport clerks"
+          },
+          {
+            "code": "441",
+            "display": "Other clerical support workers"
+          },
+          {
+            "code": "511",
+            "display": "Travel attendants, conductors and guides"
+          },
+          {
+            "code": "512",
+            "display": "Cooks"
+          },
+          {
+            "code": "513",
+            "display": "Waiters and bartenders"
+          },
+          {
+            "code": "514",
+            "display": "Hairdressers, beauticians and related workers"
+          },
+          {
+            "code": "515",
+            "display": "Building and housekeeping supervisors"
+          },
+          {
+            "code": "516",
+            "display": "Other personal services workers"
+          },
+          {
+            "code": "521",
+            "display": "Street and market salespersons"
+          },
+          {
+            "code": "522",
+            "display": "Shop salespersons"
+          },
+          {
+            "code": "523",
+            "display": "Cashiers and ticket clerks"
+          },
+          {
+            "code": "524",
+            "display": "Other sales workers"
+          },
+          {
+            "code": "531",
+            "display": "Child care workers and teachers' aides"
+          },
+          {
+            "code": "532",
+            "display": "Personal care workers in health services"
+          },
+          {
+            "code": "541",
+            "display": "Protective services workers"
+          },
+          {
+            "code": "611",
+            "display": "Market gardeners and crop growers"
+          },
+          {
+            "code": "612",
+            "display": "Animal producers"
+          },
+          {
+            "code": "613",
+            "display": "Mixed crop and animal producers"
+          },
+          {
+            "code": "621",
+            "display": "Forestry and related workers"
+          },
+          {
+            "code": "622",
+            "display": "Fishery workers, hunters and trappers"
+          },
+          {
+            "code": "631",
+            "display": "Subsistence crop farmers"
+          },
+          {
+            "code": "632",
+            "display": "Subsistence livestock farmers"
+          },
+          {
+            "code": "633",
+            "display": "Subsistence mixed crop and livestock farmers"
+          },
+          {
+            "code": "634",
+            "display": "Subsistence fishers, hunters, trappers and gatherers"
+          },
+          {
+            "code": "711",
+            "display": "Building frame and related trades workers"
+          },
+          {
+            "code": "712",
+            "display": "Building finishers and related trades workers"
+          },
+          {
+            "code": "713",
+            "display": "Painters, building structure cleaners and related trades workers"
+          },
+          {
+            "code": "721",
+            "display": "Sheet and structural metal workers, moulders and welders, and related workers"
+          },
+          {
+            "code": "722",
+            "display": "Blacksmiths, toolmakers and related trades workers"
+          },
+          {
+            "code": "723",
+            "display": "Machinery mechanics and repairers"
+          },
+          {
+            "code": "731",
+            "display": "Handicraft workers"
+          },
+          {
+            "code": "732",
+            "display": "Printing trades workers"
+          },
+          {
+            "code": "741",
+            "display": "Electrical equipment installers and repairers"
+          },
+          {
+            "code": "742",
+            "display": "Electronics and telecommunications installers and repairers"
+          },
+          {
+            "code": "751",
+            "display": "Food processing and related trades workers"
+          },
+          {
+            "code": "752",
+            "display": "Wood treaters, cabinet-makers and related trades workers"
+          },
+          {
+            "code": "753",
+            "display": "Garment and related trades workers"
+          },
+          {
+            "code": "754",
+            "display": "Other craft and related workers"
+          },
+          {
+            "code": "811",
+            "display": "Mining and mineral processing plant operators"
+          },
+          {
+            "code": "812",
+            "display": "Metal processing and finishing plant operators"
+          },
+          {
+            "code": "813",
+            "display": "Chemical and photographic products plant and machine operators"
+          },
+          {
+            "code": "814",
+            "display": "Rubber, plastic and paper products machine operators"
+          },
+          {
+            "code": "815",
+            "display": "Textile, fur and leather products machine operators"
+          },
+          {
+            "code": "816",
+            "display": "Food and related products machine operators"
+          },
+          {
+            "code": "817",
+            "display": "Wood processing and papermaking plant operators"
+          },
+          {
+            "code": "818",
+            "display": "Other stationary plant and machine operators"
+          },
+          {
+            "code": "821",
+            "display": "Assemblers"
+          },
+          {
+            "code": "831",
+            "display": "Locomotive engine drivers and related workers"
+          },
+          {
+            "code": "832",
+            "display": "Car, van and motorcycle drivers"
+          },
+          {
+            "code": "833",
+            "display": "Heavy truck and bus drivers"
+          },
+          {
+            "code": "834",
+            "display": "Mobile plant operators"
+          },
+          {
+            "code": "835",
+            "display": "Ships' deck crews and related workers"
+          },
+          {
+            "code": "911",
+            "display": "Domestic, hotel and office cleaners and helpers"
+          },
+          {
+            "code": "912",
+            "display": "Vehicle, window, laundry and other hand cleaning workers"
+          },
+          {
+            "code": "921",
+            "display": "Agricultural, forestry and fishery labourers"
+          },
+          {
+            "code": "931",
+            "display": "Mining and construction labourers"
+          },
+          {
+            "code": "932",
+            "display": "Manufacturing labourers"
+          },
+          {
+            "code": "933",
+            "display": "Transport and storage labourers"
+          },
+          {
+            "code": "941",
+            "display": "Food preparation assistants"
+          },
+          {
+            "code": "951",
+            "display": "Street and related service workers"
+          },
+          {
+            "code": "952",
+            "display": "Street vendors (excluding food)"
+          },
+          {
+            "code": "961",
+            "display": "Refuse workers"
+          },
+          {
+            "code": "962",
+            "display": "Other elementary workers"
+          }
+        ]
+      }
+    ]
+  }
+}
