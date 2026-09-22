@@ -1,0 +1,738 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-district-example-sampledata-district",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/district-example-sampledata-district",
+  "version": "4.3.3",
+  "name": "IHRISDistrictExampleSampledataDistrict",
+  "title": "iHRIS District: sample data from ihris-common/module/SampleData-district",
+  "status": "draft",
+  "experimental": true,
+  "description": "SAMPLE records for `district` from the iHRIS 4.3.3 module `ihris-common/module/SampleData-district`. Illustrative data for one fictional or example deployment. NOT a standard code set, and no ValueSet includes it.",
+  "caseSensitive": true,
+  "content": "example",
+  "count": 42,
+  "property": [
+    {
+      "code": "region",
+      "type": "Coding",
+      "description": "iHRIS MAP field `region`: a code in the region list"
+    },
+    {
+      "code": "code",
+      "type": "string",
+      "description": "iHRIS field `code`"
+    }
+  ],
+  "concept": [
+    {
+      "code": "1",
+      "display": "Capital",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "3"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "CAP"
+        }
+      ]
+    },
+    {
+      "code": "2",
+      "display": "Ngungo",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "4"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "NGU"
+        }
+      ]
+    },
+    {
+      "code": "3",
+      "display": "Gyumba",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "5"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "GYU"
+        }
+      ]
+    },
+    {
+      "code": "4",
+      "display": "Gisamba",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "2"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "GIS"
+        }
+      ]
+    },
+    {
+      "code": "5",
+      "display": "Nyagano",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "1"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "NYG"
+        }
+      ]
+    },
+    {
+      "code": "6",
+      "display": "Rushonga",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "1"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "RSH"
+        }
+      ]
+    },
+    {
+      "code": "7",
+      "display": "Musoza",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "5"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "MSZ"
+        }
+      ]
+    },
+    {
+      "code": "8",
+      "display": "Rusoro",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "5"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "RUS"
+        }
+      ]
+    },
+    {
+      "code": "9",
+      "display": "Gatarama",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "4"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "GAT"
+        }
+      ]
+    },
+    {
+      "code": "10",
+      "display": "Kahini",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "4"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "KAH"
+        }
+      ]
+    },
+    {
+      "code": "11",
+      "display": "Rusenyi",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "1"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "RSN"
+        }
+      ]
+    },
+    {
+      "code": "12",
+      "display": "Nyusa",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "2"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "NYS"
+        }
+      ]
+    },
+    {
+      "code": "13",
+      "display": "Hugoma",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "2"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "HGM"
+        }
+      ]
+    },
+    {
+      "code": "14",
+      "display": "Bwogo",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "4"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "BWO"
+        }
+      ]
+    },
+    {
+      "code": "15",
+      "display": "Ganemba",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "5"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "GAN"
+        }
+      ]
+    },
+    {
+      "code": "16",
+      "display": "Rutunda",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "1"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "RUT"
+        }
+      ]
+    },
+    {
+      "code": "17",
+      "display": "Kakoma",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "2"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "KAK"
+        }
+      ]
+    },
+    {
+      "code": "18",
+      "display": "Nyatimba",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "4"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "NYT"
+        }
+      ]
+    },
+    {
+      "code": "19",
+      "display": "Buraba",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "5"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "BRB"
+        }
+      ]
+    },
+    {
+      "code": "20",
+      "display": "Nyaramba",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "2"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "NYR"
+        }
+      ]
+    },
+    {
+      "code": "21",
+      "display": "Ngotumba",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "1"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "NGT"
+        }
+      ]
+    },
+    {
+      "code": "22",
+      "display": "Rwabiro",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "4"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "RWB"
+        }
+      ]
+    },
+    {
+      "code": "23",
+      "display": "Gataba",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "5"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "GTB"
+        }
+      ]
+    },
+    {
+      "code": "24",
+      "display": "Ruwendo",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "2"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "RWN"
+        }
+      ]
+    },
+    {
+      "code": "25",
+      "display": "Karita",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "1"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "KAR"
+        }
+      ]
+    },
+    {
+      "code": "26",
+      "display": "Kirasho",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "4"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "KIR"
+        }
+      ]
+    },
+    {
+      "code": "27",
+      "display": "Nyira",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "1"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "NYI"
+        }
+      ]
+    },
+    {
+      "code": "28",
+      "display": "Mubuye",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "2"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "MUB"
+        }
+      ]
+    },
+    {
+      "code": "29",
+      "display": "Nyaduha",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "2"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "NYD"
+        }
+      ]
+    },
+    {
+      "code": "30",
+      "display": "Gasunga",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "1"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "GAS"
+        }
+      ]
+    },
+    {
+      "code": "31",
+      "display": "Centre",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "6"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "BE"
+        }
+      ]
+    },
+    {
+      "code": "32",
+      "display": "Usumbura",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "7"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "BI"
+        }
+      ]
+    },
+    {
+      "code": "33",
+      "display": "Brazzaville",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "8"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "CG"
+        }
+      ]
+    },
+    {
+      "code": "34",
+      "display": "Nairobi",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "9"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "KE"
+        }
+      ]
+    },
+    {
+      "code": "35",
+      "display": "Nyarugenge",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "10"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "RW"
+        }
+      ]
+    },
+    {
+      "code": "36",
+      "display": "Zanzibar Central",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "11"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "TZ"
+        }
+      ]
+    },
+    {
+      "code": "37",
+      "display": "Kampala",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "12"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "UG"
+        }
+      ]
+    },
+    {
+      "code": "38",
+      "display": "New York",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "13"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "NY"
+        }
+      ]
+    },
+    {
+      "code": "39",
+      "display": "District of Columbia",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "13"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "DC"
+        }
+      ]
+    },
+    {
+      "code": "40",
+      "display": "North Carolina",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "13"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "NC"
+        }
+      ]
+    },
+    {
+      "code": "41",
+      "display": "Torit",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "14"
+          }
+        },
+        {
+          "code": "code",
+          "valueString": "001"
+        }
+      ]
+    },
+    {
+      "code": "42",
+      "display": "Provence",
+      "property": [
+        {
+          "code": "region",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/region-example-sampledata-region",
+            "code": "15"
+          }
+        }
+      ]
+    }
+  ]
+}

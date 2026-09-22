@@ -1,0 +1,42 @@
+{
+  "$schema": "ihris-data-list/v1",
+  "id": "ihris-qualify/data-list/exam_try",
+  "form": "exam_try",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a"
+  },
+  "counts": {
+    "default": 3
+  },
+  "records": [
+    {
+      "id": "first",
+      "fields": {
+        "name": "First Try"
+      },
+      "lastModified": "2009-08-10 00:00:00",
+      "definedIn": "ihris-qualify/module/ihris-qualify",
+      "provenance": "default"
+    },
+    {
+      "id": "retry",
+      "fields": {
+        "name": "Re-Try"
+      },
+      "lastModified": "2009-08-10 00:00:00",
+      "definedIn": "ihris-qualify/module/ihris-qualify",
+      "provenance": "default"
+    },
+    {
+      "id": "final",
+      "fields": {
+        "name": "Final Try"
+      },
+      "lastModified": "2009-08-10 00:00:00",
+      "definedIn": "ihris-qualify/module/ihris-qualify",
+      "provenance": "default"
+    }
+  ]
+}

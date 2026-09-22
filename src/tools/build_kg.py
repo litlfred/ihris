@@ -2,7 +2,7 @@
 """Rebuild every generated knowledge-graph file in this repository from uploads/.
 
 Everything under src/<instance>/catalogue, src/<instance>/modules,
-src/<instance>/data-model, library/ihris-toolkit, library/ihris-wiki and
+src/<instance>/data-model, src/<instance>/data-lists, library/ihris-toolkit, library/ihris-wiki and
 docs/generated is OUTPUT of this script. Edit the script (or the captures in
 uploads/), never the output: a hand edit is overwritten on the next run.
 
@@ -387,7 +387,7 @@ def build_modules():
             t = lambda k, md=md: (md.findtext(k) or "").strip() or None  # noqa: E731  (bind md NOW; a late-binding closure read the last module)
             acc = []
             _walk(r, "", acc)
-            forms, classes, pages, lists = [], [], [], collections.Counter()
+            forms, classes, pages, lists, records = [], [], [], collections.Counter(), []
             for path, g in acc:
                 if g.tag != "configurationGroup":
                     continue
@@ -412,11 +412,25 @@ def build_modules():
                     classes.append({"class": g.get("name"), "extends": _val(g, "extends"), "fields": flds})
                 elif re.fullmatch(r"/page/[^/]+", path):
                     pages.append({"page": g.get("name"), "class": _val(g, "class"), "style": _val(g, "style")})
-                mm = re.fullmatch(r"/formsData/forms/([^/]+)/[^/]+", path)
+                mm = re.fullmatch(r"/formsData/forms/([^/]+)/([^/]+)", path)
                 if mm:
                     lists[mm.group(1)] += 1
+                    fg = [c for c in g.findall("configurationGroup") if c.get("name") == "fields"]
+                    vals = {}
+                    for c in (fg[0].findall("configuration") if fg else []):
+                        v = [(x.text or "").strip() for x in c.findall("value")]
+                        vals[c.get("name")] = v[0] if len(v) == 1 else v
+                    # Second storage format: `fields` as ONE delimited configuration, values "field:value".
+                    for c in g.findall("configuration"):
+                        if c.get("name") == "fields" and c.get("type") == "delimited":
+                            for x in c.findall("value"):
+                                k, sep, v = (x.text or "").strip().partition(":")
+                                if sep:
+                                    vals[k] = v
+                    records.append({"form": mm.group(1), "id": mm.group(2), "fields": vals,
+                                    "lastModified": _val(g, "last_modified"), "parent": _val(g, "parent")})
             mods.append(dict(name=r.get("name") or os.path.splitext(os.path.basename(f))[0] + "(unnamed)", relpath=relpath, dir=os.path.dirname(relpath), site=site, md=md, t=t,
-                             forms=forms, classes=classes, pages=pages, lists=dict(lists), sha256=hashlib.sha256(raw).hexdigest()))
+                             forms=forms, classes=classes, pages=pages, lists=dict(lists), records=records, sha256=hashlib.sha256(raw).hexdigest()))
         # ids: module name, disambiguated by site when a site overrides a core module name
         # ids: the module name; where a name repeats (sites override core modules,
         # and one site may carry two same-named variants) qualify by site, then by
@@ -481,7 +495,23 @@ def build_modules():
         orphans += [o for o in overlays if (o[1], o[0]) in loose and o[0] and o[0].lower() not in names]
         if orphans:
             print(f"  {inst}: {len(orphans)} locale overlay(s) with no matching module, e.g. {orphans[0][3]}")
-        stats[inst] = {"modules": len(mods), "localeOverlays": len(overlays), "formClasses": len(class_acc),
+        # Shipped list records (//I2CE/formsData): one node per form, every record
+        # attributed to its module and marked `sample` when that module is sample
+        # data (SampleData-*, QualifySampleData-*, CommonSampleData, or a site).
+        ldir = os.path.join(ROOT, "src", inst, "data-lists", SUITE_RELEASE)
+        clean_dir(ldir)
+        by_form = collections.defaultdict(list)
+        for m in mods:
+            sample = bool(m["site"]) or bool(re.match(r"(Qualify|Common)?SampleData", m["name"]))
+            for r in m["records"]:
+                by_form[r["form"]].append({**{k: v for k, v in r.items() if k != "form" and v is not None},
+                                           "definedIn": m["id"], "provenance": "sample" if sample else "default"})
+        for form, recs in sorted(by_form.items()):
+            write_json(os.path.join(ldir, fname(form)), {
+                "$schema": "ihris-data-list/v1", "id": f"{inst}/data-list/{form}", "form": form, "release": SUITE_RELEASE,
+                "source": {"releaseFile": release_file, "releaseFileMd5": man["md5"]},
+                "counts": dict(collections.Counter(r["provenance"] for r in recs)), "records": recs})
+        stats[inst] = {"modules": len(mods), "localeOverlays": len(overlays), "dataLists": len(by_form), "formClasses": len(class_acc),
                        "fields": sum(len(a["fields"]) for a in class_acc.values()),
                        "described": sum(1 for m in mods if m["t"]("description")),
                        "sites": sorted({m["site"] for m in mods if m["site"]}),

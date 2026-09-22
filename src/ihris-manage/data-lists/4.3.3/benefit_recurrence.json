@@ -1,0 +1,47 @@
+{
+  "$schema": "ihris-data-list/v1",
+  "id": "ihris-manage/data-list/benefit_recurrence",
+  "form": "benefit_recurrence",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a"
+  },
+  "counts": {
+    "default": 4
+  },
+  "records": [
+    {
+      "id": "once",
+      "fields": {
+        "name": "Once"
+      },
+      "definedIn": "ihris-manage/module/ihris-manage-Benefit",
+      "provenance": "default"
+    },
+    {
+      "id": "weekly",
+      "fields": {
+        "name": "Weekly"
+      },
+      "definedIn": "ihris-manage/module/ihris-manage-Benefit",
+      "provenance": "default"
+    },
+    {
+      "id": "monthly",
+      "fields": {
+        "name": "Monthly"
+      },
+      "definedIn": "ihris-manage/module/ihris-manage-Benefit",
+      "provenance": "default"
+    },
+    {
+      "id": "yearly",
+      "fields": {
+        "name": "Yearly"
+      },
+      "definedIn": "ihris-manage/module/ihris-manage-Benefit",
+      "provenance": "default"
+    }
+  ]
+}

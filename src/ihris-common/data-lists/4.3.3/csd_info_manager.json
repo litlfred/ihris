@@ -1,0 +1,72 @@
+{
+  "$schema": "ihris-data-list/v1",
+  "id": "ihris-common/data-list/csd_info_manager",
+  "form": "csd_info_manager",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a"
+  },
+  "counts": {
+    "default": 4
+  },
+  "records": [
+    {
+      "id": "organization_connectathon",
+      "fields": {
+        "is_facility": "0",
+        "is_organization": "1",
+        "is_provider": "0",
+        "is_service": "0",
+        "name": "localhost connect-a-thon organizations",
+        "url": "http://localhost:8984/CSD/csr/CSD-Organizations-Connectathon-20150120/careServicesRequest"
+      },
+      "lastModified": "2014-01-26 08:41:03",
+      "definedIn": "ihris-common/module/csd-infoman-storage",
+      "provenance": "default"
+    },
+    {
+      "id": "facility_connectathon",
+      "fields": {
+        "is_facility": "1",
+        "is_organization": "0",
+        "is_provider": "0",
+        "is_service": "0",
+        "name": "localhost connect-a-thon facilities",
+        "url": "http://localhost:8984/CSD/csr/CSD-Facilities-Connectathon-20150120/careServicesRequest"
+      },
+      "lastModified": "2014-01-26 08:41:03",
+      "definedIn": "ihris-common/module/csd-infoman-storage",
+      "provenance": "default"
+    },
+    {
+      "id": "service_connectathon",
+      "fields": {
+        "is_facility": "0",
+        "is_organization": "0",
+        "is_provider": "0",
+        "is_service": "1",
+        "name": "localhost connect-a-thon services",
+        "url": "http://localhost:8984/CSD/csr/CSD-Services-Connectathon-20150120/careServicesRequest"
+      },
+      "lastModified": "2014-01-26 08:41:03",
+      "definedIn": "ihris-common/module/csd-infoman-storage",
+      "provenance": "default"
+    },
+    {
+      "id": "provider_connectathon",
+      "fields": {
+        "is_facility": "0",
+        "is_organization": "0",
+        "is_provider": "1",
+        "is_service": "0",
+        "name": "localhost connect-a-thon providers",
+        "url": "http://localhost:8984/CSD/csr/CSD-Providers-Connectathon-20150120/careServicesRequest",
+        "url_updating": "http://localhost:8984/CSD/csr/CSD-Providers-Connectathon-20150120/careServicesRequest/update"
+      },
+      "lastModified": "2014-01-26 08:41:03",
+      "definedIn": "ihris-common/module/csd-infoman-storage",
+      "provenance": "default"
+    }
+  ]
+}

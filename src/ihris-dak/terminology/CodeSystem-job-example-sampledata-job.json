@@ -1,0 +1,1976 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-job-example-sampledata-job",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/job-example-sampledata-job",
+  "version": "4.3.3",
+  "name": "IHRISJobExampleSampledataJob",
+  "title": "iHRIS Job: sample data from ihris-manage/module/SampleData-job",
+  "status": "draft",
+  "experimental": true,
+  "description": "SAMPLE records for `job` from the iHRIS 4.3.3 module `ihris-manage/module/SampleData-job`. Illustrative data for one fictional or example deployment. NOT a standard code set, and no ValueSet includes it.",
+  "caseSensitive": true,
+  "content": "example",
+  "count": 51,
+  "property": [
+    {
+      "code": "title",
+      "type": "string",
+      "description": "iHRIS field `title`"
+    },
+    {
+      "code": "code",
+      "type": "string",
+      "description": "iHRIS field `code`"
+    },
+    {
+      "code": "description",
+      "type": "string",
+      "description": "iHRIS field `description`"
+    },
+    {
+      "code": "salary_grade",
+      "type": "Coding",
+      "description": "iHRIS MAP field `salary_grade`: a code in the salary_grade list"
+    },
+    {
+      "code": "cadre",
+      "type": "Coding",
+      "description": "iHRIS MAP field `cadre`: a code in the cadre list"
+    },
+    {
+      "code": "classification",
+      "type": "Coding",
+      "description": "iHRIS MAP field `classification`: a code in the classification list"
+    }
+  ],
+  "concept": [
+    {
+      "code": "2221-1D",
+      "display": "Medical Doctor",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Medical Doctor"
+        },
+        {
+          "code": "code",
+          "valueString": "2221-1D"
+        },
+        {
+          "code": "description",
+          "valueString": "Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "4"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "1"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "1"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2221-2D",
+      "display": "Specialized Doctor",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Specialized Doctor"
+        },
+        {
+          "code": "code",
+          "valueString": "2221-2D"
+        },
+        {
+          "code": "description",
+          "valueString": "Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "4"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "1"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "1"
+          }
+        }
+      ]
+    },
+    {
+      "code": "5132-1A",
+      "display": "Nurse Aide",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Nurse Aide"
+        },
+        {
+          "code": "code",
+          "valueString": "5132-1A"
+        },
+        {
+          "code": "description",
+          "valueString": "Institution-based Nurse Aides perform simple tasks to assist medical, nursing, midwifery and dental professionals or associate professionals in their duties."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "2"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "2"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3232-2A",
+      "display": "Nurse Midwife Aid",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Nurse Midwife Aid"
+        },
+        {
+          "code": "code",
+          "valueString": "3232-2A"
+        },
+        {
+          "code": "description",
+          "valueString": "Midwifery assistants deliver or assist doctors or midwifery professionals in the delivery of babies, provide antenatal and post-natal care and instruct parents in baby care."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "2"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "2"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3222-1A",
+      "display": "Hygienist Aide",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Hygienist Aide"
+        },
+        {
+          "code": "code",
+          "valueString": "3222-1A"
+        },
+        {
+          "code": "description",
+          "valueString": "Sanitarians provide technical assistance and advice on measures to restore or improve sanitary conditions, and supervise their implementation."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2230-2B",
+      "display": "Midwife",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Midwife"
+        },
+        {
+          "code": "code",
+          "valueString": "2230-2B"
+        },
+        {
+          "code": "description",
+          "valueString": "Midwifery professionals deliver or assist in the delivery of babies, provide antenatal and post-natal care and instruct parents in baby care."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "2"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "2"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2230-1D",
+      "display": "Chief Nurse",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Chief Nurse"
+        },
+        {
+          "code": "code",
+          "valueString": "2230-1D"
+        },
+        {
+          "code": "description",
+          "valueString": "Nursing and midwifery professionals assist medical doctors in their tasks, deal with emergencies in their absence, and provide professional nursing care for the sick, injured, physically and mentally disabled, and others in need of such care."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "4"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "2"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "2"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2230-1C",
+      "display": "Deputy Chief Nurse",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Deputy Chief Nurse"
+        },
+        {
+          "code": "code",
+          "valueString": "2230-1C"
+        },
+        {
+          "code": "description",
+          "valueString": "Nursing and midwifery professionals assist medical doctors in their tasks, deal with emergencies in their absence, and provide professional nursing care for the sick, injured, physically and mentally disabled, and others in need of such care."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "3"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "2"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "2"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2230-1B",
+      "display": "Nurse",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Nurse"
+        },
+        {
+          "code": "code",
+          "valueString": "2230-1B"
+        },
+        {
+          "code": "description",
+          "valueString": "Nursing and midwifery professionals assist medical doctors in their tasks, deal with emergencies in their absence, and provide professional nursing care for the sick, injured, physically and mentally disabled, and others in need of such care."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "2"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "2"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3226-1A",
+      "display": "Physiotherapy Aide",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Physiotherapy Aide"
+        },
+        {
+          "code": "code",
+          "valueString": "3226-1A"
+        },
+        {
+          "code": "description",
+          "valueString": "Physiotherapists and related associate professionals treat disorders of bones, muscles and parts of the circulatory or the nervous system by manipulative methods."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3221-2B",
+      "display": "Anesthesiology Assistant",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Anesthesiology Assistant"
+        },
+        {
+          "code": "code",
+          "valueString": "3221-2B"
+        },
+        {
+          "code": "description",
+          "valueString": "Anesthesiologist techs carry out advisory, diagnostic, preventive and curative medical tasks, more limited in scope and complexity than those carried out by Anesthesiologists."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3229-3A",
+      "display": "Environmental Health Worker",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Environmental Health Worker"
+        },
+        {
+          "code": "code",
+          "valueString": "3229-3A"
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3228-1B",
+      "display": "Pharmacy Technician",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Pharmacy Technician"
+        },
+        {
+          "code": "code",
+          "valueString": "3228-1B"
+        },
+        {
+          "code": "description",
+          "valueString": "Pharmaceutical assistants dispense and prepare medicaments, lotions and mixtures under the guidance of Pharmacists, in pharmacies, hospitals and dispensaries."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "3"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2221-5D",
+      "display": "Surgeon",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Surgeon"
+        },
+        {
+          "code": "code",
+          "valueString": "2221-5D"
+        },
+        {
+          "code": "description",
+          "valueString": "Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "4"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "1"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "1"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2222-2D",
+      "display": "Dentist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Dentist"
+        },
+        {
+          "code": "code",
+          "valueString": "2222-2D"
+        },
+        {
+          "code": "description",
+          "valueString": "Dentists conduct research, improve or develop concepts, theories and operational methods, and apply medical knowledge in the field of dentistry."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "4"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3225-1B",
+      "display": "Dental Technician",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Dental Technician"
+        },
+        {
+          "code": "code",
+          "valueString": "3225-1B"
+        },
+        {
+          "code": "description",
+          "valueString": "Dental technicians carry out advisory, diagnostic, preventive and curative dental tasks, more limited in scope and complexity than those carried out by Dentists."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2229-3C",
+      "display": "Epidemiologist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Epidemiologist"
+        },
+        {
+          "code": "code",
+          "valueString": "2229-3C"
+        },
+        {
+          "code": "description",
+          "valueString": "Epidemiologists conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures in epidemiology."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "3"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3211-2A",
+      "display": "Lab Assistant",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Lab Assistant"
+        },
+        {
+          "code": "code",
+          "valueString": "3211-2A"
+        },
+        {
+          "code": "description",
+          "valueString": "Lab assistants carry out laboratory tasks, more limited in scope and complexity than those carried out by Lab Technicians."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2221-4D",
+      "display": "Orthopedist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Orthopedist"
+        },
+        {
+          "code": "code",
+          "valueString": "2221-4D"
+        },
+        {
+          "code": "description",
+          "valueString": "Lab technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "4"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "1"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "1"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3211-1C",
+      "display": "Lab Technician",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Lab Technician"
+        },
+        {
+          "code": "code",
+          "valueString": "3211-1C"
+        },
+        {
+          "code": "description",
+          "valueString": "Lab technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "3"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3211-4B",
+      "display": "Orthopedist Aide",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Orthopedist Aide"
+        },
+        {
+          "code": "code",
+          "valueString": "3211-4B"
+        },
+        {
+          "code": "description",
+          "valueString": "Medical assistants carry out advisory, diagnostic, preventive and curative medical tasks, more limited in scope and complexity than those carried out by Medical doctors."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3211-1A",
+      "display": "Technician",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Technician"
+        },
+        {
+          "code": "code",
+          "valueString": "3211-1A"
+        },
+        {
+          "code": "description",
+          "valueString": "Lab technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2432-1B",
+      "display": "Archivist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Archivist"
+        },
+        {
+          "code": "code",
+          "valueString": "2432-1B"
+        },
+        {
+          "code": "description",
+          "valueString": "Medical archivists collect and store recorded or published material, and retrieve and provide information as requested."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3222-1B",
+      "display": "Hygienist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Hygienist"
+        },
+        {
+          "code": "code",
+          "valueString": "3222-1B"
+        },
+        {
+          "code": "description",
+          "valueString": "Sanitarians provide technical assistance and advice on measures to restore or improve sanitary conditions, and supervise their implementation."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3221-1C",
+      "display": "Medical Assistant",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Medical Assistant"
+        },
+        {
+          "code": "code",
+          "valueString": "3221-1C"
+        },
+        {
+          "code": "description",
+          "valueString": "Medical assistants carry out advisory, diagnostic, preventive and curative medical tasks, more limited in scope and complexity than those carried out by Medical doctors."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "3"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3223-2A",
+      "display": "Nutritionist Aide",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Nutritionist Aide"
+        },
+        {
+          "code": "code",
+          "valueString": "3223-2A"
+        },
+        {
+          "code": "description",
+          "valueString": "Nutritionist Aides assist nutritionists with research, concepts and operational methods concerning the preparation and application of diets for general and therapeutic purposes."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3223-1C",
+      "display": "Anesthesiologist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Anesthesiologist"
+        },
+        {
+          "code": "code",
+          "valueString": "3223-1C"
+        },
+        {
+          "code": "description",
+          "valueString": "Nutritionists conduct research and improve or develop concepts and operational methods concerning the preparation and application of diets for general and therapeutic purposes."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "3"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3223-1B",
+      "display": "Nutritionist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Nutritionist"
+        },
+        {
+          "code": "code",
+          "valueString": "3223-1B"
+        },
+        {
+          "code": "description",
+          "valueString": "Nutritionists conduct research and improve or develop concepts and operational methods concerning the preparation and application of diets for general and therapeutic purposes."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2224-1D",
+      "display": "Pharmacist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Pharmacist"
+        },
+        {
+          "code": "code",
+          "valueString": "2224-1D"
+        },
+        {
+          "code": "description",
+          "valueString": "Pharmacists apply pharmaceutical concepts and theories by preparing and dispensing or selling medicaments and drugs."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "4"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3226-1B",
+      "display": "Physiotherapist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Physiotherapist"
+        },
+        {
+          "code": "code",
+          "valueString": "3226-1B"
+        },
+        {
+          "code": "description",
+          "valueString": "Physiotherapists treat disorders of bones, muscles and parts of the circulatory or the nervous system by manipulative methods, and ultrasound, heating, laser or similar techniques."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3211-3B",
+      "display": "Radiology Technician",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Radiology Technician"
+        },
+        {
+          "code": "code",
+          "valueString": "3211-3B"
+        },
+        {
+          "code": "description",
+          "valueString": "Radiologist technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results in radiology."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3460-1A",
+      "display": "Social Work Aide",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Social Work Aide"
+        },
+        {
+          "code": "code",
+          "valueString": "3460-1A"
+        },
+        {
+          "code": "description",
+          "valueString": "Social work aides provide guidance to clients in social and related matters to enable them to find and use resources to overcome difficulties and achieve particular goals."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2446-1C",
+      "display": "Social Worker",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Social Worker"
+        },
+        {
+          "code": "code",
+          "valueString": "2446-1C"
+        },
+        {
+          "code": "description",
+          "valueString": "Social work professionals provide guidance to clients in social and related matters to enable them to find and use resources to overcome difficulties and achieve particular goals."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "3"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "7137-1B",
+      "display": "Electrician",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Electrician"
+        },
+        {
+          "code": "code",
+          "valueString": "7137-1B"
+        },
+        {
+          "code": "description",
+          "valueString": "Building and related electricians install, maintain and repair electrical wiring systems and related equipment."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "5"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2411-1B",
+      "display": "Accountant",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Accountant"
+        },
+        {
+          "code": "code",
+          "valueString": "2411-1B"
+        },
+        {
+          "code": "description",
+          "valueString": "Accountants advise on accounting matters and perform accountancy services or audits."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "4"
+          }
+        }
+      ]
+    },
+    {
+      "code": "3431-1D",
+      "display": "Administrator",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Administrator"
+        },
+        {
+          "code": "code",
+          "valueString": "3431-1D"
+        },
+        {
+          "code": "description",
+          "valueString": "Administrators implement and support the communication, documentation and internal managerial co-ordination activities of an organisational unit."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "4"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "4"
+          }
+        }
+      ]
+    },
+    {
+      "code": "1231-1C",
+      "display": "Manager",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Manager"
+        },
+        {
+          "code": "code",
+          "valueString": "1231-1C"
+        },
+        {
+          "code": "description",
+          "valueString": "Department managers plan, direct and coordinate the internal administration or financial operations of the enterprise or organisation, under the broad guidance of the directors."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "3"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "4"
+          }
+        }
+      ]
+    },
+    {
+      "code": "4211-1A",
+      "display": "Cashier",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Cashier"
+        },
+        {
+          "code": "code",
+          "valueString": "4211-1A"
+        },
+        {
+          "code": "description",
+          "valueString": "Cashiers receive payments for goods or services."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "5"
+          }
+        }
+      ]
+    },
+    {
+      "code": "8322-1A",
+      "display": "Driver",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Driver"
+        },
+        {
+          "code": "code",
+          "valueString": "8322-1A"
+        },
+        {
+          "code": "description",
+          "valueString": "Drivers drive and tend motor cars and vans to transport passengers, mail or goods."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "5"
+          }
+        }
+      ]
+    },
+    {
+      "code": "6113-1A",
+      "display": "Gardener",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Gardener"
+        },
+        {
+          "code": "code",
+          "valueString": "6113-1A"
+        },
+        {
+          "code": "description",
+          "valueString": "Gardeners plan and carry out the necessary operations to grow vegetables by intensive cultivation techniques, to cultivate trees, shrubs, flowers and other plants, and to produce saplings, bulbs and seeds."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "5"
+          }
+        }
+      ]
+    },
+    {
+      "code": "5169-1A",
+      "display": "Guard",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Guard"
+        },
+        {
+          "code": "code",
+          "valueString": "5169-1A"
+        },
+        {
+          "code": "description",
+          "valueString": "Guards patrol buildings and areas to prevent illegal entry, theft, violence and other unlawful acts, and, if necessary, use force to prevent such acts and apprehend perpetrators, as well as act as bodyguards."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "5"
+          }
+        }
+      ]
+    },
+    {
+      "code": "5121-2A",
+      "display": "Laundry Staff",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Laundry Staff"
+        },
+        {
+          "code": "code",
+          "valueString": "5121-2A"
+        },
+        {
+          "code": "description",
+          "valueString": "Laundry staff organise, supervise and carry out laundry functions in medical institutions."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "5"
+          }
+        }
+      ]
+    },
+    {
+      "code": "4222-1A",
+      "display": "Receptionist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Receptionist"
+        },
+        {
+          "code": "code",
+          "valueString": "4222-1A"
+        },
+        {
+          "code": "description",
+          "valueString": "Receptionists receive clients or patients, provide information and make appointments on behalf of various establishments including hospitals, medical or dental surgeries."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "5"
+          }
+        }
+      ]
+    },
+    {
+      "code": "4115-1A",
+      "display": "Secretary",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Secretary"
+        },
+        {
+          "code": "code",
+          "valueString": "4115-1A"
+        },
+        {
+          "code": "description",
+          "valueString": "Secretaries use typewriters or word-processing equipment to check and transcribe correspondence and other documents, deal with incoming and outgoing mail, screen requests for meetings or appointments, record and screen leave and other staff entitlements."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "5"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2221-3D",
+      "display": "Opthalmologist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Opthalmologist"
+        },
+        {
+          "code": "code",
+          "valueString": "2221-3D"
+        },
+        {
+          "code": "description",
+          "valueString": "Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "4"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "1"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "1"
+          }
+        }
+      ]
+    },
+    {
+      "code": "7231-1B",
+      "display": "Mechanic",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Mechanic"
+        },
+        {
+          "code": "code",
+          "valueString": "7231-1B"
+        },
+        {
+          "code": "description",
+          "valueString": "Motor vehicle mechanics and fitters fit, install, maintain, service and repair engines and the mechanical and related equipment of motor cycles, passenger cars and delivery trucks and other motor vehicles."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "5"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2445-1C",
+      "display": "Clinical Psychologist",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Clinical Psychologist"
+        },
+        {
+          "code": "code",
+          "valueString": "2445-1C"
+        },
+        {
+          "code": "description",
+          "valueString": "Psychologists research into and study mental processes and behaviour of human beings as individuals or in groups, and apply this knowledge to promote personal, social, educational or occupational adjustment and development."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "3"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "3"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "3"
+          }
+        }
+      ]
+    },
+    {
+      "code": "2445-1B",
+      "display": "Counselor",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Counselor"
+        },
+        {
+          "code": "code",
+          "valueString": "2445-1B"
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "4"
+          }
+        }
+      ]
+    },
+    {
+      "code": "1420-A",
+      "display": "Administrative Assistant",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Administrative Assistant"
+        },
+        {
+          "code": "code",
+          "valueString": "1420-A"
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "1"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "4"
+          }
+        }
+      ]
+    },
+    {
+      "code": "RM-001",
+      "display": "Records Manager",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Records Manager"
+        },
+        {
+          "code": "code",
+          "valueString": "RM-001"
+        },
+        {
+          "code": "description",
+          "valueString": "Manages medical records."
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueString": "|"
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "5"
+          }
+        }
+      ]
+    },
+    {
+      "code": "NURS-I",
+      "display": "Nurse I",
+      "property": [
+        {
+          "code": "title",
+          "valueString": "Nurse I"
+        },
+        {
+          "code": "code",
+          "valueString": "NURS-I"
+        },
+        {
+          "code": "salary_grade",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+            "code": "2"
+          }
+        },
+        {
+          "code": "cadre",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+            "code": "2"
+          }
+        },
+        {
+          "code": "classification",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+            "code": "2"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -6,6 +6,7 @@ Input : src/<instance>/data-model/<release>/*.json   (ihris-form-class/v1, from 
 Output: src/ihris-dak/data-dictionary/<group>.json   (ihris-dak-data-dictionary/v1)
         src/ihris-dak/core-data-elements/*.json      (smart-base CoreDataElement)
         src/ihris-dak/data-dictionary.csv / .xlsx    (WHO column order)
+        src/ihris-dak/terminology/*.json             (FHIR R4 CodeSystem / ValueSet)
         docs/generated/dak-data-dictionary.md
 
 What this does NOT do, on purpose:
@@ -154,6 +155,169 @@ def evidence_for(label, wiki):
     return [p for p, t in wiki if pat.search(t)][:5]
 
 
+def _pascal(s):
+    return "".join(w[:1].upper() + w[1:] for w in re.split(r"[^A-Za-z0-9]+", s) if w)
+
+
+def load_data_lists():
+    """form -> records merged across packages (ihris-data-list/v1 from build_kg.py)."""
+    out = collections.defaultdict(list)
+    for f in sorted(glob.glob(os.path.join(ROOT, "src", "*", "data-lists", RELEASE, "*.json"))):
+        d = json.load(open(f))
+        out[d["form"]].extend(d["records"])
+    return out
+
+
+def _display(fields, rid):
+    n = fields.get("name")
+    if isinstance(n, str) and n:
+        return n
+    for v in fields.values():
+        if isinstance(v, str) and v and "|" not in v:
+            return v
+    return rid
+
+
+def build_terminology(forms, form_to_class, fdisp, merged):
+    """FHIR R4 CodeSystem/ValueSet JSON for every list in `forms` and every list their records point at.
+
+    default records -> CodeSystem <form>           content=complete  (as shipped; deployments extend it)
+    sample records  -> CodeSystem <form>-example-<module>  content=example  (never in a ValueSet)
+    ValueSet <form> includes the default CodeSystem only, and has no compose when iHRIS ships none.
+    """
+    lists = load_data_lists()
+
+    def resolve(target, code, from_module):
+        """The CodeSystem that actually holds `code` of list `target`: its default CodeSystem if a
+        default record has that id; otherwise the example CodeSystem of the sample module that ships
+        it, preferring the referring record's own package (Manage vs Qualify sample data)."""
+        recs = lists.get(target, [])
+        if any(r["id"] == code and r["provenance"] == "default" for r in recs):
+            return f"{CANONICAL}/CodeSystem/{target}"
+        mods = sorted({r["definedIn"] for r in recs if r["id"] == code and r["provenance"] == "sample"},
+                      key=lambda mm: (mm.split("/")[0] != from_module.split("/")[0], mm))
+        if mods:
+            return f"{CANONICAL}/CodeSystem/{target}-example-{slug_(mods[0].split('/module/')[1])}"
+        return None
+
+    tdir = os.path.join(OUT, "terminology")
+    if os.path.isdir(tdir):
+        for f in glob.glob(os.path.join(tdir, "*.json")):
+            os.remove(f)
+    todo, done, summary = list(forms), set(), []
+    while todo:
+        form = todo.pop(0)
+        if form in done:
+            continue
+        done.add(form)
+        recs = lists.get(form, [])
+        title = fdisp.get(form) or form.replace("_", " ").title()
+        cs_url = f"{CANONICAL}/CodeSystem/{form}"
+        entry = {"form": form, "title": title, "default": 0, "examples": {}, "duplicatesMerged": 0}
+
+        def concepts_of(records):
+            props, seen, concepts, dup = {}, {}, [], 0
+            for r in records:
+                if r["id"] in seen:
+                    dup += 1
+                    continue
+                c = {"code": r["id"], "display": _display(r["fields"], r["id"])}
+                pv = []
+                for k, v in r["fields"].items():
+                    if k == "name" or v in ("", [], None):
+                        continue
+                    vals = v if isinstance(v, list) else [v]
+                    for one in vals:
+                        cur = re.fullmatch(r"currency\|([^=]+)=(-?[0-9.]+)", one or "")
+                        if cur:  # I2CE CURRENCY value: "currency|<currency id>=<amount>"
+                            props.setdefault(k, {"code": k, "type": "decimal", "description": f"iHRIS CURRENCY field `{k}`: the amount"})
+                            pv.append({"code": k, "valueDecimal": float(cur.group(2))})
+                            csys = resolve("currency", cur.group(1), r["definedIn"])
+                            if "currency" not in done:
+                                todo.append("currency")
+                            if csys:
+                                props.setdefault(k + "_currency", {"code": k + "_currency", "type": "Coding",
+                                                                   "description": f"iHRIS CURRENCY field `{k}`: its currency"})
+                                pv.append({"code": k + "_currency", "valueCoding": {"system": csys, "code": cur.group(1)}})
+                            continue
+                        m = re.fullmatch(r"([a-z_0-9]+)\|(.+)", one or "")
+                        if m:
+                            if m.group(1) not in done:
+                                todo.append(m.group(1))
+                            sysurl = resolve(m.group(1), m.group(2), r["definedIn"])
+                            if sysurl is None:
+                                pk = k + "_unresolved"
+                                props.setdefault(pk, {"code": pk, "type": "string",
+                                                      "description": f"iHRIS MAP field `{k}` whose target record ships nowhere in {RELEASE}"})
+                                pv.append({"code": pk, "valueString": one})
+                                continue
+                            props.setdefault(k, {"code": k, "type": "Coding", "description": f"iHRIS MAP field `{k}`: a code in the {m.group(1)} list"})
+                            pv.append({"code": k, "valueCoding": {"system": sysurl, "code": m.group(2)}})
+                        elif one:
+                            props.setdefault(k, {"code": k, "type": "string", "description": f"iHRIS field `{k}`"})
+                            pv.append({"code": k, "valueString": one})
+                if pv:
+                    c["property"] = pv
+                seen[r["id"]] = c
+                concepts.append(c)
+            return concepts, list(props.values()), dup
+
+        default = [r for r in recs if r["provenance"] == "default"]
+        if default:
+            concepts, props, dup = concepts_of(default)
+            entry["default"], entry["duplicatesMerged"] = len(concepts), dup
+            mods = sorted({r["definedIn"] for r in default})
+            cs = {"resourceType": "CodeSystem", "id": f"ihris-{form.replace('_', '-')}", "url": cs_url, "version": RELEASE,
+                  "name": f"IHRIS{_pascal(form)}", "title": f"iHRIS {title}", "status": "draft", "experimental": True,
+                  "description": f"The `{form}` list as shipped by default in iHRIS {RELEASE} (modules: {', '.join(mods)}). "
+                                 "Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped "
+                                 "baseline, not a closed international code set."
+                                 + (f" {dup} record(s) sharing an id with an earlier one were merged, as I2CE's configuration tree merges them." if dup else ""),
+                  "caseSensitive": True, "content": "complete", "count": len(concepts)}
+            if props:
+                cs["property"] = props
+            cs["concept"] = concepts
+            write_json(os.path.join(tdir, f"CodeSystem-{form}.json"), cs)
+            write_json(os.path.join(OUT, "core-data-elements", f"CS-{form}.json"),
+                       {"resourceType": "CoreDataElement", "type": "codesystem", "id": f"{DAK_PREFIX}.CS.{form}", "canonical": cs_url})
+        by_mod = collections.defaultdict(list)
+        for r in recs:
+            if r["provenance"] == "sample":
+                by_mod[r["definedIn"]].append(r)
+        for mod, rs in sorted(by_mod.items()):
+            mslug = slug_(mod.split("/module/")[1])
+            concepts, props, dup = concepts_of(rs)
+            entry["examples"][mod] = len(concepts)
+            cs = {"resourceType": "CodeSystem", "id": f"ihris-{form.replace('_', '-')}-example-{mslug}"[:64],
+                  "url": f"{CANONICAL}/CodeSystem/{form}-example-{mslug}", "version": RELEASE,
+                  "name": f"IHRIS{_pascal(form)}Example{_pascal(mslug)}", "title": f"iHRIS {title}: sample data from {mod}",
+                  "status": "draft", "experimental": True,
+                  "description": f"SAMPLE records for `{form}` from the iHRIS {RELEASE} module `{mod}`. Illustrative data for one "
+                                 "fictional or example deployment. NOT a standard code set, and no ValueSet includes it.",
+                  "caseSensitive": True, "content": "example", "count": len(concepts)}
+            if props:
+                cs["property"] = props
+            cs["concept"] = concepts
+            write_json(os.path.join(tdir, f"CodeSystem-{form}-example-{mslug}.json"), cs)
+        vs = {"resourceType": "ValueSet", "id": f"ihris-{form.replace('_', '-')}", "url": f"{CANONICAL}/ValueSet/{form}",
+              "version": RELEASE, "name": f"IHRIS{_pascal(form)}VS", "title": f"iHRIS {title}", "status": "draft", "experimental": True}
+        if default:
+            vs["description"] = f"All codes of the iHRIS `{form}` list as shipped by default in iHRIS {RELEASE}."
+            vs["compose"] = {"include": [{"system": cs_url}]}
+        else:
+            vs["description"] = (f"The iHRIS `{form}` list. iHRIS {RELEASE} ships no default records for it: its codes are defined "
+                                 "by each deployment" + (f" (sample data exists: {', '.join(sorted(by_mod))})" if by_mod else "") + ".")
+        write_json(os.path.join(tdir, f"ValueSet-{form}.json"), vs)
+        entry["valueSet"] = vs["url"]
+        entry["inDak"] = form in forms
+        summary.append(entry)
+    return summary
+
+
+def slug_(s):
+    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+
+
 def _normalize_zip(path):
     """Rewrite a zip with fixed entry timestamps so the .xlsx is byte-identical across runs."""
     import zipfile
@@ -272,11 +436,20 @@ def main():
             "resourceType": "CoreDataElement", "type": "valueset", "id": f"{DAK_PREFIX}.VS.{form}",
             "canonical": f"{CANONICAL}/ValueSet/{form}"})
 
-    # value-set catalogue (which list backs which value set, and who uses it)
+    term = {e["form"]: e for e in build_terminology(sorted(lists_used), form_to_class, fdisp, merged)}
+    for f in term:
+        if f not in lists_used:  # reached only through another list's MAP property (e.g. district -> region)
+            write_json(os.path.join(OUT, "core-data-elements", f"VS-{f}.json"), {
+                "resourceType": "CoreDataElement", "type": "valueset", "id": f"{DAK_PREFIX}.VS.{f}", "canonical": f"{CANONICAL}/ValueSet/{f}"})
+    # value-set catalogue (which list backs which value set, who uses it, what codes ship)
     write_json(os.path.join(OUT, "value-sets.json"), {
-        "note": "Each value set is backed by an iHRIS list form. Codes are not yet extracted from the shipped formsData; see README.",
-        "valueSets": [{"id": f"{DAK_PREFIX}.VS.{f}", "form": f, "class": form_to_class[f], "displayName": fdisp.get(f),
-                       "canonical": f"{CANONICAL}/ValueSet/{f}", "usedBy": sorted(u)} for f, u in sorted(lists_used.items())]})
+        "note": "Each value set is backed by an iHRIS list form. `defaultCodes` ship with the module and are in the ValueSet; "
+                "`sampleCodes` come from sample-data modules and live only in example CodeSystems (terminology/).",
+        "valueSets": [{"id": f"{DAK_PREFIX}.VS.{f}", "form": f, "class": form_to_class.get(f), "displayName": fdisp.get(f),
+                       "canonical": f"{CANONICAL}/ValueSet/{f}", "usedBy": sorted(lists_used.get(f, [])),
+                       "defaultCodes": term[f]["default"], "sampleCodes": term[f]["examples"],
+                       "status": "shipped" if term[f]["default"] else ("sample-only" if term[f]["examples"] else "deployment-defined")}
+                      for f in sorted(term)]})
     write_json(os.path.join(OUT, "excluded.json"), {
         "classesByScope": dict(scopes),
         "excludedClasses": [{"class": c, "scope": scope_of(c, merged)} for c in sorted(merged) if scope_of(c, merged) not in ("record",)],
@@ -317,11 +490,25 @@ def main():
         ws.freeze_panes = "A2"
         ws.auto_filter.ref = ws.dimensions
         vs = wb.create_sheet("Value sets")
-        vs.append(["Value set ID", "iHRIS list form", "Class", "Display name", "Used by"])
+        vs.append(["Value set ID", "iHRIS list form", "Class", "Display name", "Used by", "Default codes", "Sample codes", "Status"])
         for c in vs[1]:
             c.font = Font(bold=True)
-        for f_, u in sorted(lists_used.items()):
-            vs.append([f"{DAK_PREFIX}.VS.{f_}", f_, form_to_class[f_], fdisp.get(f_), "; ".join(sorted(u))])
+        for f_ in sorted(term):
+            e = term[f_]
+            vs.append([f"{DAK_PREFIX}.VS.{f_}", f_, form_to_class.get(f_), fdisp.get(f_), "; ".join(sorted(lists_used.get(f_, []))),
+                       e["default"], sum(e["examples"].values()),
+                       "shipped" if e["default"] else ("sample-only" if e["examples"] else "deployment-defined")])
+        cs_ws = wb.create_sheet("Codes")
+        cs_ws.append(["Value set ID", "Code", "Display", "Provenance", "Module"])
+        for c in cs_ws[1]:
+            c.font = Font(bold=True)
+        for f_ in sorted(term):
+            for path in sorted(glob.glob(os.path.join(OUT, "terminology", f"CodeSystem-{f_}.json")) +
+                               glob.glob(os.path.join(OUT, "terminology", f"CodeSystem-{f_}-example-*.json"))):
+                cs = json.load(open(path))
+                prov = "sample" if cs["content"] == "example" else "default"
+                for c in cs.get("concept", []):
+                    cs_ws.append([f"{DAK_PREFIX}.VS.{f_}", c["code"], c["display"], prov, cs["title"]])
         wb.properties.creator = "src/tools/build_dak.py"
         wb.properties.created = wb.properties.modified = __import__("datetime").datetime(2026, 9, 22)
         xp = os.path.join(OUT, "data-dictionary.xlsx")

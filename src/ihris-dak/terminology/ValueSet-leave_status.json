@@ -1,0 +1,18 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-leave-status",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/leave_status",
+  "version": "4.3.3",
+  "name": "IHRISLeaveStatusVS",
+  "title": "iHRIS Leave Status",
+  "status": "draft",
+  "experimental": true,
+  "description": "All codes of the iHRIS `leave_status` list as shipped by default in iHRIS 4.3.3.",
+  "compose": {
+    "include": [
+      {
+        "system": "https://litlfred.github.io/ihris/dak/CodeSystem/leave_status"
+      }
+    ]
+  }
+}

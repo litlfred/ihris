@@ -1,0 +1,18 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-registration-type",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/registration_type",
+  "version": "4.3.3",
+  "name": "IHRISRegistrationTypeVS",
+  "title": "iHRIS Registration Type",
+  "status": "draft",
+  "experimental": true,
+  "description": "All codes of the iHRIS `registration_type` list as shipped by default in iHRIS 4.3.3.",
+  "compose": {
+    "include": [
+      {
+        "system": "https://litlfred.github.io/ihris/dak/CodeSystem/registration_type"
+      }
+    ]
+  }
+}

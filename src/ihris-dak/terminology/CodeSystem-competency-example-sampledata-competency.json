@@ -1,0 +1,522 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-competency-example-sampledata-competency",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/competency-example-sampledata-competency",
+  "version": "4.3.3",
+  "name": "IHRISCompetencyExampleSampledataCompetency",
+  "title": "iHRIS Competency: sample data from ihris-manage/module/SampleData-competency",
+  "status": "draft",
+  "experimental": true,
+  "description": "SAMPLE records for `competency` from the iHRIS 4.3.3 module `ihris-manage/module/SampleData-competency`. Illustrative data for one fictional or example deployment. NOT a standard code set, and no ValueSet includes it.",
+  "caseSensitive": true,
+  "content": "example",
+  "count": 30,
+  "property": [
+    {
+      "code": "competency_type",
+      "type": "Coding",
+      "description": "iHRIS MAP field `competency_type`: a code in the competency_type list"
+    },
+    {
+      "code": "notes",
+      "type": "string",
+      "description": "iHRIS field `notes`"
+    }
+  ],
+  "concept": [
+    {
+      "code": "1",
+      "display": "Massage",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "10"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Massaging client or patient to improve circulation, soothe or stimulate nerves, facilitate elimination of waste matter, stretch contracted tendons and produce other therapeutic effects."
+        }
+      ]
+    },
+    {
+      "code": "2",
+      "display": "Prenatal Care",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "4"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Checking on general health and progress of expectant mothers during pregnancy, and giving them professional advice and care."
+        }
+      ]
+    },
+    {
+      "code": "3",
+      "display": "Dental Hygiene",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "14"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Helping patients prepare for examination or treatment."
+        }
+      ]
+    },
+    {
+      "code": "4",
+      "display": "Psychiatry",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "5"
+          }
+        }
+      ]
+    },
+    {
+      "code": "5",
+      "display": "Oral Surgery",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "14"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Giving surgical treatment for particular types of dental and oral diseases and disorders."
+        }
+      ]
+    },
+    {
+      "code": "6",
+      "display": "Word Processing",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "3"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Typing, editing, and printing various documents using word-processing equipment, or send and receive messages and facsimiles by means of a teleprinter, telefax or similar machines."
+        }
+      ]
+    },
+    {
+      "code": "7",
+      "display": "Bookkeeping",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "8"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Maintaining complete records of all financial transactions of an undertaking according to general bookkeeping principles."
+        }
+      ]
+    },
+    {
+      "code": "8",
+      "display": "Family Planning Counseling",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "4"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Advising on and administering birth control methods."
+        }
+      ]
+    },
+    {
+      "code": "9",
+      "display": "Nutrition",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "2"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Participating in programmes for nutrition education and nutrition rehabilitation activities."
+        }
+      ]
+    },
+    {
+      "code": "10",
+      "display": "Drug Testing",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "1"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Testing drugs to determine identity, purity and strength."
+        }
+      ]
+    },
+    {
+      "code": "11",
+      "display": "Diagnosis",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "5"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Conducting medical examinations and making diagnoses."
+        }
+      ]
+    },
+    {
+      "code": "12",
+      "display": "Scheduling",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "8"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Screening requests for meetings, scheduling and organising meetings, scheduling and organising meetings and travel arrangements for the head of unit and other members of staff."
+        }
+      ]
+    },
+    {
+      "code": "13",
+      "display": "Accounts Controlling",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "7"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Advising on, planning and installing budgetary, accounts controlling and other accounting policies and systems."
+        }
+      ]
+    },
+    {
+      "code": "14",
+      "display": "Budgeting",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "12"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Preparing budgets and overseeing various financial operations."
+        }
+      ]
+    },
+    {
+      "code": "15",
+      "display": "Research",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "5"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Conducting research into human disorders and illnesses and preventive or curative methods."
+        }
+      ]
+    },
+    {
+      "code": "16",
+      "display": "Podiatry",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "9"
+          }
+        }
+      ]
+    },
+    {
+      "code": "17",
+      "display": "Auditing",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "7"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Auditing accounts and book-keeping records."
+        }
+      ]
+    },
+    {
+      "code": "18",
+      "display": "Pharmacy Aid",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "1"
+          }
+        }
+      ]
+    },
+    {
+      "code": "19",
+      "display": "Postnatal Care",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "4"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Attending mothers in the post-natal period to supervise their recovery, to check on babies' progress, and to instruct parents in baby care."
+        }
+      ]
+    },
+    {
+      "code": "20",
+      "display": "Planning",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "12"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Planning, directing and coordinating the internal administration or financial operations of the enterprise or organisation."
+        }
+      ]
+    },
+    {
+      "code": "21",
+      "display": "Dispensing",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "1"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Dispensing medicaments and drugs in hospitals or selling them in pharmacies."
+        }
+      ]
+    },
+    {
+      "code": "22",
+      "display": "Preventive Medicine",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "2"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Advising communities and individuals on birth control, hygiene, diet and other preventive medical measures."
+        }
+      ]
+    },
+    {
+      "code": "23",
+      "display": "Technical Support",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "6"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Installing computers and performing diagnostics on computer hardware."
+        }
+      ]
+    },
+    {
+      "code": "24",
+      "display": "Documentation",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "6"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Writing and providing detailed documentation of computer programs."
+        }
+      ]
+    },
+    {
+      "code": "25",
+      "display": "Eye Examination",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "13"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Examining eyes and prescribing glasses, contact lenses or other treatment to improve vision."
+        }
+      ]
+    },
+    {
+      "code": "26",
+      "display": "Data Entry",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "3"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Entering numerical and other data from source material into computer-compatible storage and processing devices."
+        }
+      ]
+    },
+    {
+      "code": "27",
+      "display": "Cashier",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "3"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Receiving incoming cash of an establishment, checking it against sales slips and other documents, and preparing it for deposit at bank."
+        }
+      ]
+    },
+    {
+      "code": "28",
+      "display": "Inventory Management",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "11"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Purchasing or controlling the purchase of supplies; controlling storage and issue of supplies."
+        }
+      ]
+    },
+    {
+      "code": "29",
+      "display": "Security",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "9"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Patrolling buildings and areas to prevent theft, violence, infractions of rules or other irregularities."
+        }
+      ]
+    },
+    {
+      "code": "30",
+      "display": "Typing",
+      "property": [
+        {
+          "code": "competency_type",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_type-example-sampledata-competency-type",
+            "code": "8"
+          }
+        }
+      ]
+    }
+  ]
+}

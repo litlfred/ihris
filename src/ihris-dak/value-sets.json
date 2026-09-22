@@ -1,5 +1,5 @@
 {
-  "note": "Each value set is backed by an iHRIS list form. Codes are not yet extracted from the shipped formsData; see README.",
+  "note": "Each value set is backed by an iHRIS list form. `defaultCodes` ship with the module and are in the ValueSet; `sampleCodes` come from sample-data modules and live only in example CodeSystems (terminology/).",
   "valueSets": [
     {
       "id": "IHRIS.DE.VS.accident_type",
@@ -9,7 +9,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/accident_type",
       "usedBy": [
         "Accident.accident_type"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-accident_type": 5
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.benefit_recurrence",
@@ -19,7 +24,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/benefit_recurrence",
       "usedBy": [
         "Benefit.recurrence"
-      ]
+      ],
+      "defaultCodes": 4,
+      "sampleCodes": {},
+      "status": "shipped"
     },
     {
       "id": "IHRIS.DE.VS.benefit_type",
@@ -29,7 +37,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/benefit_type",
       "usedBy": [
         "Benefit.type"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-benefit_type": 4
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.cadre",
@@ -41,7 +54,12 @@
         "Training.cadre",
         "Training.in_cadre",
         "Training.out_cadre"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-cadre": 4
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.certificate",
@@ -51,7 +69,23 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/certificate",
       "usedBy": [
         "SecondaryEducation.certificate"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {},
+      "status": "deployment-defined"
+    },
+    {
+      "id": "IHRIS.DE.VS.classification",
+      "form": "classification",
+      "class": "iHRIS_Classification",
+      "displayName": "Classification",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/classification",
+      "usedBy": [],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-classification": 6
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.competency",
@@ -62,7 +96,12 @@
       "usedBy": [
         "PersonCompetency.competency",
         "Training_Course_Competency_Evaluation.competency"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-competency": 30
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.competency_evaluation",
@@ -73,7 +112,23 @@
       "usedBy": [
         "PersonCompetency.competency_evaluation",
         "Training_Course_Competency_Evaluation.competency_evaluation"
-      ]
+      ],
+      "defaultCodes": 3,
+      "sampleCodes": {},
+      "status": "shipped"
+    },
+    {
+      "id": "IHRIS.DE.VS.competency_type",
+      "form": "competency_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Competency Type",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/competency_type",
+      "usedBy": [],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-competency_type": 15
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.confirmation_type",
@@ -83,7 +138,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/confirmation_type",
       "usedBy": [
         "Confirmation.confirmation_type"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-confirmation_type": 2
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.continuing_education_course",
@@ -93,7 +153,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/continuing_education_course",
       "usedBy": [
         "ContinuingEducation.continuing_education_course"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {},
+      "status": "deployment-defined"
     },
     {
       "id": "IHRIS.DE.VS.council",
@@ -103,7 +166,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/council",
       "usedBy": [
         "Registration.council"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-council": 5
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.country",
@@ -117,7 +185,12 @@
         "Person.residence",
         "PersonID.country",
         "Training.out_country"
-      ]
+      ],
+      "defaultCodes": 246,
+      "sampleCodes": {
+        "ihris-common/module/SampleData-country": 13
+      },
+      "status": "shipped"
     },
     {
       "id": "IHRIS.DE.VS.county",
@@ -129,7 +202,25 @@
         "Person.residence",
         "QualifyDemographic.birth_location",
         "QualifyPerson.home"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-common/module/SampleData-county": 3
+      },
+      "status": "sample-only"
+    },
+    {
+      "id": "IHRIS.DE.VS.currency",
+      "form": "currency",
+      "class": "iHRIS_Currency",
+      "displayName": "Currency",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/currency",
+      "usedBy": [],
+      "defaultCodes": 162,
+      "sampleCodes": {
+        "ihris-common/module/SampleData-currency": 4
+      },
+      "status": "shipped"
     },
     {
       "id": "IHRIS.DE.VS.degree",
@@ -139,7 +230,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/degree",
       "usedBy": [
         "Education.degree"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-common/module/SampleData-degree": 11
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.disciplinary_action_reason",
@@ -149,7 +245,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/disciplinary_action_reason",
       "usedBy": [
         "DisciplinaryAction.disciplinary_action_reason"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-disciplinary_action_type": 15
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.disciplinary_action_type",
@@ -159,7 +260,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/disciplinary_action_type",
       "usedBy": [
         "DisciplinaryAction.disciplinary_action_type"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-disciplinary_action_type": 5
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.district",
@@ -171,7 +277,25 @@
         "Person.residence",
         "QualifyDemographic.birth_location",
         "QualifyPerson.home"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-common/module/SampleData-district": 42
+      },
+      "status": "sample-only"
+    },
+    {
+      "id": "IHRIS.DE.VS.edu_type",
+      "form": "edu_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Education Type",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/edu_type",
+      "usedBy": [],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-common/module/SampleData-edu_type": 5
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.exam_result",
@@ -181,7 +305,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/exam_result",
       "usedBy": [
         "Exam.results"
-      ]
+      ],
+      "defaultCodes": 3,
+      "sampleCodes": {},
+      "status": "shipped"
     },
     {
       "id": "IHRIS.DE.VS.exam_try",
@@ -191,7 +318,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/exam_try",
       "usedBy": [
         "Exam.try"
-      ]
+      ],
+      "defaultCodes": 3,
+      "sampleCodes": {},
+      "status": "shipped"
     },
     {
       "id": "IHRIS.DE.VS.gender",
@@ -201,7 +331,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/gender",
       "usedBy": [
         "Demographic.gender"
-      ]
+      ],
+      "defaultCodes": 2,
+      "sampleCodes": {},
+      "status": "shipped"
     },
     {
       "id": "IHRIS.DE.VS.health_facility",
@@ -215,7 +348,10 @@
         "FacilityInstitutionEditFacility.health_facility",
         "FacilityInstitutionEditInstitution.health_facility",
         "PrivatePractice.health_facility"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {},
+      "status": "deployment-defined"
     },
     {
       "id": "IHRIS.DE.VS.id_type",
@@ -225,7 +361,26 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/id_type",
       "usedBy": [
         "PersonID.id_type"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-id_type": 4,
+        "ihris-qualify/module/QualifySampleData-id_type": 3
+      },
+      "status": "sample-only"
+    },
+    {
+      "id": "IHRIS.DE.VS.job",
+      "form": "job",
+      "class": "iHRIS_Job",
+      "displayName": "Job",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/job",
+      "usedBy": [],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-job": 51
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.language",
@@ -235,7 +390,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/language",
       "usedBy": [
         "PersonLanguage.language"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-language": 9
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.language_proficiency",
@@ -247,7 +407,10 @@
         "PersonLanguage.reading",
         "PersonLanguage.speaking",
         "PersonLanguage.writing"
-      ]
+      ],
+      "defaultCodes": 5,
+      "sampleCodes": {},
+      "status": "shipped"
     },
     {
       "id": "IHRIS.DE.VS.leave_category",
@@ -257,7 +420,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/leave_category",
       "usedBy": [
         "LeaveRequest.leave_category"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {},
+      "status": "deployment-defined"
     },
     {
       "id": "IHRIS.DE.VS.leave_status",
@@ -267,7 +433,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/leave_status",
       "usedBy": [
         "LeaveRequest.leave_status"
-      ]
+      ],
+      "defaultCodes": 3,
+      "sampleCodes": {},
+      "status": "shipped"
     },
     {
       "id": "IHRIS.DE.VS.marital_status",
@@ -277,7 +446,13 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/marital_status",
       "usedBy": [
         "Demographic.marital_status"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-common/module/SampleData-marital_status": 5,
+        "ihris-qualify/module/QualifySampleData-marital_status": 4
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.out_migration_reason",
@@ -287,7 +462,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/out_migration_reason",
       "usedBy": [
         "OutMigration.out_migration_reason"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {},
+      "status": "deployment-defined"
     },
     {
       "id": "IHRIS.DE.VS.pos_change_reason",
@@ -297,7 +475,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/pos_change_reason",
       "usedBy": [
         "PersonPosition.reason"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-pos_change_reason": 9
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.position",
@@ -309,7 +492,10 @@
         "Applicant.position",
         "PersonAttendance.position",
         "PersonPosition.position"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {},
+      "status": "deployment-defined"
     },
     {
       "id": "IHRIS.DE.VS.region",
@@ -319,7 +505,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/region",
       "usedBy": [
         "Person.residence"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-common/module/SampleData-region": 15
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.registration_type",
@@ -329,7 +520,23 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/registration_type",
       "usedBy": [
         "Registration.practice_type"
-      ]
+      ],
+      "defaultCodes": 2,
+      "sampleCodes": {},
+      "status": "shipped"
+    },
+    {
+      "id": "IHRIS.DE.VS.salary_grade",
+      "form": "salary_grade",
+      "class": "iHRIS_SalaryGrade",
+      "displayName": "Salary Grade",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/salary_grade",
+      "usedBy": [],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-salary_grade": 5
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.salary_source",
@@ -339,7 +546,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/salary_source",
       "usedBy": [
         "Benefit.source"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-salary_source": 7
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.scheduled_training_course",
@@ -349,7 +561,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/scheduled_training_course",
       "usedBy": [
         "Person_Scheduled_Training_Course.scheduled_training_course"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {},
+      "status": "deployment-defined"
     },
     {
       "id": "IHRIS.DE.VS.training_course_evaluation",
@@ -359,7 +574,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_course_evaluation",
       "usedBy": [
         "Person_Scheduled_Training_Course.training_course_evaluation"
-      ]
+      ],
+      "defaultCodes": 4,
+      "sampleCodes": {},
+      "status": "shipped"
     },
     {
       "id": "IHRIS.DE.VS.training_course_exam_type",
@@ -369,7 +587,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_course_exam_type",
       "usedBy": [
         "Training_Course_Exam.training_course_exam_type"
-      ]
+      ],
+      "defaultCodes": 3,
+      "sampleCodes": {},
+      "status": "shipped"
     },
     {
       "id": "IHRIS.DE.VS.training_course_mod",
@@ -379,7 +600,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_course_mod",
       "usedBy": [
         "Person_Scheduled_Training_Course.training_course_mod"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {},
+      "status": "deployment-defined"
     },
     {
       "id": "IHRIS.DE.VS.training_course_requestor",
@@ -389,7 +613,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_course_requestor",
       "usedBy": [
         "Person_Scheduled_Training_Course.training_course_requestor"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-manage/module/SampleData-training_course_requestor": 5
+      },
+      "status": "sample-only"
     },
     {
       "id": "IHRIS.DE.VS.training_disruption_reason",
@@ -399,7 +628,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_disruption_reason",
       "usedBy": [
         "TrainingDisrupt.disruption_reason"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {},
+      "status": "deployment-defined"
     },
     {
       "id": "IHRIS.DE.VS.training_institution",
@@ -412,7 +644,10 @@
         "FacilityInstitutionEditFacility.training_institution",
         "FacilityInstitutionEditInstitution.training_institution",
         "Training.training_institution"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {},
+      "status": "deployment-defined"
     },
     {
       "id": "IHRIS.DE.VS.training_program",
@@ -422,7 +657,10 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_program",
       "usedBy": [
         "Training.training_program"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {},
+      "status": "deployment-defined"
     },
     {
       "id": "IHRIS.DE.VS.verify_change",
@@ -432,7 +670,12 @@
       "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/verify_change",
       "usedBy": [
         "RecordVerify.verify_change"
-      ]
+      ],
+      "defaultCodes": 0,
+      "sampleCodes": {
+        "ihris-qualify/module/QualifySampleData-verify_change": 4
+      },
+      "status": "sample-only"
     }
   ]
 }

@@ -82,6 +82,17 @@ if os.path.isdir(os.path.join(fa, "folio-assistant-core")):
 else:
     print(f"WARNING: no folio-assistant checkout at {fa}; folio-catalogue(-node)/v1 NOT validated")
 
+# FHIR R4 structure of the generated terminology, with fhir.resources in its own venv (needs pydantic<2).
+venv_py = os.path.join(ROOT, ".build", "fhir-venv", "bin", "python")
+if glob.glob(os.path.join(ROOT, "src/ihris-dak/terminology/*.json")):
+    if os.path.exists(venv_py):
+        r = subprocess.run([venv_py, os.path.join(ROOT, "src/tools/validate_fhir.py")], capture_output=True, text=True)
+        sys.stdout.write(r.stdout)
+        if r.returncode != 0:
+            errors.append("FHIR R4 validation failed:\n" + (r.stdout + r.stderr)[-3000:])
+    else:
+        print("WARNING: .build/fhir-venv missing; FHIR terminology NOT validated (see src/tools/validate_fhir.py)")
+
 print(json.dumps(counts, indent=1))
 if errors:
     print(f"{len(errors)} error(s):")

@@ -1,0 +1,114 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-currency-example-sampledata-currency",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+  "version": "4.3.3",
+  "name": "IHRISCurrencyExampleSampledataCurrency",
+  "title": "iHRIS Currency: sample data from ihris-common/module/SampleData-currency",
+  "status": "draft",
+  "experimental": true,
+  "description": "SAMPLE records for `currency` from the iHRIS 4.3.3 module `ihris-common/module/SampleData-currency`. Illustrative data for one fictional or example deployment. NOT a standard code set, and no ValueSet includes it.",
+  "caseSensitive": true,
+  "content": "example",
+  "count": 4,
+  "property": [
+    {
+      "code": "code",
+      "type": "string",
+      "description": "iHRIS field `code`"
+    },
+    {
+      "code": "country",
+      "type": "Coding",
+      "description": "iHRIS MAP field `country`: a code in the country list"
+    },
+    {
+      "code": "symbol",
+      "type": "string",
+      "description": "iHRIS field `symbol`"
+    }
+  ],
+  "concept": [
+    {
+      "code": "1",
+      "display": "Taifeki",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "TF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "TF"
+          }
+        },
+        {
+          "code": "symbol",
+          "valueString": "¤"
+        }
+      ]
+    },
+    {
+      "code": "2",
+      "display": "Euro",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "EU"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "FR"
+          }
+        },
+        {
+          "code": "symbol",
+          "valueString": "€"
+        }
+      ]
+    },
+    {
+      "code": "3",
+      "display": "US Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "USD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "US"
+          }
+        },
+        {
+          "code": "symbol",
+          "valueString": "$"
+        }
+      ]
+    },
+    {
+      "code": "4",
+      "display": "British Pound",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "GBP"
+        },
+        {
+          "code": "country",
+          "valueString": "|"
+        },
+        {
+          "code": "symbol",
+          "valueString": "£"
+        }
+      ]
+    }
+  ]
+}

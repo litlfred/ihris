@@ -1,0 +1,36 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-language-proficiency",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/language_proficiency",
+  "version": "4.3.3",
+  "name": "IHRISLanguageProficiency",
+  "title": "iHRIS Language Proficiency",
+  "status": "draft",
+  "experimental": true,
+  "description": "The `language_proficiency` list as shipped by default in iHRIS 4.3.3 (modules: ihris-common/module/PersonLanguage). Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped baseline, not a closed international code set.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 5,
+  "concept": [
+    {
+      "code": "elementary",
+      "display": "Elementary"
+    },
+    {
+      "code": "limited",
+      "display": "Limited Working"
+    },
+    {
+      "code": "professional",
+      "display": "Professional Working"
+    },
+    {
+      "code": "full_professional",
+      "display": "Full Professional"
+    },
+    {
+      "code": "fluent",
+      "display": "Fluent"
+    }
+  ]
+}

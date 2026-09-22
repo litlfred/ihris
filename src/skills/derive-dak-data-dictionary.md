@@ -34,10 +34,21 @@ folio-assistant's `smart-base/library/9789240093362-eng/sections/sec-041-*`.
 | ids | `IHRIS.DE.<Class without prefix>.<field>`, stable across runs |
 | evidence | restored wiki sections that mention the label in **bold**. These are material for authoring, not a definition |
 
+## Terminology from shipped lists
+
+Records under `//I2CE/formsData/forms/<list>/<id>` are stored in two formats: a `fields` group of configurations, or one delimited configuration with `field:value` values. `build_kg.py` reads both into `src/*/data-lists/`.
+
+| records from | become | in a ValueSet? |
+|---|---|---|
+| a module's own default data (e.g. `iso-country`, `PersonDemographic`) | `CodeSystem-<list>`, `content: complete` | yes |
+| `SampleData-*`, `QualifySampleData-*`, a site | `CodeSystem-<list>-example-<module>`, `content: example` | **never** |
+
+A MAP value `list|id` becomes a Coding to whichever CodeSystem **holds** that id. It prefers the referring record's own package, because the Manage and Qualify sample lists disagree. A CURRENCY value `currency|id=amount` becomes a decimal plus a currency Coding. Records that repeat an id are merged, as I2CE's configuration tree merges them, and the CodeSystem description says so.
+
 ## Steps
 
 1. `python3 src/tools/build_dak.py`
-2. `python3 src/tools/validate.py`. This checks sheets against
+2. `python3 src/tools/validate.py`. This checks the terminology as FHIR R4 (`.build/fhir-venv`, see `validate_fhir.py`), sheets against
    `ihris-dak-data-dictionary/v1`, and `CoreDataElement` against smart-base's
    own JSON Schema plus `CoreDataElementTypeVS`.
 3. Review `excluded.json`: a class wrongly marked `system` silently drops data

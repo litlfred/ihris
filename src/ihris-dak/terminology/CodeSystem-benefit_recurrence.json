@@ -1,0 +1,32 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-benefit-recurrence",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/benefit_recurrence",
+  "version": "4.3.3",
+  "name": "IHRISBenefitRecurrence",
+  "title": "iHRIS Benefit Recurrence",
+  "status": "draft",
+  "experimental": true,
+  "description": "The `benefit_recurrence` list as shipped by default in iHRIS 4.3.3 (modules: ihris-manage/module/ihris-manage-Benefit). Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped baseline, not a closed international code set.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 4,
+  "concept": [
+    {
+      "code": "once",
+      "display": "Once"
+    },
+    {
+      "code": "weekly",
+      "display": "Weekly"
+    },
+    {
+      "code": "monthly",
+      "display": "Monthly"
+    },
+    {
+      "code": "yearly",
+      "display": "Yearly"
+    }
+  ]
+}

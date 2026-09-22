@@ -1,0 +1,18 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-country",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/country",
+  "version": "4.3.3",
+  "name": "IHRISCountryVS",
+  "title": "iHRIS Country",
+  "status": "draft",
+  "experimental": true,
+  "description": "All codes of the iHRIS `country` list as shipped by default in iHRIS 4.3.3.",
+  "compose": {
+    "include": [
+      {
+        "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country"
+      }
+    ]
+  }
+}

@@ -6,7 +6,7 @@ A **WHO SMART Guidelines DAK (L2) data dictionary** for health workforce informa
 |---|---|
 | data elements | 242 (101 required, 141 optional) |
 | logical models | 49, one per iHRIS record form (Person, Demographic, Education, Position, License, Leave, …) |
-| value sets | 41, one per iHRIS list used as input options (country, cadre, degree, gender, …) |
+| value sets | 47: 41 used as input options, plus 6 reached only through other lists' properties (e.g. degree → education type, salary grade → currency). 12 ship default codes, 24 ship sample data only, 11 are defined by each deployment |
 | wiki evidence | 156 elements are mentioned in a restored user-manual page |
 
 ## Files
@@ -17,6 +17,22 @@ A **WHO SMART Guidelines DAK (L2) data dictionary** for health workforce informa
 - [`value-sets.json`](value-sets.json): which iHRIS list backs each value set, and which elements use it.
 - [`excluded.json`](excluded.json): what was left out and why (system, interoperability and list classes; password and remap fields).
 - Overview: [docs/generated/dak-data-dictionary.md](../../docs/generated/dak-data-dictionary.md).
+
+## Terminology (`terminology/`)
+
+FHIR R4 JSON is generated from the records iHRIS ships in `formsData` (`src/*/data-lists/4.3.3/`). It is validated with `fhir.resources` (R4):
+
+| resource | what it holds |
+|---|---|
+| `CodeSystem-<list>.json` (12) | **default** records, which install with their module. `content: complete` *as shipped*; deployments add their own. Codes are the iHRIS record ids |
+| `CodeSystem-<list>-example-<module>.json` (28) | **sample** records from `SampleData-*` modules. `content: example`, and **no ValueSet includes them** |
+| `ValueSet-<list>.json` (47) | includes the default CodeSystem. It has no `compose` when iHRIS ships no default records |
+
+The lists that ship real codes are `benefit_recurrence` (4), `competency_evaluation` (3), `country` (246), `currency` (162), `exam_result` (3), `exam_try` (3), `gender` (2), `language_proficiency` (5), `leave_status` (3), `registration_type` (2), `training_course_evaluation` (4), `training_course_exam_type` (3).
+
+Why sample data is kept apart: `SampleData-country` reuses real ISO codes for demo records. Its `TF` is the made-up "Taifafeki", while ISO `TF` is French Southern Territories. The Manage and Qualify sample lists also disagree under the same id: `id_type` 2 is "…Number" in one and "…Card" in the other.
+
+Other lists that a record points to are linked as Coding properties to the CodeSystem that actually holds the code (e.g. a district's `region`). I2CE CURRENCY values (`currency|<id>=<amount>`) become a decimal amount plus a currency Coding.
 
 ## How fields were mapped
 
@@ -47,7 +63,7 @@ The builder **never invents** these columns: they are `null` until authored.
 1. **Descriptions and definitions** (all 242): `descriptionStatus: "to-author"`. Start from the `evidence` wiki pages.
 2. **Activity IDs**, once the business processes (L2 BPMN) exist. The toolkit stages and the wiki user manual are the source for them.
 3. **Conditionality (C)**, **reasons for requiring**, **indicator linkages** (e.g. WHO National Health Workforce Accounts) and **decision-support linkages**.
-4. **Value-set codes**: iHRIS ships standard lists (country, currency, ISCO-08, …) in its `formsData`. Extracting them into CodeSystems is the next step.
+4. **Codes for the 24 sample-only and 11 deployment-defined lists**: these are national decisions (cadres, districts, facilities, …). Candidate standards to bind: ISO 3166 (already the iHRIS default for country), ISCO-08 for cadre and occupation.
 5. **Canonical**: `https://litlfred.github.io/ihris/dak` is provisional.
 
 Because the dictionary is regenerated, authored columns should go in an overlay keyed by data element ID (planned: `src/ihris-dak/authored/`). They should not be edited into the generated sheets.

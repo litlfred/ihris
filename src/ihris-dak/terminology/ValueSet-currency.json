@@ -1,0 +1,18 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-currency",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/currency",
+  "version": "4.3.3",
+  "name": "IHRISCurrencyVS",
+  "title": "iHRIS Currency",
+  "status": "draft",
+  "experimental": true,
+  "description": "All codes of the iHRIS `currency` list as shipped by default in iHRIS 4.3.3.",
+  "compose": {
+    "include": [
+      {
+        "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency"
+      }
+    ]
+  }
+}

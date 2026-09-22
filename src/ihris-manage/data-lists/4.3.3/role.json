@@ -1,0 +1,114 @@
+{
+  "$schema": "ihris-data-list/v1",
+  "id": "ihris-manage/data-list/role",
+  "form": "role",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a"
+  },
+  "counts": {
+    "default": 9
+  },
+  "records": [
+    {
+      "id": "hr_manager",
+      "fields": {
+        "name": "HR Manager",
+        "trickle_up": "admin",
+        "assignable": "1"
+      },
+      "lastModified": "2009-06-15 1:23:45",
+      "definedIn": "ihris-manage/module/ihris-manage",
+      "provenance": "default"
+    },
+    {
+      "id": "hr_staff",
+      "fields": {
+        "name": "HR Staff",
+        "trickle_up": "admin,hr_manager",
+        "assignable": "1"
+      },
+      "lastModified": "2009-06-15 1:23:45",
+      "definedIn": "ihris-manage/module/ihris-manage",
+      "provenance": "default"
+    },
+    {
+      "id": "exec_manager",
+      "fields": {
+        "name": "Executive Manager",
+        "trickle_up": "admin",
+        "assignable": "1"
+      },
+      "lastModified": "2009-06-15 1:23:45",
+      "definedIn": "ihris-manage/module/ihris-manage",
+      "provenance": "default"
+    },
+    {
+      "id": "training_manager",
+      "fields": {
+        "name": "Training Manager",
+        "trickle_up": "admin,hr_manager",
+        "assignable": "1"
+      },
+      "lastModified": "2009-06-15 1:23:45",
+      "definedIn": "ihris-manage/module/ihris-manage",
+      "provenance": "default"
+    },
+    {
+      "id": "department_manager",
+      "fields": {
+        "name": "Department Manager",
+        "trickle_up": "admin",
+        "assignable": "1"
+      },
+      "lastModified": "2014-03-17 00:00:00",
+      "definedIn": "ihris-manage/module/ManageAccessDepartment",
+      "provenance": "default"
+    },
+    {
+      "id": "facility_staff",
+      "fields": {
+        "name": "Geographic/Facility Access - Staff",
+        "trickle_up": "admin",
+        "assignable": "1"
+      },
+      "lastModified": "2014-02-25 00:00:00",
+      "definedIn": "ihris-manage/module/ManageAccessFacility",
+      "provenance": "default"
+    },
+    {
+      "id": "facility_data_entrant",
+      "fields": {
+        "name": "Geographic/Facility Access - Data Entrant",
+        "trickle_up": "admin",
+        "assignable": "1"
+      },
+      "lastModified": "2014-02-25 00:00:00",
+      "definedIn": "ihris-manage/module/ManageAccessFacility",
+      "provenance": "default"
+    },
+    {
+      "id": "facility_manager",
+      "fields": {
+        "name": "Geographic/Facility Access - Manager",
+        "trickle_up": "admin",
+        "assignable": "1"
+      },
+      "lastModified": "2014-02-25 00:00:00",
+      "definedIn": "ihris-manage/module/ManageAccessFacility",
+      "provenance": "default"
+    },
+    {
+      "id": "personnel",
+      "fields": {
+        "name": "Personnel",
+        "trickle_up": "admin",
+        "assignable": "1"
+      },
+      "lastModified": "2010-08-05 1:23:45",
+      "definedIn": "ihris-manage/module/ManageSelfService",
+      "provenance": "default"
+    }
+  ]
+}
