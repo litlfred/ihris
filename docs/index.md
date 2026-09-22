@@ -6,3 +6,5 @@
   - [Launchpad inventory](generated/launchpad-inventory.md): all 37 projects, classified
   - [I2CE modules in 4.3.3](generated/i2ce-modules-4.3.3.md): top-level modules per core package
   - [DAK data dictionary](generated/dak-data-dictionary.md): data elements derived from the data model ([instance](../src/ihris-dak/README.md))
+- Upstream drafts (not filed):
+  - [smart-base: ISCO08 CodeSystem is partial but declares `content: complete`](upstream/smart-base-isco08-codesystem.md)

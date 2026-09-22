@@ -53,9 +53,9 @@ Why the maps target **ISCO-88** and not ISCO-08: iHRIS's own sample data is keye
 The only part of this instance that a person writes and the build never touches. Each file is an `ihris-dak-proposal/v1`: proposals with a rationale, evidence and a status that only the owner changes.
 
 - [`authored/isco-08.json`](authored/isco-08.json):
-  - **P1 (proposed):** each deployment maps its cadre and job codes to ISCO-08 unit groups.
+  - **P1 (accepted by the owner, 2026-09-22):** each deployment maps its cadre and job codes to ISCO-08 unit groups.
   - **P2 (blocked):** ISCO-88 → ISCO-08, pending the ILO correspondence table.
-  - **O1 (to verify):** smart-base's ISCO08 CodeSystem holds 182 of 619 groups while declaring `content: complete`, and has a `913` that iHRIS lacks.
+  - **O1 (to verify):** smart-base's ISCO08 CodeSystem holds 182 of 619 groups while declaring `content: complete`, and has a `913` that iHRIS lacks. An upstream issue is drafted in [docs/upstream/smart-base-isco08-codesystem.md](../../docs/upstream/smart-base-isco08-codesystem.md) (not filed).
 
 ## How fields were mapped
 

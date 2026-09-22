@@ -5,24 +5,128 @@
   "description": "An AUTHORED overlay on the derived DAK: a proposal a person makes, with its rationale and evidence, about something the source does not state (a binding, a definition, a mapping). Lives in src/ihris-dak/authored/, which no build writes. `status` moves proposed -> accepted/rejected only by the owner's decision.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["$schema", "id", "title", "author", "date", "items"],
+  "required": [
+    "$schema",
+    "id",
+    "title",
+    "author",
+    "date",
+    "items"
+  ],
   "properties": {
-    "$schema": { "const": "ihris-dak-proposal/v1" },
-    "id": { "type": "string" }, "title": { "type": "string" },
-    "author": { "type": "string" }, "date": { "type": "string" }, "refs": { "type": "array", "items": { "type": "string" } },
+    "$schema": {
+      "const": "ihris-dak-proposal/v1"
+    },
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "items": {
       "type": "array",
       "items": {
-        "type": "object", "additionalProperties": false, "required": ["id", "kind", "status", "statement", "rationale"],
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "status",
+          "statement",
+          "rationale"
+        ],
         "properties": {
-          "id": { "type": "string" },
-          "kind": { "enum": ["binding", "mapping", "definition", "upstream-observation", "blocked"] },
-          "status": { "enum": ["proposed", "accepted", "rejected", "to-verify", "blocked"] },
-          "appliesTo": { "type": "array", "items": { "type": "string" } },
-          "statement": { "type": "string" },
-          "rationale": { "type": "string" },
-          "evidence": { "type": "array", "items": { "type": "string" } },
-          "needs": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "binding",
+              "mapping",
+              "definition",
+              "upstream-observation",
+              "blocked"
+            ]
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "accepted",
+              "rejected",
+              "to-verify",
+              "blocked"
+            ]
+          },
+          "appliesTo": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "statement": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "needs": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "by",
+              "on",
+              "status"
+            ],
+            "description": "The owner's decision that moved `status` out of proposed/to-verify. Only the owner records one.",
+            "properties": {
+              "by": {
+                "type": "string"
+              },
+              "on": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              },
+              "where": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          },
+          "followUp": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Files or actions this item produced (drafts, issues, PRs)."
+          }
         }
       }
     }

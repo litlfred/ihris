@@ -11,7 +11,7 @@
     {
       "id": "isco-08-P1",
       "kind": "binding",
-      "status": "proposed",
+      "status": "accepted",
       "appliesTo": [
         "IHRIS.DE.VS.cadre",
         "IHRIS.DE.VS.job",
@@ -27,7 +27,14 @@
         "src/ihris-qualify/data-model/4.3.3/iHRIS_Cadre.json",
         "src/ihris-dak/terminology/ValueSet-isco_08_unit.json",
         "folio-assistant: smart-base/fhir-artifact-index/dak/StructureDefinition-GenericPersona.schema.json"
-      ]
+      ],
+      "decision": {
+        "by": "litlfred (repository owner)",
+        "on": "2026-09-22",
+        "status": "accepted",
+        "where": "Claude Code session https://claude.ai/code/session_01TA4id51RCSxZ4NxijDwrWQ",
+        "note": "\"accept P1\""
+      }
     },
     {
       "id": "isco-08-P2",
@@ -50,8 +57,11 @@
         "WorldHealthOrganization/smart-base@5891a22: input/fsh/codesystems/ISCO08.fsh, input/data/ISCO-08_EN_Structure_and_definitions.xlsx"
       ],
       "statement": "smart-base's ISCO08 CodeSystem holds 182 of ISCO-08's 619 groups while declaring `content: complete`, and includes a code `913` \"Helpers in Food Preparation\" that iHRIS's full ISCO-08 list does not have.",
-      "rationale": "Measured 2026-09-22 against smart-base's own ILO workbook (182 codes, identical to its FSH): 181 codes are in both, 179 with matching titles and 2 differing only in spelling or capitalization (1113, 2265). The other 438 iHRIS codes are absent from smart-base. Whether 913 is a valid ISCO-08 minor group was NOT verified: it needs the full ILO structure.",
-      "needs": "Check against the complete ILO ISCO-08 structure. If confirmed, report upstream to smart-base (content should be `fragment`, or the list completed; 913 corrected)."
+      "rationale": "Measured 2026-09-22 against smart-base's own ILO workbook (182 codes, identical to its FSH): 181 codes are in both, 179 with matching titles and 2 differing only in spelling or capitalization (1113, 2265). The other 438 iHRIS codes are absent from smart-base. Whether 913 is a valid ISCO-08 minor group was NOT verified: it needs the full ILO structure. Internal evidence, from smart-base alone: 7 unit groups have no parent group present (6111-6114, 9211-9213), and 54 higher-level groups have no children present. On 913: smart-base itself carries sub-major group 94 \"Food Preparation Assistants\" with no minor group under it, while 913 sits under 91 \"Cleaners and Helpers\". iHRIS's independently shipped ISCO-08 list has 941 \"Food preparation assistants\" (9411, 9412) and no 913.",
+      "needs": "Owner review of the drafted upstream issue, then filing it on WorldHealthOrganization/smart-base. The full ILO structure (webapps.ilo.org, cited by smart-base's extractor) is egress-blocked here, so the 913 finding is stated as evidence-based, not ILO-confirmed.",
+      "followUp": [
+        "docs/upstream/smart-base-isco08-codesystem.md"
+      ]
     }
   ]
 }
