@@ -1,0 +1,140 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Demographic",
+  "group": "Demographic",
+  "title": "Demographic Information",
+  "class": "iHRIS_Demographic",
+  "extends": "I2CE_Form",
+  "forms": [
+    "demographic"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Demographic"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Demographic",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Demographic.birth_date",
+      "activityId": null,
+      "formIds": [
+        "demographic"
+      ],
+      "formDataElementLabel": "Date of Birth",
+      "dataElementLabel": "Date of Birth",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Demographic Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Demographic",
+        "field": "birth_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/PersonDemographic"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-dependents-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Demographic.gender",
+      "activityId": null,
+      "formIds": [
+        "demographic"
+      ],
+      "formDataElementLabel": "Gender",
+      "dataElementLabel": "Gender",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/gender"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Demographic Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Demographic",
+        "field": "gender",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/PersonDemographic"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-dependents-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Demographic.marital_status",
+      "activityId": null,
+      "formIds": [
+        "demographic"
+      ],
+      "formDataElementLabel": "Marital Status",
+      "dataElementLabel": "Marital Status",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/marital_status"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Demographic Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Demographic",
+        "field": "marital_status",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/PersonDemographic"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    }
+  ]
+}

@@ -58,6 +58,22 @@ for f, d in docs.items():
             errors.append(f"{os.path.relpath(f, ROOT)}: source.releaseFile {d['source']['releaseFile']} does not resolve")
 
 fa = os.environ.get("FOLIO_ASSISTANT", os.path.join(ROOT, "..", "litlfred", "folio-assistant"))
+
+# smart-base CoreDataElement: validate against smart-base's own JSON Schema, and
+# check `type` against CoreDataElementTypeVS (the schema leaves it a free string).
+cde_schema = os.path.join(fa, "smart-base/fhir-artifact-index/dak/StructureDefinition-CoreDataElement.schema.json")
+cde_files = glob.glob(os.path.join(ROOT, "src/**/core-data-elements/*.json"), recursive=True)
+if os.path.exists(cde_schema):
+    v = jsonschema.Draft202012Validator(json.load(open(cde_schema)))
+    for f in cde_files:
+        d = json.load(open(f))
+        for e in v.iter_errors(d):
+            errors.append(f"{os.path.relpath(f, ROOT)}: CoreDataElement: {e.message[:200]}")
+        if d.get("type") not in ("valueset", "codesystem", "conceptmap", "logicalmodel"):
+            errors.append(f"{os.path.relpath(f, ROOT)}: type {d.get('type')!r} not in CoreDataElementTypeVS")
+    counts["smart-base CoreDataElement"] = len(cde_files)
+elif cde_files:
+    print(f"WARNING: smart-base CoreDataElement schema not found under {fa}; {len(cde_files)} files NOT validated")
 if os.path.isdir(os.path.join(fa, "folio-assistant-core")):
     r = subprocess.run(["bun", "run", os.path.join(ROOT, "src/tools/validate-folio.ts"), ROOT], cwd=fa, capture_output=True, text=True)
     sys.stdout.write(r.stdout)

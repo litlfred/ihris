@@ -1,0 +1,438 @@
+{
+  "note": "Each value set is backed by an iHRIS list form. Codes are not yet extracted from the shipped formsData; see README.",
+  "valueSets": [
+    {
+      "id": "IHRIS.DE.VS.accident_type",
+      "form": "accident_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Workplace Accident Type",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/accident_type",
+      "usedBy": [
+        "Accident.accident_type"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.benefit_recurrence",
+      "form": "benefit_recurrence",
+      "class": "I2CE_SimpleList",
+      "displayName": "Benefit Recurrence",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/benefit_recurrence",
+      "usedBy": [
+        "Benefit.recurrence"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.benefit_type",
+      "form": "benefit_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Benefit Type",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/benefit_type",
+      "usedBy": [
+        "Benefit.type"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.cadre",
+      "form": "cadre",
+      "class": "I2CE_SimpleList",
+      "displayName": "Cadre",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/cadre",
+      "usedBy": [
+        "Training.cadre",
+        "Training.in_cadre",
+        "Training.out_cadre"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.certificate",
+      "form": "certificate",
+      "class": "iHRIS_Certificate",
+      "displayName": "Certificate",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/certificate",
+      "usedBy": [
+        "SecondaryEducation.certificate"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.competency",
+      "form": "competency",
+      "class": "iHRIS_Competency",
+      "displayName": "Competency",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/competency",
+      "usedBy": [
+        "PersonCompetency.competency",
+        "Training_Course_Competency_Evaluation.competency"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.competency_evaluation",
+      "form": "competency_evaluation",
+      "class": "I2CE_SimpleList",
+      "displayName": "Competency Evaluation",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/competency_evaluation",
+      "usedBy": [
+        "PersonCompetency.competency_evaluation",
+        "Training_Course_Competency_Evaluation.competency_evaluation"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.confirmation_type",
+      "form": "confirmation_type",
+      "class": "iHRIS_ConfirmationType",
+      "displayName": "Confirmation Type",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/confirmation_type",
+      "usedBy": [
+        "Confirmation.confirmation_type"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.continuing_education_course",
+      "form": "continuing_education_course",
+      "class": "iHRIS_ContinuingEducationCourse",
+      "displayName": "Continuing Education Course",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/continuing_education_course",
+      "usedBy": [
+        "ContinuingEducation.continuing_education_course"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.council",
+      "form": "council",
+      "class": "I2CE_SimpleList",
+      "displayName": "Council",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/council",
+      "usedBy": [
+        "Registration.council"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.country",
+      "form": "country",
+      "class": "iHRIS_Country",
+      "displayName": "Country",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/country",
+      "usedBy": [
+        "OutMigration.country",
+        "Person.nationality",
+        "Person.residence",
+        "PersonID.country",
+        "Training.out_country"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.county",
+      "form": "county",
+      "class": "iHRIS_County",
+      "displayName": "County",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/county",
+      "usedBy": [
+        "Person.residence",
+        "QualifyDemographic.birth_location",
+        "QualifyPerson.home"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.degree",
+      "form": "degree",
+      "class": "iHRIS_Degree",
+      "displayName": "Degree",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/degree",
+      "usedBy": [
+        "Education.degree"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.disciplinary_action_reason",
+      "form": "disciplinary_action_reason",
+      "class": "I2CE_SimpleList",
+      "displayName": "Disciplinary Action Reason",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/disciplinary_action_reason",
+      "usedBy": [
+        "DisciplinaryAction.disciplinary_action_reason"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.disciplinary_action_type",
+      "form": "disciplinary_action_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Disciplinary Action Type",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/disciplinary_action_type",
+      "usedBy": [
+        "DisciplinaryAction.disciplinary_action_type"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.district",
+      "form": "district",
+      "class": "iHRIS_District",
+      "displayName": "District",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/district",
+      "usedBy": [
+        "Person.residence",
+        "QualifyDemographic.birth_location",
+        "QualifyPerson.home"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.exam_result",
+      "form": "exam_result",
+      "class": "I2CE_SimpleList",
+      "displayName": "Exam Result",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/exam_result",
+      "usedBy": [
+        "Exam.results"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.exam_try",
+      "form": "exam_try",
+      "class": "I2CE_SimpleList",
+      "displayName": "Exam Try",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/exam_try",
+      "usedBy": [
+        "Exam.try"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.gender",
+      "form": "gender",
+      "class": "I2CE_SimpleList",
+      "displayName": "Gender",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/gender",
+      "usedBy": [
+        "Demographic.gender"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.health_facility",
+      "form": "health_facility",
+      "class": "iHRIS_HealthFacility",
+      "displayName": "Health Facility",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/health_facility",
+      "usedBy": [
+        "Deployment.health_facility",
+        "FacilityInstitution.health_facility",
+        "FacilityInstitutionEditFacility.health_facility",
+        "FacilityInstitutionEditInstitution.health_facility",
+        "PrivatePractice.health_facility"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.id_type",
+      "form": "id_type",
+      "class": "iHRIS_PersonID_Type",
+      "displayName": "Identification Type",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/id_type",
+      "usedBy": [
+        "PersonID.id_type"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.language",
+      "form": "language",
+      "class": "I2CE_SimpleList",
+      "displayName": "Language",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/language",
+      "usedBy": [
+        "PersonLanguage.language"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.language_proficiency",
+      "form": "language_proficiency",
+      "class": "I2CE_SimpleList",
+      "displayName": "Language Proficiency",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/language_proficiency",
+      "usedBy": [
+        "PersonLanguage.reading",
+        "PersonLanguage.speaking",
+        "PersonLanguage.writing"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.leave_category",
+      "form": "leave_category",
+      "class": "iHRIS_LeaveCategory",
+      "displayName": "Leave Category",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/leave_category",
+      "usedBy": [
+        "LeaveRequest.leave_category"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.leave_status",
+      "form": "leave_status",
+      "class": "I2CE_SimpleList",
+      "displayName": "Leave Status",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/leave_status",
+      "usedBy": [
+        "LeaveRequest.leave_status"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.marital_status",
+      "form": "marital_status",
+      "class": "I2CE_SimpleList",
+      "displayName": "Marital Status",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/marital_status",
+      "usedBy": [
+        "Demographic.marital_status"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.out_migration_reason",
+      "form": "out_migration_reason",
+      "class": "I2CE_SimpleList",
+      "displayName": "Out Migration Reason",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/out_migration_reason",
+      "usedBy": [
+        "OutMigration.out_migration_reason"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.pos_change_reason",
+      "form": "pos_change_reason",
+      "class": "I2CE_SimpleList",
+      "displayName": "Reasons for Departure",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/pos_change_reason",
+      "usedBy": [
+        "PersonPosition.reason"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.position",
+      "form": "position",
+      "class": "iHRIS_MultiPosition",
+      "displayName": "Position",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/position",
+      "usedBy": [
+        "Applicant.position",
+        "PersonAttendance.position",
+        "PersonPosition.position"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.region",
+      "form": "region",
+      "class": "iHRIS_Region",
+      "displayName": "Region",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/region",
+      "usedBy": [
+        "Person.residence"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.registration_type",
+      "form": "registration_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Registration Type",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/registration_type",
+      "usedBy": [
+        "Registration.practice_type"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.salary_source",
+      "form": "salary_source",
+      "class": "I2CE_SimpleList",
+      "displayName": "Salary Source",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/salary_source",
+      "usedBy": [
+        "Benefit.source"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.scheduled_training_course",
+      "form": "scheduled_training_course",
+      "class": "iHRIS_Scheduled_Training_Course",
+      "displayName": "Scheduled Training Course",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/scheduled_training_course",
+      "usedBy": [
+        "Person_Scheduled_Training_Course.scheduled_training_course"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.training_course_evaluation",
+      "form": "training_course_evaluation",
+      "class": "iHRIS_Training_Course_Evaluation",
+      "displayName": "Training Course Evaluation",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_course_evaluation",
+      "usedBy": [
+        "Person_Scheduled_Training_Course.training_course_evaluation"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.training_course_exam_type",
+      "form": "training_course_exam_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Training Course Exam Type",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_course_exam_type",
+      "usedBy": [
+        "Training_Course_Exam.training_course_exam_type"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.training_course_mod",
+      "form": "training_course_mod",
+      "class": "I2CE_SimpleList",
+      "displayName": "Training Course Module",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_course_mod",
+      "usedBy": [
+        "Person_Scheduled_Training_Course.training_course_mod"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.training_course_requestor",
+      "form": "training_course_requestor",
+      "class": "I2CE_SimpleList",
+      "displayName": "Training Requestor",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_course_requestor",
+      "usedBy": [
+        "Person_Scheduled_Training_Course.training_course_requestor"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.training_disruption_reason",
+      "form": "training_disruption_reason",
+      "class": "iHRIS_TrainingDisruptionReason",
+      "displayName": "Training Disruption Reason",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_disruption_reason",
+      "usedBy": [
+        "TrainingDisrupt.disruption_reason"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.training_institution",
+      "form": "training_institution",
+      "class": "iHRIS_ListByCountry",
+      "displayName": "Training Institution",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_institution",
+      "usedBy": [
+        "FacilityInstitution.training_institution",
+        "FacilityInstitutionEditFacility.training_institution",
+        "FacilityInstitutionEditInstitution.training_institution",
+        "Training.training_institution"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.training_program",
+      "form": "training_program",
+      "class": "iHRIS_TrainingProgram",
+      "displayName": "Training Program",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/training_program",
+      "usedBy": [
+        "Training.training_program"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.VS.verify_change",
+      "form": "verify_change",
+      "class": "I2CE_SimpleList",
+      "displayName": "Verification Change",
+      "canonical": "https://litlfred.github.io/ihris/dak/ValueSet/verify_change",
+      "usedBy": [
+        "RecordVerify.verify_change"
+      ]
+    }
+  ]
+}

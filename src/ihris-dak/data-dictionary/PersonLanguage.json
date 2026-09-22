@@ -1,0 +1,176 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.PersonLanguage",
+  "group": "PersonLanguage",
+  "title": "Person Language Proficiency",
+  "class": "iHRIS_PersonLanguage",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_language"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_PersonLanguage"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/PersonLanguage",
+  "elements": [
+    {
+      "id": "IHRIS.DE.PersonLanguage.language",
+      "activityId": null,
+      "formIds": [
+        "person_language"
+      ],
+      "formDataElementLabel": "Language",
+      "dataElementLabel": "Language",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/language"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Language Proficiency",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "unique",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonLanguage",
+        "field": "language",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/PersonLanguage"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PersonLanguage.speaking",
+      "activityId": null,
+      "formIds": [
+        "person_language"
+      ],
+      "formDataElementLabel": "Speaking Proficiency",
+      "dataElementLabel": "Speaking Proficiency",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/language_proficiency"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Language Proficiency",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonLanguage",
+        "field": "speaking",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/PersonLanguage"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PersonLanguage.reading",
+      "activityId": null,
+      "formIds": [
+        "person_language"
+      ],
+      "formDataElementLabel": "Reading Proficiency",
+      "dataElementLabel": "Reading Proficiency",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/language_proficiency"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Language Proficiency",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonLanguage",
+        "field": "reading",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/PersonLanguage"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PersonLanguage.writing",
+      "activityId": null,
+      "formIds": [
+        "person_language"
+      ],
+      "formDataElementLabel": "Writing Proficiency",
+      "dataElementLabel": "Writing Proficiency",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/language_proficiency"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Language Proficiency",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonLanguage",
+        "field": "writing",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/PersonLanguage"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md"
+      ]
+    }
+  ]
+}

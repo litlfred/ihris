@@ -1,0 +1,234 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Accident",
+  "group": "Accident",
+  "title": "Accident",
+  "class": "iHRIS_Accident",
+  "extends": "I2CE_Form",
+  "forms": [
+    "accident"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_Accident"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Accident",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Accident.occurence_date",
+      "activityId": null,
+      "formIds": [
+        "accident"
+      ],
+      "formDataElementLabel": "Date of Occurence",
+      "dataElementLabel": "Date of Occurence",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Accident",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Accident",
+        "field": "occurence_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/accident"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Accident.accident_type",
+      "activityId": null,
+      "formIds": [
+        "accident"
+      ],
+      "formDataElementLabel": "Accident Type",
+      "dataElementLabel": "Accident Type",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/accident_type"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Accident",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Accident",
+        "field": "accident_type",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-manage/module/accident"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Accident.start_date",
+      "activityId": null,
+      "formIds": [
+        "accident"
+      ],
+      "formDataElementLabel": "Start of Applicability",
+      "dataElementLabel": "Start of Applicability",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Accident",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Accident",
+        "field": "start_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/accident"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-workplace-accident.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Accident.end_date",
+      "activityId": null,
+      "formIds": [
+        "accident"
+      ],
+      "formDataElementLabel": "End of Applicability",
+      "dataElementLabel": "End of Applicability",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Accident",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Accident",
+        "field": "end_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/accident"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Accident.followup",
+      "activityId": null,
+      "formIds": [
+        "accident"
+      ],
+      "formDataElementLabel": "Follow-up Required",
+      "dataElementLabel": "Follow-up Required",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Accident",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Accident",
+        "field": "followup",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/accident"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Accident.persons_involved",
+      "activityId": null,
+      "formIds": [
+        "accident"
+      ],
+      "formDataElementLabel": "People Involved",
+      "dataElementLabel": "People Involved",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Accident",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Accident",
+        "field": "persons_involved",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/accident"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

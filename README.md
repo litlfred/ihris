@@ -16,6 +16,7 @@ A [folio-assistant](https://github.com/litlfred/folio-assistant) folio that **in
 | [`openhie-pr`](src/openhie-pr/) | OpenHIE Health Worker Registry (CSD) | series only; modules need a tarball |
 | [`ihris5`](src/ihris5/) | iHRIS 5 (FHIR) on GitHub, plus its docs | pinned at a commit, with path inventories |
 | [`ihris-toolkit`](library/ihris-toolkit/) | toolkit.ihris.org implementation stages | 6 stages ingested; 47 hosted tool documents still referenced |
+| [`ihris-dak`](src/ihris-dak/) | **derived:** WHO SMART DAK (L2) data dictionary for health workforce data | 242 data elements, 49 logical models, 41 value sets; descriptions to author |
 | [`ihris-wiki`](library/ihris-wiki/) | the old iHRIS wiki | 44 user-manual pages restored from 4.3.3 help exports |
 
 The other Launchpad projects (country customizations such as ihris-kenya and ihris-manage-ghana, and side tools) are catalogued in [`src/catalogue/`](src/catalogue/); see [the inventory](docs/generated/launchpad-inventory.md).

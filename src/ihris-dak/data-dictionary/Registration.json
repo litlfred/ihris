@@ -1,0 +1,291 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Registration",
+  "group": "Registration",
+  "title": "Registration",
+  "class": "iHRIS_Registration",
+  "extends": "I2CE_Form",
+  "forms": [
+    "registration"
+  ],
+  "instances": [
+    "ihris-common",
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Registration",
+    "ihris-qualify/form-class/iHRIS_Registration"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Registration",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Registration.council",
+      "activityId": null,
+      "formIds": [
+        "registration"
+      ],
+      "formDataElementLabel": "Registration Council",
+      "dataElementLabel": "Registration Council",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/council"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Registration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Registration",
+        "field": "council",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/ihris-common-ProfessionalRegistration"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Registration.registration_number",
+      "activityId": null,
+      "formIds": [
+        "registration"
+      ],
+      "formDataElementLabel": "Registration Number",
+      "dataElementLabel": "Registration Number",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Registration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Registration",
+        "field": "registration_number",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/ihris-common-ProfessionalRegistration",
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Registration.license_number",
+      "activityId": null,
+      "formIds": [
+        "registration"
+      ],
+      "formDataElementLabel": "License Number",
+      "dataElementLabel": "License Number",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Registration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Registration",
+        "field": "license_number",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/ihris-common-ProfessionalRegistration"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Registration.registration_date",
+      "activityId": null,
+      "formIds": [
+        "registration"
+      ],
+      "formDataElementLabel": "Registration Date",
+      "dataElementLabel": "Registration Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Registration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Registration",
+        "field": "registration_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/ihris-common-ProfessionalRegistration",
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Registration.license_expiration",
+      "activityId": null,
+      "formIds": [
+        "registration"
+      ],
+      "formDataElementLabel": "License Expiration Date",
+      "dataElementLabel": "License Expiration Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Registration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Registration",
+        "field": "license_expiration",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/ihris-common-ProfessionalRegistration"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Registration.application_date",
+      "activityId": null,
+      "formIds": [
+        "registration"
+      ],
+      "formDataElementLabel": "Application Date",
+      "dataElementLabel": "Application Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Registration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Registration",
+        "field": "application_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Registration.practice_type",
+      "activityId": null,
+      "formIds": [
+        "registration"
+      ],
+      "formDataElementLabel": "Practice Type",
+      "dataElementLabel": "Practice Type",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/registration_type"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Registration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Registration",
+        "field": "practice_type",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    }
+  ]
+}

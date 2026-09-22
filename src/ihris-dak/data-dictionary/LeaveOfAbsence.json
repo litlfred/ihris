@@ -1,0 +1,282 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.LeaveOfAbsence",
+  "group": "LeaveOfAbsence",
+  "title": "Leave Of Absence",
+  "class": "iHRIS_LeaveOfAbsence",
+  "extends": "I2CE_Form",
+  "forms": [
+    "leave_of_absence"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_LeaveOfAbsence"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/LeaveOfAbsence",
+  "elements": [
+    {
+      "id": "IHRIS.DE.LeaveOfAbsence.type",
+      "activityId": null,
+      "formIds": [
+        "leave_of_absence"
+      ],
+      "formDataElementLabel": "Absence Type",
+      "dataElementLabel": "Absence Type",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Of Absence",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "options are enumerated inline in the field configuration, not a list form",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveOfAbsence",
+        "field": "type",
+        "i2ceType": "ENUM",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-LeaveOfAbsence"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveOfAbsence.start_date",
+      "activityId": null,
+      "formIds": [
+        "leave_of_absence"
+      ],
+      "formDataElementLabel": "Start Date",
+      "dataElementLabel": "Start Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Of Absence",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveOfAbsence",
+        "field": "start_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-LeaveOfAbsence"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-job-applicants.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.LeaveOfAbsence.end_date",
+      "activityId": null,
+      "formIds": [
+        "leave_of_absence"
+      ],
+      "formDataElementLabel": "End Date",
+      "dataElementLabel": "End Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Of Absence",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveOfAbsence",
+        "field": "end_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-LeaveOfAbsence"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.LeaveOfAbsence.paid",
+      "activityId": null,
+      "formIds": [
+        "leave_of_absence"
+      ],
+      "formDataElementLabel": "Paid?",
+      "dataElementLabel": "Paid?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Of Absence",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveOfAbsence",
+        "field": "paid",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-LeaveOfAbsence"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveOfAbsence.incomplete",
+      "activityId": null,
+      "formIds": [
+        "leave_of_absence"
+      ],
+      "formDataElementLabel": "Training incomplete? (for education)",
+      "dataElementLabel": "Training incomplete? (for education)",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Of Absence",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveOfAbsence",
+        "field": "incomplete",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-LeaveOfAbsence"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveOfAbsence.cause",
+      "activityId": null,
+      "formIds": [
+        "leave_of_absence"
+      ],
+      "formDataElementLabel": "Cause / Diagnosis (for health)",
+      "dataElementLabel": "Cause / Diagnosis (for health)",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Of Absence",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "long text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveOfAbsence",
+        "field": "cause",
+        "i2ceType": "STRING_TEXT",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-LeaveOfAbsence"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveOfAbsence.notes",
+      "activityId": null,
+      "formIds": [
+        "leave_of_absence"
+      ],
+      "formDataElementLabel": "Notes",
+      "dataElementLabel": "Notes",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Of Absence",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "long text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveOfAbsence",
+        "field": "notes",
+        "i2ceType": "STRING_TEXT",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-LeaveOfAbsence"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    }
+  ]
+}

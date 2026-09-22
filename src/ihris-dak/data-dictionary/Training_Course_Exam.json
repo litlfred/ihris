@@ -1,0 +1,168 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Training_Course_Exam",
+  "group": "Training_Course_Exam",
+  "title": "Training Course Exam",
+  "class": "iHRIS_Training_Course_Exam",
+  "extends": "I2CE_Form",
+  "forms": [
+    "training_course_exam"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Training_Course_Exam"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Training_Course_Exam",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Training_Course_Exam.notes",
+      "activityId": null,
+      "formIds": [
+        "training_course_exam"
+      ],
+      "formDataElementLabel": "Notes",
+      "dataElementLabel": "Notes",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training Course Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training_Course_Exam",
+        "field": "notes",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-common/module/training-exam"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Training_Course_Exam.evaluation_date",
+      "activityId": null,
+      "formIds": [
+        "training_course_exam"
+      ],
+      "formDataElementLabel": "Evaluation Date",
+      "dataElementLabel": "Evaluation Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training Course Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training_Course_Exam",
+        "field": "evaluation_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/training-exam"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Training_Course_Exam.training_course_exam_type",
+      "activityId": null,
+      "formIds": [
+        "training_course_exam"
+      ],
+      "formDataElementLabel": "Exam Type",
+      "dataElementLabel": "Exam Type",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/training_course_exam_type"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training Course Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training_Course_Exam",
+        "field": "training_course_exam_type",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/training-exam"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Training_Course_Exam.score",
+      "activityId": null,
+      "formIds": [
+        "training_course_exam"
+      ],
+      "formDataElementLabel": "Score",
+      "dataElementLabel": "Score",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Integer quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training Course Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training_Course_Exam",
+        "field": "score",
+        "i2ceType": "INT",
+        "definedIn": [
+          "ihris-common/module/training-exam"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Photo",
+  "group": "Photo",
+  "title": "Person Photo",
+  "class": "iHRIS_Photo",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_photo_passport"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Photo"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Photo",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Photo.image",
+      "activityId": null,
+      "formIds": [
+        "person_photo_passport"
+      ],
+      "formDataElementLabel": "Image",
+      "dataElementLabel": "Image",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Attachment",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Photo",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "image",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Photo",
+        "field": "image",
+        "i2ceType": "IMAGE",
+        "definedIn": [
+          "ihris-common/module/Photo"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Photo.date",
+      "activityId": null,
+      "formIds": [
+        "person_photo_passport"
+      ],
+      "formDataElementLabel": "Date",
+      "dataElementLabel": "Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Photo",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Photo",
+        "field": "date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/Photo"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Photo.description",
+      "activityId": null,
+      "formIds": [
+        "person_photo_passport"
+      ],
+      "formDataElementLabel": "Description",
+      "dataElementLabel": "Description",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Photo",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Photo",
+        "field": "description",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/Photo"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/create-a-job-structure--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/create-a-job-structure.md"
+      ]
+    }
+  ]
+}

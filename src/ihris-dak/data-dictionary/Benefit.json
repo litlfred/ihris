@@ -1,0 +1,257 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Benefit",
+  "group": "Benefit",
+  "title": "Benefit",
+  "class": "iHRIS_Benefit",
+  "extends": "I2CE_Form",
+  "forms": [
+    "benefit"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_Benefit"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Benefit",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Benefit.type",
+      "activityId": null,
+      "formIds": [
+        "benefit"
+      ],
+      "formDataElementLabel": "Benefit Type",
+      "dataElementLabel": "Benefit Type",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/benefit_type"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Benefit",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Benefit",
+        "field": "type",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Benefit"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Benefit.amount",
+      "activityId": null,
+      "formIds": [
+        "benefit"
+      ],
+      "formDataElementLabel": "Amount",
+      "dataElementLabel": "Amount",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Decimal quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Benefit",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "monetary amount; the currency is part of the value in iHRIS",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Benefit",
+        "field": "amount",
+        "i2ceType": "CURRENCY",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Benefit"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Benefit.source",
+      "activityId": null,
+      "formIds": [
+        "benefit"
+      ],
+      "formDataElementLabel": "Source",
+      "dataElementLabel": "Source",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/salary_source"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Benefit",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Benefit",
+        "field": "source",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Benefit"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-positions--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-positions.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Benefit.start_date",
+      "activityId": null,
+      "formIds": [
+        "benefit"
+      ],
+      "formDataElementLabel": "Start Date",
+      "dataElementLabel": "Start Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Benefit",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Benefit",
+        "field": "start_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Benefit"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-job-applicants.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Benefit.end_date",
+      "activityId": null,
+      "formIds": [
+        "benefit"
+      ],
+      "formDataElementLabel": "End Date",
+      "dataElementLabel": "End Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Benefit",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Benefit",
+        "field": "end_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Benefit"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Benefit.recurrence",
+      "activityId": null,
+      "formIds": [
+        "benefit"
+      ],
+      "formDataElementLabel": "Recurrence Frequency",
+      "dataElementLabel": "Recurrence Frequency",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/benefit_recurrence"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Benefit",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Benefit",
+        "field": "recurrence",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Benefit"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md"
+      ]
+    }
+  ]
+}

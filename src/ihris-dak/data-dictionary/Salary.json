@@ -1,0 +1,216 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Salary",
+  "group": "Salary",
+  "title": "Salary",
+  "class": "iHRIS_Salary",
+  "extends": "I2CE_Form",
+  "forms": [
+    "salary"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_Salary"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Salary",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Salary.start_date",
+      "activityId": null,
+      "formIds": [
+        "salary"
+      ],
+      "formDataElementLabel": "Start Date",
+      "dataElementLabel": "Start Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Salary",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Salary",
+        "field": "start_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Salary"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-job-applicants.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Salary.salary",
+      "activityId": null,
+      "formIds": [
+        "salary"
+      ],
+      "formDataElementLabel": "Salary",
+      "dataElementLabel": "Salary",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Decimal quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Salary",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "monetary amount; the currency is part of the value in iHRIS",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Salary",
+        "field": "salary",
+        "i2ceType": "CURRENCY",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Salary"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-job-applicants.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-people.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Salary.end_date",
+      "activityId": null,
+      "formIds": [
+        "salary"
+      ],
+      "formDataElementLabel": "End Date",
+      "dataElementLabel": "End Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Salary",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Salary",
+        "field": "end_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Salary"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Salary.last",
+      "activityId": null,
+      "formIds": [
+        "salary"
+      ],
+      "formDataElementLabel": null,
+      "dataElementLabel": "last",
+      "labelSource": "field-name",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Integer quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Salary",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Salary",
+        "field": "last",
+        "i2ceType": "INT",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Salary"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Salary.notes",
+      "activityId": null,
+      "formIds": [
+        "salary"
+      ],
+      "formDataElementLabel": "Notes",
+      "dataElementLabel": "Notes",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Salary",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Salary",
+        "field": "notes",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Salary"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    }
+  ]
+}

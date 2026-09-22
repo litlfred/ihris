@@ -1,0 +1,255 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.PrivatePractice",
+  "group": "PrivatePractice",
+  "title": "Private Practice License",
+  "class": "iHRIS_PrivatePractice",
+  "extends": "I2CE_Form",
+  "forms": [
+    "private_practice"
+  ],
+  "instances": [
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-qualify/form-class/iHRIS_PrivatePractice"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/PrivatePractice",
+  "elements": [
+    {
+      "id": "IHRIS.DE.PrivatePractice.license_number",
+      "activityId": null,
+      "formIds": [
+        "private_practice"
+      ],
+      "formDataElementLabel": "License Number",
+      "dataElementLabel": "License Number",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "ID",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Private Practice License",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "system-generated number",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PrivatePractice",
+        "field": "license_number",
+        "i2ceType": "INT_GENERATE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PrivatePractice.start_date",
+      "activityId": null,
+      "formIds": [
+        "private_practice"
+      ],
+      "formDataElementLabel": "Start Date",
+      "dataElementLabel": "Start Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Private Practice License",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PrivatePractice",
+        "field": "start_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-job-applicants.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PrivatePractice.end_date",
+      "activityId": null,
+      "formIds": [
+        "private_practice"
+      ],
+      "formDataElementLabel": "End Date",
+      "dataElementLabel": "End Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Private Practice License",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PrivatePractice",
+        "field": "end_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PrivatePractice.inspection_results",
+      "activityId": null,
+      "formIds": [
+        "private_practice"
+      ],
+      "formDataElementLabel": "Inspection Results",
+      "dataElementLabel": "Inspection Results",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Private Practice License",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PrivatePractice",
+        "field": "inspection_results",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PrivatePractice.inspection_date",
+      "activityId": null,
+      "formIds": [
+        "private_practice"
+      ],
+      "formDataElementLabel": "Inspection Date",
+      "dataElementLabel": "Inspection Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Private Practice License",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PrivatePractice",
+        "field": "inspection_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PrivatePractice.health_facility",
+      "activityId": null,
+      "formIds": [
+        "private_practice"
+      ],
+      "formDataElementLabel": "Health Facility",
+      "dataElementLabel": "Health Facility",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/health_facility"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Private Practice License",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PrivatePractice",
+        "field": "health_facility",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    }
+  ]
+}

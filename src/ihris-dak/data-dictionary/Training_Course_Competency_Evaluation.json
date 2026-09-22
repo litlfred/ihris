@@ -1,0 +1,175 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Training_Course_Competency_Evaluation",
+  "group": "Training_Course_Competency_Evaluation",
+  "title": "Training Course Competency Evaluation",
+  "class": "iHRIS_Training_Course_Competency_Evaluation",
+  "extends": "I2CE_Form",
+  "forms": [
+    "training_course_competency_evaluation"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Training_Course_Competency_Evaluation"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Training_Course_Competency_Evaluation",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Training_Course_Competency_Evaluation.notes",
+      "activityId": null,
+      "formIds": [
+        "training_course_competency_evaluation"
+      ],
+      "formDataElementLabel": "Notes",
+      "dataElementLabel": "Notes",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training Course Competency Evaluation",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training_Course_Competency_Evaluation",
+        "field": "notes",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-common/module/training-simple-competency"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Training_Course_Competency_Evaluation.evaluation_date",
+      "activityId": null,
+      "formIds": [
+        "training_course_competency_evaluation"
+      ],
+      "formDataElementLabel": "Evaluation Date",
+      "dataElementLabel": "Evaluation Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training Course Competency Evaluation",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training_Course_Competency_Evaluation",
+        "field": "evaluation_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/training-simple-competency"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Training_Course_Competency_Evaluation.competency_evaluation",
+      "activityId": null,
+      "formIds": [
+        "training_course_competency_evaluation"
+      ],
+      "formDataElementLabel": "Evaluation",
+      "dataElementLabel": "Evaluation",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/competency_evaluation"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training Course Competency Evaluation",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training_Course_Competency_Evaluation",
+        "field": "competency_evaluation",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/training-simple-competency"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Training_Course_Competency_Evaluation.competency",
+      "activityId": null,
+      "formIds": [
+        "training_course_competency_evaluation"
+      ],
+      "formDataElementLabel": "Competency",
+      "dataElementLabel": "Competency",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/competency"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training Course Competency Evaluation",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training_Course_Competency_Evaluation",
+        "field": "competency",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/training-simple-competency"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md"
+      ]
+    }
+  ]
+}

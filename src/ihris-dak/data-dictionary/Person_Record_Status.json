@@ -1,0 +1,162 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Person_Record_Status",
+  "group": "Person_Record_Status",
+  "title": "Person Record Status",
+  "class": "iHRIS_Person_Record_Status",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_record_status"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Person_Record_Status"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Person_Record_Status",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Person_Record_Status.duplicate",
+      "activityId": null,
+      "formIds": [
+        "person_record_status"
+      ],
+      "formDataElementLabel": "Duplicate",
+      "dataElementLabel": "Duplicate",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Record Status",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Record_Status",
+        "field": "duplicate",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-common/module/RecordStatus"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Person_Record_Status.incomplete",
+      "activityId": null,
+      "formIds": [
+        "person_record_status"
+      ],
+      "formDataElementLabel": "Incomplete",
+      "dataElementLabel": "Incomplete",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Record Status",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Record_Status",
+        "field": "incomplete",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-common/module/RecordStatus"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Person_Record_Status.incorrect",
+      "activityId": null,
+      "formIds": [
+        "person_record_status"
+      ],
+      "formDataElementLabel": "Incorrect",
+      "dataElementLabel": "Incorrect",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Record Status",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Record_Status",
+        "field": "incorrect",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-common/module/RecordStatus"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Person_Record_Status.comment",
+      "activityId": null,
+      "formIds": [
+        "person_record_status"
+      ],
+      "formDataElementLabel": "Comments",
+      "dataElementLabel": "Comments",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Record Status",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Record_Status",
+        "field": "comment",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-common/module/RecordStatus"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-an-application.md"
+      ]
+    }
+  ]
+}

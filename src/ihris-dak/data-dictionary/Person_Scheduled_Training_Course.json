@@ -1,0 +1,468 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Person_Scheduled_Training_Course",
+  "group": "Person_Scheduled_Training_Course",
+  "title": "Person Scheduled Training Course",
+  "class": "iHRIS_Person_Scheduled_Training_Course",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_scheduled_training_course"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Person_Scheduled_Training_Course"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Person_Scheduled_Training_Course",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.training_course_mod",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Modules",
+      "dataElementLabel": "Modules",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select all that apply",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/training_course_mod"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "training_course_mod",
+        "i2ceType": "MAP_MULT",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.certification_date",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Certification Date",
+      "dataElementLabel": "Certification Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "certification_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.attending",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Is Attending",
+      "dataElementLabel": "Is Attending",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "attending",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.is_retraining",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Retraining",
+      "dataElementLabel": "Retraining",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "is_retraining",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.completed",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Completed",
+      "dataElementLabel": "Completed",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "completed",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.duty_commencement_date",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Duty Commencement",
+      "dataElementLabel": "Duty Commencement",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "duty_commencement_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.request_date",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Request Date",
+      "dataElementLabel": "Request Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "request_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.notes",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Notes",
+      "dataElementLabel": "Notes",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "notes",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.average",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Average",
+      "dataElementLabel": "Average",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Integer quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "average",
+        "i2ceType": "INT",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.training_course_evaluation",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Evaluation",
+      "dataElementLabel": "Evaluation",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/training_course_evaluation"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "training_course_evaluation",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.training_course_requestor",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Requested By",
+      "dataElementLabel": "Requested By",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/training_course_requestor"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "training_course_requestor",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Person_Scheduled_Training_Course.scheduled_training_course",
+      "activityId": null,
+      "formIds": [
+        "person_scheduled_training_course"
+      ],
+      "formDataElementLabel": "Instance",
+      "dataElementLabel": "Instance",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/scheduled_training_course"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Scheduled Training Course",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person_Scheduled_Training_Course",
+        "field": "scheduled_training_course",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/training-course"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    }
+  ]
+}

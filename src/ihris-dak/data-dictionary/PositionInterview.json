@@ -1,0 +1,164 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.PositionInterview",
+  "group": "PositionInterview",
+  "title": "Position Interview",
+  "class": "iHRIS_PositionInterview",
+  "extends": "I2CE_Form",
+  "forms": [
+    "position_interview"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_PositionInterview"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/PositionInterview",
+  "elements": [
+    {
+      "id": "IHRIS.DE.PositionInterview.date",
+      "activityId": null,
+      "formIds": [
+        "position_interview"
+      ],
+      "formDataElementLabel": "Date of Interview",
+      "dataElementLabel": "Date of Interview",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Position Interview",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PositionInterview",
+        "field": "date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-an-application.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PositionInterview.person",
+      "activityId": null,
+      "formIds": [
+        "position_interview"
+      ],
+      "formDataElementLabel": "People Attending",
+      "dataElementLabel": "People Attending",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Position Interview",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PositionInterview",
+        "field": "person",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PositionInterview.comments",
+      "activityId": null,
+      "formIds": [
+        "position_interview"
+      ],
+      "formDataElementLabel": "Comments",
+      "dataElementLabel": "Comments",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Position Interview",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PositionInterview",
+        "field": "comments",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-an-application.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PositionInterview.record",
+      "activityId": null,
+      "formIds": [
+        "position_interview"
+      ],
+      "formDataElementLabel": "Interview Record",
+      "dataElementLabel": "Interview Record",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Attachment",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Position Interview",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PositionInterview",
+        "field": "record",
+        "i2ceType": "DOCUMENT",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-ApplicationAttachment"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Education",
+  "group": "Education",
+  "title": "Education History",
+  "class": "iHRIS_Education",
+  "extends": "I2CE_Form",
+  "forms": [
+    "education"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Education"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Education",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Education.degree",
+      "activityId": null,
+      "formIds": [
+        "education"
+      ],
+      "formDataElementLabel": "Degree",
+      "dataElementLabel": "Degree",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/degree"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Education History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Education",
+        "field": "degree",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/PersonEducation"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Education.institution",
+      "activityId": null,
+      "formIds": [
+        "education"
+      ],
+      "formDataElementLabel": "Institution Name",
+      "dataElementLabel": "Institution Name",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Education History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Education",
+        "field": "institution",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/PersonEducation"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Education.location",
+      "activityId": null,
+      "formIds": [
+        "education"
+      ],
+      "formDataElementLabel": "Institution Location",
+      "dataElementLabel": "Institution Location",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Education History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Education",
+        "field": "location",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/PersonEducation"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Education.year",
+      "activityId": null,
+      "formIds": [
+        "education"
+      ],
+      "formDataElementLabel": "Year of Graduation (leave blank if In Progress)",
+      "dataElementLabel": "Year of Graduation (leave blank if In Progress)",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Education History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "year only",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Education",
+        "field": "year",
+        "i2ceType": "DATE_Y",
+        "definedIn": [
+          "ihris-common/module/PersonEducation"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Education.major",
+      "activityId": null,
+      "formIds": [
+        "education"
+      ],
+      "formDataElementLabel": "Major",
+      "dataElementLabel": "Major",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Education History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Education",
+        "field": "major",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/PersonEducation"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    }
+  ]
+}

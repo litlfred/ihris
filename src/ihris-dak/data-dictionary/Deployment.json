@@ -1,0 +1,168 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Deployment",
+  "group": "Deployment",
+  "title": "Deployment",
+  "class": "iHRIS_Deployment",
+  "extends": "I2CE_Form",
+  "forms": [
+    "deployment"
+  ],
+  "instances": [
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-qualify/form-class/iHRIS_Deployment"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Deployment",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Deployment.health_facility",
+      "activityId": null,
+      "formIds": [
+        "deployment"
+      ],
+      "formDataElementLabel": "Health Facility",
+      "dataElementLabel": "Health Facility",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/health_facility"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Deployment",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Deployment",
+        "field": "health_facility",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Deployment.job_title",
+      "activityId": null,
+      "formIds": [
+        "deployment"
+      ],
+      "formDataElementLabel": "Job/Post Title",
+      "dataElementLabel": "Job/Post Title",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Deployment",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Deployment",
+        "field": "job_title",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Deployment.job_code",
+      "activityId": null,
+      "formIds": [
+        "deployment"
+      ],
+      "formDataElementLabel": "Job/Post Code",
+      "dataElementLabel": "Job/Post Code",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Deployment",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Deployment",
+        "field": "job_code",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Deployment.deployment_date",
+      "activityId": null,
+      "formIds": [
+        "deployment"
+      ],
+      "formDataElementLabel": "Deployment Date",
+      "dataElementLabel": "Deployment Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Deployment",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Deployment",
+        "field": "deployment_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.DisciplinaryAction",
+  "group": "DisciplinaryAction",
+  "title": "Disciplinary Action",
+  "class": "iHRIS_DisciplinaryAction",
+  "extends": "I2CE_Form",
+  "forms": [
+    "disciplinary_action"
+  ],
+  "instances": [
+    "ihris-manage",
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_DisciplinaryAction",
+    "ihris-qualify/form-class/iHRIS_DisciplinaryAction"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/DisciplinaryAction",
+  "elements": [
+    {
+      "id": "IHRIS.DE.DisciplinaryAction.action_date",
+      "activityId": null,
+      "formIds": [
+        "disciplinary_action"
+      ],
+      "formDataElementLabel": "Date of Discussion",
+      "dataElementLabel": "Date of Discussion",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Disciplinary Action",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_DisciplinaryAction",
+        "field": "action_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/disciplinary_action",
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-workplace-accident.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.DisciplinaryAction.disciplinary_action_type",
+      "activityId": null,
+      "formIds": [
+        "disciplinary_action"
+      ],
+      "formDataElementLabel": "Action Taken",
+      "dataElementLabel": "Action Taken",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/disciplinary_action_type"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Disciplinary Action",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_DisciplinaryAction",
+        "field": "disciplinary_action_type",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-manage/module/disciplinary_action"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-workplace-accident.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.DisciplinaryAction.disciplinary_action_reason",
+      "activityId": null,
+      "formIds": [
+        "disciplinary_action"
+      ],
+      "formDataElementLabel": "Reason for Action",
+      "dataElementLabel": "Reason for Action",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/disciplinary_action_reason"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Disciplinary Action",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_DisciplinaryAction",
+        "field": "disciplinary_action_reason",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-manage/module/disciplinary_action",
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.DisciplinaryAction.start_date",
+      "activityId": null,
+      "formIds": [
+        "disciplinary_action"
+      ],
+      "formDataElementLabel": "Start of Applicability",
+      "dataElementLabel": "Start of Applicability",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Disciplinary Action",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_DisciplinaryAction",
+        "field": "start_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/disciplinary_action"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-workplace-accident.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.DisciplinaryAction.end_date",
+      "activityId": null,
+      "formIds": [
+        "disciplinary_action"
+      ],
+      "formDataElementLabel": "End of Applicability",
+      "dataElementLabel": "End of Applicability",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Disciplinary Action",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_DisciplinaryAction",
+        "field": "end_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/disciplinary_action"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.DisciplinaryAction.notes",
+      "activityId": null,
+      "formIds": [
+        "disciplinary_action"
+      ],
+      "formDataElementLabel": "Notes",
+      "dataElementLabel": "Notes",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Disciplinary Action",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_DisciplinaryAction",
+        "field": "notes",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/disciplinary_action",
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.DisciplinaryAction.persons_present",
+      "activityId": null,
+      "formIds": [
+        "disciplinary_action"
+      ],
+      "formDataElementLabel": "People Present",
+      "dataElementLabel": "People Present",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Disciplinary Action",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_DisciplinaryAction",
+        "field": "persons_present",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/disciplinary_action"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-workplace-accident.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.DisciplinaryAction.suspend",
+      "activityId": null,
+      "formIds": [
+        "disciplinary_action"
+      ],
+      "formDataElementLabel": "Suspend License?",
+      "dataElementLabel": "Suspend License?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Disciplinary Action",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_DisciplinaryAction",
+        "field": "suspend",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.DisciplinaryAction.reinstate_date",
+      "activityId": null,
+      "formIds": [
+        "disciplinary_action"
+      ],
+      "formDataElementLabel": "Reinstatement Date",
+      "dataElementLabel": "Reinstatement Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Disciplinary Action",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_DisciplinaryAction",
+        "field": "reinstate_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    }
+  ]
+}

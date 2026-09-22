@@ -1,0 +1,212 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.OutMigration",
+  "group": "OutMigration",
+  "title": "Out Migration",
+  "class": "iHRIS_OutMigration",
+  "extends": "I2CE_Form",
+  "forms": [
+    "out_migration"
+  ],
+  "instances": [
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-qualify/form-class/iHRIS_OutMigration"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/OutMigration",
+  "elements": [
+    {
+      "id": "IHRIS.DE.OutMigration.country",
+      "activityId": null,
+      "formIds": [
+        "out_migration"
+      ],
+      "formDataElementLabel": "Country",
+      "dataElementLabel": "Country",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/country"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Out Migration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_OutMigration",
+        "field": "country",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-geographical-areas-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-geographical-areas.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.OutMigration.new_address",
+      "activityId": null,
+      "formIds": [
+        "out_migration"
+      ],
+      "formDataElementLabel": "Address in new Country",
+      "dataElementLabel": "Address in new Country",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Out Migration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_OutMigration",
+        "field": "new_address",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.OutMigration.out_migration_reason",
+      "activityId": null,
+      "formIds": [
+        "out_migration"
+      ],
+      "formDataElementLabel": "Out Migration Reason",
+      "dataElementLabel": "Out Migration Reason",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/out_migration_reason"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Out Migration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_OutMigration",
+        "field": "out_migration_reason",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.OutMigration.organization",
+      "activityId": null,
+      "formIds": [
+        "out_migration"
+      ],
+      "formDataElementLabel": "Organization Requesting Verification",
+      "dataElementLabel": "Organization Requesting Verification",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Out Migration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_OutMigration",
+        "field": "organization",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.OutMigration.request_date",
+      "activityId": null,
+      "formIds": [
+        "out_migration"
+      ],
+      "formDataElementLabel": "Request Date",
+      "dataElementLabel": "Request Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Out Migration",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_OutMigration",
+        "field": "request_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md"
+      ]
+    }
+  ]
+}

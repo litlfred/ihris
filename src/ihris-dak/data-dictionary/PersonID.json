@@ -1,0 +1,240 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.PersonID",
+  "group": "PersonID",
+  "title": "Person Identification",
+  "class": "iHRIS_PersonID",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_id"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_PersonID"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/PersonID",
+  "elements": [
+    {
+      "id": "IHRIS.DE.PersonID.id_type",
+      "activityId": null,
+      "formIds": [
+        "person_id"
+      ],
+      "formDataElementLabel": "Identification Type",
+      "dataElementLabel": "Identification Type",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/id_type"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Identification",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "unique",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonID",
+        "field": "id_type",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/PersonID"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PersonID.id_num",
+      "activityId": null,
+      "formIds": [
+        "person_id"
+      ],
+      "formDataElementLabel": "Identification Number",
+      "dataElementLabel": "Identification Number",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Identification",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "unique",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonID",
+        "field": "id_num",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/PersonID"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PersonID.issue_date",
+      "activityId": null,
+      "formIds": [
+        "person_id"
+      ],
+      "formDataElementLabel": "Date of Issue",
+      "dataElementLabel": "Date of Issue",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Identification",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonID",
+        "field": "issue_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/PersonID"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonID.expiration_date",
+      "activityId": null,
+      "formIds": [
+        "person_id"
+      ],
+      "formDataElementLabel": "Date of Expiration",
+      "dataElementLabel": "Date of Expiration",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Identification",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonID",
+        "field": "expiration_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/PersonID"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonID.country",
+      "activityId": null,
+      "formIds": [
+        "person_id"
+      ],
+      "formDataElementLabel": "Country of Issue",
+      "dataElementLabel": "Country of Issue",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/country"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Identification",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonID",
+        "field": "country",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/PersonID"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonID.place",
+      "activityId": null,
+      "formIds": [
+        "person_id"
+      ],
+      "formDataElementLabel": "Place of Issue",
+      "dataElementLabel": "Place of Issue",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Identification",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonID",
+        "field": "place",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/PersonID"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.LeaveRequest",
+  "group": "LeaveRequest",
+  "title": "Leave Request",
+  "class": "iHRIS_LeaveRequest",
+  "extends": "I2CE_Form",
+  "forms": [
+    "leave_request"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_LeaveRequest"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/LeaveRequest",
+  "elements": [
+    {
+      "id": "IHRIS.DE.LeaveRequest.notes",
+      "activityId": null,
+      "formIds": [
+        "leave_request"
+      ],
+      "formDataElementLabel": "Notes",
+      "dataElementLabel": "Notes",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Request",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveRequest",
+        "field": "notes",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/leave"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.LeaveRequest.leave_category",
+      "activityId": null,
+      "formIds": [
+        "leave_request"
+      ],
+      "formDataElementLabel": "Leave Category",
+      "dataElementLabel": "Leave Category",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/leave_category"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Request",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveRequest",
+        "field": "leave_category",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-manage/module/leave"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveRequest.leave_status",
+      "activityId": null,
+      "formIds": [
+        "leave_request"
+      ],
+      "formDataElementLabel": "Leave Status",
+      "dataElementLabel": "Leave Status",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/leave_status"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Request",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveRequest",
+        "field": "leave_status",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-manage/module/leave"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveRequest.supervisor_approval",
+      "activityId": null,
+      "formIds": [
+        "leave_request"
+      ],
+      "formDataElementLabel": "Supervisor Approval",
+      "dataElementLabel": "Supervisor Approval",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Request",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveRequest",
+        "field": "supervisor_approval",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-manage/module/leave"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveRequest.hr_approval",
+      "activityId": null,
+      "formIds": [
+        "leave_request"
+      ],
+      "formDataElementLabel": "Human Resource Approval",
+      "dataElementLabel": "Human Resource Approval",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Request",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveRequest",
+        "field": "hr_approval",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-manage/module/leave"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveRequest.start_date",
+      "activityId": null,
+      "formIds": [
+        "leave_request"
+      ],
+      "formDataElementLabel": "Leave Start Date",
+      "dataElementLabel": "Leave Start Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Request",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveRequest",
+        "field": "start_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/leave"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveRequest.end_date",
+      "activityId": null,
+      "formIds": [
+        "leave_request"
+      ],
+      "formDataElementLabel": "Leave End Date",
+      "dataElementLabel": "Leave End Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Request",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveRequest",
+        "field": "end_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/leave"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveRequest.leave_days",
+      "activityId": null,
+      "formIds": [
+        "leave_request"
+      ],
+      "formDataElementLabel": "Leave Days",
+      "dataElementLabel": "Leave Days",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Integer quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Request",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveRequest",
+        "field": "leave_days",
+        "i2ceType": "INT",
+        "definedIn": [
+          "ihris-manage/module/leave"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveRequest.return_date",
+      "activityId": null,
+      "formIds": [
+        "leave_request"
+      ],
+      "formDataElementLabel": "Return Date",
+      "dataElementLabel": "Return Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Request",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveRequest",
+        "field": "return_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/leave"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.LeaveRequest.approved_return_date",
+      "activityId": null,
+      "formIds": [
+        "leave_request"
+      ],
+      "formDataElementLabel": "Approved Return Date",
+      "dataElementLabel": "Approved Return Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Leave Request",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_LeaveRequest",
+        "field": "approved_return_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/leave"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.QualifyDemographic",
+  "group": "QualifyDemographic",
+  "title": "Demographic Information",
+  "class": "iHRIS_QualifyDemographic",
+  "extends": "iHRIS_Demographic",
+  "forms": [
+    "demographic"
+  ],
+  "instances": [
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-qualify/form-class/iHRIS_QualifyDemographic"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/QualifyDemographic",
+  "elements": [
+    {
+      "id": "IHRIS.DE.QualifyDemographic.birth_location",
+      "activityId": null,
+      "formIds": [
+        "demographic"
+      ],
+      "formDataElementLabel": "Birth Location",
+      "dataElementLabel": "Birth Location",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/county",
+        "https://litlfred.github.io/ihris/dak/ValueSet/district"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Demographic Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "hierarchical selection across lists: county, district",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_QualifyDemographic",
+        "field": "birth_location",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

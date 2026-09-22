@@ -1,0 +1,95 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Notes",
+  "group": "Notes",
+  "title": "Notes",
+  "class": "iHRIS_Notes",
+  "extends": "I2CE_Form",
+  "forms": [
+    "notes"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Notes"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Notes",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Notes.note",
+      "activityId": null,
+      "formIds": [
+        "notes"
+      ],
+      "formDataElementLabel": "Note",
+      "dataElementLabel": "Note",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Notes",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Notes",
+        "field": "note",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-common/module/PersonNotes"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Notes.date_added",
+      "activityId": null,
+      "formIds": [
+        "notes"
+      ],
+      "formDataElementLabel": "Date Added",
+      "dataElementLabel": "Date Added",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Notes",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Notes",
+        "field": "date_added",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/PersonNotes"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    }
+  ]
+}
