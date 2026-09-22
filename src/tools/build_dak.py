@@ -301,7 +301,13 @@ def build_terminology(forms, form_to_class, fdisp, merged):
             write_json(os.path.join(tdir, f"CodeSystem-{form}-example-{mslug}.json"), cs)
         vs = {"resourceType": "ValueSet", "id": f"ihris-{form.replace('_', '-')}", "url": f"{CANONICAL}/ValueSet/{form}",
               "version": RELEASE, "name": f"IHRIS{_pascal(form)}VS", "title": f"iHRIS {title}", "status": "draft", "experimental": True}
-        if default:
+        if form in ISO_SYSTEMS:
+            iso = ISO_SYSTEMS[form]
+            vs["description"] = (f"All current codes of {iso['name']} ({iso['system']}). The DAK binds to the standard, not to iHRIS's "
+                                 f"shipped `{form}` list; that list is CodeSystem `{form}` here, mapped to the standard by "
+                                 f"ConceptMap `{form}-to-{iso['slug']}`.")
+            vs["compose"] = {"include": [{"system": iso["system"]}]}
+        elif default:
             vs["description"] = f"All codes of the iHRIS `{form}` list as shipped by default in iHRIS {RELEASE}."
             vs["compose"] = {"include": [{"system": cs_url}]}
         else:
@@ -318,6 +324,12 @@ def slug_(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 
 
+# Standard code systems the DAK binds to instead of iHRIS's own lists. System URIs are the HL7 ones
+# (terminology.hl7.org lists urn:iso:std:iso:3166 and urn:iso:std:iso:4217).
+ISO_SYSTEMS = {
+    "country": {"system": "urn:iso:std:iso:3166", "name": "ISO 3166-1 alpha-2", "slug": "iso-3166"},
+    "currency": {"system": "urn:iso:std:iso:4217", "name": "ISO 4217", "slug": "iso-4217"},
+}
 ILO_ISCO08 = "http://www.ilo.org/public/english/bureau/stat/isco/isco08/"  # the system URL smart-base's CodeSystem ISCO08 uses
 
 
@@ -404,6 +416,64 @@ def build_isco(fdisp):
          "A cadre is broader than any one occupation group, so each target is `inexact` and lists the sample jobs that justify it. "
          "Derived from SAMPLE data only; a deployment's cadres need their own map.")
     report["isco88to08"] = "not produced: needs the ILO ISCO-88/ISCO-08 correspondence table (not reachable from the building session)"
+    return report
+
+
+def build_iso():
+    """ConceptMaps from iHRIS's shipped country and currency lists to ISO 3166-1 / ISO 4217.
+
+    Verified against the Debian iso-codes data packaged by pycountry (version recorded in the
+    report): a shipped code that is a CURRENT ISO code maps `equal`; a withdrawn one is `unmatched`,
+    naming the withdrawal where iso-codes records it. No successor is ever guessed (ZMK -> ZMW is
+    a fact about a redenomination, not about the code, and the source does not state it)."""
+    try:
+        import pycountry
+    except ImportError:
+        print("  (pycountry missing: ISO ConceptMaps not built; pip install pycountry==24.6.1)")
+        return None
+    from importlib.metadata import version
+    lists = load_data_lists()
+    tdir = os.path.join(OUT, "terminology")
+    report = {"verifiedWith": f"pycountry {version('pycountry')} (Debian iso-codes)"}
+    cur_c = {c.alpha_2: c for c in pycountry.countries}
+    hist_c = {c.alpha_2: c for c in pycountry.historic_countries if hasattr(c, "alpha_2")}
+    cur_m = {c.alpha_3: c for c in pycountry.currencies}
+    specs = [
+        ("country", cur_c, lambda c: c.name, lambda code: (f"Withdrawn from ISO 3166-1; ISO 3166-3 code {hist_c[code].alpha_4}"
+                                                           + (f", withdrawn {hist_c[code].withdrawal_date}" if getattr(hist_c[code], "withdrawal_date", None) else "")
+                                                           if code in hist_c else "Not an ISO 3166-1 code")),
+        ("currency", cur_m, lambda c: c.name, lambda code: "Not a current ISO 4217 code (withdrawn or superseded); no successor is inferred"),
+    ]
+    for form, current, disp, why in specs:
+        iso = ISO_SYSTEMS[form]
+        seen, el, un, names = set(), [], [], []
+        for r in lists.get(form, []):
+            if r["provenance"] != "default" or r["id"] in seen:
+                continue
+            seen.add(r["id"])
+            shipped = r["fields"].get("name")
+            if r["id"] in current:
+                t = {"code": r["id"], "display": disp(current[r["id"]]), "equivalence": "equal"}
+                if shipped and shipped.lower() != disp(current[r["id"]]).lower():
+                    t["comment"] = f"iHRIS {RELEASE} ships the older name \"{shipped}\"."
+                    names.append({"code": r["id"], "shipped": shipped, "iso": disp(current[r["id"]])})
+                el.append({"code": r["id"], "display": shipped, "target": [t]})
+            else:
+                un.append({"code": r["id"], "display": shipped, "target": [{"equivalence": "unmatched", "comment": why(r["id"])}]})
+        write_json(os.path.join(tdir, f"ValueSet-{form}-shipped.json"), {
+            "resourceType": "ValueSet", "id": f"ihris-{form}-shipped", "url": f"{CANONICAL}/ValueSet/{form}-shipped", "version": RELEASE,
+            "name": f"IHRIS{_pascal(form)}ShippedVS", "title": f"iHRIS {form} list as shipped", "status": "draft", "experimental": True,
+            "description": f"Every code of the `{form}` list iHRIS {RELEASE} ships by default: the source side of ConceptMap `{form}-to-{iso['slug']}`.",
+            "compose": {"include": [{"system": f"{CANONICAL}/CodeSystem/{form}"}]}})
+        cid = f"{form}-to-{iso['slug']}"
+        write_json(os.path.join(tdir, f"ConceptMap-{cid}.json"), {
+            "resourceType": "ConceptMap", "id": cid, "url": f"{CANONICAL}/ConceptMap/{cid}", "version": RELEASE, "name": _pascal(cid),
+            "title": f"iHRIS {form} list to {iso['name']}", "status": "draft", "experimental": True,
+            "description": f"The `{form}` codes iHRIS {RELEASE} ships by default, mapped to {iso['name']}. Verified with {report['verifiedWith']}.",
+            "sourceUri": f"{CANONICAL}/ValueSet/{form}-shipped", "targetUri": f"{CANONICAL}/ValueSet/{form}",
+            "group": [{"source": f"{CANONICAL}/CodeSystem/{form}", "target": iso["system"], "element": el + un}]})
+        report[form] = {"system": iso["system"], "shipped": len(seen), "equal": len(el), "notCurrent": [u["code"] for u in un],
+                        "currentMissingFromIhris": sorted(set(current) - seen), "olderNames": names}
     return report
 
 
@@ -528,6 +598,13 @@ def main():
     term = {e["form"]: e for e in build_terminology(sorted(set(lists_used) | {"isco_88_unit", "isco_88_minor"}), form_to_class, fdisp, merged)}
     isco = build_isco(fdisp)
     write_json(os.path.join(OUT, "isco-report.json"), isco)
+    iso = build_iso()
+    if iso is not None:
+        write_json(os.path.join(OUT, "iso-report.json"), iso)
+    for f in sorted(glob.glob(os.path.join(OUT, "terminology", "ConceptMap-*.json"))):
+        cm = json.load(open(f))
+        write_json(os.path.join(OUT, "core-data-elements", f"CM-{cm['id']}.json"),
+                   {"resourceType": "CoreDataElement", "type": "conceptmap", "id": f"{DAK_PREFIX}.CM.{cm['id']}", "canonical": cm["url"]})
     for f in term:
         if f not in lists_used:  # reached only through another list's MAP property (e.g. district -> region)
             write_json(os.path.join(OUT, "core-data-elements", f"VS-{f}.json"), {

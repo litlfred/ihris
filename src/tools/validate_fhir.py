@@ -22,7 +22,7 @@ docs = {f: json.load(open(f)) for f in files}
 urls = {d["url"] for d in docs.values() if d["resourceType"] == "CodeSystem"}
 codes = {d["url"]: {c["code"] for c in d.get("concept", [])} for d in docs.values() if d["resourceType"] == "CodeSystem"}
 # External systems referenced on purpose (not generated here): the ILO ISCO-08 URL WHO smart-base uses.
-EXTERNAL = {"http://www.ilo.org/public/english/bureau/stat/isco/isco08/"}
+EXTERNAL = {"http://www.ilo.org/public/english/bureau/stat/isco/isco08/", "urn:iso:std:iso:3166", "urn:iso:std:iso:4217"}
 MODEL = {"CodeSystem": CodeSystem, "ValueSet": ValueSet, "ConceptMap": ConceptMap}
 errs, n = [], {"CodeSystem": 0, "ValueSet": 0, "ConceptMap": 0}
 for f, d in docs.items():
@@ -40,13 +40,13 @@ for f, d in docs.items():
                 errs.append(f"{os.path.relpath(f, ROOT)}: {c['code']}.{p['code']} -> {p['valueCoding']['system']} has no CodeSystem")
     for g in d.get("group", []):
         for side in ("source", "target"):
-            if g.get(side) not in urls:
+            if g.get(side) not in urls | (EXTERNAL if side == "target" else set()):
                 errs.append(f"{os.path.relpath(f, ROOT)}: ConceptMap group {side} {g.get(side)} is not a generated CodeSystem")
         for e in g.get("element", []):
             if e["code"] not in codes.get(g.get("source"), set()):
                 errs.append(f"{os.path.relpath(f, ROOT)}: source code {e['code']} not in {g.get('source')}")
             for t in e.get("target", []):
-                if t.get("code") and t["code"] not in codes.get(g.get("target"), set()):
+                if t.get("code") and g.get("target") not in EXTERNAL and t["code"] not in codes.get(g.get("target"), set()):
                     errs.append(f"{os.path.relpath(f, ROOT)}: target code {t['code']} not in {g.get('target')}")
 print(f"FHIR R4: {n}; {len(errs)} error(s)")
 print("\n".join(errs[:40]))

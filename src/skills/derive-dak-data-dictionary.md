@@ -52,6 +52,10 @@ A MAP value `list|id` becomes a Coding to whichever CodeSystem **holds** that id
 - **Never** map ISCO-88 to ISCO-08 from memory. It needs ILO's correspondence table. Record the gap as a `blocked` item in `authored/`.
 - Anything a person decides (a binding, a definition) goes in `authored/` as an `ihris-dak-proposal/v1`. Builds never write there.
 
+## Standard code systems (ISO)
+
+Where iHRIS's record ids *are* a standard's codes (country → ISO 3166-1 alpha-2, currency → ISO 4217), the DAK ValueSet binds to the standard (`urn:iso:std:iso:3166`, `urn:iso:std:iso:4217`). The shipped list stays a local CodeSystem, mapped by a ConceptMap that is verified against pycountry's iso-codes data. Withdrawn codes are `unmatched`, and successors are never inferred. To add another standard, extend `ISO_SYSTEMS` and `build_iso()` in `build_dak.py`.
+
 ## Steps
 
 1. `python3 src/tools/build_dak.py`

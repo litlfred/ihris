@@ -48,10 +48,24 @@ iHRIS ships **both ISCO classifications as default data**: ISCO-08 with 10 / 43 
 
 Why the maps target **ISCO-88** and not ISCO-08: iHRIS's own sample data is keyed on ISCO-88. For example, job `2221-1D` Medical Doctor sits under ISCO-88 unit 2221, and classification code `223` is ISCO-88 "Nursing and midwifery professionals". Going from ISCO-88 to ISCO-08 is many-to-many and needs the ILO correspondence table. That step is **blocked**, not guessed; see `authored/isco-08.json`, item P2.
 
+## Countries and currencies: ISO 3166-1 and ISO 4217
+
+iHRIS's shipped country ids *are* ISO 3166-1 alpha-2 codes, and its currency ids *are* ISO 4217 codes. So the DAK ValueSets `country` and `currency` **bind to the standards** (`urn:iso:std:iso:3166`, `urn:iso:std:iso:4217`, all current codes). The shipped lists stay as local CodeSystems, because that is what deployments store, and are mapped to the standards:
+
+| ConceptMap | equal | not current | current codes iHRIS lacks | older names |
+|---|---|---|---|---|
+| `country-to-iso-3166` | 245 | 1 (`AN`, withdrawn 2010, now ISO 3166-3 `ANHH`) | 4 (`BQ`, `CW`, `SS`, `SX`) | 11 |
+| `currency-to-iso-4217` | 143 | 19 (e.g. `ZMK`, `GHC`, `MRO`, `EEK`, `LTL`) | 38 (e.g. `ZMW`, `GHS`, `MRU`, `SSP`) | 15 |
+
+Verified against the Debian *iso-codes* data packaged by `pycountry` (the version is recorded in `iso-report.json`). A withdrawn code is `unmatched`: its successor is **not** inferred, because that is a redenomination fact the source does not state. Decisions are in [`authored/iso.json`](authored/iso.json):
+- **B1:** the ISO binding. Accepted by the owner.
+- **P1 (proposed):** deployments update the 2009-era lists.
+
 ## Authored overlay (`authored/`)
 
 The only part of this instance that a person writes and the build never touches. Each file is an `ihris-dak-proposal/v1`: proposals with a rationale, evidence and a status that only the owner changes.
 
+- [`authored/iso.json`](authored/iso.json): B1 (accepted) ISO binding; P1 (proposed) update the outdated lists.
 - [`authored/isco-08.json`](authored/isco-08.json):
   - **P1 (accepted by the owner, 2026-09-22):** each deployment maps its cadre and job codes to ISCO-08 unit groups.
   - **P2 (blocked):** ISCO-88 → ISCO-08, pending the ILO correspondence table.

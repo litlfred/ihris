@@ -3,7 +3,7 @@
   "title": "Derive the DAK data dictionary",
   "description": "Derives a WHO SMART DAK (L2) data dictionary from the iHRIS data model: data elements in WHO column order (JSON, CSV, XLSX) and smart-base CoreDataElement instances. Never fills description, conditionality or linkage columns.",
   "install": {
-    "cli": "pip install openpyxl"
+    "cli": "pip install openpyxl pycountry==24.6.1"
   },
   "invoke": {
     "shell": "python3 src/tools/build_dak.py"

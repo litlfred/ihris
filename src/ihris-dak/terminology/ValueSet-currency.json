@@ -7,11 +7,11 @@
   "title": "iHRIS Currency",
   "status": "draft",
   "experimental": true,
-  "description": "All codes of the iHRIS `currency` list as shipped by default in iHRIS 4.3.3.",
+  "description": "All current codes of ISO 4217 (urn:iso:std:iso:4217). The DAK binds to the standard, not to iHRIS's shipped `currency` list; that list is CodeSystem `currency` here, mapped to the standard by ConceptMap `currency-to-iso-4217`.",
   "compose": {
     "include": [
       {
-        "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency"
+        "system": "urn:iso:std:iso:4217"
       }
     ]
   }
