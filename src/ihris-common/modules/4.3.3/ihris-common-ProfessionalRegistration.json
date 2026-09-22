@@ -1,0 +1,62 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/ihris-common-ProfessionalRegistration",
+  "module": "ihris-common-ProfessionalRegistration",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/ihris-common-ProfessionalRegistration/ihris-common-ProfessionalRegistration.xml",
+    "sha256": "11352c6e385b70c827a32f61579dbbbec28ba75d227caee0ea1c53de84a91b20"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "iHRIS Common Professional Registration",
+  "description": "A Person's Registration Details. Creates the registration child form of person and the council list form.",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_ProfessionalRegistration",
+  "category": "Application Component",
+  "creator": null,
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.2"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "council",
+      "class": "I2CE_SimpleList",
+      "displayName": "Council"
+    },
+    {
+      "form": "registration",
+      "class": "iHRIS_Registration",
+      "displayName": "Registration"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Registration"
+  ],
+  "pages": [
+    {
+      "page": "registration",
+      "class": null,
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

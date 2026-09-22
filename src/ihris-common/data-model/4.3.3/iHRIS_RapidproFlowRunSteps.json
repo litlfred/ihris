@@ -1,0 +1,81 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_RapidproFlowRunSteps",
+  "class": "iHRIS_RapidproFlowRunSteps",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "rapidpro_flow_run_steps"
+  ],
+  "definedIn": [
+    "ihris-common/module/mHero-base"
+  ],
+  "fields": [
+    {
+      "field": "node",
+      "type": "STRING_LINE",
+      "label": "Node",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "arrived_on",
+      "type": "DATE_TIME",
+      "label": "Arrived On",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "left_on",
+      "type": "DATE_TIME",
+      "label": "Left On",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "text",
+      "type": "STRING_LINE",
+      "label": "Text",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "value",
+      "type": "STRING_LINE",
+      "label": "Value",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "step_type",
+      "type": "MAP",
+      "label": "Step Type",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    }
+  ]
+}

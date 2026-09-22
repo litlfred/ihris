@@ -1,0 +1,20 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "release/ihris-manage/test",
+  "kind": "container",
+  "flavour": "release",
+  "title": "iHRIS Manage test",
+  "parents": [
+    [
+      "project/ihris-manage",
+      "series/ihris-manage/4.0"
+    ]
+  ],
+  "metadataRef": "records/release--ihris-manage--test.json",
+  "materialization": {
+    "state": "referenced",
+    "provenance": {
+      "upstream": "https://launchpad.net/ihris-manage/+milestone/test"
+    }
+  }
+}

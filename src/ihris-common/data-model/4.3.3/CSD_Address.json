@@ -1,0 +1,40 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_Address",
+  "class": "CSD_Address",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "csd_facility_address",
+    "csd_organization_address",
+    "csd_provider_address",
+    "csd_provider_organization_address"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-provider-data-model"
+  ],
+  "fields": [
+    {
+      "field": "address_line",
+      "type": "ASSOC_MAP",
+      "label": "Address Lines",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "csd_address_type",
+      "type": "MAP",
+      "label": "Address Type",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    }
+  ]
+}

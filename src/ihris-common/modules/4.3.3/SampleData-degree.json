@@ -1,0 +1,40 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/SampleData-degree",
+  "module": "SampleData-degree",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CommonSampleData/modules/SampleData-degree/SampleData-degree.xml",
+    "sha256": "631189f63d3dad6f7e58972458fcbd866f8556736f6f6576be2d2f74eb899df8"
+  },
+  "parent": "ihris-common/module/SampleData-Common",
+  "site": null,
+  "displayName": "Degree",
+  "description": "Sample Data for form: degree",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "SampleData-edu_type",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "degree": 11
+  },
+  "locales": [
+    "en_US"
+  ]
+}

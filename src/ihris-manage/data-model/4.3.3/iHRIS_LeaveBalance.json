@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_LeaveBalance",
+  "class": "iHRIS_LeaveBalance",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "leave_balance"
+  ],
+  "definedIn": [
+    "ihris-manage/module/leave"
+  ],
+  "fields": [
+    {
+      "field": "leave_category",
+      "type": "MAP",
+      "label": "Leave Category",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "balance",
+      "type": "INT",
+      "label": "Balance",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "taken",
+      "type": "INT",
+      "label": "Days On Leave",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    }
+  ]
+}

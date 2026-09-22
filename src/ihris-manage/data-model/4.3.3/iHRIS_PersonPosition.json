@@ -1,0 +1,61 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_PersonPosition",
+  "class": "iHRIS_PersonPosition",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_position"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ihris-manage-PersonPosition"
+  ],
+  "fields": [
+    {
+      "field": "position",
+      "type": "MAP",
+      "label": "Position",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "start_date",
+      "type": "DATE_YMD",
+      "label": "Start Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "end_date",
+      "type": "DATE_YMD",
+      "label": "End Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "reason",
+      "type": "MAP",
+      "label": "Reason for Departure",
+      "required": false,
+      "unique": null,
+      "references": [
+        "pos_change_reason"
+      ],
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    }
+  ]
+}

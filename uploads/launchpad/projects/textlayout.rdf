@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:doaml="http://ns.balbinus.net/doaml#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:lp="https://launchpad.net/rdf/launchpad#" xmlns:wot="http://xmlns.com/wot/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <lp:Product>
+        <lp:specifiedAt rdf:resource="/textlayout/+rdf"/>
+        <lp:name>textlayout</lp:name>
+        <lp:displayName>TextLayout</lp:displayName>
+        <lp:title>TextLayout</lp:title>
+        <lp:shortDescription>Some tools to handle text layout.  Features including hyphenation support using any Open Office hyphenation dictionary.  Loading of font metrics, including kerning information, from TrueType (ttf) and AFM Files.  Word wrapping using the 'Greedy' algorithm is currently implement.  Useful for making nicely word-wrapped tables of data with automatic assignment of widths.  Designed to create nicely formatted PDF files.  </lp:shortDescription>
+        <lp:description>This is used by my branches of  iHRIS Common and iHRIS Manage to generate PDF versions of reports.  In particular, see the iHRIS_ReportDisplay_PDF and iHRIS_ManageReportDisplay_PDF class.
+
+There is a very modest requirement to use the I2CE Core engine.  It only needs  I2CE_FileSearch.php
+
+In order to generate PDFs, there is, at the moment,  a requirement to have the tcpdf  package found at  http://tcpdf.sourceforge.net.  This will change in a future release.</lp:description>
+        <lp:creationDate>2007-09-27 20:38:43 UTC</lp:creationDate>
+        <lp:homepage/>
+        
+        <lp:programmingLanguage>php</lp:programmingLanguage>
+        
+        <lp:inProject>
+            <lp:Project>
+                <lp:specifiedAt rdf:resource="/ihris-suite/+rdf"/>
+            </lp:Project>
+        </lp:inProject>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/textlayout/3.0/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/textlayout/3.1/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/textlayout/4.0/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/textlayout/4.0-dev/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/textlayout/4.1/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/textlayout/4.2/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/textlayout/4.3/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/textlayout/trunk/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:owner>
+            <foaf:Agent>
+                <foaf:Account rdf:resource="/~intrahealth+informatics/+rdf"/>
+            </foaf:Agent>
+        </lp:owner>
+        <lp:status>Active</lp:status>
+        
+    </lp:Product>
+</rdf:RDF>

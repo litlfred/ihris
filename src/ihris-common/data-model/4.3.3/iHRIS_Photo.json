@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Photo",
+  "class": "iHRIS_Photo",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_photo_passport"
+  ],
+  "definedIn": [
+    "ihris-common/module/Photo"
+  ],
+  "fields": [
+    {
+      "field": "image",
+      "type": "IMAGE",
+      "label": "Image",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Photo"
+      ]
+    },
+    {
+      "field": "date",
+      "type": "DATE_YMD",
+      "label": "Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Photo"
+      ]
+    },
+    {
+      "field": "description",
+      "type": "STRING_LINE",
+      "label": "Description",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Photo"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/nextOfKin",
+  "module": "nextOfKin",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/NextOfKin/nextofkin.xml",
+    "sha256": "38be5b0303a258fb895a19b894b4ce2cf2bc1eb4dc9c5e52c06c9b7eb87a59a3"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "Person's Next of Kin",
+  "description": "Adds Next of Kin Information to a Person",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_NextOfKin",
+  "category": "Application Component",
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Contact",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "dep_form",
+      "class": "iHRIS_NextOfKin",
+      "displayName": "Next of Kin"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/dep_class"
+  ],
+  "pages": [
+    {
+      "page": "nextofkin_page",
+      "class": null,
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

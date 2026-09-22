@@ -1,0 +1,34 @@
+{
+  "name": "ihris-wiki",
+  "title": "iHRIS wiki",
+  "description": "The iHRIS wiki (open.intrahealth.org 'Osi', later wiki.ihris.org), restored from whatever copies survive. First capture: the user-manual pages exported into the 4.3.3 help modules.",
+  "source": {
+    "web": [
+      "http://open.intrahealth.org/wiki/index.php/Main_Page",
+      "https://wiki.ihris.org/"
+    ],
+    "status": "both egress-blocked from the building session; no live capture yet"
+  },
+  "assets": [
+    {
+      "id": "readme",
+      "src": "README.md",
+      "role": "instance-readme",
+      "title": "iHRIS wiki",
+      "description": "Which wiki pages are restored, from where."
+    }
+  ],
+  "directories": [
+    {
+      "id": "ihris-wiki-osi-help",
+      "path": "osi-help-4.3.3/",
+      "dependents": "reproduce",
+      "graphKinds": [
+        "library"
+      ],
+      "readOnly": true,
+      "readOnlyBasis": "Ingested from the verified ihris-suite-4.3.3 tarball by src/tools/build_kg.py.",
+      "description": "MediaWiki pages exported into ihris-manage/modules/manage-help and ihris-qualify/modules/qualify-help, converted to Markdown and de-duplicated by title."
+    }
+  ]
+}

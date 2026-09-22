@@ -1,0 +1,47 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/messageBox",
+  "module": "messageBox",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/MessageHandler/modules/MessageBox/Message.xml",
+    "sha256": "50f88a4dd099167693035fa409eda088a69d977f260f00b0a913eb17fcb9a282"
+  },
+  "parent": "i2ce/module/messageHandler",
+  "site": null,
+  "displayName": "Message Box",
+  "description": "Displays the default message in a box",
+  "version": "4.3.0",
+  "className": "I2CE_MessageBox",
+  "category": "Messages",
+  "creator": "Carl Leitner",
+  "link": "http://www.capacityproject.org",
+  "requirements": [
+    {
+      "module": "messageHandler",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "MooTools",
+      "atLeast": "1.4",
+      "lessThan": "1.5"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

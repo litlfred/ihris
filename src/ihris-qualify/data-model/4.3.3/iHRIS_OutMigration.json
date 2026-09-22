@@ -1,0 +1,70 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_OutMigration",
+  "class": "iHRIS_OutMigration",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "out_migration"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "country",
+      "type": "MAP",
+      "label": "Country",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "new_address",
+      "type": "STRING_MLINE",
+      "label": "Address in new Country",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "out_migration_reason",
+      "type": "MAP",
+      "label": "Out Migration Reason",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "organization",
+      "type": "STRING_LINE",
+      "label": "Organization Requesting Verification",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "request_date",
+      "type": "DATE_YMD",
+      "label": "Request Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

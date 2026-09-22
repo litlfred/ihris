@@ -1,0 +1,103 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/csd-provider-pages",
+  "module": "csd-provider-pages",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CSD/modules/Pages/CSD-Pages.xml",
+    "sha256": "d84e9c96a7e690147f246c7d1023b79aaa46e5ed5219ae8d279f829df973826e"
+  },
+  "parent": "ihris-common/module/CSD",
+  "site": null,
+  "displayName": "CSD Health Worker Registry",
+  "description": "CSD Compliant Health Worker Pages Definitions",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": "IntraHealth Informatics",
+  "link": "https://launchpad.net/csd-provider-registry",
+  "requirements": [
+    {
+      "module": "csd-provider-data-model"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "view_csd_facility",
+      "class": "I2CE_PageFormAutoView",
+      "style": "shell"
+    },
+    {
+      "page": "view_csd_service",
+      "class": "I2CE_PageFormAutoView",
+      "style": "shell"
+    },
+    {
+      "page": "view_csd_organization",
+      "class": "I2CE_PageFormAutoView",
+      "style": "shell"
+    },
+    {
+      "page": "view_csd_provider",
+      "class": "I2CE_PageFormAutoView",
+      "style": "shell"
+    },
+    {
+      "page": "delete_csd_provider_service",
+      "class": "I2CE_PageFormParentDelete",
+      "style": "action"
+    },
+    {
+      "page": "delete_csd_operating_hours",
+      "class": "I2CE_PageFormParentDelete",
+      "style": "action"
+    },
+    {
+      "page": "delete_csd_provider_organization_address",
+      "class": "I2CE_PageFormParentDelete",
+      "style": "action"
+    },
+    {
+      "page": "delete_csd_provider_organization_contact_point",
+      "class": "I2CE_PageFormParentDelete",
+      "style": "action"
+    },
+    {
+      "page": "delete_csd_provider_address",
+      "class": "I2CE_PageFormParentDelete",
+      "style": "action"
+    },
+    {
+      "page": "delete_csd_provider_otherid",
+      "class": "I2CE_PageFormParentDelete",
+      "style": "action"
+    },
+    {
+      "page": "delete_csd_provider_name",
+      "class": "I2CE_PageFormParentDelete",
+      "style": "action"
+    },
+    {
+      "page": "delete_csd_provider_organization",
+      "class": "I2CE_PageFormParentDelete",
+      "style": "action"
+    },
+    {
+      "page": "delete_csd_provider_facility",
+      "class": "I2CE_PageFormParentDelete",
+      "style": "action"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

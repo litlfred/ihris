@@ -1,0 +1,39 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/SampleData-disciplinary_action_type",
+  "module": "SampleData-disciplinary_action_type",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/MedicalData/modules/SampleData-disciplinary_action_type/SampleData-disciplinary_action_type.xml",
+    "sha256": "34020dd729decdea45374c7eca7e3027356c2bea2e63be1bc88bd1009990427c"
+  },
+  "parent": "ihris-manage/module/ihris-manage-medical-data",
+  "site": null,
+  "displayName": "Disciplinary Action Type",
+  "description": "Sample Data for form: disciplinary_action_type",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "disciplinary_action",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "disciplinary_action_type": 5,
+    "disciplinary_action_reason": 15
+  },
+  "locales": []
+}

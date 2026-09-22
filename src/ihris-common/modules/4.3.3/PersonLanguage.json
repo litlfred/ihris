@@ -1,0 +1,69 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/PersonLanguage",
+  "module": "PersonLanguage",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/Language/Language.xml",
+    "sha256": "36f105bf1f3c60481d804aec0fcac39bc7732468323b2e86d6c8e1a45ca28f4a"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "iHRIS Person Language",
+  "description": "Track a Person's Language Qualifications",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_PersonLanguage",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "language",
+      "class": "I2CE_SimpleList",
+      "displayName": "Language"
+    },
+    {
+      "form": "language_proficiency",
+      "class": "I2CE_SimpleList",
+      "displayName": "Language Proficiency"
+    },
+    {
+      "form": "person_language",
+      "class": "iHRIS_PersonLanguage",
+      "displayName": "Person Language Proficiency"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_PersonLanguage"
+  ],
+  "pages": [
+    {
+      "page": "person_language",
+      "class": null,
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {
+    "language_proficiency": 5
+  },
+  "locales": [
+    "en_US"
+  ]
+}

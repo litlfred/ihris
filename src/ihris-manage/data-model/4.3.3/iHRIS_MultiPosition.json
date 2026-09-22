@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_MultiPosition",
+  "class": "iHRIS_MultiPosition",
+  "release": "4.3.3",
+  "extends": "iHRIS_Position",
+  "forms": [
+    "position"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ihris-manage-MultiPosition"
+  ],
+  "fields": [
+    {
+      "field": "count",
+      "type": "INT",
+      "label": "Number of Positions to Create",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-MultiPosition"
+      ]
+    },
+    {
+      "field": "code_start",
+      "type": "INT",
+      "label": "Number to Start With for Position Code",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-MultiPosition"
+      ]
+    },
+    {
+      "field": "code_format",
+      "type": "INT",
+      "label": "Code Format to use with the Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-MultiPosition"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/mHero-Reports",
+  "module": "mHero-Reports",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CSD/modules/mHero/modules/mHero-Reports/mHero-Reports.xml",
+    "sha256": "7f6aa8c089415eb35b88efd3a8bc3bb094d5ecb337f75bbe1bd7e1eb0da1384f"
+  },
+  "parent": "ihris-common/module/mHero-base",
+  "site": null,
+  "displayName": "mHero",
+  "description": "Provides CSD Interface for RapidPro",
+  "version": "4.3.0.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "CustomReports-full-Person_Flow_Response",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CustomReports-full-person_flow_summary",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CustomReports-full-workflows_run_results",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CustomReports-full-person_flow_response_all",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ContactGroupsReport",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

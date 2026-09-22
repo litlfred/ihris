@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/form-relationship-based-permission",
+  "module": "form-relationship-based-permission",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/FormRelationshipBasedPermission/FormRelationshipBasedPermission.xml",
+    "sha256": "43f8aff25aed5aea7fb0ac44563328da1e906ee3efc567cbe149f248c405b596"
+  },
+  "parent": "i2ce/module/forms",
+  "site": null,
+  "displayName": "Form Relationship Based Permission",
+  "description": "A module that enables permission for based on form relationships",
+  "version": "4.3.0",
+  "className": "I2CE_Module_FormRelationshipBasedPermissions",
+  "category": "Base System Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "formRelationships",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

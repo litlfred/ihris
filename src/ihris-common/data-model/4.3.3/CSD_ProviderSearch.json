@@ -1,0 +1,93 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_ProviderSearch",
+  "class": "CSD_ProviderSearch",
+  "release": "4.3.3",
+  "extends": "CSD_ProviderNameSearch",
+  "forms": [
+    "csd_provider_search",
+    "mhero_provider_search"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-search"
+  ],
+  "fields": [
+    {
+      "field": "entityID",
+      "type": "STRING_LINE",
+      "label": "Entity ID",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "csd_otherid_type",
+      "type": "STRING_LINE",
+      "label": "ID Type",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "assigning_authority",
+      "type": "STRING_LINE",
+      "label": "Assigning Authority",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "number",
+      "type": "STRING_LINE",
+      "label": "ID Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "csd_provider_type",
+      "type": "MAP",
+      "label": "Health Worker Type (Cadre)",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "csd_provider_status",
+      "type": "MAP",
+      "label": "Health Worker Status",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "address",
+      "type": "ASSOC_MAP",
+      "label": "Address",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Person_Scheduled_Training_Course",
+  "class": "iHRIS_Person_Scheduled_Training_Course",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_scheduled_training_course"
+  ],
+  "definedIn": [
+    "ihris-common/module/training-course"
+  ],
+  "fields": [
+    {
+      "field": "training_course_mod",
+      "type": "MAP_MULT",
+      "label": "Modules",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "certification_date",
+      "type": "DATE_YMD",
+      "label": "Certification Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "attending",
+      "type": "YESNO",
+      "label": "Is Attending",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "is_retraining",
+      "type": "YESNO",
+      "label": "Retraining",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "completed",
+      "type": "YESNO",
+      "label": "Completed",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "duty_commencement_date",
+      "type": "DATE_YMD",
+      "label": "Duty Commencement",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "request_date",
+      "type": "DATE_YMD",
+      "label": "Request Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "notes",
+      "type": "STRING_MLINE",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "average",
+      "type": "INT",
+      "label": "Average",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "training_course_evaluation",
+      "type": "MAP",
+      "label": "Evaluation",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "training_course_requestor",
+      "type": "MAP",
+      "label": "Requested By",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "scheduled_training_course",
+      "type": "MAP",
+      "label": "Instance",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    }
+  ]
+}

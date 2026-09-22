@@ -1,0 +1,61 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_ProviderService",
+  "class": "CSD_ProviderService",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "csd_provider_service"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-provider-data-model"
+  ],
+  "fields": [
+    {
+      "field": "freeBusyURI",
+      "type": "STRING_LINE",
+      "label": "Free Busy URI",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "csd_language",
+      "type": "MAP_MULT",
+      "label": "Language",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "csd_service",
+      "type": "MAP",
+      "label": "Service",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "csd_organization",
+      "type": "MAP",
+      "label": "Organization",
+      "required": false,
+      "unique": null,
+      "references": [
+        "csd_organization"
+      ],
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_Training",
+  "class": "iHRIS_Training",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "training"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "index_num",
+      "type": "INT_GENERATE",
+      "label": "Index Number",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "cadre",
+      "type": "MAP",
+      "label": "Cadre",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "intake_date",
+      "type": "DATE_YMD",
+      "label": "Intake Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "graduation",
+      "type": "DATE_YMD",
+      "label": "Graduation Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "trained_outside",
+      "type": "BOOL",
+      "label": "Trained Outside this Country",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "training_program",
+      "type": "MAP",
+      "label": "Training Program",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "training_institution",
+      "type": "MAP",
+      "label": "Training Institution",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "in_cadre",
+      "type": "MAP",
+      "label": "Cadre",
+      "required": false,
+      "unique": null,
+      "references": [
+        "cadre"
+      ],
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "out_country",
+      "type": "MAP",
+      "label": "Country Trained in",
+      "required": false,
+      "unique": null,
+      "references": [
+        "country"
+      ],
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "out_institution",
+      "type": "STRING_LINE",
+      "label": "Training Institution",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "out_cadre",
+      "type": "MAP",
+      "label": "Cadre",
+      "required": false,
+      "unique": null,
+      "references": [
+        "cadre"
+      ],
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

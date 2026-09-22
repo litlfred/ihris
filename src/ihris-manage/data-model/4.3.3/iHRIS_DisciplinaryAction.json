@@ -1,0 +1,92 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_DisciplinaryAction",
+  "class": "iHRIS_DisciplinaryAction",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "disciplinary_action"
+  ],
+  "definedIn": [
+    "ihris-manage/module/disciplinary_action"
+  ],
+  "fields": [
+    {
+      "field": "action_date",
+      "type": "DATE_YMD",
+      "label": "Date of Discussion",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/disciplinary_action"
+      ]
+    },
+    {
+      "field": "disciplinary_action_type",
+      "type": "MAP",
+      "label": "Action Taken",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/disciplinary_action"
+      ]
+    },
+    {
+      "field": "disciplinary_action_reason",
+      "type": "MAP",
+      "label": "Reason for Action",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/disciplinary_action"
+      ]
+    },
+    {
+      "field": "start_date",
+      "type": "DATE_YMD",
+      "label": "Start of Applicability",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/disciplinary_action"
+      ]
+    },
+    {
+      "field": "end_date",
+      "type": "DATE_YMD",
+      "label": "End of Applicability",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/disciplinary_action"
+      ]
+    },
+    {
+      "field": "notes",
+      "type": "STRING_MLINE",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/disciplinary_action"
+      ]
+    },
+    {
+      "field": "persons_present",
+      "type": "STRING_MLINE",
+      "label": "People Present",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/disciplinary_action"
+      ]
+    }
+  ]
+}

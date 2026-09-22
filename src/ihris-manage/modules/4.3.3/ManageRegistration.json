@@ -1,0 +1,40 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ManageRegistration",
+  "module": "ManageRegistration",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManageRegistration/ManageRegistration.xml",
+    "sha256": "d1d0ead0718adf524c90d71c569bcb463eac68e69f9ac71c08f2922256d192cc"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage Registration",
+  "description": "A Person's Registration Details",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": null,
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage-Person",
+      "atLeast": "4.2"
+    },
+    {
+      "module": "ihris-common-ProfessionalRegistration",
+      "atLeast": "4.2"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

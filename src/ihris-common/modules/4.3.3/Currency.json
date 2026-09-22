@@ -1,0 +1,60 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/Currency",
+  "module": "Currency",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Currency/Currency.xml",
+    "sha256": "0f6877f717c77f8f16ae213a3053af1b025631ffec0dd99226f52a1fbf4d2586"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Currency",
+  "description": "Makes Currency information available to the system",
+  "version": "4.3.3.0",
+  "className": "iHRIS_Module_Currency",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Geography",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "currency",
+      "class": "iHRIS_Currency",
+      "displayName": "Currency"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Currency"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

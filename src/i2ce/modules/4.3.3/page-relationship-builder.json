@@ -1,0 +1,42 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/page-relationship-builder",
+  "module": "page-relationship-builder",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Pages/modules/PageBuilder/modules/RelationshipBuilder/RelationshipBuilder.xml",
+    "sha256": "94ef647bccc92ea86e176e0b2d2411e20af3d2be1d706d49d4703d771de35414"
+  },
+  "parent": "i2ce/module/page-builder",
+  "site": null,
+  "displayName": "Page Relationship Builder",
+  "description": "Page Builder",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Administration",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "page-builder",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "formRelationships",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

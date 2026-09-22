@@ -1,0 +1,71 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/CEUs",
+  "module": "CEUs",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CEUs/CEUs.xml",
+    "sha256": "8d83c5cbebc42a29266f549cd226f43caf253a73649b899a4f9281721d38ecf6"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "CEUs",
+  "description": "Makes Continuing Education Unit (CEU) information available to the system",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_CEUs",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage-magicdata",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "continuing_education",
+      "class": "iHRIS_ContinuingEducation",
+      "displayName": "Continuing Education"
+    },
+    {
+      "form": "continuing_education_course",
+      "class": "iHRIS_ContinuingEducationCourse",
+      "displayName": "Continuing Education Course"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_ContinuingEducation",
+    "ihris-common/form-class/iHRIS_ContinuingEducationCourse"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

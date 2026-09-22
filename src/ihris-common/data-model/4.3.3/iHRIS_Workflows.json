@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Workflows",
+  "class": "iHRIS_Workflows",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "workflows"
+  ],
+  "definedIn": [
+    "ihris-common/module/mHero-base"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Flow Name",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "uuid",
+      "type": "STRING_LINE",
+      "label": "Flow UUID",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "flow",
+      "type": "INT",
+      "label": "Flow ID",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    }
+  ]
+}

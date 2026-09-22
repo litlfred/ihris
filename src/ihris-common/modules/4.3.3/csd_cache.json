@@ -1,0 +1,63 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/csd_cache",
+  "module": "csd_cache",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CSD/modules/CSDCache/CSD_Cache.xml",
+    "sha256": "8fe7b9a20ac625fd67733f85a35f760ee337e4fcfcabd768bb0842a43a8273f6"
+  },
+  "parent": "ihris-common/module/CSD",
+  "site": null,
+  "displayName": "CSD Cache",
+  "description": "Allows caching of health worker data (or other entities) in the CSD compliant fashion into a table for quick responses to Query for Updated Serivces transactions",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_CSDCache",
+  "category": "Data Standards",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/common",
+  "requirements": [
+    {
+      "module": "formRelationships",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "UUID_map",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "SVS",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "iso-country",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "csd_cache_admin",
+      "class": "iHRIS_Page_CSDCacheAdmin",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

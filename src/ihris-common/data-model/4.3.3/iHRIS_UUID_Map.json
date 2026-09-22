@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_UUID_Map",
+  "class": "iHRIS_UUID_Map",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "uuid"
+  ],
+  "definedIn": [
+    "ihris-common/module/UUID_map"
+  ],
+  "fields": [
+    {
+      "field": "formid",
+      "type": "MAP",
+      "label": "Mapped Form",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/UUID_map"
+      ]
+    }
+  ]
+}

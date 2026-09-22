@@ -1,0 +1,41 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/Lists-LinkTo",
+  "module": "Lists-LinkTo",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/Lists/modules/ListLink/ListLink.xml",
+    "sha256": "7e678dc9bad57a421e94ff9e7d379d8ea36aebfd2cdb096ac6069ced828dbc90"
+  },
+  "parent": "i2ce/module/Lists",
+  "site": null,
+  "displayName": "List Link to Data",
+  "description": "Lists that are linked to other data. This module is meant to be extended to defined what type of data this list links to. You can extend the I2CE_ListLink class to add new fields to link to. Alone this class doesn't do much.",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Lists",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [
+    "i2ce/form-class/I2CE_ListLink"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/training-course",
+  "module": "training-course",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/TrainingCourse/TrainingCourse.xml",
+    "sha256": "c6acd4ff50c3c8ca2a7c0b070bfa210cf474df1e8490d893ff014d172e42f453"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Training Course",
+  "description": "Adds functionality to add training courses to the system",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_Training_Course",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CustomReports-Selector",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "form-limits",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CEUs",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "training_course_mod",
+      "class": "I2CE_SimpleList",
+      "displayName": "Training Course Module"
+    },
+    {
+      "form": "training_course_status",
+      "class": "I2CE_SimpleList",
+      "displayName": "Training Course Status"
+    },
+    {
+      "form": "training_course_category",
+      "class": "I2CE_SimpleList",
+      "displayName": "Training Course Category"
+    },
+    {
+      "form": "training_course",
+      "class": "iHRIS_Training_Course",
+      "displayName": "Training Course"
+    },
+    {
+      "form": "scheduled_training_course",
+      "class": "iHRIS_Scheduled_Training_Course",
+      "displayName": "Scheduled Training Course"
+    },
+    {
+      "form": "person_scheduled_training_course",
+      "class": "iHRIS_Person_Scheduled_Training_Course",
+      "displayName": "Person Scheduled Training Course"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": "Person"
+    },
+    {
+      "form": "training_course_evaluation",
+      "class": "iHRIS_Training_Course_Evaluation",
+      "displayName": "Training Course Evaluation"
+    },
+    {
+      "form": "training_course_requestor",
+      "class": "I2CE_SimpleList",
+      "displayName": "Training Requestor"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Person_Scheduled_Training_Course",
+    "ihris-common/form-class/iHRIS_Scheduled_Training_Course",
+    "ihris-common/form-class/iHRIS_Training_Course",
+    "ihris-common/form-class/iHRIS_Training_Course_Evaluation"
+  ],
+  "pages": [
+    {
+      "page": "editstudents",
+      "class": "iHRIS_PageEditStudents",
+      "style": "shell"
+    },
+    {
+      "page": "studentparticipants",
+      "class": "I2CE_PageGenerateRelationshipTemplate",
+      "style": "action"
+    },
+    {
+      "page": "studentcertificates",
+      "class": "iHRIS_PageActionStudentCertificates",
+      "style": "action"
+    },
+    {
+      "page": "actionstudents",
+      "class": "iHRIS_PageActionStudents",
+      "style": "action"
+    },
+    {
+      "page": "view_list",
+      "class": null,
+      "style": null
+    },
+    {
+      "page": "lists",
+      "class": null,
+      "style": null
+    }
+  ],
+  "dataLists": {
+    "training_course_status": 2,
+    "training_course_evaluation": 4
+  },
+  "locales": []
+}

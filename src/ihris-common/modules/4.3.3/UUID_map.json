@@ -1,0 +1,50 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/UUID_map",
+  "module": "UUID_map",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/UUID/UUID.xml",
+    "sha256": "bef2047717f58055bf043480af8038f735a6ded07834155281a1f68e894281cc"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "UUID Map",
+  "description": "Allows administrator to associate a UUID with any form id",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_UUID_Map",
+  "category": "Application Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/common",
+  "requirements": [
+    {
+      "module": "forms-storage-flat",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Lists",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "uuid",
+      "class": "iHRIS_UUID_Map",
+      "displayName": "UUID Map"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_UUID_Map"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

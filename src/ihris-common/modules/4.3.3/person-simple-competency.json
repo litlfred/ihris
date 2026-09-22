@@ -1,0 +1,93 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/person-simple-competency",
+  "module": "person-simple-competency",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/SimpleCompetency/SimpleCompetency.xml",
+    "sha256": "0015c654dc3714889e0ec0deaedaf82766a93d586ff04070ab047bb5469d293d"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "Simple Competency",
+  "description": "A simple two-tiered compotency module enabled for a person",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_PersonSimpleCompetency",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "simple-competency",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "competency_evaluation",
+      "class": "I2CE_SimpleList",
+      "displayName": "Competency Evaluation"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": "Person"
+    },
+    {
+      "form": "person_competency",
+      "class": "iHRIS_PersonCompetency",
+      "displayName": "Person Competency"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_PersonCompetency"
+  ],
+  "pages": [
+    {
+      "page": "person_competency_history",
+      "class": "iHRIS_Page_Person_Competency_Evaluation_History",
+      "style": "shell"
+    },
+    {
+      "page": "person_competency",
+      "class": null,
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {
+    "competency_evaluation": 3
+  },
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

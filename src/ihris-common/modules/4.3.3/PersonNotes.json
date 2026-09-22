@@ -1,0 +1,63 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/PersonNotes",
+  "module": "PersonNotes",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/Notes/Notes.xml",
+    "sha256": "fd6eb6a9f8ee16a7a6c2cb1fb1f4808df26ad17e73e7a71bf7b52ed79e14556e"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "Notes",
+  "description": "Makes Notes information available to the system",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_PersonNotes",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "notes",
+      "class": "iHRIS_Notes",
+      "displayName": "Notes"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Notes"
+  ],
+  "pages": [
+    {
+      "page": "notes",
+      "class": "iHRIS_PageFormParentPerson",
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Job",
+  "class": "iHRIS_Job",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "job"
+  ],
+  "definedIn": [
+    "ihris-common/module/ihris-common-Job"
+  ],
+  "fields": [
+    {
+      "field": "title",
+      "type": "STRING_LINE",
+      "label": "Title",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    },
+    {
+      "field": "cadre",
+      "type": "MAP",
+      "label": "Cadre (Health Professionals Only)",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    },
+    {
+      "field": "code",
+      "type": "STRING_LINE",
+      "label": "Code",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    },
+    {
+      "field": "description",
+      "type": "STRING_MLINE",
+      "label": "Description",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    },
+    {
+      "field": "classification",
+      "type": "MAP",
+      "label": "Classification",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Demographic",
+  "class": "iHRIS_Demographic",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "demographic"
+  ],
+  "definedIn": [
+    "ihris-common/module/PersonDemographic"
+  ],
+  "fields": [
+    {
+      "field": "birth_date",
+      "type": "DATE_YMD",
+      "label": "Date of Birth",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonDemographic"
+      ]
+    },
+    {
+      "field": "gender",
+      "type": "MAP",
+      "label": "Gender",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonDemographic"
+      ]
+    },
+    {
+      "field": "marital_status",
+      "type": "MAP",
+      "label": "Marital Status",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonDemographic"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/PersonContact",
+  "module": "PersonContact",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/Contact/Contact.xml",
+    "sha256": "b48fedac06279a32768de7b5565aaf9c8798997c6eea61e7b3d9125f8941cbb1"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "iHRIS Person Contact",
+  "description": "A Person's Contact",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_PersonContact",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.1"
+    },
+    {
+      "module": "Contact",
+      "atLeast": "4.1"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person_contact_work",
+      "class": "iHRIS_Contact",
+      "displayName": "Work Contact"
+    },
+    {
+      "form": "person_contact_emergency",
+      "class": "iHRIS_NamedContact",
+      "displayName": "Emergency Contact"
+    },
+    {
+      "form": "person_contact_other",
+      "class": "iHRIS_Contact",
+      "displayName": "Other Contact"
+    },
+    {
+      "form": "person_contact_personal",
+      "class": "iHRIS_Contact",
+      "displayName": "Personal Contact"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    }
+  ],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "contact_groups",
+      "class": "iHRIS_PageCreateContactGroups",
+      "style": "shell"
+    },
+    {
+      "page": "contact",
+      "class": "iHRIS_PageFormContact",
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/PersonEmployment",
+  "module": "PersonEmployment",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/Employment/Employment.xml",
+    "sha256": "c8084c0ee651f826e971377c18baf8c79ab1555afa1f69b4de22d889492f0a8c"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "iHRIS Person Employment",
+  "description": "A Person's Employment History Details",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_PersonEmployment",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.1"
+    },
+    {
+      "module": "Currency",
+      "atLeast": "4.1"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "employment",
+      "class": "iHRIS_Employment",
+      "displayName": "Employment History"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Employment"
+  ],
+  "pages": [
+    {
+      "page": "employment",
+      "class": null,
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

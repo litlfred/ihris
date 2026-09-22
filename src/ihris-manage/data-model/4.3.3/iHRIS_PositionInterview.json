@@ -1,0 +1,60 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_PositionInterview",
+  "class": "iHRIS_PositionInterview",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "position_interview"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ihris-manage-Application",
+    "ihris-manage/module/ihris-manage-ApplicationAttachment"
+  ],
+  "fields": [
+    {
+      "field": "date",
+      "type": "DATE_YMD",
+      "label": "Date of Interview",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    },
+    {
+      "field": "person",
+      "type": "STRING_LINE",
+      "label": "People Attending",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    },
+    {
+      "field": "comments",
+      "type": "STRING_MLINE",
+      "label": "Comments",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    },
+    {
+      "field": "record",
+      "type": "DOCUMENT",
+      "label": "Interview Record",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-ApplicationAttachment"
+      ]
+    }
+  ]
+}

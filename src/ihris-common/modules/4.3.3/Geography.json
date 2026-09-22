@@ -1,0 +1,69 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/Geography",
+  "module": "Geography",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Geography/Geography.xml",
+    "sha256": "1d85e795edbc1a98fce438969a76ef28ae3f48ca5f7a4dd5a1ab5403a8679d09"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Geography",
+  "description": "Makes Geography information available to the system",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_Geography",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage-magicdata",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "country",
+      "class": "iHRIS_Country",
+      "displayName": "Country"
+    },
+    {
+      "form": "county",
+      "class": "iHRIS_County",
+      "displayName": "County"
+    },
+    {
+      "form": "district",
+      "class": "iHRIS_District",
+      "displayName": "District"
+    },
+    {
+      "form": "region",
+      "class": "iHRIS_Region",
+      "displayName": "Region"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Country",
+    "ihris-common/form-class/iHRIS_County",
+    "ihris-common/form-class/iHRIS_District",
+    "ihris-common/form-class/iHRIS_ListByCountry",
+    "ihris-common/form-class/iHRIS_Region"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

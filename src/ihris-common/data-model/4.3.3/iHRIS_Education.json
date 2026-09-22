@@ -1,0 +1,70 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Education",
+  "class": "iHRIS_Education",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "education"
+  ],
+  "definedIn": [
+    "ihris-common/module/PersonEducation"
+  ],
+  "fields": [
+    {
+      "field": "degree",
+      "type": "MAP",
+      "label": "Degree",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEducation"
+      ]
+    },
+    {
+      "field": "institution",
+      "type": "STRING_LINE",
+      "label": "Institution Name",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEducation"
+      ]
+    },
+    {
+      "field": "location",
+      "type": "STRING_LINE",
+      "label": "Institution Location",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEducation"
+      ]
+    },
+    {
+      "field": "year",
+      "type": "DATE_Y",
+      "label": "Year of Graduation (leave blank if In Progress)",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEducation"
+      ]
+    },
+    {
+      "field": "major",
+      "type": "STRING_LINE",
+      "label": "Major",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEducation"
+      ]
+    }
+  ]
+}

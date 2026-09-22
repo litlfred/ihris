@@ -1,0 +1,40 @@
+{
+  "$schema": "ihris-source-record/v1",
+  "id": "project--textlayout",
+  "node": "project/textlayout",
+  "host": "launchpad",
+  "vcs": "bzr",
+  "level": "project",
+  "refs": {
+    "lp": "lp:textlayout",
+    "web": "https://launchpad.net/textlayout"
+  },
+  "project": {
+    "name": "textlayout",
+    "title": "TextLayout",
+    "summary": "Some tools to handle text layout.  Features including hyphenation support using any Open Office hyphenation dictionary.  Loading of font metrics, including kerning information, from TrueType (ttf) and AFM Files.  Word wrapping using the 'Greedy' algorithm is currently implement.  Useful for making nicely word-wrapped tables of data with automatic assignment of widths.  Designed to create nicely formatted PDF files.",
+    "description": "This is used by my branches of  iHRIS Common and iHRIS Manage to generate PDF versions of reports.  In particular, see the iHRIS_ReportDisplay_PDF and iHRIS_ManageReportDisplay_PDF class.\n\nThere is a very modest requirement to use the I2CE Core engine.  It only needs  I2CE_FileSearch.php\n\nIn order to generate PDFs, there is, at the moment,  a requirement to have the tcpdf  package found at  http://tcpdf.sourceforge.net.  This will change in a future release.",
+    "registered": "2007-09-27 20:38:43 UTC",
+    "licences": [
+      "GNU GPL v2"
+    ],
+    "languages": [
+      "php"
+    ],
+    "homepage": null,
+    "wiki": null,
+    "maintainer": {
+      "id": "~intrahealth+informatics",
+      "name": "IntraHealth Informatics"
+    },
+    "partOf": "ihris-suite",
+    "classification": "tool",
+    "describedBy": null
+  },
+  "capturedFrom": [
+    "uploads/launchpad/projects/textlayout.html",
+    "uploads/launchpad/projects/textlayout.rdf",
+    "uploads/launchpad/projects/textlayout__series.html"
+  ],
+  "capturedAt": "2026-09-22"
+}

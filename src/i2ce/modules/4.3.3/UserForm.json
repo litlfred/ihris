@@ -1,0 +1,74 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/UserForm",
+  "module": "UserForm",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/UserForm/UserForm.xml",
+    "sha256": "37bd44f6655e1051f594e5b67a984c201740f589a2f9ee985f7491aadf2df075"
+  },
+  "parent": "i2ce/module/forms",
+  "site": null,
+  "displayName": "User Form",
+  "description": null,
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "forms",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "LocaleForm",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "userForm",
+      "class": "I2CE_User_Form",
+      "displayName": "The User Form"
+    },
+    {
+      "form": "roleForm",
+      "class": "I2CE_Role",
+      "displayName": "Role"
+    }
+  ],
+  "formClasses": [
+    "i2ce/form-class/I2CE_Role",
+    "i2ce/form-class/I2CE_User_Form"
+  ],
+  "pages": [
+    {
+      "page": "user",
+      "class": "I2CE_PageFormUser",
+      "style": "main"
+    },
+    {
+      "page": "view_user",
+      "class": "I2CE_PageViewUser",
+      "style": "main"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/training-calendar",
+  "module": "training-calendar",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/TrainingCourse/modules/TrainingCalendar/TrainingCalendar.xml",
+    "sha256": "44affd0d6aa497631b5b5b3e27e78fb0e38b8f978e5bd1f633939e7553c5c155"
+  },
+  "parent": "ihris-common/module/training-course",
+  "site": null,
+  "displayName": "iHRIS Scheduled Training Course Calendar",
+  "description": "A Calendar page for displaying scheduled training courses",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "Calendar",
+      "atLeast": "4.2"
+    },
+    {
+      "module": "training-course",
+      "atLeast": "4.2"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "training_calendar",
+      "class": "iHRIS_PageCalendarTraining",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

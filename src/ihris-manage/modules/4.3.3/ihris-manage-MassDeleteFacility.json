@@ -1,0 +1,50 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-MassDeleteFacility",
+  "module": "ihris-manage-MassDeleteFacility",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/MassDeleteFacility/MassDeleteFacility.xml",
+    "sha256": "171de402bb1b9ce10a669bb93e0a41c0c5f9a78147445c797c3686f576a84566"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Mass Delete by Facility",
+  "description": "Facility report to list by positions and pages to do mass deletion of records by facility.",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Site",
+  "creator": "Luke Duncan",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "delete_by_facility",
+      "class": "iHRIS_PageMassDeleteFacilityList",
+      "style": "shell"
+    },
+    {
+      "page": "delete_by_facility_action",
+      "class": "iHRIS_PageMassDeleteFacilityAction",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

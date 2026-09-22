@@ -1,0 +1,47 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/CustomReports_PDF",
+  "module": "CustomReports_PDF",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/CustomReports/modules/PDF/PDF.xml",
+    "sha256": "d666e6f8258b0bbf74a4cd8c25b8ac44d13bd435f5dc376262c43f8536696fc1"
+  },
+  "parent": "i2ce/module/CustomReports",
+  "site": null,
+  "displayName": "PDF Reports",
+  "description": "Configuration options for reports that use PDF",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Report Type",
+  "creator": null,
+  "link": "http://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "textlayout",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ColorPicker",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

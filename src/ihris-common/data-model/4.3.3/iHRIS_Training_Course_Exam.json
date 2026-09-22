@@ -1,0 +1,59 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Training_Course_Exam",
+  "class": "iHRIS_Training_Course_Exam",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "training_course_exam"
+  ],
+  "definedIn": [
+    "ihris-common/module/training-exam"
+  ],
+  "fields": [
+    {
+      "field": "notes",
+      "type": "STRING_MLINE",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-exam"
+      ]
+    },
+    {
+      "field": "evaluation_date",
+      "type": "DATE_YMD",
+      "label": "Evaluation Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-exam"
+      ]
+    },
+    {
+      "field": "training_course_exam_type",
+      "type": "MAP",
+      "label": "Exam Type",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-exam"
+      ]
+    },
+    {
+      "field": "score",
+      "type": "INT",
+      "label": "Score",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-exam"
+      ]
+    }
+  ]
+}

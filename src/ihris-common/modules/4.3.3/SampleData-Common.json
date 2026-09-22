@@ -1,0 +1,49 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/SampleData-Common",
+  "module": "SampleData-Common",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CommonSampleData/CommonSampleData.xml",
+    "sha256": "e70e6d42bfd5b616efd44e33bbd5324df70366d8b5677853329a1ac0f5fee204"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Common Sample Data",
+  "description": "Sample Data for iHRIS Common forms.",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [
+    {
+      "module": "SampleData-Geography"
+    },
+    {
+      "module": "SampleData-currency"
+    },
+    {
+      "module": "SampleData-degree"
+    },
+    {
+      "module": "SampleData-marital_status"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

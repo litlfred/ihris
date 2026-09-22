@@ -1,0 +1,42 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/manage-training-simple-competency",
+  "module": "manage-training-simple-competency",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManageTrainingCourse/modules/ManageTrainingSimpleCompetency/ManageTrainingSimpleCompetency.xml",
+    "sha256": "9b81e1f9b594d2df65300815e56a1e6f7ce36e5818de359aecdcfa5134370f38"
+  },
+  "parent": "ihris-manage/module/manage-training-course",
+  "site": null,
+  "displayName": "Manage Training Competency (Simple)",
+  "description": "Makes the Simple Competency module available to iHRIS Manage training course module",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "manage-training-course",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "training-simple-competency",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/DisplayData",
+  "module": "DisplayData",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/TemplateData/modules/DisplayData/DisplayData.xml",
+    "sha256": "b609e144fdebe663073e1855948147294a3d08253b22617348bff101ec4543ec"
+  },
+  "parent": "i2ce/module/template-data",
+  "site": null,
+  "displayName": "I2CE Display Data",
+  "description": "Adds display data to the template",
+  "version": "4.3.0",
+  "className": "I2CE_DisplayData",
+  "category": "Base System Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "I2CE",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "template-data",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/menu_select",
+  "module": "menu_select",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/MooTools/modules/MenuSelect/MenuSelect.xml",
+    "sha256": "16762dbf3dfc8af570af0baa7019e634aae34741d1590cca560be051ec485364"
+  },
+  "parent": "i2ce/module/MooTools",
+  "site": null,
+  "displayName": "Menu Select",
+  "description": "Handles Nested Select Options",
+  "version": "4.3.0",
+  "className": "I2CE_Module_MenuSelect",
+  "category": "Base System Component",
+  "creator": "Luke Duncan & Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "MooTools",
+      "atLeast": "1.4",
+      "lessThan": "1.5"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

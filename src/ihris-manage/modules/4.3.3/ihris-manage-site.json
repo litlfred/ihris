@@ -1,0 +1,85 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-site",
+  "module": "ihris-manage-site",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/sites/blank/iHRIS-Manage-BLANK.xml",
+    "sha256": "3dd60b54dc6b7544f5c8c3f4fca821923d3aab6e8da8ca132e345140975e5e04"
+  },
+  "parent": null,
+  "site": "blank",
+  "displayName": "iHRIS Manage",
+  "description": "the iHRIS Manage Site",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Site",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "UserAccess",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "default-locales"
+    },
+    {
+      "module": "PersonContact"
+    },
+    {
+      "module": "ihris-manage-PersonDemographic"
+    },
+    {
+      "module": "PersonEducation"
+    },
+    {
+      "module": "PersonEmployment"
+    },
+    {
+      "module": "PersonID"
+    },
+    {
+      "module": "PersonLanguage"
+    },
+    {
+      "module": "stub"
+    },
+    {
+      "module": "messageBox"
+    },
+    {
+      "module": "messageNotice"
+    },
+    {
+      "module": "messageHandler"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "en_US",
+    "es",
+    "fr",
+    "nl",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

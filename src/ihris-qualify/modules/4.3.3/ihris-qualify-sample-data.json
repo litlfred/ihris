@@ -1,0 +1,41 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-qualify/module/ihris-qualify-sample-data",
+  "module": "ihris-qualify-sample-data",
+  "instance": "ihris-qualify",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-qualify/modules/SampleData/QualifySampleData.xml",
+    "sha256": "2ae38de6e59e24858241d48c2d91505fd5096016a8fecc74df5d4812987bd344"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Qualify Sample Data",
+  "description": "iHRIS Qualify Sample Data",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_Qualify_SampleData",
+  "category": "Site",
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ihris-qualify-base-data",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "QualifySampleData-verify_change"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

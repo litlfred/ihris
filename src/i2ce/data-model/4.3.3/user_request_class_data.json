@@ -1,0 +1,46 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "i2ce/form-class/user_request_class_data",
+  "class": "user_request_class_data",
+  "release": "4.3.3",
+  "extends": "I2CE_User_Form",
+  "forms": [],
+  "definedIn": [
+    "i2ce/module/RequestAccount-VerifyEmail"
+  ],
+  "fields": [
+    {
+      "field": "request_number",
+      "type": "STRING_LINE",
+      "label": "Request Number",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/RequestAccount-VerifyEmail"
+      ]
+    },
+    {
+      "field": "verified",
+      "type": "BOOL",
+      "label": "Email Verifed",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/RequestAccount-VerifyEmail"
+      ]
+    },
+    {
+      "field": "email",
+      "type": "STRING_LINE",
+      "label": "E-mail Address",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/RequestAccount-VerifyEmail"
+      ]
+    }
+  ]
+}

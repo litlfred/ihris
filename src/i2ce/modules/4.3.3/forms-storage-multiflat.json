@@ -1,0 +1,42 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/forms-storage-multiflat",
+  "module": "forms-storage-multiflat",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/FormStorage/modules/FormStorageMultiFlat/MultiFlat.xml",
+    "sha256": "1123999fabfc6b8a7bde55d8105bbc7b57057b2f89940efa836db6de28e55000"
+  },
+  "parent": "i2ce/module/forms-storage",
+  "site": null,
+  "displayName": "Form Storage - Multi Flat",
+  "description": "A module that enables aggregated storage of Forms from a flat fixed database structure.",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Base System Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "forms-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Lists",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

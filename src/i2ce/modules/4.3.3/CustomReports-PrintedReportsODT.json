@@ -1,0 +1,52 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/CustomReports-PrintedReportsODT",
+  "module": "CustomReports-PrintedReportsODT",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/CustomReports/modules/PrintedReportsODT/PrintedReportsODT.xml",
+    "sha256": "ef0dcbbd6a1e573f51f1e93e1addb6b3f5d0edab68ec8ac56da04da6b7e9067d"
+  },
+  "parent": "i2ce/module/CustomReports",
+  "site": null,
+  "displayName": "ODT Reports",
+  "description": "Configuration options for reports that use ODT",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Report Type",
+  "creator": null,
+  "link": "http://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "textlayout",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ColorPicker",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "PrintedFormsODT",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

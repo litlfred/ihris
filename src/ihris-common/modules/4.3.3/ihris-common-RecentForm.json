@@ -1,0 +1,50 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/ihris-common-RecentForm",
+  "module": "ihris-common-RecentForm",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/RecentForm/RecentForm.xml",
+    "sha256": "ceb35dc74953b953935aad815e2b0a708612f6553c419a8ac32bcb057cc56166"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Recent Form Page",
+  "description": "The iHRIS Recent Form page.",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Reporting",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "recent",
+      "class": "iHRIS_PageRecentForm",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

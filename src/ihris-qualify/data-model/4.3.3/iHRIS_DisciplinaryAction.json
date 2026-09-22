@@ -1,0 +1,70 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_DisciplinaryAction",
+  "class": "iHRIS_DisciplinaryAction",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "disciplinary_action"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "disciplinary_action_reason",
+      "type": "MAP",
+      "label": "Disciplinary Action Reason",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "action_date",
+      "type": "DATE_YMD",
+      "label": "Date Disciplinary Action Occurred",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "notes",
+      "type": "STRING_TEXT",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "suspend",
+      "type": "YESNO",
+      "label": "Suspend License?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "reinstate_date",
+      "type": "DATE_YMD",
+      "label": "Reinstatement Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

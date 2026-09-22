@@ -1,0 +1,55 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/FacilityContact",
+  "module": "FacilityContact",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Facility/modules/FacilityContact/Facility.xml",
+    "sha256": "7b5cfe4e1db64d47326462762c2656ac8f57dd226c363f07d1a3315d31f0eb71"
+  },
+  "parent": "ihris-common/module/Facility",
+  "site": null,
+  "displayName": "Facility Contact",
+  "description": "Adds contact information to a facility",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_FacilityContact",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "Facility",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Contact",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "facility_contact",
+      "class": "iHRIS_Contact",
+      "displayName": "Facility Contact"
+    },
+    {
+      "form": "facility",
+      "class": null,
+      "displayName": "Facility"
+    }
+  ],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

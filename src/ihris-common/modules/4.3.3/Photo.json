@@ -1,0 +1,53 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/Photo",
+  "module": "Photo",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Photo/Photo.xml",
+    "sha256": "646037951d92f35d748d884d00856e3b94112b85b6b02218fa62348c8de8c2e6"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Photo",
+  "description": "Makes Photo information available to the system",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "BinField",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Photo"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

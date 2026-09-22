@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+<base href="https://launchpad.net/i2ce/+index" />
+
+    <meta charset="UTF-8" />
+    <title>I2CE in Launchpad</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/@@/apple-touch-icon.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/@@/favicon-32x32.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/@@/favicon-16x16.png?v=2022" />
+    <link rel="manifest" href="/@@/site.webmanifest?v=2022" />
+    <link rel="mask-icon" href="/@@/safari-pinned-tab.svg?v=2022" color="#e9531f" />
+    <link rel="shortcut icon" href="/@@/favicon.ico?v=2022" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/@@/browserconfig.xml?v=2022" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    
+      <link rel="alternate" type="application/atom+xml" href="http://feeds.launchpad.net/i2ce/announcements.atom" title="Announcements for I2CE" />
+      <link rel="alternate" type="application/atom+xml" href="http://feeds.launchpad.net/i2ce/latest-bugs.atom" title="Latest Bugs for I2CE" />
+      <link rel="alternate" type="application/atom+xml" href="http://feeds.launchpad.net/i2ce/branches.atom" title="Latest Branches for I2CE" />
+      <link rel="alternate" type="application/atom+xml" href="http://feeds.launchpad.net/i2ce/revisions.atom" title="Latest Revisions for I2CE" />
+    
+
+    
+  
+  <link type="text/css" rel="stylesheet" media="screen, print" href="/+icing/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/combo.css" />
+
+
+    
+
+    
+      
+      
+    
+
+    
+    
+      <meta property="og:title" content="I2CE in Launchpad" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="/@@/launchpad-og-image.png" />
+      <meta property="og:url" content="https://launchpad.net/i2ce/+index" />
+      <meta property="og:site_name" content="Launchpad" />
+    
+
+    
+
+    
+  
+
+  
+  
+  <script type="text/javascript">
+    var LP = {
+        cache: {},
+        links: {}
+    };
+  </script>
+
+  
+
+  <script type="text/javascript">var cookie_scope = '; Path=/; Secure; Domain=.launchpad.net';</script>
+
+   <script type="text/javascript" src="/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?yui/yui/yui-min.js&amp;lp/meta.js&amp;yui/loader/loader-min.js"></script>
+   <script type="text/javascript">
+        var raw = null;
+        if (LP.devmode) {
+           raw = 'raw';
+        }
+        YUI.GlobalConfig = {
+            combine: true,
+            comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+            root: 'yui/',
+            filter: raw,
+            debug: false,
+            fetchCSS: false,
+            maxURLLength: 2000,
+            groups: {
+                lp: {
+                    combine: true,
+                    base: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?lp/',
+                    comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+                    root: 'lp/',
+                    // comes from including lp/meta.js
+                    modules: LP_MODULES,
+                    fetchCSS: false
+                }
+            }
+        }</script>
+
+  <script type="text/javascript">
+      // we need this to create a single YUI instance all events and code
+      // talks across. All instances of YUI().use should be based off of
+      // LPJS instead.
+      var LPJS = new YUI();
+  </script>
+
+
+
+    <script id="base-layout-load-scripts" type="text/javascript">
+        //<![CDATA[
+        LPJS.use('base', 'node', 'console', 'event',
+            'oop', 'lp', 'lp.app.foldables','lp.app.sorttable',
+            'lp.app.inlinehelp', 'lp.app.links',
+            'lp.bugs.bugtask_index', 'lp.bugs.subscribers',
+            'lp.app.ellipsis', 'lp.code.branchmergeproposal.diff',
+            'lp.views.global',
+             function(Y) {
+
+            Y.on("domready", function () {
+                var global_view = new Y.lp.views.Global();
+                global_view.render();
+
+                Y.lp.app.sorttable.SortTable.init();
+                Y.lp.app.inlinehelp.init_help();
+                Y.lp.activate_collapsibles();
+                Y.lp.app.foldables.activate();
+                Y.lp.app.links.check_valid_lp_links();
+            });
+
+            Y.on('lp:context:web_link:changed', function(e) {
+                  window.location = e.new_value;
+            });
+        });
+        //]]>
+    </script>
+    <script id="base-helper-functions" type="text/javascript">
+         //<![CDATA[
+        // This code is pulled from lp.js that needs to be available on every
+        // request. Pulling here to get it outside the scope of the YUI block.
+        function setFocusByName(name) {
+            // Focus the first element matching the given name which can be focused.
+            var nodes = document.getElementsByName(name);
+            var i, node;
+            for (i = 0; i < nodes.length; i++) {
+                node = nodes[i];
+                if (node.focus) {
+                    try {
+                        // Trying to focus a hidden element throws an error in IE8.
+                        if (node.offsetHeight !== 0) {
+                            node.focus();
+                        }
+                    } catch (e) {
+                        LPJS.use('console', function(Y) {
+                            Y.log('In setFocusByName(<' +
+                                node.tagName + ' type=' + node.type + '>): ' + e);
+                        });
+                    }
+                    break;
+                }
+            }
+        }
+
+        function selectWidget(widget_name, event) {
+          if (event && (event.keyCode === 9 || event.keyCode === 13)) {
+              // Avoid firing if user is tabbing through or simply pressing
+              // enter to submit the form.
+              return;
+          }
+          document.getElementById(widget_name).checked = true;
+        }
+        //]]>
+    </script>
+
+    
+      
+    
+      <script type="text/javascript">
+          LPJS.use('lp.registry.structural_subscription', function(Y) {
+              var module = Y.lp.registry.structural_subscription;
+              Y.on('domready', function() {
+                module.setup({content_box: "#structural-subscription-content-box"});
+              });
+          });
+      </script>
+    
+    
+
+    <meta name="go-import" content="launchpad.net/i2ce bzr https://launchpad.net/~intrahealth+informatics/i2ce/4.3-dev" />
+  
+    
+  </head>
+
+  <body id="document" itemscope="" itemtype="http://schema.org/WebPage" class="tab-overview
+      main_side
+      public
+      yui3-skin-sam">
+          
+          
+          
+    <div class="yui-d0">
+      <div id="locationbar" class="login-logout">
+        
+
+<div id="logincontrol"><a href="https://launchpad.net/i2ce/+login">Log in / Register</a></div>
+
+
+
+      </div><!--id="locationbar"-->
+
+      <div id="watermark" class="watermark-apps-portlet">
+        <div>
+          <a href="https://launchpad.net/i2ce"><img alt="" width="64" height="64" src="/@@/product-logo" /></a>
+        </div>
+        <div class="wide">
+          <h2 id="watermark-heading"><a href="https://launchpad.net/i2ce">I2CE</a></h2>
+        </div>
+        
+  <!-- Application Menu -->
+  <ul class="facetmenu">
+    
+      <li class="overview active"><span>Overview</span></li>
+      
+      
+    
+    
+      
+      <li class="branches"><a href="https://code.launchpad.net/i2ce">Code</a></li>
+      
+    
+    
+      
+      <li class="bugs"><a href="https://bugs.launchpad.net/i2ce">Bugs</a></li>
+      
+    
+    
+      
+      <li class="specifications"><a href="https://blueprints.launchpad.net/i2ce">Blueprints</a></li>
+      
+    
+    
+      
+      <li class="translations"><a href="https://translations.launchpad.net/i2ce">Translations</a></li>
+      
+    
+    
+      
+      <li class="answers"><a href="https://answers.launchpad.net/i2ce">Answers</a></li>
+      
+    
+  </ul>
+
+      </div>
+
+      <div class="yui-t4">
+        <div id="maincontent" class="yui-main">
+          <div class="yui-b" dir="ltr">
+            <div class="context-publication">
+              
+              
+
+              <div id="registration" class="registering">
+                
+    Registered
+    <time title="2007-09-10 19:07:47 UTC" datetime="2007-09-10T19:07:47.769458+00:00">2007-09-10</time>
+    by
+    <a href="/~intrahealth+informatics" class="sprite team">IntraHealth Informatics</a>
+  
+              </div>
+            </div>
+
+            
+            <div id="request-notifications">
+              
+            </div>
+
+            
+              
+      <div class="top-portlet">
+        
+
+    
+
+	<div class="summary"><p>IntraHealth Informatics Core Engine is a set of classes for handling database-driven HTML forms with templates and database abstraction. It is the core programming engine for the iHRIS Suite of software. The Informatics Core Engine is free and Open Source software distributed under the GPL.</p></div>
+
+        <div class="description"><p>To join the iHRIS forum, go to <a rel="nofollow" href="https://groups.google.com/forum/?fromgroups#!forum/ihris">https:/<wbr />/groups.<wbr />google.<wbr />com/forum/<wbr />?fromgroups#<wbr />!forum/<wbr />ihris</a></p>
+<p>To view the development wiki, go to <a rel="nofollow" href="http://open.intrahealth.org/wiki/index.php/Main_Page">http://<wbr />open.intrahealt<wbr />h.org/wiki/<wbr />index.php/<wbr />Main_Page</a>.</p></div>
+
+        
+        <ul id="external-links" class="horizontal">
+          <li>
+            <a id="homepageurl-link" class="sprite external-link" rel="nofollow" href="http://www.capacityproject.org/hris/">Home page</a>
+          </li>
+          <li>
+            <a class="menu-link-None sprite external-link" href="http://open.intrahealth.org/wiki/index.php/Main_Page">Wiki</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="yui-g">
+        <div class="yui-u first">
+          <div id="project-info" class="portlet">
+            <h2>Project information</h2>
+
+            <div class="two-column-list">
+              <dl id="partof">
+                <dt>Part of:</dt>
+                <dd><a href="/ihris-suite" class="bg-image" style="background-image: url(https://launchpadlibrarian.net/9381760/C%3A%5CDocuments%20and%20Settings%5Csturlington%5CMy%20Documents%5CMy%20Pictures%5CiHRIS_suite_multicolor14.PNG)">iHRIS Suite</a></dd>
+              </dl>
+
+              <dl id="owner">
+                <dt>Maintainer:</dt>
+                <dd>
+  <span id="edit-owner">
+    <span class="yui3-activator-data-box">
+      <a href="/~intrahealth+informatics" class="sprite team">IntraHealth Informatics</a>
+    </span>
+    
+  </span>
+
+  
+
+</dd>
+              </dl>
+
+              
+
+              <dl id="driver">
+                <dt>Driver:</dt>
+                <dd>
+  <span id="edit-driver">
+    <span class="yui3-activator-data-box">
+      Not yet selected
+    </span>
+    
+  </span>
+
+  
+
+</dd>
+              </dl>
+            </div>
+
+            <div>
+              <dl id="licences">
+                <dt>Licence:</dt>
+                <dd>
+                  
+                    GNU GPL v3
+                  
+                  
+                  
+                </dd>
+                
+                
+              </dl>
+            </div>
+
+            <p>
+              <a class="menu-link-rdf sprite download" href="https://launchpad.net/i2ce/+rdf"><abbr title="Resource Description Framework">RDF</abbr> metadata</a>
+            </p>
+
+            
+          </div>
+        </div>
+
+        <div class="yui-u">
+          <div class="portlet">
+            <h2>
+              <span class="see-all"><a class="menu-link-series sprite info" href="https://launchpad.net/i2ce/+series">View full history</a></span>
+              Series and milestones
+            </h2>
+
+            
+  
+  <div id="timeline-loading" class="hidden">
+    <img src="/@@/spinner" /> Loading graph...
+  </div>
+
+  <!-- Opera ignores overflow:hidden for iframe, so use scrolling=no. -->
+  <iframe id="timeline-iframe" name="timeline-iframe" class="timeline-iframe hidden" style="border: 0" scrolling="no" width="100%" height="216px"></iframe>
+  <script>
+  //<![CDATA[
+  function timeline_iframe(auto_resize, include_inactive, start, size) {
+      var timeline_url = "+timeline-graph?";
+      if (include_inactive == 'true') {
+          timeline_url += "include_inactive=true&";
+      }
+
+      if (auto_resize == 'true') {
+          timeline_url += 'resize_frame=timeline-iframe&';
+      }
+
+      start = parseInt(start);
+      size = parseInt(size);
+      if (start != NaN && start >= 0) {
+          timeline_url += "start=" + start + "&";
+      }
+      if (size != NaN && size >= 1) {
+          timeline_url += "size=" + size + "&";
+      }
+      LPJS.use('node', 'lp.registry.timeline', function(Y) {
+          if (!Y.lp.registry.timeline.isCanvasSupported()) {
+              return;
+          }
+          var loading_el = Y.one('#timeline-loading');
+          loading_el.setStyle('display', 'block');
+          var iframe = Y.one('#timeline-iframe');
+          iframe.set('src', timeline_url);
+          Y.on('load', function(e) {
+              loading_el.setStyle('display', 'none');
+              iframe.setStyle('display', 'block');
+          }, iframe);
+      });
+  }
+  //]]>
+  </script>
+  <script>
+      timeline_iframe(
+        'None',
+        'None',
+        'None',
+        'None'
+        );
+      </script>
+
+
+            <p id="development-focus">
+              <a href="/i2ce/trunk">trunk series</a>
+                is the current focus of development.
+              
+            </p>
+
+            <ul class="horizontal" id="project-link-info">
+              
+              <li class="nowrap">
+                <a class="menu-link-milestones sprite info" href="https://launchpad.net/i2ce/+milestones">View milestones</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-view_recipes sprite info" href="https://code.launchpad.net/i2ce/+recipes">View source package recipes</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-view_snaps sprite info" href="https://launchpad.net/i2ce/+snaps">View snap packages</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-create_snap sprite add" href="https://launchpad.net/i2ce/+new-snap">Create snap package</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-view_charm_recipes sprite info" href="https://launchpad.net/i2ce/+charm-recipes">View charm recipes</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-create_charm_recipe sprite add" href="https://launchpad.net/i2ce/+new-charm-recipe">Create charm recipe</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-view_rock_recipes sprite info" href="https://launchpad.net/i2ce/+rock-recipes">View rock recipes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="yui-g">
+        <div class="yui-u first">
+          
+          <div id="code-info" class="portlet">
+            <h2>
+              <span class="see-all"><a href="https://code.launchpad.net/i2ce">
+                All code</a></span>
+              Code
+            </h2>
+
+            <div id="code-trunk">
+              <p>
+                <a href="https://code.launchpad.net/~intrahealth+informatics/i2ce/4.3-dev" class="sprite branch">lp:i2ce</a>&nbsp;
+                
+                <br />
+                
+              </p>
+            </div>
+
+            <div class="two-column-list">
+              <dl id="product-vcs">
+                <dt>Version control system:</dt>
+                <dd>Bazaar</dd>
+              </dl>
+
+              <dl id="product-languages">
+                <dt>Programming languages:</dt>
+                <dd><span id="edit-programminglang" class="nowrap">
+<span class="yui3-editable_text-text" style="">
+    PHP, SQL, Javascript
+</span>
+  
+</span>
+
+
+</dd>
+              </dl>
+            </div>
+          </div>
+
+          <div><div class="portlet" id="portlet-latest-questions">
+  <h2>
+    <span class="see-all"><a href="https://answers.launchpad.net/i2ce">All questions</a></span>
+    Latest questions
+  </h2>
+
+  <ul>
+    <li>
+      <a class=" sprite question" href="https://answers.launchpad.net/i2ce/+question/204282">gmail freezes up and turns grey all the time.</a>
+      <br /><span class="registered">
+        Posted
+        <time title="2012-07-26 19:32:08 UTC" datetime="2012-07-26T19:32:08.881581+00:00">on 2012-07-26</time>
+      </span>
+    </li>
+  </ul>
+</div>
+</div>
+
+          <div>
+</div>
+          <div>
+</div>
+        </div>
+
+        <div class="yui-u">
+          <div><div class="portlet" id="portlet-latest-bugs">
+  <h2><span class="see-all"><a href="https://bugs.launchpad.net/i2ce">All bugs</a></span>
+    Latest bugs reported</h2>
+
+  <ul>
+    <li>
+      <a href="https://bugs.launchpad.net/i2ce/+bug/1416167" class="sprite bug-undecided" title="Undecided - New">Bug #1416167: ASSOC_LIST error</a>
+      <br /><span class="registered">
+        Reported
+        <time title="2015-01-29 23:49:14 UTC" datetime="2015-01-29T23:49:14.829522+00:00">on 2015-01-29</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://bugs.launchpad.net/i2ce/+bug/1260796" class="sprite bug-high" title="High - Confirmed">Bug #1260796: Error  with contracts after uploading ODT file</a>
+      <br /><span class="registered">
+        Reported
+        <time title="2013-12-13 16:49:18 UTC" datetime="2013-12-13T16:49:18.581782+00:00">on 2013-12-13</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://bugs.launchpad.net/i2ce/+bug/1188339" class="sprite bug-undecided" title="Undecided - New">Bug #1188339: magic data form storage does not support translations</a>
+      <br /><span class="registered">
+        Reported
+        <time title="2013-06-06 18:57:48 UTC" datetime="2013-06-06T18:57:48.207369+00:00">on 2013-06-06</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://bugs.launchpad.net/i2ce/+bug/1103587" class="sprite bug-undecided" title="Undecided - Fix Committed">Bug #1103587: Form Storage Failed Upgrade on 4.1.5 </a>
+      <br /><span class="registered">
+        Reported
+        <time title="2013-01-23 18:02:37 UTC" datetime="2013-01-23T18:02:37.601487+00:00">on 2013-01-23</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://bugs.launchpad.net/i2ce/+bug/1100864" class="sprite bug-undecided" title="Undecided - New">Bug #1100864: Translation tools fail on &amp;nbsp;</a>
+      <br /><span class="registered">
+        Reported
+        <time title="2013-01-17 17:07:27 UTC" datetime="2013-01-17T17:07:27.644219+00:00">on 2013-01-17</time>
+      </span>
+    </li>
+  </ul>
+</div>
+</div>
+
+          <div>
+
+<div class="portlet" id="portlet-blueprints">
+  <h2>
+    <span class="see-all"><a href="https://blueprints.launchpad.net/i2ce">All blueprints</a></span>
+    Latest blueprints</h2>
+
+  <ul>
+    <li>
+      <a href="https://blueprints.launchpad.net/i2ce/+spec/messaging" class="sprite blueprint-undefined">bulk or individual messaging for users</a>
+      <br /><span class="registered">
+        Registered
+        <time title="2015-09-01 14:03:12 UTC" datetime="2015-09-01T14:03:12.936257+00:00">on 2015-09-01</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://blueprints.launchpad.net/i2ce/+spec/usermanagement" class="sprite blueprint-undefined">user management</a>
+      <br /><span class="registered">
+        Registered
+        <time title="2015-09-01 14:00:55 UTC" datetime="2015-09-01T14:00:55.673317+00:00">on 2015-09-01</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://blueprints.launchpad.net/i2ce/+spec/dashboard-reports" class="sprite blueprint-low">Dashboard Reports</a>
+      <br /><span class="registered">
+        Registered
+        <time title="2012-02-29 14:18:21 UTC" datetime="2012-02-29T14:18:21.778751+00:00">on 2012-02-29</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://blueprints.launchpad.net/i2ce/+spec/report-builder-improvements" class="sprite blueprint-medium">Relationship and Report Builder UI Improvements</a>
+      <br /><span class="registered">
+        Registered
+        <time title="2011-02-10 15:04:44 UTC" datetime="2011-02-10T15:04:44.788133+00:00">on 2011-02-10</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://blueprints.launchpad.net/i2ce/+spec/reporting-gis" class="sprite blueprint-high">Geographic / OpenLayers Reporting</a>
+      <br /><span class="registered">
+        Registered
+        <time title="2011-02-10 14:56:45 UTC" datetime="2011-02-10T14:56:45.271114+00:00">on 2011-02-10</time>
+      </span>
+    </li>
+  </ul>
+</div>
+
+</div>
+
+          <div>
+</div>
+
+          <div>
+  
+
+</div>
+        </div>
+        <div class="yui-u">
+          <div id="structural-subscription-content-box"></div>
+        </div>
+
+      </div>
+    
+            
+            
+          </div><!-- yui-b -->
+        </div><!-- yui-main -->
+
+        
+          <div id="side-portlets" class="yui-b side">
+            
+      
+
+      <div id="involvement" class="portlet">
+  <h2>Get Involved</h2>
+
+  <ul class="involvement">
+    <li>
+      <a class="menu-link-report_bug sprite bugs" href="https://bugs.launchpad.net/i2ce/+filebug">Report a bug</a>
+    </li>
+    <li>
+      <a class="menu-link-ask_question sprite answers" href="https://answers.launchpad.net/i2ce/+addquestion">Ask a question</a>
+    </li>
+    <li>
+      <a class="menu-link-help_translate sprite translations" href="https://translations.launchpad.net/i2ce">Help translate</a>
+    </li>
+    <li>
+      <a class="menu-link-register_blueprint sprite blueprints" href="https://blueprints.launchpad.net/i2ce/+addspec">Register a blueprint</a>
+    </li>
+  </ul>
+
+  
+    
+    
+  
+
+  
+</div>
+
+
+      <div id="downloads" class="top-portlet downloads">
+        <h2>Downloads</h2>
+
+        
+          
+  <div class="version">
+    Latest version is 4.3.3
+  </div>
+
+  <ul>
+    <li>
+      <a href="https://launchpad.net/i2ce/4.3/4.3.3/+download/ihris-suite-4.3.3.tar.bz2" title="0 4.3.3">ihris-suite-4.3.3.tar.bz2</a>
+    </li>
+    <li>
+      <a href="https://launchpad.net/i2ce/4.3/4.3.3/+download/i2ce-full-4.3.3.tar.bz2" title="I2ce Full 4.3.3">i2ce-full-4.3.3.tar.bz2</a>
+    </li>
+    <li>
+      <a href="https://launchpad.net/i2ce/4.3/4.3.3/+download/i2ce-4.3.3.tar.bz2" title="I2ce 4.3.3">i2ce-4.3.3.tar.bz2</a>
+    </li>
+  </ul>
+
+  <div class="released">
+    released
+    <time title="2018-06-13 11:22:33 UTC" datetime="2018-06-13T11:22:33+00:00">on 2018-06-13</time>
+  </div>
+
+
+        
+
+        <p class="alternate">
+          <a class="sprite info" href="https://launchpad.net/i2ce/+download">All downloads</a>
+           
+        </p>
+      </div>
+
+      
+
+<div id="portlet-latest-announcements" class="portlet announcements">
+  <h2>
+    <span style="float: right;"><a title="Atom 1.0 feed" href="http://feeds.launchpad.net/i2ce/announcements.atom"><img src="/@@/rss.png" /></a></span>
+    Announcements
+  </h2>
+
+  
+
+  
+    <ul>
+      <li>
+        <div class="latest-announcement">
+          
+          <a href="/i2ce/+announcement/11343">iHRIS Release 4.1.6</a>
+          <strong>on 2013-04-05</strong>
+          <br /> We are pleased to announce the release of iHRIS Manage and iHRIS Qualify 4.1....
+        </div>
+      </li>
+      <li>
+        
+          
+          <a href="/ihris-suite/+announcement/10634">iHRIS Retain 1.2 Released</a>
+          <strong>on 2012-09-18</strong>
+          <br /> iHRIS Retain is the newest addition to the iHRIS platform of tools and techno...
+        
+      </li>
+      <li>
+        
+          
+          <a href="/ihris-suite/+announcement/9749">4.0.22 Release Announcement</a>
+          <strong>on 2012-03-14</strong>
+          <br /> We are pleased to announce the release of iHRIS Manage and iHRIS Qualify 4.0....
+        
+      </li>
+      <li>
+        
+          
+          <a href="/ihris-suite/+announcement/9221">iHRIS 4.0.19 Release</a>
+          <strong>on 2011-11-18</strong>
+          <br /> We are pleased to announce the release of iHRIS Manage and iHRIS Qualify 4.0....
+        
+      </li>
+      <li>
+        
+          
+          <a href="/ihris-suite/+announcement/7929">iHRIS Manage and iHRIS Qualify 4.0.12 Released</a>
+          <strong>on 2011-03-10</strong>
+          <br /> We are pleased to announce the release of iHRIS Manage and iHRIS Qualify 4.0....
+        
+      </li>
+    </ul>
+
+    <div class="see-all"><a class="menu-link-announcements sprite info" href="https://launchpad.net/i2ce/+announcements">Read all announcements</a></div>
+  
+
+  <div class="actions"></div>
+</div>
+
+
+
+    
+          </div><!-- yui-b side -->
+        
+      </div><!-- yui-t4 -->
+
+      
+  <div id="footer" class="footer">
+    <div class="lp-arcana">
+        <div class="lp-branding">
+          <a href="https://launchpad.net/"><img src="/@@/launchpad-footer-logo.svg" alt="Launchpad" width="65" height="18" /></a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://launchpad.net/+tour">Take the tour</a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://documentation.ubuntu.com/launchpad/">Read the guide</a>
+          &nbsp;
+          <form id="globalsearch" method="get" accept-charset="UTF-8" action="https://launchpad.net/+search">
+            <input type="search" id="search-text" name="field.text" />
+            <input type="image" src="/@@/search" style="vertical-align:5%" alt="Search Launchpad" />
+          </form>
+        </div>
+        
+  
+
+    </div>
+
+    <div class="colophon">
+      &copy; 2004
+      <a href="http://canonical.com/">Canonical&nbsp;Ltd.</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://ubuntu.com/legal/launchpad-terms-of-service">Terms of use</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://www.ubuntu.com/legal/dataprivacy">Data privacy</a>
+      &nbsp;&bull;&nbsp;
+      <a href="/feedback">Contact Launchpad Support</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://blog.launchpad.net/">Blog</a>
+      
+	&nbsp;&bull;&nbsp;
+	<a href="https://canonical.com/careers">Careers</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="https://status.canonical.com/">System status</a>
+      <span id="lp-version">
+      &nbsp;&bull;&nbsp;
+        6c05f5b
+        
+        
+        (<a href="https://documentation.ubuntu.com/launchpad/developer/how-to/get-source-code/">Get the code!</a>)
+      </span>
+    </div>
+  </div>
+
+    </div><!-- yui-d0-->
+
+    
+  
+  
+  <script id="json-cache-script">LP.cache = {"related_features": {}, "team_membership_policy_data": [{"name": "Restricted Team", "value": "RESTRICTED", "description": "", "description_css_class": "choice-description", "style": "", "help": "", "disabled": false}, {"name": "Moderated Team", "value": "MODERATED", "description": "", "description_css_class": "choice-description", "style": "", "help": "", "disabled": false}], "administratedTeams": [], "importances": ["Unknown", "Undecided", "Critical", "High", "Medium", "Low", "Wishlist"], "statuses": ["New", "Incomplete", "Opinion", "Invalid", "Won't Fix", "Expired", "Confirmed", "Triaged", "In Progress", "Deferred", "Fix Committed", "Fix Released", "Does Not Exist", "Unknown"], "information_types": ["Public", "Public Security", "Private Security", "Private", "Proprietary", "Embargoed"], "target_info": {"title": "I2CE", "url": "https://launchpad.net/i2ce"}, "context": {"self_link": "https://launchpad.net/api/devel/i2ce", "web_link": "https://launchpad.net/i2ce", "resource_type_link": "https://launchpad.net/api/devel/#project", "translations_usage": "Launchpad", "official_answers": true, "official_blueprints": true, "official_codehosting": true, "official_bugs": true, "information_type": "Public", "active": true, "all_specifications_collection_link": "https://launchpad.net/api/devel/i2ce/all_specifications", "valid_specifications_collection_link": "https://launchpad.net/api/devel/i2ce/valid_specifications", "bug_reporting_guidelines": null, "content_templates": null, "bug_reported_acknowledgement": null, "official_bug_tags": [], "recipes_collection_link": "https://launchpad.net/api/devel/i2ce/recipes", "webhooks_collection_link": "https://launchpad.net/api/devel/i2ce/webhooks", "active_milestones_collection_link": "https://launchpad.net/api/devel/i2ce/active_milestones", "all_milestones_collection_link": "https://launchpad.net/api/devel/i2ce/all_milestones", "bug_supervisor_link": "https://launchpad.net/api/devel/~lduncan", "translationgroup_link": null, "translationpermission": "Open", "qualifies_for_free_hosting": true, "reviewer_whiteboard": "tag:launchpad.net:2008:redacted", "is_permitted": "tag:launchpad.net:2008:redacted", "project_reviewed": "tag:launchpad.net:2008:redacted", "license_approved": "tag:launchpad.net:2008:redacted", "private": false, "display_name": "I2CE", "icon_link": "https://launchpad.net/api/devel/i2ce/icon", "logo_link": "https://launchpad.net/api/devel/i2ce/logo", "name": "i2ce", "owner_link": "https://launchpad.net/api/devel/~intrahealth+informatics", "project_group_link": "https://launchpad.net/api/devel/ihris-suite", "title": "I2CE", "registrant_link": "https://launchpad.net/api/devel/~intrahealth+informatics", "driver_link": null, "summary": "IntraHealth Informatics Core Engine is a set of classes for handling database-driven HTML forms with templates and database abstraction. It is the core programming engine for the iHRIS Suite of software. The Informatics Core Engine is free and Open Source software distributed under the GPL.", "description": "To join the iHRIS forum, go to https://groups.google.com/forum/?fromgroups#!forum/ihris\n\nTo view the development wiki, go to http://open.intrahealth.org/wiki/index.php/Main_Page.", "date_created": "2007-09-10T19:07:47.769458+00:00", "homepage_url": "http://www.capacityproject.org/hris/", "wiki_url": "http://open.intrahealth.org/wiki/index.php/Main_Page", "screenshots_url": null, "download_url": null, "programming_language": "PHP, SQL, Javascript", "sourceforge_project": null, "freshmeat_project": null, "brand_link": "https://launchpad.net/api/devel/i2ce/brand", "branch_sharing_policy": "Public", "bug_sharing_policy": "Public", "specification_sharing_policy": "Public", "licenses": ["GNU GPL v3"], "license_info": null, "bug_tracker_link": null, "series_collection_link": "https://launchpad.net/api/devel/i2ce/series", "development_focus_link": "https://launchpad.net/api/devel/i2ce/trunk", "releases_collection_link": "https://launchpad.net/api/devel/i2ce/releases", "translation_focus_link": null, "commercial_subscription_link": null, "commercial_subscription_is_due": false, "remote_product": null, "vcs": "Bazaar", "http_etag": "\"bc82c5634ae47fba49f6de547f48db2a20f3c46a-c6caee892acc4af207796ccc64ae1f77781f783e\""}};</script>
+
+    
+  
+
+    
+  </body>
+
+
+  <!--
+    Facet name: overview
+    Page type: main_side
+    Has global search: True
+    Has application tabs: True
+    Has side portlets: True
+
+    At least 40 queries/external actions issued in 0.65 seconds
+
+    Features: {'profiling.enabled': None, 'hard_timeout': '5000', 'app.mainsite_only.canonical_url': None, 'js.yui_version': None, 'app.maintenance_message': None, 'markdown.enabled': None, 'charm.recipe.create.enabled': 'on', 'oci.project.create.enabled': None, 'bugs.webhooks.disabled': None, 'baselayout.careers_link.disabled': None, 'visible_render_time': None}
+
+    r6c05f5b
+
+    -->
+
+</html>
+

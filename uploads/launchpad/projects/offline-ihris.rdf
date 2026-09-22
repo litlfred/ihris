@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:doaml="http://ns.balbinus.net/doaml#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:lp="https://launchpad.net/rdf/launchpad#" xmlns:wot="http://xmlns.com/wot/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <lp:Product>
+        <lp:specifiedAt rdf:resource="/offline-ihris/+rdf"/>
+        <lp:name>offline-ihris</lp:name>
+        <lp:displayName>Windows iHRIS</lp:displayName>
+        <lp:title>Windows iHRIS</lp:title>
+        <lp:shortDescription>A Windows version of the iHRIS Suite designed for use in locations where there is no or limited Internet access, or where it is not practical to install a Linux server. It installs all three components of the iHRIS Suite on the Windows desktop. </lp:shortDescription>
+        <lp:description>This project builds on the WAMPServer project to provide a full-stack that can be installed on a Windows Desktop. It is primarily intended for a single user running the software on one desktop computer, although it may be accessed by multiple users via a local area network or the Internet. Windows iHRIS may also be installed with sample data as a demonstration of the program before installing the full server-based version. Advanced users may export data from Windows iHRIS for import into a server-based version of iHRIS using the PHP MyAdmin tool included with Windows iHRIS.  In the future, the ability to import and export data from a primary server will be provided.</lp:description>
+        <lp:creationDate>2008-06-12 15:11:26 UTC</lp:creationDate>
+        <lp:homepage rdf:resource="http://www.capacityproject.org/hris/suite/offline_ihris.php"/>
+        
+        <lp:programmingLanguage>PHP</lp:programmingLanguage>
+        
+        <lp:inProject>
+            <lp:Project>
+                <lp:specifiedAt rdf:resource="/ihris-suite/+rdf"/>
+            </lp:Project>
+        </lp:inProject>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/offline-ihris/3.0/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/offline-ihris/3.1/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/offline-ihris/4.0/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/offline-ihris/trunk/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:owner>
+            <foaf:Agent>
+                <foaf:Account rdf:resource="/~intrahealth+informatics/+rdf"/>
+            </foaf:Agent>
+        </lp:owner>
+        <lp:status>Active</lp:status>
+        
+    </lp:Product>
+</rdf:RDF>

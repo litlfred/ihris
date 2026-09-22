@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Competency",
+  "class": "iHRIS_Competency",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "competency"
+  ],
+  "definedIn": [
+    "ihris-common/module/simple-competency"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/simple-competency"
+      ]
+    },
+    {
+      "field": "competency_type",
+      "type": "MAP",
+      "label": "Competency Type",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/simple-competency"
+      ]
+    },
+    {
+      "field": "notes",
+      "type": "STRING_MLINE",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/simple-competency"
+      ]
+    }
+  ]
+}

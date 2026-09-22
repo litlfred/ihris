@@ -1,0 +1,35 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "i2ce/form-class/I2CE_List",
+  "class": "I2CE_List",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [],
+  "definedIn": [
+    "i2ce/module/Lists"
+  ],
+  "fields": [
+    {
+      "field": "remap",
+      "type": "REMAP",
+      "label": "Remapped Value",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/Lists"
+      ]
+    },
+    {
+      "field": "i2ce_hidden",
+      "type": "YESNO",
+      "label": "Hide",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/Lists"
+      ]
+    }
+  ]
+}

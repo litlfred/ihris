@@ -1,0 +1,32 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_UserAccessFacility",
+  "class": "iHRIS_UserAccessFacility",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "access_facility"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ManageAccessFacility"
+  ],
+  "fields": [
+    {
+      "field": "location",
+      "type": "MAP",
+      "label": "Facility or Geographic Location",
+      "required": false,
+      "unique": true,
+      "references": [
+        "country",
+        "county",
+        "district",
+        "facility",
+        "region"
+      ],
+      "definedIn": [
+        "ihris-manage/module/ManageAccessFacility"
+      ]
+    }
+  ]
+}

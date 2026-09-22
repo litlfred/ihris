@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_ISCO_08_Major",
+  "class": "iHRIS_ISCO_08_Major",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "isco_08_major"
+  ],
+  "definedIn": [
+    "ihris-common/module/isco-08"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Major Group",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/isco-08"
+      ]
+    }
+  ]
+}

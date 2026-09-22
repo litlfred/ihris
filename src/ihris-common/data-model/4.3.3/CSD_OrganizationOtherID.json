@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_OrganizationOtherID",
+  "class": "CSD_OrganizationOtherID",
+  "release": "4.3.3",
+  "extends": "CSD_OtherID_Base",
+  "forms": [
+    "csd_organzation_otherid"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-provider-data-model"
+  ],
+  "fields": [
+    {
+      "field": "csd_organization_otherid_type",
+      "type": "STRING_LINE",
+      "label": "Identification Type",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    }
+  ]
+}

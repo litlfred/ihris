@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Document",
+  "class": "iHRIS_Document",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_resume"
+  ],
+  "definedIn": [
+    "ihris-common/module/Document"
+  ],
+  "fields": [
+    {
+      "field": "document",
+      "type": "DOCUMENT",
+      "label": "Document",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Document"
+      ]
+    },
+    {
+      "field": "date",
+      "type": "DATE_YMD",
+      "label": "Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Document"
+      ]
+    },
+    {
+      "field": "description",
+      "type": "STRING_LINE",
+      "label": "Description",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Document"
+      ]
+    }
+  ]
+}

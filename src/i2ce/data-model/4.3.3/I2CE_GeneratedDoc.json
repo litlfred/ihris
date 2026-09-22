@@ -1,0 +1,59 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "i2ce/form-class/I2CE_GeneratedDoc",
+  "class": "I2CE_GeneratedDoc",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "generated_doc"
+  ],
+  "definedIn": [
+    "i2ce/module/PrintedForms"
+  ],
+  "fields": [
+    {
+      "field": "document",
+      "type": "DOCUMENT",
+      "label": "Document",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/PrintedForms"
+      ]
+    },
+    {
+      "field": "date",
+      "type": "DATE_YMD",
+      "label": "Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/PrintedForms"
+      ]
+    },
+    {
+      "field": "description",
+      "type": "STRING_LINE",
+      "label": "Description",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/PrintedForms"
+      ]
+    },
+    {
+      "field": "primary_form",
+      "type": "STRING_LINE",
+      "label": "Primary Form ID",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/PrintedForms"
+      ]
+    }
+  ]
+}

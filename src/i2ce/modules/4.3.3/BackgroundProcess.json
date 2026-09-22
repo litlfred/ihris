@@ -1,0 +1,39 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/BackgroundProcess",
+  "module": "BackgroundProcess",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/BackgroundProcess/BackgroundProcess.xml",
+    "sha256": "ecae032a38b6bb3199de14ded207831db99052bb442a0a39848e88071e8d6afe"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Background Processes",
+  "description": "A convenience module to allow the running of process in the background",
+  "version": "4.3.0",
+  "className": "I2CE_BackgroundProcess",
+  "category": "Base System Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

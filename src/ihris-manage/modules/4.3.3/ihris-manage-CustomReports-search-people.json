@@ -1,0 +1,47 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-CustomReports-search-people",
+  "module": "ihris-manage-CustomReports-search-people",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManageCustomReports/Reports/SearchPeople/SearchPeople.xml",
+    "sha256": "d9a32621070021ca0b43a6a2ed929a91031f14b3b96591f9f278fa9db241803f"
+  },
+  "parent": "ihris-manage/module/ihris-manage-CustomReports",
+  "site": null,
+  "displayName": "Custom Reports - Search People",
+  "description": "The definition of the search people report for Manage.",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": "IntraHealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "form_employee_status",
+      "class": "I2CE_SimpleList",
+      "displayName": "Employee Status"
+    }
+  ],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "employee_status": 4
+  },
+  "locales": [
+    "en_US"
+  ]
+}

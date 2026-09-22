@@ -1,0 +1,59 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "i2ce/form-class/I2CE_ArchivedReport",
+  "class": "I2CE_ArchivedReport",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "archived_report"
+  ],
+  "definedIn": [
+    "i2ce/module/ReportArchiver"
+  ],
+  "fields": [
+    {
+      "field": "report",
+      "type": "DOCUMENT",
+      "label": "Report",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/ReportArchiver"
+      ]
+    },
+    {
+      "field": "date",
+      "type": "DATE_YMD",
+      "label": "Generation Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/ReportArchiver"
+      ]
+    },
+    {
+      "field": "report_view",
+      "type": "STRING_LINE",
+      "label": "Report View",
+      "required": false,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/ReportArchiver"
+      ]
+    },
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Title",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/ReportArchiver"
+      ]
+    }
+  ]
+}

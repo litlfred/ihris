@@ -1,0 +1,50 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-PersonDemographic",
+  "module": "ihris-manage-PersonDemographic",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManagePersonDemographic/PersonDemographic.xml",
+    "sha256": "6b91af0901f0bb9aad27566b466fb4695ddb5f17c8c1cf29f22fecc5daa7543a"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage Person Demographic",
+  "description": "The iHRIS Manage Person Demographic",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.0"
+    },
+    {
+      "module": "PersonDemographic",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "demographic",
+      "class": "iHRIS_ManageDemographic",
+      "displayName": "Demographic Information"
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_ManageDemographic"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

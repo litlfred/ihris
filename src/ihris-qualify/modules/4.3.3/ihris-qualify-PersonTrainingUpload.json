@@ -1,0 +1,45 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-qualify/module/ihris-qualify-PersonTrainingUpload",
+  "module": "ihris-qualify-PersonTrainingUpload",
+  "instance": "ihris-qualify",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-qualify/modules/PersonTraining/modules/PersonTrainingUpload/PersonTrainingUpload.xml",
+    "sha256": "c0ba1d2254a0146829b980667d0cd56c28fa5a64f1bd57c1f204b5a024b40d9e"
+  },
+  "parent": "ihris-qualify/module/ihris-qualify-PersonTraining",
+  "site": null,
+  "displayName": "Person Training Upload",
+  "description": "Creates a page for uploading training information for a person.",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "ihris-qualify-PersonTraining",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "uploadtraining",
+      "class": "iHRIS_PageUploadTraining",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

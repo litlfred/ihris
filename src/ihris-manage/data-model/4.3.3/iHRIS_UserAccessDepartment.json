@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_UserAccessDepartment",
+  "class": "iHRIS_UserAccessDepartment",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "access_department"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ManageAccessDepartment"
+  ],
+  "fields": [
+    {
+      "field": "department",
+      "type": "MAP",
+      "label": "Department",
+      "required": false,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ManageAccessDepartment"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/SampleData-accident_type",
+  "module": "SampleData-accident_type",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/BaseData/modules/SampleData-accident_type/SampleData-accident_type.xml",
+    "sha256": "d2a5a15bc6c611a1efc1874d490824e255e588a48024d66b6d3861c8f0b04f98"
+  },
+  "parent": "ihris-manage/module/ihris-manage-base-data",
+  "site": null,
+  "displayName": "Accident Type",
+  "description": "Sample Data for form: accidentid_type",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "accident",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "accident_type": 5
+  },
+  "locales": []
+}

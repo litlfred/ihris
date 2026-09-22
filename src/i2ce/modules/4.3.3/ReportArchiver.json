@@ -1,0 +1,57 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/ReportArchiver",
+  "module": "ReportArchiver",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/CustomReports/modules/ReportArchiver/Archiver.xml",
+    "sha256": "20faa4a9b0ab76f33f39b6473e7b12aee33c38fc8c6d341799f8fdc7322eda13"
+  },
+  "parent": "i2ce/module/CustomReports",
+  "site": null,
+  "displayName": "Custom Reports Archiver",
+  "description": "Custom Reports",
+  "version": "4.3.0",
+  "className": "I2CE_Module_ReportArchiver",
+  "category": "Reporting",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CustomReports_Export",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "BinField",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "archived_report",
+      "class": "I2CE_ArchivedReport",
+      "displayName": "Archived Report"
+    }
+  ],
+  "formClasses": [
+    "i2ce/form-class/I2CE_ArchivedReport"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

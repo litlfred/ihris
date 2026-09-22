@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_UserTrigger",
+  "class": "iHRIS_UserTrigger",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "user_trigger"
+  ],
+  "definedIn": [
+    "ihris-common/module/UserTriggers"
+  ],
+  "fields": [
+    {
+      "field": "trigger",
+      "type": "ENUM",
+      "label": "Trigger",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/UserTriggers"
+      ]
+    }
+  ]
+}

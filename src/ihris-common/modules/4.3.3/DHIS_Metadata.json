@@ -1,0 +1,68 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/DHIS_Metadata",
+  "module": "DHIS_Metadata",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/DHISMetaData/DHISMetaData.xml",
+    "sha256": "42482d97de37ffe66755152cf0be805cacb55eb9e5651b53a66b351887b1dfe0"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "DHIS Metadata",
+  "description": "Makes DHIS Meta Data such as organizational Units information available to the system",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "forms-storage-xml",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "dhis_data_element",
+      "class": "iHRIS_DHIS_CodedList",
+      "displayName": "Data Element"
+    },
+    {
+      "form": "dhis_orgunit",
+      "class": "iHRIS_DHIS_CodedList",
+      "displayName": "DHIS Organizational Unit"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_DHIS_CodedList"
+  ],
+  "pages": [
+    {
+      "page": "dhis_submit",
+      "class": "iHRIS_DHIS_DashboardSubmit",
+      "style": "shell"
+    },
+    {
+      "page": "dhis_metadata",
+      "class": "iHRIS_DHIS_MetadataUpload",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "nl",
+    "uk"
+  ]
+}

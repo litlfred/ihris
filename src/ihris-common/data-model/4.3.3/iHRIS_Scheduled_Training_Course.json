@@ -1,0 +1,106 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Scheduled_Training_Course",
+  "class": "iHRIS_Scheduled_Training_Course",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "scheduled_training_course"
+  ],
+  "definedIn": [
+    "ihris-common/module/training-course"
+  ],
+  "fields": [
+    {
+      "field": "training_course",
+      "type": "MAP",
+      "label": "Training Course",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Site",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "num_students",
+      "type": "INT",
+      "label": "Maximum Number of Students",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "notes",
+      "type": "STRING_MLINE",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "instructors",
+      "type": "STRING_MLINE",
+      "label": "Instructors",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "start_date",
+      "type": "DATE_YMD",
+      "label": "Start Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "end_date",
+      "type": "DATE_YMD",
+      "label": "End Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "location",
+      "type": "MAP",
+      "label": "Location",
+      "required": false,
+      "unique": null,
+      "references": [
+        "county",
+        "district"
+      ],
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    }
+  ]
+}

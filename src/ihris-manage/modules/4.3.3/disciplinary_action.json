@@ -1,0 +1,77 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/disciplinary_action",
+  "module": "disciplinary_action",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/Disciplinary/Discipline.xml",
+    "sha256": "04b88db65eb7db19d83874520585df76b018983d429a5f7459115d38b7f580cd"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Disciplinary Action",
+  "description": "A Disciplinary Action Tracking Module",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_DisciplinaryAction",
+  "category": "Application Component",
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "disciplinary_action",
+      "class": "iHRIS_DisciplinaryAction",
+      "displayName": "Disciplinary Action"
+    },
+    {
+      "form": "disciplinary_action_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Disciplinary Action Type"
+    },
+    {
+      "form": "disciplinary_action_reason",
+      "class": "I2CE_SimpleList",
+      "displayName": "Disciplinary Action Reason"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": "Person"
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_DisciplinaryAction"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "et",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "si",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

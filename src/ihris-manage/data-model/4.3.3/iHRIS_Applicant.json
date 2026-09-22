@@ -1,0 +1,114 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_Applicant",
+  "class": "iHRIS_Applicant",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "application"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ihris-manage-Application"
+  ],
+  "fields": [
+    {
+      "field": "position",
+      "type": "MAP_MULT",
+      "label": "Position(s)",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    },
+    {
+      "field": "felony",
+      "type": "YESNO",
+      "label": "Have you ever been convicted of a felony?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    },
+    {
+      "field": "felony_circumstance",
+      "type": "STRING_MLINE",
+      "label": "If yes, give the circumstances.",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    },
+    {
+      "field": "other_info",
+      "type": "STRING_MLINE",
+      "label": "In addition to your work history, are there other skills, qualifications or experience we should consider?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    },
+    {
+      "field": "hear",
+      "type": "STRING_MLINE",
+      "label": "How did you hear of this opening?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    },
+    {
+      "field": "start_date",
+      "type": "DATE_YMD",
+      "label": "When can you start?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    },
+    {
+      "field": "desired_wage",
+      "type": "CURRENCY",
+      "label": "Desired Wage",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    },
+    {
+      "field": "full_time",
+      "type": "YESNO",
+      "label": "Are you looking for full-time employment?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    },
+    {
+      "field": "hours",
+      "type": "STRING_MLINE",
+      "label": "If no, what hours are you available?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Application"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:doaml="http://ns.balbinus.net/doaml#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:lp="https://launchpad.net/rdf/launchpad#" xmlns:wot="http://xmlns.com/wot/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <lp:Product>
+        <lp:specifiedAt rdf:resource="/ihris-plan/+rdf"/>
+        <lp:name>ihris-plan</lp:name>
+        <lp:displayName>iHRIS Plan</lp:displayName>
+        <lp:title>iHRIS Plan</lp:title>
+        <lp:shortDescription>iHRIS Plan is planning and modeling software developed to improve how health sector planners and program decision makers plan for their health workforce needs in developing country settings. The software helps planners and decision makers model workforce needs and make effective policy decisions to meet those needs.</lp:shortDescription>
+        <lp:description>iHRIS Plan is a free, Open Source software solution distributed under the GPL and developed by The Capacity Project, an innovative global initiative to help developing countries build and sustain the health workforce. This software uses data from iHRIS Manage and iHRIS Qualify to form a complete picture of the health workforce in the country. It then projects how that workforce will change in the future based on known influences such as retirement age, the number of trained health workers annually entering the workforce and other factors. This projection is compared to the projected health workforce needs over the same period, visually displaying the gap between actual workers and needed workers. The decision maker may then interactively test various models, or policy changes, to try to close that gap.
+
+To join the announcement mailing list for this project, go to http://lists.intrahealth.org/mailman/listinfo/ihris-announce.
+To join the developers mailing list for this project, go to http://lists.intrahealth.org/mailman/listinfo/ihris-developers.</lp:description>
+        <lp:creationDate>2007-09-10 19:25:46 UTC</lp:creationDate>
+        <lp:homepage rdf:resource="http://www.capacityproject.org/hris/suite/ihris_plan.php"/>
+        
+        <lp:programmingLanguage>PHP</lp:programmingLanguage>
+        
+        <lp:inProject>
+            <lp:Project>
+                <lp:specifiedAt rdf:resource="/ihris-suite/+rdf"/>
+            </lp:Project>
+        </lp:inProject>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/ihris-plan/1.0/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/ihris-plan/trunk/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:owner>
+            <foaf:Agent>
+                <foaf:Account rdf:resource="/~intrahealth+informatics/+rdf"/>
+            </foaf:Agent>
+        </lp:owner>
+        <lp:status>Active</lp:status>
+        
+    </lp:Product>
+</rdf:RDF>

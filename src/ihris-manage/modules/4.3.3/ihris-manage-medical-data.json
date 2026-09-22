@@ -1,0 +1,80 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-medical-data",
+  "module": "ihris-manage-medical-data",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/MedicalData/ManageMedicalData.xml",
+    "sha256": "6e6f6d1be61f1307e654e7326296e026465947e70d5841d97ba2c8b5759d773d"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage Medical Base Data",
+  "description": "iHRIS Manage Medical Base Data",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Site",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage-base-data",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "SampleData-cadre"
+    },
+    {
+      "module": "SampleData-department"
+    },
+    {
+      "module": "SampleData-salary_grade"
+    },
+    {
+      "module": "SampleData-classification"
+    },
+    {
+      "module": "SampleData-facility_type"
+    },
+    {
+      "module": "SampleData-salary_source"
+    },
+    {
+      "module": "SampleData-competency"
+    },
+    {
+      "module": "SampleData-job"
+    },
+    {
+      "module": "SampleData-training_course_category"
+    },
+    {
+      "module": "SampleData-competency_type"
+    },
+    {
+      "module": "SampleData-position_type"
+    },
+    {
+      "module": "SampleData-training_course_requestor"
+    },
+    {
+      "module": "SampleData-council"
+    },
+    {
+      "module": "SampleData-disciplinary_action_type"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

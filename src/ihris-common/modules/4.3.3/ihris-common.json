@@ -1,0 +1,193 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/ihris-common",
+  "module": "ihris-common",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/iHRIS-Common-Configuration.xml",
+    "sha256": "e84c3a18f755594d7d58e548839b8ca481627bfa490b7f80f9a74e69e5cb28b6"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Common",
+  "description": "Commmon elements used by the iHRIS Suite",
+  "version": "4.3.3.0",
+  "className": "iHRIS_Module",
+  "category": "Base System Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "I2CE",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "UserAccess",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Dashboard",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "page-formautoview-builder",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "form-gizmos",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage-entry",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "form-limits",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "UserForm",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Lists",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Tags",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Options",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "template-data",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "DisplayData",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "admin",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "FileDump",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "LoginPage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "formRelationship-viewer",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "user",
+      "class": "iHRIS_PageFormUser",
+      "style": "shell"
+    },
+    {
+      "page": "view_user",
+      "class": "iHRIS_PageViewUser",
+      "style": "shell"
+    },
+    {
+      "page": "dashboard",
+      "class": "iHRIS_PageDashboard",
+      "style": null
+    },
+    {
+      "page": "lists",
+      "class": "I2CE_PageFormLists",
+      "style": "shell"
+    },
+    {
+      "page": "home",
+      "class": "iHRIS_PageIndex",
+      "style": "main"
+    },
+    {
+      "page": "history",
+      "class": "iHRIS_PageHistory",
+      "style": "shell"
+    },
+    {
+      "page": "field_history",
+      "class": "iHRIS_PageFieldHistory",
+      "style": "shell"
+    },
+    {
+      "page": "noaccess",
+      "class": null,
+      "style": "main"
+    },
+    {
+      "page": "configure",
+      "class": "iHRIS_PageConfigure",
+      "style": "shell"
+    },
+    {
+      "page": "view_list",
+      "class": "iHRIS_PageViewList",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

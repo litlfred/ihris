@@ -1,0 +1,48 @@
+{
+  "id": "ihris-build-kg",
+  "title": "Build the iHRIS knowledge graph",
+  "description": "Regenerates every derived node from uploads/: Launchpad catalogue (projects, series, releases with MD5s), I2CE modules and form classes from a checksum-verified release tarball, restored wiki pages, toolkit stages, iHRIS 5 catalogue. Deterministic; removes and rewrites its own output directories.",
+  "install": {
+    "cli": "pip install beautifulsoup4 markdownify"
+  },
+  "invoke": {
+    "shell": "python3 src/tools/build_kg.py"
+  },
+  "io": {
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "catalogue-node",
+        "schema": "https://litlfred.github.io/folio-assistant/schemas/folio-catalogue-node.schema.json"
+      },
+      {
+        "name": "source-record",
+        "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-source-record.schema.json"
+      },
+      {
+        "name": "module",
+        "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-i2ce-module.schema.json"
+      },
+      {
+        "name": "form-class",
+        "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-form-class.schema.json"
+      },
+      {
+        "name": "toolkit-stage",
+        "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-toolkit-stage.schema.json"
+      }
+    ]
+  },
+  "satisfies": [
+    "describe-launchpad-source",
+    "extract-i2ce-modules",
+    "ingest-toolkit-stage",
+    "restore-wiki-from-help-export"
+  ],
+  "requires": {
+    "runtime": [
+      "python3>=3.10"
+    ],
+    "network": false
+  }
+}

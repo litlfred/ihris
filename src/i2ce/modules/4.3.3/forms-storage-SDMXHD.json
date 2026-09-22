@@ -1,0 +1,42 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/forms-storage-SDMXHD",
+  "module": "forms-storage-SDMXHD",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/FormStorage/modules/FormStorageSDMXHD/FormStorageSDMXHD.xml",
+    "sha256": "f2f41fe94a2e3821d530c693643c7178530217377988187bdf8b0fc52456be67"
+  },
+  "parent": "i2ce/module/forms-storage",
+  "site": null,
+  "displayName": "Form Storage - SDMX-HD",
+  "description": "A module that enables reading storage of Forms from a SDMX CodeList or CrossSectionalData",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Base System Component",
+  "creator": "Luke Duncan",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "forms-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage-xml",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/leave",
+  "module": "leave",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/Leave/Leave.xml",
+    "sha256": "9c960378e8da750475c7d8a4aad8b8e77b66408f457b9d8e7d09892187700700"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Leave",
+  "description": "Leave Tracking Module",
+  "version": "4.2.2.13",
+  "className": "iHRIS_Module_Leave",
+  "category": "Application Component",
+  "creator": "Ally Shaban",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.2",
+      "lessThan": "4.3"
+    },
+    {
+      "module": "leave_data",
+      "atLeast": "4.2",
+      "lessThan": "4.3"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "leave_category",
+      "class": "iHRIS_LeaveCategory",
+      "displayName": "Leave Category"
+    },
+    {
+      "form": "leave_status",
+      "class": "I2CE_SimpleList",
+      "displayName": "Leave Status"
+    },
+    {
+      "form": "leave_cycle",
+      "class": "iHRIS_LeaveCycle",
+      "displayName": "Leave Cyscle"
+    },
+    {
+      "form": "leave_balance",
+      "class": "iHRIS_LeaveBalance",
+      "displayName": "Leave Balance"
+    },
+    {
+      "form": "leave_request",
+      "class": "iHRIS_LeaveRequest",
+      "displayName": "Leave Request"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": "Person"
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_LeaveBalance",
+    "ihris-manage/form-class/iHRIS_LeaveCategory",
+    "ihris-manage/form-class/iHRIS_LeaveCycle",
+    "ihris-manage/form-class/iHRIS_LeaveRequest"
+  ],
+  "pages": [
+    {
+      "page": "leave_request",
+      "class": "iHRIS_PageFormLeaveRequest",
+      "style": "ihris_manage_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/dep_class",
+  "class": "dep_class",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [],
+  "definedIn": [
+    "ihris-common/module/dependents",
+    "ihris-common/module/nextOfKin"
+  ],
+  "fields": [
+    {
+      "field": "gender",
+      "type": "MAP",
+      "label": "Gender",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/dependents"
+      ]
+    },
+    {
+      "field": "date_of_birth",
+      "type": "DATE_YMD",
+      "label": "Date of Birth",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/dependents"
+      ]
+    },
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/dependents",
+        "ihris-common/module/nextOfKin"
+      ]
+    },
+    {
+      "field": "relationship",
+      "type": "STRING_LINE",
+      "label": "Relationship",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/nextOfKin"
+      ]
+    }
+  ]
+}

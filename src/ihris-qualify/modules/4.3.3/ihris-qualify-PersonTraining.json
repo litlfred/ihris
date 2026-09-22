@@ -1,0 +1,53 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-qualify/module/ihris-qualify-PersonTraining",
+  "module": "ihris-qualify-PersonTraining",
+  "instance": "ihris-qualify",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-qualify/modules/PersonTraining/PersonTraining.xml",
+    "sha256": "23c02549436478973d03cb6bbce8b46d00c2e976d9efc027f56331c46ff391e6"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "PersonTraining",
+  "description": "Makes a record verification form available to the system",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_QualifyPersonTraining",
+  "category": "Application Component",
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ihris-qualify",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person_training",
+      "class": "iHRIS_PersonTraining",
+      "displayName": "Continuing Education"
+    }
+  ],
+  "formClasses": [
+    "ihris-qualify/form-class/iHRIS_PersonTraining"
+  ],
+  "pages": [
+    {
+      "page": "person_training",
+      "class": "iHRIS_PageFormParentPerson",
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

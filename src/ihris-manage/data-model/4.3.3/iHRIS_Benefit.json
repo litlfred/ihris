@@ -1,0 +1,87 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_Benefit",
+  "class": "iHRIS_Benefit",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "benefit"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ihris-manage-Benefit"
+  ],
+  "fields": [
+    {
+      "field": "type",
+      "type": "MAP",
+      "label": "Benefit Type",
+      "required": true,
+      "unique": null,
+      "references": [
+        "benefit_type"
+      ],
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Benefit"
+      ]
+    },
+    {
+      "field": "amount",
+      "type": "CURRENCY",
+      "label": "Amount",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Benefit"
+      ]
+    },
+    {
+      "field": "source",
+      "type": "MAP",
+      "label": "Source",
+      "required": true,
+      "unique": null,
+      "references": [
+        "salary_source"
+      ],
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Benefit"
+      ]
+    },
+    {
+      "field": "start_date",
+      "type": "DATE_YMD",
+      "label": "Start Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Benefit"
+      ]
+    },
+    {
+      "field": "end_date",
+      "type": "DATE_YMD",
+      "label": "End Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Benefit"
+      ]
+    },
+    {
+      "field": "recurrence",
+      "type": "MAP",
+      "label": "Recurrence Frequency",
+      "required": true,
+      "unique": null,
+      "references": [
+        "benefit_recurrence"
+      ],
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Benefit"
+      ]
+    }
+  ]
+}

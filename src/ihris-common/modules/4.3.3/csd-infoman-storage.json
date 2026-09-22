@@ -1,0 +1,225 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/csd-infoman-storage",
+  "module": "csd-infoman-storage",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CSD/modules/InfoManStorage/InfoManStorage.xml",
+    "sha256": "c1337e6f9d2f4aa15799e6c8c1510781bf8b77e70342071b694c4031b4108fc8"
+  },
+  "parent": "ihris-common/module/CSD",
+  "site": null,
+  "displayName": "CSD Health Worker InfoManager Storage",
+  "description": "CSD Health Worker Form Storage Against Info Manager",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "IntraHealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "csd-provider-data-model",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage-services",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "csd_info_manager",
+      "class": "CSD_InfoManager",
+      "displayName": "CSD InfoManager"
+    },
+    {
+      "form": "csd_provider",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_organization",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_service",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_facility",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_otherid",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_facility_otherid",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_operating_hours",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_service",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_organization_contact_point",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_address",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_facility_address",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_organization_address",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_contact_point",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_facility_contact_point",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_credential",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_name",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_organization",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_facility",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_contact_point_type",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_contact_point_type",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_facility_status",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_status",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_organization_status",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_service_status",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_gender",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_contact_point_type",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_type",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_language",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_credential_type",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_facility_type",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_provider_specialty",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_service_type",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "csd_organization_type",
+      "class": null,
+      "displayName": null
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/CSD_InfoManager"
+  ],
+  "pages": [
+    {
+      "page": "remote_directory_selector",
+      "class": "I2CE_Page_SelectServiceDirectory",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {
+    "csd_info_manager": 4
+  },
+  "locales": [
+    "en_US"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ManageAccessDepartment",
+  "module": "ManageAccessDepartment",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManageAccessDepartment/ManageAccessDepartment.xml",
+    "sha256": "8d7c65f014fcee36e6ecc2f446edfad9f1b800f9a72d3a905445301890fc8ecb"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Manage Access Department",
+  "description": "A module that enables permission based on assigning a department and any positions that belong to that department.",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_ManageAccessDepartment",
+  "category": "Application Component",
+  "creator": "Luke Duncan",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "form-relationship-based-permission",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "user",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "access_department",
+      "class": "iHRIS_UserAccessDepartment",
+      "displayName": "User Access Department"
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_UserAccessDepartment"
+  ],
+  "pages": [
+    {
+      "page": "access_department",
+      "class": "iHRIS_PageFormParentUser",
+      "style": "ihris_common_page_form_parent_user"
+    }
+  ],
+  "dataLists": {
+    "role": 1
+  },
+  "locales": []
+}

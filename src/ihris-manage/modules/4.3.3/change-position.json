@@ -1,0 +1,53 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/change-position",
+  "module": "change-position",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/change-position/change-position.xml",
+    "sha256": "34d3a825c60ad85d6c8d102cde8849d6755bf6b5e07200697c4834942b5f3ec7"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Change Position",
+  "description": "Add simple page to create and change to a new position.",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "change_position",
+      "class": "iHRIS_PageFormChangePosition",
+      "style": "ihris_manage_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "nl",
+    "pt_BR",
+    "si"
+  ]
+}

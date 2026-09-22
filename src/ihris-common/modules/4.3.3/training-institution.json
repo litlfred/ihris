@@ -1,0 +1,94 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/training-institution",
+  "module": "training-institution",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/TrainingInstitution/Training.xml",
+    "sha256": "a9407cd48cce2b2fc7d487dcb8919ec83b56f908e662a4168cc36add74a2ad7b"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Training Institution",
+  "description": "Adds basic training institution and funder functionality",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_TrainingInstitution",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Geography",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Contact",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "training_institution_contact",
+      "class": "iHRIS_Contact",
+      "displayName": null
+    },
+    {
+      "form": "training_institution",
+      "class": "iHRIS_ListByCountry",
+      "displayName": "Training Institution"
+    },
+    {
+      "form": "training_funder_contact",
+      "class": "iHRIS_Contact",
+      "displayName": null
+    },
+    {
+      "form": "training_funder",
+      "class": "iHRIS_ListByCountry",
+      "displayName": "Training Funder"
+    }
+  ],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "lists",
+      "class": null,
+      "style": null
+    },
+    {
+      "page": "view_list",
+      "class": null,
+      "style": null
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

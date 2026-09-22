@@ -1,0 +1,41 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_ListByCountry",
+  "class": "iHRIS_ListByCountry",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "training_funder",
+    "training_institution"
+  ],
+  "definedIn": [
+    "ihris-common/module/Geography"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    },
+    {
+      "field": "location",
+      "type": "MAP",
+      "label": "Location",
+      "required": false,
+      "unique": null,
+      "references": [
+        "county",
+        "district"
+      ],
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    }
+  ]
+}

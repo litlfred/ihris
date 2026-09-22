@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/form-task-log",
+  "module": "form-task-log",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/FormStorage/modules/FormStorageTaskLog/TaskLog.xml",
+    "sha256": "030ff8fe79ab33ae9f0f4eb656909c9723bae49701538f29623354802cff780f"
+  },
+  "parent": "i2ce/module/forms-storage",
+  "site": null,
+  "displayName": "Form Task Logger",
+  "description": "A module that enables logging of data changes related to tasks",
+  "version": "4.3.0",
+  "className": "I2CE_Module_TaskLog_FormStorage",
+  "category": "Base System Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "forms-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/mHero-csd-provider",
+  "module": "mHero-csd-provider",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CSD/modules/mHero/modules/mHero-CSDSearch/mHero.xml",
+    "sha256": "7cf2504038c157d3b2619eb1ce03fa02a47099a859dd4df8e2dc33a7d60605c2"
+  },
+  "parent": "ihris-common/module/mHero-base",
+  "site": null,
+  "displayName": "mHero",
+  "description": "Provides CSD Interface for RapidPro",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "mHero-base",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "csd-provider-data-model",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "csd-search",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "csd-provider-pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "mhero_provider_search",
+      "class": "CSD_ProviderSearch",
+      "displayName": "Search Health Worker To Start Workflow"
+    }
+  ],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "mhero_search_provider",
+      "class": "mHero_PageSearch",
+      "style": "mhero_search"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

@@ -1,0 +1,129 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_Exam",
+  "class": "iHRIS_Exam",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "exam"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "application_date",
+      "type": "DATE_YMD",
+      "label": "Application Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "materials_received",
+      "type": "YESNO",
+      "label": "Materials Received?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "materials_approved",
+      "type": "YESNO",
+      "label": "Materials Approved?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "endorser_name",
+      "type": "STRING_LINE",
+      "label": "Endorser Name",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "endorser_date",
+      "type": "DATE_YMD",
+      "label": "Endorser Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "endorser_qualifications",
+      "type": "STRING_MLINE",
+      "label": "Endorser Qualifications",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "exam_date",
+      "type": "DATE_YMD",
+      "label": "Exam Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "try",
+      "type": "MAP",
+      "label": "Exam Try",
+      "required": false,
+      "unique": null,
+      "references": [
+        "exam_try"
+      ],
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "results",
+      "type": "MAP",
+      "label": "Exam Results",
+      "required": false,
+      "unique": null,
+      "references": [
+        "exam_result"
+      ],
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "exam_number",
+      "type": "STRING_LINE",
+      "label": "Exam Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

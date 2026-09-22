@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_RecordVerify",
+  "class": "iHRIS_RecordVerify",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "record_verify"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/RecordVerify"
+  ],
+  "fields": [
+    {
+      "field": "verify_date",
+      "type": "DATE_YMD",
+      "label": "Verification Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/RecordVerify"
+      ]
+    },
+    {
+      "field": "verify_change",
+      "type": "MAP_MULT",
+      "label": "Changes Made",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/RecordVerify"
+      ]
+    }
+  ]
+}

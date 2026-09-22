@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+<base href="https://launchpad.net/i2ce/4.0/+index" />
+
+    <meta charset="UTF-8" />
+    <title>Series 4.0 : I2CE</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/@@/apple-touch-icon.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/@@/favicon-32x32.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/@@/favicon-16x16.png?v=2022" />
+    <link rel="manifest" href="/@@/site.webmanifest?v=2022" />
+    <link rel="mask-icon" href="/@@/safari-pinned-tab.svg?v=2022" color="#e9531f" />
+    <link rel="shortcut icon" href="/@@/favicon.ico?v=2022" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/@@/browserconfig.xml?v=2022" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    
+    
+
+    
+  
+  <link type="text/css" rel="stylesheet" media="screen, print" href="/+icing/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/combo.css" />
+
+
+    
+
+    
+      
+      
+    
+
+    
+    
+      <meta property="og:title" content="Series 4.0 : I2CE" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="/@@/launchpad-og-image.png" />
+      <meta property="og:url" content="https://launchpad.net/i2ce/4.0/+index" />
+      <meta property="og:site_name" content="Launchpad" />
+    
+
+    
+
+    
+  
+
+  
+  
+  <script type="text/javascript">
+    var LP = {
+        cache: {},
+        links: {}
+    };
+  </script>
+
+  
+
+  <script type="text/javascript">var cookie_scope = '; Path=/; Secure; Domain=.launchpad.net';</script>
+
+   <script type="text/javascript" src="/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?yui/yui/yui-min.js&amp;lp/meta.js&amp;yui/loader/loader-min.js"></script>
+   <script type="text/javascript">
+        var raw = null;
+        if (LP.devmode) {
+           raw = 'raw';
+        }
+        YUI.GlobalConfig = {
+            combine: true,
+            comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+            root: 'yui/',
+            filter: raw,
+            debug: false,
+            fetchCSS: false,
+            maxURLLength: 2000,
+            groups: {
+                lp: {
+                    combine: true,
+                    base: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?lp/',
+                    comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+                    root: 'lp/',
+                    // comes from including lp/meta.js
+                    modules: LP_MODULES,
+                    fetchCSS: false
+                }
+            }
+        }</script>
+
+  <script type="text/javascript">
+      // we need this to create a single YUI instance all events and code
+      // talks across. All instances of YUI().use should be based off of
+      // LPJS instead.
+      var LPJS = new YUI();
+  </script>
+
+
+
+    <script id="base-layout-load-scripts" type="text/javascript">
+        //<![CDATA[
+        LPJS.use('base', 'node', 'console', 'event',
+            'oop', 'lp', 'lp.app.foldables','lp.app.sorttable',
+            'lp.app.inlinehelp', 'lp.app.links',
+            'lp.bugs.bugtask_index', 'lp.bugs.subscribers',
+            'lp.app.ellipsis', 'lp.code.branchmergeproposal.diff',
+            'lp.views.global',
+             function(Y) {
+
+            Y.on("domready", function () {
+                var global_view = new Y.lp.views.Global();
+                global_view.render();
+
+                Y.lp.app.sorttable.SortTable.init();
+                Y.lp.app.inlinehelp.init_help();
+                Y.lp.activate_collapsibles();
+                Y.lp.app.foldables.activate();
+                Y.lp.app.links.check_valid_lp_links();
+            });
+
+            Y.on('lp:context:web_link:changed', function(e) {
+                  window.location = e.new_value;
+            });
+        });
+        //]]>
+    </script>
+    <script id="base-helper-functions" type="text/javascript">
+         //<![CDATA[
+        // This code is pulled from lp.js that needs to be available on every
+        // request. Pulling here to get it outside the scope of the YUI block.
+        function setFocusByName(name) {
+            // Focus the first element matching the given name which can be focused.
+            var nodes = document.getElementsByName(name);
+            var i, node;
+            for (i = 0; i < nodes.length; i++) {
+                node = nodes[i];
+                if (node.focus) {
+                    try {
+                        // Trying to focus a hidden element throws an error in IE8.
+                        if (node.offsetHeight !== 0) {
+                            node.focus();
+                        }
+                    } catch (e) {
+                        LPJS.use('console', function(Y) {
+                            Y.log('In setFocusByName(<' +
+                                node.tagName + ' type=' + node.type + '>): ' + e);
+                        });
+                    }
+                    break;
+                }
+            }
+        }
+
+        function selectWidget(widget_name, event) {
+          if (event && (event.keyCode === 9 || event.keyCode === 13)) {
+              // Avoid firing if user is tabbing through or simply pressing
+              // enter to submit the form.
+              return;
+          }
+          document.getElementById(widget_name).checked = true;
+        }
+        //]]>
+    </script>
+
+    
+      
+    
+    
+    <script type="text/javascript">
+        LPJS.use('lang', 'node', 'lp.app.calendar', function(Y) {
+                Y.lp.app.calendar.setup_calendar_widgets();
+            });
+    </script>
+
+    
+    
+      <script type="text/javascript">
+          LPJS.use('lp.registry.structural_subscription', function(Y) {
+              var module = Y.lp.registry.structural_subscription;
+              Y.on('domready', function() {
+                module.setup({content_box: "#structural-subscription-content-box"});
+              });
+          });
+      </script>
+    
+    <meta name="go-import" content="launchpad.net/i2ce/4.0 bzr https://launchpad.net/~intrahealth+informatics/i2ce/4.0-release" />
+  
+    
+  </head>
+
+  <body id="document" itemscope="" itemtype="http://schema.org/WebPage" class="tab-overview
+      main_side
+      public
+      yui3-skin-sam">
+          
+          
+          
+    <div class="yui-d0">
+      <div id="locationbar" class="login-logout">
+        
+
+<div id="logincontrol"><a href="https://launchpad.net/i2ce/4.0/+login">Log in / Register</a></div>
+
+
+
+      </div><!--id="locationbar"-->
+
+      <div id="watermark" class="watermark-apps-portlet">
+        <div>
+          <a href="https://launchpad.net/i2ce"><img alt="" width="64" height="64" src="/@@/product-logo" /></a>
+        </div>
+        <div class="wide">
+          <h2 id="watermark-heading"><a href="https://launchpad.net/i2ce">I2CE</a></h2>
+        </div>
+        
+  <!-- Application Menu -->
+  <ul class="facetmenu">
+    
+      <li class="overview active"><a href="https://launchpad.net/i2ce">Overview</a></li>
+      
+      
+    
+    
+      
+      <li class="branches"><a href="https://code.launchpad.net/i2ce">Code</a></li>
+      
+    
+    
+      
+      <li class="bugs"><a href="https://bugs.launchpad.net/i2ce">Bugs</a></li>
+      
+    
+    
+      
+      <li class="specifications"><a href="https://blueprints.launchpad.net/i2ce">Blueprints</a></li>
+      
+    
+    
+      
+      <li class="translations"><a href="https://translations.launchpad.net/i2ce">Translations</a></li>
+      
+    
+    
+      
+      <li class="answers"><a href="https://answers.launchpad.net/i2ce">Answers</a></li>
+      
+    
+  </ul>
+
+      </div>
+
+      <div class="yui-t4">
+        <div id="maincontent" class="yui-main">
+          <div class="yui-b" dir="ltr">
+            <div class="context-publication">
+              
+      <h1>I2CE 4.0 series</h1>
+    
+              
+
+              <div id="registration" class="registering">
+                
+              </div>
+            </div>
+
+            
+            <div id="request-notifications">
+              
+            </div>
+
+            
+              <div>
+
+      <div class="top-portlet">
+        <div id="description"><p>The 4.0 series for I2CE.</p></div>
+
+        <div style="padding-top: 1em">
+          
+  
+  <div id="timeline-loading" class="hidden">
+    <img src="/@@/spinner" /> Loading graph...
+  </div>
+
+  <!-- Opera ignores overflow:hidden for iframe, so use scrolling=no. -->
+  <iframe id="timeline-iframe" name="timeline-iframe" class="timeline-iframe hidden" style="border: 0" scrolling="no" width="100%" height="216px"></iframe>
+  <script>
+  //<![CDATA[
+  function timeline_iframe(auto_resize, include_inactive, start, size) {
+      var timeline_url = "+timeline-graph?";
+      if (include_inactive == 'true') {
+          timeline_url += "include_inactive=true&";
+      }
+
+      if (auto_resize == 'true') {
+          timeline_url += 'resize_frame=timeline-iframe&';
+      }
+
+      start = parseInt(start);
+      size = parseInt(size);
+      if (start != NaN && start >= 0) {
+          timeline_url += "start=" + start + "&";
+      }
+      if (size != NaN && size >= 1) {
+          timeline_url += "size=" + size + "&";
+      }
+      LPJS.use('node', 'lp.registry.timeline', function(Y) {
+          if (!Y.lp.registry.timeline.isCanvasSupported()) {
+              return;
+          }
+          var loading_el = Y.one('#timeline-loading');
+          loading_el.setStyle('display', 'block');
+          var iframe = Y.one('#timeline-iframe');
+          iframe.set('src', timeline_url);
+          Y.on('load', function(e) {
+              loading_el.setStyle('display', 'none');
+              iframe.setStyle('display', 'block');
+          }, iframe);
+      });
+  }
+  //]]>
+  </script>
+  <script>
+      timeline_iframe(
+        'true',
+        'true',
+        'None',
+        'None'
+        );
+      </script>
+
+        </div>
+      </div>
+
+      <div class="yui-g">
+        <div class="yui-u first">
+          <div id="series-details" class="portlet">
+            <h2>Series information</h2>
+
+            <div class="two-column-list">
+              <dl id="series-project">
+                <dt>Project:</dt>
+                <dd><a href="/i2ce" class="sprite product">I2CE</a></dd>
+              </dl>
+
+              <dl id="series-name">
+                <dt>Series:</dt>
+                <dd>4.0</dd>
+              </dl>
+
+              <dl id="series-drivers">
+                <dt>Project drivers:</dt>
+                <dd>
+                  
+                    <a href="/~intrahealth+informatics" class="sprite team">IntraHealth Informatics</a>
+                  
+                </dd>
+              </dl>
+
+              <dl id="series-release-manager">
+                <dt>Release manager:</dt>
+                <dd>
+                  None
+                  
+                  
+                 </dd>
+               </dl>
+
+              <dl id="series-status">
+                <dt>Status:</dt>
+                <dd>
+                  Current Stable Release
+                  
+                </dd>
+              </dl>
+
+              <dl id="series-focus">
+                <dt>Project development focus:</dt>
+                <dd>
+                  is
+                  not
+                  the focus of development.
+                  
+                </dd>
+              </dl>
+            </div>
+
+            <dl id="series-releasefileglob" style="margin-bottom: 1em;" title="Launchpad automatically scans sites to import releases">
+              <dt>Release URL pattern:</dt>
+              <dd>
+                
+                  None
+                
+                
+               </dd>
+            </dl>
+
+            <p>
+              <a class="menu-link-rdf sprite download" href="https://launchpad.net/i2ce/4.0/+rdf">Download RDF metadata</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="yui-u">
+          <div class="portlet">
+  <h2>Code for this series</h2>
+
+
+
+
+  <p>The following branch has been registered as the mainline branch
+  for this release series:</p>
+
+  <div id="branch-details">
+    <a id="series-branch" class="sprite branch" href="https://code.launchpad.net/~intrahealth+informatics/i2ce/4.0-release">lp:~intrahealth+informatics/i2ce/4.0-release</a>
+    - <a href="https://code.launchpad.net/~intrahealth+informatics" class="sprite team">IntraHealth Informatics</a>
+    
+  </div>
+  <div id="branch-revision-details">
+    2704 revisions.
+  </div>
+
+  <p>
+    You can get a copy of the development focus branch using the command:<br />
+    <tt class="command">
+      bzr branch lp:i2ce/4.0
+    </tt>
+  </p>
+
+
+</div>
+
+
+          <p>
+            
+          </p>
+        </div>
+      </div>
+
+      <div class="portlet">
+        <h2>Milestones and releases</h2>
+
+        
+        <div>
+          
+
+<table style="width: 100%;" class="upper-batch-nav">
+  <tbody>
+    <tr>
+      <td style="white-space: nowrap" class="batch-navigation-index">
+        
+            <strong>1</strong>
+            
+              &rarr;
+              <strong>22</strong>
+            
+            of
+            22
+            results
+        
+      </td>
+      <td style="text-align: right; white-space: nowrap" class="batch-navigation-links">
+        
+        <span class="first inactive">First</span>
+        &bull;
+        
+        <span class="previous inactive">Previous</span>
+        &bull;
+        
+        <span class="next inactive"><strong>Next</strong></span>
+        
+          &bull;
+          
+          <span class="last inactive">Last</span>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="listing" id="series-4-0">
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Expected</th>
+      <th>Released</th>
+      <th>Summary</th>
+    </tr>
+  </thead>
+  <tbody id="milestone-rows">
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.23">I2CE 4.0.23</a>
+    </td>
+    
+    <td>
+      <span title="2012-04-20 00:00:00 UTC">2012-04-20</span>
+      
+    </td>
+    <td>
+      <time title="2012-04-20 04:00:00 UTC" datetime="2012-04-20T04:00:00+00:00">2012-04-20</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.22">I2CE 4.0.22</a>
+    </td>
+    
+    <td>
+      <span title="2012-03-09 00:00:00 UTC">2012-03-09</span>
+      
+    </td>
+    <td>
+      <time title="2012-03-09 11:22:33 UTC" datetime="2012-03-09T11:22:33+00:00">2012-03-09</time>
+      
+    </td>
+    
+    <td>
+      
+      
+      
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.21">I2CE 4.0.21</a>
+    </td>
+    
+    <td>
+      <span title="2011-12-05 00:00:00 UTC">2011-12-05</span>
+      
+    </td>
+    <td>
+      <time title="2011-12-05 11:22:33 UTC" datetime="2011-12-05T11:22:33+00:00">2011-12-05</time>
+      
+    </td>
+    
+    <td>
+      
+      
+      
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.19">I2CE 4.0.19</a>
+    </td>
+    
+    <td>
+      <span title="2011-10-17 00:00:00 UTC">2011-10-17</span>
+      
+    </td>
+    <td>
+      <time title="2011-10-17 13:20:00 UTC" datetime="2011-10-17T13:20:00+00:00">2011-10-17</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.18">I2CE 4.0.18</a>
+    </td>
+    
+    <td>
+      <span title="2011-09-15 00:00:00 UTC">2011-09-15</span>
+      
+    </td>
+    <td>
+      <time title="2011-09-15 18:11:00 UTC" datetime="2011-09-15T18:11:00+00:00">2011-09-15</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.17">I2CE 4.0.17</a>
+    </td>
+    
+    <td>
+      <span title="2011-09-14 00:00:00 UTC">2011-09-14</span>
+      
+    </td>
+    <td>
+      <time title="2011-09-14 17:54:00 UTC" datetime="2011-09-14T17:54:00+00:00">2011-09-14</time>
+      
+    </td>
+    
+    <td>
+      
+      
+      
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.16">I2CE 4.0.16</a>
+    </td>
+    
+    <td>
+      <span title="2011-06-30 00:00:00 UTC">2011-06-30</span>
+      
+    </td>
+    <td>
+      <time title="2011-06-30 18:43:00 UTC" datetime="2011-06-30T18:43:00+00:00">2011-06-30</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.15">I2CE 4.0.15</a>
+    </td>
+    
+    <td>
+      <span title="2011-05-27 00:00:00 UTC">2011-05-27</span>
+      
+    </td>
+    <td>
+      <time title="2011-05-27 15:18:00 UTC" datetime="2011-05-27T15:18:00+00:00">2011-05-27</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.14">I2CE 4.0.14</a>
+    </td>
+    
+    <td>
+      <span title="2011-05-23 00:00:00 UTC">2011-05-23</span>
+      
+    </td>
+    <td>
+      <time title="2011-05-23 15:12:00 UTC" datetime="2011-05-23T15:12:00+00:00">2011-05-23</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.12">I2CE 4.0.12</a>
+    </td>
+    
+    <td>
+      <span title="2011-03-09 00:00:00 UTC">2011-03-09</span>
+      
+    </td>
+    <td>
+      <time title="2011-03-09 20:58:00 UTC" datetime="2011-03-09T20:58:00+00:00">2011-03-09</time>
+      
+    </td>
+    
+    <td>
+      
+      
+      
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.11">I2CE 4.0.11</a>
+    </td>
+    
+    <td>
+      <span title="2011-03-02 00:00:00 UTC">2011-03-02</span>
+      
+    </td>
+    <td>
+      <time title="2011-03-02 05:00:00 UTC" datetime="2011-03-02T05:00:00+00:00">2011-03-02</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.10">I2CE 4.0.10</a>
+    </td>
+    
+    <td>
+      <span title="2010-12-22 00:00:00 UTC">2010-12-22</span>
+      
+    </td>
+    <td>
+      <time title="2010-12-22 14:18:00 UTC" datetime="2010-12-22T14:18:00+00:00">2010-12-22</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.9">I2CE 4.0.9</a>
+    </td>
+    
+    <td>
+      <span title="2010-12-21 00:00:00 UTC">2010-12-21</span>
+      
+    </td>
+    <td>
+      <time title="2010-12-21 19:49:00 UTC" datetime="2010-12-21T19:49:00+00:00">2010-12-21</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.8">I2CE 4.0.8</a>
+    </td>
+    
+    <td>
+      <span title="2010-11-04 00:00:00 UTC">2010-11-04</span>
+      
+    </td>
+    <td>
+      <time title="2010-11-04 04:00:00 UTC" datetime="2010-11-04T04:00:00+00:00">2010-11-04</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.7">I2CE 4.0.7</a>
+    </td>
+    
+    <td>
+      <span title="2010-09-09 00:00:00 UTC">2010-09-09</span>
+      
+    </td>
+    <td>
+      <time title="2010-09-09 04:00:00 UTC" datetime="2010-09-09T04:00:00+00:00">2010-09-09</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.6">I2CE 4.0.6</a>
+    </td>
+    
+    <td>
+      <span title="2010-08-26 00:00:00 UTC">2010-08-26</span>
+      
+    </td>
+    <td>
+      <time title="2010-08-26 04:00:00 UTC" datetime="2010-08-26T04:00:00+00:00">2010-08-26</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.5">I2CE 4.0.5</a>
+    </td>
+    
+    <td>
+      <span title="2010-06-11 00:00:00 UTC">2010-06-11</span>
+      
+    </td>
+    <td>
+      <time title="2010-06-11 04:00:00 UTC" datetime="2010-06-11T04:00:00+00:00">2010-06-11</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.4">I2CE 4.0.4</a>
+    </td>
+    
+    <td>
+      <span title="2010-05-04 00:00:00 UTC">2010-05-04</span>
+      
+    </td>
+    <td>
+      <time title="2010-05-04 14:44:00 UTC" datetime="2010-05-04T14:44:00+00:00">2010-05-04</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.3">I2CE 4.0.3 "I2CE 4.0.3"</a>
+    </td>
+    
+    <td>
+      <span title="2010-03-05 00:00:00 UTC">2010-03-05</span>
+      
+    </td>
+    <td>
+      <time title="2010-03-05 15:33:00 UTC" datetime="2010-03-05T15:33:00+00:00">2010-03-05</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.2">I2CE 4.0.2</a>
+    </td>
+    
+    <td>
+      <span title="2009-11-06 00:00:00 UTC">2009-11-06</span>
+      
+    </td>
+    <td>
+      <time title="2009-11-06 16:40:00 UTC" datetime="2009-11-06T16:40:00+00:00">2009-11-06</time>
+      
+    </td>
+    
+    <td>
+      4.0.2 Release
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.1">I2CE 4.0.1</a>
+    </td>
+    
+    <td>
+      <span title="2009-10-24 00:00:00 UTC">2009-10-24</span>
+      
+    </td>
+    <td>
+      <time title="2009-10-29 04:00:00 UTC" datetime="2009-10-29T04:00:00+00:00">2009-10-29</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+    
+      
+  <tr>
+    <td>
+      <img src="/@@/milestone" alt="" />
+      <a href="/i2ce/+milestone/4.0.0">I2CE 4.0.0</a>
+    </td>
+    
+    <td>
+      <span title="2009-07-14 00:00:00 UTC">2009-07-14</span>
+      
+    </td>
+    <td>
+      <time title="2009-07-14 14:12:00 UTC" datetime="2009-07-14T14:12:00+00:00">2009-07-14</time>
+      
+    </td>
+    
+    <td>
+      
+      
+    </td>
+  </tr>
+
+
+    
+  </tbody>
+</table>
+<table style="width: 100%;" class="lower-batch-nav">
+  <tbody>
+    <tr>
+      <td style="white-space: nowrap" class="batch-navigation-index">
+        
+            <strong>1</strong>
+            
+              &rarr;
+              <strong>22</strong>
+            
+            of
+            22
+            results
+        
+      </td>
+      <td style="text-align: right; white-space: nowrap" class="batch-navigation-links">
+        
+        <span class="first inactive">First</span>
+        &bull;
+        
+        <span class="previous inactive">Previous</span>
+        &bull;
+        
+        <span class="next inactive"><strong>Next</strong></span>
+        
+          &bull;
+          
+          <span class="last inactive">Last</span>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+          <ul class="table-actions" style="margin-bottom: 1em;">
+            <li>
+              
+            </li>
+            <li>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="yui-g">
+        <div class="yui-u first">
+          <div><div class="portlet" id="portlet-latest-bugs">
+  <h2><span class="see-all"><a href="https://bugs.launchpad.net/i2ce/4.0">All bugs</a></span>
+    Latest bugs reported</h2>
+
+  <ul>
+    <li>
+      <a href="https://bugs.launchpad.net/i2ce/4.0/+bug/711087" class="sprite bug-medium" title="Medium - Triaged">Bug #711087: &quot;invalid and removed functions from a relationship should not  appear in a report&quot;</a>
+      <br /><span class="registered">
+        Reported
+        <time title="2011-02-11 14:18:06 UTC" datetime="2011-02-11T14:18:06.157408+00:00">on 2011-02-11</time>
+      </span>
+    </li>
+  </ul>
+</div>
+</div>
+
+          <div><div class="portlet" id="portlet-packages">
+  <h2>
+    <span class="see-all">
+      <a href="https://launchpad.net/i2ce/+packages">
+        All packages
+      </a>
+    </span>
+    Distribution packaging
+  </h2>
+
+  <p id="distribution-packaging-explanation">
+    
+    
+      This series is not packaged in any distribution series.
+    
+  </p>
+
+  
+
+  <ul class="horizontal">
+    <li>
+      
+    </li>
+  </ul>
+</div>
+</div>
+        </div>
+
+        <div class="yui-u">
+          <div>
+
+<div class="portlet" id="portlet-blueprints">
+  <h2>
+    <span class="see-all"><a href="https://blueprints.launchpad.net/i2ce/4.0">All blueprints</a></span>
+    Latest blueprints</h2>
+
+  <ul>
+    <li>
+      <a href="https://blueprints.launchpad.net/i2ce/+spec/reference-field" class="sprite blueprint-essential">Reference Field</a>
+      <br /><span class="registered">
+        Registered
+        <time title="2011-02-11 14:01:33 UTC" datetime="2011-02-11T14:01:33.956429+00:00">on 2011-02-11</time>
+      </span>
+    </li>
+  </ul>
+</div>
+
+</div>
+
+          
+
+
+          <div class="portlet">
+            <h2>Related series, milestones, and releases</h2>
+
+            <ul id="related-series">
+              <li>
+                <a class="sprite info" href="https://launchpad.net/i2ce/+series">View
+                  series for the
+                  I2CE project</a>
+              </li>
+              <li>
+                <a class="sprite info" href="https://launchpad.net/i2ce/+milestones">View
+                  milestones for the
+                  I2CE project</a>
+              </li>
+              <li>
+                <a class="sprite info" href="https://launchpad.net/i2ce/+download">View
+                  downloads for the
+                  I2CE project</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="yui-u">
+          <div id="structural-subscription-content-box"></div>
+        </div>
+      </div>
+    </div>
+            
+            
+          </div><!-- yui-b -->
+        </div><!-- yui-main -->
+
+        
+          <div id="side-portlets" class="yui-b side">
+            
+      <div id="global-actions" class="portlet">
+        <ul>
+          
+          
+          
+          
+        </ul>
+      </div>
+
+      <div id="privacy" class="portlet public">
+    <span id="information-type-summary" class="sprite public">This series
+      contains <strong id="information-type">Public</strong> information</span>
+
+    <div id="information-type-description" style="padding-top: 5px">Everyone can see this information.
+</div>
+</div>
+
+
+
+      <div id="downloads" class="top-portlet downloads">
+        <h2>Downloads</h2>
+
+        
+          
+  <div class="version">
+    Latest version is 4.0.23
+  </div>
+
+  <ul>
+    <li>
+      <a href="https://launchpad.net/i2ce/4.0/4.0.23/+download/ihris-suite-4.0.23.tar.bz2" title="iHRIS Suite 4.0.23">ihris-suite....23.tar.bz2</a>
+    </li>
+    <li>
+      <a href="https://launchpad.net/i2ce/4.0/4.0.23/+download/I2CE-full-4.0.23.tar.bz2" title="I2CE 4.0.23 with TextLayout">I2CE-full-4.0.23.tar.bz2</a>
+    </li>
+    <li>
+      <a href="https://launchpad.net/i2ce/4.0/4.0.23/+download/I2CE-4.0.23.tar.bz2" title="I2CE 4.0.23">I2CE-4.0.23.tar.bz2</a>
+    </li>
+  </ul>
+
+  <div class="released">
+    released
+    <time title="2012-04-20 04:00:00 UTC" datetime="2012-04-20T04:00:00+00:00">on 2012-04-20</time>
+  </div>
+
+
+        
+
+        <p class="alternate">
+          <a class="sprite info" href="https://launchpad.net/i2ce/+download">All downloads</a>
+           
+        </p>
+      </div>
+
+      <div id="involvement" class="portlet">
+  <h2>Get Involved</h2>
+
+  <ul class="involvement">
+    <li>
+      <a class="menu-link-report_bug sprite bugs" href="https://bugs.launchpad.net/i2ce/4.0/+filebug">Report a bug</a>
+    </li>
+    <li>
+      <a class="menu-link-help_translate sprite translations" href="https://translations.launchpad.net/i2ce/4.0">Help translate</a>
+    </li>
+    <li>
+      <a class="menu-link-register_blueprint sprite blueprints" href="https://blueprints.launchpad.net/i2ce/4.0/+addspec">Register a blueprint</a>
+    </li>
+  </ul>
+
+  
+    
+    
+  
+
+  
+</div>
+
+    
+          </div><!-- yui-b side -->
+        
+      </div><!-- yui-t4 -->
+
+      
+  <div id="footer" class="footer">
+    <div class="lp-arcana">
+        <div class="lp-branding">
+          <a href="https://launchpad.net/"><img src="/@@/launchpad-footer-logo.svg" alt="Launchpad" width="65" height="18" /></a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://launchpad.net/+tour">Take the tour</a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://documentation.ubuntu.com/launchpad/">Read the guide</a>
+          &nbsp;
+          <form id="globalsearch" method="get" accept-charset="UTF-8" action="https://launchpad.net/+search">
+            <input type="search" id="search-text" name="field.text" />
+            <input type="image" src="/@@/search" style="vertical-align:5%" alt="Search Launchpad" />
+          </form>
+        </div>
+        
+  
+
+    </div>
+
+    <div class="colophon">
+      &copy; 2004
+      <a href="http://canonical.com/">Canonical&nbsp;Ltd.</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://ubuntu.com/legal/launchpad-terms-of-service">Terms of use</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://www.ubuntu.com/legal/dataprivacy">Data privacy</a>
+      &nbsp;&bull;&nbsp;
+      <a href="/feedback">Contact Launchpad Support</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://blog.launchpad.net/">Blog</a>
+      
+	&nbsp;&bull;&nbsp;
+	<a href="https://canonical.com/careers">Careers</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="https://status.canonical.com/">System status</a>
+      <span id="lp-version">
+      &nbsp;&bull;&nbsp;
+        6c05f5b
+        
+        
+        (<a href="https://documentation.ubuntu.com/launchpad/developer/how-to/get-source-code/">Get the code!</a>)
+      </span>
+    </div>
+  </div>
+
+    </div><!-- yui-d0-->
+
+    
+  
+  
+  <script id="json-cache-script">LP.cache = {"related_features": {}, "administratedTeams": [], "importances": ["Unknown", "Undecided", "Critical", "High", "Medium", "Low", "Wishlist"], "statuses": ["New", "Incomplete", "Opinion", "Invalid", "Won't Fix", "Expired", "Confirmed", "Triaged", "In Progress", "Deferred", "Fix Committed", "Fix Released", "Does Not Exist", "Unknown"], "information_types": ["Public", "Public Security", "Private Security", "Private", "Proprietary", "Embargoed"], "target_info": {"title": "I2CE 4.0 series", "url": "https://launchpad.net/i2ce/4.0"}, "context": {"self_link": "https://launchpad.net/api/devel/i2ce/4.0", "web_link": "https://launchpad.net/i2ce/4.0", "resource_type_link": "https://launchpad.net/api/devel/#project_series", "translations_usage": "Launchpad", "all_specifications_collection_link": "https://launchpad.net/api/devel/i2ce/4.0/all_specifications", "valid_specifications_collection_link": "https://launchpad.net/api/devel/i2ce/4.0/valid_specifications", "bug_reporting_guidelines": null, "content_templates": null, "bug_reported_acknowledgement": null, "official_bug_tags": [], "active": true, "summary": "The 4.0 series for I2CE.", "drivers_collection_link": "https://launchpad.net/api/devel/i2ce/4.0/drivers", "name": "4.0", "project_link": "https://launchpad.net/api/devel/i2ce", "status": "Current Stable Release", "date_created": "2009-07-13T14:26:47.619479+00:00", "owner_link": "https://launchpad.net/api/devel/~lduncan", "driver_link": null, "title": "I2CE 4.0 series", "display_name": "4.0", "releases_collection_link": "https://launchpad.net/api/devel/i2ce/4.0/releases", "active_milestones_collection_link": "https://launchpad.net/api/devel/i2ce/4.0/active_milestones", "all_milestones_collection_link": "https://launchpad.net/api/devel/i2ce/4.0/all_milestones", "branch_link": "https://launchpad.net/api/devel/~intrahealth+informatics/i2ce/4.0-release", "translations_autoimport_mode": "None", "release_finder_url_pattern": null, "http_etag": "\"70d6dbc5345cd7bd9f18ab73e9e8e33f2ed14b5a-2082f8cbaa48e9ed6397b441ef02e7976bab0a01\""}};</script>
+
+    
+  
+
+    
+  </body>
+
+
+  <!--
+    Facet name: overview
+    Page type: main_side
+    Has global search: True
+    Has application tabs: True
+    Has side portlets: True
+
+    At least 41 queries/external actions issued in 0.63 seconds
+
+    Features: {'profiling.enabled': None, 'hard_timeout': '10000', 'app.mainsite_only.canonical_url': None, 'js.yui_version': None, 'app.maintenance_message': None, 'baselayout.careers_link.disabled': None, 'visible_render_time': None}
+
+    r6c05f5b
+
+    -->
+
+</html>
+

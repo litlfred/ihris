@@ -1,0 +1,57 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/PersonAttendance",
+  "module": "PersonAttendance",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/PersonAttendance/PersonAttendance.xml",
+    "sha256": "0f40d740a216a18f372336cacf1146c21b67eceb6d9866041d3a4ddee48a06ed"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage Person Attendance",
+  "description": "A Person's Attendance",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_PersonAttendance",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person_attendance",
+      "class": "iHRIS_PersonAttendance",
+      "displayName": "Attendance Information"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_PersonAttendance"
+  ],
+  "pages": [
+    {
+      "page": "person_attendance",
+      "class": "iHRIS_PageFormPersonAttendance",
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

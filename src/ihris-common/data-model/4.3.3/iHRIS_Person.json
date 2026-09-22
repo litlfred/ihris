@@ -1,0 +1,88 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Person",
+  "class": "iHRIS_Person",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person"
+  ],
+  "definedIn": [
+    "ihris-common/module/Person"
+  ],
+  "fields": [
+    {
+      "field": "surname",
+      "type": "STRING_LINE",
+      "label": "Surname",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Person"
+      ]
+    },
+    {
+      "field": "firstname",
+      "type": "STRING_LINE",
+      "label": "First Name",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Person"
+      ]
+    },
+    {
+      "field": "othername",
+      "type": "STRING_LINE",
+      "label": "Other Names",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Person"
+      ]
+    },
+    {
+      "field": "nationality",
+      "type": "MAP",
+      "label": "Nationality",
+      "required": true,
+      "unique": null,
+      "references": [
+        "country"
+      ],
+      "definedIn": [
+        "ihris-common/module/Person"
+      ]
+    },
+    {
+      "field": "surname_ignore",
+      "type": "BOOL",
+      "label": null,
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Person"
+      ]
+    },
+    {
+      "field": "residence",
+      "type": "MAP",
+      "label": "Residence",
+      "required": true,
+      "unique": null,
+      "references": [
+        "country",
+        "county",
+        "district",
+        "region"
+      ],
+      "definedIn": [
+        "ihris-common/module/Person"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_ManagePerson",
+  "class": "iHRIS_ManagePerson",
+  "release": "4.3.3",
+  "extends": "iHRIS_Person",
+  "forms": [
+    "person"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ihris-manage-Person"
+  ],
+  "fields": [
+    {
+      "field": "password",
+      "type": "STRING_PASS",
+      "label": null,
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Person"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/FormCSVUpload",
+  "module": "FormCSVUpload",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/tutorials/FormCSVUpload/FormCSVUpload.xml",
+    "sha256": "10ab91868e6da188b938891ed78d882ac8168161bbfaa9606d455c0018dcb0f4"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "FormCSVUpload",
+  "description": "Tutorial for uploading CSV data into iHRIS.  This example will load education details to a person.",
+  "version": "4.2.0.1",
+  "className": null,
+  "category": "Tutorial",
+  "creator": "IntraHealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "forms",
+      "atLeast": "4.2"
+    },
+    {
+      "module": "PersonEducation",
+      "atLeast": "4.2"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "upload_education",
+      "class": "iHRIS_PageFormUpload_Education",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/dependents",
+  "module": "dependents",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/Dependents/dependent.xml",
+    "sha256": "232c5eb93d2e9e52e2e670d725557721877466baa92cbe2a3952356fc11a2d4c"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "Person's Dependents",
+  "description": "Adds Dependent Information to a Person",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_Dependents",
+  "category": "Application Component",
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "dep_form",
+      "class": "iHRIS_Dependent",
+      "displayName": "Dependent"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/dep_class"
+  ],
+  "pages": [
+    {
+      "page": "dependent_page",
+      "class": null,
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

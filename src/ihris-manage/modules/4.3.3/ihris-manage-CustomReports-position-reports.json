@@ -1,0 +1,39 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-CustomReports-position-reports",
+  "module": "ihris-manage-CustomReports-position-reports",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManageCustomReports/Reports/PositionReports/PositionReports.xml",
+    "sha256": "77b22e756fac370b97b39569b7d47b0282538768d5133f6a2eab378b65271df6"
+  },
+  "parent": "ihris-manage/module/ihris-manage-CustomReports",
+  "site": null,
+  "displayName": "iHRIS Manage Position Reports",
+  "description": "The Manage Reports based on the Position relationship",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Option",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

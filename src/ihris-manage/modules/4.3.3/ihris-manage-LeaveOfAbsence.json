@@ -1,0 +1,63 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-LeaveOfAbsence",
+  "module": "ihris-manage-LeaveOfAbsence",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManagePersonPosition/modules/LeaveOfAbsence/LeaveOfAbsense.xml",
+    "sha256": "12d2a19abb1bf7f898b82696991859510521926a9d26868eaa9100452afb7ce8"
+  },
+  "parent": "ihris-manage/module/ihris-manage-PersonPosition",
+  "site": null,
+  "displayName": "iHRIS Manage Leave Of Absence",
+  "description": "The iHRIS Manage Leave Of Absence Module.",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_LeaveOfAbsence",
+  "category": "Application",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "fields-enum",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "leave_of_absence",
+      "class": "iHRIS_LeaveOfAbsence",
+      "displayName": "Leave Of Absence"
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_LeaveOfAbsence"
+  ],
+  "pages": [
+    {
+      "page": "leave_of_absence",
+      "class": null,
+      "style": "ihris_manage_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

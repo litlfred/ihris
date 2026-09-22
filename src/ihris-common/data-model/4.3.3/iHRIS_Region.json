@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Region",
+  "class": "iHRIS_Region",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "region"
+  ],
+  "definedIn": [
+    "ihris-common/module/Geography"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    },
+    {
+      "field": "country",
+      "type": "MAP",
+      "label": "Country",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    },
+    {
+      "field": "code",
+      "type": "STRING_LINE",
+      "label": "Code",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    }
+  ]
+}

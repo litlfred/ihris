@@ -1,0 +1,125 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_LeaveRequest",
+  "class": "iHRIS_LeaveRequest",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "leave_request"
+  ],
+  "definedIn": [
+    "ihris-manage/module/leave"
+  ],
+  "fields": [
+    {
+      "field": "notes",
+      "type": "STRING_MLINE",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "leave_category",
+      "type": "MAP",
+      "label": "Leave Category",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "leave_status",
+      "type": "MAP",
+      "label": "Leave Status",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "supervisor_approval",
+      "type": "YESNO",
+      "label": "Supervisor Approval",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "hr_approval",
+      "type": "YESNO",
+      "label": "Human Resource Approval",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "start_date",
+      "type": "DATE_YMD",
+      "label": "Leave Start Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "end_date",
+      "type": "DATE_YMD",
+      "label": "Leave End Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "leave_days",
+      "type": "INT",
+      "label": "Leave Days",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "return_date",
+      "type": "DATE_YMD",
+      "label": "Return Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "approved_return_date",
+      "type": "DATE_YMD",
+      "label": "Approved Return Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    }
+  ]
+}

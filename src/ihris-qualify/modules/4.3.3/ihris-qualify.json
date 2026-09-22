@@ -1,0 +1,473 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-qualify/module/ihris-qualify",
+  "module": "ihris-qualify",
+  "instance": "ihris-qualify",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-qualify/iHRIS-Qualify-Configuration.xml",
+    "sha256": "94fb470d6b90347b673f6c931f453d3d43a126d26d97bc817fb038b19d025368"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Qualify",
+  "description": "The iHRIS Qualify system.",
+  "version": "4.3.3.0",
+  "className": "iHRIS_Module_Qualify",
+  "category": "Application",
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "PersonDemographic",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Facility",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CEUs",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "training-institution",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-common-Search",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-common-RecentForm",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "ihris-qualify-csd-qus"
+    },
+    {
+      "module": "FacilityContact"
+    },
+    {
+      "module": "ihris-qualify-CustomReports"
+    },
+    {
+      "module": "ihris-qualify-PrintedForms"
+    },
+    {
+      "module": "RecordVerify"
+    },
+    {
+      "module": "PersonNotes"
+    },
+    {
+      "module": "ihris-qualify-help"
+    },
+    {
+      "module": "PersonPassportPhoto"
+    }
+  ],
+  "conflicts": [
+    {
+      "module": "PersonEducation",
+      "atLeast": "4.1"
+    },
+    {
+      "module": "ihris-manage",
+      "atLeast": "3.0",
+      "lessThan": "4.1"
+    },
+    {
+      "module": "ihris-plan",
+      "atLeast": "1.0",
+      "lessThan": "2.0"
+    }
+  ],
+  "optional": [],
+  "forms": [
+    {
+      "form": "academic_level",
+      "class": "I2CE_SimpleList",
+      "displayName": "Academic Level"
+    },
+    {
+      "form": "demographic",
+      "class": "iHRIS_QualifyDemographic",
+      "displayName": "Demographic Information"
+    },
+    {
+      "form": "disciplinary_action_category",
+      "class": "I2CE_SimpleList",
+      "displayName": "Disciplinary Action Category"
+    },
+    {
+      "form": "facility_agent",
+      "class": "I2CE_SimpleList",
+      "displayName": "Facility Agent"
+    },
+    {
+      "form": "facility_status",
+      "class": "I2CE_SimpleList",
+      "displayName": "Facility Status"
+    },
+    {
+      "form": "out_migration_reason",
+      "class": "I2CE_SimpleList",
+      "displayName": "Out Migration Reason"
+    },
+    {
+      "form": "training_disruption_category",
+      "class": "I2CE_SimpleList",
+      "displayName": "Training Disruption Category"
+    },
+    {
+      "form": "qualification",
+      "class": "I2CE_SimpleList",
+      "displayName": "Qualification"
+    },
+    {
+      "form": "cadre",
+      "class": "iHRIS_Cadre",
+      "displayName": "Cadre"
+    },
+    {
+      "form": "certificate",
+      "class": "iHRIS_Certificate",
+      "displayName": "Certificate"
+    },
+    {
+      "form": "disciplinary_action_reason",
+      "class": "iHRIS_DisciplinaryActionReason",
+      "displayName": "Disciplinary Action Reason"
+    },
+    {
+      "form": "training_disruption_reason",
+      "class": "iHRIS_TrainingDisruptionReason",
+      "displayName": "Training Disruption Reason"
+    },
+    {
+      "form": "health_facility",
+      "class": "iHRIS_HealthFacility",
+      "displayName": "Health Facility"
+    },
+    {
+      "form": "training_institution",
+      "class": "iHRIS_QualifyTrainingInstitution",
+      "displayName": "Training Institution"
+    },
+    {
+      "form": "training_program",
+      "class": "iHRIS_TrainingProgram",
+      "displayName": "Training Program"
+    },
+    {
+      "form": "institution_inspection",
+      "class": "iHRIS_InstitutionInspection",
+      "displayName": "Institution Inspection"
+    },
+    {
+      "form": "facility_institution",
+      "class": "iHRIS_FacilityInstitution",
+      "displayName": "Facility Institution"
+    },
+    {
+      "form": "facility_institution_edit_fac",
+      "class": "iHRIS_FacilityInstitutionEditFacility",
+      "displayName": "Edit Facility to Link Facilities with Institutions"
+    },
+    {
+      "form": "facility_institution_edit_inst",
+      "class": "iHRIS_FacilityInstitutionEditInstitution",
+      "displayName": "Edit Institution to Link Facilities and Institutions"
+    },
+    {
+      "form": "person",
+      "class": "iHRIS_QualifyPerson",
+      "displayName": "Person"
+    },
+    {
+      "form": "education",
+      "class": "iHRIS_SecondaryEducation",
+      "displayName": "Education History"
+    },
+    {
+      "form": "training",
+      "class": "iHRIS_Training",
+      "displayName": "Training"
+    },
+    {
+      "form": "training_disrupt",
+      "class": "iHRIS_TrainingDisrupt",
+      "displayName": "Training Disruption"
+    },
+    {
+      "form": "exam_try",
+      "class": "I2CE_SimpleList",
+      "displayName": "Exam Try"
+    },
+    {
+      "form": "exam_result",
+      "class": "I2CE_SimpleList",
+      "displayName": "Exam Result"
+    },
+    {
+      "form": "exam",
+      "class": "iHRIS_Exam",
+      "displayName": "Exam"
+    },
+    {
+      "form": "registration_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Registration Type"
+    },
+    {
+      "form": "registration",
+      "class": "iHRIS_Registration",
+      "displayName": "Registration"
+    },
+    {
+      "form": "license",
+      "class": "iHRIS_License",
+      "displayName": "License"
+    },
+    {
+      "form": "private_practice",
+      "class": "iHRIS_PrivatePractice",
+      "displayName": "Private Practice License"
+    },
+    {
+      "form": "deployment",
+      "class": "iHRIS_Deployment",
+      "displayName": "Deployment"
+    },
+    {
+      "form": "out_migration",
+      "class": "iHRIS_OutMigration",
+      "displayName": "Out Migration"
+    },
+    {
+      "form": "disciplinary_action",
+      "class": "iHRIS_DisciplinaryAction",
+      "displayName": "Disciplinary Action"
+    }
+  ],
+  "formClasses": [
+    "ihris-qualify/form-class/iHRIS_Cadre",
+    "ihris-qualify/form-class/iHRIS_Certificate",
+    "ihris-qualify/form-class/iHRIS_Deployment",
+    "ihris-qualify/form-class/iHRIS_DisciplinaryAction",
+    "ihris-qualify/form-class/iHRIS_DisciplinaryActionReason",
+    "ihris-qualify/form-class/iHRIS_Exam",
+    "ihris-qualify/form-class/iHRIS_FacilityInstitution",
+    "ihris-qualify/form-class/iHRIS_FacilityInstitutionEditFacility",
+    "ihris-qualify/form-class/iHRIS_FacilityInstitutionEditInstitution",
+    "ihris-qualify/form-class/iHRIS_HealthFacility",
+    "ihris-qualify/form-class/iHRIS_InstitutionInspection",
+    "ihris-qualify/form-class/iHRIS_License",
+    "ihris-qualify/form-class/iHRIS_OutMigration",
+    "ihris-qualify/form-class/iHRIS_PrivatePractice",
+    "ihris-qualify/form-class/iHRIS_QualifyDemographic",
+    "ihris-qualify/form-class/iHRIS_QualifyPerson",
+    "ihris-qualify/form-class/iHRIS_QualifyTrainingInstitution",
+    "ihris-qualify/form-class/iHRIS_Registration",
+    "ihris-qualify/form-class/iHRIS_SecondaryEducation",
+    "ihris-qualify/form-class/iHRIS_Training",
+    "ihris-qualify/form-class/iHRIS_TrainingDisrupt",
+    "ihris-qualify/form-class/iHRIS_TrainingDisruptionReason",
+    "ihris-qualify/form-class/iHRIS_TrainingProgram"
+  ],
+  "pages": [
+    {
+      "page": "contact",
+      "class": null,
+      "style": "ihris_qualify_page_form_parent_person"
+    },
+    {
+      "page": "configure",
+      "class": null,
+      "style": null
+    },
+    {
+      "page": "continuing_education",
+      "class": "iHRIS_PageFormParentTraining",
+      "style": "ihris_qualify_page_form_parent_training"
+    },
+    {
+      "page": "demographic",
+      "class": null,
+      "style": "ihris_qualify_page_form_parent_person"
+    },
+    {
+      "page": "deployment",
+      "class": "iHRIS_PageFormParentPerson",
+      "style": "ihris_qualify_page_form_parent_person"
+    },
+    {
+      "page": "disciplinary_action",
+      "class": null,
+      "style": "ihris_qualify_page_form_parent_training"
+    },
+    {
+      "page": "disciplinary_reinstate",
+      "class": "iHRIS_PageFormDisciplinaryReinstate",
+      "style": "ihris_qualify_page_form_parent_training"
+    },
+    {
+      "page": "education",
+      "class": "iHRIS_PageFormParentPerson",
+      "style": "ihris_qualify_page_form_parent_person"
+    },
+    {
+      "page": "exam",
+      "class": null,
+      "style": "ihris_qualify_page_form_parent_training"
+    },
+    {
+      "page": "facility_institution",
+      "class": "iHRIS_PageFormFacilityInstitution",
+      "style": "shell"
+    },
+    {
+      "page": "graduate",
+      "class": "iHRIS_PageFormGraduate",
+      "style": "ihris_qualify_page_form_parent_training"
+    },
+    {
+      "page": "history",
+      "class": "iHRIS_PageHistory",
+      "style": "shell"
+    },
+    {
+      "page": "history_training",
+      "class": "iHRIS_PageHistoryQualify",
+      "style": "shell"
+    },
+    {
+      "page": "institution_inspection",
+      "class": null,
+      "style": "ihris_qualify_page_form_parent_training_institution"
+    },
+    {
+      "page": "license",
+      "class": "iHRIS_PageFormLicense",
+      "style": "ihris_qualify_page_form_parent_training"
+    },
+    {
+      "page": "lists",
+      "class": null,
+      "style": null
+    },
+    {
+      "page": "out_migration",
+      "class": "iHRIS_PageFormParentPerson",
+      "style": "ihris_qualify_page_form_parent_person"
+    },
+    {
+      "page": "person_id",
+      "class": null,
+      "style": "ihris_qualify_page_form_parent_person"
+    },
+    {
+      "page": "person",
+      "class": "iHRIS_PageFormPersonQualify",
+      "style": null
+    },
+    {
+      "page": "private_practice",
+      "class": "iHRIS_PageFormLicense",
+      "style": "ihris_qualify_page_form_parent_training"
+    },
+    {
+      "page": "registration",
+      "class": null,
+      "style": "ihris_qualify_page_form_parent_training"
+    },
+    {
+      "page": "renew",
+      "class": "iHRIS_PageFormRenew",
+      "style": "ihris_qualify_page_form_parent_training"
+    },
+    {
+      "page": "training_disrupt",
+      "class": "iHRIS_PageFormTrainingDisrupt",
+      "style": "ihris_qualify_page_form_parent_training"
+    },
+    {
+      "page": "training",
+      "class": "iHRIS_PageFormParentPerson",
+      "style": "ihris_qualify_page_form_parent_person"
+    },
+    {
+      "page": "training_program",
+      "class": "iHRIS_PageFormTrainingProgram",
+      "style": "shell"
+    },
+    {
+      "page": "training_resume",
+      "class": "iHRIS_PageFormTrainingResume",
+      "style": "ihris_qualify_page_form_parent_training"
+    },
+    {
+      "page": "user",
+      "class": "iHRIS_PageFormUser",
+      "style": null
+    },
+    {
+      "page": "view_list",
+      "class": "iHRIS_PageViewListQualify",
+      "style": null
+    },
+    {
+      "page": "view",
+      "class": "iHRIS_PageView",
+      "style": null
+    },
+    {
+      "page": "view_training",
+      "class": "iHRIS_PageViewTraining",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {
+    "exam_try": 3,
+    "exam_result": 3,
+    "registration_type": 2,
+    "role": 4
+  },
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "si",
+    "tl",
+    "uk"
+  ]
+}

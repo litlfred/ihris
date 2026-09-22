@@ -1,0 +1,34 @@
+{
+  "id": "ihris-validate-kg",
+  "title": "Validate the iHRIS knowledge graph",
+  "description": "Checks every ihris-* node against src/schemas/, every folio-catalogue(-node)/v1 file and Tool node against folio-assistant's own zod schemas, and that metadataRef, module parent/formClasses and releaseFile references resolve.",
+  "install": {
+    "cli": "pip install jsonschema; a folio-assistant checkout with `bun install` (FOLIO_ASSISTANT=<path>)"
+  },
+  "invoke": {
+    "shell": "python3 src/tools/validate.py"
+  },
+  "io": {
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "report",
+        "schema": "https://www.iana.org/assignments/media-types/text/plain"
+      }
+    ]
+  },
+  "satisfies": [
+    "describe-launchpad-source",
+    "extract-i2ce-modules",
+    "ingest-toolkit-stage",
+    "restore-wiki-from-help-export",
+    "snapshot-github-repo"
+  ],
+  "requires": {
+    "runtime": [
+      "python3",
+      "bun"
+    ],
+    "network": false
+  }
+}

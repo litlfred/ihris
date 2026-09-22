@@ -1,0 +1,62 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/ihris-common-Job",
+  "module": "ihris-common-Job",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Job/Job.xml",
+    "sha256": "a0205aaa5a40ac0f6f42842714fc89dacc03b9ec7a3bae337b7fc94b4610925d"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Common Job",
+  "description": "The iHRIS Common Job",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "ihris-common-Cadre",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "form-limits",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "job",
+      "class": "iHRIS_Job",
+      "displayName": "Job"
+    },
+    {
+      "form": "classification",
+      "class": "iHRIS_Classification",
+      "displayName": "Classification"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Classification",
+    "ihris-common/form-class/iHRIS_Job",
+    "ihris-common/form-class/iHRIS_SalaryGrade"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

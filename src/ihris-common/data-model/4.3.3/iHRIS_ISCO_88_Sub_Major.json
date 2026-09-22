@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_ISCO_88_Sub_Major",
+  "class": "iHRIS_ISCO_88_Sub_Major",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "isco_88_sub_major"
+  ],
+  "definedIn": [
+    "ihris-common/module/isco-88"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Sub-Major Group",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/isco-88"
+      ]
+    },
+    {
+      "field": "description",
+      "type": "STRING_MLINE",
+      "label": "Description",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/isco-88"
+      ]
+    },
+    {
+      "field": "isco_88_major",
+      "type": "MAP",
+      "label": "Major Group",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/isco-88"
+      ]
+    }
+  ]
+}

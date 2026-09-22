@@ -1,0 +1,114 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_RapidproFlowRun",
+  "class": "iHRIS_RapidproFlowRun",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "rapidpro_flow_run"
+  ],
+  "definedIn": [
+    "ihris-common/module/mHero-base"
+  ],
+  "fields": [
+    {
+      "field": "workflows",
+      "type": "MAP",
+      "label": "Workflows",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "start_date",
+      "type": "DATE_YMD",
+      "label": "Flow Start Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "start_time",
+      "type": "DATE_HMS",
+      "label": "Flow Start Time",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "run",
+      "type": "INT",
+      "label": "Flow Run",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "session_number",
+      "type": "STRING_LINE",
+      "label": "Session Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "rapidpro_contact_id",
+      "type": "STRING_LINE",
+      "label": "Rapidpro Contact ID",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "phone",
+      "type": "STRING_LINE",
+      "label": "Phone",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "completed",
+      "type": "YESNO",
+      "label": "Completed",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "responded",
+      "type": "YESNO",
+      "label": "Responded",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    }
+  ]
+}

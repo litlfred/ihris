@@ -1,0 +1,38 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/SampleData-marital_status",
+  "module": "SampleData-marital_status",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CommonSampleData/modules/SampleData-marital_status/SampleData-marital_status.xml",
+    "sha256": "cada92cf6274feab972fc56376dec1ce9f0b9d198298788987c53dab50bcea30"
+  },
+  "parent": "ihris-common/module/SampleData-Common",
+  "site": null,
+  "displayName": "Marital Status",
+  "description": "Sample Data for form: marital_status",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "PersonDemographic",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "marital_status": 5
+  },
+  "locales": []
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/SampleData-establishment",
+  "module": "SampleData-establishment",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/SampleData/modules/SampleData-Establishment/establishment-sample.xml",
+    "sha256": "19472fb43db6ad53e86b999f4a8f40668485c9197519e23402950f4acf373f07"
+  },
+  "parent": "ihris-manage/module/ihris-manage-sample-data",
+  "site": null,
+  "displayName": "Establishment Sample Data",
+  "description": null,
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ihris-manage-sample-data",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "establishment",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "establishment_type": 1,
+    "establishment_period": 1,
+    "establishment": 8
+  },
+  "locales": [
+    "en_US"
+  ]
+}

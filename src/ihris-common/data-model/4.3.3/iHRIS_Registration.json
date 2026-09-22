@@ -1,0 +1,70 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Registration",
+  "class": "iHRIS_Registration",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "registration"
+  ],
+  "definedIn": [
+    "ihris-common/module/ihris-common-ProfessionalRegistration"
+  ],
+  "fields": [
+    {
+      "field": "council",
+      "type": "MAP",
+      "label": "Registration Council",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-ProfessionalRegistration"
+      ]
+    },
+    {
+      "field": "registration_number",
+      "type": "STRING_LINE",
+      "label": "Registration Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-ProfessionalRegistration"
+      ]
+    },
+    {
+      "field": "license_number",
+      "type": "STRING_LINE",
+      "label": "License Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-ProfessionalRegistration"
+      ]
+    },
+    {
+      "field": "registration_date",
+      "type": "DATE_YMD",
+      "label": "Registration Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-ProfessionalRegistration"
+      ]
+    },
+    {
+      "field": "license_expiration",
+      "type": "DATE_YMD",
+      "label": "License Expiration Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-ProfessionalRegistration"
+      ]
+    }
+  ]
+}

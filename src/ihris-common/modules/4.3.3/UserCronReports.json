@@ -1,0 +1,72 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/UserCronReports",
+  "module": "UserCronReports",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/UserCronReports/UserCronReports.xml",
+    "sha256": "64207c7b11f3c9ade5a1556875ab038f1ae56d9e352c24e5c8c0e77ab40121aa"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "User Cron Reports",
+  "description": "A module that enables assigning a report view to a user to be sent at regular intervals.",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_UserCronReports",
+  "category": "Application Component",
+  "creator": "Luke Duncan",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "fields-enum",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "cron",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Mailer",
+      "atLeast": "1.2"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "user",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "cron_report",
+      "class": "iHRIS_UserCronReport",
+      "displayName": "User Cron Report"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_UserCronReport"
+  ],
+  "pages": [
+    {
+      "page": "cron_report",
+      "class": "iHRIS_PageFormParentUser",
+      "style": "ihris_common_page_form_parent_user"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

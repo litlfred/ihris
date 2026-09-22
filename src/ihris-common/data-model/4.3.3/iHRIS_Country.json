@@ -1,0 +1,70 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Country",
+  "class": "iHRIS_Country",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "country"
+  ],
+  "definedIn": [
+    "ihris-common/module/Geography"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    },
+    {
+      "field": "alpha_two",
+      "type": "STRING_LINE",
+      "label": "2 Character Alpha Code",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    },
+    {
+      "field": "code",
+      "type": "INT",
+      "label": "ISO Numeric Code",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    },
+    {
+      "field": "primary",
+      "type": "YESNO",
+      "label": "Primary Country",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    },
+    {
+      "field": "location",
+      "type": "YESNO",
+      "label": "Use for Location Selection",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    }
+  ]
+}

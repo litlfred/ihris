@@ -1,0 +1,67 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/RequestAccount-VerifyEmail",
+  "module": "RequestAccount-VerifyEmail",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/User/modules/RequestAccountEmail/RequestAccount.xml",
+    "sha256": "b49b47e82f95145a88d346d9ca37424d1523b6ef83b7d0145b7847ec48c58d6b"
+  },
+  "parent": "i2ce/module/user",
+  "site": null,
+  "displayName": "User",
+  "description": "Provides Ability To Request Account",
+  "version": "4.3.0",
+  "className": "I2CE_Module_UserRequest",
+  "category": "Base System Component",
+  "creator": null,
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "user",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage-magicdata",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "UserForm",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Mailer",
+      "atLeast": "1.2",
+      "lessThan": "1.3"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "user_request_form",
+      "class": "I2CE_User_Request",
+      "displayName": null
+    }
+  ],
+  "formClasses": [
+    "i2ce/form-class/user_request_class_data"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

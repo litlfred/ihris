@@ -1,0 +1,57 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/PersonPassportPhoto",
+  "module": "PersonPassportPhoto",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/PersonPhoto/PersonPhoto.xml",
+    "sha256": "1f8abd68dbba2bdaa53509873e7ca887b1f399a2c3b8173d9529c1b0d01b0acd"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "iHRIS Person Passport Photo",
+  "description": "A Person's Photo",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_PersonPassport",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.0"
+    },
+    {
+      "module": "Photo",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person_photo_passport",
+      "class": "iHRIS_Photo",
+      "displayName": "Person Photo"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    }
+  ],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "person_photo_passport",
+      "class": null,
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_RapidproFlowRunValues",
+  "class": "iHRIS_RapidproFlowRunValues",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "rapidpro_flow_run_values"
+  ],
+  "definedIn": [
+    "ihris-common/module/mHero-base"
+  ],
+  "fields": [
+    {
+      "field": "category",
+      "type": "STRING_LINE",
+      "label": "Category",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "node",
+      "type": "STRING_LINE",
+      "label": "Node",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "text",
+      "type": "STRING_LINE",
+      "label": "Text",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "rule_value",
+      "type": "STRING_LINE",
+      "label": "Rule Value",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "value",
+      "type": "STRING_LINE",
+      "label": "Value",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "label",
+      "type": "STRING_LINE",
+      "label": "Label",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    },
+    {
+      "field": "time",
+      "type": "DATE_TIME",
+      "label": "Time",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/mHero-base"
+      ]
+    }
+  ]
+}

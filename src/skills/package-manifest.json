@@ -1,0 +1,14 @@
+{
+  "name": "ihris",
+  "version": "0.1.0",
+  "description": "The procedures used to build the iHRIS knowledge base: describing Launchpad and GitHub sources by reference, extracting I2CE modules and the data model from a verified release, ingesting the Implementation Toolkit, and restoring wiki pages.",
+  "skills": [
+    "describe-launchpad-source",
+    "extract-i2ce-modules",
+    "ingest-toolkit-stage",
+    "restore-wiki-from-help-export",
+    "snapshot-github-repo"
+  ],
+  "docker": { "baseImage": "ubuntu:24.04", "aptPackages": ["python3", "python3-pip", "git"] },
+  "lifecycleStages": []
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_PersonReference",
+  "class": "iHRIS_PersonReference",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_reference"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ihris-manage-PersonReference"
+  ],
+  "fields": [
+    {
+      "field": "surname",
+      "type": "STRING_LINE",
+      "label": "Surname",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonReference"
+      ]
+    },
+    {
+      "field": "firstname",
+      "type": "STRING_LINE",
+      "label": "First Name",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonReference"
+      ]
+    },
+    {
+      "field": "phone",
+      "type": "STRING_LINE",
+      "label": "Phone",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonReference"
+      ]
+    },
+    {
+      "field": "mobile",
+      "type": "STRING_LINE",
+      "label": "Mobile Phone",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonReference"
+      ]
+    },
+    {
+      "field": "address",
+      "type": "STRING_MLINE",
+      "label": "Address",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonReference"
+      ]
+    },
+    {
+      "field": "how_long",
+      "type": "STRING_LINE",
+      "label": "How long have you known this person?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonReference"
+      ]
+    }
+  ]
+}

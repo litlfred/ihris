@@ -1,0 +1,49 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-sample-data",
+  "module": "ihris-manage-sample-data",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/SampleData/ManageSampleData.xml",
+    "sha256": "a0a33f85bf15608ad79fe389213719a58a4ef1cbeb48d09103818f6a11100813"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage Sample Data",
+  "description": "iHRIS Manage Sample Data",
+  "version": "4.3.0.1",
+  "className": "iHRIS_Module_Manage_SampleData",
+  "category": "Site",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage-medical-data",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "SampleData-facility"
+    },
+    {
+      "module": "SampleData-establishment"
+    },
+    {
+      "module": "SampleData-confirmation_type"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Training_Course_Evaluation",
+  "class": "iHRIS_Training_Course_Evaluation",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "training_course_evaluation"
+  ],
+  "definedIn": [
+    "ihris-common/module/training-course"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "competency_evaluation",
+      "type": "MAP",
+      "label": "Competency Evaluation",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    }
+  ]
+}

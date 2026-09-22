@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_ContinuingEducationCourse",
+  "class": "iHRIS_ContinuingEducationCourse",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "continuing_education_course"
+  ],
+  "definedIn": [
+    "ihris-common/module/CEUs"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/CEUs"
+      ]
+    },
+    {
+      "field": "credit_hours",
+      "type": "INT",
+      "label": "Credit Hours",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/CEUs"
+      ]
+    }
+  ]
+}

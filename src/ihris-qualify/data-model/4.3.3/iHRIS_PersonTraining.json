@@ -1,0 +1,81 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_PersonTraining",
+  "class": "iHRIS_PersonTraining",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_training"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify-PersonTraining"
+  ],
+  "fields": [
+    {
+      "field": "start_date",
+      "type": "DATE_YMD",
+      "label": "Start Date",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify-PersonTraining"
+      ]
+    },
+    {
+      "field": "end_date",
+      "type": "DATE_YMD",
+      "label": "End Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify-PersonTraining"
+      ]
+    },
+    {
+      "field": "training",
+      "type": "STRING_LINE",
+      "label": "Training Course",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify-PersonTraining"
+      ]
+    },
+    {
+      "field": "provider",
+      "type": "STRING_LINE",
+      "label": "Training Provider",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify-PersonTraining"
+      ]
+    },
+    {
+      "field": "location",
+      "type": "STRING_LINE",
+      "label": "Training Location",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify-PersonTraining"
+      ]
+    },
+    {
+      "field": "cpd_credit",
+      "type": "STRING_LINE",
+      "label": "CPD Credit",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify-PersonTraining"
+      ]
+    }
+  ]
+}

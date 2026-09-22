@@ -1,0 +1,114 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_PersonAttendance",
+  "class": "iHRIS_PersonAttendance",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_attendance"
+  ],
+  "definedIn": [
+    "ihris-manage/module/PersonAttendance"
+  ],
+  "fields": [
+    {
+      "field": "month_year",
+      "type": "DATE_YM",
+      "label": "Month and Year",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/PersonAttendance"
+      ]
+    },
+    {
+      "field": "days_present",
+      "type": "INT",
+      "label": "Total Number of Days Present",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/PersonAttendance"
+      ]
+    },
+    {
+      "field": "days_off_request",
+      "type": "INT",
+      "label": "Total Number of Days of Special Request Absence",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/PersonAttendance"
+      ]
+    },
+    {
+      "field": "days_off_duty",
+      "type": "INT",
+      "label": "Total Number of Days Off Duty",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/PersonAttendance"
+      ]
+    },
+    {
+      "field": "days_leave",
+      "type": "INT",
+      "label": "Total Number of Days on Leave",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/PersonAttendance"
+      ]
+    },
+    {
+      "field": "position",
+      "type": "MAP",
+      "label": "Current Position",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/PersonAttendance"
+      ]
+    },
+    {
+      "field": "days_absent",
+      "type": "INT",
+      "label": "Total Number of Days Absent",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/PersonAttendance"
+      ]
+    },
+    {
+      "field": "absenteeism_rate",
+      "type": "PERCENT_INT",
+      "label": "Absenteeism Rate",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/PersonAttendance"
+      ]
+    },
+    {
+      "field": "month_year_day",
+      "type": "DATE_YMD",
+      "label": "Month Year Day",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/PersonAttendance"
+      ]
+    }
+  ]
+}

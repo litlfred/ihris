@@ -1,0 +1,29 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_QualifyDemographic",
+  "class": "iHRIS_QualifyDemographic",
+  "release": "4.3.3",
+  "extends": "iHRIS_Demographic",
+  "forms": [
+    "demographic"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "birth_location",
+      "type": "MAP",
+      "label": "Birth Location",
+      "required": false,
+      "unique": null,
+      "references": [
+        "county",
+        "district"
+      ],
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

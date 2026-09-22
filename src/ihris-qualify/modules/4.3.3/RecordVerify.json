@@ -1,0 +1,58 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-qualify/module/RecordVerify",
+  "module": "RecordVerify",
+  "instance": "ihris-qualify",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-qualify/modules/RecordVerify/RecordVerify.xml",
+    "sha256": "4a823c981016b5660cf77eb96674052b9f449eb713d6cf6ca8863292c6ec6250"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "RecordVerify",
+  "description": "Makes a record verification form available to the system",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ihris-qualify",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "record_verify",
+      "class": "iHRIS_RecordVerify",
+      "displayName": "Record Verification"
+    },
+    {
+      "form": "verify_change",
+      "class": "I2CE_SimpleList",
+      "displayName": "Verification Change"
+    }
+  ],
+  "formClasses": [
+    "ihris-qualify/form-class/iHRIS_RecordVerify"
+  ],
+  "pages": [
+    {
+      "page": "record_verify",
+      "class": "iHRIS_PageFormParentPerson",
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}
