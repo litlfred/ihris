@@ -462,10 +462,22 @@ def schemas_page(theme, out_dir):
               ["Skill package", "<code>src/skills/package-manifest.json</code>", "<code>cat-harness/schemas/skill-package.ts</code>"],
               ["<code>pdf-structure/v1</code>", "<code>library/*/structure.json</code>", "<code>cat-harness/schemas/pdf-structure.ts</code>"],
               ["FHIR R4", "<code>src/ihris-data-dictionary/terminology/*.json</code>", "<code>fhir.resources</code> (R4)"]]
+    import importlib.util as ilu
+    spec = ilu.spec_from_file_location("qa", os.path.join(ROOT, "src/tools/qa.py"))
+    qa = ilu.module_from_spec(spec)
+    spec.loader.exec_module(qa)
+    findings, coverage = qa.run()
+    qrows = [[f"<code>{E(c['schema'])}</code>" + (' <span class="mute">reused</span>' if c["reused"] else ""), str(c["documents"]) if c["documents"] else "&mdash;",
+              "<br>".join(f"<code>{E(k['id'])}</code>: {E(k['establishes'])}" + ("" if not k["findings"] else f' <b>({k["findings"]} finding(s))</b>')
+                          for k in c["checks"]) or "<b>qa-missing</b>"] for c in coverage]
+    qa_html = (f"<h2>QA coverage</h2><p>Shape is not enough. Every schema also has <b>semantic QA</b> in <code>src/tools/qa.py</code>: references resolve, "
+               f"counts match what they count, files named exist. A schema with no QA check is itself a failing finding (<code>qa-missing</code>). "
+               f"This build: {len(coverage)} schemas, {sum(len(c['checks']) for c in coverage)} checks, <b>{len(findings)} finding(s)</b>.</p>"
+               + rows_table(["Schema", "Documents", "QA checks"], qrows, "QA coverage"))
     inner = (f"<p>Every JSON file in the repository is validated (<code>src/tools/validate.py</code>), and the build fails on a file no schema covers. "
              f"folio-assistant's own schemas come first; ihris adds a schema only where the platform has no field for the data.</p>"
              f"<h2>Reused from folio-assistant and FHIR</h2>{rows_table(['Schema', 'Covers', 'Defined in'], reused, 'Reused schemas')}"
-             f"<h2>ihris schemas ({len(rows)})</h2>{rows_table(['Schema', 'Description', 'Bound to'], rows, 'ihris schemas')}")
+             f"<h2>ihris schemas ({len(rows)})</h2>{rows_table(['Schema', 'Description', 'Bound to'], rows, 'ihris schemas')}" + qa_html)
     return page(path, "Schemas", [("index.html", "Home")], inner, theme, "schemas/index.html")
 
 

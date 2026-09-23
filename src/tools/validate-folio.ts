@@ -11,6 +11,7 @@
 //   beans/beans.json                              BeanGraphSchema
 //   src/skills/package-manifest.json              SkillPackageManifestSchema
 //   library/*/structure.json (pdf-structure/v1)   PdfStructureSchema
+//   methodologies/*/*.md front matter             MethodologyFrontMatterSchema (folio-methodology/v1)
 //
 // zod drops keys a schema does not declare. So a declaration passing here says
 // nothing about ihris's own fields (`source`, `materialization`, ...). validate.py
@@ -31,6 +32,9 @@ const { PdfStructureSchema } = await S("cat-harness/schemas/pdf-structure.ts").c
   console.log("folio-assistant checkout predates cat-harness/schemas/pdf-structure.ts (#1112): update it");
   process.exit(1);
 });
+
+const { MethodologyFrontMatterSchema } = await S("cat-harness/schemas/methodology.ts");
+const { parse: parseYaml } = await import(resolve(process.cwd(), "node_modules/yaml/dist/index.js"));
 
 const root = process.argv[2];
 let bad = 0;
@@ -57,6 +61,24 @@ for (const rel of new Glob("{src,library}/**/*.json").scanSync(root)) {
   else if (doc?.$schema === "folio-catalogue-node/v1") check(rel, doc.$schema, CatalogueNodeSchema, doc);
   else if (doc?.$schema === "folio-catalogue/v1") check(rel, doc.$schema, CatalogueSchema, doc);
   else if (doc?._schema === "pdf-structure/v1") check(rel, doc._schema, PdfStructureSchema, doc);
+}
+
+for (const rel of new Glob("methodologies/*/*.md").scanSync(root)) {
+  const m = readFileSync(resolve(root, rel), "utf8").match(/^---\n([\s\S]*?)\n---\n/);
+  if (!m) {
+    bad++;
+    console.log(`${rel}: no front matter`);
+    continue;
+  }
+  let fm: unknown;
+  try {
+    fm = parseYaml(m[1]);
+  } catch (e) {
+    bad++;
+    console.log(`${rel}: front matter is not valid YAML: ${(e as Error).message.split("\n")[0]}`);
+    continue;
+  }
+  check(rel, "folio-methodology/v1", MethodologyFrontMatterSchema, fm);
 }
 
 const decl = read("ihris.json");

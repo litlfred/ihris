@@ -1,0 +1,19 @@
+{
+ "_comment": "Upstream facts that a QA check would otherwise report, each with the reason it is accepted. A check fails on anything not listed here, and on an entry that no longer matches what it records, so a stale entry cannot hide a new finding.",
+ "data-list-within-module-duplicates": {
+  "src/ihris-common/data-lists/4.3.3/currency.json": {
+   "ids": [
+    "CHF",
+    "DKK",
+    "MAD",
+    "NOK",
+    "NZD",
+    "XAF",
+    "XCD",
+    "XOF",
+    "XPF"
+   ],
+   "reason": "ihris-common/modules/Currency/modules/ISO_Currency/ISO_Currency.xml repeats <configurationGroup name=\"XCD\"> and the others once per country that uses the currency (e.g. XCD at lines 120, 145, 1295). I2CE merges same-named groups at one path, so the running system keeps one record; the extraction lists what the XML says. Verified against the MD5-verified 4.3.3 tarball, 2026-09-23."
+  }
+ }
+}

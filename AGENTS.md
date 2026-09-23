@@ -24,6 +24,10 @@ python3 src/tools/build_kg.py && python3 src/tools/build_dak.py && python3 src/t
 
 `build_dak.py` needs `pip install openpyxl pycountry==24.6.1`, and the site build that `validate.py` runs needs `pip install -r src/tools/requirements-site.txt` (pycountry pins the ISO data the ISO ConceptMaps are verified against). `validate.py` needs a folio-assistant checkout with `bun install` done (`FOLIO_ASSISTANT=<path>`, default `../litlfred/folio-assistant`). Without one it warns and skips the zod checks. That is not a pass.
 
+**CI runs this on every commit:** `.github/workflows/ci.yml` runs on every push to any branch and on every pull request. In CI (`CI` set), a skipped check is an error, not a warning.
+
+**Every schema and node type has QA** (`src/tools/qa.py`, skill `qa-coverage`): each one has checks beyond shape, such as references resolving, counts matching and files existing. A schema or node type with no QA check fails as `qa-missing`, because missing QA is a QA failure in itself. When you add a schema, add its QA check, and prove the check can fail.
+
 ## 4. Adding a knowledge asset
 
 Use the skills in [`src/skills/`](src/skills/):

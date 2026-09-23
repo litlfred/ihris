@@ -1,0 +1,57 @@
+# CI on EVERY commit: every push to any branch, and every pull request.
+# Owner, 2026-09-23: "make sure that part of process of every commit is CI process".
+#
+# It runs src/tools/validate.py, the same command AGENTS.md §3 asks for before a
+# commit. That covers:
+#   - JSON Schema for every ihris document, and a failure on any JSON file no schema covers
+#   - folio-assistant's own zod: catalogues, declarations, config, beans graph, skill
+#     package, Tool nodes, pdf-structure/v1, methodology front matter
+#   - FHIR R4 terminology (fhir.resources, in its own venv)
+#   - semantic QA for every schema and node type (src/tools/qa.py), where a schema
+#     with no QA is itself a failure (qa-missing)
+#   - generated BPMN is current; the site theme is current; the site builds with no broken link
+#
+# folio-assistant is cloned OUTSIDE the workspace ($RUNNER_TEMP): validate.py scans
+# every JSON file under the repository root, and the platform's files must not be
+# validated as this folio's.
+name: ci
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      FOLIO_ASSISTANT: ${{ runner.temp }}/folio-assistant
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: oven-sh/setup-bun@v2
+      - name: Python dependencies
+        run: |
+          pip install jsonschema openpyxl "pycountry==24.6.1" pyyaml
+          pip install -r src/tools/requirements-site.txt
+      - name: FHIR R4 validator (its own venv; fhir.resources 6.x needs pydantic<2)
+        run: |
+          python3 -m venv .build/fhir-venv
+          .build/fhir-venv/bin/pip install "fhir.resources==6.5.0" "pydantic<2"
+      - name: folio-assistant, for its own zod schemas
+        run: |
+          git clone --depth 1 https://github.com/litlfred/folio-assistant "$FOLIO_ASSISTANT"
+          cd "$FOLIO_ASSISTANT" && bun install --frozen-lockfile
+          echo "folio-assistant @ $(git -C "$FOLIO_ASSISTANT" rev-parse --short HEAD)"
+      - name: validate.py (schemas, zod, FHIR, QA coverage, BPMN, theme, site)
+        run: python3 src/tools/validate.py
