@@ -500,8 +500,9 @@ def c_declarations(C):
             if not exists(p):
                 out.append(f"{rel}: derivedFrom {p} does not exist")
         lic = d.get("licence")
-        if lic and lic.get("status") == "permission" and not lic.get("grantedBy"):
-            out.append(f"{rel}: a permission licence says who granted it")
+        for part, l in (("licence", lic), ("licence.images", (lic or {}).get("images"))):
+            if l and l.get("status") == "permission" and not (l.get("grantedBy") and l.get("grantedOn")):
+                out.append(f"{rel}: {part}: a permission says who granted it and when")
     return out
 
 
@@ -566,6 +567,194 @@ def c_fhir(C):
     for v in J("src/ihris-data-dictionary/value-sets.json")["valueSets"]:
         if v["canonical"] not in have:
             out.append(f"value-sets.json: {v['id']} canonical {v['canonical']} has no generated ValueSet")
+    return out
+
+
+# ------------------------------------------------------------------ library: wiki book export, use cases
+PLACEHOLDER_EMAILS = {"your@email.add.ress", "someone@somwhere.org", "my_email@somewhere.com"}
+EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}")
+PHONE_RE = re.compile(r"(?<![\w.-])(?:\+?1-)?\d{3}-\d{3}-\d{4}(?![\w-])")
+
+
+def c_wiki_book(C):
+    """Articles are the outline's level-1 entries, each section exists at its sha256 and names its revision;
+    every placed image has exactly one credit; nothing unredacted is left in the text."""
+    out = []
+    for rel, d in C["tagged"].get("ihris-wiki-book/v1", []):
+        base = os.path.dirname(rel)
+        ids = [a["id"] for a in d["articles"]]
+        if len(ids) != len(set(ids)):
+            out.append(f"{rel}: duplicate article ids")
+        for a in d["articles"]:
+            f = f"{base}/{a['file']}"
+            if not exists(f):
+                out.append(f"{rel}: article {a['id']} has no {a['file']}")
+                continue
+            if sha256(f) != a["sha256"]:
+                out.append(f"{rel}: {a['file']} does not match its sha256 (edited by hand? regenerate with src/tools/ingest_handbook.py)")
+            if a["pageEnd"] < a["pageStart"]:
+                out.append(f"{rel}: article {a['id']} ends before it starts")
+            if f"oldid={a['oldid']}" not in a["source"]:
+                out.append(f"{rel}: article {a['id']} source does not carry its oldid {a['oldid']}")
+            text = open(os.path.join(ROOT, f), encoding="utf-8").read()
+            left = [e for e in EMAIL_RE.findall(text) if e not in PLACEHOLDER_EMAILS] + PHONE_RE.findall(text)
+            if left:
+                out.append(f"{rel}: {a['file']} still holds {len(left)} e-mail address(es) or phone number(s)")
+        on_disk = {os.path.basename(m)[:-3] for m in G(f"{base}/sections/*.md")}
+        if on_disk != set(ids):
+            out.append(f"{rel}: sections/ holds {sorted(on_disk ^ set(ids))[:5]} not matching the article list")
+        if exists(f"{base}/structure.json"):
+            st = J(f"{base}/structure.json")
+            if st["source"]["sha256"] != d["source"]["sha256"]:
+                out.append(f"{rel}: structure.json was built from a different file")
+            l1 = [t["title"].strip() for t in st.get("toc") or [] if t["level"] == 1 and t["page"] not in d["appendices"]["licence"]]
+            if l1 != [a["title"] for a in d["articles"]]:
+                out.append(f"{rel}: the articles are not the outline's level-1 entries, in order")
+        imgs = {i["id"]: i for i in (J(f"{base}/images.json").get("images") or [])} if exists(f"{base}/images.json") else {}
+        credited = [i["id"] for i in d["images"]]
+        if sorted(credited) != sorted(imgs):
+            out.append(f"{rel}: {len(credited)} credited images but images.json places {len(imgs)}")
+        for i in d["images"]:
+            if not exists(f"{base}/{i['file']}"):
+                out.append(f"{rel}: image {i['file']} does not exist")
+            if i["id"] in imgs and imgs[i["id"]]["basis"]["page"] != i["page"]:
+                out.append(f"{rel}: image {i['id']} is on page {imgs[i['id']]['basis']['page']}, not {i['page']}")
+            if i.get("article") and i["article"] not in ids:
+                out.append(f"{rel}: image {i['id']} sits in unknown article {i['article']}")
+        man = f"uploads/{os.path.basename(base)}/manifest.json"
+        if not exists(man) or J(man).get("sha256") != d["source"]["sha256"]:
+            out.append(f"{rel}: {man} does not pin the sha256 the book was built from")
+    return out
+
+
+def c_document_images(C):
+    """Every folio-document-images/v1 entry's file exists, and its id names the page its basis gives."""
+    out = []
+    for rel, d in C["tagged"].get("folio-document-images/v1", []):
+        base = os.path.dirname(rel)
+        for i in d.get("images") or []:
+            if i["role"] == "figure" and not exists(f"{base}/{i['file']}"):
+                out.append(f"{rel}: figure {i['file']} does not exist")
+            m = re.match(r"img-p(\d{3})-\d+$", i["id"])
+            if m and i.get("basis") and int(m.group(1)) != i["basis"]["page"]:
+                out.append(f"{rel}: {i['id']} names page {int(m.group(1))} but its basis says {i['basis']['page']}")
+        on_disk = {os.path.basename(f) for f in G(f"{base}/images/*")}
+        listed = {os.path.basename(i["file"]) for i in d.get("images") or []}
+        if on_disk - listed:
+            out.append(f"{rel}: images/ holds files it does not list: {sorted(on_disk - listed)[:5]}")
+    return out
+
+
+def _uc_walk(p):
+    yield p
+    for c in p["packages"]:
+        yield from _uc_walk(c)
+
+
+def c_use_cases(C):
+    """Counts match the records; parents are the containing package; extensions hang off steps that exist;
+    actor and requirement links resolve (or are recorded as dangling); the source is the one uploads/ pins."""
+    out, described, where = [], set(), {}
+    docs = C["tagged"].get("ihris-use-cases/v1", [])
+    for rel, d in docs:
+        for p in _uc_walk(d["root"]):
+            for x in p["useCases"] + p["requirements"]:
+                if x["id"] in described:
+                    out.append(f"{rel}: {x['id']} is described twice")
+                described.add(x["id"])
+                where[x["id"]] = rel
+        described |= {a["id"] for a in d["actors"]}
+    for rel, d in docs:
+        pk = list(_uc_walk(d["root"]))
+        ucs = [u for p in pk for u in p["useCases"]]
+        reqs = [r for p in pk for r in p["requirements"]]
+        want = {"useCases": len(ucs), "actors": len(d["actors"]), "requirements": len(reqs), "packages": len(pk),
+                "steps": sum(len(u["mainSuccessScenario"]) for u in ucs), "extensions": sum(len(u["extensions"]) for u in ucs)}
+        if d["counts"] != want:
+            out.append(f"{rel}: counts {d['counts']} but the records hold {want}")
+        for p in pk:
+            for u in p["useCases"]:
+                if u["package"] != p["number"]:
+                    out.append(f"{rel}: {u['id']} says package {u['package']} but sits in {p['number']}")
+                if u.get("parent") and u["parent"] != p["name"]:
+                    out.append(f"{rel}: {u['id']} parent {u['parent']!r} is not its package {p['name']!r}")
+                if [s["step"] for s in u["mainSuccessScenario"]] != list(range(1, len(u["mainSuccessScenario"]) + 1)):
+                    out.append(f"{rel}: {u['id']} steps are not numbered 1..n")
+                for e in u["extensions"]:
+                    a = e["atStep"].split(".")[0]
+                    if a != "*" and not 1 <= int(a) <= len(u["mainSuccessScenario"]):
+                        out.append(f"{rel}: {u['id']} extension {e['id']} hangs off step {a}, which does not exist")
+        dangling = {x["id"] for x in d["dangling"]}
+        for x in d["dangling"]:
+            if x["id"] in described:
+                out.append(f"{rel}: {x['id']} is recorded as dangling but is described")
+        for a in d["actors"]:
+            for u in a["useCases"]:
+                if u["id"] not in described and u["id"] not in dangling:
+                    out.append(f"{rel}: actor {a['id']} plays in {u['id']}, which is neither described nor recorded as dangling")
+        for r in reqs:
+            for u in r.get("referencedBy") or []:
+                if u not in described:
+                    out.append(f"{rel}: {r['id']} is referenced by {u}, which is not described")
+        man = "uploads/ihris-use-cases/manifest.json"
+        pinned = {f["file"]: f for f in J(man)["files"]} if exists(man) else {}
+        f = pinned.get(d["source"]["file"])
+        if not f or (f["md5"], f["sha256"]) != (d["source"]["md5"], d["source"]["sha256"]):
+            out.append(f"{rel}: source {d['source']['file']} is not the file {man} pins")
+        if not exists(f"{os.path.dirname(rel)}/{d['product']}.md"):
+            out.append(f"{rel}: no {d['product']}.md beside it")
+    return out
+
+
+def c_use_case_crosswalk(C):
+    """Every use case has exactly one entry; each linked form exists in the data model of its package and
+    its name really occurs in the title; unmatched means null; counts match."""
+    out = []
+    ucs = {}
+    for rel, d in C["tagged"].get("ihris-use-cases/v1", []):
+        for p in _uc_walk(d["root"]):
+            for u in p["useCases"]:
+                ucs[u["id"]] = (d["product"], u["title"])
+    forms = {}
+    for mrel, m in C["tagged"].get("ihris-i2ce-module/v1", []):
+        for x in m.get("forms") or []:
+            forms.setdefault((m["instance"], x["form"]), set()).add(x.get("displayName") or "")
+    classes = {d["id"] for _, d in C["tagged"].get("ihris-form-class/v1", [])}
+    for _, c in C["tagged"].get("ihris-form-class/v1", []):
+        for f in c.get("forms") or []:
+            forms.setdefault((c["id"].split("/")[0], f), set())
+
+    def toks(s):
+        t = re.findall(r"[a-z0-9]+", s.lower().replace("'s", ""))
+        return " " + " ".join(w[:-3] + "y" if len(w) > 4 and w.endswith("ies") else w[:-2] if w.endswith("sses") else
+                              w[:-1] if len(w) > 3 and w.endswith("s") and not w.endswith("ss") else w for w in t) + " "
+    for rel, d in C["tagged"].get("ihris-use-case-crosswalk/v1", []):
+        seen = [e["useCase"] for e in d["entries"]]
+        if sorted(seen) != sorted(ucs):
+            out.append(f"{rel}: entries {len(seen)} do not cover the {len(ucs)} use cases exactly once")
+        from collections import Counter
+        cnt = Counter(e["status"] for e in d["entries"])
+        want = {"matched": cnt.get("matched", 0), "unmatched": cnt.get("unmatched", 0), "no-data-model": cnt.get("no-data-model", 0),
+                "links": sum(len(e["matches"] or []) for e in d["entries"])}
+        if d["counts"] != want:
+            out.append(f"{rel}: counts {d['counts']} but the entries hold {want}")
+        for e in d["entries"]:
+            prod, title = ucs.get(e["useCase"], (None, None))
+            if prod and prod != e["product"]:
+                out.append(f"{rel}: {e['useCase']} is filed under {e['product']} but belongs to {prod}")
+            if e["status"] == "no-data-model" and (d["scope"].get(e["product"]) or G(f"src/ihris-{e['product']}/data-model/*")):
+                out.append(f"{rel}: {e['useCase']} says no data model, but {e['product']} has one")
+            for m in e["matches"] or []:
+                if m["package"] not in d["scope"].get(e["product"], []):
+                    out.append(f"{rel}: {e['useCase']} links {m['form']} in {m['package']}, outside {e['product']}'s scope")
+                if (m["package"], m["form"]) not in forms:
+                    out.append(f"{rel}: {e['useCase']} links form {m['form']}, which {m['package']} does not declare")
+                if m["formClass"] and m["formClass"] not in classes:
+                    out.append(f"{rel}: {e['useCase']} names form class {m['formClass']}, which is not a node")
+                if title and toks(m["matchedText"]).strip() and toks(m["matchedText"]) not in toks(title):
+                    out.append(f"{rel}: {e['useCase']}: {m['matchedText']!r} does not occur in the title {title!r}")
+                if m["matchedOn"] == "form name" and m["matchedText"] != m["form"].replace("_", " "):
+                    out.append(f"{rel}: {e['useCase']}: form-name match {m['matchedText']!r} is not the name of {m['form']}")
     return out
 
 
@@ -707,6 +896,9 @@ QA = {
     "ihris-wireframe-acceptance/v1": [("wf-decisions", "the accepted candidate, its states and what it covers exist", c_wf_decisions)],
     "ihris-site-theme/v1": [("site-theme", "applied colours pass WCAG AA; logo matches; adjustments start from measured colours", c_site_theme)],
     "ihris-qa-known/v1": [("qa-known", "every accepted upstream finding still matches the data", c_qa_known)],
+    "ihris-wiki-book/v1": [("wiki-book", "articles are the outline's level-1 entries at their sha256; every image credited once; no unredacted contact left", c_wiki_book)],
+    "ihris-use-cases/v1": [("use-cases", "counts match; parents and extension anchors hold; links resolve or are dangling; source is the pinned file", c_use_cases)],
+    "ihris-use-case-crosswalk/v1": [("use-case-crosswalk", "one entry per use case; linked forms exist and are named in the title; counts match", c_use_case_crosswalk)],
     "ihris-instance-extension/v1": [("declarations", "instances, assets, directories and derivedFrom resolve; permissions name who", c_declarations)],
     # reused schemas (validated for shape by folio-assistant's zod or fhir.resources)
     "cat-harness declaration (zod)": [("declarations", "see ihris-instance-extension", c_declarations)],
@@ -715,6 +907,7 @@ QA = {
     "skill-package (zod)": [("skill-package", "listed skills and skill files agree", c_skill_package)],
     "tool (zod)": [("tools", "invoked scripts exist; satisfied skills exist", c_tools)],
     "pdf-structure/v1": [("pdf-structure", "doc id matches its entry; unique sections", c_pdf_structure)],
+    "folio-document-images/v1": [("document-images", "every figure's file exists and its id names its page; no unlisted image files", c_document_images)],
     "FHIR R4 terminology": [("fhir-terminology", "every value set named in value-sets.json is generated", c_fhir)],
     # node types that are not JSON documents
     "bean (beans/defs/*.md)": [("beans", "front matter parses; status/type in vocabulary; parents are epics; links resolve", c_beans)],
@@ -724,7 +917,7 @@ QA = {
     "BPMN process (processes/*.bpmn)": [("bpmn", "every process is generated from a spec and carries its diagram", c_bpmn)],
 }
 REUSED = ["cat-harness declaration (zod)", "harness-config (zod)", "bean-graph (zod)", "skill-package (zod)", "tool (zod)",
-          "pdf-structure/v1", "FHIR R4 terminology", "folio-catalogue/v1", "folio-catalogue-node/v1",
+          "pdf-structure/v1", "folio-document-images/v1", "FHIR R4 terminology", "folio-catalogue/v1", "folio-catalogue-node/v1",
           "bean (beans/defs/*.md)", "skill (src/skills/*.md)", "folio-methodology/v1", "library manifest (manifest.jsonld)",
           "BPMN process (processes/*.bpmn)"]
 

@@ -62,7 +62,7 @@ for f, d in docs.items():
 # and every JSON file in the repository must be covered by SOMETHING.
 import fnmatch
 BIND = json.load(open(os.path.join(ROOT, "src/schemas/bindings.json")))
-FOLIO_TAGS = {"folio-catalogue/v1", "folio-catalogue-node/v1"}
+FOLIO_TAGS = {"folio-catalogue/v1", "folio-catalogue-node/v1", "folio-document-images/v1"}  # zod: validate-folio.ts
 
 
 def _match(rel, pattern):

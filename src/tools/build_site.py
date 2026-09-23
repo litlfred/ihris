@@ -203,6 +203,12 @@ def instance_stats(inst, recs):
         mods = len(os.listdir(os.path.join(p, "modules", RELEASE))) if os.path.isdir(os.path.join(p, "modules", RELEASE)) else 0
         return f"{n} form classes, {sum(len(r['fields']) for r in recs if r['_pkg'] == name)} fields, {mods} modules", \
             f"data-model/{name}/index.html"
+    if name == "ihris-admin-handbook" and os.path.exists(os.path.join(p, "book.json")):
+        b = load(os.path.join(inst["path"], "book.json"))
+        return f"{len(b['articles'])} wiki articles, {len(b['images'])} images (GFDL-1.2)", None
+    if name == "ihris-use-cases" and os.path.exists(os.path.join(p, "crosswalk.json")):
+        x = load(os.path.join(inst["path"], "crosswalk.json"))
+        return f"{len(x['entries'])} use cases in 4 products; {x['counts']['matched']} linked to forms", None
     if name == "ihris-data-dictionary":
         dd = os.path.join(p, "data-dictionary")
         n = len([f for f in os.listdir(dd) if f.endswith(".json")]) if os.path.isdir(dd) else 0

@@ -11,6 +11,7 @@
 //   beans/beans.json                              BeanGraphSchema
 //   src/skills/package-manifest.json              SkillPackageManifestSchema
 //   library/*/structure.json (pdf-structure/v1)   PdfStructureSchema
+//   library/*/images.json (folio-document-images/v1) ImagesSidecarSchema
 //   methodologies/*/*.md front matter             MethodologyFrontMatterSchema (folio-methodology/v1)
 //
 // zod drops keys a schema does not declare. So a declaration passing here says
@@ -33,6 +34,7 @@ const { PdfStructureSchema } = await S("cat-harness/schemas/pdf-structure.ts").c
   process.exit(1);
 });
 
+const { ImagesSidecarSchema } = await S("cat-harness/schemas/document-image.ts");
 const { MethodologyFrontMatterSchema } = await S("cat-harness/schemas/methodology.ts");
 const { parse: parseYaml } = await import(resolve(process.cwd(), "node_modules/yaml/dist/index.js"));
 
@@ -61,6 +63,7 @@ for (const rel of new Glob("{src,library}/**/*.json").scanSync(root)) {
   else if (doc?.$schema === "folio-catalogue-node/v1") check(rel, doc.$schema, CatalogueNodeSchema, doc);
   else if (doc?.$schema === "folio-catalogue/v1") check(rel, doc.$schema, CatalogueSchema, doc);
   else if (doc?._schema === "pdf-structure/v1") check(rel, doc._schema, PdfStructureSchema, doc);
+  else if (doc?.$schema === "folio-document-images/v1") check(rel, doc.$schema, ImagesSidecarSchema, doc);
 }
 
 for (const rel of new Glob("methodologies/*/*.md").scanSync(root)) {

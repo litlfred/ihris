@@ -9,5 +9,12 @@ __pycache__/
 node_modules/
 # Uploaded documents whose licence does not allow redistribution stay local (see uploads/*/manifest.json)
 *.pdf
+*.doc
+*.docx
 # the built site (src/tools/build_site.py; published by .github/workflows/pages.yml)
 /_site/
+# Uploaded documents: only each manifest is tracked (bean ihris-hbuc)
+/uploads/ihris-admin-handbook/*
+!/uploads/ihris-admin-handbook/manifest.json
+/uploads/ihris-use-cases/*
+!/uploads/ihris-use-cases/manifest.json

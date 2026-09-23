@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-use-cases.schema.json",
+  "title": "ihris-use-cases/v1",
+  "description": "One iHRIS product's 2009 use-case model (Serlio CaseComplete report), parsed: packages holding use cases (Details fields, main success scenario, extensions, notes) and requirements, the actors, and the references the report cites but never describes (library/ihris-use-cases/<product>.json, src/tools/ingest_use_cases.py).",
+  "type": "object",
+  "required": ["$schema", "product", "title", "report", "source", "attribution", "counts", "withheld", "actors", "root", "dangling"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {"const": "ihris-use-cases/v1"},
+    "product": {"enum": ["common", "manage", "qualify", "plan"]},
+    "title": {"type": "string"},
+    "report": {
+      "type": "object",
+      "required": ["title", "generator", "generatedAt", "author"],
+      "additionalProperties": false,
+      "properties": {"title": {"type": "string"}, "generator": {"type": "string"}, "generatedAt": {"type": "string"}, "author": {"type": "string"}}
+    },
+    "source": {
+      "type": "object",
+      "required": ["file", "md5", "sha256", "extractedWith", "textSha256", "manifest"],
+      "additionalProperties": false,
+      "properties": {
+        "file": {"type": "string", "pattern": "\\.doc$"},
+        "md5": {"type": "string", "pattern": "^[0-9a-f]{32}$"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "extractedWith": {"type": "string"},
+        "textSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "manifest": {"type": "string"}
+      }
+    },
+    "attribution": {"type": "string", "minLength": 1},
+    "counts": {
+      "type": "object",
+      "required": ["useCases", "actors", "requirements", "packages", "steps", "extensions"],
+      "additionalProperties": false,
+      "properties": {
+        "useCases": {"type": "integer", "minimum": 0}, "actors": {"type": "integer", "minimum": 0},
+        "requirements": {"type": "integer", "minimum": 0}, "packages": {"type": "integer", "minimum": 1},
+        "steps": {"type": "integer", "minimum": 0}, "extensions": {"type": "integer", "minimum": 0}
+      }
+    },
+    "withheld": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["field", "why", "count"], "additionalProperties": false,
+        "properties": {"field": {"enum": ["assignedTo", "source"]}, "why": {"type": "string"}, "count": {"type": "integer", "minimum": 1}}
+      }
+    },
+    "actors": {"type": "array", "items": {"$ref": "#/$defs/actor"}},
+    "root": {"$ref": "#/$defs/package"},
+    "dangling": {"type": "array", "items": {"$ref": "#/$defs/dangling"}}
+  },
+  "$defs": {
+    "text": {"type": ["string", "null"]},
+    "note": {
+      "type": "object", "required": ["text", "dateAdded", "date"], "additionalProperties": false,
+      "properties": {
+        "text": {"type": "string"},
+        "dateAdded": {"type": ["string", "null"], "description": "as the report prints it (M/D/YYYY)"},
+        "date": {"type": ["string", "null"], "format": "date"}
+      }
+    },
+    "actor": {
+      "type": "object", "required": ["id", "name", "description", "goals", "notes", "useCases"], "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^A-[A-Z]+\\d+$"},
+        "name": {"type": "string"},
+        "description": {"$ref": "#/$defs/text"},
+        "goals": {"type": "array", "items": {"type": "string"}},
+        "notes": {"type": "array", "items": {"$ref": "#/$defs/note"}},
+        "useCases": {
+          "type": "array",
+          "items": {"type": "object", "required": ["id", "title"], "additionalProperties": false,
+                    "properties": {"id": {"type": "string", "pattern": "^UC-[A-Z]+\\d+$"}, "title": {"type": "string"}}}
+        }
+      }
+    },
+    "package": {
+      "type": "object",
+      "required": ["number", "name", "level", "description", "notes", "relatedDocuments", "packages", "useCases", "requirements"],
+      "additionalProperties": false,
+      "properties": {
+        "number": {"type": "string", "pattern": "^\\d+(\\.\\d+)*$"},
+        "name": {"type": "string"},
+        "level": {"type": "integer", "minimum": 1},
+        "description": {"$ref": "#/$defs/text"},
+        "notes": {"type": "array", "items": {"$ref": "#/$defs/note"}},
+        "relatedDocuments": {"type": "array", "items": {"type": "string"}},
+        "packages": {"type": "array", "items": {"$ref": "#/$defs/package"}},
+        "useCases": {"type": "array", "items": {"$ref": "#/$defs/useCase"}},
+        "requirements": {"type": "array", "items": {"$ref": "#/$defs/requirement"}}
+      }
+    },
+    "step": {
+      "type": "object", "required": ["step", "text"], "additionalProperties": false,
+      "properties": {"step": {"type": "integer", "minimum": 1}, "text": {"type": "string"}, "options": {"type": "array", "items": {"type": "string"}}}
+    },
+    "useCase": {
+      "type": "object",
+      "required": ["id", "title", "priority", "package", "description", "parent", "primaryActors", "supportingActors", "preconditions",
+                   "successGuarantee", "level", "complexity", "status", "implementationStatus", "release", "mainSuccessScenario", "extensions"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^UC-[A-Z]+\\d+$"},
+        "title": {"type": "string"},
+        "priority": {"type": ["string", "null"], "pattern": "^P\\d+$"},
+        "package": {"type": "string"},
+        "description": {"$ref": "#/$defs/text"},
+        "parent": {"$ref": "#/$defs/text"},
+        "primaryActors": {"type": "array", "items": {"type": "string"}},
+        "supportingActors": {"type": "array", "items": {"type": "string"}},
+        "preconditions": {"$ref": "#/$defs/text"},
+        "successGuarantee": {"$ref": "#/$defs/text"},
+        "level": {"$ref": "#/$defs/text"},
+        "complexity": {"$ref": "#/$defs/text"},
+        "status": {"$ref": "#/$defs/text"},
+        "implementationStatus": {"$ref": "#/$defs/text"},
+        "release": {"$ref": "#/$defs/text"},
+        "mainSuccessScenario": {"type": "array", "items": {"$ref": "#/$defs/step"}},
+        "extensions": {
+          "type": "array",
+          "items": {
+            "type": "object", "required": ["id", "atStep", "text", "steps"], "additionalProperties": false,
+            "properties": {
+              "id": {"type": "string", "pattern": "^(\\*|\\d+(\\.\\d+)*)\\.[a-z]$"},
+              "atStep": {"type": "string", "pattern": "^(\\*|\\d+(\\.\\d+)*)$"},
+              "text": {"type": "string"},
+              "steps": {"type": "array", "items": {"$ref": "#/$defs/step"}}
+            }
+          }
+        },
+        "notes": {"type": "array", "items": {"$ref": "#/$defs/note"}},
+        "referencedRequirements": {
+          "type": "array",
+          "items": {"type": "object", "required": ["id", "type", "text"], "additionalProperties": false,
+                    "properties": {"id": {"type": "string", "pattern": "^REQ-[A-Z]+\\d+$"}, "type": {"type": "string"}, "text": {"type": "string"}}}
+        }
+      }
+    },
+    "requirement": {
+      "type": "object", "required": ["id", "name", "priority", "package", "description"], "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^REQ-[A-Z]+\\d+$"},
+        "name": {"type": "string"},
+        "priority": {"type": ["string", "null"], "pattern": "^P\\d+$"},
+        "package": {"type": "string"},
+        "description": {"$ref": "#/$defs/text"},
+        "parent": {"$ref": "#/$defs/text"},
+        "type": {"$ref": "#/$defs/text"},
+        "status": {"$ref": "#/$defs/text"},
+        "release": {"$ref": "#/$defs/text"},
+        "notes": {"type": "array", "items": {"$ref": "#/$defs/note"}},
+        "referencedBy": {"type": "array", "items": {"type": "string", "pattern": "^UC-[A-Z]+\\d+$"}}
+      }
+    },
+    "dangling": {
+      "type": "object", "required": ["id", "kind", "product", "title", "citedBy"], "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^(UC|REQ|A)-[A-Z]+\\d+$"},
+        "kind": {"enum": ["use-case", "requirement", "actor"]},
+        "product": {"enum": ["common", "manage", "qualify", "plan"]},
+        "title": {"type": ["string", "null"]},
+        "citedBy": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    }
+  }
+}

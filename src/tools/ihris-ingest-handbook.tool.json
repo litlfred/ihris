@@ -1,0 +1,46 @@
+{
+  "id": "ihris-ingest-handbook",
+  "title": "Ingest the iHRIS Administrator Handbook (mwlib wiki export)",
+  "description": "Verifies the uploaded PDF's sha256, runs folio-assistant's pdf-structure and pdf-images rungs, and writes library/ihris-admin-handbook/: one Markdown section per wiki article (with its wiki revision and contributors), the images, book.json (ihris-wiki-book/v1: articles, image credits matched by order of appearance, licences, redactions) and manifest.jsonld. Real e-mail addresses and phone numbers are redacted. Deterministic; rewrites its own output.",
+  "install": {
+    "cli": "pip install pymupdf"
+  },
+  "invoke": {
+    "shell": "python3 src/tools/ingest_handbook.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "pdf",
+        "schema": "https://www.iana.org/assignments/media-types/application/pdf",
+        "required": true,
+        "description": "uploads/ihris-admin-handbook/<file>, pinned by uploads/ihris-admin-handbook/manifest.json"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "book",
+        "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-wiki-book.schema.json"
+      },
+      {
+        "name": "structure",
+        "schema": "https://www.iana.org/assignments/media-types/application/json",
+        "description": "pdf-structure/v1"
+      },
+      {
+        "name": "images",
+        "schema": "https://www.iana.org/assignments/media-types/application/json",
+        "description": "folio-document-images/v1"
+      }
+    ]
+  },
+  "satisfies": [
+    "ingest-wiki-book-export"
+  ],
+  "requires": {
+    "runtime": [
+      "python3>=3.10"
+    ],
+    "network": false
+  }
+}
