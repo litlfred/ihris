@@ -1,6 +1,28 @@
 # Design strategy: how the iHRIS DAK becomes FHIR
 
-> **Status: DRAFT for owner review.** Nothing in this document is decided. Each section offers options and marks one as the *recommendation*. The owner accepts, changes or rejects each decision. Until the owner completes bean `ihris-dmgf`, the pause in [AGENTS.md §7](../../AGENTS.md) holds: no new FHIR resources, no FSH, and no sushi runs toward an IG.
+> **Status: decided, awaiting gate completion.** All eight decisions were answered by the owner on 2026-09-23 (§0). Two tensions are open (§0). Each section offers options and marks one as the *recommendation*. The owner accepts, changes or rejects each decision. Until the owner completes bean `ihris-dmgf`, the pause in [AGENTS.md §7](../../AGENTS.md) holds: no new FHIR resources, no FSH, and no sushi runs toward an IG.
+
+## 0. Owner decisions so far
+
+| # | decision | by, on |
+|---|---|---|
+| D1 | **A**: an iHRIS DAK in this repository, built on smart-base. iHRIS 5 is mapped to, not edited. | owner, 2026-09-23 |
+| D2 | **b**: Python generates FSH, and sushi is the build (it must run clean). | owner, 2026-09-23 |
+| D4 | **1**: canonical `https://litlfred.github.io/ihris/dak`. | owner, 2026-09-23 |
+| D6 target | **All three iHRIS 5 IGs**: `ig/`, `ihris-backend-site/ig` and `ihris-backend-site/qualify-ig`. | owner, 2026-09-23 |
+| D3 | **ii**: logical models wait for smart-base's DAK model (folio-assistant `cz17`). | owner, 2026-09-23 |
+| D5 | **R4 core only**: `hl7.fhir.r4.core#4.0.1`, with no smart-base dependency. | owner, 2026-09-23 |
+| D6 format | **γ**: StructureMaps, as executable transforms. | owner, 2026-09-23 |
+| D7 | Sushi and validation only, with no IG Publisher and no HTML in this phase. | owner, 2026-09-23 |
+| D8 | Keep the terminology JSON until the sushi output is equal in content, then switch in one commit. | owner, 2026-09-23 |
+
+### Consequences and tensions (for the owner, not resolved here)
+
+1. **D6 γ depends on D3.** A StructureMap needs a source StructureDefinition, and here that source is the iHRIS 4 logical models. D3 defers those until cz17. So the iHRIS 5 mapping is also blocked on cz17, unless the maps use some other source structure.
+2. **D5 against D1 and the CoreDataElements.** D1 says "built on smart-base", and the 121 existing files are smart-base `CoreDataElement` instances. With R4 core only, an FSH build cannot declare them as smart-base instances. They would stay as JSON outside the IG, or be dropped from it.
+3. **What can proceed once the gate is completed:** F1 (the SUSHI skeleton) and F2 (terminology as FSH, then the D8 switch). Neither needs smart-base or the logical models.
+
+The pause holds until the owner completes `ihris-dmgf`.
 
 ## 1. Where we are (measured, 2026-09-23)
 
@@ -9,7 +31,7 @@
 | L2 data dictionary | `src/ihris-dak/data-dictionary`: 242 data elements in 49 logical models (one per I2CE form class), in WHO column order. It is not FHIR. |
 | Terminology | `src/ihris-dak/terminology`: 44 CodeSystems, 57 ValueSets and 5 ConceptMaps. These are FHIR R4 **JSON** written directly by `build_dak.py`, with no FSH and no sushi. `validate_fhir.py` checks their structure (`fhir.resources` 6.5). |
 | CoreDataElements | 121 smart-base `CoreDataElement` JSON files, validated against smart-base's own JSON Schema. |
-| Canonical | `https://litlfred.github.io/ihris/dak` is provisional and unconfirmed (bean `ihris-gj3u`). |
+| Canonical | `https://litlfred.github.io/ihris/dak`, confirmed by the owner 2026-09-23 (D4, bean `ihris-gj3u` completed). |
 | iHRIS 5 IG | `iHRIS/iHRIS@fa66e9b` `ig/`: canonical `http://ihris.org/fhir`, version 0.1.0, FHIR 4.0.1. Its only dependency is `hl7.fhir.r4.core`, and it does **not** depend on smart-base. It uses a custom template (`input/ihrisigtemplate`), and its `sushi-config.yaml` was migrated from a SUSHI 0.x `package.json`. It has 436 FSH definitions in `ig/input/fsh`, plus two more IGs under `ihris-backend-site/` (`ig` 174, `qualify-ig` 74). The repository is LGPL-3.0; the IG declares CC0-1.0. |
 | smart-base | Publishes `SGLogicalModel`, `SGValueSet`, `SGCodeSystem`, `SGConceptMap` and the `DAK` logical model (folio-assistant `smart-base/fhir-artifact-index`, v0.3.0). The DAK *metadata* model (`dak.json`) is still pending upstream (folio-assistant bean `cz17`). |
 
