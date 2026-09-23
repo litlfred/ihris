@@ -8,4 +8,4 @@ The iHRIS wiki (first at `open.intrahealth.org/wiki`, named *Osi*, later `wiki.i
 
 ## Still to restore
 
-- Developer and implementer pages (module guides, installation, customization). Candidates: a MediaWiki XML dump, web.archive.org captures of `wiki.ihris.org`, or copies people hold. Put them in `uploads/wiki/`.
+- Developer and implementer pages (module guides, installation, customization). 79 of them survive, at their 2010 revisions, in the [Administrator Handbook export](../ihris-admin-handbook/) (GFDL-1.2): a separate library entry, and a source for restoring them here. Other candidates: a MediaWiki XML dump, web.archive.org captures of `wiki.ihris.org`, or copies people hold. Put them in `uploads/wiki/`.
