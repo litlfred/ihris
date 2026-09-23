@@ -22,7 +22,7 @@ A **folio** (content repository) on the `folio-assistant` platform, `contentType
 python3 src/tools/build_kg.py && python3 src/tools/build_dak.py && python3 src/tools/validate.py   # must print OK
 ```
 
-`build_dak.py` needs `pip install openpyxl pycountry==24.6.1` (pycountry pins the ISO data the ISO ConceptMaps are verified against). `validate.py` needs a folio-assistant checkout with `bun install` done (`FOLIO_ASSISTANT=<path>`, default `../litlfred/folio-assistant`). Without one it warns and skips the zod checks. That is not a pass.
+`build_dak.py` needs `pip install openpyxl pycountry==24.6.1`, and the site build that `validate.py` runs needs `pip install -r src/tools/requirements-site.txt` (pycountry pins the ISO data the ISO ConceptMaps are verified against). `validate.py` needs a folio-assistant checkout with `bun install` done (`FOLIO_ASSISTANT=<path>`, default `../litlfred/folio-assistant`). Without one it warns and skips the zod checks. That is not a pass.
 
 ## 4. Adding a knowledge asset
 

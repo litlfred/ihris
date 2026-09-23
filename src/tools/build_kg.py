@@ -570,9 +570,29 @@ def build_wiki():
         "@context": "https://litlfred.github.io/folio-assistant/ns/content/v1.jsonld",
         "@id": "library/ihris-wiki/osi-help-4.3.3/manifest", "@type": ["folio:SourceDocument"],
         "title": f"iHRIS user manual pages (Osi wiki export) as shipped in iHRIS {SUITE_RELEASE}", "contains": contains})
+    # Figures the pages reference by bare file name. I2CE serves them from modules/<mod>/images/help/.
+    # They are GPL, shipped in the same release, so they are restored beside the pages and pinned by sha256.
+    images = {}
+    for key, e in pages.items():
+        for v in e["variants"].values():
+            for ref in re.findall(r"!\[[^\]]*\]\(([^)\s]+)", v["md"]):
+                name = os.path.basename(ref)
+                if "/" in ref.split("?")[0].lstrip("./") or name in images:
+                    continue
+                found = [f"{pkg}/modules/{mod}/images/help/{name}" for pkg, mod in [("ihris-manage", "manage-help"), ("ihris-qualify", "qualify-help")]
+                         if os.path.isfile(os.path.join(tree, pkg, "modules", mod, "images", "help", name))]
+                if not found:
+                    continue
+                data = open(os.path.join(tree, found[0]), "rb").read()
+                digests = {hashlib.sha256(open(os.path.join(tree, x), "rb").read()).hexdigest() for x in found}
+                os.makedirs(os.path.join(lib, "images"), exist_ok=True)
+                with open(os.path.join(lib, "images", name), "wb") as fh:
+                    fh.write(data)
+                images[name] = {"file": f"images/{name}", "sha256": hashlib.sha256(data).hexdigest(), "shippedIn": found,
+                                **({"variantsDiffer": True} if len(digests) > 1 else {})}
     write_json(os.path.join(lib, "structure.json"), {"source": f"uploads/ihris-suite-4.3.3/{SUITE_FILE}",
                                                       "sourceSha256": json.load(open(os.path.join(UP, 'ihris-suite-4.3.3/manifest.json')))["sha256"],
-                                                      "pages": structure})
+                                                      "pages": structure, "images": [images[k] for k in sorted(images)]})
     return {"pages": len(pages), "sections": len(contains)}
 
 
