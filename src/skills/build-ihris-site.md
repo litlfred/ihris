@@ -38,6 +38,9 @@ python3 src/tools/build_site.py --out .build/site --check-links
 
 Every page is checked for horizontal overflow at web 1280×800 and mobile 390×844. A page that overflows on either is a defect in the generator's CSS, not in the page. `validate.py` builds the site and fails on any broken link.
 
-## 4. Publish
+## 4. Publish (the `gh-pages` branch)
 
-`.github/workflows/pages.yml` builds on every push to `main` and deploys with GitHub Pages (Actions). Before the first deploy, the owner sets **Settings → Pages → Source: GitHub Actions**.
+- The site is served from the **`gh-pages` branch**, which holds build output only.
+- `.github/workflows/pages.yml` rebuilds it on every push to `main` and commits the result on top of `gh-pages`. When nothing changed, it makes no commit.
+- One-time owner setting: **Settings → Pages → Source: Deploy from a branch → `gh-pages` / (root)**.
+- Never edit `gh-pages` by hand. Change the generator and let the workflow publish.

@@ -39,7 +39,7 @@ Use the skills in [`src/skills/`](src/skills/):
 | a PDF or Word document | folio-assistant's `library-ingestion` skill, into `library/<slug>/` (Tool `ihris-ingest-pdf`) |
 | a paper or standard whose **method** is to be used | `adopt-methodology-from-source` (process `processes/methodology-from-source.bpmn`) |
 | a UI to design (pages, visualisers) | `wireframe-design-review` (methodology `wiregen`): web **and** mobile, with adjudication |
-| the site to (re)build or restyle | `build-ihris-site`: iHRIS theme measured from the release CSS, pages from the data, published by `.github/workflows/pages.yml` at litlfred.github.io/ihris/ |
+| the site to (re)build or restyle | `build-ihris-site`: iHRIS theme measured from the release CSS, pages from the data, published on the `gh-pages` branch by `.github/workflows/pages.yml`, at litlfred.github.io/ihris/ |
 | FHIR work on the iHRIS 4 data model | `ihris-4-on-fhir` (documented; SUSHI later) |
 
 ## 5. Processes and tools

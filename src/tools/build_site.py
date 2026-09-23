@@ -13,7 +13,7 @@ Everything here is GENERATED from committed data, never transcribed:
                                               (docs/design/wireframes/data-model-site/acceptance.json)
   src/site/theme/ihris-classic.json           the theme (src/tools/extract_theme.py)
 
-Output goes to _site/ (git-ignored; the Pages workflow builds it). Links are all
+Output goes to _site/ (git-ignored). The Pages workflow builds it and commits it to the gh-pages branch. Links are all
 relative, so the site works under /ihris/ and from a local file.
 
   python3 src/tools/build_site.py [--out DIR] [--check-links]
