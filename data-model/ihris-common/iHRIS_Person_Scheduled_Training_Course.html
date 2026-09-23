@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iHRIS_Person_Scheduled_Training_Course · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../index.html" aria-current="page">Data model</a></li><li><a href="../search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">Source on GitHub</a></li></ul></nav>
+<div class="layout">
+<aside class="side" aria-label="Data model navigation">
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="dm-nav"><span aria-hidden="true">&#9776;</span> Menu</button>
+  <form class="search" role="search" action="../search.html">
+    <label for="q">Search classes, fields, lists</label>
+    <input id="q" name="q" type="search" autocomplete="off">
+  </form>
+  <nav id="dm-nav" aria-label="Packages"><ul><li><a href="../index.html">Overview</a></li><li><a href="../i2ce/index.html">i2ce</a> <span class="count">12</span></li><li><a href="index.html">ihris-common</a> <span class="count">93</span><ul><li class="more">&hellip; 73 above</li><li><a href="iHRIS_Person_Record_Status.html">iHRIS_Person_Record_Status</a></li><li><a href="iHRIS_Person_Scheduled_Training_Course.html" aria-current="page">iHRIS_Person_Scheduled_Training_Course</a></li><li><a href="iHRIS_Photo.html">iHRIS_Photo</a></li><li><a href="iHRIS_RapidproFlowRun.html">iHRIS_RapidproFlowRun</a></li><li class="more">&hellip; 16 below &middot; <a href="index.html">all 93</a></li></ul></li><li><a href="../ihris-manage/index.html">ihris-manage</a> <span class="count">26</span></li><li><a href="../ihris-qualify/index.html">ihris-qualify</a> <span class="count">25</span></li><li class="note">156 package records, 153 distinct classes: iHRIS_DisciplinaryAction, iHRIS_Registration, iHRIS_SalaryGrade are each defined in two packages.</li></ul></nav>
+</aside>
+<main id="main" tabindex="-1">
+<div class="crumbs"><a href="../index.html">Data model</a> / <a href="index.html">ihris-common</a> / iHRIS_Person_Scheduled_Training_Course</div>
+<h1>iHRIS_Person_Scheduled_Training_Course</h1>
+<div class="badges">
+<span class="badge base"><span aria-hidden="true">&#8593;</span> extends I2CE_Form (base class)</span>
+<span class="badge">form person_scheduled_training_course</span><span class="badge">package ihris-common</span><span class="badge">release 4.3.3</span>
+</div>
+<h2>Fields</h2>
+<table class="fields" role="table" aria-label="Fields of iHRIS_Person_Scheduled_Training_Course">
+<thead role="rowgroup"><tr role="row"><th role="columnheader">Field</th><th role="columnheader">Label</th><th role="columnheader">Type</th><th role="columnheader">Required</th><th role="columnheader">Draws from</th></tr></thead>
+<tbody role="rowgroup"><tr role="row"><td role="cell" data-h="Field"><code>training_course_mod</code></td><td role="cell" data-h="Label">Modules</td><td role="cell" data-h="Type">MAP_MULT</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>certification_date</code></td><td role="cell" data-h="Label">Certification Date</td><td role="cell" data-h="Type">DATE_YMD</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>attending</code></td><td role="cell" data-h="Label">Is Attending</td><td role="cell" data-h="Type">YESNO</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>is_retraining</code></td><td role="cell" data-h="Label">Retraining</td><td role="cell" data-h="Type">YESNO</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>completed</code></td><td role="cell" data-h="Label">Completed</td><td role="cell" data-h="Type">YESNO</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>duty_commencement_date</code></td><td role="cell" data-h="Label">Duty Commencement</td><td role="cell" data-h="Type">DATE_YMD</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>request_date</code></td><td role="cell" data-h="Label">Request Date</td><td role="cell" data-h="Type">DATE_YMD</td><td role="cell" data-h="Required" class="req">yes</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>notes</code></td><td role="cell" data-h="Label">Notes</td><td role="cell" data-h="Type">STRING_MLINE</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>average</code></td><td role="cell" data-h="Label">Average</td><td role="cell" data-h="Type">INT</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>training_course_evaluation</code></td><td role="cell" data-h="Label">Evaluation</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required" class="req">yes</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>training_course_requestor</code></td><td role="cell" data-h="Label">Requested By</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>scheduled_training_course</code></td><td role="cell" data-h="Label">Instance</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required" class="req">yes</td><td role="cell" data-h="Draws from">&mdash;</td></tr></tbody></table>
+<h2><span aria-hidden="true">&#9711;&#8212;&#9711;</span> Neighbourhood</h2>
+<div class="hood">
+<figure style="margin:0"><svg viewBox="0 0 560 330" role="img" aria-label="iHRIS_Person_Scheduled_Training_Course extends the base class I2CE_Form." aria-describedby="hood-cap"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#1b1b1b"/></marker></defs><g font-family="Arial, sans-serif" font-size="12" fill="#1b1b1b"><line x1="280" y1="147" x2="280" y2="76" stroke="#1b1b1b" marker-end="url(#ar)"/><rect x="128" y="147" width="304" height="36" rx="0" fill="#fff" stroke="#1b1b1b" stroke-width="3"/><text x="280" y="169" text-anchor="middle" font-weight="700">iHRIS_Person_Scheduled_Training_Course</text><rect x="225" y="40" width="110" height="36" rx="0" fill="#f2f2f2" stroke="#1b1b1b" stroke-width="1" stroke-dasharray="5 3"/><text x="280" y="62" text-anchor="middle">I2CE_Form (base)</text></g></svg>
+<figcaption id="hood-cap" class="legend">Box: form class (dashed: base class, no page) &middot; pill: list &middot; solid arrow: extends &middot;
+dashed arrow: a field draws from the list. The table lists every edge.</figcaption></figure>
+<table aria-label="Neighbourhood edges"><thead><tr><th>Edge</th><th>Other end</th><th>Via</th></tr></thead><tbody><tr><td>extends</td><td>I2CE_Form <span class="mute">(base, no page)</span></td><td>&mdash;</td></tr></tbody></table>
+</div>
+<section class="rels" aria-label="Relationships">
+<details open><summary><span aria-hidden="true">&#8593;</span> Extends (1)</summary><ul><li>I2CE_Form <span class="mute">(base, no page)</span></li></ul></details>
+
+
+</section>
+<h2>Source</h2>
+<p class="src">Defined in module <code>training-course</code> (ihris-common), ihris-suite-4.3.3 (MD5 verified against Launchpad).
+Record: <a href="https://github.com/litlfred/ihris/blob/main/src/ihris-common/data-model/4.3.3/iHRIS_Person_Scheduled_Training_Course.json">src/ihris-common/data-model/4.3.3/iHRIS_Person_Scheduled_Training_Course.json</a>.</p>
+</main>
+</div>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+<script>
+document.querySelectorAll('.menu-btn').forEach(function(b){b.addEventListener('click',function(){
+  var s=b.closest('.side');var o=s.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');
+  b.lastChild.textContent=o?' Close':' Menu';});});
+</script>
+</body>
+</html>

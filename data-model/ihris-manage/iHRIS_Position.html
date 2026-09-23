@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iHRIS_Position · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../index.html" aria-current="page">Data model</a></li><li><a href="../search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">Source on GitHub</a></li></ul></nav>
+<div class="layout">
+<aside class="side" aria-label="Data model navigation">
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="dm-nav"><span aria-hidden="true">&#9776;</span> Menu</button>
+  <form class="search" role="search" action="../search.html">
+    <label for="q">Search classes, fields, lists</label>
+    <input id="q" name="q" type="search" autocomplete="off">
+  </form>
+  <nav id="dm-nav" aria-label="Packages"><ul><li><a href="../index.html">Overview</a></li><li><a href="../i2ce/index.html">i2ce</a> <span class="count">12</span></li><li><a href="../ihris-common/index.html">ihris-common</a> <span class="count">93</span></li><li><a href="index.html">ihris-manage</a> <span class="count">26</span><ul><li class="more">&hellip; 18 above</li><li><a href="iHRIS_PersonReference.html">iHRIS_PersonReference</a></li><li><a href="iHRIS_Position.html" aria-current="page">iHRIS_Position</a></li><li><a href="iHRIS_PositionDecision.html">iHRIS_PositionDecision</a></li><li><a href="iHRIS_PositionInterview.html">iHRIS_PositionInterview</a></li><li class="more">&hellip; 4 below &middot; <a href="index.html">all 26</a></li></ul></li><li><a href="../ihris-qualify/index.html">ihris-qualify</a> <span class="count">25</span></li><li class="note">156 package records, 153 distinct classes: iHRIS_DisciplinaryAction, iHRIS_Registration, iHRIS_SalaryGrade are each defined in two packages.</li></ul></nav>
+</aside>
+<main id="main" tabindex="-1">
+<div class="crumbs"><a href="../index.html">Data model</a> / <a href="index.html">ihris-manage</a> / iHRIS_Position</div>
+<h1>iHRIS_Position</h1>
+<div class="badges">
+<span class="badge"><span aria-hidden="true">&#8593;</span> extends I2CE_List</span>
+<span class="badge">form position</span><span class="badge">package ihris-manage</span><span class="badge">release 4.3.3</span>
+</div>
+<h2>Fields</h2>
+<table class="fields" role="table" aria-label="Fields of iHRIS_Position">
+<thead role="rowgroup"><tr role="row"><th role="columnheader">Field</th><th role="columnheader">Label</th><th role="columnheader">Type</th><th role="columnheader">Required</th><th role="columnheader">Draws from</th></tr></thead>
+<tbody role="rowgroup"><tr role="row"><td role="cell" data-h="Field"><code>code</code></td><td role="cell" data-h="Label">Position Code</td><td role="cell" data-h="Type">STRING_LINE</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>job</code></td><td role="cell" data-h="Label">Job</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required" class="req">yes</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>title</code></td><td role="cell" data-h="Label">Position Title</td><td role="cell" data-h="Type">STRING_LINE</td><td role="cell" data-h="Required" class="req">yes</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>description</code></td><td role="cell" data-h="Label">Position Description</td><td role="cell" data-h="Type">STRING_MLINE</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>supervisor</code></td><td role="cell" data-h="Label">Supervisor</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from"><a href="iHRIS_MultiPosition.html">position</a></td></tr><tr role="row"><td role="cell" data-h="Field"><code>facility</code></td><td role="cell" data-h="Label">Facility</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required" class="req">yes</td><td role="cell" data-h="Draws from"><a href="../ihris-common/iHRIS_Facility.html">facility</a></td></tr><tr role="row"><td role="cell" data-h="Field"><code>department</code></td><td role="cell" data-h="Label">Department</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>pos_type</code></td><td role="cell" data-h="Label">Position Type</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">position_type</td></tr><tr role="row"><td role="cell" data-h="Field"><code>proposed_end_date</code></td><td role="cell" data-h="Label">Proposed End Date</td><td role="cell" data-h="Type">DATE_YMD</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>proposed_hiring_date</code></td><td role="cell" data-h="Label">Proposed Hiring Date</td><td role="cell" data-h="Type">DATE_YMD</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>posted_date</code></td><td role="cell" data-h="Label">Date Posted</td><td role="cell" data-h="Type">DATE_YMD</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>status</code></td><td role="cell" data-h="Label">Status</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required" class="req">yes</td><td role="cell" data-h="Draws from">position_status</td></tr><tr role="row"><td role="cell" data-h="Field"><code>comments</code></td><td role="cell" data-h="Label">Position Comments</td><td role="cell" data-h="Type">STRING_TEXT</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>interview_comments</code></td><td role="cell" data-h="Label">Interview Comments</td><td role="cell" data-h="Type">STRING_TEXT</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>proposed_salary</code></td><td role="cell" data-h="Label">Proposed Salary</td><td role="cell" data-h="Type">CURRENCY</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>source</code></td><td role="cell" data-h="Label">Source</td><td role="cell" data-h="Type">MAP_MULT</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">salary_source</td></tr></tbody></table>
+<h2><span aria-hidden="true">&#9711;&#8212;&#9711;</span> Neighbourhood</h2>
+<div class="hood">
+<figure style="margin:0"><svg viewBox="0 0 560 330" role="img" aria-label="iHRIS_Position extends I2CE_List. iHRIS_MultiPosition extends iHRIS_Position. iHRIS_Position draws from the lists position, facility, position_type, position_status, salary_source." aria-describedby="hood-cap"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#1b1b1b"/></marker></defs><g font-family="Arial, sans-serif" font-size="12" fill="#1b1b1b"><line x1="280" y1="147" x2="280" y2="76" stroke="#1b1b1b" marker-end="url(#ar)"/><line x1="280" y1="262" x2="280" y2="183" stroke="#1b1b1b" marker-end="url(#ar)"/><line x1="350" y1="165" x2="460" y2="121" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/><line x1="350" y1="165" x2="460" y2="165" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/><line x1="350" y1="165" x2="460" y2="209" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/><line x1="210" y1="165" x2="100" y2="143" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/><line x1="210" y1="165" x2="100" y2="187" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/><rect x="215" y="147" width="130" height="36" rx="0" fill="#fff" stroke="#1b1b1b" stroke-width="3"/><text x="280" y="169" text-anchor="middle" font-weight="700">iHRIS_Position</text><rect x="225" y="40" width="110" height="36" rx="0" fill="#f2f2f2" stroke="#1b1b1b" stroke-width="1"/><text x="280" y="62" text-anchor="middle">I2CE_List</text><rect x="212" y="262" width="137" height="36" rx="0" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="280" y="284" text-anchor="middle">iHRIS_MultiPosition</text><rect x="469" y="103" width="66" height="36" rx="18" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="502" y="125" text-anchor="middle">position</text><rect x="469" y="147" width="66" height="36" rx="18" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="502" y="169" text-anchor="middle">facility</text><rect x="450" y="191" width="104" height="36" rx="18" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="502" y="213" text-anchor="middle">position_type</text><rect x="-2" y="125" width="120" height="36" rx="18" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="58" y="147" text-anchor="middle">position_status</text><rect x="6" y="169" width="104" height="36" rx="18" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="58" y="191" text-anchor="middle">salary_source</text></g></svg>
+<figcaption id="hood-cap" class="legend">Box: form class (dashed: base class, no page) &middot; pill: list &middot; solid arrow: extends &middot;
+dashed arrow: a field draws from the list. The table lists every edge.</figcaption></figure>
+<table aria-label="Neighbourhood edges"><thead><tr><th>Edge</th><th>Other end</th><th>Via</th></tr></thead><tbody><tr><td>extends</td><td><a href="../i2ce/I2CE_List.html">I2CE_List</a></td><td>&mdash;</td></tr><tr><td>extended by</td><td><a href="iHRIS_MultiPosition.html">iHRIS_MultiPosition</a></td><td>adds <code>code_format</code>, <code>code_start</code>, <code>count</code></td></tr><tr><td>draws from</td><td><a href="iHRIS_MultiPosition.html">position</a> <code>iHRIS_MultiPosition</code></td><td><code>supervisor</code></td></tr><tr><td>draws from</td><td><a href="../ihris-common/iHRIS_Facility.html">facility</a> <code>iHRIS_Facility</code></td><td><code>facility</code></td></tr><tr><td>draws from</td><td>position_type</td><td><code>pos_type</code></td></tr><tr><td>draws from</td><td>position_status</td><td><code>status</code></td></tr><tr><td>draws from</td><td>salary_source</td><td><code>source</code></td></tr></tbody></table>
+</div>
+<section class="rels" aria-label="Relationships">
+<details open><summary><span aria-hidden="true">&#8593;</span> Extends (1)</summary><ul><li><a href="../i2ce/I2CE_List.html">I2CE_List</a></li></ul></details>
+<details><summary><span aria-hidden="true">&#8595;</span> Extended by (1)</summary><ul><li><a href="iHRIS_MultiPosition.html">iHRIS_MultiPosition</a></li></ul></details>
+<details><summary><span aria-hidden="true">&#128279;</span> Lists referenced (5)</summary><ul><li><a href="iHRIS_MultiPosition.html">position</a> (supervisor)</li><li><a href="../ihris-common/iHRIS_Facility.html">facility</a> (facility)</li><li>position_type (pos_type)</li><li>position_status (status)</li><li>salary_source (source)</li></ul></details>
+</section>
+<h2>Source</h2>
+<p class="src">Defined in module <code>ihris-manage-PersonPosition</code> (ihris-manage), <code>ihris-manage-Salary</code> (ihris-manage), ihris-suite-4.3.3 (MD5 verified against Launchpad).
+Record: <a href="https://github.com/litlfred/ihris/blob/main/src/ihris-manage/data-model/4.3.3/iHRIS_Position.json">src/ihris-manage/data-model/4.3.3/iHRIS_Position.json</a>.</p>
+</main>
+</div>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+<script>
+document.querySelectorAll('.menu-btn').forEach(function(b){b.addEventListener('click',function(){
+  var s=b.closest('.side');var o=s.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');
+  b.lastChild.textContent=o?' Close':' Menu';});});
+</script>
+</body>
+</html>
