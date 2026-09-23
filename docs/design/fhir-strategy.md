@@ -128,7 +128,7 @@ The recommendation is to keep the JSON until the sushi build of the same content
 | F2 | Terminology as generated FSH | content-equal to today's JSON (D8); JSON path retired |
 | F3 | 49 logical models as generated FSH (`SGLogicalModel`) | sushi clean; every data element present, and no field filled that the source leaves null |
 | F4 | iHRIS 5 mapping (D6) | every logical model has a `mapping`; gap report generated; uncertain matches are proposals |
-| F5 | Publication | deferred to folio-assistant `nsbb` / `kn0t` |
+| F5 | Publication (bean `ihris-bwls`) | blocked until folio-assistant's new lightweight IG render pipeline is done (`jut3`, `kn0t`, `nsbb`) |
 
 Each phase is its own bean, blocked by the one before.
 
