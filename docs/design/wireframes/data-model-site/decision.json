@@ -1,0 +1,19 @@
+{
+  "process": "Process_OptionsAnalysis (folio-assistant), called from Process_WireframeDesignReview Call_Choose",
+  "round": 1,
+  "decidedBy": {"kind": "human", "id": "owner"},
+  "decidedOn": "2026-09-23",
+  "options": [
+    {"id": "A", "outcome": "rejected as drawn; structure kept", "reason": "It answers the four tasks most completely and is the most just-the-docs-native. But its visualiser lives on a separate page that was never drawn, and it has accessibility warnings (tile, search)."},
+    {"id": "B", "outcome": "rejected as drawn; graph and mobile relationships list kept", "reason": "Its relationships are the clearest. But it has no in-package class list, no navbar tile, the class heading comes after the graph in reading order, and it has accessibility warnings (graph, search)."},
+    {"id": "Hybrid A + B", "outcome": "chosen", "reason": "The owner's pick, which agent-1 also suggested. It combines A's page structure with B's neighbourhood graph as a section, placed after the fields, plus B's relationships list on phones."}
+  ],
+  "iterate": {"reviseIntent": true, "next": "round-2/: the hybrid candidate, with the factual issues and accessibility warnings fixed, goes back through mechanical checks and blind review."},
+  "carryForward": [
+    "Real <a> for the nav and the visualiser tile; a real labelled <input> for the search.",
+    "The graph has a text twin: a table of the same edges, linked.",
+    "The class heading comes first in reading order; the graph is a following section.",
+    "I2CE_Form is marked as a base class with no page (agent-1 factual issue, minor).",
+    "Explain 156 records vs 153 distinct classes (agent-1 factual issue, info)."
+  ]
+}

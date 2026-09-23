@@ -1,0 +1,12 @@
+{
+  "reviewer": {"kind": "human", "id": "owner"},
+  "round": 1,
+  "recordedOn": "2026-09-23",
+  "method": "structured questions in the session chat, answered by the owner after viewing checks/{a,b}.{web,mobile}.png. Only the criteria the owner answered are entered here; the others are left to agent-1 and are not inferred.",
+  "entries": [
+    {"candidate": "B", "criterion": "mobile usability", "result": "pass", "reason": "Owner: replacing the graph with a relationships list on phones is acceptable (\"Yes, list on phones\")."},
+    {"candidate": "A", "criterion": "accessibility", "result": "warn", "reason": "Owner shares two concerns for A. The 'Harness visualiser' tile is a div with role=link, not a real <a>. The search is a styled span, not a labelled input."},
+    {"candidate": "B", "criterion": "accessibility", "result": "warn", "reason": "Owner shares two concerns for B. The graph needs a text twin: a linked table of the same edges. The search is a styled span, not a labelled input."}
+  ],
+  "choice": {"answer": "Hybrid A + B", "detail": "A's catalogue sidebar and field table, with B's neighbourhood graph of related classes as a panel on each class page."}
+}
