@@ -115,7 +115,8 @@
      "id": "UC-PP22",
      "title": "Produce a health workforce implementation plan"
     }
-   ]
+   ],
+   "role": "ihris-a-pp1"
   }
  ],
  "root": {
@@ -173,7 +174,7 @@
       "description": "The Health Workforce Planner adds a currency for selection when setting monetary amounts.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -246,7 +247,7 @@
       "description": "The Health Workforce Planner enters or edits a cadre for selection within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -311,7 +312,7 @@
       "description": "The Health Workforce Planner updates the list of countries available for selection in the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -450,7 +451,7 @@
       "description": "The Health Workforce Planner creates a new projection for modeling.",
       "parent": "Projection",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in.",
@@ -519,7 +520,7 @@
       "description": "The Health Workforce Planner copies an existing projection.",
       "parent": "Projection",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The projection to copy has already been entered in the system. The user is logged in.",
@@ -576,7 +577,7 @@
       "description": "The Health Workforce Planner enters the starting population and population growth rate for the projection.",
       "parent": "Projection",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in. The projection must be created and saved.",
@@ -685,7 +686,7 @@
       "description": "The Health Workforce Planner selects a cadre and saves it as a pool of health workers in the health workforce that is being modeled.",
       "parent": "Cadre Pools",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The user is logged in. The target and demographics have been entered and saved. The cadre has been entered in the selection menu.",
@@ -738,7 +739,7 @@
       "description": "The Health Workforce Planner enters data to project the actual supply of health workers.",
       "parent": "Cadre Pools",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in. The projection must be started or updated and population data entered. The cadre pool has been created. The currency has been entered in the system.",
@@ -839,7 +840,7 @@
       "description": "The Health Workforce Planner enters the required number of positions for the cadre.",
       "parent": "Cadre Pools",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The user is logged in. The user has started or is updating a projection and has entered population data for the projection. The cadre pool has been created.",
@@ -941,7 +942,7 @@
       "description": "The Health Workforce Planner creates a change in the pool supply due to an increase or decrease in health workers to be applied to the projection.",
       "parent": "Cadre Pools",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The projection has been created and a cadre pool has been created for it. Supply data have been entered for the cadre pool. The currency has been entered in the system.",
@@ -1114,7 +1115,7 @@
       "description": "Before the Health Workforce Planner can run any interventions, a base projection must be generated showing the gap between resources and requirements.",
       "parent": "Data Modeling",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The user is logged in. The projection has been created and all requirements, supply and pool change data have been entered.",
@@ -1187,7 +1188,7 @@
       "description": "After proposed interventions have been implemented, the Health Workforce Planner regularly imports new actual human resources data to determine whether the interventions are having the desired effect and to make adjustments as needed.",
       "parent": "Data Modeling",
       "primaryActors": [
-       "Health Workforce Planner"
+       "ihris-a-pp1"
       ],
       "supportingActors": [],
       "preconditions": "The user is logged in. A projection has been completed created and saved.",

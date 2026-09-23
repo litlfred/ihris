@@ -20,6 +20,8 @@ Related documents: http://www.capacityproject.org/suite/ihris\_plan.php, http://
 
 ### A-PP1 Health Workforce Planner
 
+Role: [Health Workforce Planner](roles.md#ihris-a-pp1) (`ihris-a-pp1`)
+
 The Health Workforce Planner enters workforce data into the software, creates projections, runs scenarios, and analyzes and reports on the results. This is the primary user of the software. This person has some knowledge of workforce planning methods and access to necessary data for creating projections.
 
 **Goals**
@@ -45,7 +47,7 @@ The Health Workforce Planner adds a currency for selection when setting monetary
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -83,7 +85,7 @@ The Health Workforce Planner enters or edits a cadre for selection within the sy
 | | |
 |---|---|
 | Priority | P7 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -118,7 +120,7 @@ The Health Workforce Planner updates the list of countries available for selecti
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -170,7 +172,7 @@ The Health Workforce Planner creates a new projection for modeling.
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Complexity | Low |
 | Status | Updated |
@@ -205,7 +207,7 @@ The Health Workforce Planner copies an existing projection.
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -237,7 +239,7 @@ The Health Workforce Planner enters the starting population and population growt
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -282,7 +284,7 @@ The Health Workforce Planner selects a cadre and saves it as a pool of health wo
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -313,7 +315,7 @@ The Health Workforce Planner enters data to project the actual supply of health 
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Complexity | Medium |
 | Status | Released |
@@ -357,7 +359,7 @@ The Health Workforce Planner enters the required number of positions for the cad
 | | |
 |---|---|
 | Priority | P2 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Complexity | Medium |
 | Status | Updated |
@@ -401,7 +403,7 @@ The Health Workforce Planner creates a change in the pool supply due to an incre
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Status | Updated |
 | Implementation status | Complete |
@@ -459,7 +461,7 @@ Before the Health Workforce Planner can run any interventions, a base projection
 | | |
 |---|---|
 | Priority | P3 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Complexity | Low |
 | Status | Updated |
@@ -494,7 +496,7 @@ After proposed interventions have been implemented, the Health Workforce Planner
 | | |
 |---|---|
 | Priority | P2 |
-| Primary actors | Health Workforce Planner |
+| Primary actors | [Health Workforce Planner](roles.md#ihris-a-pp1) |
 | Level | User |
 | Complexity | High |
 | Status | Documented |

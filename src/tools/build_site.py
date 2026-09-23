@@ -538,9 +538,16 @@ def main():
 
 
 def broken_links(out):
-    """Every relative href/src in the built site must resolve to a built file."""
+    """Every relative href/src in the built site must resolve to a built file, and a #fragment on a link
+    to another built page must name an id on that page. Fragments are not checked on the restored wiki
+    pages (library/wiki/): their section anchors were never generated, 97 links measured 2026-09-23."""
     import re
-    bad = []
+    bad, ids = [], {}
+
+    def ids_of(t):
+        if t not in ids:
+            ids[t] = set(re.findall(r'\sid="([^"]+)"', open(t).read())) if t.endswith(".html") else None
+        return ids[t]
     for d, _, fs in os.walk(out):
         for f in fs:
             if f.endswith(".html"):
@@ -549,7 +556,10 @@ def broken_links(out):
                     u = html.unescape(u)
                     if u.startswith(("http:", "https:", "#", "mailto:")):
                         continue
-                    if not os.path.exists(os.path.normpath(os.path.join(d, u.split("?")[0].split("#")[0]))):
+                    t = os.path.normpath(os.path.join(d, u.split("?")[0].split("#")[0]))
+                    if not os.path.exists(t):
+                        bad.append((os.path.relpath(p, out), u))
+                    elif "#" in u and not os.path.relpath(p, out).startswith("library/wiki/") and os.path.isfile(t) and ids_of(t) is not None and u.split("#", 1)[1] not in ids_of(t):
                         bad.append((os.path.relpath(p, out), u))
     return bad
 

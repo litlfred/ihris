@@ -9,6 +9,7 @@ may reproduce (AGENTS.md §2.4):
   library/ihris-admin-handbook             GFDL-1.2 text (stated in the export) and images (owner's permission): in full,
                                            with each article's revision and contributors; only while both are recorded
   library/ihris-use-cases                  the owner's permission (2026-09-23): in full, attributed; only while recorded
+                                           People the reports name only as opaque actors (roles page)
   library/ihris-toolkit                    the text only while its declaration records a licence (the owner's
                                            permission, 2026-09-23, bean ihris-kngr); otherwise structure only.
                                            Reader comments never: third parties' words and names
@@ -437,7 +438,8 @@ def use_case_pages(theme, cls_index):
     idx = "library/use-cases/index.html"
     crumbs = [("index.html", "Home"), ("library/index.html", "Library"), (idx, "Use cases")]
     note = (f'<p class="src">{E(lic.get("attribution", ""))} Published with the owner&#39;s permission ({E(lic.get("grantedOn", ""))}). '
-            'Staff initials (&ldquo;Assigned To&rdquo;) and requirement sources naming a person are withheld.</p>') if ok else \
+            'Staff initials (&ldquo;Assigned To&rdquo;) and requirement sources naming a person are referenced by '
+            '<a href="roles.html#opaque-actors">opaque actors</a>, with the identity withheld.</p>') if ok else \
         '<p class="mute">No licence or permission is recorded, so only counts are shown.</p>'
     out = []
     rows = []
@@ -448,7 +450,7 @@ def use_case_pages(theme, cls_index):
         rows.append([link, E(d["report"]["generatedAt"]), str(c["useCases"]), str(c["actors"]), str(c["requirements"]), str(c["steps"]), str(c["extensions"])])
         if ok:
             text = open(os.path.join(ROOT, USE_CASES, d["product"] + ".md"), encoding="utf-8").read()
-            body = re.sub(r"\A\s*<h1>.*?</h1>", "", md_to_html(text), flags=re.S)
+            body = re.sub(r"\A\s*<h1>.*?</h1>", "", md_to_html(text, _uc_link), flags=re.S)
             out.append(page(f"library/use-cases/{d['product']}.html", name + " (2009)", crumbs, note + f'<div class="wiki">{body}</div>', theme, "library/index.html"))
     xrows = []
     for e in xw["entries"]:
@@ -475,9 +477,64 @@ def use_case_pages(theme, cls_index):
              f'structured records.</p>{note}' + rows_table(["Product", "Report generated", "Use cases", "Actors", "Requirements", "Steps", "Extensions"], rows, "Use-case reports")
              + f'<h2>Crosswalk</h2><p><a href="crosswalk.html">Each use case to the iHRIS {xw["release"]} forms its title names</a>, by name matching only: '
                f'{c["matched"]} linked, {c["unmatched"]} not linked, {c["no-data-model"]} without a data model (iHRIS Plan).</p>'
+             + ('<h2>Roles and actors</h2><p><a href="roles.html">The roles the use cases name, and the opaque actors</a> '
+                'standing for the people the reports name, identity withheld.</p>' if ok else "")
              + f"<h2>Cited but not described</h2><ul>{dang}</ul>")
+    if ok:
+        out.append(roles_page(prods, theme, crumbs))
     out.append(page(idx, "iHRIS use cases (2009)", crumbs[:2], inner, theme, "library/index.html"))
     return out
+
+
+def _uc_link(href):
+    """The use-case Markdown links actors to roles.md#<id>; on the site that is roles.html#<id>."""
+    return "roles.html" + href[len("roles.md"):] if href.startswith("roles.md") else href
+
+
+def roles_page(prods, theme, crumbs):
+    """The use-case roles (scenarios/roles.json) and opaque actors (scenarios/actors/), each with an anchor
+    the product pages link to, and where each is used."""
+    path = "library/use-cases/roles.html"
+    g = J(f"{USE_CASES}/scenarios/roles.json")
+    actors = [J(os.path.relpath(f, ROOT)) for f in sorted(glob.glob(os.path.join(ROOT, USE_CASES, "scenarios", "actors", "*.json")))]
+    src, plays, refs = {}, collections.defaultdict(list), collections.defaultdict(list)
+    for d in prods:
+        for a in d["actors"]:
+            src[a["role"]] = (d, a["id"])
+        stack = [d["root"]]
+        while stack:
+            p = stack.pop(0)
+            stack += p["packages"]
+            for u in p["useCases"]:
+                for r in (u.get("primaryActors") or []) + (u.get("supportingActors") or []):
+                    if (d["product"], u["id"]) not in plays[r]:
+                        plays[r].append((d["product"], u["id"]))
+                if u.get("assignedTo"):
+                    refs[u["assignedTo"]["actor"]].append((d["product"], u["id"], "Assigned To"))
+            for r in p["requirements"]:
+                if r.get("source"):
+                    refs[r["source"]["actor"]].append((d["product"], r["id"], "Source"))
+    rrows = []
+    for r in g["roles"]:
+        d, aid = src[r["id"]]
+        uses = ", ".join(f'<a href="{E(p)}.html">{E(u)}</a>' for p, u in plays[r["id"]]) or '<span class="mute">none</span>'
+        rrows.append([f'<span id="{E(r["id"])}"><b>{E(r["title"])}</b></span><br><code>{E(r["id"])}</code>',
+                      f'{E(aid)}<br><span class="mute">{E(d["title"])}</span>', E(r["description"]), uses])
+    arows = []
+    for a in actors:
+        used = ", ".join(f'<a href="{E(p)}.html">{E(x)}</a> <span class="mute">({E(f)})</span>' for p, x, f in refs[a["id"]])
+        arows.append([f'<span id="{E(a["id"])}"><b>{E(a["title"])}</b></span><br><code>{E(a["id"])}</code>', E(a["kind"]),
+                      E(a["description"]), used])
+    inner = ('<p>Each actor a 2009 report describes is a <b>role</b> in the iHRIS domain, declared in folio-assistant&#39;s '
+             '<code>scenarios</code> graph kind (<code>library/ihris-use-cases/scenarios/roles.json</code>). Title and description '
+             'are the report&#39;s own. A-ICE4 (Common) and A-PS6 (Qualify) are both &ldquo;Any User&rdquo;: two roles, and whether '
+             'they are the same is undecided.</p>'
+             + rows_table(["Role", "Actor in the report", "Description", "Plays in"], rrows, "Use-case roles")
+             + '<h2 id="opaque-actors">Opaque actors</h2><p>People the reports name in &ldquo;Assigned To&rdquo; (staff initials) or in a '
+               'requirement&#39;s &ldquo;Source&rdquo;. Each distinct person is one actor, numbered in order of first appearance, and '
+               'who they are is withheld: the mapping lives in the data store only, never in this repository.</p>'
+             + rows_table(["Actor", "Kind", "Description", "Referenced by"], arows, "Opaque actors"))
+    return page(path, "Roles and actors (2009 use cases)", crumbs, inner, theme, "library/index.html")
 
 
 # ------------------------------------------------------------------ data dictionary

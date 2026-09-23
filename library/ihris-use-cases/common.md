@@ -19,6 +19,8 @@ Related documents: https://launchpad.net/ihris-common
 
 ### A-ICE1 System Administrator
 
+Role: [System Administrator](roles.md#ihris-a-ice1) (`ihris-a-ice1`)
+
 The System Administrator has complete access and control over the HRIS and supporting hardware and software systems; installs, supports and troubleshoots the software; and creates and manages access accounts for all users.
 
 **Goals**
@@ -37,6 +39,8 @@ The System Administrator has complete access and control over the HRIS and suppo
 
 ### A-ICE2 Data Manager
 
+Role: [Data Manager](roles.md#ihris-a-ice2) (`ihris-a-ice2`)
+
 This person manages the database, creates standard data lists and oversees data entry.
 
 **Goals**
@@ -53,6 +57,8 @@ This person manages the database, creates standard data lists and oversees data 
 
 ### A-ICE3 Data Analyst
 
+Role: [Data Analyst](roles.md#ihris-a-ice3) (`ihris-a-ice3`)
+
 This person generates reports in the system for the purposes of analyzing data.
 
 **Goals**
@@ -66,6 +72,8 @@ This person generates reports in the system for the purposes of analyzing data.
 **Use cases:** UC-ICE17 Run a report
 
 ### A-ICE4 Any User
+
+Role: [Any User](roles.md#ihris-a-ice4) (`ihris-a-ice4`)
 
 A generic user (applies to all users of the system).
 
@@ -95,7 +103,7 @@ The System Administrator configures modules that will be used by the system.
 | | |
 |---|---|
 | Priority | P7 |
-| Primary actors | System Administrator |
+| Primary actors | [System Administrator](roles.md#ihris-a-ice1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -141,7 +149,7 @@ The system confirms that data are entered correctly and all required data have b
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | Any User |
+| Primary actors | [Any User](roles.md#ihris-a-ice4) |
 | Level | Subfunction |
 | Status | Updated |
 | Implementation status | Partially Complete |
@@ -183,7 +191,7 @@ The user searches for a record that has been entered in the system.
 | | |
 |---|---|
 | Priority | P4 |
-| Primary actors | Any User |
+| Primary actors | [Any User](roles.md#ihris-a-ice4) |
 | Level | User |
 | Status | Updated |
 | Implementation status | Complete |
@@ -228,7 +236,7 @@ The user displays a record and all the data entered for it.
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | Any User |
+| Primary actors | [Any User](roles.md#ihris-a-ice4) |
 | Level | Subfunction |
 | Status | Released |
 | Implementation status | Complete |
@@ -261,7 +269,7 @@ When a change in information is reported, the user updates the system with that 
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | Any User |
+| Primary actors | [Any User](roles.md#ihris-a-ice4) |
 | Level | User |
 | Status | Updated |
 | Implementation status | Partially Complete |
@@ -312,7 +320,7 @@ The System Administrator creates a user account so the user can log on to the sy
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | System Administrator |
+| Primary actors | [System Administrator](roles.md#ihris-a-ice1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -365,7 +373,7 @@ The system administrator changes the details for a user account or closes the ac
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | System Administrator |
+| Primary actors | [System Administrator](roles.md#ihris-a-ice1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -408,7 +416,7 @@ The user logs in to authenticate his/her access to the system and role and to pe
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | Any User |
+| Primary actors | [Any User](roles.md#ihris-a-ice4) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -450,7 +458,7 @@ If the user has forgotten a password or username, s/he can generate a new one.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Any User |
+| Primary actors | [Any User](roles.md#ihris-a-ice4) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -489,7 +497,7 @@ A user can change his/her own password for logging into the system.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Any User |
+| Primary actors | [Any User](roles.md#ihris-a-ice4) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -526,7 +534,7 @@ The user provides feedback on a specific page in the system.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Any User |
+| Primary actors | [Any User](roles.md#ihris-a-ice4) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -563,7 +571,7 @@ The user logs out of the system.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Any User |
+| Primary actors | [Any User](roles.md#ihris-a-ice4) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -604,7 +612,7 @@ The System Administrator creates a relationship between forms for defining repor
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | System Administrator |
+| Primary actors | [System Administrator](roles.md#ihris-a-ice1) |
 | Level | User |
 | Complexity | High |
 | Status | Released |
@@ -648,7 +656,7 @@ The Data Manager designs a report using the data contained within the system.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Data Manager |
+| Primary actors | [Data Manager](roles.md#ihris-a-ice2) |
 | Level | User |
 | Complexity | High |
 | Status | Released |
@@ -694,7 +702,7 @@ The Data Manager creates a new view of a report to display the data differently.
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Manager |
+| Primary actors | [Data Manager](roles.md#ihris-a-ice2) |
 | Level | User |
 | Status | Updated |
 | Implementation status | Partially Complete |
@@ -740,7 +748,7 @@ The user runs a report to answer a policy question.
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Analyst |
+| Primary actors | [Data Analyst](roles.md#ihris-a-ice3) |
 | Level | User |
 | Status | Updated |
 | Implementation status | Partially Complete |
@@ -798,7 +806,7 @@ A user imports data from another instance of the system, such as from a district
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | System Administrator |
+| Primary actors | [System Administrator](roles.md#ihris-a-ice1) |
 | Level | User |
 | Status | Full |
 | Implementation status | Complete |
@@ -838,7 +846,7 @@ The user exports data to a file for import into another instance of the system, 
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | System Administrator |
+| Primary actors | [System Administrator](roles.md#ihris-a-ice1) |
 | Level | User |
 | Complexity | High |
 | Status | Full |
@@ -882,7 +890,7 @@ The Data Manager corrects any data previously entered in the system if those dat
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Data Manager |
+| Primary actors | [Data Manager](roles.md#ihris-a-ice2) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -932,7 +940,7 @@ A user installs the offline tool on a local computer.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Any User |
+| Primary actors | [Any User](roles.md#ihris-a-ice4) |
 | Level | User |
 | Status | Updated |
 | Implementation status | Complete |
@@ -993,7 +1001,7 @@ The user can install data in the offline version for demonstration purposes.
 | | |
 |---|---|
 | Priority | P7 |
-| Primary actors | Any User |
+| Primary actors | [Any User](roles.md#ihris-a-ice4) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
