@@ -423,6 +423,7 @@ def schemas_page(theme, out_dir):
               ["Harness config", "<code>ihris.config.json</code>", "<code>cat-harness/schemas/harness-config.ts</code>"],
               ["Bean graph", "<code>beans/beans.json</code>", "<code>cat-harness/schemas/bean-graph.ts</code>"],
               ["Skill package", "<code>src/skills/package-manifest.json</code>", "<code>cat-harness/schemas/skill-package.ts</code>"],
+              ["<code>pdf-structure/v1</code>", "<code>library/*/structure.json</code>", "<code>cat-harness/schemas/pdf-structure.ts</code>"],
               ["FHIR R4", "<code>src/ihris-data-dictionary/terminology/*.json</code>", "<code>fhir.resources</code> (R4)"]]
     inner = (f"<p>Every JSON file in the repository is validated (<code>src/tools/validate.py</code>), and the build fails on a file no schema covers. "
              f"folio-assistant's own schemas come first; ihris adds a schema only where the platform has no field for the data.</p>"

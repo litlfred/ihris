@@ -10,6 +10,7 @@
 //   ihris.config.json                             HarnessConfigSchema
 //   beans/beans.json                              BeanGraphSchema
 //   src/skills/package-manifest.json              SkillPackageManifestSchema
+//   library/*/structure.json (pdf-structure/v1)   PdfStructureSchema
 //
 // zod drops keys a schema does not declare. So a declaration passing here says
 // nothing about ihris's own fields (`source`, `materialization`, ...). validate.py
@@ -24,6 +25,12 @@ const { CatHarnessDeclarationSchema } = await S("cat-harness/schemas/cat-harness
 const { HarnessConfigSchema } = await S("cat-harness/schemas/harness-config.ts");
 const { BeanGraphSchema } = await S("cat-harness/schemas/bean-graph.ts");
 const { SkillPackageManifestSchema } = await S("cat-harness/schemas/skill-package.ts");
+// pdf-structure/v1 was defined upstream in litlfred/folio-assistant#1113 (issue #1112).
+// An older checkout has no such module: say so, never pass silently.
+const { PdfStructureSchema } = await S("cat-harness/schemas/pdf-structure.ts").catch(() => {
+  console.log("folio-assistant checkout predates cat-harness/schemas/pdf-structure.ts (#1112): update it");
+  process.exit(1);
+});
 
 const root = process.argv[2];
 let bad = 0;
@@ -49,6 +56,7 @@ for (const rel of new Glob("{src,library}/**/*.json").scanSync(root)) {
   if (rel.endsWith(".tool.json")) check(rel, "tool", ToolDefinitionSchema, doc);
   else if (doc?.$schema === "folio-catalogue-node/v1") check(rel, doc.$schema, CatalogueNodeSchema, doc);
   else if (doc?.$schema === "folio-catalogue/v1") check(rel, doc.$schema, CatalogueSchema, doc);
+  else if (doc?._schema === "pdf-structure/v1") check(rel, doc._schema, PdfStructureSchema, doc);
 }
 
 const decl = read("ihris.json");
