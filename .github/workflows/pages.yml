@@ -1,0 +1,50 @@
+# Build the iHRIS-themed harness site (src/tools/build_site.py) and deploy it to
+# GitHub Pages at https://litlfred.github.io/ihris/.
+# One-time setup by the owner: Settings -> Pages -> Source: GitHub Actions.
+name: pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "library/**"
+      - "ihris.json"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify the committed theme (the tarball is not in git; logo sha256 only)
+        run: python3 src/tools/extract_theme.py --check
+      - name: Build the site and check every internal link
+        run: python3 src/tools/build_site.py --out _site --check-links
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

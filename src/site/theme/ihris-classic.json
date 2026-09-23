@@ -1,0 +1,175 @@
+{
+  "$schema": "ihris-site-theme/v1",
+  "id": "ihris-classic",
+  "title": "iHRIS Classic Manage",
+  "derivedFrom": {
+    "release": "ihris-suite-4.3.3",
+    "tarballSha256": "89dc45543838762577cc29dd32d4a6367a38ddc2019e208124051f1190dd98c9",
+    "files": {
+      "ihris-common/css/globalStyles.css": "1ad125cb37ee0236f6a0ebae6a178ac2426de6fb733483bdb26fcf9652e6b9ff",
+      "ihris-manage/css/themeStyles.css": "c556d01360d92ce9db0863874bb4b96f698456dfbfeb4c69bb323e2eeeb0071d"
+    },
+    "cascade": [
+      "ihris-common/css/globalStyles.css",
+      "ihris-manage/css/themeStyles.css"
+    ]
+  },
+  "licence": {
+    "id": "GPL-3.0-or-later",
+    "basis": "iHRIS Suite (ihris-common, ihris-manage) is GPL; see i2ce/COPYING in the release",
+    "attribution": "Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL."
+  },
+  "wcag": {
+    "target": "AA",
+    "ratio": 4.5
+  },
+  "measured": {
+    "pageBackground": {
+      "value": "#467495",
+      "from": "ihris-manage/css/themeStyles.css `body` background-color"
+    },
+    "contentBackground": {
+      "value": "#ffffff",
+      "from": "ihris-common/css/globalStyles.css `.autoHideNav #siteInnerWrap` background"
+    },
+    "text": {
+      "value": "#333333",
+      "from": "ihris-common/css/globalStyles.css `body` color"
+    },
+    "font": {
+      "value": "Arial, Helvetica, sans-serif",
+      "from": "ihris-common/css/globalStyles.css `body` font"
+    },
+    "brandFont": {
+      "value": "\"Trebuchet MS\", Arial, Helvetica, sans-serif",
+      "from": "ihris-common/css/globalStyles.css `#siteHeader p#siteName` font"
+    },
+    "siteName": {
+      "value": "#09345f",
+      "from": "ihris-manage/css/themeStyles.css `#siteHeader p#siteName` color"
+    },
+    "siteTag": {
+      "value": "#a1bdd2",
+      "from": "ihris-manage/css/themeStyles.css `#siteHeader p#siteTag` color"
+    },
+    "h1": {
+      "value": "#1e5483",
+      "from": "ihris-manage/css/themeStyles.css `h1` color"
+    },
+    "h2": {
+      "value": "#406002",
+      "from": "ihris-manage/css/themeStyles.css `h2` color"
+    },
+    "h3": {
+      "value": "#003366",
+      "from": "ihris-manage/css/themeStyles.css `h3` color"
+    },
+    "h4": {
+      "value": "#336699",
+      "from": "ihris-manage/css/themeStyles.css `h4` color"
+    },
+    "link": {
+      "value": "#999966",
+      "from": "ihris-manage/css/themeStyles.css `a` color"
+    },
+    "linkHover": {
+      "value": "#006699",
+      "from": "ihris-manage/css/themeStyles.css `a:hover` color"
+    },
+    "linkVisited": {
+      "value": "#3399cc",
+      "from": "ihris-manage/css/themeStyles.css `a:visited` color"
+    },
+    "navBar": {
+      "value": "#7b9f0e",
+      "from": "ihris-manage/css/themeStyles.css `#inlineNavBar` background-color"
+    },
+    "navBarText": {
+      "value": "#ffffff",
+      "from": "ihris-manage/css/themeStyles.css `#inlineNavBar ul li a` color"
+    },
+    "navBarHover": {
+      "value": "#4b6f06",
+      "from": "ihris-manage/css/themeStyles.css `#inlineNavBar ul li a:hover` background-color"
+    },
+    "navBarBorder": {
+      "value": "#5d8108",
+      "from": "ihris-manage/css/themeStyles.css `#inlineNavBar ul li a` border-right-color"
+    },
+    "sideNavText": {
+      "value": "#333333",
+      "from": "ihris-manage/css/themeStyles.css `#navBar li a` color"
+    },
+    "sideNavRule": {
+      "value": "#e0e0e0",
+      "from": "ihris-manage/css/themeStyles.css `#navBar li a` border-bottom-color"
+    },
+    "sideNavActive": {
+      "value": "#8a8a40",
+      "from": "ihris-manage/css/themeStyles.css `#navBar li a.active` color"
+    },
+    "subNavActiveBackground": {
+      "value": "#eaeadd",
+      "from": "ihris-manage/css/themeStyles.css `#navBar ul ul li a.active` background-color"
+    }
+  },
+  "applied": {
+    "pageBackground": "#467495",
+    "contentBackground": "#ffffff",
+    "text": "#333333",
+    "font": "Arial, Helvetica, sans-serif",
+    "brandFont": "\"Trebuchet MS\", Arial, Helvetica, sans-serif",
+    "siteTag": "#a1bdd2",
+    "sideNavRule": "#e0e0e0",
+    "subNavActiveBackground": "#eaeadd",
+    "navBarHover": "#4b6f06",
+    "navBarBorder": "#5d8108",
+    "h1": "#1e5483",
+    "h2": "#406002",
+    "h3": "#003366",
+    "h4": "#336699",
+    "siteName": "#09345f",
+    "sideNavText": "#333333",
+    "link": "#006699",
+    "linkHover": "#006699",
+    "sideNavActive": "#406002",
+    "navBar": "#5d8108",
+    "navBarText": "#ffffff",
+    "navBarAccent": "#7b9f0e"
+  },
+  "adjustments": [
+    {
+      "role": "link",
+      "measured": "#999966",
+      "contrast": 2.96,
+      "on": "#ffffff",
+      "applied": "#006699",
+      "appliedContrast": 6.25,
+      "reason": "link #999966 is 2.96:1 on #ffffff, below WCAG AA 4.5:1; #006699 is measured from the same stylesheets"
+    },
+    {
+      "role": "sideNavActive",
+      "measured": "#8a8a40",
+      "contrast": 3.63,
+      "on": "#ffffff",
+      "applied": "#406002",
+      "appliedContrast": 7.26,
+      "reason": "sideNavActive #8a8a40 is 3.63:1 on #ffffff, below WCAG AA 4.5:1; #406002 is measured from the same stylesheets"
+    },
+    {
+      "role": "navBar",
+      "measured": "#7b9f0e",
+      "contrast": 3.08,
+      "on": "#ffffff",
+      "applied": "#5d8108",
+      "appliedContrast": 4.56,
+      "reason": "white navbar text on #7b9f0e is 3.08:1, below AA; #5d8108 is Manage's own navbar border/hover green"
+    }
+  ],
+  "logo": {
+    "file": "iHRIS_logo.png",
+    "from": "ihris-common/images/iHRIS_logo.png",
+    "sha256": "32a1091a3e93765b9fd25acb9a63690e0a307fe20f7ad0d8c1b380463545f334",
+    "attribution": "iHRIS logo, (c) IntraHealth International, from the iHRIS 4.3.3 release (GPL)."
+  }
+}
