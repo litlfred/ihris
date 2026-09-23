@@ -144,7 +144,8 @@
       "graphKinds": [
         "skills"
       ],
-      "description": "Adopted methodologies (folio-methodology/v1), one directory each. wiregen is drafted here provisionally; by methodology-adoption §4 it belongs in the harness (bean ihris-0nml)."
+      "description": "Adopted methodologies (folio-methodology/v1), one directory each. wiregen is drafted here provisionally; by methodology-adoption §4 it belongs in the harness (bean ihris-0nml).",
+      "dependents": "skip"
     },
     {
       "id": "processes",
@@ -152,7 +153,8 @@
       "graphKinds": [
         "processes"
       ],
-      "description": "BPMN processes GENERATED from processes/specs/*.json by src/tools/gen_bpmn.py. Judgement points call folio-assistant's existing processes (Process_Adjudication, Process_OptionsAnalysis, Process_Ingestion) instead of copying them."
+      "description": "BPMN processes GENERATED from processes/specs/*.json by src/tools/gen_bpmn.py. Judgement points call folio-assistant's existing processes (Process_Adjudication, Process_OptionsAnalysis, Process_Ingestion) instead of copying them.",
+      "dependents": "skip"
     },
     {
       "id": "library-papers",
@@ -160,7 +162,8 @@
       "graphKinds": [
         "library"
       ],
-      "description": "Referenced source documents (reference only when the source states no licence): headings, page ranges and a summary in our own words."
+      "description": "Referenced source documents (reference only when the source states no licence): headings, page ranges and a summary in our own words.",
+      "dependents": "skip"
     }
   ]
 }
