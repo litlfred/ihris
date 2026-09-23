@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe H: catalogue with neighbourhood</title>
+<style>
+  /* Mid-fidelity: monochrome, real content, semantic icons (WireGen §3.1.1) */
+  :root { --ink:#1b1b1b; --mute:#5c5c5c; --line:#bdbdbd; --fill:#f2f2f2; --bg:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.45 system-ui, sans-serif; color:var(--ink); background:var(--bg); }
+  a { color:inherit; }
+  .wf-label { display:inline-block; margin:12px 16px; font-size:11px; border:1px dashed var(--mute); padding:2px 6px; background:var(--bg); }
+  .layout { display:grid; grid-template-columns:264px minmax(0,1fr); min-height:100vh; }
+  .side { border-right:1px solid var(--line); background:var(--fill); padding:16px; }
+  .site { font-weight:700; margin-bottom:12px; }
+  .search label { display:block; font-size:12px; color:var(--mute); margin-bottom:2px; }
+  .search input { width:100%; border:1px solid var(--mute); background:var(--bg); padding:6px 8px; font:inherit; margin-bottom:14px; }
+  .nav ul { list-style:none; margin:0; padding:0 0 0 12px; }
+  .nav > ul { padding:0; }
+  .nav li { padding:3px 0; }
+  .nav .count { color:var(--mute); font-size:12px; }
+  .nav [aria-current] { font-weight:700; border-left:3px solid var(--ink); padding-left:6px; margin-left:-9px; display:inline-block; }
+  .nav .note { color:var(--mute); font-size:12px; padding-top:8px; }
+  .tile { display:flex; align-items:center; gap:8px; margin-top:16px; border:1px solid var(--ink); background:var(--bg); padding:8px; text-decoration:none; }
+  .menu-btn { display:none; }
+  main { padding:24px 32px; max-width:1000px; }
+  .crumbs { color:var(--mute); font-size:13px; }
+  h1 { margin:6px 0 4px; font-size:28px; }
+  h2 { font-size:18px; margin:22px 0 8px; }
+  .badges { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 12px; }
+  .badge { border:1px solid var(--ink); padding:1px 8px; font-size:12px; }
+  .base { border-style:dashed; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 12px; }
+  th, td { text-align:left; border-bottom:1px solid var(--line); padding:6px 8px; vertical-align:top; }
+  th { background:var(--fill); font-size:13px; }
+  .req { font-weight:700; }
+  .hood { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px; align-items:start; }
+  svg { width:100%; height:auto; border:1px solid var(--line); }
+  .legend, .src, .hint { color:var(--mute); font-size:13px; }
+  .rels { display:none; }
+  code { font-size:13px; }
+  @media (max-width: 700px) {
+    .layout { grid-template-columns:1fr; }
+    .side { border-right:0; border-bottom:1px solid var(--line); padding:10px 16px; }
+    .side .nav, .side .tile { display:none; }        /* behind the Menu button */
+    .topbar { display:flex; align-items:center; justify-content:space-between; }
+    .menu-btn { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--ink); padding:6px 10px; background:var(--bg); min-height:44px; font:inherit; }
+    .site { margin:0; }
+    .search input { margin:8px 0 0; min-height:44px; }
+    main { padding:16px; }
+    h1 { font-size:22px; }
+    /* fields: labelled cards (A) */
+    .fields, .fields thead, .fields tbody, .fields tr, .fields th, .fields td { display:block; }
+    .fields thead { display:none; }
+    .fields tr { border:1px solid var(--line); margin-bottom:10px; padding:6px 10px; }
+    .fields td { border:0; padding:2px 0; }
+    .fields td::before { content:attr(data-h) ": "; color:var(--mute); font-size:12px; }
+    /* neighbourhood: relationships list (B) instead of graph + edge table */
+    .hood { display:none; }
+    .rels { display:block; }
+    .rels details { border:1px solid var(--line); margin-bottom:8px; }
+    .rels summary { padding:10px; min-height:44px; font-weight:600; }
+    .rels ul { margin:0; padding:0 10px 10px 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="side" aria-label="Site navigation">
+    <div class="topbar">
+      <div class="site">iHRIS 4.3.3 data model</div>
+      <button class="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav">&#9776; Menu</button>
+    </div>
+    <form class="search" role="search" action="#">
+      <label for="q">Search classes, fields, lists</label>
+      <input id="q" name="q" type="search" autocomplete="off">
+    </form>
+    <nav class="nav" id="nav" aria-label="Packages">
+      <ul>
+        <li><a href="#">Overview</a></li>
+        <li><a href="#">i2ce</a> <span class="count">12</span></li>
+        <li><a href="#">ihris-common</a> <span class="count">93</span>
+          <ul>
+            <li><a href="#" aria-current="page">iHRIS_Person</a></li>
+            <li><a href="#">iHRIS_PersonCompetency</a></li>
+            <li><a href="#">iHRIS_PersonID</a></li>
+            <li><a href="#">iHRIS_PersonID_Type</a></li>
+            <li><a href="#">All 93 in ihris-common</a></li>
+          </ul>
+        </li>
+        <li><a href="#">ihris-manage</a> <span class="count">26</span></li>
+        <li><a href="#">ihris-qualify</a> <span class="count">25</span></li>
+        <li><a href="#">Lists (value sets)</a></li>
+        <li class="note">156 package records, 153 distinct classes: iHRIS_DisciplinaryAction, iHRIS_Registration and iHRIS_SalaryGrade are each defined in two packages.</li>
+      </ul>
+    </nav>
+    <a class="tile" href="#">&#9711;&#8212;&#9711; <span><b>Harness visualiser</b><br><span class="src">whole data-model graph, 153 classes</span></span></a>
+  </aside>
+
+  <main>
+    <div class="crumbs"><a href="#">Data model</a> / <a href="#">ihris-common</a> / iHRIS_Person</div>
+    <h1>Person <code>iHRIS_Person</code></h1>
+    <div class="badges">
+      <span class="badge base" title="Base class of every I2CE form. It has no page of its own.">&#8593; extends I2CE_Form (base class)</span>
+      <span class="badge">form <code>person</code></span>
+      <span class="badge">package ihris-common</span>
+      <span class="badge">release 4.3.3</span>
+    </div>
+
+    <h2>Fields</h2>
+    <table class="fields">
+      <thead><tr><th>Field</th><th>Label</th><th>Type</th><th>Required</th><th>Draws from</th></tr></thead>
+      <tbody>
+        <tr><td data-h="Field"><code>surname</code></td><td data-h="Label">Surname</td><td data-h="Type">STRING_LINE</td><td data-h="Required" class="req">yes</td><td data-h="Draws from">&mdash;</td></tr>
+        <tr><td data-h="Field"><code>firstname</code></td><td data-h="Label">First Name</td><td data-h="Type">STRING_LINE</td><td data-h="Required" class="req">yes</td><td data-h="Draws from">&mdash;</td></tr>
+        <tr><td data-h="Field"><code>othername</code></td><td data-h="Label">Other Names</td><td data-h="Type">STRING_LINE</td><td data-h="Required">no</td><td data-h="Draws from">&mdash;</td></tr>
+        <tr><td data-h="Field"><code>nationality</code></td><td data-h="Label">Nationality</td><td data-h="Type">MAP</td><td data-h="Required" class="req">yes</td><td data-h="Draws from"><a href="#">country</a></td></tr>
+        <tr><td data-h="Field"><code>surname_ignore</code></td><td data-h="Label"><i>(no label)</i></td><td data-h="Type">BOOL</td><td data-h="Required">no</td><td data-h="Draws from">&mdash;</td></tr>
+        <tr><td data-h="Field"><code>residence</code></td><td data-h="Label">Residence</td><td data-h="Type">MAP</td><td data-h="Required" class="req">yes</td><td data-h="Draws from"><a href="#">country</a>, <a href="#">county</a>, <a href="#">district</a>, <a href="#">region</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>&#9711;&#8212;&#9711; Neighbourhood</h2>
+    <div class="hood">
+      <figure style="margin:0">
+        <svg viewBox="0 0 560 330" role="img" aria-labelledby="hood-cap">
+          <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#1b1b1b"/></marker></defs>
+          <g font-family="system-ui, sans-serif" font-size="12" fill="#1b1b1b">
+            <line x1="280" y1="150" x2="280" y2="78" stroke="#1b1b1b" marker-end="url(#ar)"/>
+            <line x1="150" y1="252" x2="245" y2="190" stroke="#1b1b1b" marker-end="url(#ar)"/>
+            <line x1="410" y1="252" x2="315" y2="190" stroke="#1b1b1b" marker-end="url(#ar)"/>
+            <line x1="345" y1="165" x2="470" y2="110" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+            <line x1="345" y1="172" x2="480" y2="160" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+            <line x1="345" y1="180" x2="480" y2="210" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+            <line x1="215" y1="172" x2="95" y2="140" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+            <rect x="215" y="150" width="130" height="40" fill="#fff" stroke="#1b1b1b" stroke-width="3"/><text x="280" y="175" text-anchor="middle" font-weight="700">iHRIS_Person</text>
+            <rect x="225" y="40" width="110" height="36" fill="#f2f2f2" stroke="#1b1b1b" stroke-dasharray="5 3"/><text x="280" y="63" text-anchor="middle">I2CE_Form (base)</text>
+            <rect x="70" y="252" width="160" height="36" fill="#fff" stroke="#1b1b1b"/><text x="150" y="275" text-anchor="middle">iHRIS_ManagePerson</text>
+            <rect x="330" y="252" width="160" height="36" fill="#fff" stroke="#1b1b1b"/><text x="410" y="275" text-anchor="middle">iHRIS_QualifyPerson</text>
+            <rect x="470" y="94" width="76" height="30" rx="15" fill="#fff" stroke="#1b1b1b"/><text x="508" y="114" text-anchor="middle">country</text>
+            <rect x="480" y="146" width="70" height="30" rx="15" fill="#fff" stroke="#1b1b1b"/><text x="515" y="166" text-anchor="middle">county</text>
+            <rect x="480" y="196" width="70" height="30" rx="15" fill="#fff" stroke="#1b1b1b"/><text x="515" y="216" text-anchor="middle">district</text>
+            <rect x="20" y="126" width="74" height="30" rx="15" fill="#fff" stroke="#1b1b1b"/><text x="57" y="146" text-anchor="middle">region</text>
+          </g>
+        </svg>
+        <figcaption id="hood-cap" class="legend">Box: form class (dashed: base class, no page) &middot; pill: list &middot; solid arrow: extends &middot; dashed arrow: a field draws from the list. The table beside it lists the same edges.</figcaption>
+      </figure>
+      <table aria-label="Neighbourhood edges">
+        <thead><tr><th>Edge</th><th>Other end</th><th>Via</th></tr></thead>
+        <tbody>
+          <tr><td>extends</td><td>I2CE_Form <span class="hint">(base)</span></td><td>&mdash;</td></tr>
+          <tr><td>extended by</td><td><a href="#">iHRIS_ManagePerson</a></td><td>adds <code>password</code></td></tr>
+          <tr><td>extended by</td><td><a href="#">iHRIS_QualifyPerson</a></td><td>adds <code>home</code></td></tr>
+          <tr><td>draws from</td><td><a href="#">country</a></td><td><code>nationality</code>, <code>residence</code></td></tr>
+          <tr><td>draws from</td><td><a href="#">county</a></td><td><code>residence</code></td></tr>
+          <tr><td>draws from</td><td><a href="#">district</a></td><td><code>residence</code></td></tr>
+          <tr><td>draws from</td><td><a href="#">region</a></td><td><code>residence</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rels" aria-label="Relationships">
+      <details open><summary>&#8593; Extends (1)</summary><ul><li>I2CE_Form (base class, no page)</li></ul></details>
+      <details><summary>&#8595; Extended by (2)</summary><ul><li><a href="#">iHRIS_ManagePerson</a> adds <code>password</code></li><li><a href="#">iHRIS_QualifyPerson</a> adds <code>home</code></li></ul></details>
+      <details><summary>&#128279; Lists referenced (4)</summary><ul><li><a href="#">country</a> (nationality, residence)</li><li><a href="#">county</a> (residence)</li><li><a href="#">district</a> (residence)</li><li><a href="#">region</a> (residence)</li></ul></details>
+    </div>
+    <p class="hint"><a href="#">Open in the harness visualiser</a> to explore beyond one step.</p>
+
+    <h2>Source</h2>
+    <p class="src">Defined in module <code>Person</code> (ihris-common), ihris-suite-4.3.3 (MD5 verified against Launchpad). Generated page; edit <code>src/tools/build_kg.py</code>, not this page.</p>
+  </main>
+</div>
+<div class="wf-label">Wireframe H: catalogue with neighbourhood</div>
+</body>
+</html>

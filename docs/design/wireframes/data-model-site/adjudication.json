@@ -1,0 +1,19 @@
+{
+  "process": "Process_Adjudication (folio-assistant), called from Process_WireframeDesignReview Call_Adjudicate",
+  "round": 1,
+  "adjudicator": {"kind": "human", "id": "owner"},
+  "decidedOn": "2026-09-23",
+  "disagreements": [
+    {
+      "candidate": "B",
+      "criterion": "mobile usability",
+      "entries": {"agent-1": "warn", "human-1": "pass"},
+      "resolution": "pass, with a dispensation",
+      "reason": "The owner accepts the relationships list in place of the graph on phones. agent-1's warning was about field rows breaking into three uneven lines, which is a separate matter. The hybrid resolves it by using A's labelled cards for fields. The agent entry is kept as recorded."
+    }
+  ],
+  "agreements": [
+    {"candidate": "A", "criterion": "accessibility", "result": "warn", "note": "agent-1 and human-1 agree. The hybrid must fix the fake-link tile and the search span."},
+    {"candidate": "B", "criterion": "accessibility", "result": "warn", "note": "agent-1 and human-1 agree. The hybrid must give the graph a text twin and fix the search span."}
+  ]
+}
