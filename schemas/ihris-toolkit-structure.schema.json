@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-toolkit-structure.schema.json",
+  "title": "ihris-toolkit-structure/v1",
+  "description": "The stage x domain matrix of toolkit.ihris.org, as ingested (library/ihris-toolkit/structure.json).",
+  "type": "object",
+  "required": [
+    "stages",
+    "domains",
+    "matrix",
+    "toolCount",
+    "toolsHostedOnToolkit"
+  ],
+  "properties": {
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^\\d-[a-z-]+$"
+      }
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "matrix": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "toolCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "toolsHostedOnToolkit": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

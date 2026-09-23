@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administer the System · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Wiki</a> / Administer the System</div>
+<h1>Administer the System</h1>
+<div class="wiki">
+<p><strong><em>Return to the</em> <a href="ihris-qualify-user-manual.html" title="iHRIS Qualify User Manual">iHRIS Qualify User Manual index page</a>.</strong></p>
+<h2>Configure System</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Click Configure System on the main menu to access options for setting up and customizing iHRIS. Here is where you can administer the database (set up dropdown menus, configure modules that will be used in the system, export and import data, and create and update user accounts), manage reports, browse configuration data, examine background processes, control cached forms, and administer users. Only the System Administrator and the HR Manager can access the Configure System page. The Administrator can access all functions on this page, but the HR Manager can only access the Administer Database functions.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The System Administrator manual (to be written) will contain extensive documentation for the following functions in the Configure System menu:</p>
+<ul>
+<li>
+<p>Configure Modules</p>
+</li>
+<li>
+<p>Manage Reports</p>
+</li>
+<li>
+<p>Browse Magic Data</p>
+</li>
+<li>
+<p>Manage Locales</p>
+</li>
+<li>
+<p>Background Processes</p>
+</li>
+<li>
+<p>Cached Forms</p>
+</li>
+</ul>
+<p>See the section <strong>Configure the Database for Use</strong> under <a href="administer-database-for-ihris-manage.html" title="Administer Database for iHRIS Manage">iHRIS Manage</a> or <a href="administer-database-for-ihris-qualify-4-0-4.html" title="Administer Database for iHRIS Qualify">iHRIS Qualify</a> for help with administering the database. See <a href="administer-users--variant-3.html" title="Administer Users">Administer User Accounts</a> for help with administering users. See <a href="create-reports--variant-3.html" title="Create Reports">The Customized Report Builder</a> section for more information on managing reports.</p>
+<h2>Configure Modules</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Click Configure Modules to enable new modules and customize all modules that have been installed for use in iHRIS. This page lists all modules that have been installed for the system, including those that were installed with the main software package and any modules you may have installed separately. Only the System Administrator can configure modules.    A checkbox appears beside most module names. If the checkbox is checked, the module is enabled, or turned on. Most modules are enabled by default. Click the checkbox to remove the check and disable the module, if it is not needed; you will then have to click the <code>Enable</code> button at the bottom of the page to save the change. The module can be re-enabled at any time by re-checking the box and clicking <code>Enable</code> again. Note that if the checkbox does not appear, the module is required for iHRIS to operate properly and cannot be disabled.    Beside most modules a Configure link appears. Click Configure to open a new screen showing all options for that module. These modules will change depending on the module that is selected. Use this page to customize settings for the module.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Disable the Record Verify Module</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>The Record Verify Module is currently available only in iHRIS Qualify.</strong> By default, the Record Verify Module is turned on when iHRIS Qualify is installed. This module is optional and is intended to be used if the data manager wants to track verifications and updates to health worker records. If this functionality is not needed, it may be disabled to simplify the interface.  The System Administrator can disable this module in the Configure Modules page. To turn off the module, follow these steps:   1. Click Configure Modules. 2. Scroll down to the "Application" section and locate iHRIS Qualify. 3. Click Sub-Modules to the right of iHRIS Qualify. 4. Under the "Application Component" section, click the checkbox next to <strong>RecordVerify</strong>. 5. Scroll to the bottom of the page and click the <code>Enable</code> button. The module will be disabled, and record verification functions will no longer be available in the system (see Add a Verification for details).</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>Return to the</em> <a href="ihris-qualify-user-manual.html" title="iHRIS Qualify User Manual">iHRIS Qualify User Manual index page</a>.</strong></p></div><h2>Source</h2><p class="src">Help page shipped in ihris-suite-4.3.3 (GPL-3.0, &copy; IntraHealth International), sha256 <code>1264658dfc09c445d808a9329ddb1a5f79f6e8d3f11875c1e777eee59f8e755f</code>, at:</p><ul class="src"><li><code>ihris-qualify/modules/qualify-help/static/help/ihris_administer_the_system.html</code></li></ul>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

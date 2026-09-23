@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Update Health Worker Information (4.0.4) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Wiki</a> / Update Health Worker Information (4.0.4)</div>
+<h1>Update Health Worker Information (4.0.4)</h1>
+<div class="wiki">
+<p><strong><em>Return to the</em> <a href="ihris-qualify-user-manual.html" title="iHRIS Qualify User Manual">iHRIS Qualify User Manual index page</a>.</strong></p>
+<h2>Record a Deployment</h2>
+<p>When a health worker is deployed to a particular job, that information can be recorded in the system.</p>
+<ol>
+<li>In the person's record click Deployment in the side menu to jump to the "Deployment" section.</li>
+<li>Click Add Deployment.</li>
+<li>Select the <strong>Health Facility</strong> where the health worker has been deployed.</li>
+<li>Enter the <strong>Deployment Date</strong> (if no date is entered, today's date is saved by default).</li>
+<li>Enter the <strong>Job / Post Title</strong>.</li>
+<li>Enter the <strong>Job / Post Code</strong>.</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<p>The system displays the person's record with the deployment information added. All past deployments are saved in the health worker's deployment history. To view them, click View Deployment History under the "Deployment" section.</p>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when the Confirm button is clicked.</strong></p>
+<p>Make certain that all required fields have been completed. Required fields are outlined in red. The health facility must be recorded. Fill in or correct the information and try saving again. If you do not want to add an out migration verification request after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The correct Health Facility is not available for selection.</strong></p>
+<p>Only the Data Operations Manager can add new health facilities to the system (see Add a Health Facility).</p>
+<p><strong>There is an error in the deployment information.</strong></p>
+<p>Open the record, go to the "Deployment Information" section and click Correct This Information. Correct any errors and click <code>Confirm</code> to save. Only the Data Operations Manager can correct deployment information.</p>
+<h2>Record an Out Migration Verification Request</h2>
+<p>If a health worker applies to practice in another country, the certification or licensing authority in the foreign country usually requests verification of the health worker's credentials. Recording this information with the health worker's record enables the system to track possible out migrations of health workers and the reasons for leaving the country, which can be useful in analyzing health worker retention issues. A request for verification for out migration does not mean that the health worker has actually out migrated; that cannot be determined with this system.</p>
+<ol>
+<li>In the person's record click Out Migration in the side menu to jump to the "Out Migration" section.</li>
+<li>Click Add Out Migration.</li>
+<li>Select the <strong>Country</strong> where the request came from, or the country where the health worker plans to emigrate.</li>
+<li>Enter the health worker's <strong>Address in the New Country</strong>, if known.</li>
+<li>Select the <strong>Out Migration Reason</strong>.</li>
+<li>Record the name of the <strong>Organization Requesting Verification</strong>, if known.</li>
+<li>Enter the <strong>Request Date</strong> (today's date is saved by default if no date is selected).</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<p>The system displays the person's record with the out migration information added. To add another request for out migration verification, click Add Out Migration again. There is no limit to the number of requests that can be recorded.</p>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when the Confirm button is clicked.</strong></p>
+<p>Make certain that all required fields have been completed. Required fields are outlined in red. The country and the reason for out migration must be recorded. Fill in or correct the information and try saving again. If you do not want to add an out migration verification request after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The correct Country is not available for selection.</strong></p>
+<p>Only the Data Operations Manager can add new country to the system (see Add a Country).</p>
+<p><strong>The correct Out Migration Reason is not available for selection.</strong></p>
+<p>Only the Data Operations Manager can add new reasons for out migration to the system (see Add a Reason for Out Migration).</p>
+<p><strong>The out migration information needs to be changed.</strong></p>
+<p>In the record under the "Out Migration Information" section, click Update This information to update any of the fields.</p>
+<h2>Add Notes</h2>
+<p>At any time, a Records Officer, Registration Supervisor or Data Operations Manager may add notes to a person's record. All notes are saved to a log and may be reviewed as necessary.</p>
+<ol>
+<li>In the person's record, click Notes in the left menu to jump to the "Notes" section.</li>
+<li>Click Add Note.</li>
+<li>Enter a <strong>Date</strong> for the note; if no date is entered, today's date is saved by default.</li>
+<li>Enter the text of the <strong>Note</strong>.</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<p>All notes will appear in chronological order at the bottom of the person's record.</p>
+<h3>Troubleshooting</h3>
+<p><strong>An error message displays when the Confirm button is clicked.</strong></p>
+<p>Entering the note text is required. The required field is outlined in red. Try filling in the missing field and saving again. If you do not want to enter a note after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The note needs to be changed.</strong></p>
+<p>In the record under the "Notes" section, click Update This information beside the note to update it.</p>
+<h2>Add a Verification</h2>
+<p>When a data entry person or a data manager verifies a person's record, such as when the health worker requests a change in the record or the record is verified against another form, that verification can be recorded in the person's record. This data quality measure enables managers to log all changes made through verifications and keep a history of those changes in the record itself.</p>
+<ol>
+<li>In the person's record click Record Verification in the side menu to jump to the "Record Verification" section.</li>
+<li>Click Add Verification.</li>
+<li>Set the <strong>Verification Date</strong>.</li>
+<li>Select the <strong>Changes Made</strong>; if more than one change was made, hold down the CTRL key while clicking to select them.</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<p>The system displays the person's record with the verification changes that were made. If the record has been verified more than once, all changes are logged in the Verification History. Click View Verification History to display them.</p>
+<h3>Troubleshooting</h3>
+<p><strong>The correct Verification Change is not available for selection.</strong></p>
+<p>Only the Data Operations Manager can add new verification changes to the system (see Record Verification Changes).</p>
+<p><strong>The verification change needs to be updated.</strong></p>
+<p>In the record under the "Record Verification" section, click Update This information to update any of the fields.</p>
+<p><strong><em>Return to the</em> <a href="ihris-qualify-user-manual.html" title="iHRIS Qualify User Manual">iHRIS Qualify User Manual index page</a>.</strong></p></div><h2>Source</h2><p class="src">Help page shipped in ihris-suite-4.3.3 (GPL-3.0, &copy; IntraHealth International), sha256 <code>92b223d0598f949966498ba693fffd116c16f3673bdf8727e4553041ded68228</code>, at:</p><ul class="src"><li><code>ihris-manage/modules/manage-help/static/help/ihris_update_health_worker_information.html</code></li><li><code>ihris-manage/modules/manage-help/static/help/ihris_update_health_worker_information_4.0.html</code></li><li><code>ihris-qualify/modules/qualify-help/static/help/ihris_update_health_worker_information.html</code></li><li><code>ihris-qualify/modules/qualify-help/static/help/ihris_update_health_worker_information_4.0.html</code></li></ul>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

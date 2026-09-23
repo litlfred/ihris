@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add Geographical Areas · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Wiki</a> / Add Geographical Areas</div>
+<h1>Add Geographical Areas</h1>
+<div class="wiki">
+<p><strong><em>Return to the</em> <a href="ihris-manage-user-manual.html" title="iHRIS Manage User Manual">iHRIS Manage User Manual index page</a>.</strong></p>
+<p>To ensure that standard data types such as cadres, marital status, geographical locations and the like are enforced across the system, those standard data types must be created as lists. These lists are used to create selection menus that provide standard options for selection when adding records, jobs and positions. Click Administer Database to create and update standards lists of data for selection in system menus. Only the Data Operations Manager and System Administrator can create data types.</p>
+<h2>Add a Country</h2>
+<p>You will need to add at least one country to the system for selection whenever a geographical location is required. This should be the country where your organization's headquarters are located. In addition, you should add the names of all countries where employees are located or all nationalities you would like to track in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From the home page or left menu, click Administer Database under Configure System.    In the "Geographic Information" section, select Country.</td>
+<td>Image:AddCountry1.png</td>
+</tr>
+<tr>
+<td>The Country page opens, showing all the countries entered in the database. Click Add New Country. (To edit an existing country, click its name and then click Update This Information.)</td>
+<td>Image:AddCountry2.png</td>
+</tr>
+<tr>
+<td>The Country form opens. Enter or edit the <strong>Name</strong> of the country.    Enter the <strong>2 Character Alpha Code</strong> for the country.    Enter the <strong>ISO Numeric Code</strong> for the country (optional).    If the country is the primary country where your organization is located, select Yes in the <strong>Primary Country</strong> menu. This will place the country name at the top of all country selection menus. Otherwise, leave the default as No. There can be multiple primary countries.    If the country is to be used for locations, such as addresses, select Yes in the <strong>Use for Location Selection</strong> menu. Selecting No will not display the country in any location selection menus, only for nationality selection.    Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</td>
+<td>Image:AddCountry3.png</td>
+</tr>
+</tbody>
+</table>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when the Confirm button is clicked.</strong></p>
+<p>Make sure that the country and two-letter country code have not previously been entered into the system. The system will not allow duplicate countries. Also check that the country name and code have been entered -- these fields are required. Required fields will be outlined in red. Try completing the missing fields or changing the country name and saving again. If you do not want to add the country after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The required 2-Character Alpha Code is not known.</strong></p>
+<p>Find a complete list of 2-letter country codes on the International Organization for Standardization (ISO) website.</p>
+<h2>Add a Region</h2>
+<p>A <em>region</em> is a major subdivision of a country. Region choices depend on which country is selected; only a region that is associated with a particular country can be chosen when that country is selected. For each country you have entered in the system, add at least one region.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From the home page or left menu, click Administer Database under Configure System.    In the "Geographic Information" section, select Region.</td>
+<td>Image:AddCountry1.png</td>
+</tr>
+<tr>
+<td>The Region page opens. Click Add New Region. (To edit an existing region, select its country from the menu and click the <code>View</code> button; then click the region's name and click Update This Information.)</td>
+<td>File:Manage_Admin_Database.png</td>
+</tr>
+<tr>
+<td>The Region form opens. Enter or edit the <strong>Name</strong> of the region.    Type the name of or select the <strong>Country</strong> in which the region is located.    Enter a <strong>Code</strong> for the region (optional).    If necessary, choose to <strong>Hide</strong> the region, for an old region that is no longer valid and therefore should no longer be an option.    Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</td>
+<td>File:Manage_Admin_Database2.png</td>
+</tr>
+</tbody>
+</table>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when the Confirm button is clicked.</strong></p>
+<p>Check that a region with the same name has not already been entered for that country. There cannot be two regions with the same name in the same country. Also make sure that the region name was entered and its country was selected -- these fields are required. Required fields are outlined in red. Fill in the missing information and try saving again. If you do not want to add the region after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The country name is not available for selection.</strong></p>
+<p>Next to "Country", click Add New and add the country. Then click Administer Database and follow the steps above to add the new region. You will have to re-enter any information that you previously entered for the region.</p>
+<h2>Add a District</h2>
+<p>A <em>district</em> is a subdivision of a region. In some locations, the district may be called the <em>state</em> or <em>province</em>. District choices depend on which country is selected; only a district that is associated with a particular country can be chosen when the country is selected. For each region you have entered in the system, add at least one district.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From the home page or left menu, click Administer Database under Configure System.    In the "Geographic Information" section, select District.</td>
+<td>Image:AddCountry1.png</td>
+</tr>
+<tr>
+<td>The District page opens. Click Add New District. (To edit an existing district, type or select the region where it is located and click the <code>View</code> button; then click the district's name and click Update This Information.)</td>
+<td>Image:AddDistrict1.png</td>
+</tr>
+<tr>
+<td>The District form opens. Enter or edit the <strong>Name</strong> of the district.</td>
+<td>Image:AddDistrict2.png</td>
+</tr>
+<tr>
+<td>Type the name of the <strong>Region</strong> or select the <strong>Country</strong> and then the <strong>Region</strong> in which the district is located.    Enter a <strong>Code</strong> for the district (optional).    Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</td>
+<td>Image:Add District3.png</td>
+</tr>
+</tbody>
+</table>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when the Confirm button is clicked.</strong></p>
+<p>Check that a district with the same name has not already been entered for that region. There cannot be two districts with the same name in the same region. Also make sure that the district name has been entered and the country and region for the district were selected -- these fields are required. Required fields are outlined in red. Fill in the missing fields and try saving again. If you do not want to add the district after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The region name is not available for selection.</strong></p>
+<p>Beside <strong>Region</strong>, click Add New and add region. Then click Administer Database and follow the steps above to add the new district. You will have to re-enter any information that you previously entered for the district.</p>
+<h2>Add a County</h2>
+<p>A <em>county</em> is a smaller geographical division within a district. The term <em>county</em> corresponds to <em>sector</em> in some locations. Assigning counties is optional for this system. County choices depend on which district is selected; only a county that is associated with a particular district can be chosen after that district is selected. For any district entered in the system, you may add multiple counties.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From the home page or left menu, click Administer Database under Configure System.    In the "Geographic Information" section, select County.</td>
+<td>Image:AddCountry1.png</td>
+</tr>
+<tr>
+<td>The County page opens. Click Add New County. (To edit an existing county, type or select the district where it is located and click the <code>View</code> button; then click the county's name and click Update This Information.)    Enter or edit the <strong>Name</strong> of the county.</td>
+<td>Image:AddCounty1.png</td>
+</tr>
+<tr>
+<td>The County form opens. Type the name of the <strong>District</strong> or select the <strong>Country</strong>, the <strong>Region</strong> and the <strong>District</strong> in which the county is located.    Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</td>
+<td>Image:AddCounty2.png</td>
+</tr>
+</tbody>
+</table>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when the Confirm button is clicked.</strong></p>
+<p>Check that a county with the same name has not already been entered for that district. There cannot be two counties with the same name in the same district. Also check that the county name has been entered and the country, region and district have been selected -- these fields are required. Required fields will be outlined in red. Try completing the missing fields and saving again. If you do not want to add the county after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The correct district is not available for selection.</strong></p>
+<p>Click Add New beside <strong>District</strong> and add the new district. Then click Administer Database and follow the steps above to add the new county. You will have to re-enter any information you previously entered for the county.</p>
+<h2>Add a Currency</h2>
+<p>If your organization pays salaries or other payments in more than one currency, you should add each currency. The correct currency may then be selected when entering the salary or special payment. At least one currency should be added.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From the home page or left menu, click Administer Database under Configure System.    In the "Geographic Information" section, select Currency.</td>
+<td>Image:AddCountry1.png</td>
+</tr>
+<tr>
+<td>The Currency page opens, showing all currencies entered in the database. Click Add New Currency. (To edit an existing currency, click its name; then click Update This Information.)</td>
+<td>Image:AddCurrency1.png</td>
+</tr>
+<tr>
+<td>The Currency form opens. Enter the <strong>Currency Code</strong>, an abbreviation that will identify the currency in selection menus.    Enter the <strong>Name</strong> of the currency (optional).    Select the <strong>Country</strong> for the currency (optional).    Enter the <strong>Symbol</strong> for the currency; the symbol will also appear in selection menus (optional).    Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</td>
+<td>Image:AddCurrency2.png</td>
+</tr>
+</tbody>
+</table>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when Confirm is clicked.</strong></p>
+<p>Make sure the currency code was entered and that it is not the same as a code that has already been entered. Change the code and try saving again. If you do not want to add the currency after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The currency code is not known.</strong></p>
+<p>Find a list of all standard currency codes at the International Organization for Standards (ISO) website.</p>
+<p><strong>The country for the new currency is not available for selection.</strong></p>
+<p>Click Add New next to <strong>Country</strong> and add the country name. Then click Administer Database and follow the steps above to add the new currency. You will need to re-enter any information you previously entered for the currency.</p>
+<p><strong>How do I enter a currency symbol that does not appear on my keyboard?</strong></p>
+<p>If you are using a Windows computer and have a separate numeric keypad on your keyboard, you may enter a currency symbol by holding down the ALT key and typing in the code for the symbol on the numeric keypad, then releasing the ALT key.</p>
+<ul>
+<li>
+<p>British pound: ALT+0163</p>
+</li>
+<li>
+<p>Euro: ALT+0128</p>
+</li>
+<li>
+<p>Yen: ALT+0165</p>
+</li>
+<li>
+<p>Generic currency symbol: ALT+0164</p>
+</li>
+</ul>
+<p>The symbol is optional and may be omitted.</p>
+<p><strong><em>Return to the</em> <a href="ihris-manage-user-manual.html" title="iHRIS Manage User Manual">iHRIS Manage User Manual index page</a>.</strong></p></div><h2>Source</h2><p class="src">Help page shipped in ihris-suite-4.3.3 (GPL-3.0, &copy; IntraHealth International), sha256 <code>d667e5a76b2da2b46025d7c1dac08ddc816b4c81db9c80e33850052a700d9cd6</code>, at:</p><ul class="src"><li><code>ihris-manage/modules/manage-help/static/help/ihris_add_geographical_areas.html</code></li><li><code>ihris-manage/modules/manage-help/static/help/ihris_add_geographical_areas_4.01.html</code></li><li><code>ihris-qualify/modules/qualify-help/static/help/ihris_add_geographical_areas.html</code></li><li><code>ihris-qualify/modules/qualify-help/static/help/ihris_add_geographical_areas_4.01.html</code></li></ul>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

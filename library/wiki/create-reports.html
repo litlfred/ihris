@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create Reports · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Wiki</a> / Create Reports</div>
+<h1>Create Reports</h1>
+<div class="wiki">
+<p><strong><em>Return to the</em> <a href="ihris-manage-user-manual.html" title="iHRIS Manage User Manual">iHRIS Manage User Manual index page</a>.</strong></p>
+<p>Reports enable analysis of health worker data in various ways. The options for building custom reports are located on the Configure System page under "Manage Reports." Click View Reports on the home page or left side menu to run, print and export standard or customized reports of health workers and offices/facilities, statistical charts and other pre-configured reports. Administrators can define report relationships, reports and report views for other users to access; Managers can also create new report views.</p>
+<h2>Report Relationships</h2>
+<p>The Administrator can define a relationship between system forms on which to base reports, or can edit or delete an existing report relationship. Defining report relationships requires extensive knowledge of the database and forms used in iHRIS and is restricted to Administrators. Unless you understand report relationships, you should not edit or delete the existing report relationships pre-defined in iHRIS. These report relationships are used to create the standard reports that are available once iHRIS is installed.</p>
+<p>To edit the pre-defined report relationships and define new relationships, click Form Relationships under "Manage Reports" on the Configure System screen.</p>
+<p>Learn more about form and field relationships, and view a graphical representation, for iHRIS Qualify (see iHRIS Qualify Form and Fields 4.0) and for iHRIS Manage (see <a href="ihris-manage-form-fields-4-0.html" title="IHRIS Manage Form Fields - 4.0">iHRIS Manage Form and Fields 4.0</a>).</p>
+<h2>Reports</h2>
+<p>The Administrator or Manager can define a new report, or can edit or delete an existing report. Creating reports requires some knowledge of the data fields used in iHRIS. Unless you understand these fields, you should not edit or delete the existing reports pre-defined in iHRIS. These reports are used to create the standard report views that are available once iHRIS is installed.</p>
+<p>To edit the pre-defined reports and create new reports, click Reports under "Manage Reports" on the Configure Systems screen. Reports are generated automatically every 10 minutes. The time the report was last generated is shown beneath the report name. If you need to manually generate a report--to immediately show a change to the database, for example--do so by clicking Generate. If for some reason the report generation fails, click Generate (Forced) to correct it.</p>
+<p>Reports can be exported to an XML format file by clicking Save All Reports in the middle of the page, under the "Staff Reports" section.</p>
+<h2>Report Views</h2>
+<p>Report views define how data are displayed in a report. Multiple report views can be created for the same report so that data may be aggregated and analyzed in various ways. For each report, data can be displayed either as a table or as a chart. The data may also be exported for further analysis, or the report may be printed.</p>
+<p>Administrators and Managers can create new report views or edit views that have already been defined. At least one report view must be defined before a report can be run. Other users may run any report view, but they cannot create new views. Creating report views requires some knowledge of the data fields used in iHRIS. Unless you understand these fields, you should not edit or delete the existing report views pre-defined in iHRIS.</p>
+<p>To edit the pre-defined report views and create new report views, click Report Views under "Manage Reports" on the Configure Systems screen. All users may access the defined reports by clicking View Reports on the home page or left navigation screen.</p>
+<h2>Pre-defined Report Views in iHRIS Qualify</h2>
+<p>The following pre-defined report views are available once iHRIS Qualify is installed.</p>
+<h4>Training Reports</h4>
+<p><strong>Exam Pass/Fail:</strong> A pass/fail comparison for all exams.</p>
+<p><strong>Exam Pass/Fail by Year:</strong> A pass/fail comparison for all exams by year.</p>
+<p><strong>Licensed Health Workers by Cadre:</strong> A chart of all licensed health workers by cadre.</p>
+<p><strong>Licensed Health Workers:</strong> A list of all licensed health workers.</p>
+<p><strong>Registered Health Worker:</strong> A list of all registered health workers.</p>
+<p><strong>Search Training:</strong> Search based on training information.</p>
+<p><strong>Discontinuations by Category:</strong> A pie chart of all discontinuation categories.</p>
+<p><strong>Discontinuations by Reason:</strong> A chart of all discontinuations by reason.</p>
+<p><strong>Discontinuations by Year:</strong> A chart of all discontinuations by year.</p>
+<p><strong>Resumption Report:</strong> A pie chart of disruptions that have been resumed or not.</p>
+<h4>Training Institutions</h4>
+<p><strong>Training Institutions:</strong> A list of all training institutions.</p>
+<h4>Person Reports</h4>
+<p><strong>Registration Results by First Training:</strong> The registration results for each person's first training.</p>
+<p><strong>Pass/Fail by First Training:</strong> The pass/fail results for each person's first training.</p>
+<p><strong>Student Intake Year:</strong> The number of students entering training by year.</p>
+<p><strong>Students in Training by Year:</strong> Students by intake year that are broken down by in or not in training.</p>
+<p><strong>Top Birth District:</strong> A pie chart of the top districts entering training.</p>
+<h4>Search Reports</h4>
+<p><strong>Search People:</strong> Search people in the system.</p>
+<h2>Pre-defined Report Views in iHRIS Manage</h2>
+<p>The following pre-defined report views are available once iHRIS Manage is installed.</p>
+<h4>Facility Report</h4>
+<p><strong>Facility List:</strong> A list of all facilities.</p>
+<h4>Position Reports</h4>
+<p><strong>Position List:</strong> A list of all positions.</p>
+<p><strong>Position Open Duration:</strong> The length in days each position was open before being filled.</p>
+<h4>Search</h4>
+<p><strong>Search People:</strong> Search all person records in the system.</p>
+<h4>Staff Reports</h4>
+<p><strong>Age Distribution:</strong> Total of all staff by age range.</p>
+<p><strong>Classification Breakdown:</strong> A total of all staff by classification.</p>
+<p><strong>Hires per Year:</strong> Hire totals by year.</p>
+<p><strong>Job Breakdown:</strong> Total staff by job.</p>
+<p><strong>Nationality Breakdown:</strong> A list of all staff by nationality.</p>
+<p><strong>Retirement Planning:</strong> Staff totals by retirement year.</p>
+<p><strong>Emergency Contact List:</strong> A list of all staff with emergency contact details.</p>
+<p><strong>Home Contact List:</strong> All staff with home contact details.</p>
+<p><strong>Salary List:</strong> A list of all employees with salary details.</p>
+<p><strong>Staff Directory:</strong> A list of all current staff with work contact information.</p>
+<p><strong><em>Return to the</em> <a href="ihris-manage-user-manual.html" title="iHRIS Manage User Manual">iHRIS Manage User Manual index page</a>.</strong></p></div><h2>Source</h2><p class="src">Help page shipped in ihris-suite-4.3.3 (GPL-3.0, &copy; IntraHealth International), sha256 <code>fbe65f242489f5b620a17252f986f8b09374818a401b384390b7676e8fe9da0f</code>, at:</p><ul class="src"><li><code>ihris-manage/modules/manage-help/static/help/ihris_create_reports.html</code></li></ul>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

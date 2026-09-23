@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Understanding iHRIS Qualify (4.0.4) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Wiki</a> / Understanding iHRIS Qualify (4.0.4)</div>
+<h1>Understanding iHRIS Qualify (4.0.4)</h1>
+<div class="wiki">
+<p><strong><em>Return to the</em> <a href="ihris-qualify-user-manual.html" title="iHRIS Qualify User Manual">iHRIS Qualify User Manual index page</a>.</strong></p>
+<p>iHRIS Qualify is a training, certification and licensure system that collects and aggregates data on a complete cadre of health care workers in a country from pre-service training through attrition. The system is typically managed by the licensing or certification authority for a health worker cadre, such as nurses or physicians. The database captures information about health professionals from the time they enter training through registration and licensure, and it is updated every time a professional's license or certification is renewed. iHRIS Qualify can also track continuing medical education credit hours attained by health workers, capture data about foreign-trained workers applying to work within the country and record out migration verification requests. Thus, it provides a country-level picture of a cadre of health workers, whether in training, employed in the public sector or employed in the private sector.</p>
+<p>A policy maker can analyze the data captured by iHRIS Qualify to answer critical human resources for health policy and management questions, such as the following:</p>
+<ul>
+<li>How many trained students pass the certification/accreditation exam?</li>
+<li>Of the students who pass the exam, how many register to practice?</li>
+<li>How many health workers are deployed in each region and where are they working?</li>
+<li>How many health workers are working in the public sector, private sector or both?</li>
+<li>Are health professionals meeting their continuing education requirements?</li>
+<li>For what reasons are health workers out migrating to work in other countries?</li>
+</ul>
+<p>iHRIS Qualify is intended for use by a health cadre licensing or certification authority. This authority is generally an autonomous council that regulates the registration, operations and conduct of a cadre of medical professionals within a country's health workforce. The council may be charged with enforcing minimum qualifications for students entering health training programs, administering national-level examinations that qualify a graduating student to practice within the country, maintaining licenses for health professionals that are renewed periodically, verifying that continuing medical education requirements have been completed before renewing licenses, issuing private practice licenses to qualified health professionals, verifying qualifications of foreign-trained health workers applying to work within the country and verifying qualifications of health workers applying to work in foreign countries. The council would use iHRIS Qualify to capture, update and report on data from all of these activities.</p>
+<p>Typically, there are separate authorities to regulate doctors, dentists, nurses, pharmacists and allied health professionals. Each separate authority would maintain its own iHRIS Qualify system, but data from all systems may be aggregated to provide a complete picture of the country's health workforce.</p>
+<h2>Understanding iHRIS Qualify</h2>
+<p>Version 4.0 of iHRIS Qualify includes several features designed to store and report health worker information:</p>
+<ul>
+<li><strong>Record Management:</strong> Record information about each health worker, such as citizenship, marital status, birth date, contact information, educational qualifications and identification numbers.</li>
+<li><strong>Pre-Service Training Management:</strong> Track students entering pre-service training programs and monitor completion rates as well as reasons for training disruption.</li>
+<li><strong>Examination Management:</strong> Record applications for national-level certification examinations and tracks exam results.</li>
+<li><strong>Registration and Licensing Management:</strong> Issue registration numbers, licenses and license renewals for health professionals, track deployments, issue private practice licenses, manage out-migration verification requests and record disciplinary actions.</li>
+<li><strong>A Reporting Module:</strong> Aggregate, analyze and export data in a variety of ways to answer key management and policy questions as well as generate facility lists and health worker directories.</li>
+<li><strong>Search:</strong> Search for health worker records in the system.</li>
+</ul>
+<p><em>* Offline data entry support for entering data into a desktop (Windows) version of the system when not connected to the Internet (download and install the offline version of iHRIS Qualify separately)</em></p>
+<p>The following features ensure security and accuracy of data stored in the system:</p>
+<ul>
+<li>Error checking and data correction by authorized data managers to ensure data integrity</li>
+<li>Automated logging of the username, date and time when data are entered or changed for auditing purposes</li>
+<li>Permanent archiving of all data changes to ensure a consistent record of each health professional's work history</li>
+</ul>
+<p>iHRIS Qualify is extensible to the other iHRIS products, iHRIS Manage, a human resources management system for Ministries of Health and other employers of health workers, and iHRIS Plan, workforce modeling and planning software. For more information, please contact the iHRIS Development team (see Contacting the iHRIS Development Team).</p>
+<h2>User Roles</h2>
+<p>Five user roles can be assigned in iHRIS Qualify. The user role limits the activities that the person can perform in the system and helps enforce data quality and management protocols.</p>
+<ul>
+<li><strong>System Administrator</strong> is responsible for ensuring that system security procedures are enforced and for keeping the system maintained and functioning. The System Administrator can view any record and perform any action in the system. The System Administrator also configures the system and manages the user accounts.</li>
+<li><strong>Data Operations Manager</strong> is a manager of data entry personnel and is responsible for managing all system data and for ensuring that data in the system are complete, correct and up to date. The Data Operations Manager can view any record and perform any action in the system. The Data Operations Manager also runs reports and analyzes data. In addition, the Data Operations Manager is the only role (other than the System Administrator) that can create standard lists of data and correct data entered in the system.</li>
+<li><strong>Registration Supervisor</strong> is a high-level data entry person responsible for issuing registrations and licenses to health professionals. The Registration Supervisor can generate registration numbers, issue and renew licenses, issue private practice licenses and record health worker deployments. The Registration Supervisor can also enter or update any other information in the record, such as contact or training information. However, the Registration Supervisor cannot correct erroneous information or create standard lists of data. The integrity of the data entered by the Registration Supervisor is enforced by the Data Operations Manager.</li>
+<li><strong>Records Officer</strong> is a data entry person who is responsible for entering and updating records of students entering training programs and for maintaining general information about health professionals. The Records Officer role can view and update any record in the system and can run reports. However, the Records Officer role cannot issue registrations or licenses, correct erroneous information or create standard lists of data. The integrity of the data entered by the Records Officer is enforced by the Registration Supervisor and the Data Operations Manager.</li>
+<li><strong>Decision Maker</strong> is a high-level policy maker. The Decision Maker runs reports and analyzes data entered in the system in order to set health workforce policy. The Decision Maker can view any record in the system and access all reports but cannot update or change data entered in the system.</li>
+</ul>
+<h2>System Functions in Summary</h2>
+<p>The diagram below illustrates the flow of actions in the iHRIS Qualify system from the time a health worker enters a training program through when the health worker leaves the workforce. Each diamond represents a trigger point when there is a change in the health worker's status, and each box describes the action that can be taken to record that change in the system. Processes linked by dotted lines are optional and are not required for using iHRIS Qualify.</p>
+<p><img alt="File:Qualify_workflow_map.jpg" src="images/qualify_workflow_map.jpg"></p>
+<h3>System administration functions</h3>
+<p><strong>Install and configure system:</strong> The System Administrator installs the system files and accesses the configuration screen to set global system options, install and turn on modules, and set options for modules.</p>
+<p><strong>Set up user accounts:</strong> The System Administrator creates password-protected user accounts for all authorized users of the system and assigns each user a role. If the user information changes, the System Administrator updates the user account. If the user no longer has access to the system, the System Administrator disables the user account.</p>
+<p>Please see the System Administrator Manual for more information on system administration functions. The System Administrator Manual will be released in June 2009.</p>
+<h3>Database management functions</h3>
+<p><strong>Set up standard data lists:</strong> The Data Operations Manager determines which specific data items to track and report on in the system, and updates lists to include those items. These lists determine the selection items in dropdown menus used when creating employee records and define the data standards used by the organization. These lists include items associated with tracking licenses, such as qualifications and cadres; items used to define health worker characteristics, such as marital status; geographical locations and health facilities, training institutions and training programs.</p>
+<h3>Record management functions</h3>
+<p><strong>Add a new record:</strong> When a person applies either to enter a training program or to be registered as a health professional within the country, a Records Officer adds a new record for the person to the system with the person's name, nationality, geographical area of residence and supporting information, including identification numbers, demographic and academic data, and contact information.</p>
+<p>Note that this information may be updated in any record at any time.</p>
+<h3>Pre-service training management functions</h3>
+<p><strong>Add a training program:</strong> The Records Officer records the details of the training program that the person has entered or completed, whether inside or outside the country. The name of the training institution, the health worker cadre in which the student is to train, and the month and year of intake are recorded. The student is issued an index number for the duration of the training. If the student has graduated, the graduation date can also be recorded, and the student will be eligible to apply for registration.</p>
+<p>If the student is upgrading his or her qualifications, the Records Officer can record the new training program in the student's record to signify that the person is qualified to practice in another cadre. The system will track registrations, licenses and other activities for each cadre separately.</p>
+<p><strong>Record a discontinuation:</strong> If the student discontinues a training program before completing it, the Records Officer can record the date of and reason for the discontinuation. (This function is optional.)</p>
+<p><strong>Record a resumption:</strong> If the student resumes training after discontinuing it, the Records Officer can record the date of resumption, making the student eligible to take national exams or apply for registration.</p>
+<h3>Examination management functions</h3>
+<p><strong>Record exam details:</strong> Some organizations may administer national examinations for health workers leaving training programs and will want to record students' results in the system. In those cases, the optional examination module may be used. The Records Officer can record that the student applied to take the national examination and submitted all of the required preliminary materials. The student's examination results and number of attempts are also recorded. (This function is optional.)</p>
+<p>Note that even if the student has taken and passed the examination, the student will not be eligible for registration until a training graduation date is recorded.</p>
+<h3>Registration and licensing management functions</h3>
+<p><strong>Issue a registration:</strong> When a student completes a training program and applies for registration as a health worker, the Registration Supervisor can record the date of the application and the registration date. The system then issues a registration number, which will become the health worker's permanent identification number in the system.</p>
+<p><strong>Issue a license:</strong> After the health worker has registered, s/he may apply for a license to practice. The Registration Supervisor can issue the license to the health worker and record the start date and expiration date for the license in the system.</p>
+<p><strong>Renew a license:</strong> When the license expires, the health worker may apply for a renewal. The Registration Supervisor can record the start date and expiration date for the renewal.</p>
+<p><strong>Record continuing education courses:</strong> As the health worker completes in-service continuing medical education, the Registration Supervisor can record the name and number of credit hours of each course in the person's record. The Registration Supervisor can then verify that the health worker has completed the required number of credit hours before renewing their license. (This function is optional.)</p>
+<p><strong>Issue a private practice license:</strong> If the health worker has applied to operate a private practice clinic, the Registration Supervisor can enter the name of the clinic and its inspection report results. The Registration Supervisor can then issue a private practice license, which will have to be renewed periodically. (This function is optional.)</p>
+<p><strong>Document a disciplinary action:</strong> If the health worker receives disciplinary action or a suspension, the Registration Supervisor can record the reason for the action and which type of action was taken. (This function is optional.)</p>
+<p><strong>Document a reinstatement:</strong> If the health worker was suspended, the Registration Supervisor or Records Officer can record the date of reinstatement so that the health worker is eligible to apply for a license renewal.</p>
+<p><strong>Record a deployment:</strong> If the health worker is deployed to a health facility, the Registration Supervisor or Records Officer can add the deployment information to the person's record, including the name of the health facility, the job title and the job code. (This function is optional.)</p>
+<p><strong>Record a request for out migration verification:</strong> If the health worker applies to practice in another country, the licensing agency in that country generally requests verification of the health worker's credentials. The Registration Supervisor or Records Officer can record the request for verification in the health worker's record, including the reason given for out migrating. (This function is optional.)</p>
+<h3>Search</h3>
+<p>Data entry staff, Data Operations Managers and Decision Makers can search the system for student and health worker records. They may then review a person's record on the screen or print a copy.</p>
+<h3>Reporting</h3>
+<p>System Administrators and HR Managers can design and save custom reports and report views to display and aggregate data entered in the system. (System Managers also define report relationships, high-level relationships between system forms used to define reports.) HR Staff and Executive Managers may access saved reports to analyze the employee data. These reports might include:</p>
+<ul>
+<li><strong>Health worker lists,</strong> filtered by various criteria; for example, lists of current students, registered workers and licensed workers in various cadres can all be generated</li>
+<li><strong>Training institution lists,</strong> with contact information for each training institution or facility in the country</li>
+<li><strong>Statistical charts</strong> to aggregate data by various criteria and display them in a graphical view</li>
+</ul>
+<h2>Planned Features</h2>
+<p>Version 4.2 of iHRIS Qualify, which this manual accompanies, provides a complete solution for registering and licensing a cadre of health workers. Later releases will support additional modules and functions, including:</p>
+<ul>
+<li>Customizable roles to enable system administrators to create roles other than the five pre-configured roles and assign them tasks that they can perform in the system</li>
+<li>Customizable headers to enable database managers to easily change header or field names for their context (i.e., change District to State or Province).</li>
+<li>Expanded in-service training tracking to record and assess continuing education of health workers</li>
+</ul>
+<p>New features and development are ongoing. As this is an Open Source development project, volunteers and other organizations may also contribute to the core code. Check the iHRIS Qualify page on the HRIS Strengthening Website for the most up-to-date list of planned features and a development calendar.</p>
+<p><strong><em>Return to the</em> <a href="ihris-qualify-user-manual.html" title="iHRIS Qualify User Manual">iHRIS Qualify User Manual index page</a>.</strong></p></div><h2>Source</h2><p class="src">Help page shipped in ihris-suite-4.3.3 (GPL-3.0, &copy; IntraHealth International), sha256 <code>44258edaeb29fc2fe83caeced9d59c3b3a1ccf690c37dcb5da623f2315d38de6</code>, at:</p><ul class="src"><li><code>ihris-manage/modules/manage-help/static/help/ihris_understanding_ihris_qualify.html</code></li><li><code>ihris-manage/modules/manage-help/static/help/ihris_understanding_ihris_qualify_4.0.html</code></li><li><code>ihris-qualify/modules/qualify-help/static/help/ihris_understanding_ihris_qualify.html</code></li><li><code>ihris-qualify/modules/qualify-help/static/help/ihris_understanding_ihris_qualify_4.0.html</code></li></ul>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

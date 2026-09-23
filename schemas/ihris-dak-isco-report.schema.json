@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-dak-isco-report.schema.json",
+  "title": "ihris-dak-isco-report/v1",
+  "description": "Counts behind the ISCO value sets and maps (src/ihris-data-dictionary/isco-report.json).",
+  "type": "object",
+  "required": [
+    "isco08",
+    "maps",
+    "isco88to08"
+  ],
+  "properties": {
+    "isco08": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "maps": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "mapped",
+          "unmapped"
+        ],
+        "properties": {
+          "mapped": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "unmapped": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "isco88to08": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

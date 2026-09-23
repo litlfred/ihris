@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-toolkit-stage.schema.json",
+  "title": "ihris-toolkit-stage/v1",
+  "description": "One stage of the iHRIS Implementation Toolkit (toolkit.ihris.org) as the site structures it: an ordinal stage with an introduction, objectives grouped under seven cross-cutting domains, each objective pointing at tools (documents hosted on the toolkit, or external links), deliverable key questions, challenges and technical terms. Transcribed from a saved capture of the page.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "id", "ordinal", "name", "url", "domains", "capturedFrom"],
+  "properties": {
+    "$schema": { "const": "ihris-toolkit-stage/v1" },
+    "id": { "type": "string" }, "ordinal": { "type": "integer", "minimum": 0 },
+    "name": { "type": "string" }, "tagline": { "type": "string" }, "url": { "type": "string", "format": "uri" },
+    "wpPageId": { "type": "integer" }, "tags": { "type": "array", "items": { "type": "string" } },
+    "intro": { "type": "array", "items": { "type": "string" } },
+    "emphasisedTerms": { "type": "array", "items": { "type": "string" } },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["domain", "objectives"],
+        "properties": {
+          "domain": { "type": "string" },
+          "objectives": {
+            "type": "array",
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "properties": {
+                "objective": { "type": ["string", "null"] },
+                "tools": {
+                  "type": "array",
+                  "items": {
+                    "type": "object", "additionalProperties": false, "required": ["title", "href", "kind"],
+                    "properties": { "title": { "type": "string" }, "href": { "type": "string" }, "kind": { "enum": ["document", "spreadsheet", "presentation", "pdf", "external-link"] }, "hostedOnToolkit": { "type": "boolean" }, "materialization": { "enum": ["unknown", "referenced", "materialized"] } }
+                  }
+                }
+              }
+            }
+          },
+          "keyQuestions": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "graphic": { "type": ["object", "null"], "additionalProperties": false, "properties": { "file": { "type": "string" }, "alt": { "type": "string" }, "caption": { "type": ["string", "null"] }, "localPath": { "type": "string" } } },
+    "challenges": { "type": ["string", "null"] },
+    "technicalTerms": { "type": "array", "items": { "type": "object", "additionalProperties": false, "properties": { "term": { "type": "string" }, "definition": { "type": "string" } } } },
+    "comments": { "type": "array", "items": { "type": "object" } },
+    "capturedFrom": { "type": "string" }
+  }
+}

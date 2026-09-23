@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add and Edit Health Facilities and Training Institutions (4.0.4) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Wiki</a> / Add and Edit Health Facilities and Training Institutions (4.0.4)</div>
+<h1>Add and Edit Health Facilities and Training Institutions (4.0.4)</h1>
+<div class="wiki">
+<p><strong><em>Return to the</em> <a href="ihris-qualify-user-manual.html" title="iHRIS Qualify User Manual">iHRIS Qualify User Manual index page</a>.</strong></p>
+<p>To ensure that standard data types such as cadres, marital status, geographical locations and the like are enforced across the system, those standard data types must be created as lists. These lists are used to create selection menus that provide standard options for selection when adding records, jobs and positions. Click Administer Database to create and update standards lists of data for selection in system menus. Only the Data Operations Manager and System Administrator can create data types.</p>
+<h2>Add a Health Facility</h2>
+<p>Add a health facility for each facility where health workers will be deployed or practicing privately.</p>
+<ol>
+<li>From the home page or left menu, click Administer Database.</li>
+<li>In the "Institution Lists" section, select Health Facility.</li>
+<li>From the menu select Add New Health Facility and click the <code>Add</code> button. (To edit an existing health facility, select it from the menu and click the <code>View</code> button, then click Update This Information.)</li>
+<li>Enter or edit the <strong>Name</strong> of the health facility.</li>
+<li>Enter the <strong>Identification Code</strong> of the health facility (optional).</li>
+<li>Select the <strong>Facility Agent</strong> under which the health facility belongs.</li>
+<li>Select the <strong>Facility Type</strong> for the health facility.</li>
+<li>Select the <strong>Country</strong> where the health facility is located.</li>
+<li>All districts located in the country are displayed beneath the country. Select the <strong>District</strong> where the health facility is located.</li>
+<li>All counties located in the district are displayed beneath the district. Select the <strong>County</strong> where the health facility is located (optional).</li>
+<li>Select the <strong>Facility Status</strong> for the health facility.</li>
+<li>Add <strong>Contact Information</strong> for the health facility (optional).</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<p>The new health facility record is displayed with the option to associate training institutions with the health facility.</p>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when the Confirm button is clicked.</strong></p>
+<p>Make sure that the health facility's name, country, facility agent, facility type and facility status have been entered -- these fields are required. Required fields will be outlined in red. Also make sure that a health facility by that name has not already been entered. Try completing the missing fields and saving again. If you do not want to add the health facility after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The correct facility agent, facility type, facility status or geographical location is not available for selection.</strong></p>
+<p>Click Add New underneath the selection menu and add the item that is needed. Then click Administer Database and follow the steps above to add the new health facility. You will have to re-enter any information that you previously entered for the health facility.</p>
+<p><strong>The health facility information has changed.</strong></p>
+<p>Select the health facility name, click the <code>View</code> button and click Update This Information in the health facility's record to update any of the fields.</p>
+<h2>Associate a Training Institution with a Health Facility</h2>
+<p>For each health facility in the system, select one or more training institutions that are officially associated with that facility.</p>
+<ol>
+<li>From the home page or left menu, click Administer Database.</li>
+<li>In the "Institution Lists" section, select Health Facility.</li>
+<li>Select the health facility to edit from the dropdown menu and click the <code>View</code> button.</li>
+<li>Click Update Associated Training Institutions.</li>
+<li>Select the name of each <strong>Training Institution</strong> to associate with the health facility. Press CTRL while clicking to select more than one name.</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<p>The associated training institutions are displayed in the health facility's record.</p>
+<h3>Troubleshooting</h3>
+<p><strong>The correct training institution is not available for selection.</strong></p>
+<p>Click Add New Training Institution underneath the selection menu and add the item that is needed (see Add a Training Institution). Then click Administer Database and follow the steps above to associate the new training institution with the health facility.</p>
+<h2>Add a Training Institution</h2>
+<p>Add a training institution for each training program in the country where health workers receive pre-service training.</p>
+<ol>
+<li>From the home page or left menu, click Administer Database.</li>
+<li>In the "Institution Lists" section, select Training Institution.</li>
+<li>From the menu either Add New Training Institution and click the <code>Add</code> button. (To edit an existing training institution, select it from the menu and click the <code>View</code> button, then click Update This Information).</li>
+<li>Enter or edit the <strong>Name</strong> of the training institution.</li>
+<li>Enter the <strong>Identification Code</strong> of the training institution (optional).</li>
+<li>Select the <strong>Facility Agent</strong> under which the training institution belongs.</li>
+<li>Select the <strong>Country</strong> where the training institution is located.</li>
+<li>All districts located in the country are displayed beneath the country. Select the <strong>District</strong> where the training institution is located.</li>
+<li>All counties located in the district are displayed beneath the district. Select the <strong>County</strong> where the training institution is located (optional).</li>
+<li>Select the <strong>Facility Status</strong> for the training institution.</li>
+<li>Add <strong>Contact Information</strong> for the training institution.</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<p>The new training institution record is displayed with the option to associate health facilities with the training institution, add a pre-service training program or enter inspection information.</p>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when the Confirm button is clicked.</strong></p>
+<p>Make sure that the training institution name, country, facility agent and facility status have been entered -- these fields are required. Required fields will be outlined in red. Also make sure that the training institution's name has not already been entered. Try completing the missing fields and saving again. If you do not want to add the training institution after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The correct facility agent, facility status or geographical location is not available for selection.</strong></p>
+<p>Click Add New underneath the selection menu and add the item that is needed. Then click Administer Database and follow the steps above to add the new training institution. You will have to re-enter any information that you previously entered for the training institution.</p>
+<p><strong>The training institution information has changed.</strong></p>
+<p>Select the training institution name, click the <code>View</code> button and click Update This Information in the training institution's record to update any of the fields.</p>
+<h2>Associate a Health Facility with a Training Institution</h2>
+<p>For each training institution in the system, select one or more health facilities that are officially associated with that training institution.</p>
+<ol>
+<li>From the home page or left menu, click Administer Database.</li>
+<li>In the "Institution Lists" section, select Training Institution.</li>
+<li>Select the training institution to edit from the dropdown menu and click the <code>View</code> button.</li>
+<li>Click Update Associated Health Facilities.</li>
+<li>Select the name of each <strong>Health Facility</strong> to associate with the training institution. Press CTRL while clicking to select more than one name.</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<p>The associated health facilities are displayed in the training institution's record.</p>
+<h3>Troubleshooting</h3>
+<p><strong>The correct health facility is not available for selection.</strong></p>
+<p>Click Add New Health Facility underneath the selection menu and add the item that is needed. Then click Administer Database and follow the steps above to associate the new health facility with the training institution.</p>
+<h2>Add a Pre-service Training Program</h2>
+<p>For each training institution in the system, add at least one training program that the training institution offers. The training program should qualify students to be licensed in a particular cadre. When the student's record is added, the training institution and cadre will be selected based on this information.</p>
+<ol>
+<li>From the home page or left menu, click Administer Database.</li>
+<li>In the "Institution Lists" section, select Training Institution.</li>
+<li>Select the training institution to edit from the dropdown menu and click the <code>View</code> button.</li>
+<li>Click Add Training Program under the "Training Programs" section.</li>
+<li>Select the <strong>Cadre</strong>.</li>
+<li>Enter the recommended <strong>Number of Students</strong> for the program.</li>
+<li>Select the <strong>Start Date</strong> for the program.</li>
+<li>If the program is no longer being offered, select an <strong>End Date</strong> for it.</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<p>The training program is displayed in the training institution's record.</p>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when the Confirm button is clicked.</strong></p>
+<p>Make sure that the cadre has been selected and that a training program for that cadre has not already been added for this training institution. Required fields will be outlined in red. Try changing the cadre and saving again. If you do not want to add the training program after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The correct cadre is not available for selection.</strong></p>
+<p>Click Add New underneath the selection menu and add the item that is needed. Then click Administer Database and follow the steps above to add the training program.</p>
+<p><strong>The training program information has changed.</strong></p>
+<p>Select the training institution name, click the <code>View</code> button and click Update This Information beside the training program to update any of the fields.</p>
+<h2>Enter Inspection Information for a Training Institution</h2>
+<p>Inspection information may optionally be recorded for any training institution in the system.</p>
+<ol>
+<li>From the home page or left menu, click Administer Database.</li>
+<li>In the "Institution Lists" section, select Training Institution.</li>
+<li>Select the training institution to edit from the dropdown menu and click the <code>View</code> button.</li>
+<li>Click Add Institution Inspection.</li>
+<li>Enter the <strong>Inspection Date</strong>.</li>
+<li>Select whether the training institution <strong>Passed Inspection</strong>.</li>
+<li>Enter any <strong>Notes</strong> about the inspection.</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<p>The inspection is displayed in the training institution's record.</p>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when the Confirm button is clicked.</strong></p>
+<p>Make sure that all required fields have been completed. Required fields will be outlined in red. Try completing the missing fields and saving again. If you do not want to add the inspection after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The inspection information has changed.</strong></p>
+<p>Select the training institution name, click the <code>View</code> button and click Update This Information beside the inspection to update any of the fields.</p>
+<h2>Add a Facility Agent</h2>
+<p>The <em>facility agent</em> is used to identify the operator of a training institution or health facility. Examples of facility agents include Government, Nongovernmental Organization and Private.</p>
+<ol>
+<li>From the home page or left menu, click Administer Database.</li>
+<li>Under the "Institution Lists" section, select Facility Agent.</li>
+<li>Either select Add New Facility Agent or select an existing facility agent to edit.</li>
+<li>Enter the <strong>Name</strong> of the facility agent.</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when Confirm is clicked.</strong></p>
+<p>Make certain that the facility agent has not already been entered. Change the name and try saving again. If you do not want to add the facility agent after all, click <code>Return (do not save changes)</code>.</p>
+<h2>Add a Facility Type</h2>
+<p>The <em>facility type</em> is used to identify the type of health facility. Examples of facility types include Hospital, Clinic and Dispensary.</p>
+<ol>
+<li>From the home page or left menu, click Administer Database.</li>
+<li>Under the "Institution Lists" section, select Facility Type.</li>
+<li>Either select Add New Facility Type or select an existing facility type to edit.</li>
+<li>Enter the <strong>Name</strong> of the facility type.</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when Confirm is clicked.</strong></p>
+<p>Make certain that the facility type has not already been entered. Change the name and try saving again. If you do not want to add the facility type after all, click <code>Return (do not save changes)</code>.</p>
+<h2>Add a Facility Status</h2>
+<p>The <em>facility status</em> is used to identify whether a health facility or training institution is open, closed or assigned some other kind of status.</p>
+<ol>
+<li>From the home page or left menu, click Administer Database.</li>
+<li>Under the "Institution Lists" section, select Facility Status.</li>
+<li>Either select Add New Facility Status or select an existing facility status to edit.</li>
+<li>Enter the <strong>Name</strong> of the facility status.</li>
+<li>Click <code>Confirm</code> and confirm that the information entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</li>
+</ol>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when Confirm is clicked.</strong></p>
+<p>Make certain that the facility status has not already been entered. Change the name and try saving again. If you do not want to add the facility status after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong><em>Return to the</em> <a href="ihris-qualify-user-manual.html" title="iHRIS Qualify User Manual">iHRIS Qualify User Manual index page</a>.</strong></p></div><h2>Source</h2><p class="src">Help page shipped in ihris-suite-4.3.3 (GPL-3.0, &copy; IntraHealth International), sha256 <code>f337ffecc88fb9912fa4462c845083040584aa65ffbd0cee57b9a7e6858eb992</code>, at:</p><ul class="src"><li><code>ihris-manage/modules/manage-help/static/help/ihris_add_and_edit_health_facilities_and_training_institutions.html</code></li><li><code>ihris-manage/modules/manage-help/static/help/ihris_add_and_edit_health_facilities_and_training_institutions_4.0.html</code></li><li><code>ihris-qualify/modules/qualify-help/static/help/ihris_add_and_edit_health_facilities_and_training_institutions.html</code></li><li><code>ihris-qualify/modules/qualify-help/static/help/ihris_add_and_edit_health_facilities_and_training_institutions_4.0.html</code></li></ul>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

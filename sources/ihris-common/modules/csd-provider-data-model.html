@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>csd-provider-data-model · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../../assets/ihris.css">
+<link rel="icon" href="../../../assets/iHRIS_logo.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../../index.html"><img src="../../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../../data-model/index.html">Data model</a></li><li><a href="../../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../index.html" aria-current="page">Sources</a></li><li><a href="../../../library/index.html">Library</a></li><li><a href="../../../schemas/index.html">Schemas</a></li><li><a href="../../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../../index.html">Home</a> / <a href="../../index.html">Sources</a> / <a href="../index.html">ihris-common</a> / <a href="index.html">modules</a> / csd-provider-data-model</div>
+<h1>csd-provider-data-model</h1>
+<p>CSD Health Worker Data Model</p>
+<div class="badges"><span class="badge">version 4.3.0</span><span class="badge">class <code>?</code></span>
+</div>
+<div class="tscroll"><table aria-label="Module facts"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Display name</td><td>CSD Health Worker Data Model</td></tr><tr><td>Parent module</td><td><a href="CSD.html">CSD</a></td></tr><tr><td>Requires</td><td><a href="ihris-common.html">ihris-common</a> <span class="mute">&ge;4.3</span>, <a href="../../i2ce/modules/Float.html">Float</a> <span class="mute">&ge;4.3</span>, <a href="SVS.html">SVS</a> <span class="mute">&ge;4.3</span></td></tr><tr><td>Forms</td><td><a href="../../../data-model/ihris-common/CSD_Provider.html">csd_provider</a>, <a href="../../../data-model/ihris-common/CSD_ProviderFacility.html">csd_provider_facility</a>, <a href="../../../data-model/ihris-common/CSD_FacilityOrganizationService.html">csd_facility_organization_service</a>, <a href="../../../data-model/ihris-common/CSD_ProviderService.html">csd_provider_service</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_provider_credential_type</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_organization_credential_type</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_address_components</a>, <a href="../../../data-model/i2ce/I2CE_SimpleCodedList.html">day_of_week</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_contact_point_type</a>, <a href="../../../data-model/ihris-common/CSD_OperatingHours.html">csd_operating_hours</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_provider_status</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_facility_status</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_organization_status</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_service_status</a>, <a href="../../../data-model/ihris-common/CSD_ProviderCredential.html">csd_provider_credential</a>, <a href="../../../data-model/ihris-common/CSD_OrganizationCredential.html">csd_organization_credential</a>, <a href="../../../data-model/ihris-common/CSD_ProviderOtherID.html">csd_provider_otherid</a>, <a href="../../../data-model/ihris-common/CSD_FacilityOtherID.html">csd_facility_otherid</a>, <a href="../../../data-model/ihris-common/CSD_OrganizationOtherID.html">csd_organzation_otherid</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_provider_gender</a>, <a href="../../../data-model/ihris-common/CSD_Organization.html">csd_organization</a>, <a href="../../../data-model/ihris-common/CSD_Facility.html">csd_facility</a>, <a href="../../../data-model/ihris-common/CSD_Service.html">csd_service</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_address_type</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_provider_type</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_provider_specialty</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_service_type</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_organization_type</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_facility_type</a>, <a href="../../../data-model/ihris-common/SVS_CodedList.html">csd_language</a>, <a href="../../../data-model/ihris-common/CSD_FacilityOrganization.html">csd_facility_organization</a>, <a href="../../../data-model/ihris-common/CSD_ProviderOrganization.html">csd_provider_organization</a>, <a href="../../../data-model/ihris-common/CSD_Address.html">csd_provider_organization_address</a>, <a href="../../../data-model/ihris-common/CSD_Address.html">csd_provider_address</a>, <a href="../../../data-model/ihris-common/CSD_Address.html">csd_organization_address</a>, <a href="../../../data-model/ihris-common/CSD_Address.html">csd_facility_address</a>, <a href="../../../data-model/ihris-common/CSD_ProviderName.html">csd_provider_name</a>, <a href="../../../data-model/ihris-common/CSD_ContactPoint.html">csd_provider_organization_contact_point</a>, <a href="../../../data-model/ihris-common/CSD_ContactPoint.html">csd_facility_contact_point</a>, <a href="../../../data-model/ihris-common/CSD_ContactPoint.html">csd_provider_contact_point</a></td></tr><tr><td>Pages</td><td>none</td></tr><tr><td>Data lists</td><td>none</td></tr></tbody></table></div>
+<h2>Source</h2><p class="src"><code>ihris-common/modules/CSD/modules/CSDDataModel/CSD_DataModel.xml</code> in ihris-suite-4.3.3, sha256 <code>31c8a32e07f92f92b03b7d4dd51d8dfe0c8d3168e310aa1e7d4c56272d4ae9fb</code>.
+Release file MD5 <code>398b1808ba0f4528a8c204ad7eea090a</code> (matches Launchpad).</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

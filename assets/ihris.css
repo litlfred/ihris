@@ -29,8 +29,13 @@ table { width:100%; border-collapse:collapse; margin:8px 0 12px; }
 th, td { text-align:left; border-bottom:1px solid var(--rule); padding:6px 8px; vertical-align:top; }
 th { background:var(--active-bg); font-size:13px; }
 .req { font-weight:700; }
-td, th, h1, code, .side a, .crumbs, .src a { overflow-wrap:anywhere; }
+td, th, h1, h2, code, .side a, .crumbs, .src a, main p, main li, .badge { overflow-wrap:break-word; }
+h1, .crumbs, .side a, .hood td, .hood code, .fields td, .fields code { overflow-wrap:anywhere; }
 .tscroll { overflow-x:auto; }
+.wiki img { max-width:100%; height:auto; }
+.wiki table { display:block; overflow-x:auto; }
+.wiki pre { overflow-x:auto; }
+details > summary { cursor:pointer; min-height:32px; padding:4px 0; font-weight:600; }
 main { min-width:0; }
 .board { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:14px; }
 .card { border:1px solid var(--rule); border-top:4px solid var(--nav-accent); padding:12px 14px; display:flex; flex-direction:column; gap:6px; }

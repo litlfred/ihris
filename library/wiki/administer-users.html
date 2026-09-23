@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administer Users · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Wiki</a> / Administer Users</div>
+<h1>Administer Users</h1>
+<div class="wiki">
+<p><strong><em>Return to the</em> <a href="ihris-manage-user-manual.html" title="iHRIS Manage User Manual">iHRIS Manage User Manual index page</a>.</strong></p>
+<p>Click Administer Users to create, update and disable user accounts to enforce secure access to the system. Only the System Administrator can add and update user accounts.</p>
+<h2>Add a User</h2>
+<p>In order to allow a user to access the system, the System Administrator must create a user account for the person, with a unique username and password. Each user is assigned a role, which determines the actions that the user can perform in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On the Home page or left menu, click Configure System. Click Administer Users.    Select Add New User from the dropdown menu and click the <code>Add</code> button.</td>
+<td>Image:AddUser1.jpg</td>
+</tr>
+<tr>
+<td>The Administer Users form opens. Enter a <strong>Username</strong> for the user: one word with no special characters (letters and numbers only).    Enter the <strong>First Name</strong> and <strong>Surname</strong> of the user.    Enter an <strong>Email</strong> for the user, if known (optional).    Select the <strong>Role</strong> of the user (see below for roles). If no role is selected, the user will be disabled and cannot access the system in any capacity.    Select the option to randomly <strong>Generate New Password</strong> or enter a <strong>Password</strong> for the user. If the password is entered, re-enter it to confirm. The two passwords must match.    Click <code>Confirm</code> and confirm that the account entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</td>
+<td>Image:AddUser2.jpg</td>
+</tr>
+</tbody>
+</table>
+<p>If an email address was entered, an email message will be sent to the user with the username and password. Otherwise, you will have to provide the user with the username and password.</p>
+<h3>iHRIS Qualify User Roles</h3>
+<ul>
+<li>
+<p><strong>Administrator:</strong> has full access to the system</p>
+</li>
+<li>
+<p><strong>Data Operations Manager:</strong> manages system data, including correcting data and managing data selection lists; can search for, view, enter data in and correct any record and generate any report</p>
+</li>
+<li>
+<p><strong>Decision Maker:</strong> generates reports in order to analyze data; can search for and view any record but cannot enter data into the system</p>
+</li>
+<li>
+<p><strong>Records Officer:</strong> enters general information about health workers, including demographic, education, identification, contact, training, deployment and out migration information, as well as notes</p>
+</li>
+<li>
+<p><strong>Registration Supervisor:</strong> enters all general information about health workers, plus issues registrations, licenses and private practice licenses, and enters continuing education information and disciplinary notices</p>
+</li>
+</ul>
+<h3>iHRIS Manage User Roles</h3>
+<ul>
+<li>
+<p><strong>Administrator:</strong> has full access to the system</p>
+</li>
+<li>
+<p><strong>Executive Manager:</strong> generates reports in order to analyze data; can search for and view any record but cannot enter data into the system</p>
+</li>
+<li>
+<p><strong>HR Manager:</strong> manages system data, including correcting data and managing data selection lists; can search for, view, enter data in and correct any record and generate any report</p>
+</li>
+<li>
+<p><strong>HR Staff:</strong> enters and updates records and positions; can generate any report</p>
+</li>
+<li>
+<p><strong>Training Manager:</strong> sets up the in-service training management program, schedules employees for trainings and evaluates employees performance in trainings</p>
+</li>
+</ul>
+<h3>Troubleshooting</h3>
+<p><strong>A required field was not completed.</strong></p>
+<p>The system will display an error message. The required field(s) will be outlined in red. Complete the missing fields and try saving again. If you do not want to add the user account after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The username is already in the system.</strong></p>
+<p>The system will generate an error for duplicate usernames. Return to the Administer Users screen and select the username from the dropdown menu to edit the user account (see <a href="#Update_a_User" title="Administer Users">Update a User</a>).</p>
+<h2>Update a User</h2>
+<p>If information about a user has changed, the System Administrator can update the user account with the change. Usernames and passwords may also be changed. If a user no longer has access to the system, the account can be disabled.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On the Home page or left menu, click Configure System. Click Administer Users.    From the menu select the user account to change.</td>
+<td>File:UpdateUser2.jpg</td>
+</tr>
+<tr>
+<td>The user account information is displayed. Make the change or select "No Access" from the <strong>Role</strong> menu to disable the account.    Click <code>Confirm</code> and confirm that the changes entered are correct. If they are not correct, click <code>Edit</code> to change them. If they are, click <code>Save</code> to save them.</td>
+<td>File:UpdateUser3.png</td>
+</tr>
+</tbody>
+</table>
+<h3>Troubleshooting</h3>
+<p><strong>A required field was not completed.</strong></p>
+<p>The system will display an error message. The required field(s) will be outlined in red. Complete the missing fields and try saving again. If you do not want to update the user account after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong><em>Return to the</em> <a href="ihris-manage-user-manual.html" title="iHRIS Manage User Manual">iHRIS Manage User Manual index page</a>.</strong></p></div><h2>Source</h2><p class="src">Help page shipped in ihris-suite-4.3.3 (GPL-3.0, &copy; IntraHealth International), sha256 <code>d08dbe8f3e85d971c793496bb096dcf964c418a8da376f692b1c17a3bc37231b</code>, at:</p><ul class="src"><li><code>ihris-manage/modules/manage-help/static/help/ihris_administer_users.html</code></li></ul>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

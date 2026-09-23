@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-process-spec.schema.json",
+  "title": "ihris-process-spec/v1",
+  "description": "A BPMN process as data; src/tools/gen_bpmn.py generates processes/<file> from it (processes/specs/*.json).",
+  "type": "object",
+  "required": [
+    "id",
+    "file",
+    "name",
+    "documentation",
+    "lanes",
+    "nodes",
+    "flows"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^Process_"
+    },
+    "file": {
+      "type": "string",
+      "pattern": "\\.bpmn$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "documentation": {
+      "type": "string"
+    },
+    "lanes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "role"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "documentation": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "lane",
+          "col",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "lane": {
+            "type": "string"
+          },
+          "col": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "name": {
+            "type": "string"
+          },
+          "skill": {
+            "type": "string"
+          },
+          "noSkill": {
+            "type": "string",
+            "minLength": 1,
+            "description": "why this task has no skill (gen_bpmn.py requires one or the other)"
+          },
+          "calledElement": {
+            "type": "string"
+          },
+          "documentation": {
+            "type": "string"
+          },
+          "row": {
+            "type": "number"
+          },
+          "type": {
+            "enum": [
+              "startEvent",
+              "endEvent",
+              "task",
+              "userTask",
+              "serviceTask",
+              "exclusiveGateway",
+              "parallelGateway",
+              "callActivity",
+              "intermediateThrowEvent",
+              "intermediateCatchEvent"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "flows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

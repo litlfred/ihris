@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/pdf-structure.schema.json",
+  "title": "pdf-structure/v1",
+  "description": "The structure folio-assistant's pdf-structure.py writes for an ingested PDF. folio-assistant tags it `_schema: pdf-structure/v1` and defines no schema for it, so ihris checks the keys it reads here: provenance, the table of contents and sections. Upstream gap: bean ihris-91d2.",
+  "type": "object",
+  "required": [
+    "_schema",
+    "doc_id",
+    "source",
+    "metadata",
+    "toc",
+    "sections"
+  ],
+  "properties": {
+    "_schema": {
+      "const": "pdf-structure/v1"
+    },
+    "doc_id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "file",
+        "sha256",
+        "pages"
+      ],
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "pages": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "toc": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "level",
+          "title",
+          "page"
+        ],
+        "properties": {
+          "level": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "title": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "level",
+          "page_start",
+          "page_end"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "page_start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "page_end": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
