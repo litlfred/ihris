@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe A: catalogue first</title>
+<style>
+  /* Mid-fidelity: monochrome, real content, semantic icons (WireGen §3.1.1) */
+  :root { --ink:#1b1b1b; --mute:#5c5c5c; --line:#bdbdbd; --fill:#f2f2f2; --bg:#fff; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.45 system-ui, sans-serif; color:var(--ink); background:var(--bg); }
+  a { color:inherit; }
+  .wf-label { display:inline-block; margin:12px 16px; font-size:11px; border:1px dashed var(--mute); padding:2px 6px; background:var(--bg); }
+  .layout { display:grid; grid-template-columns:264px 1fr; min-height:100vh; }
+  .side { border-right:1px solid var(--line); background:var(--fill); padding:16px; }
+  .site { font-weight:700; margin-bottom:12px; }
+  .search { display:flex; align-items:center; gap:6px; border:1px solid var(--line); background:var(--bg); padding:6px 8px; margin-bottom:14px; color:var(--mute); }
+  .nav ul { list-style:none; margin:0; padding:0 0 0 12px; }
+  .nav > ul { padding:0; }
+  .nav li { padding:3px 0; }
+  .nav .count { color:var(--mute); font-size:12px; }
+  .nav .current { font-weight:700; border-left:3px solid var(--ink); padding-left:6px; margin-left:-9px; }
+  .tiles { margin-top:18px; border-top:1px solid var(--line); padding-top:12px; }
+  .tile { display:flex; align-items:center; gap:8px; border:1px solid var(--ink); background:var(--bg); padding:8px; }
+  .menu-btn { display:none; }
+  main { padding:24px 32px; max-width:980px; }
+  .crumbs { color:var(--mute); font-size:13px; }
+  h1 { margin:6px 0 4px; font-size:28px; }
+  .badges { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 18px; }
+  .badge { border:1px solid var(--ink); padding:1px 8px; font-size:12px; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 20px; }
+  th, td { text-align:left; border-bottom:1px solid var(--line); padding:6px 8px; vertical-align:top; }
+  th { background:var(--fill); font-size:13px; }
+  .req { font-weight:700; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .box { border:1px solid var(--line); padding:12px; }
+  .box h3 { margin:0 0 6px; font-size:15px; }
+  .src { color:var(--mute); font-size:13px; }
+  code { font-size:13px; }
+  @media (max-width: 700px) {
+    .layout { grid-template-columns:1fr; }
+    .side { border-right:0; border-bottom:1px solid var(--line); padding:10px 16px; }
+    .side .nav, .side .tiles { display:none; }             /* collapsed behind the menu button */
+    .topbar { display:flex; align-items:center; justify-content:space-between; }
+    .menu-btn { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--ink); padding:6px 10px; background:var(--bg); min-height:44px; }
+    .site { margin:0; }
+    main { padding:16px; }
+    h1 { font-size:22px; }
+    .grid2 { grid-template-columns:1fr; }
+    /* fields table becomes stacked cards */
+    table, thead, tbody, tr, th, td { display:block; }
+    thead { display:none; }
+    tr { border:1px solid var(--line); margin-bottom:10px; padding:6px 10px; }
+    td { border:0; padding:2px 0; }
+    td::before { content:attr(data-h) ": "; color:var(--mute); font-size:12px; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="side" aria-label="Site navigation">
+    <div class="topbar">
+      <div class="site">iHRIS 4.3.3 data model</div>
+      <button class="menu-btn" aria-label="Open navigation" aria-expanded="false">&#9776; Menu</button>
+    </div>
+    <div class="search" role="search">&#128269; Search classes, fields, lists</div>
+    <nav class="nav" aria-label="Packages">
+      <ul>
+        <li>Overview</li>
+        <li>i2ce <span class="count">12</span></li>
+        <li>ihris-common <span class="count">93</span>
+          <ul>
+            <li>iHRIS_Education</li>
+            <li>iHRIS_Job</li>
+            <li class="current" aria-current="page">iHRIS_Person</li>
+            <li>iHRIS_PersonID</li>
+            <li>iHRIS_PersonLanguage</li>
+            <li>&hellip; 88 more</li>
+          </ul>
+        </li>
+        <li>ihris-manage <span class="count">26</span></li>
+        <li>ihris-qualify <span class="count">25</span></li>
+        <li>Lists (value sets)</li>
+      </ul>
+    </nav>
+    <div class="tiles">
+      <div class="tile" role="link" tabindex="0">&#9711;&#8212;&#9711; <span><b>Harness visualiser</b><br><span class="src">data-model graph, 153 classes</span></span></div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="crumbs">Data model / ihris-common / iHRIS_Person</div>
+    <h1>Person <code>iHRIS_Person</code></h1>
+    <div class="badges">
+      <span class="badge">&#8593; extends I2CE_Form</span>
+      <span class="badge">form <code>person</code></span>
+      <span class="badge">package ihris-common</span>
+      <span class="badge">release 4.3.3</span>
+    </div>
+
+    <h2>Fields</h2>
+    <table>
+      <thead><tr><th>Field</th><th>Label</th><th>Type</th><th>Required</th><th>Draws from</th></tr></thead>
+      <tbody>
+        <tr><td data-h="Field"><code>surname</code></td><td data-h="Label">Surname</td><td data-h="Type">STRING_LINE</td><td data-h="Required" class="req">yes</td><td data-h="Draws from">&mdash;</td></tr>
+        <tr><td data-h="Field"><code>firstname</code></td><td data-h="Label">First Name</td><td data-h="Type">STRING_LINE</td><td data-h="Required" class="req">yes</td><td data-h="Draws from">&mdash;</td></tr>
+        <tr><td data-h="Field"><code>othername</code></td><td data-h="Label">Other Names</td><td data-h="Type">STRING_LINE</td><td data-h="Required">no</td><td data-h="Draws from">&mdash;</td></tr>
+        <tr><td data-h="Field"><code>nationality</code></td><td data-h="Label">Nationality</td><td data-h="Type">MAP</td><td data-h="Required" class="req">yes</td><td data-h="Draws from"><a href="#">country</a></td></tr>
+        <tr><td data-h="Field"><code>surname_ignore</code></td><td data-h="Label"><i>(no label)</i></td><td data-h="Type">BOOL</td><td data-h="Required">no</td><td data-h="Draws from">&mdash;</td></tr>
+        <tr><td data-h="Field"><code>residence</code></td><td data-h="Label">Residence</td><td data-h="Type">MAP</td><td data-h="Required" class="req">yes</td><td data-h="Draws from"><a href="#">country</a>, <a href="#">county</a>, <a href="#">district</a>, <a href="#">region</a></td></tr>
+      </tbody>
+    </table>
+
+    <div class="grid2">
+      <section class="box">
+        <h3>&#8595; Extended by</h3>
+        <p><a href="#">iHRIS_ManagePerson</a> (ihris-manage) adds <code>password</code><br>
+           <a href="#">iHRIS_QualifyPerson</a> (ihris-qualify) adds <code>home</code></p>
+      </section>
+      <section class="box">
+        <h3>&#128279; Lists referenced</h3>
+        <p>country &middot; county &middot; district &middot; region<br><span class="src">county and district are the most referenced lists in the model (7 fields each)</span></p>
+      </section>
+    </div>
+
+    <h2>Source</h2>
+    <p class="src">Defined in module <code>Person</code> (ihris-common), ihris-suite-4.3.3 (MD5 verified against Launchpad). Generated page; edit <code>src/tools/build_kg.py</code>, not this page.</p>
+  </main>
+</div>
+<div class="wf-label">Wireframe A: catalogue first</div>
+</body>
+</html>
