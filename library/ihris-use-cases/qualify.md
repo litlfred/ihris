@@ -21,6 +21,8 @@ Related documents: https://launchpad.net/ihris-qualify, http://www.capacityproje
 
 ### A-PS1 Data Operations Manager
 
+Role: [Data Operations Manager](roles.md#ihris-a-ps1) (`ihris-a-ps1`)
+
 This person is responsible for managing data entry and data entry roles, including verifying and correcting data and updating standard lists in the system.
 
 **Goals**
@@ -35,6 +37,8 @@ This person is responsible for managing data entry and data entry roles, includi
 **Use cases:** UC-PS2 Add or update a cadre, UC-PS10 Add or update a certificate, UC-PS3 Add or update a continuing education course, UC-PS13 Add or update a country, UC-PS16 Add or update a county, UC-PS4 Add or update a disciplinary action category, UC-PS15 Add or update a district, UC-PS23 Add or update a facility agent, UC-PS25 Add or update a facility status, UC-PS24 Add or update a facility type, UC-PS17 Add or update a health facility, UC-PS12 Add or update a marital status, UC-PS26 Add or update a personal title, UC-PS21 Add or update a pre-service training program, UC-PS1 Add or update a qualification, UC-PS5 Add or update a reason for disciplinary action, UC-PS6 Add or update a reason for out migration, UC-PS8 Add or update a reason for training disruption, UC-PS14 Add or update a region, UC-PS7 Add or update a training disruption category, UC-PS19 Add or update a training institution, UC-PS51 Add or update a verification change, UC-PS9 Add or update an academic level, UC-PS11 Add or update an identification type, UC-PS20 Associate a health facility with a training institution, UC-PS18 Associate a training institution with a health facility, UC-PS22 Enter inspection information
 
 ### A-PS2 Records Officer
+
+Role: [Records Officer](roles.md#ihris-a-ps2) (`ihris-a-ps2`)
 
 This person is responsible for basic data entry, including initial indexing and upgrades of health professional students entering training programs, tracking out migration verifications and demographic data entry.
 
@@ -55,6 +59,8 @@ This person is responsible for basic data entry, including initial indexing and 
 
 ### A-PS3 Registration Supervisor
 
+Role: [Registration Supervisor](roles.md#ihris-a-ps3) (`ihris-a-ps3`)
+
 This person is responsible for data entry related to licensing updates, including entering initial registration, issuing new licenses and license renewals, issuing and renewing private practice licenses, and registering and licensing foreign-trained health care professionals applying to work in the country.
 
 **Goals**
@@ -72,6 +78,8 @@ This person is responsible for data entry related to licensing updates, includin
 
 ### A-PS4 Examination Supervisor
 
+Role: [Examination Supervisor](roles.md#ihris-a-ps4) (`ihris-a-ps4`)
+
 This person is responsible for data entry related to national exams, including verifying applications to take exams and recording results. This is an optional role, used only when entering examination results is required for the system.
 
 **Goals**
@@ -87,6 +95,8 @@ This person is responsible for data entry related to national exams, including v
 
 ### A-PS5 Decision Maker
 
+Role: [Decision Maker](roles.md#ihris-a-ps5) (`ihris-a-ps5`)
+
 This person runs reports in order to view and analyze data, and make health workforce policy and planning decisions. This person does not perform any data entry tasks.
 
 **Goals**
@@ -94,6 +104,8 @@ This person runs reports in order to view and analyze data, and make health work
 - Generate reports to analyze data entered in the system.
 
 ### A-PS6 Any User
+
+Role: [Any User](roles.md#ihris-a-ps6) (`ihris-a-ps6`)
 
 A generic user (applies to all users of the system).
 
@@ -115,7 +127,7 @@ The Data Operations Manager adds or edits the list of qualifications that are av
 | | |
 |---|---|
 | Priority | P7 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -150,7 +162,7 @@ The Data Operations Manager enters or edits a cadre for selection within the sys
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -189,7 +201,7 @@ The Data Operations Manager enters valid continuing education courses for select
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -224,7 +236,7 @@ The Data Operations Manager adds a new broad category to contain reasons for dis
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -259,7 +271,7 @@ The Data Operations Manager adds or edits a reason for disciplinary action for d
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -297,7 +309,7 @@ The Data Operations Manager adds or edits a reason for out migration to the syst
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -332,7 +344,7 @@ The Data Operations Manager adds a new broad category to contain reasons for tra
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -367,7 +379,7 @@ The Data Operations Manager adds or edits a reason for training disruption for d
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -405,7 +417,7 @@ The Data Operations Manager adds or edits the list of academic levels that are a
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -440,7 +452,7 @@ The Data Operations Manager updates the list of certificates that are available 
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -478,7 +490,7 @@ The Data Operations Manager updates a list of identification types that are avai
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -517,7 +529,7 @@ The Data Operations Manager adds a new marital status to the system that is avai
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -556,7 +568,7 @@ The Data Operations Manager updates the list of countries available for selectio
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -606,7 +618,7 @@ The Data Operations Manager updates the list of regions available for selection 
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -654,7 +666,7 @@ The Data Operations Manager updates the list of districts available for selectio
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -704,7 +716,7 @@ The Data Operations Manager updates the list of counties available for selection
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -755,7 +767,7 @@ The Data Operations Manager adds a new health facility or updates an existing he
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -813,7 +825,7 @@ The Data Operations Manager selects one or more training institutions that are a
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -847,7 +859,7 @@ The Data Operations Manager enters identifying information about a training inst
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -902,7 +914,7 @@ The Data Operations Manager selects one or more health facilities that are assoc
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -937,7 +949,7 @@ The Data Operations Manager associates a cadre with a training institution so th
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -982,7 +994,7 @@ The Data Operations Manager records the details of a training institution's insp
 | | |
 |---|---|
 | Priority | P2 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1022,7 +1034,7 @@ The Data Operations Manager adds or edits a facility agent for selection in the 
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1057,7 +1069,7 @@ The Data Operations Manager adds a new facility type for selection in the system
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1096,7 +1108,7 @@ The Data Operations Manager adds a new facility status for selection in the syst
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1131,7 +1143,7 @@ The Data Operations Manager adds a new verification change option for selection 
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Data Operations Manager |
+| Primary actors | [Data Operations Manager](roles.md#ihris-a-ps1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1178,7 +1190,7 @@ The Records Officer creates an initial record for a person in the system.
 | | |
 |---|---|
 | Priority | P4 |
-| Primary actors | Records Officer |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2) |
 | Level | User |
 | Complexity | Low |
 | Status | Updated |
@@ -1237,7 +1249,7 @@ The Records Officer enters identifications into a person's record.
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1272,7 +1284,7 @@ The Records Officer adds demographic information about a person to his or her re
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1312,7 +1324,7 @@ The Records Officer adds secondary education information about a person to his o
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1349,7 +1361,7 @@ The Records Officer adds any type of contact information for a person or institu
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2) |
 | Level | Subfunction |
 | Complexity | Low |
 | Status | Released |
@@ -1395,7 +1407,7 @@ The Records Officer or Registration Supervisor records notes about a particular 
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer, Registration Supervisor |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2), [Registration Supervisor](roles.md#ihris-a-ps3) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1429,7 +1441,7 @@ The Records Officer records a verification of a user's record.
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1474,7 +1486,7 @@ The Records Officer records details about the training program that the student 
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1531,7 +1543,7 @@ If a student has discontinued a training program, the Records Officer notes this
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1574,7 +1586,7 @@ If the student has resumed training after a disruption, the Records Officer note
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1606,7 +1618,7 @@ The Records Officer sets a graduation date for a student to indicate that the st
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1641,7 +1653,7 @@ The Examination Supervisor or Records Officer documents a student's application 
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Examination Supervisor, Records Officer |
+| Primary actors | [Examination Supervisor](roles.md#ihris-a-ps4), [Records Officer](roles.md#ihris-a-ps2) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1716,7 +1728,7 @@ The Registration Supervisor documents an application for registration and issues
 | | |
 |---|---|
 | Priority | P7 |
-| Primary actors | Registration Supervisor |
+| Primary actors | [Registration Supervisor](roles.md#ihris-a-ps3) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1764,7 +1776,7 @@ The Registration Supervisor issues a new license to a health care professional w
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Registration Supervisor |
+| Primary actors | [Registration Supervisor](roles.md#ihris-a-ps3) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1808,7 +1820,7 @@ The Registration Supervisor records a license renewal.
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Registration Supervisor |
+| Primary actors | [Registration Supervisor](roles.md#ihris-a-ps3) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1852,7 +1864,7 @@ The Registration Supervisor documents continuing medical education requirements 
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | Registration Supervisor |
+| Primary actors | [Registration Supervisor](roles.md#ihris-a-ps3) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1888,7 +1900,7 @@ The Registration Supervisor issues a private practice license to a health care w
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Registration Supervisor |
+| Primary actors | [Registration Supervisor](roles.md#ihris-a-ps3) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1939,7 +1951,7 @@ If a member has been disciplined, the Registration Supervisor notes this with th
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Registration Supervisor |
+| Primary actors | [Registration Supervisor](roles.md#ihris-a-ps3) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1983,7 +1995,7 @@ If the member has been reinstated after a disciplinary action, the Registration 
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Registration Supervisor |
+| Primary actors | [Registration Supervisor](roles.md#ihris-a-ps3) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -2017,7 +2029,7 @@ The Registration Supervisor or Records Officer enters or updates a health care w
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer, Registration Supervisor |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2), [Registration Supervisor](roles.md#ihris-a-ps3) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -2053,7 +2065,7 @@ When a verification request is received for a health care worker, the Records Of
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Records Officer |
+| Primary actors | [Records Officer](roles.md#ihris-a-ps2) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -2099,6 +2111,7 @@ Each training receives a unique index number, which is tied to that training pro
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 2.0 |
 
 Referenced by: UC-PS35
@@ -2112,6 +2125,7 @@ When a person receives a subsequent training in another cadre other than the one
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 2.0 |
 
 Referenced by: UC-PS35
@@ -2125,6 +2139,7 @@ A training may be received inside or outside the country.
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 2.0 |
 
 Referenced by: UC-PS35
@@ -2138,6 +2153,7 @@ Recording examination results is optional. The examination number must be unique
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 2.0 |
 
 Referenced by: UC-PS39
@@ -2151,6 +2167,7 @@ A person can retake the exam three times by default. They must receive a passing
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 1.0 |
 
 Referenced by: UC-PS39
@@ -2164,6 +2181,7 @@ When a person opens a clinic, s/he receives a private practice license in their 
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 2.0 |
 
 Referenced by: UC-PS44
@@ -2177,6 +2195,7 @@ Disciplinary action can only be recorded after a license has been issued.
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 2.0 |
 
 Referenced by: UC-PS45
@@ -2203,6 +2222,7 @@ The registration number is the person's main identification number. It must be u
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 2.0 |
 
 Referenced by: UC-PS40
@@ -2216,6 +2236,7 @@ The only details about a training that must be recorded are the cadre and traini
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 2.0 |
 
 Referenced by: UC-PS35, UC-PS40
@@ -2229,6 +2250,7 @@ Registration numbers are tied to cadres. When a person receives more than one re
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 1.0 |
 
 Referenced by: UC-PS40
@@ -2242,6 +2264,7 @@ When the person applies for a license, the registration number is reused for the
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 2.0 |
 
 Referenced by: UC-PS41
@@ -2255,6 +2278,7 @@ When a license is renewed, the original license number is provided for the renew
 | Priority | P1 |
 | Type | Business Rule |
 | Status | Implemented |
+| Source | [2009 iHRIS staff member 02 (identity withheld)](roles.md#ihris-2009-staff-02) |
 | Release | 2.0 |
 
 Referenced by: UC-PS43, UC-PS42

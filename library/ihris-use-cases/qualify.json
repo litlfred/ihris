@@ -28,7 +28,7 @@
  "withheld": [
   {
    "field": "source",
-   "why": "a named person",
+   "why": "a named person: referenced by an opaque actor (scenarios/actors/ihris-2009-staff-NN.json), identity withheld",
    "count": 12
   }
  ],
@@ -157,7 +157,8 @@
      "id": "UC-PS22",
      "title": "Enter inspection information"
     }
-   ]
+   ],
+   "role": "ihris-a-ps1"
   },
   {
    "id": "A-PS2",
@@ -235,7 +236,8 @@
      "id": "UC-PS47",
      "title": "Update deployment information"
     }
-   ]
+   ],
+   "role": "ihris-a-ps2"
   },
   {
    "id": "A-PS3",
@@ -291,7 +293,8 @@
      "id": "UC-PS47",
      "title": "Update deployment information"
     }
-   ]
+   ],
+   "role": "ihris-a-ps3"
   },
   {
    "id": "A-PS4",
@@ -317,7 +320,8 @@
      "id": "UC-PS39",
      "title": "Record exam details"
     }
-   ]
+   ],
+   "role": "ihris-a-ps4"
   },
   {
    "id": "A-PS5",
@@ -327,7 +331,8 @@
     "Generate reports to analyze data entered in the system."
    ],
    "notes": [],
-   "useCases": []
+   "useCases": [],
+   "role": "ihris-a-ps5"
   },
   {
    "id": "A-PS6",
@@ -337,7 +342,8 @@
     "Search for and view a record."
    ],
    "notes": [],
-   "useCases": []
+   "useCases": [],
+   "role": "ihris-a-ps6"
   }
  ],
  "root": {
@@ -400,7 +406,7 @@
       "description": "The Data Operations Manager adds or edits the list of qualifications that are available for selection within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -469,7 +475,7 @@
       "description": "The Data Operations Manager enters or edits a cadre for selection within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -557,7 +563,7 @@
       "description": "The Data Operations Manager enters valid continuing education courses for selection when renewing a license.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -619,7 +625,7 @@
       "description": "The Data Operations Manager adds a new broad category to contain reasons for disciplinary action.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -688,7 +694,7 @@
       "description": "The Data Operations Manager adds or edits a reason for disciplinary action for display in selection menus.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -772,7 +778,7 @@
       "description": "The Data Operations Manager adds or edits a reason for out migration to the system and makes it available for selection.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -841,7 +847,7 @@
       "description": "The Data Operations Manager adds a new broad category to contain reasons for training disruption.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -910,7 +916,7 @@
       "description": "The Data Operations Manager adds or edits a reason for training disruption for display in selection menus.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -994,7 +1000,7 @@
       "description": "The Data Operations Manager adds or edits the list of academic levels that are available for selection within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1063,7 +1069,7 @@
       "description": "The Data Operations Manager updates the list of certificates that are available for selection within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1147,7 +1153,7 @@
       "description": "The Data Operations Manager updates a list of identification types that are available for selection within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1223,7 +1229,7 @@
       "description": "The Data Operations Manager adds a new marital status to the system that is available in selection lists.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1299,7 +1305,7 @@
       "description": "The Data Operations Manager updates the list of countries available for selection in the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1430,7 +1436,7 @@
       "description": "The Data Operations Manager updates the list of regions available for selection in the system and establishes the region's parent country.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1548,7 +1554,7 @@
       "description": "The Data Operations Manager updates the list of districts available for selection in the system and establishes the district's parent region.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1674,7 +1680,7 @@
       "description": "The Data Operations Manager updates the list of counties available for selection in the system and establishes the county's parent district.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1804,7 +1810,7 @@
       "description": "The Data Operations Manager adds a new health facility or updates an existing health facility in the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1968,7 +1974,7 @@
       "description": "The Data Operations Manager selects one or more training institutions that are associated with a particular health facility.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system. The health facility's record must have been previously created.",
@@ -2030,7 +2036,7 @@
       "description": "The Data Operations Manager enters identifying information about a training institution so that it may be used within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -2179,7 +2185,7 @@
       "description": "The Data Operations Manager selects one or more health facilities that are associated with a particular training institution.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system. The training institution's record must have been previously created.",
@@ -2245,7 +2251,7 @@
       "description": "The Data Operations Manager associates a cadre with a training institution so that when a new training is added to a student's record, the cadre is available for selection when that training institution is selected.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The training institution has been added to the system. The user must be logged in to the system.",
@@ -2360,7 +2366,7 @@
       "description": "The Data Operations Manager records the details of a training institution's inspection.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The training institution has already been added to the system. The user must be logged in to the system.",
@@ -2446,7 +2452,7 @@
       "description": "The Data Operations Manager adds or edits a facility agent for selection in the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -2515,7 +2521,7 @@
       "description": "The Data Operations Manager adds a new facility type for selection in the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -2591,7 +2597,7 @@
       "description": "The Data Operations Manager adds a new facility status for selection in the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -2660,7 +2666,7 @@
       "description": "The Data Operations Manager adds a new verification change option for selection in the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "Data Operations Manager"
+       "ihris-a-ps1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -2761,7 +2767,7 @@
         "description": "The Records Officer creates an initial record for a person in the system.",
         "parent": "General",
         "primaryActors": [
-         "Records Officer"
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The user must be logged in to the system. The personal title, nationality, country and district of residence have been entered in the system.",
@@ -2903,7 +2909,7 @@
         "description": "The Records Officer enters identifications into a person's record.",
         "parent": "General",
         "primaryActors": [
-         "Records Officer"
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The required identification types have been added to the system. The person has a record in the system. The user must be logged in to the system.",
@@ -2965,7 +2971,7 @@
         "description": "The Records Officer adds demographic information about a person to his or her record.",
         "parent": "General",
         "primaryActors": [
-         "Records Officer"
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The person has a record in the system. The user must be logged in to the system. The marital status and country, district and county have been entered into the system for selection.",
@@ -3047,7 +3053,7 @@
         "description": "The Records Officer adds secondary education information about a person to his or her record.",
         "parent": "General",
         "primaryActors": [
-         "Records Officer"
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The person has a record in the system. The correct academic levels and certificates have been entered into the system. The user is logged in.",
@@ -3116,7 +3122,7 @@
         "description": "The Records Officer adds any type of contact information for a person or institution.",
         "parent": "General",
         "primaryActors": [
-         "Records Officer"
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The record exists in the system. The user must be logged in to the system.",
@@ -3216,8 +3222,8 @@
         "description": "The Records Officer or Registration Supervisor records notes about a particular person and saves them with the person's record.",
         "parent": "General",
         "primaryActors": [
-         "Records Officer",
-         "Registration Supervisor"
+         "ihris-a-ps2",
+         "ihris-a-ps3"
         ],
         "supportingActors": [],
         "preconditions": "The person has a record in the system. The user must be logged in to the system.",
@@ -3279,7 +3285,7 @@
         "description": "The Records Officer records a verification of a user's record.",
         "parent": "General",
         "primaryActors": [
-         "Records Officer"
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The verification change has been entered in the system. The user is logged in.",
@@ -3368,7 +3374,7 @@
         "description": "The Records Officer records details about the training program that the student is enrolled in.",
         "parent": "Training",
         "primaryActors": [
-         "Records Officer"
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The training institution and its cadres have already been entered into the system. The initial record for the student has been created. The user must be logged in to the system.",
@@ -3530,7 +3536,7 @@
         "description": "If a student has discontinued a training program, the Records Officer notes this with the student's record.",
         "parent": "Training",
         "primaryActors": [
-         "Records Officer"
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The appropriate disruption category and disruption reason have been added to the system. The student record has been created and the enrollment in a training program has been recorded in the student's record. The user must be logged in to the system.",
@@ -3624,7 +3630,7 @@
         "description": "If the student has resumed training after a disruption, the Records Officer notes this along with the resumption date.",
         "parent": "Training",
         "primaryActors": [
-         "Records Officer"
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The student's training disruption has been recorded with the student's record in the system. The user must be logged in to the system.",
@@ -3678,7 +3684,7 @@
         "description": "The Records Officer sets a graduation date for a student to indicate that the student has completed training.",
         "parent": "Training",
         "primaryActors": [
-         "Records Officer"
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The user is logged in to the system. The student has entered a training program, which has been entered in the system, but has not completed or discontinued it.",
@@ -3743,8 +3749,8 @@
         "description": "The Examination Supervisor or Records Officer documents a student's application to take the national exam and the results.",
         "parent": "Training",
         "primaryActors": [
-         "Examination Supervisor",
-         "Records Officer"
+         "ihris-a-ps4",
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The student has completed a training and training information has been entered in the student's record. The user must be logged in to the system.",
@@ -3952,7 +3958,7 @@
         "description": "The Registration Supervisor documents an application for registration and issues a registration number.",
         "parent": "Licensing",
         "primaryActors": [
-         "Registration Supervisor"
+         "ihris-a-ps3"
         ],
         "supportingActors": [],
         "preconditions": "The student completed a training (the end date of the training has been recorded). The user must be logged in to the system.",
@@ -4068,7 +4074,7 @@
         "description": "The Registration Supervisor issues a new license to a health care professional who has successfully registered, with a license number.",
         "parent": "Licensing",
         "primaryActors": [
-         "Registration Supervisor"
+         "ihris-a-ps3"
         ],
         "supportingActors": [],
         "preconditions": "The person has been issued a registration, and that has been recorded in his/her record. The user must be logged in to the system.",
@@ -4165,7 +4171,7 @@
         "description": "The Registration Supervisor records a license renewal.",
         "parent": "Licensing",
         "primaryActors": [
-         "Registration Supervisor"
+         "ihris-a-ps3"
         ],
         "supportingActors": [],
         "preconditions": "The person has previously been issued a license number in the system. The user must be logged in to the system.",
@@ -4262,7 +4268,7 @@
         "description": "The Registration Supervisor documents continuing medical education requirements that have been fulfilled by the health worker to meet license renewal requirements.",
         "parent": "Licensing",
         "primaryActors": [
-         "Registration Supervisor"
+         "ihris-a-ps3"
         ],
         "supportingActors": [],
         "preconditions": "The person has been issued a license, which has been recorded in his/her record. The appropriate continuing education courses have been entered in the system for selection. The user must be logged in to the system.",
@@ -4332,7 +4338,7 @@
         "description": "The Registration Supervisor issues a private practice license to a health care worker applying to operate a private health facility.",
         "parent": "Licensing",
         "primaryActors": [
-         "Registration Supervisor"
+         "ihris-a-ps3"
         ],
         "supportingActors": [],
         "preconditions": "The worker has received a license, which has been recorded in the system. The health facility where the person will be practicing has been entered in the database. The user must be logged in to the system.",
@@ -4461,7 +4467,7 @@
         "description": "If a member has been disciplined, the Registration Supervisor notes this with the member's record.",
         "parent": "Licensing",
         "primaryActors": [
-         "Registration Supervisor"
+         "ihris-a-ps3"
         ],
         "supportingActors": [],
         "preconditions": "The health worker has been issued a license, which has been recorded in the system. The appropriate disciplinary category and reason have been added to the system. The user must be logged in to the system.",
@@ -4550,7 +4556,7 @@
         "description": "If the member has been reinstated after a disciplinary action, the Registration Supervisor notes this along with the reinstatement date.",
         "parent": "Licensing",
         "primaryActors": [
-         "Registration Supervisor"
+         "ihris-a-ps3"
         ],
         "supportingActors": [],
         "preconditions": "The health worker has been issued a license that has been suspended, and this has been recorded in the system. The user must be logged in to the system.",
@@ -4608,8 +4614,8 @@
         "description": "The Registration Supervisor or Records Officer enters or updates a health care worker's deployment information.",
         "parent": "Licensing",
         "primaryActors": [
-         "Records Officer",
-         "Registration Supervisor"
+         "ihris-a-ps2",
+         "ihris-a-ps3"
         ],
         "supportingActors": [],
         "preconditions": "The person has been registered, which has been entered in the system. The health care facility where the person is deployed has been entered into the database. The user must be logged in to the system.",
@@ -4679,7 +4685,7 @@
         "description": "When a verification request is received for a health care worker, the Records Officer documents such details as the country the person is migrating to and the reason for migrating, which may be useful in analyzing health worker retention issues.",
         "parent": "Licensing",
         "primaryActors": [
-         "Records Officer"
+         "ihris-a-ps2"
         ],
         "supportingActors": [],
         "preconditions": "The person has been issued a registration in the system. The user must be logged in to the system.",
@@ -4785,7 +4791,10 @@
       "release": "2.0",
       "referencedBy": [
        "UC-PS35"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS4",
@@ -4799,7 +4808,10 @@
       "release": "2.0",
       "referencedBy": [
        "UC-PS35"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS5",
@@ -4813,7 +4825,10 @@
       "release": "2.0",
       "referencedBy": [
        "UC-PS35"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS6",
@@ -4827,7 +4842,10 @@
       "release": "2.0",
       "referencedBy": [
        "UC-PS39"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS7",
@@ -4841,7 +4859,10 @@
       "release": "1.0",
       "referencedBy": [
        "UC-PS39"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS8",
@@ -4855,7 +4876,10 @@
       "release": "2.0",
       "referencedBy": [
        "UC-PS44"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS9",
@@ -4869,7 +4893,10 @@
       "release": "2.0",
       "referencedBy": [
        "UC-PS45"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS10",
@@ -4898,7 +4925,10 @@
       "release": "2.0",
       "referencedBy": [
        "UC-PS40"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS12",
@@ -4913,7 +4943,10 @@
       "referencedBy": [
        "UC-PS35",
        "UC-PS40"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS13",
@@ -4927,7 +4960,10 @@
       "release": "1.0",
       "referencedBy": [
        "UC-PS40"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS14",
@@ -4941,7 +4977,10 @@
       "release": "2.0",
       "referencedBy": [
        "UC-PS41"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS15",
@@ -4956,7 +4995,10 @@
       "referencedBy": [
        "UC-PS43",
        "UC-PS42"
-      ]
+      ],
+      "source": {
+       "actor": "ihris-2009-staff-02"
+      }
      },
      {
       "id": "REQ-PS16",

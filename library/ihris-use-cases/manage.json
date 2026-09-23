@@ -28,7 +28,7 @@
  "withheld": [
   {
    "field": "assignedTo",
-   "why": "staff initials",
+   "why": "staff initials: referenced by an opaque actor (scenarios/actors/ihris-2009-staff-NN.json), identity withheld",
    "count": 12
   }
  ],
@@ -154,7 +154,8 @@
      "id": "UC-PT35",
      "title": "Record a salary change"
     }
-   ]
+   ],
+   "role": "ihris-a-pt1"
   },
   {
    "id": "A-PT2",
@@ -274,7 +275,8 @@
      "id": "UC-PT24",
      "title": "Update a position"
     }
-   ]
+   ],
+   "role": "ihris-a-pt2"
   },
   {
    "id": "A-PT3",
@@ -303,7 +305,8 @@
      "id": "UC-PT45",
      "title": "Review applicants"
     }
-   ]
+   ],
+   "role": "ihris-a-pt3"
   },
   {
    "id": "A-PT8",
@@ -378,7 +381,8 @@
      "id": "UC-PT59",
      "title": "Schedule a training for an employee"
     }
-   ]
+   ],
+   "role": "ihris-a-pt8"
   }
  ],
  "root": {
@@ -456,7 +460,7 @@
       "description": "The HR Manager adds a new facility type for selection in the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -537,7 +541,7 @@
       "description": "The HR Manager adds a new office or facility for selection within the system and ties it to an institution type.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -693,7 +697,7 @@
       "description": "The HR Manager adds a new department to the list of departments available for selection in the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -769,7 +773,7 @@
       "description": "The HR Manager adds a new registration council to the list of registration councils available for selection in the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -845,7 +849,7 @@
       "description": "The HR Manager updates a list of education types that are available for selection within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -921,7 +925,7 @@
       "description": "The HR Manager adds a type of educational institution to the system and associates it with degrees that it issues.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1046,7 +1050,7 @@
       "description": "The HR Manager updates a list of languages that are available for selection within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1122,7 +1126,7 @@
       "description": "The HR Manager updates a list of identification types that are available for selection within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1203,7 +1207,7 @@
       "description": "The HR Manager updates a list of benefit types that are available for selection within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system",
@@ -1279,7 +1283,7 @@
       "description": "The HR Manager adds a new marital status to the system that is available in selection lists.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1360,7 +1364,7 @@
       "description": "The HR Manager updates a list of reasons for departure that are available for selection within the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1436,7 +1440,7 @@
       "description": "The HR Manager updates the list of countries available for selection in the system.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1572,7 +1576,7 @@
       "description": "The HR Manager updates the list of regions available for selection in the system and establishes the region's parent country.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1706,7 +1710,7 @@
       "description": "The HR Manager updates the list of districts available for selection in the system and establishes the district's parent region.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1837,7 +1841,7 @@
       "description": "The HR Manager updates the list of counties available for selection in the system and establishes the county's parent district.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -1972,7 +1976,7 @@
       "description": "The HR Manager adds a currency for selection when setting salaries and other monetary amounts.",
       "parent": "Data Administration",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -2104,7 +2108,7 @@
       "description": "The HR Manager enters or edits a cadre for selection within the system.",
       "parent": "Position Management",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -2190,7 +2194,7 @@
       "description": "The HR Manager adds a job classification to which jobs can be assigned.",
       "parent": "Position Management",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -2329,7 +2333,7 @@
       "description": "The HR Manager creates a new salary grade for the organization to organize jobs.",
       "parent": "Position Management",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system. The currencies used for salary bands have been entered in the system.",
@@ -2437,7 +2441,7 @@
       "description": "The HR Manager creates a new job within the organization.",
       "parent": "Position Management",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system. A job classification or cadre for the job must be defined, if required. If a salary grade is to be assigned, it must be defined.",
@@ -2547,7 +2551,7 @@
       "description": "The HR Manager creates a new salary source for designating sources of salaries or special payments.",
       "parent": "Position Management",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -2623,7 +2627,7 @@
       "description": "The HR Manager creates a new position type for categorizing positions.",
       "parent": "Position Management",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -2699,7 +2703,7 @@
       "description": "HR Staff creates a position within the organization to be filled by a hire, promotion or transfer; this may be either a new position or re-enabling a previously discontinued position.",
       "parent": "Position Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system. The generic job for the position has been created. The office/facility where the position is located has been defined in the system. The department, position type and salary source have been defined in the system, if used. The currency for the proposed salary has been defined in the system, if used.",
@@ -2866,7 +2870,7 @@
       "description": "HR Staff changes any information pertaining to a position.",
       "parent": "Position Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -2940,7 +2944,7 @@
       "description": "When a position is no longer needed and no employee is filling it, HR Staff removes it from the position hierarchy.",
       "parent": "Position Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The employee has vacated the position, and the position is marked as open. The user must be logged in to the system.",
@@ -3024,7 +3028,7 @@
       "description": "HR Staff creates a record for a new employee or applicant and enters all the pertinent information about that person.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system. The personal title, nationality, country and district of residence have been entered in the system.",
@@ -3148,7 +3152,7 @@
       "description": "HR Staff sets a position for an employee of the organization.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system. The position has been created in the system. The employee record has been created. The employee is not currently assigned a position. The currency for the salary has been defined in the system.",
@@ -3222,7 +3226,7 @@
       "description": "HR Staff enters identifications into a person's record.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The identification types have been added to the system. The person has a record in the system. The user must be logged in to the system.",
@@ -3294,7 +3298,7 @@
       "description": "HR Staff adds demographic information about a person to his or her record.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The person has a record in the system. The user must be logged in to the system. The marital status has been entered into the system for selection.",
@@ -3360,7 +3364,7 @@
       "description": "HR Staff adds or updates any type of contact information for a person or institution.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The record exists in the system. The user must be logged in to the system.",
@@ -3465,7 +3469,7 @@
       "description": "HR Staff records a payment for an employee that is paid in addition to the salary.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The employee has a record in the system. The user must be logged in to the system. The special payment type and source have been entered into the system. The currency has been entered in the system.",
@@ -3569,7 +3573,7 @@
       "description": "HR staff records the departure of an employee from the organization.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The employee has a record in the system. The user must be logged in to the system. The reason for departure must be entered into the system.",
@@ -3646,7 +3650,7 @@
       "description": "HR Staff notes that an employee has been transferred or promoted to a new position and either reopens the position that the employee held or discontinues it.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The employee has a record in the system. The user must be logged in to the system. The reason for departure must be entered into the system. The currency for the new position must be entered in the system. The new position must be added as an open position.",
@@ -3731,8 +3735,8 @@
       "description": "HR Staff records a change in salary for an employee and updates the employee's salary history.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Manager",
-       "HR Staff"
+       "ihris-a-pt1",
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The employee has a record in the system. The user must be logged in to the system. The currency must be entered in the system.",
@@ -3809,7 +3813,7 @@
       "description": "HR Staff adds licenses or registrations to a person's record.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The registration council must be added to the database. The person's record must have been created in the system. The user must be logged in to the system.",
@@ -3866,7 +3870,7 @@
       "description": "HR Staff adds language skills to a person's record.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The language must be added to the database. The person's record must have been created in the system. The user must be logged in to the system.",
@@ -3931,7 +3935,7 @@
       "description": "Enter a history of past employers of a person into the system.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The user has a record in the system. The currency of former salaries has been defined in the system. The user must be logged in to the system.",
@@ -4042,7 +4046,7 @@
       "description": "HR Staff enters educational history into the system.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The user has a record in the system. At least one educational institution type and associated degree has been entered in the system. The user must be logged in to the system.",
@@ -4129,7 +4133,7 @@
       "description": "HR Staff records notes about a particular person and saves them with the person's record.",
       "parent": "Employee Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The person has a record in the system. The user must be logged in to the system.",
@@ -4215,7 +4219,7 @@
       "description": "An HR staff person completes a job application form and records information about a job applicant in the system.",
       "parent": "Job Applicant Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The position has been created and is listed as an open position. The application module is enabled.",
@@ -4368,7 +4372,7 @@
       "description": "HR Staff can enter details about an interview with a job applicant.",
       "parent": "Job Applicant Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The application module is enabled. An application has been completed for the position. The user must be logged into the system. .",
@@ -4438,7 +4442,7 @@
       "description": "HR Staff logs a decision whether or not to hire an applicant for a position for which the applicant has applied.",
       "parent": "Job Applicant Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The application module is enabled. An application has been completed for the position. The user must be logged into the system.",
@@ -4509,8 +4513,8 @@
       "description": "The Manager lists the names of Applicants for a particular position and reviews the applications.",
       "parent": "Job Applicant Management",
       "primaryActors": [
-       "Executive Manager",
-       "HR Staff"
+       "ihris-a-pt3",
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The application module is enabled. An applicant has completed an application form for the position. The user must be logged in to the system.",
@@ -4568,7 +4572,7 @@
       "description": "HR Staff moves a job applicant into an open position, fills out any information required for hiring the person and enters work contact information.",
       "parent": "Job Applicant Management",
       "primaryActors": [
-       "HR Staff"
+       "ihris-a-pt2"
       ],
       "supportingActors": [],
       "preconditions": "The application module is enabled. The applicant has applied for a position. The user must be logged in to the system. The currency must be defined in the system for the position salary.",
@@ -4724,8 +4728,8 @@
       "description": "The Training Manager updates a list of competency categories or competencies.",
       "parent": "Competency Model",
       "primaryActors": [
-       "HR Manager",
-       "Training Manager"
+       "ihris-a-pt1",
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -4831,7 +4835,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT68",
@@ -4841,7 +4848,7 @@
       "description": "The Training Manager updates the competency evaluations for selection within the system.",
       "parent": "Competency Model",
       "primaryActors": [
-       "Training Manager"
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -4901,7 +4908,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT50",
@@ -4911,8 +4921,8 @@
       "description": "The Training Manager adds to or updates the list of competencies obtained by an employee.",
       "parent": "Competency Model",
       "primaryActors": [
-       "HR Staff",
-       "Training Manager"
+       "ihris-a-pt2",
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The person has a record in the system. The user must be logged in to the system. The competency and competency evaluation must be added to the system.",
@@ -5048,7 +5058,7 @@
       "description": "The Training Manager adds details about a training funder to the system.",
       "parent": "Training Management",
       "primaryActors": [
-       "Training Manager"
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The training module is enabled. The user must be logged in to the system.",
@@ -5112,7 +5122,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT54",
@@ -5122,7 +5135,7 @@
       "description": "The Training Manager adds details about a training organization to the system.",
       "parent": "Training Management",
       "primaryActors": [
-       "Training Manager"
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The training module is enabled. The user must be logged in to the system.",
@@ -5191,7 +5204,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT65",
@@ -5201,7 +5217,7 @@
       "description": "The Training Manager updates the status of training courses for selection within the system.",
       "parent": "Training Management",
       "primaryActors": [
-       "Training Manager"
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The training module is enabled. The user must be logged in to the system.",
@@ -5261,7 +5277,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT66",
@@ -5271,7 +5290,7 @@
       "description": "The Training Manager updates the list of requestors of training courses for selection within the system.",
       "parent": "Training Management",
       "primaryActors": [
-       "Training Manager"
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The training module is enabled. The user must be logged in to the system.",
@@ -5336,7 +5355,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT67",
@@ -5346,7 +5368,7 @@
       "description": "The Training Manager updates the list of training course evaluations, or the grade or assessment an employee earned after taking a training course, for selection within the system.",
       "parent": "Training Management",
       "primaryActors": [
-       "Training Manager"
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The training module is enabled. The user must be logged in to the system.",
@@ -5406,7 +5428,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT55",
@@ -5416,7 +5441,7 @@
       "description": "The Training Manager updates the list of training course categories for selection within the system.",
       "parent": "Training Management",
       "primaryActors": [
-       "Training Manager"
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The training module is enabled. The user must be logged in to the system.",
@@ -5476,7 +5501,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT69",
@@ -5486,7 +5514,7 @@
       "description": "The HR manager enters valid continuing education courses for selection when renewing a license.",
       "parent": "Training Management",
       "primaryActors": [
-       "HR Manager"
+       "ihris-a-pt1"
       ],
       "supportingActors": [],
       "preconditions": "The training module is enabled. The user must be logged in to the system.",
@@ -5555,7 +5583,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT56",
@@ -5565,7 +5596,7 @@
       "description": "The Training Manager adds a training offering to the system that can be requested for employees to complete.",
       "parent": "Training Management",
       "primaryActors": [
-       "Training Manager"
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The training module is enabled. The competencies must be entered in the system. The training category, status, funder and organization must be entered in the system. The user must be logged in to the system.",
@@ -5714,7 +5745,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT57",
@@ -5724,7 +5758,7 @@
       "description": "The Training Manager enters the specific dates, duration and location of training program classes, either when entering the training program details or scheduling an employee to take a training.",
       "parent": "Training Management",
       "primaryActors": [
-       "Training Manager"
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The training module is enabled. The training program has been entered in the system. The country, district and county where the training program is located must be entered in the system. The user is logged in.",
@@ -5827,7 +5861,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT59",
@@ -5837,7 +5874,7 @@
       "description": "The Training Manager adds an employee to the schedule for a training class.",
       "parent": "Training Management",
       "primaryActors": [
-       "Training Manager"
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The training module is enabled. The user must be logged in to the system. The employee must have a record in the system. The training program must have been added to the system and at least one class must have been added for it. The requestor and evaluation must have been added to the system.",
@@ -5929,7 +5966,10 @@
         "dateAdded": "7/10/2009",
         "date": "2009-07-10"
        }
-      ]
+      ],
+      "assignedTo": {
+       "actor": "ihris-2009-staff-01"
+      }
      },
      {
       "id": "UC-PT60",
@@ -5939,7 +5979,7 @@
       "description": "After an employee has completed a training, the Training Manager assesses their performance and updates their qualifications accordingly.",
       "parent": "Training Management",
       "primaryActors": [
-       "Training Manager"
+       "ihris-a-pt8"
       ],
       "supportingActors": [],
       "preconditions": "The training module is enabled. A training with associated competencies has been scheduled for the employee. The competency evaluation has been entered in the system. The user must be logged in to the system.",

@@ -13,6 +13,14 @@ The **use cases, actors and requirements** of iHRIS Common, Manage, Qualify and 
 
 Each `<product>.json` is `ihris-use-cases/v1`. It holds the package tree, and each use case in it carries every Details field (parent, primary and supporting actors, preconditions, success guarantee, level, complexity, status, implementation status, release), its numbered main success scenario, its extensions and their steps, and its dated notes. The file also holds the actors (goals, notes, the use cases each plays a role in) and the requirements (with the use cases that reference them). Each `<product>.md` is the same content, for reading.
 
+## Roles and opaque actors
+
+Owner, 2026-09-23: *"Actors can be instantiated.... actor schema instancnes could then be referenced."* The design is folio-assistant's `cat-harness/docs/proposals/odrl-prov-actor-model.md`, section 5 step 6 (issue #1180, bean `ihris-actr`).
+
+- **Roles.** The 15 actors the reports describe (A-PT1 HR Manager, A-ICE4 Any User, ...) are **roles** in the iHRIS domain, in [`scenarios/roles.json`](scenarios/roles.json): folio-assistant's `scenarios` graph kind, validated with its own `RoleGraphSchema`. The id is `ihris-` and the A-id in lower case (`ihris-a-pt1`), and the title and description are the report's own. A-ICE4 (Common) and A-PS6 (Qualify) are both "Any User": they stay two roles, and whether they are the same is undecided. A use case's primary and supporting actors are role ids, resolved by name within the product and then in Common; each actor record carries its `role`. A-PT9 is cited only in the Manage table of contents and has no description, so it is no role.
+- **Opaque actors.** The people named in "Assigned To" (staff initials, 12 Manage use cases) and in a requirement's "Source" (12 Qualify requirements) are **one opaque actor per distinct person**, [`scenarios/actors/ihris-2009-staff-NN.json`](scenarios/actors/) (folio-assistant's `ActorDef`: id, title, kind `person`, description, no roles). The field becomes `{"actor": "ihris-2009-staff-NN"}`. NN is the order of first appearance, reading Common, Manage, Qualify, Plan, each in document order. **Who a number stands for lives in the data store only**, never in this repository.
+- [`roles.md`](roles.md) lists both, for reading; the product pages link each actor to it.
+
 ## Crosswalk to the iHRIS 4.3.3 data model
 
 [`crosswalk.json`](crosswalk.json) (`ihris-use-case-crosswalk/v1`) links each use case to the forms of this repository's iHRIS 4.3.3 data model (`src/*/modules`, `src/*/data-model`), **by name matching only**. A form matches when its name (underscores read as spaces), or a display name a module declares for it, occurs word for word in the use case's title, after simple plurals are folded. Every link says `derivedBy: name-match`. Nothing is inferred from meaning: an unmatched use case keeps `matches: null` until a person links it (AGENTS.md §7). The `csd_*` forms (OpenHIE CSD, added after 2009) are left out.
@@ -39,4 +47,4 @@ The reports cite these, and describe none of them:
 
 ## Rebuild
 
-`python3 src/tools/ingest_use_cases.py` (Tool `ihris-ingest-use-cases`). It verifies the `.doc` checksums, runs `antiword -w 0`, and parses deterministically. It stops on any text it does not recognise, rather than skip it. Everything here is **generated**: change the tool, never the output.
+`python3 src/tools/ingest_use_cases.py` (Tool `ihris-ingest-use-cases`). It verifies the `.doc` checksums, runs `antiword -w 0`, and parses deterministically. It stops on any text it does not recognise, rather than skip it, and on any use-case actor name that resolves to no role. It then builds the site into a temporary directory and fails if any withheld name or initials appear as a whole token here or in the site: only the ingester has the uploads, so CI cannot run that check. Everything here is **generated**: change the tool, never the output.

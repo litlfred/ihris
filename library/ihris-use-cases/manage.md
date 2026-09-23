@@ -24,6 +24,8 @@ Related documents: https://launchpad.net/ihris-manage, http://www.capacityprojec
 
 ### A-PT1 HR Manager
 
+Role: [HR Manager](roles.md#ihris-a-pt1) (`ihris-a-pt1`)
+
 This person is a manager of HR personnel and is responsible for ensuring that data in the system are complete, correct and up to date. This person will also run reports and analyze data in order to make organizational or individual HR decisions. This person has permission to view any record in the system.
 
 **Goals**
@@ -43,6 +45,8 @@ This person is a manager of HR personnel and is responsible for ensuring that da
 **Use cases:** UC-PT8 Add or update a benefit type, UC-PT17 Add or update a cadre, UC-PT69 Add or update a continuing education course, UC-PT11 Add or update a country, UC-PT14 Add or update a county, UC-PT15 Add or update a currency, UC-PT5 Add or update a degree, UC-PT3 Add or update a department, UC-PT13 Add or update a district, UC-PT1 Add or update a facility type, UC-PT18 Add or update a job classification, UC-PT6 Add or update a language, UC-PT9 Add or update a marital status, UC-PT22 Add or update a position type, UC-PT10 Add or update a reason for departure, UC-PT12 Add or update a region, UC-PT70 Add or update a registration council, UC-PT21 Add or update a salary source, UC-PT4 Add or update an education type, UC-PT7 Add or update an identification type, UC-PT2 Add or update an office or facility, UC-PT49 Create a competency model, UC-PT20 Create a job, UC-PT19 Create a salary grade, UC-PT35 Record a salary change
 
 ### A-PT2 HR Staff
+
+Role: [HR Staff](roles.md#ihris-a-pt2) (`ihris-a-pt2`)
 
 This person is responsible for entering and updating data in the system. This person can update and view any record in the system.
 
@@ -65,6 +69,8 @@ This person is responsible for entering and updating data in the system. This pe
 
 ### A-PT3 Executive Manager
 
+Role: [Executive Manager](roles.md#ihris-a-pt3) (`ihris-a-pt3`)
+
 This person will run reports and analyze data in order to make organizational HR decisions.
 
 **Goals**
@@ -82,6 +88,8 @@ This person will run reports and analyze data in order to make organizational HR
 **Use cases:** UC-PT45 Review applicants
 
 ### A-PT8 Training Manager
+
+Role: [Training Manager](roles.md#ihris-a-pt8) (`ihris-a-pt8`)
 
 This person is responsible for managing training programs taken by employees and updating employee competencies.
 
@@ -115,7 +123,7 @@ The HR Manager adds a new facility type for selection in the system.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -155,7 +163,7 @@ The HR Manager adds a new office or facility for selection within the system and
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -212,7 +220,7 @@ The HR Manager adds a new department to the list of departments available for se
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -252,7 +260,7 @@ The HR Manager adds a new registration council to the list of registration counc
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -292,7 +300,7 @@ The HR Manager updates a list of education types that are available for selectio
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -332,7 +340,7 @@ The HR Manager adds a type of educational institution to the system and associat
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -382,7 +390,7 @@ The HR Manager updates a list of languages that are available for selection with
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -422,7 +430,7 @@ The HR Manager updates a list of identification types that are available for sel
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -462,7 +470,7 @@ The HR Manager updates a list of benefit types that are available for selection 
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -502,7 +510,7 @@ The HR Manager adds a new marital status to the system that is available in sele
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -542,7 +550,7 @@ The HR Manager updates a list of reasons for departure that are available for se
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -582,7 +590,7 @@ The HR Manager updates the list of countries available for selection in the syst
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Status | Updated |
 | Implementation status | Complete |
@@ -633,7 +641,7 @@ The HR Manager updates the list of regions available for selection in the system
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -684,7 +692,7 @@ The HR Manager updates the list of districts available for selection in the syst
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -735,7 +743,7 @@ The HR Manager updates the list of counties available for selection in the syste
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -787,7 +795,7 @@ The HR Manager adds a currency for selection when setting salaries and other mon
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -841,7 +849,7 @@ The HR Manager enters or edits a cadre for selection within the system.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -882,7 +890,7 @@ The HR Manager adds a job classification to which jobs can be assigned.
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Medium |
 | Status | Updated |
@@ -935,7 +943,7 @@ The HR Manager creates a new salary grade for the organization to organize jobs.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -983,7 +991,7 @@ The HR Manager creates a new job within the organization.
 | | |
 |---|---|
 | Priority | P5 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Updated |
@@ -1031,7 +1039,7 @@ The HR Manager creates a new salary source for designating sources of salaries o
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1071,7 +1079,7 @@ The HR Manager creates a new position type for categorizing positions.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1111,7 +1119,7 @@ HR Staff creates a position within the organization to be filled by a hire, prom
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Medium |
 | Status | Updated |
@@ -1173,7 +1181,7 @@ HR Staff changes any information pertaining to a position.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Low |
 | Status | Updated |
@@ -1213,7 +1221,7 @@ When a position is no longer needed and no employee is filling it, HR Staff remo
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1257,7 +1265,7 @@ HR Staff creates a record for a new employee or applicant and enters all the per
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Low |
 | Status | Updated |
@@ -1311,7 +1319,7 @@ HR Staff sets a position for an employee of the organization.
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1349,7 +1357,7 @@ HR Staff enters identifications into a person's record.
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1386,7 +1394,7 @@ HR Staff adds demographic information about a person to his or her record.
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1422,7 +1430,7 @@ HR Staff adds or updates any type of contact information for a person or institu
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | Subfunction |
 | Complexity | Low |
 | Status | Released |
@@ -1469,7 +1477,7 @@ HR Staff records a payment for an employee that is paid in addition to the salar
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Medium |
 | Status | Released |
@@ -1515,7 +1523,7 @@ HR staff records the departure of an employee from the organization.
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Medium |
 | Status | Released |
@@ -1554,7 +1562,7 @@ HR Staff notes that an employee has been transferred or promoted to a new positi
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Medium |
 | Status | Released |
@@ -1595,7 +1603,7 @@ HR Staff records a change in salary for an employee and updates the employee's s
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Manager, HR Staff |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1), [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Low |
 | Status | Updated |
@@ -1634,7 +1642,7 @@ HR Staff adds licenses or registrations to a person's record.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | Subfunction |
 | Complexity | Low |
 | Status | Released |
@@ -1668,7 +1676,7 @@ HR Staff adds language skills to a person's record.
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | Subfunction |
 | Complexity | Low |
 | Status | Updated |
@@ -1704,7 +1712,7 @@ Enter a history of past employers of a person into the system.
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Medium |
 | Status | Released |
@@ -1751,7 +1759,7 @@ HR Staff enters educational history into the system.
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Medium |
 | Status | Released |
@@ -1792,7 +1800,7 @@ HR Staff records notes about a particular person and saves them with the person'
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1833,7 +1841,7 @@ An HR staff person completes a job application form and records information abou
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Low |
 | Status | Updated |
@@ -1891,7 +1899,7 @@ HR Staff can enter details about an interview with a job applicant.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1927,7 +1935,7 @@ HR Staff logs a decision whether or not to hire an applicant for a position for 
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Status | Released |
 | Implementation status | Complete |
@@ -1963,7 +1971,7 @@ The Manager lists the names of Applicants for a particular position and reviews 
 | | |
 |---|---|
 | Priority | P6 |
-| Primary actors | Executive Manager, HR Staff |
+| Primary actors | [Executive Manager](roles.md#ihris-a-pt3), [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -1997,7 +2005,7 @@ HR Staff moves a job applicant into an open position, fills out any information 
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Staff |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
@@ -2059,11 +2067,12 @@ The Training Manager updates a list of competency categories or competencies.
 | | |
 |---|---|
 | Priority | P5 |
-| Primary actors | HR Manager, Training Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1), [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Medium |
 | Status | Updated |
 | Implementation status | Partially Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 2.0 |
 
 **Preconditions.** The user must be logged in to the system.
@@ -2107,11 +2116,12 @@ The Training Manager updates the competency evaluations for selection within the
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Training Manager |
+| Primary actors | [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
 | Implementation status | Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 3.1 |
 
 **Preconditions.** The user must be logged in to the system.
@@ -2146,7 +2156,7 @@ The Training Manager adds to or updates the list of competencies obtained by an 
 | | |
 |---|---|
 | Priority | P5 |
-| Primary actors | HR Staff, Training Manager |
+| Primary actors | [HR Staff](roles.md#ihris-a-pt2), [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Low |
 | Status | Updated |
@@ -2203,11 +2213,12 @@ The Training Manager adds details about a training funder to the system.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Training Manager |
+| Primary actors | [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
 | Implementation status | Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 3.1 |
 
 **Preconditions.** The training module is enabled. The user must be logged in to the system.
@@ -2243,11 +2254,12 @@ The Training Manager adds details about a training organization to the system.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Training Manager |
+| Primary actors | [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
 | Implementation status | Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 3.1 |
 
 **Preconditions.** The training module is enabled. The user must be logged in to the system.
@@ -2284,11 +2296,12 @@ The Training Manager updates the status of training courses for selection within
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Training Manager |
+| Primary actors | [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
 | Implementation status | Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 3.1 |
 
 **Preconditions.** The training module is enabled. The user must be logged in to the system.
@@ -2323,11 +2336,12 @@ The Training Manager updates the list of requestors of training courses for sele
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Training Manager |
+| Primary actors | [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
 | Implementation status | Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 3.1 |
 
 **Preconditions.** The training module is enabled. The user must be logged in to the system.
@@ -2363,11 +2377,12 @@ The Training Manager updates the list of training course evaluations, or the gra
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Training Manager |
+| Primary actors | [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
 | Implementation status | Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 3.1 |
 
 **Preconditions.** The training module is enabled. The user must be logged in to the system.
@@ -2402,11 +2417,12 @@ The Training Manager updates the list of training course categories for selectio
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Training Manager |
+| Primary actors | [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
 | Implementation status | Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 3.1 |
 
 **Preconditions.** The training module is enabled. The user must be logged in to the system.
@@ -2441,11 +2457,12 @@ The HR manager enters valid continuing education courses for selection when rene
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | HR Manager |
+| Primary actors | [HR Manager](roles.md#ihris-a-pt1) |
 | Level | User |
 | Complexity | Low |
 | Status | Released |
 | Implementation status | Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 3.1 |
 
 **Preconditions.** The training module is enabled. The user must be logged in to the system.
@@ -2482,11 +2499,12 @@ The Training Manager adds a training offering to the system that can be requeste
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Training Manager |
+| Primary actors | [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Medium |
 | Status | Released |
 | Implementation status | Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 3.1 |
 
 **Preconditions.** The training module is enabled. The competencies must be entered in the system. The training category, status, funder and organization must be entered in the system. The user must be logged in to the system.
@@ -2540,10 +2558,11 @@ The Training Manager enters the specific dates, duration and location of trainin
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Training Manager |
+| Primary actors | [Training Manager](roles.md#ihris-a-pt8) |
 | Level | Subfunction |
 | Status | Released |
 | Implementation status | Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 3.1 |
 
 **Preconditions.** The training module is enabled. The training program has been entered in the system. The country, district and county where the training program is located must be entered in the system. The user is logged in.
@@ -2588,11 +2607,12 @@ The Training Manager adds an employee to the schedule for a training class.
 | | |
 |---|---|
 | Priority | P10 |
-| Primary actors | Training Manager |
+| Primary actors | [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Medium |
 | Status | Released |
 | Implementation status | Complete |
+| Assigned to | [2009 iHRIS staff member 01 (identity withheld)](roles.md#ihris-2009-staff-01) |
 | Release | 3.1 |
 
 **Preconditions.** The training module is enabled. The user must be logged in to the system. The employee must have a record in the system. The training program must have been added to the system and at least one class must have been added for it. The requestor and evaluation must have been added to the system.
@@ -2635,7 +2655,7 @@ After an employee has completed a training, the Training Manager assesses their 
 | | |
 |---|---|
 | Priority | P1 |
-| Primary actors | Training Manager |
+| Primary actors | [Training Manager](roles.md#ihris-a-pt8) |
 | Level | User |
 | Complexity | Medium |
 | Status | Released |

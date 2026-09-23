@@ -78,7 +78,8 @@
      "id": "UC-ICE8",
      "title": "Update a user account"
     }
-   ]
+   ],
+   "role": "ihris-a-ice1"
   },
   {
    "id": "A-ICE2",
@@ -109,7 +110,8 @@
      "id": "UC-ICE15",
      "title": "Create a report"
     }
-   ]
+   ],
+   "role": "ihris-a-ice2"
   },
   {
    "id": "A-ICE3",
@@ -130,7 +132,8 @@
      "id": "UC-ICE17",
      "title": "Run a report"
     }
-   ]
+   ],
+   "role": "ihris-a-ice3"
   },
   {
    "id": "A-ICE4",
@@ -192,7 +195,8 @@
      "id": "UC-ICE4",
      "title": "View a record"
     }
-   ]
+   ],
+   "role": "ihris-a-ice4"
   }
  ],
  "root": {
@@ -239,7 +243,7 @@
       "description": "The System Administrator configures modules that will be used by the system.",
       "parent": "System-wide",
       "primaryActors": [
-       "System Administrator"
+       "ihris-a-ice1"
       ],
       "supportingActors": [],
       "preconditions": "Hardware and supporting software have been set up properly. There is a network connection. The system files have been installed. The database connection has been established. The System Administrator account has been created.",
@@ -344,7 +348,7 @@
       "description": "The system confirms that data are entered correctly and all required data have been entered before saving that data.",
       "parent": "System-wide",
       "primaryActors": [
-       "Any User"
+       "ihris-a-ice4"
       ],
       "supportingActors": [],
       "preconditions": "Data have been entered into a data entry form. The user must be logged in to the system.",
@@ -434,7 +438,7 @@
       "description": "The user searches for a record that has been entered in the system.",
       "parent": "System-wide",
       "primaryActors": [
-       "Any User"
+       "ihris-a-ice4"
       ],
       "supportingActors": [],
       "preconditions": "The record has been entered in the system. The user must be logged in to the system.",
@@ -543,7 +547,7 @@
       "description": "The user displays a record and all the data entered for it.",
       "parent": "System-wide",
       "primaryActors": [
-       "Any User"
+       "ihris-a-ice4"
       ],
       "supportingActors": [],
       "preconditions": "The record exists in the system. The user is logged into the system.",
@@ -602,7 +606,7 @@
       "description": "When a change in information is reported, the user updates the system with that information.",
       "parent": "System-wide",
       "primaryActors": [
-       "Any User"
+       "ihris-a-ice4"
       ],
       "supportingActors": [],
       "preconditions": "The record has previously been entered in the system. The user must be logged in to the system. The user must have the access privileges required to edit the record.",
@@ -722,7 +726,7 @@
       "description": "The System Administrator creates a user account so the user can log on to the system.",
       "parent": "User Administration",
       "primaryActors": [
-       "System Administrator"
+       "ihris-a-ice1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in to the system.",
@@ -856,7 +860,7 @@
       "description": "The system administrator changes the details for a user account or closes the account.",
       "parent": "User Administration",
       "primaryActors": [
-       "System Administrator"
+       "ihris-a-ice1"
       ],
       "supportingActors": [],
       "preconditions": "The user account has been created. The user must be logged in to the system.",
@@ -942,7 +946,7 @@
       "description": "The user logs in to authenticate his/her access to the system and role and to perform any other task.",
       "parent": "User Access",
       "primaryActors": [
-       "Any User"
+       "ihris-a-ice4"
       ],
       "supportingActors": [],
       "preconditions": "A user account for the user has been created.",
@@ -1034,7 +1038,7 @@
       "description": "If the user has forgotten a password or username, s/he can generate a new one.",
       "parent": "User Access",
       "primaryActors": [
-       "Any User"
+       "ihris-a-ice4"
       ],
       "supportingActors": [],
       "preconditions": "The user has a user account on the system.",
@@ -1111,7 +1115,7 @@
       "description": "A user can change his/her own password for logging into the system.",
       "parent": "User Access",
       "primaryActors": [
-       "Any User"
+       "ihris-a-ice4"
       ],
       "supportingActors": [],
       "preconditions": "A user account has been created for the user. The user must be logged in to the system.",
@@ -1177,7 +1181,7 @@
       "description": "The user provides feedback on a specific page in the system.",
       "parent": "User Access",
       "primaryActors": [
-       "Any User"
+       "ihris-a-ice4"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged into the system.",
@@ -1251,7 +1255,7 @@
       "description": "The user logs out of the system.",
       "parent": "User Access",
       "primaryActors": [
-       "Any User"
+       "ihris-a-ice4"
       ],
       "supportingActors": [],
       "preconditions": "The user is logged in to the system.",
@@ -1332,7 +1336,7 @@
       "description": "The System Administrator creates a relationship between forms for defining reports.",
       "parent": "Reporting",
       "primaryActors": [
-       "System Administrator"
+       "ihris-a-ice1"
       ],
       "supportingActors": [],
       "preconditions": "The user must be logged in.",
@@ -1426,7 +1430,7 @@
       "description": "The Data Manager designs a report using the data contained within the system.",
       "parent": "Reporting",
       "primaryActors": [
-       "Data Manager"
+       "ihris-a-ice2"
       ],
       "supportingActors": [],
       "preconditions": "Some data have been entered into the system. The report relationship to be used for the report has been defined. The user must be logged in to the system.",
@@ -1526,7 +1530,7 @@
       "description": "The Data Manager creates a new view of a report to display the data differently.",
       "parent": "Reporting",
       "primaryActors": [
-       "Data Manager"
+       "ihris-a-ice2"
       ],
       "supportingActors": [],
       "preconditions": "Some data have been entered into the system. The user must be logged in to the system. The report relationship and report have been defined.",
@@ -1631,7 +1635,7 @@
       "description": "The user runs a report to answer a policy question.",
       "parent": "Reporting",
       "primaryActors": [
-       "Data Analyst"
+       "ihris-a-ice3"
       ],
       "supportingActors": [],
       "preconditions": "Some data have been entered into the system. The user must be logged in to the system. The report relationship, report and a view for the report have been defined.",
@@ -1775,7 +1779,7 @@
       "description": "A user imports data from another instance of the system, such as from a district or facility office to the central location.",
       "parent": "Data Management",
       "primaryActors": [
-       "System Administrator"
+       "ihris-a-ice1"
       ],
       "supportingActors": [],
       "preconditions": "An exported file of data from another instance of the system is available for importing. The user is logged in.",
@@ -1854,7 +1858,7 @@
       "description": "The user exports data to a file for import into another instance of the system, for example to export centrally managed data to an instance installed at a district office or facility.",
       "parent": "Data Management",
       "primaryActors": [
-       "System Administrator"
+       "ihris-a-ice1"
       ],
       "supportingActors": [],
       "preconditions": "Data have been entered or imported into the system. The user is logged in.",
@@ -1942,7 +1946,7 @@
       "description": "The Data Manager corrects any data previously entered in the system if those data are found to be incorrect or incomplete.",
       "parent": "Data Quality",
       "primaryActors": [
-       "Data Manager"
+       "ihris-a-ice2"
       ],
       "supportingActors": [],
       "preconditions": "The information to be corrected has been entered in the system. The user must be logged in to the system. The user must be assigned a role that is allowed to correct data in the system.",
@@ -2054,7 +2058,7 @@
       "description": "A user installs the offline tool on a local computer.",
       "parent": "Windows Version (Offline Tool)",
       "primaryActors": [
-       "Any User"
+       "ihris-a-ice4"
       ],
       "supportingActors": [],
       "preconditions": "The user has downloaded the installer program to his or her local computer.",
@@ -2237,7 +2241,7 @@
       "description": "The user can install data in the offline version for demonstration purposes.",
       "parent": "Windows Version (Offline Tool)",
       "primaryActors": [
-       "Any User"
+       "ihris-a-ice4"
       ],
       "supportingActors": [],
       "preconditions": "Offline iHRIS has been installed with at least one component of iHRIS (Plan, Manage or Qualify).",

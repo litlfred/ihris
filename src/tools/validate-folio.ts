@@ -13,6 +13,8 @@
 //   library/*/structure.json (pdf-structure/v1)   PdfStructureSchema
 //   library/*/images.json (folio-document-images/v1) ImagesSidecarSchema
 //   methodologies/*/*.md front matter             MethodologyFrontMatterSchema (folio-methodology/v1)
+//   <scenarios dir>/roles.json                    RoleGraphSchema (every directory declaring graphKinds ["scenarios"])
+//   <scenarios dir>/actors/*.json                 ActorDefSchema, strict: an actor carries nothing else (no login)
 //
 // zod drops keys a schema does not declare. So a declaration passing here says
 // nothing about ihris's own fields (`source`, `materialization`, ...). validate.py
@@ -36,6 +38,7 @@ const { PdfStructureSchema } = await S("cat-harness/schemas/pdf-structure.ts").c
 
 const { ImagesSidecarSchema } = await S("cat-harness/schemas/document-image.ts");
 const { MethodologyFrontMatterSchema } = await S("cat-harness/schemas/methodology.ts");
+const { RoleGraphSchema, ActorDefSchema } = await S("cat-harness/schemas/role-graph.ts");
 const { parse: parseYaml } = await import(resolve(process.cwd(), "node_modules/yaml/dist/index.js"));
 
 const root = process.argv[2];
@@ -89,6 +92,26 @@ check("ihris.json", "declaration", CatHarnessDeclarationSchema, decl);
 for (const i of decl.instances ?? []) {
   const rel = `${i.path}/${i.name}.json`;
   check(rel, "declaration", CatHarnessDeclarationSchema, read(rel));
+}
+// The `scenarios` graph kind: a role graph, and the actors beside it. Found from the declarations,
+// never from a hard-coded path, so a new scenarios directory is validated the moment it is declared.
+const decls: [string, any][] = [["ihris.json", decl], ...(decl.instances ?? []).map((i: any) => [`${i.path}/${i.name}.json`, read(`${i.path}/${i.name}.json`)])];
+for (const [rel, d] of decls) {
+  const base = rel.includes("/") ? rel.slice(0, rel.lastIndexOf("/")) : ".";
+  for (const dir of d.directories ?? []) {
+    if (!(dir.graphKinds ?? []).includes("scenarios")) continue;
+    const at = resolve(root, base, dir.path).slice(resolve(root).length + 1);
+    let roles: any;
+    try {
+      roles = read(`${at}/roles.json`);
+    } catch {
+      bad++;
+      console.log(`${rel}: scenarios directory ${dir.path} has no readable roles.json`);
+      continue;
+    }
+    check(`${at}/roles.json`, "role-graph", RoleGraphSchema, roles);
+    for (const a of new Glob(`${at}/actors/*.json`).scanSync(root)) check(a, "actor", ActorDefSchema.strict(), read(a));
+  }
 }
 check("ihris.config.json", "harness-config", HarnessConfigSchema, read("ihris.config.json"));
 check("beans/beans.json", "bean-graph", BeanGraphSchema, read("beans/beans.json"));

@@ -706,6 +706,137 @@ def c_use_cases(C):
     return out
 
 
+def _scenario_dirs(C):
+    """Every directory a declaration marks with the `scenarios` graph kind, repository-relative."""
+    out = []
+    for rel, d in C["declarations"]:
+        for x in d.get("directories") or []:
+            if "scenarios" in (x.get("graphKinds") or []):
+                out.append(os.path.normpath(os.path.join(os.path.dirname(rel) or ".", x["path"])))
+    return out
+
+
+def _roles(C):
+    """{role id: (rel, role)} across every scenarios directory's roles.json."""
+    out = {}
+    for d in _scenario_dirs(C):
+        rel = f"{d}/roles.json"
+        if exists(rel):
+            for r in J(rel).get("roles") or []:
+                out.setdefault(r.get("id"), (rel, r))
+    return out
+
+
+def _staff_actors(C):
+    """{actor id: (rel, actor)} for every actor file in a scenarios directory."""
+    return {J(rel).get("id"): (rel, J(rel)) for d in _scenario_dirs(C) for rel in G(f"{d}/actors/*.json")}
+
+
+def _uc_staff_refs(C):
+    """[(rel, record id, field, actor id)] for every Assigned To and requirement Source reference."""
+    out = []
+    for rel, d in C["tagged"].get("ihris-use-cases/v1", []):
+        for p in _uc_walk(d["root"]):
+            for u in p["useCases"]:
+                if "assignedTo" in u:
+                    out.append((rel, u["id"], "assignedTo", (u["assignedTo"] or {}).get("actor")))
+            for r in p["requirements"]:
+                if "source" in r:
+                    out.append((rel, r["id"], "source", (r["source"] or {}).get("actor")))
+    return out
+
+
+def c_uc_role_refs(C):
+    """Every primary or supporting actor of a use case, and every actor record's `role`, is a declared Role."""
+    roles, out = _roles(C), []
+    for rel, d in C["tagged"].get("ihris-use-cases/v1", []):
+        for a in d["actors"]:
+            if a.get("role") not in roles:
+                out.append(f"{rel}: actor {a['id']} names role {a.get('role')!r}, which no scenarios roles.json declares")
+        for p in _uc_walk(d["root"]):
+            for u in p["useCases"]:
+                for k in ("primaryActors", "supportingActors"):
+                    for r in u.get(k) or []:
+                        if r not in roles:
+                            out.append(f"{rel}: {u['id']} {k} {r!r} is not a declared role")
+    return out
+
+
+def c_uc_staff_refs(C):
+    """Every Assigned To / Source reference resolves to an actor file, and the references of each field
+    number exactly what `withheld` records for it."""
+    actors, out = _staff_actors(C), []
+    refs = _uc_staff_refs(C)
+    for rel, rid, field, aid in refs:
+        if aid not in actors:
+            out.append(f"{rel}: {rid} {field} -> {aid!r}, which is no actor file")
+    for rel, d in C["tagged"].get("ihris-use-cases/v1", []):
+        have = {}
+        for r, _, field, _ in refs:
+            if r == rel:
+                have[field] = have.get(field, 0) + 1
+        said = {w["field"]: w["count"] for w in d["withheld"]}
+        if have != said:
+            out.append(f"{rel}: withheld records {said} but the records carry {have} actor references")
+    return out
+
+
+def c_staff_actors(C):
+    """Opaque actors: the file is named for its id; ids are ihris-2009-staff-01..NN with no gap; the file
+    carries only id, title, kind (person) and description (no roles, no identity); each is referenced."""
+    actors, out = _staff_actors(C), []
+    used = {aid for *_, aid in _uc_staff_refs(C)}
+    for aid, (rel, a) in actors.items():
+        if os.path.basename(rel) != f"{aid}.json":
+            out.append(f"{rel}: holds actor {aid!r}, not the one its name says")
+        if set(a) != {"id", "title", "kind", "description"}:
+            out.append(f"{rel}: carries {sorted(set(a) - {'id', 'title', 'kind', 'description'})} or lacks a field: an opaque actor is id, title, kind, description only")
+        if a.get("kind") != "person":
+            out.append(f"{rel}: kind {a.get('kind')!r}, but a named person is `person`")
+        if aid not in used:
+            out.append(f"{rel}: {aid} is referenced by no use case or requirement")
+    want = [f"ihris-2009-staff-{i:02d}" for i in range(1, len(actors) + 1)]
+    if sorted(a for a in actors if a) != want:
+        out.append(f"opaque actors {sorted(a for a in actors if a)} are not numbered {want[:1]}..{want[-1:]} without a gap")
+    return out
+
+
+def c_role_graph(C):
+    """The use-case role graph: one Role per actor the reports describe and no other; the id is `ihris-` and
+    the A-id in lower case (instance-name grammar); title and description are the report's own, verbatim;
+    a person's role with no skills; ids unique."""
+    out, want = [], {}
+    for rel, d in C["tagged"].get("ihris-use-cases/v1", []):
+        for a in d["actors"]:
+            want["ihris-" + a["id"].lower()] = (rel, a)
+    for sd in _scenario_dirs(C):
+        rel = f"{sd}/roles.json"
+        if not exists(rel):
+            out.append(f"{sd}: a scenarios directory with no roles.json")
+            continue
+        g = J(rel)
+        ids = [r.get("id") for r in g.get("roles") or []]
+        if len(ids) != len(set(ids)):
+            out.append(f"{rel}: role ids are not unique")
+        for r in g.get("roles") or []:
+            rid = r.get("id") or ""
+            if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", rid):
+                out.append(f"{rel}: role id {rid!r} is not in instance-name grammar")
+            if rid not in want:
+                out.append(f"{rel}: role {rid!r} is no actor the use-case reports describe")
+                continue
+            arel, a = want[rid]
+            if r.get("title") != a["name"]:
+                out.append(f"{rel}: {rid} title {r.get('title')!r} is not the report's {a['name']!r} ({arel})")
+            if r.get("description") != a["description"]:
+                out.append(f"{rel}: {rid} description is not the report's, verbatim ({arel})")
+            if r.get("actorKinds") != ["person"] or r.get("skills") != []:
+                out.append(f"{rel}: {rid} should be actorKinds [person] with no skills")
+        for rid in sorted(set(want) - set(ids)):
+            out.append(f"{rel}: actor {want[rid][1]['id']} ({want[rid][0]}) has no role")
+    return out
+
+
 def c_use_case_crosswalk(C):
     """Every use case has exactly one entry; each linked form exists in the data model of its package and
     its name really occurs in the title; unmatched means null; counts match."""
@@ -897,7 +1028,9 @@ QA = {
     "ihris-site-theme/v1": [("site-theme", "applied colours pass WCAG AA; logo matches; adjustments start from measured colours", c_site_theme)],
     "ihris-qa-known/v1": [("qa-known", "every accepted upstream finding still matches the data", c_qa_known)],
     "ihris-wiki-book/v1": [("wiki-book", "articles are the outline's level-1 entries at their sha256; every image credited once; no unredacted contact left", c_wiki_book)],
-    "ihris-use-cases/v1": [("use-cases", "counts match; parents and extension anchors hold; links resolve or are dangling; source is the pinned file", c_use_cases)],
+    "ihris-use-cases/v1": [("use-cases", "counts match; parents and extension anchors hold; links resolve or are dangling; source is the pinned file", c_use_cases),
+                           ("use-case-roles", "every use-case actor, and every actor's role, is a declared Role", c_uc_role_refs),
+                           ("use-case-staff-refs", "every Assigned To / Source resolves to an actor file; references number what withheld records", c_uc_staff_refs)],
     "ihris-use-case-crosswalk/v1": [("use-case-crosswalk", "one entry per use case; linked forms exist and are named in the title; counts match", c_use_case_crosswalk)],
     "ihris-instance-extension/v1": [("declarations", "instances, assets, directories and derivedFrom resolve; permissions name who", c_declarations)],
     # reused schemas (validated for shape by folio-assistant's zod or fhir.resources)
@@ -906,6 +1039,8 @@ QA = {
     "bean-graph (zod)": [("bean-graph", "declared bean directories exist", c_bean_graph)],
     "skill-package (zod)": [("skill-package", "listed skills and skill files agree", c_skill_package)],
     "tool (zod)": [("tools", "invoked scripts exist; satisfied skills exist", c_tools)],
+    "role graph (zod RoleGraphSchema)": [("role-graph", "one Role per described actor, no other; ids in instance-name grammar; title and description verbatim", c_role_graph)],
+    "actor (zod ActorDef)": [("staff-actors", "named for its id; numbered 01..N without a gap; id, title, kind, description only; each referenced", c_staff_actors)],
     "pdf-structure/v1": [("pdf-structure", "doc id matches its entry; unique sections", c_pdf_structure)],
     "folio-document-images/v1": [("document-images", "every figure's file exists and its id names its page; no unlisted image files", c_document_images)],
     "FHIR R4 terminology": [("fhir-terminology", "every value set named in value-sets.json is generated", c_fhir)],
@@ -917,6 +1052,7 @@ QA = {
     "BPMN process (processes/*.bpmn)": [("bpmn", "every process is generated from a spec and carries its diagram", c_bpmn)],
 }
 REUSED = ["cat-harness declaration (zod)", "harness-config (zod)", "bean-graph (zod)", "skill-package (zod)", "tool (zod)",
+          "role graph (zod RoleGraphSchema)", "actor (zod ActorDef)",
           "pdf-structure/v1", "folio-document-images/v1", "FHIR R4 terminology", "folio-catalogue/v1", "folio-catalogue-node/v1",
           "bean (beans/defs/*.md)", "skill (src/skills/*.md)", "folio-methodology/v1", "library manifest (manifest.jsonld)",
           "BPMN process (processes/*.bpmn)"]

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-use-cases.schema.json",
   "title": "ihris-use-cases/v1",
-  "description": "One iHRIS product's 2009 use-case model (Serlio CaseComplete report), parsed: packages holding use cases (Details fields, main success scenario, extensions, notes) and requirements, the actors, and the references the report cites but never describes (library/ihris-use-cases/<product>.json, src/tools/ingest_use_cases.py).",
+  "description": "One iHRIS product's 2009 use-case model (Serlio CaseComplete report), parsed: packages holding use cases (Details fields, main success scenario, extensions, notes) and requirements, the actors, and the references the report cites but never describes (library/ihris-use-cases/<product>.json, src/tools/ingest_use_cases.py). Actors are referenced as ROLES (library/ihris-use-cases/scenarios/roles.json, folio-assistant's RoleGraphSchema); a person the report names (Assigned To, a requirement's Source) is referenced as an opaque actor (scenarios/actors/ihris-2009-staff-NN.json), identity withheld.",
   "type": "object",
   "required": ["$schema", "product", "title", "report", "source", "attribution", "counts", "withheld", "actors", "root", "dangling"],
   "additionalProperties": false,
@@ -44,7 +44,7 @@
       "type": "array",
       "items": {
         "type": "object", "required": ["field", "why", "count"], "additionalProperties": false,
-        "properties": {"field": {"enum": ["assignedTo", "source"]}, "why": {"type": "string"}, "count": {"type": "integer", "minimum": 1}}
+        "properties": {"field": {"enum": ["assignedTo", "source"]}, "why": {"type": "string", "description": "what the field held, and that each value is now referenced by an opaque actor"}, "count": {"type": "integer", "minimum": 1, "description": "how many records carry the field; each carries an {actor} reference"}}
       }
     },
     "actors": {"type": "array", "items": {"$ref": "#/$defs/actor"}},
@@ -53,6 +53,12 @@
   },
   "$defs": {
     "text": {"type": ["string", "null"]},
+    "roleId": {"type": "string", "pattern": "^ihris-a-[a-z]+\\d+$", "description": "a Role in library/ihris-use-cases/scenarios/roles.json: ihris- and the actor id, lower case"},
+    "actorRef": {
+      "type": "object", "required": ["actor"], "additionalProperties": false,
+      "description": "A person the report names, as an opaque actor. Who it is lives in the data store only.",
+      "properties": {"actor": {"type": "string", "pattern": "^ihris-2009-staff-\\d{2}$", "description": "an actor file in library/ihris-use-cases/scenarios/actors/"}}
+    },
     "note": {
       "type": "object", "required": ["text", "dateAdded", "date"], "additionalProperties": false,
       "properties": {
@@ -62,9 +68,10 @@
       }
     },
     "actor": {
-      "type": "object", "required": ["id", "name", "description", "goals", "notes", "useCases"], "additionalProperties": false,
+      "type": "object", "required": ["id", "name", "description", "goals", "notes", "useCases", "role"], "additionalProperties": false,
       "properties": {
         "id": {"type": "string", "pattern": "^A-[A-Z]+\\d+$"},
+        "role": {"$ref": "#/$defs/roleId"},
         "name": {"type": "string"},
         "description": {"$ref": "#/$defs/text"},
         "goals": {"type": "array", "items": {"type": "string"}},
@@ -108,8 +115,9 @@
         "package": {"type": "string"},
         "description": {"$ref": "#/$defs/text"},
         "parent": {"$ref": "#/$defs/text"},
-        "primaryActors": {"type": "array", "items": {"type": "string"}},
-        "supportingActors": {"type": "array", "items": {"type": "string"}},
+        "primaryActors": {"type": "array", "items": {"$ref": "#/$defs/roleId"}},
+        "supportingActors": {"type": "array", "items": {"$ref": "#/$defs/roleId"}},
+        "assignedTo": {"$ref": "#/$defs/actorRef"},
         "preconditions": {"$ref": "#/$defs/text"},
         "successGuarantee": {"$ref": "#/$defs/text"},
         "level": {"$ref": "#/$defs/text"},
@@ -150,6 +158,7 @@
         "type": {"$ref": "#/$defs/text"},
         "status": {"$ref": "#/$defs/text"},
         "release": {"$ref": "#/$defs/text"},
+        "source": {"$ref": "#/$defs/actorRef"},
         "notes": {"type": "array", "items": {"$ref": "#/$defs/note"}},
         "referencedBy": {"type": "array", "items": {"type": "string", "pattern": "^UC-[A-Z]+\\d+$"}}
       }
