@@ -18,7 +18,7 @@ description: >
    - No stated licence means **reference only**: the file goes in `uploads/<slug>/` (git-ignored) with a `manifest.json` pinning `md5` and `sha256`, and `library/<slug>/` holds headings, page ranges and a summary in our own words.
    - A source with no origin is a house process. Write a skill instead of a methodology.
 2. **Ingest** with folio-assistant's rungs (Tool `ihris-ingest-pdf`). An embedded outline gives real sections. Without one, use page granularity; an inferred chapter tree is never accepted.
-3. **Related work.** Search beans (`beans list`, `beans query`) and GitHub issues for anything the method touches.
+3. **Related work** (folio-assistant `Process_RelatedWork`, skill `related-work-coordination`). Search beans (`beans list`, `beans query`) and GitHub issues for anything the method touches.
    - Categorize each hit: *duplicates*, *depends on*, *affected by*, *unrelated*. Add a one-line summary.
    - Judgement decides the categories. Show the list to the owner, and **ask whether to coordinate** (link, block, merge, note only) as a structured question. Do not act before the answer.
 4. **Render the method faithfully.** What the source says, cited by section. Then a table of **adopted** and **refused** parts, each with a reason.
