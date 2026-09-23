@@ -1,6 +1,6 @@
 # DRAFT issue for WorldHealthOrganization/smart-base
 
-> **Status: draft, not filed.** Prepared from litlfred/ihris (`src/ihris-dak/authored/isco-08.json`, item O1) for the repository owner to review and file. Measured against smart-base `5891a22` (2026-08-26).
+> **Status: draft, not filed.** Prepared from litlfred/ihris (`src/ihris-data-dictionary/authored/isco-08.json`, item O1) for the repository owner to review and file. Measured against smart-base `5891a22` (2026-08-26).
 
 ---
 

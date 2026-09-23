@@ -10,7 +10,7 @@ description: >
 # Derive the DAK data dictionary from the iHRIS data model
 
 **Input:** `src/*/data-model/<release>/` (`ihris-form-class/v1`, from
-`build_kg.py`). **Output:** `src/ihris-dak/`. **Tool:** `ihris-build-dak`.
+`build_kg.py`). **Output:** `src/ihris-data-dictionary/`. **Tool:** `ihris-build-dak`.
 
 ## The mapping, and the one rule
 

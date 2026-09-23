@@ -10,7 +10,7 @@
   ],
   "nodes": [
     {"id": "Start_F", "type": "startEvent", "lane": "Lane_Agent", "col": 0, "name": "Data model or terminology changed"},
-    {"id": "A_GenTerm", "type": "task", "lane": "Lane_Agent", "col": 1, "name": "Generate terminology FSH", "skill": "ihris-4-on-fhir", "documentation": "F2. CodeSystems, ValueSets and ConceptMaps from src/ihris-dak/terminology inputs."},
+    {"id": "A_GenTerm", "type": "task", "lane": "Lane_Agent", "col": 1, "name": "Generate terminology FSH", "skill": "ihris-4-on-fhir", "documentation": "F2. CodeSystems, ValueSets and ConceptMaps from src/ihris-data-dictionary/terminology inputs."},
     {"id": "GW_LM", "type": "exclusiveGateway", "lane": "Lane_Agent", "col": 2, "name": "cz17 settled?"},
     {"id": "A_GenLM", "type": "task", "lane": "Lane_Agent", "col": 3, "name": "Generate logical models", "skill": "ihris-4-on-fhir", "documentation": "F3. One logical model per form class, in the form smart-base's DAK model settles on."},
     {"id": "A_GenMap", "type": "task", "lane": "Lane_Agent", "col": 4, "name": "Generate StructureMaps to iHRIS 5", "skill": "ihris-4-on-fhir", "documentation": "F4. Maps to all three iHRIS 5 IGs, pinned to a commit. Uncertain matches become proposals."},

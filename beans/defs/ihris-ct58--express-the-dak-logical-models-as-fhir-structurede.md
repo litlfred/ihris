@@ -15,7 +15,7 @@ blocked_by:
     - ihris-dmgf
 ---
 
-Turn `src/ihris-dak/data-dictionary` into FHIR logical models. Format depends on the design decision (smart-base DAK Logical Model, folio-assistant cz17). Sushi must run without error before any commit.
+Turn `src/ihris-data-dictionary/data-dictionary` into FHIR logical models. Format depends on the design decision (smart-base DAK Logical Model, folio-assistant cz17). Sushi must run without error before any commit.
 
 ## Owner decision D3 (2026-09-23)
 

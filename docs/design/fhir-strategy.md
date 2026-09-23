@@ -23,7 +23,7 @@
 |---|---|
 | subgraph | The FHIR content is **new derived content in its own subgraph, `src/ihris-4-on-fhir`**, and *that* subgraph depends on the **smart-base harness and IG**. The rest of iHRIS stays independent. This supersedes D5 ("R4 core only") **for this subgraph**, and it is consistent with D3 (wait for `cz17`). |
 | timing | **SUSHI later.** Document the skills, processes and tools now: skill `ihris-4-on-fhir`, `processes/ihris-4-on-fhir.bpmn`, Tool `ihris-sushi`. |
-| rename | `ihris-dak` is to be renamed. The new name is not yet chosen. |
+| rename | `ihris-dak` → **`ihris-data-dictionary`** (done 2026-09-23). The schema ids `ihris-dak-data-dictionary/v1` and `ihris-dak-proposal/v1`, the Tool `ihris-build-dak` and the canonical `…/ihris/dak` are unchanged: they are contracts, so renaming them is a separate decision. |
 | focus | Now: modelling the iHRIS 4 data model on just-the-docs, with a harness visualiser. |
 
 ### Consequences
@@ -36,8 +36,8 @@
 
 | what | state |
 |---|---|
-| L2 data dictionary | `src/ihris-dak/data-dictionary`: 242 data elements in 49 logical models (one per I2CE form class), in WHO column order. It is not FHIR. |
-| Terminology | `src/ihris-dak/terminology`: 44 CodeSystems, 57 ValueSets and 5 ConceptMaps. These are FHIR R4 **JSON** written directly by `build_dak.py`, with no FSH and no sushi. `validate_fhir.py` checks their structure (`fhir.resources` 6.5). |
+| L2 data dictionary | `src/ihris-data-dictionary/data-dictionary`: 242 data elements in 49 logical models (one per I2CE form class), in WHO column order. It is not FHIR. |
+| Terminology | `src/ihris-data-dictionary/terminology`: 44 CodeSystems, 57 ValueSets and 5 ConceptMaps. These are FHIR R4 **JSON** written directly by `build_dak.py`, with no FSH and no sushi. `validate_fhir.py` checks their structure (`fhir.resources` 6.5). |
 | CoreDataElements | Removed 2026-09-23 (independence ruling). |
 | Canonical | `https://litlfred.github.io/ihris/dak`, confirmed by the owner 2026-09-23 (D4, bean `ihris-gj3u` completed). |
 | iHRIS 5 IG | `iHRIS/iHRIS@fa66e9b` `ig/`: canonical `http://ihris.org/fhir`, version 0.1.0, FHIR 4.0.1. Its only dependency is `hl7.fhir.r4.core`, and it does **not** depend on smart-base. It uses a custom template (`input/ihrisigtemplate`), and its `sushi-config.yaml` was migrated from a SUSHI 0.x `package.json`. It has 436 FSH definitions in `ig/input/fsh`, plus two more IGs under `ihris-backend-site/` (`ig` 174, `qualify-ig` 74). The repository is LGPL-3.0; the IG declares CC0-1.0. |
@@ -70,7 +70,7 @@ These are already rules, and every option below respects them.
 | option | meaning |
 |---|---|
 | a | Keep generating FHIR JSON from Python, as today. |
-| **b (recommended)** | Python **generates FSH** into a generated directory (for example `src/ihris-dak/fsh/`). **Sushi is the build**, and `validate.py` fails unless sushi reports 0 errors. The authored overlay stays as JSON proposals, which the generator renders into FSH. |
+| **b (recommended)** | Python **generates FSH** into a generated directory (for example `src/ihris-data-dictionary/fsh/`). **Sushi is the build**, and `validate.py` fails unless sushi reports 0 errors. The authored overlay stays as JSON proposals, which the generator renders into FSH. |
 | c | Hand-author the FSH. |
 
 *Why b:* it matches how the smart-* DAKs and iHRIS 5 are built. It also makes sushi the conformance check your rule asks for, and FSH diffs are reviewable. Option c would break "derived never invents", because 242 hand-typed elements would drift from the source.

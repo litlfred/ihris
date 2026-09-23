@@ -3,9 +3,9 @@
 
 Input : src/<instance>/data-model/<release>/*.json   (ihris-form-class/v1, from build_kg.py)
         library/ihris-wiki/osi-help-<release>/sections/*.md (evidence only)
-Output: src/ihris-dak/data-dictionary/<group>.json   (ihris-dak-data-dictionary/v1)
-        src/ihris-dak/data-dictionary.csv / .xlsx    (WHO column order)
-        src/ihris-dak/terminology/*.json             (FHIR R4 CodeSystem / ValueSet)
+Output: src/ihris-data-dictionary/data-dictionary/<group>.json   (ihris-dak-data-dictionary/v1)
+        src/ihris-data-dictionary/data-dictionary.csv / .xlsx    (WHO column order)
+        src/ihris-data-dictionary/terminology/*.json             (FHIR R4 CodeSystem / ValueSet)
         docs/generated/dak-data-dictionary.md
 
 What this does NOT do, on purpose:
@@ -32,7 +32,7 @@ import re
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 RELEASE = "4.3.3"
-OUT = os.path.join(ROOT, "src", "ihris-dak")
+OUT = os.path.join(ROOT, "src", "ihris-data-dictionary")
 # PROVISIONAL canonical base. Not http://ihris.org/fhir, which is the iHRIS 5
 # IG's canonical and is not ours to mint under. To be confirmed by the owner.
 CANONICAL = "https://litlfred.github.io/ihris/dak"
@@ -677,7 +677,7 @@ def main():
          "", f"Optionality: {dict(opt)}. Classes by scope: {dict(scopes)}.\n", "## Logical models\n",
          "| group | title | class | instances | elements | required |", "|---|---|---|---|---|---|"]
     for s in sheets:
-        L.append(f"| [`{s['group']}`](../../src/ihris-dak/data-dictionary/{s['group']}.json) | {s['title']} | `{s['class']}` | "
+        L.append(f"| [`{s['group']}`](../../src/ihris-data-dictionary/data-dictionary/{s['group']}.json) | {s['title']} | `{s['class']}` | "
                  f"{', '.join(s['instances'])} | {len(s['elements'])} | {sum(1 for e in s['elements'] if e['optionality'] == 'R')} |")
     with open(os.path.join(ROOT, "docs", "generated", "dak-data-dictionary.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(L) + "\n")

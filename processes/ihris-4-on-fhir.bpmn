@@ -36,7 +36,7 @@
     </bpmn:laneSet>
     <bpmn:startEvent id="Start_F" name="Data model or terminology changed"/>
     <bpmn:task id="A_GenTerm" name="Generate terminology FSH">
-      <bpmn:documentation>F2. CodeSystems, ValueSets and ConceptMaps from src/ihris-dak/terminology inputs.</bpmn:documentation>
+      <bpmn:documentation>F2. CodeSystems, ValueSets and ConceptMaps from src/ihris-data-dictionary/terminology inputs.</bpmn:documentation>
       <bpmn:extensionElements><folio:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:exclusiveGateway id="GW_LM" name="cz17 settled?"/>

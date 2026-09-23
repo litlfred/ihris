@@ -25,7 +25,7 @@
       "evidence": [
         "library/ihris-toolkit/stages/1-plan.json",
         "src/ihris-qualify/data-model/4.3.3/iHRIS_Cadre.json",
-        "src/ihris-dak/terminology/ValueSet-isco_08_unit.json",
+        "src/ihris-data-dictionary/terminology/ValueSet-isco_08_unit.json",
         "folio-assistant: smart-base/fhir-artifact-index/dak/StructureDefinition-GenericPersona.schema.json"
       ],
       "decision": {
@@ -41,9 +41,9 @@
       "kind": "mapping",
       "status": "blocked",
       "appliesTo": [
-        "src/ihris-dak/terminology/ConceptMap-job-to-isco-88-unit.json",
-        "src/ihris-dak/terminology/ConceptMap-classification-to-isco-88-minor.json",
-        "src/ihris-dak/terminology/ConceptMap-cadre-to-isco-88-minor.json"
+        "src/ihris-data-dictionary/terminology/ConceptMap-job-to-isco-88-unit.json",
+        "src/ihris-data-dictionary/terminology/ConceptMap-classification-to-isco-88-minor.json",
+        "src/ihris-data-dictionary/terminology/ConceptMap-cadre-to-isco-88-minor.json"
       ],
       "statement": "Chain the ISCO-88 maps to ISCO-08 through the official ILO ISCO-88/ISCO-08 correspondence table.",
       "rationale": "iHRIS's sample jobs and classifications are keyed on ISCO-88 (48 of 51 job codes carry a verified ISCO-88 unit-group prefix; 5 of 6 classifications carry an ISCO-88 minor group). The step to ISCO-08 is many-to-many and must come from ILO's table, not from recall.",

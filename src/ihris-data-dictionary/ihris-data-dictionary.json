@@ -1,5 +1,5 @@
 {
-  "name": "ihris-dak",
+  "name": "ihris-data-dictionary",
   "title": "iHRIS health workforce DAK (draft data dictionary)",
   "description": "A data dictionary for health workforce information, in the column order of WHO's DAK L2 guide (iHRIS is independent of SMART Guidelines and smart-base), derived mechanically from the iHRIS 4.3.3 data model. It is a knowledge asset built ON the described sources: derived, not authored, until a person authors the columns the source cannot answer.",
   "derivedFrom": [
@@ -25,7 +25,7 @@
   ],
   "directories": [
     {
-      "id": "ihris-dak-data-dictionary",
+      "id": "ihris-data-dictionary-sheets",
       "path": "data-dictionary/",
       "dependents": "reproduce",
       "graphKinds": [
@@ -36,7 +36,7 @@
       "description": "One ihris-dak-data-dictionary/v1 sheet per iHRIS record form class, with WHO data-dictionary columns and provenance."
     },
     {
-      "id": "ihris-dak-terminology",
+      "id": "ihris-data-dictionary-terminology",
       "path": "terminology/",
       "dependents": "reproduce",
       "graphKinds": [
@@ -47,7 +47,7 @@
       "description": "FHIR R4 CodeSystem and ValueSet JSON for every DAK value set and every list its codes point at. Default records become a complete CodeSystem included by the ValueSet. Sample-data records become content=example CodeSystems that no ValueSet includes."
     },
     {
-      "id": "ihris-dak-authored",
+      "id": "ihris-data-dictionary-authored",
       "path": "authored/",
       "dependents": "reproduce",
       "graphKinds": [

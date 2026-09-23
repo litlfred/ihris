@@ -10,4 +10,4 @@ updated_at: 2026-09-23T06:04:45Z
 parent: ihris-g768
 ---
 
-`src/ihris-dak/authored/iso.json` P1 is `proposed`. Only the owner moves its status.
+`src/ihris-data-dictionary/authored/iso.json` P1 is `proposed`. Only the owner moves its status.

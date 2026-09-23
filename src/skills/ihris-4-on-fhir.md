@@ -14,9 +14,9 @@ Design and owner decisions: [`docs/design/fhir-strategy.md`](../../docs/design/f
 
 ## Rules
 
-- **Generated only.** Python writes FSH from `src/ihris-dak/` into `src/ihris-4-on-fhir/`. Nobody edits the FSH or the SUSHI output.
+- **Generated only.** Python writes FSH from `src/ihris-data-dictionary/` into `src/ihris-4-on-fhir/`. Nobody edits the FSH or the SUSHI output.
 - **SUSHI must run clean** (Tool `ihris-sushi`, version pinned at F1) before any commit that contains FSH.
-- **Derived never invents.** An element carries only what the data dictionary states. Definitions, conditionality and linkages stay empty until authored in `src/ihris-dak/authored/`.
+- **Derived never invents.** An element carries only what the data dictionary states. Definitions, conditionality and linkages stay empty until authored in `src/ihris-data-dictionary/authored/`.
 - **Only this subgraph depends on smart-base.** Nothing outside `src/ihris-4-on-fhir/` may take a smart-base type or dependency.
 - **No IG Publisher and no HTML** until folio-assistant's lightweight IG render pipeline is done (bean `ihris-bwls`).
 

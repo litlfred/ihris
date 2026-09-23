@@ -1,4 +1,4 @@
-# iHRIS health workforce DAK: draft data dictionary (`ihris-dak`)
+# iHRIS health workforce DAK: draft data dictionary (`ihris-data-dictionary`)
 
 A **data dictionary** for health workforce information, laid out in the column order of WHO's DAK L2 guide. iHRIS is independent: it is not a SMART Guidelines DAK and does not depend on smart-base (owner ruling, 2026-09-23). It is derived mechanically from the iHRIS 4.3.3 data model (`src/*/data-model/4.3.3/`), which itself comes from the checksum-verified release.
 
@@ -102,6 +102,6 @@ The builder **never invents** these columns: they are `null` until authored.
 4. **Codes for the 24 sample-only and 11 deployment-defined lists**: these are national decisions (cadres, districts, facilities, …). Candidate standards to bind: ISO 3166 (already the iHRIS default for country), ISCO-08 for cadre and occupation.
 5. **Canonical**: `https://litlfred.github.io/ihris/dak` is provisional.
 
-Because the dictionary is regenerated, authored columns should go in an overlay keyed by data element ID (planned: `src/ihris-dak/authored/`). They should not be edited into the generated sheets.
+Because the dictionary is regenerated, authored columns should go in an overlay keyed by data element ID (planned: `src/ihris-data-dictionary/authored/`). They should not be edited into the generated sheets.
 
 Regenerate: `python3 src/tools/build_dak.py && python3 src/tools/validate.py`.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate src/ihris-dak/terminology/*.json as FHIR R4 resources (fhir.resources 6.5 = R4).
+"""Validate src/ihris-data-dictionary/terminology/*.json as FHIR R4 resources (fhir.resources 6.5 = R4).
 
 fhir.resources 6.x needs pydantic<2, so it runs from its own virtualenv:
   python3 -m venv .build/fhir-venv && .build/fhir-venv/bin/pip install "fhir.resources==6.5.0" "pydantic<2"
@@ -17,7 +17,7 @@ from fhir.resources.valueset import ValueSet
 from fhir.resources.conceptmap import ConceptMap
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-files = sorted(glob.glob(os.path.join(ROOT, "src/ihris-dak/terminology/*.json")))
+files = sorted(glob.glob(os.path.join(ROOT, "src/ihris-data-dictionary/terminology/*.json")))
 docs = {f: json.load(open(f)) for f in files}
 urls = {d["url"] for d in docs.values() if d["resourceType"] == "CodeSystem"}
 codes = {d["url"]: {c["code"] for c in d.get("concept", [])} for d in docs.values() if d["resourceType"] == "CodeSystem"}

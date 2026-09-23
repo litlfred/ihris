@@ -1,6 +1,6 @@
 # iHRIS 4 on FHIR (`ihris-4-on-fhir`)
 
-**New derived content** (owner, 2026-09-23): the iHRIS 4.3.3 data model expressed in FHIR, derived from `src/ihris-dak` (the data dictionary and terminology).
+**New derived content** (owner, 2026-09-23): the iHRIS 4.3.3 data model expressed in FHIR, derived from `src/ihris-data-dictionary` (the data dictionary and terminology).
 
 **This is the one subgraph that depends on smart-base**: the smart-base harness and the `smart.who.int.base` IG. The ihris root and its other instances are independent of smart-base.
 

@@ -13,7 +13,7 @@ blocked_by:
     - ihris-dipr
 ---
 
-44 CS / 57 VS / 5 CM in `src/ihris-dak/terminology` are JSON from build_dak.py. Once the design says FSH/sushi, generate them there instead and retire the JSON path; until then they are unchanged.
+44 CS / 57 VS / 5 CM in `src/ihris-data-dictionary/terminology` are JSON from build_dak.py. Once the design says FSH/sushi, generate them there instead and retire the JSON path; until then they are unchanged.
 
 ## Owner decisions D5, D7 and D8 (2026-09-23)
 

@@ -75,7 +75,7 @@ else:
 
 # FHIR R4 structure of the generated terminology, with fhir.resources in its own venv (needs pydantic<2).
 venv_py = os.path.join(ROOT, ".build", "fhir-venv", "bin", "python")
-if glob.glob(os.path.join(ROOT, "src/ihris-dak/terminology/*.json")):
+if glob.glob(os.path.join(ROOT, "src/ihris-data-dictionary/terminology/*.json")):
     if os.path.exists(venv_py):
         r = subprocess.run([venv_py, os.path.join(ROOT, "src/tools/validate_fhir.py")], capture_output=True, text=True)
         sys.stdout.write(r.stdout)
