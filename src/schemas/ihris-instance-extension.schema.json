@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-instance-extension.schema.json",
+  "title": "ihris-instance-extension/v1",
+  "description": "The ihris-specific keys of an instance declaration (ihris.json and each <name>.json). folio-assistant's CatHarnessDeclarationSchema validates the rest (src/tools/validate-folio.ts), and zod drops keys it does not declare, so these are checked here. Only the keys below are constrained; the platform's keys pass through.",
+  "type": "object",
+  "properties": {
+    "instances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "path",
+          "kind"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "launchpad-source",
+              "github-source",
+              "knowledge-source",
+              "derived-knowledge-asset"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "source": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "host",
+            "vcs",
+            "lp",
+            "web"
+          ],
+          "properties": {
+            "host": {
+              "const": "launchpad"
+            },
+            "vcs": {
+              "const": "bzr"
+            },
+            "lp": {
+              "type": "string",
+              "pattern": "^lp:"
+            },
+            "web": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "host",
+            "vcs",
+            "repositories"
+          ],
+          "properties": {
+            "host": {
+              "const": "github"
+            },
+            "vcs": {
+              "const": "git"
+            },
+            "repositories": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "url",
+                  "commit"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "commit": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{40}$"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "web"
+          ],
+          "properties": {
+            "web": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                }
+              ]
+            },
+            "captures": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "materialization": {
+      "enum": [
+        "referenced",
+        "described",
+        "ingested"
+      ]
+    },
+    "derivedFrom": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonicalBase": {
+      "type": "object",
+      "required": [
+        "value",
+        "status"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "status": {
+          "enum": [
+            "provisional",
+            "confirmed"
+          ]
+        },
+        "_comment": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dependsOn": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "kind"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "harness",
+              "fhir-ig"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -57,6 +57,56 @@ for f, d in docs.items():
         if not os.path.exists(os.path.join(ROOT, d["source"]["releaseFile"])):
             errors.append(f"{os.path.relpath(f, ROOT)}: source.releaseFile {d['source']['releaseFile']} does not resolve")
 
+# Files with no $schema tag are bound to a schema by path (src/schemas/bindings.json),
+# instance declarations get the extension schema for the keys folio-assistant's zod drops,
+# and every JSON file in the repository must be covered by SOMETHING.
+import fnmatch
+BIND = json.load(open(os.path.join(ROOT, "src/schemas/bindings.json")))
+FOLIO_TAGS = {"folio-catalogue/v1", "folio-catalogue-node/v1"}
+
+
+def _match(rel, pattern):
+    return fnmatch.fnmatchcase(rel, pattern) or ("**/" in pattern and fnmatch.fnmatchcase(rel, pattern.replace("**/", "")))
+
+
+def _check(rel, tag, doc):
+    if tag not in SCHEMAS:
+        errors.append(f"{rel}: bound to {tag}, which src/schemas does not define")
+        return
+    counts[tag] = counts.get(tag, 0) + 1
+    for e in SCHEMAS[tag].iter_errors(doc):
+        errors.append(f"{rel}: {tag}: {'/'.join(map(str, e.path))} {e.message[:200]}")
+
+
+decl_root = json.load(open(os.path.join(ROOT, "ihris.json")))
+declarations = ["ihris.json"] + [f"{i['path']}/{i['name']}.json" for i in decl_root["instances"]]
+for rel in declarations:
+    _check(rel, BIND["declarations"]["schema"], json.load(open(os.path.join(ROOT, rel))))
+
+elsewhere = [g for k, gs in BIND["coveredElsewhere"].items() if not k.startswith("_") for g in gs]
+uncovered = []
+SKIP = ("node_modules/", "uploads/", ".build/", "_site/", ".git/", "src/schemas/")
+for path in sorted(glob.glob(os.path.join(ROOT, "**/*.json"), recursive=True)):
+    rel = os.path.relpath(path, ROOT)
+    if rel.startswith(SKIP):
+        continue
+    try:
+        doc = json.load(open(path))
+    except ValueError:
+        continue  # reported above for src/ and library/
+    tag = doc.get("$schema") if isinstance(doc, dict) else None
+    if tag in SCHEMAS or tag in FOLIO_TAGS or rel in declarations or any(_match(rel, g) for g in elsewhere):
+        continue
+    hit = [b for b in BIND["bindings"] if _match(rel, b["glob"])
+           and all(isinstance(doc, dict) and doc.get(k) == v for k, v in b.get("when", {}).items())]
+    if hit:
+        _check(rel, hit[0]["schema"], doc)
+    else:
+        uncovered.append(rel)
+for rel in uncovered:
+    errors.append(f"{rel}: no schema covers this file (add a $schema tag or a binding in src/schemas/bindings.json)")
+counts["json files with no schema"] = len(uncovered)
+
 # Generated BPMN must match its spec (src/tools/gen_bpmn.py).
 r = subprocess.run([sys.executable, os.path.join(ROOT, "src/tools/gen_bpmn.py"), "--check"], capture_output=True, text=True)
 if r.returncode != 0:
