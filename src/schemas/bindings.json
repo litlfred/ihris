@@ -1,24 +1,74 @@
 {
   "_comment": "Binds files that carry no $schema tag to a schema, by glob. Generated files are bound here rather than tagged, so their generators and outputs do not change. validate.py applies every binding, and fails on any JSON file that neither a $schema tag, a binding, folio-assistant's zod (src/tools/validate-folio.ts) nor FHIR validation covers. Globs are relative to the repository root; ** crosses directories.",
   "bindings": [
-    {"glob": "library/ihris-toolkit/structure.json", "schema": "ihris-toolkit-structure/v1"},
-    {"glob": "library/ihris-toolkit/tools-index.json", "schema": "ihris-toolkit-tools-index/v1"},
-    {"glob": "library/ihris-wiki/osi-help-*/structure.json", "schema": "ihris-wiki-help-structure/v1"},
-    {"glob": "library/*/structure.json", "schema": "pdf-structure/v1", "when": {"_schema": "pdf-structure/v1"}},
-    {"glob": "src/ihris5/inventory/*.json", "schema": "ihris-github-inventory/v1"},
-    {"glob": "src/ihris-data-dictionary/value-sets.json", "schema": "ihris-dak-value-sets/v1"},
-    {"glob": "src/ihris-data-dictionary/excluded.json", "schema": "ihris-dak-excluded/v1"},
-    {"glob": "src/ihris-data-dictionary/isco-report.json", "schema": "ihris-dak-isco-report/v1"},
-    {"glob": "src/ihris-data-dictionary/iso-report.json", "schema": "ihris-dak-iso-report/v1"},
-    {"glob": "docs/generated/build-stats.json", "schema": "ihris-build-stats/v1"},
-    {"glob": "processes/specs/*.json", "schema": "ihris-process-spec/v1"},
-    {"glob": "docs/design/wireframes/**/reviews/*.json", "schema": "ihris-wireframe-review/v1"},
-    {"glob": "docs/design/wireframes/**/checks/report.json", "schema": "ihris-wireframe-check-report/v1"},
-    {"glob": "docs/design/wireframes/**/authors.json", "schema": "ihris-wireframe-authors/v1"},
-    {"glob": "docs/design/wireframes/**/adjudication.json", "schema": "ihris-wireframe-adjudication/v1"},
-    {"glob": "docs/design/wireframes/**/decision.json", "schema": "ihris-wireframe-decision/v1"},
-    {"glob": "docs/design/wireframes/**/post-review-patch.json", "schema": "ihris-wireframe-patch/v1"},
-    {"glob": "docs/design/wireframes/**/acceptance.json", "schema": "ihris-wireframe-acceptance/v1"}
+    {
+      "glob": "library/ihris-toolkit/structure.json",
+      "schema": "ihris-toolkit-structure/v1"
+    },
+    {
+      "glob": "library/ihris-toolkit/tools-index.json",
+      "schema": "ihris-toolkit-tools-index/v1"
+    },
+    {
+      "glob": "library/ihris-wiki/osi-help-*/structure.json",
+      "schema": "ihris-wiki-help-structure/v1"
+    },
+    {
+      "glob": "src/ihris5/inventory/*.json",
+      "schema": "ihris-github-inventory/v1"
+    },
+    {
+      "glob": "src/ihris-data-dictionary/value-sets.json",
+      "schema": "ihris-dak-value-sets/v1"
+    },
+    {
+      "glob": "src/ihris-data-dictionary/excluded.json",
+      "schema": "ihris-dak-excluded/v1"
+    },
+    {
+      "glob": "src/ihris-data-dictionary/isco-report.json",
+      "schema": "ihris-dak-isco-report/v1"
+    },
+    {
+      "glob": "src/ihris-data-dictionary/iso-report.json",
+      "schema": "ihris-dak-iso-report/v1"
+    },
+    {
+      "glob": "docs/generated/build-stats.json",
+      "schema": "ihris-build-stats/v1"
+    },
+    {
+      "glob": "processes/specs/*.json",
+      "schema": "ihris-process-spec/v1"
+    },
+    {
+      "glob": "docs/design/wireframes/**/reviews/*.json",
+      "schema": "ihris-wireframe-review/v1"
+    },
+    {
+      "glob": "docs/design/wireframes/**/checks/report.json",
+      "schema": "ihris-wireframe-check-report/v1"
+    },
+    {
+      "glob": "docs/design/wireframes/**/authors.json",
+      "schema": "ihris-wireframe-authors/v1"
+    },
+    {
+      "glob": "docs/design/wireframes/**/adjudication.json",
+      "schema": "ihris-wireframe-adjudication/v1"
+    },
+    {
+      "glob": "docs/design/wireframes/**/decision.json",
+      "schema": "ihris-wireframe-decision/v1"
+    },
+    {
+      "glob": "docs/design/wireframes/**/post-review-patch.json",
+      "schema": "ihris-wireframe-patch/v1"
+    },
+    {
+      "glob": "docs/design/wireframes/**/acceptance.json",
+      "schema": "ihris-wireframe-acceptance/v1"
+    }
   ],
   "declarations": {
     "_comment": "ihris.json and every instance it lists: folio-assistant's CatHarnessDeclarationSchema (validate-folio.ts) plus this extension for the keys zod drops.",
@@ -26,7 +76,15 @@
   },
   "coveredElsewhere": {
     "_comment": "Files another validator owns. validate.py only checks that each one is covered.",
-    "folio-assistant zod (src/tools/validate-folio.ts)": ["ihris.config.json", "beans/beans.json", "src/skills/package-manifest.json", "src/tools/*.tool.json"],
-    "FHIR R4 (src/tools/validate_fhir.py)": ["src/ihris-data-dictionary/terminology/*.json"]
+    "folio-assistant zod (src/tools/validate-folio.ts)": [
+      "ihris.config.json",
+      "beans/beans.json",
+      "src/skills/package-manifest.json",
+      "src/tools/*.tool.json",
+      "library/*/structure.json"
+    ],
+    "FHIR R4 (src/tools/validate_fhir.py)": [
+      "src/ihris-data-dictionary/terminology/*.json"
+    ]
   }
 }
