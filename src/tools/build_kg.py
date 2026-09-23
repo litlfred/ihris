@@ -391,8 +391,12 @@ def build_modules():
             for path, g in acc:
                 if g.tag != "configurationGroup":
                     continue
+                # The object is named by the LAST segment of its resolved path, not by
+                # the group's `name`: a group may carry `path=` and a throwaway name
+                # (TrainingInstructor.xml: name="formClass" path=".../iHRIS_Scheduled_Training_Course").
+                leaf = path.rsplit("/", 1)[-1]
                 if re.fullmatch(r"/modules/forms/forms/[^/]+", path):
-                    forms.append({"form": g.get("name"), "class": _val(g, "class"),
+                    forms.append({"form": leaf, "class": _val(g, "class"),
                                   "displayName": _val(g, "display") or (g.findtext("displayName") or "").strip() or None})
                 elif re.fullmatch(r"/modules/forms/formClasses/[^/]+", path):
                     flds = []
@@ -409,9 +413,9 @@ def build_modules():
                                      "label": (hdr or "").replace("default:", "") or None,
                                      "required": _val(fd, "required") == "true", "unique": True if _val(fd, "unique") == "true" else None,
                                      "references": refs or None})
-                    classes.append({"class": g.get("name"), "extends": _val(g, "extends"), "fields": flds})
+                    classes.append({"class": leaf, "extends": _val(g, "extends"), "fields": flds})
                 elif re.fullmatch(r"/page/[^/]+", path):
-                    pages.append({"page": g.get("name"), "class": _val(g, "class"), "style": _val(g, "style")})
+                    pages.append({"page": leaf, "class": _val(g, "class"), "style": _val(g, "style")})
                 mm = re.fullmatch(r"/formsData/forms/([^/]+)/([^/]+)", path)
                 if mm:
                     lists[mm.group(1)] += 1
