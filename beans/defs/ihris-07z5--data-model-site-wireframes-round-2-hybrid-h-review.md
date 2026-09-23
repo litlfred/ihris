@@ -1,11 +1,10 @@
 ---
 # ihris-07z5
 title: 'Data-model site wireframes: rounds 2–3 (hybrid H, H2) review and acceptance'
-status: in-progress
+status: completed
 type: task
 tags:
     - design
-    - needs-owner
 created_at: 2026-09-23T11:31:34Z
 updated_at: 2026-09-23T11:31:34Z
 parent: ihris-um1h
@@ -19,4 +18,4 @@ Candidate `docs/design/wireframes/data-model-site/round-2/h.html`: A's structure
 - **Round 3:** the owner chose to fix H's warnings first.
   - H2 and its phone-menu state answer them.
   - agent-3 reviewed H2, and its two warnings were patched.
-- **Open:** the owner's acceptance of H2.
+- **Accepted:** the owner accepted H2 (`acceptance.json`).

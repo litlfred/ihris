@@ -30,6 +30,6 @@ Process: [`wireframe-design-review`](../../../../processes/wireframe-design-revi
 | mechanical checks | `round-3/checks/report.json`: all `pass` at web and mobile, for both files |
 | blind review | [`round-3/reviews/agent-3.json`](round-3/reviews/agent-3.json) (non-author, blind). Intent-fit, web and alternatives pass; fixes 2–8 pass. Two warnings: menu touch targets under 44px, and the menu button's aria-label hid its visible text. Every fact matches the data. |
 | post-review patch | [`round-3/post-review-patch.json`](round-3/post-review-patch.json): both warnings patched and verified mechanically (the smallest touch target is 44px). The checks were re-run. |
-| acceptance | open: the owner decides |
+| acceptance | **accepted** by the owner, 2026-09-23: [`acceptance.json`](acceptance.json). H2 is the design for the data-model site. |
 
 `authors.json` records who made each candidate. Reviewers should not open it.
