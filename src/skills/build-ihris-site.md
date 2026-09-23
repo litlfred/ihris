@@ -35,7 +35,9 @@ python3 src/tools/build_site.py --out .build/site --check-links
 
 - Everything is generated:
   - the landing board, from `ihris.json` and each instance's `<name>.json`;
-  - one page per package and per class, from `src/*/data-model/4.3.3`.
+  - one page per package and per class, from `src/*/data-model/4.3.3`;
+  - `glossary/`, from `glossary/*.glossary.json` (skill `build-skos-glossary`), with each scheme's SKOS JSON-LD under `assets/glossary/`;
+  - `data-model/search.html`, which searches the data model AND the glossary, at the data model's URL.
 - Links are relative, so the site works under `/ihris/` and from a file.
 - `_site/` is git-ignored. Never commit the output.
 

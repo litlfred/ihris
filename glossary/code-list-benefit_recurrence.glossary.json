@@ -1,0 +1,39 @@
+{
+ "$schema": "folio-glossary/v1",
+ "id": "code-list-benefit_recurrence",
+ "title": "iHRIS 4.3.3 code list: benefit_recurrence",
+ "description": "The `benefit_recurrence` code list as iHRIS 4.3.3 ships it by default: 4 codes from ihris-manage/module/ihris-manage-Benefit. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+ "hasVersion": "4.3.3",
+ "source": "src/ihris-manage/data-lists/4.3.3/benefit_recurrence.json (iHRIS 4.3.3, MD5-verified release)",
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "terms": [
+  {
+   "id": "once",
+   "prefLabel": "Once",
+   "notation": "once",
+   "source": "src/ihris-manage/data-lists/4.3.3/benefit_recurrence.json#/records/0",
+   "status": "candidate"
+  },
+  {
+   "id": "weekly",
+   "prefLabel": "Weekly",
+   "notation": "weekly",
+   "source": "src/ihris-manage/data-lists/4.3.3/benefit_recurrence.json#/records/1",
+   "status": "candidate"
+  },
+  {
+   "id": "monthly",
+   "prefLabel": "Monthly",
+   "notation": "monthly",
+   "source": "src/ihris-manage/data-lists/4.3.3/benefit_recurrence.json#/records/2",
+   "status": "candidate"
+  },
+  {
+   "id": "yearly",
+   "prefLabel": "Yearly",
+   "notation": "yearly",
+   "source": "src/ihris-manage/data-lists/4.3.3/benefit_recurrence.json#/records/3",
+   "status": "candidate"
+  }
+ ]
+}

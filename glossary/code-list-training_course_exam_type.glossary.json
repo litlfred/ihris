@@ -1,0 +1,32 @@
+{
+ "$schema": "folio-glossary/v1",
+ "id": "code-list-training_course_exam_type",
+ "title": "iHRIS 4.3.3 code list: training_course_exam_type",
+ "description": "The `training_course_exam_type` code list as iHRIS 4.3.3 ships it by default: 3 codes from ihris-common/module/training-exam. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+ "hasVersion": "4.3.3",
+ "source": "src/ihris-common/data-lists/4.3.3/training_course_exam_type.json (iHRIS 4.3.3, MD5-verified release)",
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "terms": [
+  {
+   "id": "final",
+   "prefLabel": "Final",
+   "notation": "final",
+   "source": "src/ihris-common/data-lists/4.3.3/training_course_exam_type.json#/records/0",
+   "status": "candidate"
+  },
+  {
+   "id": "incourse",
+   "prefLabel": "In Course Exam",
+   "notation": "incourse",
+   "source": "src/ihris-common/data-lists/4.3.3/training_course_exam_type.json#/records/1",
+   "status": "candidate"
+  },
+  {
+   "id": "pretest",
+   "prefLabel": "PreTest",
+   "notation": "pretest",
+   "source": "src/ihris-common/data-lists/4.3.3/training_course_exam_type.json#/records/2",
+   "status": "candidate"
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "$schema": "folio-glossary/v1",
+ "id": "code-list-position_status",
+ "title": "iHRIS 4.3.3 code list: position_status",
+ "description": "The `position_status` code list as iHRIS 4.3.3 ships it by default: 3 codes from ihris-manage/module/ihris-manage-PersonPosition. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+ "hasVersion": "4.3.3",
+ "source": "src/ihris-manage/data-lists/4.3.3/position_status.json (iHRIS 4.3.3, MD5-verified release)",
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "terms": [
+  {
+   "id": "open",
+   "prefLabel": "Open",
+   "notation": "open",
+   "source": "src/ihris-manage/data-lists/4.3.3/position_status.json#/records/0",
+   "status": "candidate"
+  },
+  {
+   "id": "closed",
+   "prefLabel": "Closed",
+   "notation": "closed",
+   "source": "src/ihris-manage/data-lists/4.3.3/position_status.json#/records/1",
+   "status": "candidate"
+  },
+  {
+   "id": "discontinued",
+   "prefLabel": "Discontinued",
+   "notation": "discontinued",
+   "source": "src/ihris-manage/data-lists/4.3.3/position_status.json#/records/2",
+   "status": "candidate"
+  }
+ ]
+}

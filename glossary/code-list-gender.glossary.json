@@ -1,0 +1,25 @@
+{
+ "$schema": "folio-glossary/v1",
+ "id": "code-list-gender",
+ "title": "iHRIS 4.3.3 code list: gender",
+ "description": "The `gender` code list as iHRIS 4.3.3 ships it by default: 2 codes from ihris-common/module/PersonDemographic. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+ "hasVersion": "4.3.3",
+ "source": "src/ihris-common/data-lists/4.3.3/gender.json (iHRIS 4.3.3, MD5-verified release)",
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "terms": [
+  {
+   "id": "f",
+   "prefLabel": "Female",
+   "notation": "F",
+   "source": "src/ihris-common/data-lists/4.3.3/gender.json#/records/0",
+   "status": "candidate"
+  },
+  {
+   "id": "m",
+   "prefLabel": "Male",
+   "notation": "M",
+   "source": "src/ihris-common/data-lists/4.3.3/gender.json#/records/1",
+   "status": "candidate"
+  }
+ ]
+}

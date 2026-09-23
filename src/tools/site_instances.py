@@ -16,6 +16,9 @@ may reproduce (AGENTS.md §2.4):
   iHRIS/iHRIS (LGPL-3.0)                   inventory: FSH definition headers and paths
   iHRIS/ihris-documentation (no licence)   path and heading only
   src/ihris-data-dictionary, 4-on-fhir     this repository's own derived content: in full
+  glossary/ (build_glossary.py)            each term as its scheme publishes it: toolkit definitions only while the
+                                           toolkit's licence record stands (build_glossary.py drops them otherwise),
+                                           code lists GPL, external concepts linked and never copied
 """
 import collections
 import glob
@@ -27,6 +30,7 @@ import shutil
 
 import markdown
 
+import build_glossary as bg
 import build_site as bs
 
 E, ROOT, REPO, RELEASE = bs.E, bs.ROOT, bs.REPO, bs.RELEASE
@@ -40,6 +44,7 @@ INSTANCE_PAGE = {**{n: f"sources/{n}/index.html" for n in LP_INSTANCES},
                  "ihris-4-on-fhir": "fhir/index.html", "ihris-admin-handbook": "library/handbook/index.html",
                  "ihris-use-cases": "library/use-cases/index.html"}
 HANDBOOK = "library/ihris-admin-handbook"
+GLOSSARY = "glossary/index.html"
 USE_CASES = "library/ihris-use-cases"
 
 
@@ -303,8 +308,9 @@ def toolkit_pages(theme, out_dir):
         if full and s.get("challenges"):
             parts.append(f"<h2>Challenges</h2><p>{E(s['challenges'])}</p>")
         if full and s.get("technicalTerms"):
-            parts.append("<h2>Technical terms</h2><dl>" + "".join(f"<dt><b>{E(t['term'])}</b></dt><dd>{E(t.get('definition') or '')}</dd>"
-                                                             for t in s["technicalTerms"]) + "</dl>")
+            parts.append("<h2>Technical terms</h2><dl>" + "".join(f'<dt id="term-{E(bg.toolkit_term_id(t["term"]))}"><b>{E(t["term"])}</b></dt>'
+                                                             f"<dd>{E(t.get('definition') or '')}</dd>" for t in s["technicalTerms"]) + "</dl>"
+                         + f'<p class="src">These terms are also in the <a href="{E(bs.rel(path, GLOSSARY))}">glossary</a>, as SKOS.</p>')
         out.append(page(path, f"Stage {s['ordinal']}: {s['name']}", [("index.html", "Home"), ("library/index.html", "Library"), (idx, "Toolkit")],
                         "".join(parts), theme, "library/index.html"))
     return out
@@ -638,6 +644,7 @@ def schemas_page(theme, out_dir):
               ["Skill package", "<code>src/skills/package-manifest.json</code>", "<code>cat-harness/schemas/skill-package.ts</code>"],
               ["<code>pdf-structure/v1</code>", "<code>library/*/structure.json</code>", "<code>cat-harness/schemas/pdf-structure.ts</code>"],
               ["<code>folio-document-images/v1</code>", "<code>library/*/images.json</code>", "<code>cat-harness/schemas/document-image.ts</code>"],
+              ["<code>folio-glossary/v1</code>", "<code>glossary/*.glossary.json</code> (SKOS)", "<code>folio-assistant-core/schemas/glossary.ts</code>"],
               ["FHIR R4", "<code>src/ihris-data-dictionary/terminology/*.json</code>", "<code>fhir.resources</code> (R4)"]]
     import importlib.util as ilu
     spec = ilu.spec_from_file_location("qa", os.path.join(ROOT, "src/tools/qa.py"))
@@ -658,6 +665,158 @@ def schemas_page(theme, out_dir):
     return page(path, "Schemas", [("index.html", "Home")], inner, theme, "schemas/index.html")
 
 
+# ------------------------------------------------------------------ glossary (folio-glossary/v1, SKOS)
+MATCH_WORDS = {"exactMatch": "exact match", "closeMatch": "close match", "broadMatch": "broader match", "narrowMatch": "narrower match"}
+
+
+def _first(v):
+    return v if isinstance(v, str) else (v.get("en") or next(iter(v.values())))
+
+
+def _fold(s):
+    import unicodedata
+    return "".join(c for c in unicodedata.normalize("NFKD", s) if not unicodedata.combining(c)).casefold()
+
+
+def term_anchor(g, t):
+    return f"{g['id']}--{t['id']}"
+
+
+def glossary_rows():
+    """Every term of every committed scheme, once, sorted A-Z: [(scheme, term, label)]. The glossary page and the
+    search page read this; QA (glossary-page) checks the page lists each exactly once."""
+    rows = [(g, t, _first(t["prefLabel"])) for _, g in bg.load() for t in g.get("terms") or []]
+    return sorted(rows, key=lambda r: (_fold(r[2]), r[2], r[0]["id"], r[1]["id"]))
+
+
+def _letter(label):
+    c = _fold(label)[:1].upper()
+    return c if "A" <= c <= "Z" else "#"
+
+
+def _source_link(path, t, stage_of):
+    """The term's source on this site where there is a page for it, else in the repository."""
+    src = t.get("source") or ""
+    f, _, ptr = src.partition("#")
+    if f in stage_of:
+        href = bs.rel(path, f"library/toolkit/stage-{stage_of[f]}.html") + f"#term-{t['id']}"
+    elif re.match(r"src/(i2ce|ihris-common|ihris-manage|ihris-qualify)/data-lists/", f):
+        href = bs.rel(path, f"sources/{f.split('/')[1]}/data-lists.html")
+    else:
+        href = f"{REPO}/blob/main/{f}"
+    return f'<a class="tgt" href="{E(href)}"><code>{E(f)}</code></a>' + (f' <code class="mute">#{E(ptr)}</code>' if ptr else "")
+
+
+def glossary_page(theme, out_dir):
+    """glossary/: every term, A-Z, with a live filter; SKOS JSON-LD per scheme; schema.org DefinedTermSet.
+    Mirrors folio-assistant core's glossary page (folio-assistant-core/scripts/glossary-page.ts) in the iHRIS theme."""
+    path = GLOSSARY
+    schemes = sorted((g for _, g in bg.load()), key=lambda g: (g["id"].startswith("code-list-"), g["id"]))
+    files = {g["id"]: rel_ for rel_, g in bg.load()}
+    rows = glossary_rows()
+    remote = bg.remote_glossaries()
+    stage_of = {os.path.relpath(f, ROOT): J(os.path.relpath(f, ROOT))["ordinal"] for f in glob.glob(os.path.join(ROOT, "library/ihris-toolkit/stages/*.json"))}
+    os.makedirs(os.path.join(out_dir, "assets", "glossary"), exist_ok=True)
+    for g in schemes:
+        with open(os.path.join(out_dir, bg.skos_asset(g)), "w", encoding="utf-8") as f:
+            f.write(bg.skos_text(g))
+    status = collections.Counter(t["status"] for _, t, _ in rows)
+    by_letter = collections.OrderedDict()
+    for r in rows:
+        by_letter.setdefault(_letter(r[2]), []).append(r)
+    ext_title = {}
+    for rg in remote.values():
+        ext_title[rg["url"].rstrip("/") + "/"] = rg["title"]
+
+    def match_label(iri):
+        for base, title in ext_title.items():
+            if iri.startswith(base):
+                return f"{title}: {iri[len(base):]}"
+        if iri.startswith(bg.ESCO_ISCO):
+            return f"{remote['esco-isco-08']['title']}: {iri[len(bg.ESCO_ISCO):]}"
+        return iri
+
+    def term_html(g, t, label):
+        k = " ".join([label, t.get("notation") or "", " ".join(t.get("altLabel") or []), g["id"]]).lower()
+        badge = "" if t["status"] == "authored" else f' <span class="badge st">{E(t["status"])}</span>'
+        code = f' <code>{E(t["notation"])}</code>' if t.get("notation") and t["notation"] != label else ""
+        if t.get("definition"):
+            d = _first(t["definition"])
+            defn = (f"<details><summary>Definition ({len(d.split())} words)</summary><p>{E(d)}</p></details>"
+                    if len(d) > 400 else f"<p>{E(d)}</p>")
+        elif t.get("reason"):
+            defn = f'<p class="mute">Could not extract: {E(t["reason"])}</p>'
+        else:
+            defn = '<p class="mute"><i>No definition in the source.</i></p>'
+        note = f'<p class="mute">{E(t["scopeNote"])}</p>' if t.get("scopeNote") else ""
+        ms = "".join(f'<li>{MATCH_WORDS[m]}: <a class="tgt" href="{E(u)}">{E(match_label(u))}</a></li>'
+                     for m in bg.MATCHES for u in t.get(m) or [])
+        ms = f'<ul class="matches">{ms}</ul>' if ms else ""
+        return (f'<dt id="{E(term_anchor(g, t))}" data-k="{E(k)}"><b>{E(label)}</b>{code}{badge}</dt>\n'
+                f'<dd>{defn}{note}{ms}'
+                f'<p class="src">{E(g["title"])} &middot; source {_source_link(path, t, stage_of)}</p></dd>')
+
+    az = "".join(f'<a href="#letter-{"0" if L == "#" else L}">{E(L)}</a>' for L in by_letter) + '<a href="#sources">Sources</a>'
+    body = "".join(f'<section class="letter"><h2 id="letter-{"0" if L == "#" else L}">{E(L)}</h2><dl class="gloss">'
+                   + "".join(term_html(*r) for r in rs) + "</dl></section>" for L, rs in by_letter.items())
+    items = []
+    for g in schemes:
+        c = collections.Counter(t["status"] for t in g.get("terms") or [])
+        n_m = sum(1 for t in g.get("terms") or [] if any(t.get(m) for m in bg.MATCHES))
+        items.append(f'<li><b>{E(g["title"])}</b>: {len(g.get("terms") or [])} terms'
+                     f'{" (" + E(", ".join(f"{v} {k}" for k, v in sorted(c.items()))) + ")" if c else ""}'
+                     f'{f", {n_m} linked to an external concept" if n_m else ""}.<br>'
+                     f'<span class="mute">{E(g.get("description") or "")}</span><br>'
+                     f'<a class="tgt" href="{E(bs.rel(path, bg.skos_asset(g)))}">SKOS JSON-LD</a> &middot; '
+                     f'<a class="tgt" href="{E(REPO)}/blob/main/{E(files[g["id"]])}"><code>{E(files[g["id"]])}</code></a></li>')
+    matched = collections.Counter()
+    for _, t, _ in rows:
+        for m in bg.MATCHES:
+            for u in t.get(m) or []:
+                for rid, rg in remote.items():
+                    if u.startswith(rg["url"].rstrip("/") + "/") or (rid == "esco-isco-08" and u.startswith(bg.ESCO_ISCO)):
+                        matched[(rid, m)] += 1
+    ext = "".join(f'<li><a class="tgt" href="{E(rg["url"])}">{E(rg["title"])}</a>: {E(rg.get("description") or "")} '
+                  f'<b>{sum(v for (r, _), v in matched.items() if r == rid)} term(s) link here.</b></li>' for rid, rg in remote.items())
+    ld = {"@context": "https://schema.org", "@type": "DefinedTermSet", "@id": f"{bg.NS}glossary", "name": "iHRIS Knowledge Base glossary",
+          "hasDefinedTerm": [{"@type": "DefinedTerm", "@id": bg.term_iri(bg.NS, g, t["id"]), "name": label,
+                              **({"description": _first(t["definition"])} if t.get("definition") else {}),
+                              **({"termCode": t["notation"]} if t.get("notation") else {}),
+                              "inDefinedTermSet": bg.scheme_iri(bg.NS, g)} for g, t, label in rows]}
+    ld_text = json.dumps(ld, ensure_ascii=False).replace("</", "<\\/")
+    js = """<script>
+(function(){var q=document.getElementById('gq'),n=document.getElementById('gn');if(!q)return;
+var dts=[].slice.call(document.querySelectorAll('dl.gloss dt'));
+var txt=dts.map(function(dt){return dt.dataset.k+' '+(dt.nextElementSibling?dt.nextElementSibling.textContent.toLowerCase():'');});
+function run(){var v=q.value.trim().toLowerCase(),k=0;dts.forEach(function(dt,i){var ok=!v||txt[i].indexOf(v)>=0;
+dt.hidden=!ok;if(dt.nextElementSibling)dt.nextElementSibling.hidden=!ok;if(ok)k++;});
+document.querySelectorAll('section.letter').forEach(function(s){s.hidden=!s.querySelector('dt:not([hidden])');});
+n.textContent=k;}
+var p=new URLSearchParams(location.search).get('q');if(p){q.value=p;}
+q.addEventListener('input',run);run();})();
+</script>"""
+    inner = f"""<p>Every term this folio extracted, as W3C SKOS in folio-assistant&#39;s <code>folio-glossary/v1</code>: {len(rows)} terms in
+{len(schemes)} schemes. A term links to the external concept it matches rather than copying it, and only where this repository verified the
+mapping. <b>authored</b>: the definition is the source&#39;s own, verbatim. <b>candidate</b>: the source names the term and gives no definition.</p>
+<div class="badges">{"".join(f'<span class="badge">{v} {E(k)}</span>' for k, v in sorted(status.items()))}<span class="badge">{len(schemes)} schemes</span></div>
+<form class="gsearch" role="search" onsubmit="return false"><label for="gq">Filter terms (name, code or definition)</label>
+<input id="gq" type="search" autocomplete="off"></form>
+<p class="mute" aria-live="polite"><span id="gn">{len(rows)}</span> of {len(rows)} terms shown</p>
+<nav class="az" aria-label="Terms by letter">{az}</nav>
+{body}
+<h2 id="sources">Sources</h2>
+<p>Each scheme is published as SKOS JSON-LD. Term IRIs are in this instance&#39;s namespace, <code>{E(bg.NS)}glossary/&lt;scheme&gt;/&lt;term&gt;</code>.</p>
+<ul class="schemes">{"".join(items)}</ul>
+<h3>External SKOS schemes</h3>
+<p>Referenced, never copied. Links follow each publisher&#39;s IRI pattern; the building session could not reach these hosts, so no IRI was dereferenced.</p>
+<ul>{ext}</ul>
+<script type="application/ld+json">{ld_text}</script>"""
+    title = "Glossary"
+    r_ = lambda p_: bs.rel(path, p_)  # noqa: E731
+    main = f'<main id="main" tabindex="-1"><div class="crumbs"><a href="{r_("index.html")}">Home</a> / {title}</div>\n<h1>{title}</h1>\n{inner}\n</main>'
+    return path, bs.shell(path, title, main, theme, current=GLOSSARY, scripts=js)
+
+
 def all_pages(theme, cls_index, out_dir):
     pages = [sources_index(theme), ihris5_page(theme), library_index(theme), fhir_page(theme), schemas_page(theme, out_dir)]
     for inst in LP_INSTANCES:
@@ -672,6 +831,7 @@ def all_pages(theme, cls_index, out_dir):
     pages += dd_pages(theme, cls_index, wiki_ids)
     pages += handbook_pages(theme, out_dir)
     pages += use_case_pages(theme, cls_index)
+    pages.append(glossary_page(theme, out_dir))
     os.makedirs(os.path.join(out_dir, "assets"), exist_ok=True)
     for f in ("data-dictionary.xlsx", "data-dictionary.csv"):
         shutil.copy(os.path.join(ROOT, "src/ihris-data-dictionary", f), os.path.join(out_dir, "assets", f))

@@ -1,9 +1,9 @@
 {
   "id": "ihris-ingest-use-cases",
   "title": "Parse the iHRIS use-case model reports",
-  "description": "Verifies each uploaded CaseComplete .doc report (md5 and sha256), extracts it with antiword -w 0, and parses packages, use cases (all Details fields, main success scenario, extensions, notes), actors and requirements into library/ihris-use-cases/<product>.json (ihris-use-cases/v1) and <product>.md. Declares the described actors as Roles (scenarios/roles.json, folio-assistant's RoleGraphSchema) and resolves each use case's actors to them, and replaces each person named in Assigned To or a requirement's Source with an opaque actor (scenarios/actors/ihris-2009-staff-NN.json, identity withheld; the mapping is never written). Records references cited but never described, and writes crosswalk.json (ihris-use-case-crosswalk/v1): each use case to the iHRIS 4.3.3 forms its title names, by name matching only. Ends with a leak check over its output and a site built into a temporary directory. Deterministic; stops on any text it does not recognise and on any actor name that resolves to no role.",
+  "description": "Verifies each uploaded CaseComplete .doc report (md5 and sha256), extracts it with antiword -w 0, and parses packages, use cases (all Details fields, main success scenario, extensions, notes), actors and requirements into library/ihris-use-cases/<product>.json (ihris-use-cases/v1) and <product>.md. Declares the described actors as Roles (scenarios/roles.json, folio-assistant's RoleGraphSchema) and resolves each use case's actors to them, and replaces each person named in Assigned To or a requirement's Source with an opaque actor (scenarios/actors/ihris-2009-staff-NN.json, identity withheld; the mapping is never written). Records each report's glossary (its document summary's claim, and the entries its text holds, verbatim; none is invented) and references cited but never described, and writes crosswalk.json (ihris-use-case-crosswalk/v1): each use case to the iHRIS 4.3.3 forms its title names, by name matching only. Ends with a leak check over its output and a site built into a temporary directory. Deterministic; stops on any text it does not recognise and on any actor name that resolves to no role.",
   "install": {
-    "cli": "apt-get install antiword"
+    "cli": "apt-get install antiword && pip install olefile"
   },
   "invoke": {
     "shell": "python3 src/tools/ingest_use_cases.py"
@@ -44,7 +44,8 @@
   "requires": {
     "runtime": [
       "python3>=3.10",
-      "antiword"
+      "antiword",
+      "olefile"
     ],
     "network": false
   }

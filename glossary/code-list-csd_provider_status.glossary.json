@@ -1,0 +1,40 @@
+{
+ "$schema": "folio-glossary/v1",
+ "id": "code-list-csd_provider_status",
+ "title": "iHRIS 4.3.3 code list: csd_provider_status",
+ "description": "The `csd_provider_status` code list as iHRIS 4.3.3 ships it by default: 4 codes from ihris-common/module/csd-data-provider-status. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+ "hasVersion": "4.3.3",
+ "source": "src/ihris-common/data-lists/4.3.3/csd_provider_status.json (iHRIS 4.3.3, MD5-verified release)",
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "terms": [
+  {
+   "id": "active",
+   "prefLabel": "Active",
+   "notation": "Active",
+   "source": "src/ihris-common/data-lists/4.3.3/csd_provider_status.json#/records/0",
+   "status": "candidate"
+  },
+  {
+   "id": "inactive",
+   "prefLabel": "Inactive",
+   "notation": "Inactive",
+   "source": "src/ihris-common/data-lists/4.3.3/csd_provider_status.json#/records/1",
+   "status": "candidate"
+  },
+  {
+   "id": "deceased",
+   "prefLabel": "Deceased",
+   "notation": "Deceased",
+   "source": "src/ihris-common/data-lists/4.3.3/csd_provider_status.json#/records/2",
+   "status": "candidate"
+  },
+  {
+   "id": "retired",
+   "prefLabel": "Retired",
+   "notation": "Retired",
+   "scopeNote": "The record has no `name`, so its code stands as its label.",
+   "source": "src/ihris-common/data-lists/4.3.3/csd_provider_status.json#/records/3",
+   "status": "candidate"
+  }
+ ]
+}

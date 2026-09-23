@@ -27,9 +27,15 @@ Deterministic, in order:
    (RoleGraphSchema, cat-harness/schemas/role-graph.ts). Each use case's primary and
    supporting actors become role ids, resolved by name within the product and then in
    Common. A name that resolves to nothing stops the build.
-7. Write <product>.json (ihris-use-cases/v1), <product>.md, roles.md, crosswalk.json
+7. The glossary. Each report's document summary (OLE SummaryInformation, read with
+   olefile) has the Subject "Use cases, actor goal list, glossary and packages". Record
+   that claim, and whether the report TEXT holds a glossary: any line naming a glossary
+   stops the build until the parser reads it verbatim, and none found means `terms: []`
+   and a note saying what was checked. A glossary is never invented
+   (src/tools/build_glossary.py turns what is recorded into the SKOS glossary).
+8. Write <product>.json (ihris-use-cases/v1), <product>.md, roles.md, crosswalk.json
    (ihris-use-case-crosswalk/v1) and manifest.jsonld.
-8. Leak check: fail if any withheld name or initials appear as a whole token in
+9. Leak check: fail if any withheld name or initials appear as a whole token in
    library/ihris-use-cases/ or in the built site (built into a temporary directory).
    Only this tool holds the uploads, so only it can run this check; CI cannot.
 
@@ -40,7 +46,7 @@ becomes {"actor": "ihris-2009-staff-NN"}. NN is the order of first appearance, r
 Common, Manage, Qualify, Plan, each in document order. Who a number stands for lives
 in the data store only: this tool holds it in memory while it runs and never writes it.
 
-  python3 src/tools/ingest_use_cases.py      # needs antiword
+  python3 src/tools/ingest_use_cases.py      # needs antiword and olefile
 """
 import datetime
 import glob
@@ -98,6 +104,30 @@ def join(a, b):
 
 class ParseError(Exception):
     pass
+
+
+# ------------------------------------------------------------------ the glossary
+def report_glossary(path, text, product):
+    """(Subject, glossary record) for one report. The Subject is the document summary's; the glossary
+    is read from the report TEXT. A line naming a glossary stops the build: its entries must be parsed
+    verbatim, and this parser does not read one yet, so it may not guess at one or skip it."""
+    try:
+        import olefile
+    except ImportError:
+        sys.exit("olefile is needed to read the report's document summary: pip install olefile")
+    with olefile.OleFileIO(path) as ole:
+        raw = ole.get_metadata().subject or b""
+    subject = raw.decode("cp1252").strip()
+    for n, line in enumerate(text.split("\n"), 1):
+        if re.search(r"\bglossar", line, re.I):
+            raise ParseError(f"{product} line {n}: the report text names a glossary; parse its entries verbatim "
+                             "(term and definition) before deriving anything from this report")
+    claimed = subject if re.search(r"\bglossar", subject, re.I) else None
+    note = ("The document summary's Subject names a glossary, but the report text holds none: no line of the "
+            "extracted text (antiword -w 0) names a glossary, and everything after the table of contents parses as "
+            "packages, actors, use cases and requirements. No term is recorded, and none is invented.") if claimed else \
+        "The report neither names a glossary nor holds one."
+    return subject, {"claimedBy": f"document summary, Subject: {claimed}" if claimed else None, "found": False, "terms": [], "note": note}
 
 
 # ------------------------------------------------------------------ the report
@@ -767,6 +797,7 @@ def main():
         text = subprocess.run(["antiword", "-w", "0", p], capture_output=True, text=True, check=True,
                               env={**os.environ, "LC_ALL": "C.UTF-8", "LANG": "C.UTF-8"}).stdout
         doc, head, toc_actors, staff, stats = parse_report(text, fe["product"])
+        head["subject"], doc["glossary"] = report_glossary(p, text, fe["product"])
         doc["source"] = {"file": fe["file"], "md5": md5, "sha256": sha, "extractedWith": "antiword -w 0",
                          "textSha256": hashlib.sha256(text.encode()).hexdigest(), "manifest": "uploads/ihris-use-cases/manifest.json"}
         docs[fe["product"]], heads[fe["product"]] = doc, head
@@ -816,7 +847,7 @@ def main():
             "product": product,
             "title": PRODUCTS[product] + " use cases",
             "report": {"title": "Use Case Model - Complete Report", "generator": heads[product].get("generator"),
-                       "generatedAt": heads[product].get("generatedAt"), "author": "sturlington"},
+                       "generatedAt": heads[product].get("generatedAt"), "author": "sturlington", "subject": heads[product]["subject"]},
             "source": d["source"],
             "attribution": "iHRIS use-case model, IntraHealth International / the Capacity Project iHRIS team (2009). Published with the owner's permission.",
             "counts": {"useCases": len(ucs), "actors": len(d["actors"]), "requirements": len(reqs),
@@ -826,6 +857,7 @@ def main():
             "actors": d["actors"],
             "root": d["root"],
             "dangling": [x for x in dangling if x["product"] == product],
+            "glossary": d["glossary"],
         }
         with open(os.path.join(OUT, f"{product}.json"), "w", encoding="utf-8") as f:
             json.dump(rec, f, indent=1, ensure_ascii=False)
