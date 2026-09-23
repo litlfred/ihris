@@ -1,0 +1,6092 @@
+{
+ "$schema": "ihris-use-cases/v1",
+ "product": "manage",
+ "title": "iHRIS Manage use cases",
+ "report": {
+  "title": "Use Case Model - Complete Report",
+  "generator": "Serlio Software Case Complete",
+  "generatedAt": "7/13/2009 3:28 PM",
+  "author": "sturlington"
+ },
+ "source": {
+  "file": "iHRISManageUseCases.doc",
+  "md5": "5d9349f51e524946264d94d289a995b1",
+  "sha256": "6bd999073703941c219a3a54897dea00c45f0b2f9ae98cf5e392dc1019272e0e",
+  "extractedWith": "antiword -w 0",
+  "textSha256": "a899889458538e1854f645ca9684c94c961312826544a73799644421b9d0a6d7",
+  "manifest": "uploads/ihris-use-cases/manifest.json"
+ },
+ "attribution": "iHRIS use-case model, IntraHealth International / the Capacity Project iHRIS team (2009). Published with the owner's permission.",
+ "counts": {
+  "useCases": 58,
+  "actors": 4,
+  "requirements": 3,
+  "packages": 8,
+  "steps": 538,
+  "extensions": 102
+ },
+ "withheld": [
+  {
+   "field": "assignedTo",
+   "why": "staff initials",
+   "count": 12
+  }
+ ],
+ "actors": [
+  {
+   "id": "A-PT1",
+   "name": "HR Manager",
+   "description": "This person is a manager of HR personnel and is responsible for ensuring that data in the system are complete, correct and up to date. This person will also run reports and analyze data in order to make organizational or individual HR decisions. This person has permission to view any record in the system.",
+   "goals": [
+    "Create standard lists of data for selection in the system.",
+    "Add geographical locations to the organizational structure.",
+    "Add offices and facilities to the organizational structure.",
+    "Create a job structure for the organization.",
+    "Check for and correct data errors.",
+    "Report on data quality.",
+    "Create report views."
+   ],
+   "notes": [
+    {
+     "text": "Can perform any use case that HR Staff, Training Manager or Executive Manager can perform.",
+     "dateAdded": "9/19/2006",
+     "date": "2006-09-19"
+    }
+   ],
+   "useCases": [
+    {
+     "id": "UC-PT8",
+     "title": "Add or update a benefit type"
+    },
+    {
+     "id": "UC-PT17",
+     "title": "Add or update a cadre"
+    },
+    {
+     "id": "UC-PT69",
+     "title": "Add or update a continuing education course"
+    },
+    {
+     "id": "UC-PT11",
+     "title": "Add or update a country"
+    },
+    {
+     "id": "UC-PT14",
+     "title": "Add or update a county"
+    },
+    {
+     "id": "UC-PT15",
+     "title": "Add or update a currency"
+    },
+    {
+     "id": "UC-PT5",
+     "title": "Add or update a degree"
+    },
+    {
+     "id": "UC-PT3",
+     "title": "Add or update a department"
+    },
+    {
+     "id": "UC-PT13",
+     "title": "Add or update a district"
+    },
+    {
+     "id": "UC-PT1",
+     "title": "Add or update a facility type"
+    },
+    {
+     "id": "UC-PT18",
+     "title": "Add or update a job classification"
+    },
+    {
+     "id": "UC-PT6",
+     "title": "Add or update a language"
+    },
+    {
+     "id": "UC-PT9",
+     "title": "Add or update a marital status"
+    },
+    {
+     "id": "UC-PT22",
+     "title": "Add or update a position type"
+    },
+    {
+     "id": "UC-PT10",
+     "title": "Add or update a reason for departure"
+    },
+    {
+     "id": "UC-PT12",
+     "title": "Add or update a region"
+    },
+    {
+     "id": "UC-PT70",
+     "title": "Add or update a registration council"
+    },
+    {
+     "id": "UC-PT21",
+     "title": "Add or update a salary source"
+    },
+    {
+     "id": "UC-PT4",
+     "title": "Add or update an education type"
+    },
+    {
+     "id": "UC-PT7",
+     "title": "Add or update an identification type"
+    },
+    {
+     "id": "UC-PT2",
+     "title": "Add or update an office or facility"
+    },
+    {
+     "id": "UC-PT49",
+     "title": "Create a competency model"
+    },
+    {
+     "id": "UC-PT20",
+     "title": "Create a job"
+    },
+    {
+     "id": "UC-PT19",
+     "title": "Create a salary grade"
+    },
+    {
+     "id": "UC-PT35",
+     "title": "Record a salary change"
+    }
+   ]
+  },
+  {
+   "id": "A-PT2",
+   "name": "HR Staff",
+   "description": "This person is responsible for entering and updating data in the system. This person can update and view any record in the system.",
+   "goals": [
+    "Create and update positions.",
+    "Enter application information for a job applicant.",
+    "Review applicants and make a job offer to an applicant.",
+    "Add a new employee record.",
+    "Enter information into or update information in an employee's record.",
+    "Record position and salary changes in an employee's record.",
+    "Generate standard position lists, organizational charts, staff lists and staff directories."
+   ],
+   "notes": [
+    {
+     "text": "Can perform any use case that a Training Manager can perform.",
+     "dateAdded": "9/19/2006",
+     "date": "2006-09-19"
+    },
+    {
+     "text": "This person cannot create customized report views.",
+     "dateAdded": "7/13/2009",
+     "date": "2009-07-13"
+    }
+   ],
+   "useCases": [
+    {
+     "id": "UC-PT31",
+     "title": "Add contact information"
+    },
+    {
+     "id": "UC-PT30",
+     "title": "Add demographic information"
+    },
+    {
+     "id": "UC-PT29",
+     "title": "Add identification information"
+    },
+    {
+     "id": "UC-PT36",
+     "title": "Add language proficiencies"
+    },
+    {
+     "id": "UC-PT71",
+     "title": "Add registrations"
+    },
+    {
+     "id": "UC-PT40",
+     "title": "Apply for a position"
+    },
+    {
+     "id": "UC-PT50",
+     "title": "Assess an employee's competencies"
+    },
+    {
+     "id": "UC-PT23",
+     "title": "Create a position"
+    },
+    {
+     "id": "UC-PT25",
+     "title": "Discontinue a position"
+    },
+    {
+     "id": "UC-PT27",
+     "title": "Enter a new record"
+    },
+    {
+     "id": "UC-PT44",
+     "title": "Enter educational history"
+    },
+    {
+     "id": "UC-PT43",
+     "title": "Enter employment history"
+    },
+    {
+     "id": "UC-PT42",
+     "title": "Log a hiring decision"
+    },
+    {
+     "id": "UC-PT41",
+     "title": "Log interview details"
+    },
+    {
+     "id": "UC-PT46",
+     "title": "Make a job offer"
+    },
+    {
+     "id": "UC-PT34",
+     "title": "Record a position change"
+    },
+    {
+     "id": "UC-PT35",
+     "title": "Record a salary change"
+    },
+    {
+     "id": "UC-PT32",
+     "title": "Record a special payment"
+    },
+    {
+     "id": "UC-PT37",
+     "title": "Record notes"
+    },
+    {
+     "id": "UC-PT45",
+     "title": "Review applicants"
+    },
+    {
+     "id": "UC-PT28",
+     "title": "Set a position for an employee"
+    },
+    {
+     "id": "UC-PT33",
+     "title": "Terminate an employee"
+    },
+    {
+     "id": "UC-PT24",
+     "title": "Update a position"
+    }
+   ]
+  },
+  {
+   "id": "A-PT3",
+   "name": "Executive Manager",
+   "description": "This person will run reports and analyze data in order to make organizational HR decisions.",
+   "goals": [
+    "Search for and view employee and position records.",
+    "Run standard reports to analyze data entered in the system.",
+    "Assess organizational competencies held by all employees and search for employee qualifications.",
+    "Review applicants for a position."
+   ],
+   "notes": [
+    {
+     "text": "This person has permission to view any record in the system but cannot update or change data in an employee record.",
+     "dateAdded": "10/31/2007",
+     "date": "2007-10-31"
+    },
+    {
+     "text": "This person cannot create customized report views.",
+     "dateAdded": "7/13/2009",
+     "date": "2009-07-13"
+    }
+   ],
+   "useCases": [
+    {
+     "id": "UC-PT45",
+     "title": "Review applicants"
+    }
+   ]
+  },
+  {
+   "id": "A-PT8",
+   "name": "Training Manager",
+   "description": "This person is responsible for managing training programs taken by employees and updating employee competencies.",
+   "goals": [
+    "Create a competency model for the organization.",
+    "Assess an employee's competencies.",
+    "Search for employees who hold particular competencies.",
+    "Add training information and manage the list of available training programs.",
+    "Schedule trainings for employees.",
+    "Assess an employee's training results and update the employee's training history.",
+    "Report on employees who have received trainings."
+   ],
+   "notes": [
+    {
+     "text": "This is a new actor who is focused on the training module functions. HR Staff may complete any use case that the HR Training Manager can.",
+     "dateAdded": "11/15/2007",
+     "date": "2007-11-15"
+    }
+   ],
+   "useCases": [
+    {
+     "id": "UC-PT68",
+     "title": "Add or update a competency evaluation"
+    },
+    {
+     "id": "UC-PT55",
+     "title": "Add or update a training course category"
+    },
+    {
+     "id": "UC-PT67",
+     "title": "Add or update a training course evaluation"
+    },
+    {
+     "id": "UC-PT66",
+     "title": "Add or update a training course requestor"
+    },
+    {
+     "id": "UC-PT65",
+     "title": "Add or update a training course status"
+    },
+    {
+     "id": "UC-PT53",
+     "title": "Add or update a training funder"
+    },
+    {
+     "id": "UC-PT54",
+     "title": "Add or update a training organization"
+    },
+    {
+     "id": "UC-PT56",
+     "title": "Add or update an in-service training program"
+    },
+    {
+     "id": "UC-PT50",
+     "title": "Assess an employee's competencies"
+    },
+    {
+     "id": "UC-PT60",
+     "title": "Assess training results and update competencies"
+    },
+    {
+     "id": "UC-PT49",
+     "title": "Create a competency model"
+    },
+    {
+     "id": "UC-PT57",
+     "title": "Enter the schedule for a training program"
+    },
+    {
+     "id": "UC-PT59",
+     "title": "Schedule a training for an employee"
+    }
+   ]
+  }
+ ],
+ "root": {
+  "number": "1",
+  "name": "iHRIS Manage - Core Functional",
+  "level": 1,
+  "description": "iHRIS Manage is a human resources management tool that enables an organization to design and manage a comprehensive human resources strategy.",
+  "notes": [
+   {
+    "text": "This documentation refers to the core version of the HR Management database (working title: PowerTrack).",
+    "dateAdded": "9/13/2006",
+    "date": "2006-09-13"
+   },
+   {
+    "text": "The specifications were based on the requirements gathered for the Rwanda release Version 1.0. It also includes some specifications gathered for release to IntraHealth HR department.",
+    "dateAdded": "9/13/2006",
+    "date": "2006-09-13"
+   },
+   {
+    "text": "An earlier version of the system was released in Rwanda as RW-MOH 0.9a",
+    "dateAdded": "9/13/2006",
+    "date": "2006-09-13"
+   },
+   {
+    "text": "Core Version 2.0 released April 16, 2007.",
+    "dateAdded": "5/7/2007",
+    "date": "2007-05-07"
+   },
+   {
+    "text": "Core Version 3.0 released March 18, 2008.",
+    "dateAdded": "7/24/2008",
+    "date": "2008-07-24"
+   },
+   {
+    "text": "Core Version 3.1 released August 15, 2008.",
+    "dateAdded": "9/29/2008",
+    "date": "2008-09-29"
+   },
+   {
+    "text": "Core Version 4.0 released July 13, 2009.",
+    "dateAdded": "7/13/2009",
+    "date": "2009-07-13"
+   }
+  ],
+  "relatedDocuments": [
+   "https://launchpad.net/ihris-manage",
+   "http://www.capacityproject.org/hris/suite/ihris_manage.php"
+  ],
+  "packages": [
+   {
+    "number": "1.1",
+    "name": "Data Administration",
+    "level": 2,
+    "description": "Create and update standard lists of data for selection in system menus.",
+    "notes": [
+     {
+      "text": "Access is limited to HR Managers and System Administrators.",
+      "dateAdded": "5/7/2007",
+      "date": "2007-05-07"
+     },
+     {
+      "text": "Locate these functions via the Configure System --> Administer Database link on the main menu.",
+      "dateAdded": "9/28/2007",
+      "date": "2007-09-28"
+     }
+    ],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-PT1",
+      "title": "Add or update a facility type",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager adds a new facility type for selection in the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The facility type is added to the system and is available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of facility types."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all facility types entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new facility type."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a description or name for the facility type."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the facility type available for selection when adding facilities."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing facility type.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the facility type for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the facility type already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is identical for iHRIS Manage and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT2",
+      "title": "Add or update an office or facility",
+      "priority": "P6",
+      "package": "1.1",
+      "description": "The HR Manager adds a new office or facility for selection within the system and ties it to an institution type.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The office/facility is saved to the system and is available for selection within various use cases and for reporting.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of offices/facilities."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all offices/facilities entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new office/facility."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name (description) of the office/facility."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the facility type for the office/facility."
+       },
+       {
+        "step": 6,
+        "text": "The user adds the facility's contact information (UC-PT31)."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the country where the office/facility is located."
+       },
+       {
+        "step": 8,
+        "text": "The system displays all districts in that country."
+       },
+       {
+        "step": 9,
+        "text": "The user selects the district where the office/facility is located."
+       },
+       {
+        "step": 10,
+        "text": "The system displays all counties in that district."
+       },
+       {
+        "step": 11,
+        "text": "The user selects the county where the office/facility is located (optional)."
+       },
+       {
+        "step": 12,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 13,
+        "text": "The system displays the office or facility's record."
+       },
+       {
+        "step": 14,
+        "text": "The system provides the option to update the office or facility information."
+       },
+       {
+        "step": 15,
+        "text": "The system makes the office or facility available for selection and reporting."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing office or facility.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The user adds a new facility type (UC-PT1).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the office/facility."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The user adds a new country (UC-PT11).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the office/facility."
+         }
+        ]
+       },
+       {
+        "id": "8.a",
+        "atStep": "8",
+        "text": "The user adds a new district (UC-PT13).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the office/facility."
+         }
+        ]
+       },
+       {
+        "id": "10.a",
+        "atStep": "10",
+        "text": "The user adds a new county (UC-PT14).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the office/facility."
+         }
+        ]
+       },
+       {
+        "id": "12.a",
+        "atStep": "12",
+        "text": "The system determines that the office/facility name already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT3",
+      "title": "Add or update a department",
+      "priority": "P6",
+      "package": "1.1",
+      "description": "The HR Manager adds a new department to the list of departments available for selection in the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The department is saved and is available for selection within various use cases and for reporting.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update the list of departments."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all departments previously entered into the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new department."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the department."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the department available for selection when adding positions."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing department.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the department for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the department already exists in the databse.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This functionality may be accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT70",
+      "title": "Add or update a registration council",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager adds a new registration council to the list of registration councils available for selection in the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The registration council is saved and is available for selection within various use cases and for reporting.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "4.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update the list of registration councils."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all registration councils previously entered into the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new registration council."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the registration council."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the registration council available for selection when adding a qualification to an employee record."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing registration council.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the registration council for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the registration council already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This functionality may be accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT4",
+      "title": "Add or update an education type",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager updates a list of education types that are available for selection within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new education type is saved and available for selection when adding a degree.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of education types."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all education types entered in the system.."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new education type."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description or name of the education type."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record. (UC-ICE2)"
+       },
+       {
+        "step": 6,
+        "text": "The system makes the education type available for selection when adding educational information."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing education type.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the education type for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the education type already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT5",
+      "title": "Add or update a degree",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager adds a type of educational institution to the system and associates it with degrees that it issues.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "A new degree is associated with its education type and made available for selection from various use cases.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of degrees."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all education types entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user selects an education type."
+       },
+       {
+        "step": 4,
+        "text": "The system displays a list of matching degrees for that education type."
+       },
+       {
+        "step": 5,
+        "text": "The user adds a new degree."
+       },
+       {
+        "step": 6,
+        "text": "The user enters the name (description) of the degree."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the education type for the degree."
+       },
+       {
+        "step": 8,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 9,
+        "text": "The system makes the degree available for selection when adding educational information."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user does not select an education type.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides the option to add a new degree only."
+         },
+         {
+          "step": 2,
+          "text": "Skip to Step 6."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The user selects an existing degree.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the degree for editing."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The user adds a new educational type.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the degree."
+         }
+        ]
+       },
+       {
+        "id": "7.b",
+        "atStep": "7",
+        "text": "The user already selected the education type.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system fills in the selected education type when the degree is added."
+         }
+        ]
+       },
+       {
+        "id": "8.a",
+        "atStep": "8",
+        "text": "The system determines that the degree already exists in the database for the selected education type.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT6",
+      "title": "Add or update a language",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager updates a list of languages that are available for selection within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new language is saved and available for selection.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage languages."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all languages entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new language."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description or name of the item."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the language available for selection when adding language proficiency."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing language.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the language for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the language already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT7",
+      "title": "Add or update an identification type",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager updates a list of identification types that are available for selection within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new identification type is saved and available for selection when adding an identification.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of identification types."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all identification types entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new identification type."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description or name of the item."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the identification type available for selection when adding identifications."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing identification type.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the identification type for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the identification type already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is identical for both iHRIS Manage and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT8",
+      "title": "Add or update a benefit type",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager updates a list of benefit types that are available for selection within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system",
+      "successGuarantee": "The new benefit type is saved and available for selection when adding a benefit.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage benefit types."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all benefit types entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new benefit type."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description or name of the item."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the benefit type available for selection when adding benefits."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing benefit type.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the benefit type for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the benefit type already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT9",
+      "title": "Add or update a marital status",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager adds a new marital status to the system that is available in selection lists.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The marital status is added to the system and is available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of marital statuses."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all marital statuses entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new marital status."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a description for the marital status."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the marital status available for selection when adding demographic information."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing marital status.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the marital status for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the marital status already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is the same for both iHRIS Manage and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT10",
+      "title": "Add or update a reason for departure",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager updates a list of reasons for departure that are available for selection within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new reason for departure is saved and available for selection.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list reasons for departure."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all reasons entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new reason for departure."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description or name of the item."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the reason available for selection when recording position changes."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing reason for departure.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the reason for departure already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT11",
+      "title": "Add or update a country",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager updates the list of countries available for selection in the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new or changed country is defined within the system and available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Updated",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage lists of countries."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all countries entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new country."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the two-letter country code."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the ISO numeric code for the country (optional)."
+       },
+       {
+        "step": 6,
+        "text": "The user selects whether the country is the primary country for the system."
+       },
+       {
+        "step": 7,
+        "text": "The user selects whether the country is used for location selection."
+       },
+       {
+        "step": 8,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 9,
+        "text": "The system makes the country available for selection whenever adding geographical locations or nationalities/citizenships."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the country for editing."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user selects the country as the primary country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays the country first in all country selection menus."
+         }
+        ]
+       },
+       {
+        "id": "6.b",
+        "atStep": "6",
+        "text": "The system determines that more than one country was selected as the primary country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays all primary countries at the top of selection menus in alphabetical order."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The user selects that the country is used for location selection.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system makes the country available for selection when a location, such as an address, is being specified."
+         }
+        ]
+       },
+       {
+        "id": "8.a",
+        "atStep": "8",
+        "text": "The system determines that the name and country code are the same as a country previously entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is the same for iHRIS Manage, iHRIS Plan and iHRIS Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "Geographical locations are tied together from largest to smallest: country --> region --> district, state or province --> county or sector.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "The country list also displays nationalities for selection. Disabling the location selection limits the country to nationality selection only (new feature in version 3.0).",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT12",
+      "title": "Add or update a region",
+      "priority": "P6",
+      "package": "1.1",
+      "description": "The HR Manager updates the list of regions available for selection in the system and establishes the region's parent country.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new or changed region is defined within the system and available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage lists of regions."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all countries entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the country where the region is located."
+       },
+       {
+        "step": 4,
+        "text": "The system displays all regions entered for that country."
+       },
+       {
+        "step": 5,
+        "text": "The user adds a new region."
+       },
+       {
+        "step": 6,
+        "text": "The user selects the name of the country inside which the new region is located."
+       },
+       {
+        "step": 7,
+        "text": "The user enters the name of the region."
+       },
+       {
+        "step": 8,
+        "text": "The user enters the code for the region (optional)."
+       },
+       {
+        "step": 9,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 10,
+        "text": "The system makes the region available for reporting."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "2.a",
+        "atStep": "2",
+        "text": "The user does not select a country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides only the option to add a new region."
+         },
+         {
+          "step": 2,
+          "text": "Skip to Step 5."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The user selects an existing region.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the region for editing."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user adds a new country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the region."
+         }
+        ]
+       },
+       {
+        "id": "6.b",
+        "atStep": "6",
+        "text": "The system determines that the country was previously selected.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system fills in the selected country."
+         }
+        ]
+       },
+       {
+        "id": "9.a",
+        "atStep": "9",
+        "text": "The system determines that the name and parent country are the same as a location previously entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is identical for iHRIS Manage and iHRIS Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT13",
+      "title": "Add or update a district",
+      "priority": "P6",
+      "package": "1.1",
+      "description": "The HR Manager updates the list of districts available for selection in the system and establishes the district's parent region.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new or changed district is defined within the system and available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage lists of districts."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all countries entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the country where the district is located."
+       },
+       {
+        "step": 4,
+        "text": "The system displays all regions entered for that country."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the region where the district is located."
+       },
+       {
+        "step": 6,
+        "text": "The system displays all districts entered for that region."
+       },
+       {
+        "step": 7,
+        "text": "The user adds a new district."
+       },
+       {
+        "step": 8,
+        "text": "The user selects the name of the country and region inside which the new district is located."
+       },
+       {
+        "step": 9,
+        "text": "The user enters the name of the district."
+       },
+       {
+        "step": 10,
+        "text": "The user enters the code for the district."
+       },
+       {
+        "step": 11,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 12,
+        "text": "The system makes the district available for selection when adding geographical locations."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user does not select a country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides the option to add a new district only."
+         },
+         {
+          "step": 2,
+          "text": "Skip to Step 7."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The user selects an existing district.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the district for editing."
+         }
+        ]
+       },
+       {
+        "id": "8.a",
+        "atStep": "8",
+        "text": "The system determines that the user previously selected the country and region.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system fills in the selections for the district."
+         }
+        ]
+       },
+       {
+        "id": "11.a",
+        "atStep": "11",
+        "text": "The system determines that the name and parent region and country are the same as a location previously entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is identical for iHRIS Manage and iHRIS Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT14",
+      "title": "Add or update a county",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager updates the list of counties available for selection in the system and establishes the county's parent district.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new or changed county is defined within the system and available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage lists of counties."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all countries entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the country where the county is located."
+       },
+       {
+        "step": 4,
+        "text": "The system displays a list of regions for that country."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the region inside which the county is located."
+       },
+       {
+        "step": 6,
+        "text": "The system displays all districts entered for that region."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the district where the county is located."
+       },
+       {
+        "step": 8,
+        "text": "The system displays all districts entered for that county."
+       },
+       {
+        "step": 9,
+        "text": "The user adds a new county."
+       },
+       {
+        "step": 10,
+        "text": "The user selects the country, region and district where the county is located."
+       },
+       {
+        "step": 11,
+        "text": "The user enters the name of the county."
+       },
+       {
+        "step": 12,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 13,
+        "text": "The system makes the county available for selection whenever geographical locations are added."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "2.a",
+        "atStep": "2",
+        "text": "The user does not select a country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides the option to add a new county only."
+         },
+         {
+          "step": 2,
+          "text": "Skip to Step 9."
+         }
+        ]
+       },
+       {
+        "id": "9.a",
+        "atStep": "9",
+        "text": "The user selects an existing county.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the county for editing."
+         }
+        ]
+       },
+       {
+        "id": "10.a",
+        "atStep": "10",
+        "text": "The system determines that the country, region and district were previously selected.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system fills in the previous selections for the county."
+         }
+        ]
+       },
+       {
+        "id": "12.a",
+        "atStep": "12",
+        "text": "The system determines that the name and parent district are the same as a location previously entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "The use case is the same for iHRIS Manage and iHRIS Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT15",
+      "title": "Add or update a currency",
+      "priority": "P10",
+      "package": "1.1",
+      "description": "The HR Manager adds a currency for selection when setting salaries and other monetary amounts.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new currency is added to the system and can be selected whenever specifying monetary amounts.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update the list of currencies."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all currencies entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new currency."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the currency code."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the name of the currency."
+       },
+       {
+        "step": 6,
+        "text": "The user selects the country for the currency (optional)."
+       },
+       {
+        "step": 7,
+        "text": "The user enters the symbol for the currency (optional)."
+       },
+       {
+        "step": 8,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 9,
+        "text": "The system makes the currency available for selection by symbol and code."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing currency.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the currency for editing."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user adds a new country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the currency."
+         }
+        ]
+       },
+       {
+        "id": "8.a",
+        "atStep": "8",
+        "text": "The system determines that the currency already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This is a new use case requested during testing to support internationalization. Implemented in version 2.0.",
+        "dateAdded": "2/2/2007",
+        "date": "2007-02-02"
+       },
+       {
+        "text": "This use case is identical for iHRIS Manage, iHRIS Qualify and iHRIS Plan.",
+        "dateAdded": "7/24/2008",
+        "date": "2008-07-24"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.2",
+    "name": "Position Management",
+    "level": 2,
+    "description": "Design and manage a job structure for the organization, add new positions that may be filled by employees or applicants, and manage existing positions.",
+    "notes": [
+     {
+      "text": "Access these functions via the Configure System --> Administer Database link on the main menu.",
+      "dateAdded": "9/28/2007",
+      "date": "2007-09-28"
+     },
+     {
+      "text": "Access is limited to HR Staff, HR Manager and System Administrator. HR Staff can only add new positions, position types and salary sources.",
+      "dateAdded": "10/2/2007",
+      "date": "2007-10-02"
+     }
+    ],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-PT17",
+      "title": "Add or update a cadre",
+      "priority": "P10",
+      "package": "1.2",
+      "description": "The HR Manager enters or edits a cadre for selection within the system.",
+      "parent": "Position Management",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "Each cadre, as applied by the health professionals, is defined within the system and available for selection in various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update the list of cadres."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all cadres entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new cadre."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the cadre."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system displays the new or edited cadre in selection lists of cadres."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing cadre.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the cadre for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the cadre already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not proceed."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case may be optional if new cadres are not allowed to be defined or if cadres are not used by the organization.",
+        "dateAdded": "10/30/2007",
+        "date": "2007-10-30"
+       },
+       {
+        "text": "This use case is the same for iHRIS Plan and iHRIS Manage, but not the same as iHRIS Qualify.",
+        "dateAdded": "7/24/2008",
+        "date": "2008-07-24"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT18",
+      "title": "Add or update a job classification",
+      "priority": "P1",
+      "package": "1.2",
+      "description": "The HR Manager adds a job classification to which jobs can be assigned.",
+      "parent": "Position Management",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The job classification is saved and jobs can be assigned to it.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Updated",
+      "implementationStatus": "Partially Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage job classifications."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all job classifications entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new job classification."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the job classification."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the classification code (optional)."
+       },
+       {
+        "step": 6,
+        "text": "The user enters a description of the classification (optional)."
+       },
+       {
+        "step": 7,
+        "text": "The user selects an ISCO classification name and code to link to the job classification."
+       },
+       {
+        "step": 8,
+        "text": "The system maps the selected ISCO classification code to the job classification that the user has entered."
+       },
+       {
+        "step": 9,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 10,
+        "text": "The system makes the job classification available for selection when adding jobs."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing job classification.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the job classification for editing."
+         }
+        ]
+       },
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The user selects an ISCO standard job classification name and code from the list without entering the name of a classification.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system populates the job classification name, code and description with the ISCO standard name, code and description."
+         },
+         {
+          "step": 2,
+          "text": "Go to Step 9."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The ISCO classification is not selected.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "Go on to Step 9."
+         }
+        ]
+       },
+       {
+        "id": "7.b",
+        "atStep": "7",
+        "text": "The ISCO classification was already selected.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "Skip this step."
+         }
+        ]
+       },
+       {
+        "id": "9.a",
+        "atStep": "9",
+        "text": "The system determines that the job classification already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not proceed."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is optional if job categories cannot be changed or job classifications are not used in the system.",
+        "dateAdded": "9/28/2006",
+        "date": "2006-09-28"
+       },
+       {
+        "text": "The use case has been updated to link standard ISCO classification codes to job classifications or to pre-populate the system with ISCO classifications.",
+        "dateAdded": "10/30/2008",
+        "date": "2008-10-30"
+       },
+       {
+        "text": "This functionality can be accessed through Configure System --> Administer Database.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT19",
+      "title": "Create a salary grade",
+      "priority": "P10",
+      "package": "1.2",
+      "description": "The HR Manager creates a new salary grade for the organization to organize jobs.",
+      "parent": "Position Management",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system. The currencies used for salary bands have been entered in the system.",
+      "successGuarantee": "The salary grade is saved and jobs can be assigned to it.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user enters the option to manage the list of salary grades."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all salary grades entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new salary grade."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name or identifier of the grade (such as a letter)."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the currency for salary grades."
+       },
+       {
+        "step": 6,
+        "text": "The user enters the starting salary of the grade."
+       },
+       {
+        "step": 7,
+        "text": "The user enters the ending salary of the grade."
+       },
+       {
+        "step": 8,
+        "text": "The user enters the midpoint of the grade (optional)."
+       },
+       {
+        "step": 9,
+        "text": "The user enters any notes about the grade (optional)."
+       },
+       {
+        "step": 10,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 11,
+        "text": "The system makes the salary grade available for selection when adding jobs."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing salary grade.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the salary grade for editing."
+         }
+        ]
+       },
+       {
+        "id": "10.a",
+        "atStep": "10",
+        "text": "The system determines that the salary grade already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not proceed."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is intended for an organization that has jobs organized into salary bands. It is optional and not necessary for functioning of the core system.",
+        "dateAdded": "9/25/2006",
+        "date": "2006-09-25"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ],
+      "referencedRequirements": [
+       {
+        "id": "REQ-PT9",
+        "type": "Non-functional",
+        "text": "The system must support different international currencies."
+       }
+      ]
+     },
+     {
+      "id": "UC-PT20",
+      "title": "Create a job",
+      "priority": "P5",
+      "package": "1.2",
+      "description": "The HR Manager creates a new job within the organization.",
+      "parent": "Position Management",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system. A job classification or cadre for the job must be defined, if required. If a salary grade is to be assigned, it must be defined.",
+      "successGuarantee": "The job is saved and available for selection from various use cases.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Updated",
+      "implementationStatus": "Partially Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage jobs."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all jobs entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user creates a new job."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the generic title of the job."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the code for the job (optional)."
+       },
+       {
+        "step": 6,
+        "text": "The user enters a job description (optional)."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the salary grade (optional)."
+       },
+       {
+        "step": 8,
+        "text": "The user selects the cadre (optional)."
+       },
+       {
+        "step": 9,
+        "text": "The user selects the classification (optional)."
+       },
+       {
+        "step": 10,
+        "text": "The user selects the competencies required by the job (optional)."
+       },
+       {
+        "step": 11,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 12,
+        "text": "The system saves the job and makes it available for creating positions."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing job.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays the job information for editing."
+         }
+        ]
+       },
+       {
+        "id": "11.a",
+        "atStep": "11",
+        "text": "The system determines that the job title already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not proceed."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "Selection of cadres and job classifications is optional. For each job, the user may select a cadre, a job classification, both or neither.",
+        "dateAdded": "1/25/2007",
+        "date": "2007-01-25"
+       },
+       {
+        "text": "Updated the use case to include required job competencies.",
+        "dateAdded": "2/11/2009",
+        "date": "2009-02-11"
+       },
+       {
+        "text": "This functionality can be accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT21",
+      "title": "Add or update a salary source",
+      "priority": "P10",
+      "package": "1.2",
+      "description": "The HR Manager creates a new salary source for designating sources of salaries or special payments.",
+      "parent": "Position Management",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The salary source is saved and salaries and special payments can be linked to it.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of salary sources."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all salary sources entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new salary source."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the salary source"
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the salary source available for selection when adding salary information."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing salary source.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the salary source for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the salary source already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not proceed."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT22",
+      "title": "Add or update a position type",
+      "priority": "P10",
+      "package": "1.2",
+      "description": "The HR Manager creates a new position type for categorizing positions.",
+      "parent": "Position Management",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The position type is saved and positions can be assigned to it.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of position types."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all position types entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new position type."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the position type."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the position type available for selection when adding positions."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "1.a",
+        "atStep": "1",
+        "text": "The user selects an existing position type.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the position type for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the position type already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not proceed."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT23",
+      "title": "Create a position",
+      "priority": "P6",
+      "package": "1.2",
+      "description": "HR Staff creates a position within the organization to be filled by a hire, promotion or transfer; this may be either a new position or re-enabling a previously discontinued position.",
+      "parent": "Position Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system. The generic job for the position has been created. The office/facility where the position is located has been defined in the system. The department, position type and salary source have been defined in the system, if used. The currency for the proposed salary has been defined in the system, if used.",
+      "successGuarantee": "The position has been created and marked open. The position is visible in the position hierarchy as well as available for filling by an employee or applicant.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Updated",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage positions."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all positions entered in the system by status."
+       },
+       {
+        "step": 3,
+        "text": "The user creates a new position."
+       },
+       {
+        "step": 4,
+        "text": "The user selects the job for the position."
+       },
+       {
+        "step": 5,
+        "text": "The system displays the job title as the position title."
+       },
+       {
+        "step": 6,
+        "text": "The user edits the job title as a specific position title, if different."
+       },
+       {
+        "step": 7,
+        "text": "The user enters a supplemental position description (optional)."
+       },
+       {
+        "step": 8,
+        "text": "The user selects the currency for the salary."
+       },
+       {
+        "step": 9,
+        "text": "The user enters the proposed salary (optional)."
+       },
+       {
+        "step": 10,
+        "text": "The user selects the salary sources (optional)."
+       },
+       {
+        "step": 11,
+        "text": "Repeat for each salary source for the position."
+       },
+       {
+        "step": 12,
+        "text": "The user enters a code for the position."
+       },
+       {
+        "step": 13,
+        "text": "The system displays today's date for the position post date."
+       },
+       {
+        "step": 14,
+        "text": "The user changes the post date, if necessary."
+       },
+       {
+        "step": 15,
+        "text": "The user enters any comments or notes about the position (optional)."
+       },
+       {
+        "step": 16,
+        "text": "The user enters any comments or notes about interviews for the position (optional)."
+       },
+       {
+        "step": 17,
+        "text": "The user selects the office/facility where the position is located."
+       },
+       {
+        "step": 18,
+        "text": "The user selects the supervisor's position."
+       },
+       {
+        "step": 19,
+        "text": "The user selects a department (optional)."
+       },
+       {
+        "step": 20,
+        "text": "The user selects the position type (optional)."
+       },
+       {
+        "step": 21,
+        "text": "The user enters the proposed hiring date (optional)."
+       },
+       {
+        "step": 22,
+        "text": "The user enters the proposed ending date (optional)."
+       },
+       {
+        "step": 23,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 24,
+        "text": "The system saves the position as an open position and makes it available for job applications or filling by an employee."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects the position from a list of discontinued positions.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user changes the position status to open."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the position to edit it."
+         }
+        ]
+       },
+       {
+        "id": "3.b",
+        "atStep": "3",
+        "text": "The user selects an existing position.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays all the position information for editing."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "A facility is always tied to a position. That is how the position's geographical location is determined.",
+        "dateAdded": "1/25/2007",
+        "date": "2007-01-25"
+       },
+       {
+        "text": "For right now, only one position can be entered at a time.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "Added the post date, comments and interview comments, implemented in version 3.0.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT24",
+      "title": "Update a position",
+      "priority": "P10",
+      "package": "1.2",
+      "description": "HR Staff changes any information pertaining to a position.",
+      "parent": "Position Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "All updates are made and displayed with the position's information.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Updated",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the facility where the position is located or selects the position status: open, closed or discontinued."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all positions in that facility or with that status."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the position to update."
+       },
+       {
+        "step": 4,
+        "text": "The system displays the position information."
+       },
+       {
+        "step": 5,
+        "text": "The user makes updates to the position's information."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system saves and displays the new position information."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "2.a",
+        "atStep": "2",
+        "text": "The position is not found.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides the option to add a new position."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "Added the ability to locate positions by either status or facility in version 4.0.",
+        "dateAdded": "6/29/2009",
+        "date": "2009-06-29"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT25",
+      "title": "Discontinue a position",
+      "priority": "P10",
+      "package": "1.2",
+      "description": "When a position is no longer needed and no employee is filling it, HR Staff removes it from the position hierarchy.",
+      "parent": "Position Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The employee has vacated the position, and the position is marked as open. The user must be logged in to the system.",
+      "successGuarantee": "The position is no longer displayed in the position hierarchy or available for selection by may be re-enabled.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to display all open positions."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all open positions."
+       },
+       {
+        "step": 3,
+        "text": "The user selects a position."
+       },
+       {
+        "step": 4,
+        "text": "The user marks the position as discontinued."
+       },
+       {
+        "step": 5,
+        "text": "The system removes the position from selection or reporting in the system."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "2.a",
+        "atStep": "2",
+        "text": "The system finds no open positions.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The use case stops."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "Closed positions cannot be discontinued because they are still filled by an employee. The employee must be removed from the position before the position can be discontinued.",
+        "dateAdded": "2/11/2008",
+        "date": "2008-02-11"
+       },
+       {
+        "text": "This functionality is accessed via an open position record from the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.3",
+    "name": "Employee Management",
+    "level": 2,
+    "description": "Add a new employee or applicant record to the system, and search for and update records that have been entered into the system.",
+    "notes": [
+     {
+      "text": "Access these functions via the Manage People link on the main menu.",
+      "dateAdded": "9/28/2007",
+      "date": "2007-09-28"
+     }
+    ],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-PT27",
+      "title": "Enter a new record",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "HR Staff creates a record for a new employee or applicant and enters all the pertinent information about that person.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system. The personal title, nationality, country and district of residence have been entered in the system.",
+      "successGuarantee": "All of the information is saved to the database and displayed with the person's record.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Updated",
+      "implementationStatus": "Partially Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to add a new record."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the title for the person (optional)."
+       },
+       {
+        "step": 3,
+        "text": "The user adds the person's name:",
+        "options": [
+         "surname",
+         "first name",
+         "other names (optional)",
+         "suffix"
+        ]
+       },
+       {
+        "step": 4,
+        "text": "The user selects a nationality/citizenship."
+       },
+       {
+        "step": 5,
+        "text": "The user selects a country where the person resides."
+       },
+       {
+        "step": 6,
+        "text": "The system displays a list of matching districts for that selection."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the district where the person resides."
+       },
+       {
+        "step": 8,
+        "text": "The system displays a list of matching counties/sectors for that district."
+       },
+       {
+        "step": 9,
+        "text": "The user selects the county/sector where the person resides."
+       },
+       {
+        "step": 10,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 11,
+        "text": "The system displays the personal information in the record."
+       },
+       {
+        "step": 12,
+        "text": "The system provides the option to update the name or other personal information."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The system determines that the surname and first name combination match a record that is already in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system prompts the user to compare the two records and determine whether they are the same."
+         },
+         {
+          "step": 2,
+          "text": "The user either selects the matching record and edits it, or tells the system to ignore the error and continues editing the new record, if it is different."
+         }
+        ]
+       },
+       {
+        "id": "12.a",
+        "atStep": "12",
+        "text": "The user changes the name.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system saves the former name to the person's name history."
+         },
+         {
+          "step": 2,
+          "text": "The system provides the option to view the name history."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "Updated use case by adding a personal title (as distinguished from a job title) such as Mr., Mrs. or Dr.; this was a feature request from Uganda.",
+        "dateAdded": "2/28/2008",
+        "date": "2008-02-28"
+       },
+       {
+        "text": "Updated use case by adding a suffix field for names (for Jr., III, etc.)",
+        "dateAdded": "7/24/2008",
+        "date": "2008-07-24"
+       },
+       {
+        "text": "This functionality is accessible via the Manage People --> Add Person screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT28",
+      "title": "Set a position for an employee",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "HR Staff sets a position for an employee of the organization.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system. The position has been created in the system. The employee record has been created. The employee is not currently assigned a position. The currency for the salary has been defined in the system.",
+      "successGuarantee": "The employee is associated with a position and that position is marked as closed.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to set a position in an employee's record."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the position for the employee from the list of open positions."
+       },
+       {
+        "step": 3,
+        "text": "The user enters the actual start date."
+       },
+       {
+        "step": 4,
+        "text": "The user selects the currency for the salary."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the actual salary."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system links the position to the employee."
+       },
+       {
+        "step": 8,
+        "text": "The system marks the position as closed."
+       },
+       {
+        "step": 9,
+        "text": "The system displays the position in the employee's record."
+       },
+       {
+        "step": 10,
+        "text": "The system provides the option to correct the position information, change the position, record a departure or view the position history."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "If the job application module is disabled, this is the only way to set a position for a new or existing employee.",
+        "dateAdded": "11/3/2008",
+        "date": "2008-11-03"
+       },
+       {
+        "text": "This functionality is accessible via a person's record if the person does not already have a position set.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT29",
+      "title": "Add identification information",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "HR Staff enters identifications into a person's record.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The identification types have been added to the system. The person has a record in the system. The user must be logged in to the system.",
+      "successGuarantee": "All of the information is saved to the database and displayed with the person's record.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to add an identification to a person's record."
+       },
+       {
+        "step": 2,
+        "text": "The user selects a type of identification."
+       },
+       {
+        "step": 3,
+        "text": "The user enters the identification number."
+       },
+       {
+        "step": 4,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 5,
+        "text": "The system displays the new identification information in the person's record."
+       },
+       {
+        "step": 6,
+        "text": "The system provides the option to update the identification information."
+       },
+       {
+        "step": 7,
+        "text": "The user repeats Steps 1-4 for each identification."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "Identification checking will have to be implemented at time of customization because requirements change so much depending on where the system is located.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This use case is the same in both iHRIS Manage and iHRIS Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "Identifications need to be hidden or obscured when a record is viewed by anyone other than HR Staff or an HR Manager.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "This functionality can be accessed via the Individual Information section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT30",
+      "title": "Add demographic information",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "HR Staff adds demographic information about a person to his or her record.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The person has a record in the system. The user must be logged in to the system. The marital status has been entered into the system for selection.",
+      "successGuarantee": "The demographic information is saved and is displayed with the person's record.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to add demographic information to a person's record."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the date of birth."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the gender."
+       },
+       {
+        "step": 4,
+        "text": "The user selects the marital status."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the number of dependents."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system displays the demographic information in the record."
+       },
+       {
+        "step": 8,
+        "text": "The system provides the option to update the demographic information."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This use case is essentially the same for iHRIS Manage and iHRIS Qualify, although Qualify also captures the place of birth.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality can be accessed via the Individual Information section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT31",
+      "title": "Add contact information",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "HR Staff adds or updates any type of contact information for a person or institution.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The record exists in the system. The user must be logged in to the system.",
+      "successGuarantee": "The contact information is saved and displayed with the appropriate record.",
+      "level": "Subfunction",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the type of contact to add to a record."
+       },
+       {
+        "step": 2,
+        "text": "The user enters the full mailing address."
+       },
+       {
+        "step": 3,
+        "text": "The user enters the telephone number."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the alternate telephone number."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the fax number."
+       },
+       {
+        "step": 6,
+        "text": "The user enters the email address."
+       },
+       {
+        "step": 7,
+        "text": "The user enters notes about the contact."
+       },
+       {
+        "step": 8,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 9,
+        "text": "The system displays the contact information in the record."
+       },
+       {
+        "step": 10,
+        "text": "The system provides the option to update the contact information."
+       },
+       {
+        "step": 11,
+        "text": "The user repeats Steps 1-10 for each contact."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "1.a",
+        "atStep": "1",
+        "text": "The system determines that a contact of that type already exists for the record.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system disables the option to add another contact of that type."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is the same for iHRIS Manage and iHRIS Qualify, although the specific types of contacts for each are slightly different.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "All fields are optional.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This subfunction is referenced wherever contact information additions or updates are required.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "Institutions only have one contact type (as opposed to people records). The contact type does not need to be selected, as the contact information can be entered with the institution's other details.",
+        "dateAdded": "2/11/2008",
+        "date": "2008-02-11"
+       },
+       {
+        "text": "This functionality is accessed via the Contact section of a person or organization record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT32",
+      "title": "Record a special payment",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "HR Staff records a payment for an employee that is paid in addition to the salary.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The employee has a record in the system. The user must be logged in to the system. The special payment type and source have been entered into the system. The currency has been entered in the system.",
+      "successGuarantee": "The special payment is saved with the employee's record.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the type of special payment (such as bonus, benefit or allowance) to add to the employee's record."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the currency for the payment."
+       },
+       {
+        "step": 3,
+        "text": "The user enters the amount of the payment."
+       },
+       {
+        "step": 4,
+        "text": "The user selects the source of the special payment."
+       },
+       {
+        "step": 5,
+        "text": "The user selects whether the payment is recurring or one-time."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system displays the special payment in the person's record."
+       },
+       {
+        "step": 8,
+        "text": "The system provides the option to update the benefit details."
+       },
+       {
+        "step": 9,
+        "text": "The user repeats Steps 1-8 for each special payment the employee receives."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The user indicates that the payment is recurring.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user selects the frequency of the recurrence."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the start and end dates of the recurrence period."
+         }
+        ]
+       },
+       {
+        "id": "5.b",
+        "atStep": "5",
+        "text": "The user indicates that the payment is one-time.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user enters the date the payment is distributed for the start date."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This functionality is accessed via the Position Information section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ],
+      "referencedRequirements": [
+       {
+        "id": "REQ-PT11",
+        "type": "Business Rule",
+        "text": "Some data cannot be viewed except by specified roles in HR and management. These may change depending on laws and organizational policies, but will probably always include salary and identification numbers."
+       },
+       {
+        "id": "REQ-PT9",
+        "type": "Non-functional",
+        "text": "The system must support different international currencies."
+       }
+      ]
+     },
+     {
+      "id": "UC-PT33",
+      "title": "Terminate an employee",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "HR staff records the departure of an employee from the organization.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The employee has a record in the system. The user must be logged in to the system. The reason for departure must be entered into the system.",
+      "successGuarantee": "The old position is reopened or discontinued, the reason for the departure is recorded, and the employee is converted to old employee status.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to record a departure in the employee's record."
+       },
+       {
+        "step": 2,
+        "text": "The system displays today's date for the end date."
+       },
+       {
+        "step": 3,
+        "text": "The user changes the end date, if it is different."
+       },
+       {
+        "step": 4,
+        "text": "The user selects the reason for the departure."
+       },
+       {
+        "step": 5,
+        "text": "The user selects whether the employee's former position is open or discontinued."
+       },
+       {
+        "step": 6,
+        "text": "The system changes the status of the former position and displays it either in the open positions list or the list of discontinued positions."
+       },
+       {
+        "step": 7,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 8,
+        "text": "The system removes the option to change the position from the employee's record."
+       },
+       {
+        "step": 9,
+        "text": "The system saves the employee's last held position to the employee's position history."
+       },
+       {
+        "step": 10,
+        "text": "The system enters the end date for the position as the end date of the salary and saves this to the employee's salary history."
+       },
+       {
+        "step": 11,
+        "text": "The system removes the option to change the salary."
+       },
+       {
+        "step": 12,
+        "text": "The system converts the employee to an \"old employee\" and removes the employee from any active staff lists."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This functionality is accessed via the Position Information section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT34",
+      "title": "Record a position change",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "HR Staff notes that an employee has been transferred or promoted to a new position and either reopens the position that the employee held or discontinues it.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The employee has a record in the system. The user must be logged in to the system. The reason for departure must be entered into the system. The currency for the new position must be entered in the system. The new position must be added as an open position.",
+      "successGuarantee": "The old position is reopened or discontinued, the reason for the position change is recorded, and the new position is displayed in the employee's record.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to record a position change in an employee's record."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the new position for an employee."
+       },
+       {
+        "step": 3,
+        "text": "The system displays today's date for the start date."
+       },
+       {
+        "step": 4,
+        "text": "The user changes the start date, if necessary."
+       },
+       {
+        "step": 5,
+        "text": "The system sets the start date as the end date of the old position."
+       },
+       {
+        "step": 6,
+        "text": "The user enters the salary for the new position."
+       },
+       {
+        "step": 7,
+        "text": "The system saves the employee's old salary to the salary history."
+       },
+       {
+        "step": 8,
+        "text": "The user selects the reason for the position change."
+       },
+       {
+        "step": 9,
+        "text": "The user selects whether the employee's former position is open or discontinued."
+       },
+       {
+        "step": 10,
+        "text": "The system changes the status of the former position and displays it either in the open positions list or the list of discontinued positions."
+       },
+       {
+        "step": 11,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 12,
+        "text": "The system displays the new position in the employee's record."
+       },
+       {
+        "step": 13,
+        "text": "The system provides the option to correct the position information."
+       },
+       {
+        "step": 14,
+        "text": "The system saves the employee's last held position to the employee's position history and provides the option to view the position history."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This functionality is accessed via the Position Information section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT35",
+      "title": "Record a salary change",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "HR Staff records a change in salary for an employee and updates the employee's salary history.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Manager",
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The employee has a record in the system. The user must be logged in to the system. The currency must be entered in the system.",
+      "successGuarantee": "The new salary is saved with the employee's record.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Updated",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update the salary in an employee's record."
+       },
+       {
+        "step": 2,
+        "text": "The user enters the new salary."
+       },
+       {
+        "step": 3,
+        "text": "The user selects a currency for the salary, if it has changed."
+       },
+       {
+        "step": 4,
+        "text": "The system displays today's date for the effective date for the salary change."
+       },
+       {
+        "step": 5,
+        "text": "The user changes the effective date, if it is different."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system displays the new salary in the employee's record."
+       },
+       {
+        "step": 8,
+        "text": "The system provides the option to correct the salary."
+       },
+       {
+        "step": 9,
+        "text": "The system adds the previous salary to the employee's salary history with the salary starting and ending date and provides the option to view the salary history."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This use case will typically be used when the employee has received a raise; if there is a position change, the salary change is recorded as part of that change.",
+        "dateAdded": "9/29/2006",
+        "date": "2006-09-29"
+       },
+       {
+        "text": "This functionality is accessed via the Position Information section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ],
+      "referencedRequirements": [
+       {
+        "id": "REQ-PT11",
+        "type": "Business Rule",
+        "text": "Some data cannot be viewed except by specified roles in HR and management. These may change depending on laws and organizational policies, but will probably always include salary and identification numbers."
+       }
+      ]
+     },
+     {
+      "id": "UC-PT71",
+      "title": "Add registrations",
+      "priority": "P10",
+      "package": "1.3",
+      "description": "HR Staff adds licenses or registrations to a person's record.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The registration council must be added to the database. The person's record must have been created in the system. The user must be logged in to the system.",
+      "successGuarantee": "The registration information is recorded correctly in the person's record.",
+      "level": "Subfunction",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "4.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to add a registration to an employee's record."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the name of the registration council that issued the license or registration."
+       },
+       {
+        "step": 3,
+        "text": "The user enters the registration number or license number."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the registration date or license expiration date."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system displays the registration or license information in the person's record."
+       },
+       {
+        "step": 7,
+        "text": "The system provides the option to update the registration."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This functionality can be accessed via the Qualifications section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT36",
+      "title": "Add language proficiencies",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "HR Staff adds language skills to a person's record.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The language must be added to the database. The person's record must have been created in the system. The user must be logged in to the system.",
+      "successGuarantee": "The language proficiency is recorded correctly in the person's record.",
+      "level": "Subfunction",
+      "complexity": "Low",
+      "status": "Updated",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to add a language to an employee's record."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the name of the language."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the speaking proficiency."
+       },
+       {
+        "step": 4,
+        "text": "The user selects the reading proficiency."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the writing proficiency."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system displays the language information in the person's record."
+       },
+       {
+        "step": 8,
+        "text": "The system provides the option to update the language proficiency."
+       },
+       {
+        "step": 9,
+        "text": "The user repeats Steps 1-8 for each language skill."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This functionality can be accessed via the Qualifications section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT43",
+      "title": "Enter employment history",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "Enter a history of past employers of a person into the system.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user has a record in the system. The currency of former salaries has been defined in the system. The user must be logged in to the system.",
+      "successGuarantee": "The past employment history is saved and displayed with the person's record.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to add employment history to a record."
+       },
+       {
+        "step": 2,
+        "text": "The user enters the company name."
+       },
+       {
+        "step": 3,
+        "text": "The user enters the company address."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the company telephone number."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the date started work."
+       },
+       {
+        "step": 6,
+        "text": "The user enters the starting wage and currency."
+       },
+       {
+        "step": 7,
+        "text": "The user enters the starting position."
+       },
+       {
+        "step": 8,
+        "text": "The user selects the date ended work."
+       },
+       {
+        "step": 9,
+        "text": "The user enters the ending wage and currency."
+       },
+       {
+        "step": 10,
+        "text": "The user enters the ending position."
+       },
+       {
+        "step": 11,
+        "text": "The user enters the name of the supervisor."
+       },
+       {
+        "step": 12,
+        "text": "The user selects yes or no as to whether the past employer can be contacted."
+       },
+       {
+        "step": 13,
+        "text": "The user enters the job responsibilities."
+       },
+       {
+        "step": 14,
+        "text": "The user enters the reason for leaving."
+       },
+       {
+        "step": 15,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 16,
+        "text": "The system displays the employment history item in the person's record."
+       },
+       {
+        "step": 17,
+        "text": "The system provides the option to update the item."
+       },
+       {
+        "step": 18,
+        "text": "The user repeats Steps 1-17 for each past employer."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This use case is intended as part of the job application process but can be used, for example, by employees to add an employment history, if needed.",
+        "dateAdded": "9/28/2006",
+        "date": "2006-09-28"
+       },
+       {
+        "text": "This form appears even if the applicant module is disabled. Moved to the Employee Management module.",
+        "dateAdded": "11/3/2008",
+        "date": "2008-11-03"
+       },
+       {
+        "text": "This functionality is accessed via the Employment History section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT44",
+      "title": "Enter educational history",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "HR Staff enters educational history into the system.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user has a record in the system. At least one educational institution type and associated degree has been entered in the system. The user must be logged in to the system.",
+      "successGuarantee": "The educational history is saved and is displayed with the person's record.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to add educational history to a person's record."
+       },
+       {
+        "step": 2,
+        "text": "The user enters the name of the educational institution."
+       },
+       {
+        "step": 3,
+        "text": "The user enters the location of the educational institution."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the year of graduation."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the type of educational institution."
+       },
+       {
+        "step": 6,
+        "text": "The system displays the degrees offered by that type of educational institution."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the degree for that type of educational institution."
+       },
+       {
+        "step": 8,
+        "text": "The user enters the major."
+       },
+       {
+        "step": 9,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 10,
+        "text": "The system displays the new item in the person's record."
+       },
+       {
+        "step": 11,
+        "text": "The system provides the option to update the item."
+       },
+       {
+        "step": 12,
+        "text": "The user repeats Steps 1-11 for each educational institution attended."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "The educational history is intended to be part of the job application process but can be entered for any employee at any time.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "This form appears even if the applicant module is disabled. Moved to the Employee Management module.",
+        "dateAdded": "11/3/2008",
+        "date": "2008-11-03"
+       },
+       {
+        "text": "This functionality is accessed via the Educational History section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT37",
+      "title": "Record notes",
+      "priority": "P10",
+      "package": "1.3",
+      "description": "HR Staff records notes about a particular person and saves them with the person's record.",
+      "parent": "Employee Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The person has a record in the system. The user must be logged in to the system.",
+      "successGuarantee": "The notes are entered and saved with the person's record.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user enters any notes about the person in the person's record."
+       },
+       {
+        "step": 2,
+        "text": "The system enters today's date for the note's date."
+       },
+       {
+        "step": 3,
+        "text": "The user changes the date of the note, if necessary."
+       },
+       {
+        "step": 4,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 5,
+        "text": "The system maintains and displays a log of all notes that were entered in reverse chronological order."
+       },
+       {
+        "step": 6,
+        "text": "The system provides the option to update each note."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "The notes are an open field that can be used for any purpose.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This use case is the same for iHRIS Manage and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Notes section of a record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.4",
+    "name": "Job Applicant Management",
+    "level": 2,
+    "description": "The module is for managing job applications for open positions, reviewing completed job applications, recording interview notes and assigning a position to the successful applicant.",
+    "notes": [
+     {
+      "text": "This module may be disabled if not used by the organization on the Configure Modules page for iHRIS Manage.",
+      "dateAdded": "1/25/2007",
+      "date": "2007-01-25"
+     },
+     {
+      "text": "Access these functions via the Manage People link on the main menu.",
+      "dateAdded": "9/28/2007",
+      "date": "2007-09-28"
+     }
+    ],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-PT40",
+      "title": "Apply for a position",
+      "priority": "P1",
+      "package": "1.4",
+      "description": "An HR staff person completes a job application form and records information about a job applicant in the system.",
+      "parent": "Job Applicant Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The position has been created and is listed as an open position. The application module is enabled.",
+      "successGuarantee": "The application is successfully completed and submitted; the form data is recorded in the system and is available for review.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Updated",
+      "implementationStatus": "Partially Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user logs in (UC-ICE5)."
+       },
+       {
+        "step": 2,
+        "text": "The system checks the user's role."
+       },
+       {
+        "step": 3,
+        "text": "The system displays the new record form."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a new record (UC-PT27)."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the option to add an application."
+       },
+       {
+        "step": 6,
+        "text": "The system displays the job application form."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the open position to apply for."
+       },
+       {
+        "step": 8,
+        "text": "The user completes the applicant questions."
+       },
+       {
+        "step": 9,
+        "text": "The user adds language proficiencies (UC-PT36), if applicable."
+       },
+       {
+        "step": 10,
+        "text": "The user adds skills (UC-PT50), if applicable."
+       },
+       {
+        "step": 11,
+        "text": "The user uploads a resume."
+       },
+       {
+        "step": 12,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 13,
+        "text": "The system displays the application in the person's record and makes it available for review with the open position."
+       },
+       {
+        "step": 14,
+        "text": "The system provides the option to update the application."
+       },
+       {
+        "step": 15,
+        "text": "The user creates a username and password."
+       },
+       {
+        "step": 16,
+        "text": "The system adds the user account with Applicant access to the application."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "2.a",
+        "atStep": "2",
+        "text": "The system detects that an Employee has logged in.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays the Employee's record."
+         },
+         {
+          "step": 2,
+          "text": "The system provides the option for the Employee to apply for an open position using the job application form."
+         }
+        ]
+       },
+       {
+        "id": "2.b",
+        "atStep": "2",
+        "text": "The system detects that an HR Staff person has logged in.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides the option to add an applicant (as for enter a new record (UC-PT27)) or to add an application to an existing record."
+         }
+        ]
+       },
+       {
+        "id": "15.a",
+        "atStep": "15",
+        "text": "The user has logged in with a non-guest username and password.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "Skip this step."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case should be optional. If this information is not entered at this point, it can be entered when creating a new employee record.",
+        "dateAdded": "9/25/2006",
+        "date": "2006-09-25"
+       },
+       {
+        "text": "In version 2.0, HR Staff can enter a job application for any record.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "Use case was updated to include uploading a resume.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       },
+       {
+        "text": "This functionality is accessible through the Application section of a person's record. In the current version, applicants/employees cannot fill out an application themselves.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ],
+      "referencedRequirements": [
+       {
+        "id": "REQ-PT10",
+        "type": "Business Rule",
+        "text": "Specifies all questions that the organization requires be asked of a job applicant, such as to satisfy a law or the organization's need. Example job applicant questions: If you are not a citizen, are you authorized to work in the country? Have you ever been convicted of a felony? If yes, describe the circumstances. How did you hear of this opening? When can you start work? What is your desired wage? Are you looking for full-time employment? What hours are you available?"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT41",
+      "title": "Log interview details",
+      "priority": "P10",
+      "package": "1.4",
+      "description": "HR Staff can enter details about an interview with a job applicant.",
+      "parent": "Job Applicant Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The application module is enabled. An application has been completed for the position. The user must be logged into the system. .",
+      "successGuarantee": "The interview details are saved with the job application.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to log interview details in an applicant's record."
+       },
+       {
+        "step": 2,
+        "text": "The system enters today's date for the interview date."
+       },
+       {
+        "step": 3,
+        "text": "The user changes the date of the interview, if necessary."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the names of people conducting the interview."
+       },
+       {
+        "step": 5,
+        "text": "The user enters any comments about the interview."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system displays the interview details in the person's record."
+       },
+       {
+        "step": 8,
+        "text": "The system provides the option to update the interview details."
+       },
+       {
+        "step": 9,
+        "text": "The user repeats Steps 1-8 for each additional interview."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This use case was separated from the Review Applicants (UC-PT45) use case for clarity.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "This functionality is accessed via the Application section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT42",
+      "title": "Log a hiring decision",
+      "priority": "P10",
+      "package": "1.4",
+      "description": "HR Staff logs a decision whether or not to hire an applicant for a position for which the applicant has applied.",
+      "parent": "Job Applicant Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The application module is enabled. An application has been completed for the position. The user must be logged into the system.",
+      "successGuarantee": "The hiring decision details are saved with the job application.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to log a hiring decision in the applicant's record."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the decision whether to hire the applicant for the job."
+       },
+       {
+        "step": 3,
+        "text": "The system enters today's date for the date of the decision."
+       },
+       {
+        "step": 4,
+        "text": "The user changes the date of the decision, if applicable."
+       },
+       {
+        "step": 5,
+        "text": "The user records any comments."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system displays the hiring decision in the person's record."
+       },
+       {
+        "step": 8,
+        "text": "The system provides the option to update the hiring decision."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This use case was separated from the Review Applicants (UC-PT45) use case for clarity.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "Note that logging a hiring decision will not set the position for the applicant; that needs to be done in the \"Make a job offer\" step.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "This functionality is accessed via the Application section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT45",
+      "title": "Review applicants",
+      "priority": "P6",
+      "package": "1.4",
+      "description": "The Manager lists the names of Applicants for a particular position and reviews the applications.",
+      "parent": "Job Applicant Management",
+      "primaryActors": [
+       "Executive Manager",
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The application module is enabled. An applicant has completed an application form for the position. The user must be logged in to the system.",
+      "successGuarantee": "The applicant information for all people who applied for a position can be displayed.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user displays the list of open positions."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the position to review."
+       },
+       {
+        "step": 3,
+        "text": "The system lists all applicants who applied for the position, including the date they completed the application form."
+       },
+       {
+        "step": 4,
+        "text": "The user selects an applicant's name."
+       },
+       {
+        "step": 5,
+        "text": "The system checks the user's role."
+       },
+       {
+        "step": 6,
+        "text": "The system displays the applicant's record with the completed application form and provides the option to update the information if the role is allowed to update."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "Only HR Staff can update an application.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "This functionality is accessible via the Manage People --> Review Applicants screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT46",
+      "title": "Make a job offer",
+      "priority": "P10",
+      "package": "1.4",
+      "description": "HR Staff moves a job applicant into an open position, fills out any information required for hiring the person and enters work contact information.",
+      "parent": "Job Applicant Management",
+      "primaryActors": [
+       "HR Staff"
+      ],
+      "supportingActors": [],
+      "preconditions": "The application module is enabled. The applicant has applied for a position. The user must be logged in to the system. The currency must be defined in the system for the position salary.",
+      "successGuarantee": "The applicant is linked with the position and entered as an employee in the system, if not already an employee; the position is closed.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user displays the list of open positions."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the position to fill."
+       },
+       {
+        "step": 3,
+        "text": "The system displays the position information and all applicants who applied for the position."
+       },
+       {
+        "step": 4,
+        "text": "The user selects the applicant who will fill the position."
+       },
+       {
+        "step": 5,
+        "text": "The system determines whether the applicant already has an employee record in the system."
+       },
+       {
+        "step": 6,
+        "text": "The system displays today's date for the start date."
+       },
+       {
+        "step": 7,
+        "text": "The user changes the start date, if necessary."
+       },
+       {
+        "step": 8,
+        "text": "The user selects the currency for the salary."
+       },
+       {
+        "step": 9,
+        "text": "The user enters the starting salary for the position."
+       },
+       {
+        "step": 10,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 11,
+        "text": "The system saves the employee record and associates it with the new position."
+       },
+       {
+        "step": 12,
+        "text": "The system removes the person from the list of applicants."
+       },
+       {
+        "step": 13,
+        "text": "The system marks the position as closed as of the start date."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that an employee record exists for the applicant and the employee is assigned to another position.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system prompts the user to select a status for the employee's former position: open or discontinued."
+         },
+         {
+          "step": 2,
+          "text": "The system prompts the user to select a reason for the position change."
+         },
+         {
+          "step": 3,
+          "text": "The system changes the status of the employee's former position as of the change date and makes it available in the open position list or list of discontinued positions."
+         },
+         {
+          "step": 4,
+          "text": "The system adds the employee's former position to the position history with the change date as the end date for that position."
+         }
+        ]
+       },
+       {
+        "id": "9.a",
+        "atStep": "9",
+        "text": "The system determines that the applicant already held a position with a salary.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system changes the salary to the new position's salary and adds the former salary to the employee's salary history."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case turns an applicant into an employee and associates a position with the new employee; it can also be used to change the position for an existing employee.",
+        "dateAdded": "9/25/2006",
+        "date": "2006-09-25"
+       },
+       {
+        "text": "Assumes that the offer has been made to the applicant and the applicant has accepted the offer (trigger).",
+        "dateAdded": "11/28/2006",
+        "date": "2006-11-28"
+       },
+       {
+        "text": "This functionality is accessed via the Manage People --> Review Applicants screens; an open position must be selected.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.5",
+    "name": "Competency Model",
+    "level": 2,
+    "description": "Defines successful job performance in the organization and enables the organization to assess employee's competencies in various skills.",
+    "notes": [
+     {
+      "text": "This module is currently in development. Core functions have been released.",
+      "dateAdded": "10/16/2007",
+      "date": "2007-10-16"
+     },
+     {
+      "text": "Also modified UC-PT20 (Create a job) to link a job to its required competencies.",
+      "dateAdded": "10/16/2007",
+      "date": "2007-10-16"
+     },
+     {
+      "text": "The blueprint for the Competency Model module was written and posted to the wiki.",
+      "dateAdded": "10/18/2007",
+      "date": "2007-10-18"
+     }
+    ],
+    "relatedDocuments": [
+     "http://open.intrahealth.org/wiki/index.php/Competency_Model"
+    ],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-PT49",
+      "title": "Create a competency model",
+      "priority": "P5",
+      "package": "1.5",
+      "description": "The Training Manager updates a list of competency categories or competencies.",
+      "parent": "Competency Model",
+      "primaryActors": [
+       "HR Manager",
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new competency is saved and linked to any selected parent category, and it is available for selection in various use cases.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Updated",
+      "implementationStatus": "Partially Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update the competency model."
+       },
+       {
+        "step": 2,
+        "text": "The system displays a list of competencies organized by category."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new competency."
+       },
+       {
+        "step": 4,
+        "text": "The user selects whether the item is a parent category."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the name of the item."
+       },
+       {
+        "step": 6,
+        "text": "The user enters a definition for the competency."
+       },
+       {
+        "step": 7,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 8,
+        "text": "The system makes the competency available for selection when adding competencies to a record."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing competency.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the competency for editing."
+         }
+        ]
+       },
+       {
+        "id": "3.b",
+        "atStep": "3",
+        "text": "The user selects an existing parent category.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides the option to add competencies underneath the parent category."
+         }
+        ]
+       },
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The user designates the competency as a parent category.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system enables competencies to be added beneath the parent category."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "A system determines that the competency with the same parent categories already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case was updated for the Competency Model module: it was expanded to add additional parent categories and to combine the competency type and competency addition into one step. Also, the primary actor was changed, and the use case was moved into a separate module that can be disabled in the system.",
+        "dateAdded": "10/16/2007",
+        "date": "2007-10-16"
+       },
+       {
+        "text": "The system currently supports adding a competency type and several competencies under each type, which can be recorded in the qualifications section of a record; implemented in version 2.0.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "This functionality can be accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT68",
+      "title": "Add or update a competency evaluation",
+      "priority": "P10",
+      "package": "1.5",
+      "description": "The Training Manager updates the competency evaluations for selection within the system.",
+      "parent": "Competency Model",
+      "primaryActors": [
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new competency evaluation is saved and available for selection when evaluating a course completed by an employee.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of competency evaluations."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all evaluations entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new competency evaluation."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description or name of the item."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the competency evaluations available for selection when evaluating employees who have completed training courses."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing competency evaluation.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This is a new use case to create dropdown menus of competency evaluations as part of the Competency Model module.",
+        "dateAdded": "10/16/2007",
+        "date": "2007-10-16"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT50",
+      "title": "Assess an employee's competencies",
+      "priority": "P5",
+      "package": "1.5",
+      "description": "The Training Manager adds to or updates the list of competencies obtained by an employee.",
+      "parent": "Competency Model",
+      "primaryActors": [
+       "HR Staff",
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The person has a record in the system. The user must be logged in to the system. The competency and competency evaluation must be added to the system.",
+      "successGuarantee": "The employee's competencies are saved and displayed with their record, the evaluation history for each competency is updated, and the competencies are available for searching.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Updated",
+      "implementationStatus": "Partially Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to add competencies to a person's record."
+       },
+       {
+        "step": 2,
+        "text": "The system displays the competency model."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the competency to add."
+       },
+       {
+        "step": 4,
+        "text": "The user selects the competency evaluation (optional)."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the date of the evaluation."
+       },
+       {
+        "step": 6,
+        "text": "The user enters a date when the assessment expires or should be re-evaluated (optional)."
+       },
+       {
+        "step": 7,
+        "text": "The system sets a flag to appear on the person's record when the date has passed that reminds the user that the person needs reassessment."
+       },
+       {
+        "step": 8,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 9,
+        "text": "The system saves the competency information and displays it in the record."
+       },
+       {
+        "step": 10,
+        "text": "The system provides the option to update the competency or view the evaluation history for any competency."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The system detects that the competency is a parent category.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user checks the category to add all subcategories and competencies within that category to the record."
+         },
+         {
+          "step": 2,
+          "text": "The user expands the category to select subcategories or competencies within the category for addition to the record."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The user does not select an evaluation date.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system enters today's date by default."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case was previously limited to adding a compentency to an employee's record, implemented in version 2.0.",
+        "dateAdded": "10/18/2007",
+        "date": "2007-10-18"
+       },
+       {
+        "text": "Updated this use case to expand the competency model and assessment procedures as part of the Competency Model module.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "This functionality can be accessed via the Qualifications section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.6",
+    "name": "Training Management",
+    "level": 2,
+    "description": "This module is to manage a training program offered to employees for trainings offered by the employer or external organizations. It tracks trainings that an employee has completed and assesses employee competencies achieved as a result. It also enables the organization to maintain lists of trainers and training funders.",
+    "notes": [
+     {
+      "text": "This module may be disabled if not used by the organization on the Configure Modules page for iHRIS Manage.",
+      "dateAdded": "1/25/2007",
+      "date": "2007-01-25"
+     },
+     {
+      "text": "The blueprint for the Training Management module was written and posted to the wiki.",
+      "dateAdded": "10/18/2007",
+      "date": "2007-10-18"
+     },
+     {
+      "text": "This module was developed and released in version 3.1.",
+      "dateAdded": "9/29/2008",
+      "date": "2008-09-29"
+     }
+    ],
+    "relatedDocuments": [
+     "http://open.intrahealth.org/wiki/index.php/In-service_Training_Module_for_iHRIS_Manage"
+    ],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-PT53",
+      "title": "Add or update a training funder",
+      "priority": "P10",
+      "package": "1.6",
+      "description": "The Training Manager adds details about a training funder to the system.",
+      "parent": "Training Management",
+      "primaryActors": [
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training module is enabled. The user must be logged in to the system.",
+      "successGuarantee": "The training funder is added to the system and is made available for selection in various use cases.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of training funders."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all funders that have been entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a training funder."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the funder."
+       },
+       {
+        "step": 5,
+        "text": "The user adds contact information (UC-PT31)."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system makes the training funder available for selection when adding training programs."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing funder.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays the funder's record and provides the option to edit any of the information."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This is a new use case to create funders of training programs as part of the Training Management module.",
+        "dateAdded": "10/16/2007",
+        "date": "2007-10-16"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT54",
+      "title": "Add or update a training organization",
+      "priority": "P10",
+      "package": "1.6",
+      "description": "The Training Manager adds details about a training organization to the system.",
+      "parent": "Training Management",
+      "primaryActors": [
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training module is enabled. The user must be logged in to the system.",
+      "successGuarantee": "The training organization is added to the system and is made available when adding training programs.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of training organizations."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all organizations that have been entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a training organization."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the organization."
+       },
+       {
+        "step": 5,
+        "text": "The user adds contact information (UC-PT31)."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system makes the training organization available for selection when adding training programs."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing organization.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays the organization's record and provides the option to edit any of the information."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This is a new use case to create organizations that provide training programs as part of the Training Management module.",
+        "dateAdded": "10/16/2007",
+        "date": "2007-10-16"
+       },
+       {
+        "text": "This use case does not track locations of training organizations, trainers or other details that properly belong in a training administration system.",
+        "dateAdded": "11/16/2007",
+        "date": "2007-11-16"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT65",
+      "title": "Add or update a training course status",
+      "priority": "P10",
+      "package": "1.6",
+      "description": "The Training Manager updates the status of training courses for selection within the system.",
+      "parent": "Training Management",
+      "primaryActors": [
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training module is enabled. The user must be logged in to the system.",
+      "successGuarantee": "The new training program status is saved and available for selection when adding a training program.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the status of training courses."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all training course statuses entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new training course status."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description or name of the item."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the training course status available for selection when adding training courses."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing training program status.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This is a new use case to create dropdown menus of training program statuses as part of the Training Management module.",
+        "dateAdded": "10/16/2007",
+        "date": "2007-10-16"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT66",
+      "title": "Add or update a training course requestor",
+      "priority": "P10",
+      "package": "1.6",
+      "description": "The Training Manager updates the list of requestors of training courses for selection within the system.",
+      "parent": "Training Management",
+      "primaryActors": [
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training module is enabled. The user must be logged in to the system.",
+      "successGuarantee": "The new training program requestor is saved and available for selection when scheduling a training course for an employee.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the requestors of training courses."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all training course requestors entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new training course requestor."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description or name of the item."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the training course requestor available for selection when scheduling training courses for an employee."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing training program requestor.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This is a new use case to create dropdown menus of training program requestors as part of the Training Management module.",
+        "dateAdded": "10/16/2007",
+        "date": "2007-10-16"
+       },
+       {
+        "text": "A requestor is any person or organization who requests that an employee complete a training course (such as Employee, Supervisor, Human Resources, Donor, etc.).",
+        "dateAdded": "7/30/2008",
+        "date": "2008-07-30"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT67",
+      "title": "Add or update a training course evaluation",
+      "priority": "P10",
+      "package": "1.6",
+      "description": "The Training Manager updates the list of training course evaluations, or the grade or assessment an employee earned after taking a training course, for selection within the system.",
+      "parent": "Training Management",
+      "primaryActors": [
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training module is enabled. The user must be logged in to the system.",
+      "successGuarantee": "The new training program evaluation is saved and available for selection when scheduling a training course for an employee.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the evaluations of training courses."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all training course evaluations entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new training course evaluation."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description or name of the item."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the training course evaluation available for selection when scheduling training courses for an employee."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing training program evaluation.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This is a new use case to create dropdown menus of training program evaluation as part of the Training Management module.",
+        "dateAdded": "10/16/2007",
+        "date": "2007-10-16"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT55",
+      "title": "Add or update a training course category",
+      "priority": "P10",
+      "package": "1.6",
+      "description": "The Training Manager updates the list of training course categories for selection within the system.",
+      "parent": "Training Management",
+      "primaryActors": [
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training module is enabled. The user must be logged in to the system.",
+      "successGuarantee": "The new training program category is saved and available for selection when adding a training program.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of training course categories."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all training course categories entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new training course category."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description or name of the item."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the training course category available for selection when adding training course."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing training program category.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This is a new use case to create dropdown menus of training program categories as part of the Training Management module.",
+        "dateAdded": "10/16/2007",
+        "date": "2007-10-16"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT69",
+      "title": "Add or update a continuing education course",
+      "priority": "P10",
+      "package": "1.6",
+      "description": "The HR manager enters valid continuing education courses for selection when renewing a license.",
+      "parent": "Training Management",
+      "primaryActors": [
+       "HR Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training module is enabled. The user must be logged in to the system.",
+      "successGuarantee": "The new continuing education course is saved and available for selection in appropriate use cases.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update the list of continuing education courses."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all continuing education courses added to the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new continuing education course."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the course."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the number of credit hours that can be earned by completing the course."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system makes the new course available for selection when adding training courses."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing continuing education course name.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the course's details and provides the option to update them."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This is a new use case that is part of the training management module.",
+        "dateAdded": "7/30/2008",
+        "date": "2008-07-30"
+       },
+       {
+        "text": "This use case is identical to the same use case for iHRIS Qualify.",
+        "dateAdded": "7/30/2008",
+        "date": "2008-07-30"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT56",
+      "title": "Add or update an in-service training program",
+      "priority": "P1",
+      "package": "1.6",
+      "description": "The Training Manager adds a training offering to the system that can be requested for employees to complete.",
+      "parent": "Training Management",
+      "primaryActors": [
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training module is enabled. The competencies must be entered in the system. The training category, status, funder and organization must be entered in the system. The user must be logged in to the system.",
+      "successGuarantee": "The training program is added to the system and is made available for selection.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of training courses."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all training courses entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a training program."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the training program."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the category of the training (optional)."
+       },
+       {
+        "step": 6,
+        "text": "The user enters a specific topic for the training."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the program status."
+       },
+       {
+        "step": 8,
+        "text": "The user selects the name of the training funder (optional)."
+       },
+       {
+        "step": 9,
+        "text": "Repeat for each additional training funder."
+       },
+       {
+        "step": 10,
+        "text": "The user selects the name of the training organization giving the training (optional)."
+       },
+       {
+        "step": 11,
+        "text": "The user checks all competencies associated with the training (optional)."
+       },
+       {
+        "step": 12,
+        "text": "The user selects any Continuing Education course credits earned in the training program (optional)."
+       },
+       {
+        "step": 13,
+        "text": "The user enters any notes about the training (optional)."
+       },
+       {
+        "step": 14,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 15,
+        "text": "The system displays the training course information."
+       },
+       {
+        "step": 16,
+        "text": "The user enters the schedule for a training program (UC-PT57)."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing program.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays the training program record and provides the option to edit the training program information."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The user does not select a status.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system sets the status to open."
+         }
+        ]
+       },
+       {
+        "id": "7.b",
+        "atStep": "7",
+        "text": "The user selects the closed status.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system removes the training from scheduling on an employee's record."
+         }
+        ]
+       },
+       {
+        "id": "10.a",
+        "atStep": "10",
+        "text": "The user checks a parent competency category.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system selects all subcategories and competencies within that category for the training."
+         }
+        ]
+       },
+       {
+        "id": "10.b",
+        "atStep": "10",
+        "text": "The user expands a parent competency category.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system makes any subcategory or competency within that category available for selection."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case has been significantly revised to capture more data about training programs as part of the Training Management module.",
+        "dateAdded": "10/16/2007",
+        "date": "2007-10-16"
+       },
+       {
+        "text": "This functionality can be accessed via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       },
+       {
+        "text": "The In-Service Training Management module must be enabled for the use case to function and is disabled by default.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT57",
+      "title": "Enter the schedule for a training program",
+      "priority": "P10",
+      "package": "1.6",
+      "description": "The Training Manager enters the specific dates, duration and location of training program classes, either when entering the training program details or scheduling an employee to take a training.",
+      "parent": "Training Management",
+      "primaryActors": [
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training module is enabled. The training program has been entered in the system. The country, district and county where the training program is located must be entered in the system. The user is logged in.",
+      "successGuarantee": "The training class details are saved with the training program and made available for later reference.",
+      "level": "Subfunction",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the training course to schedule."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the option to schedule a training program."
+       },
+       {
+        "step": 3,
+        "text": "The user enters the maximum number of students."
+       },
+       {
+        "step": 4,
+        "text": "The user selects the date the training program begins."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the date the training program ends."
+       },
+       {
+        "step": 6,
+        "text": "The user enters the name of the site where the training program is to be held."
+       },
+       {
+        "step": 7,
+        "text": "The user enters the trainers' name(s) (optional)."
+       },
+       {
+        "step": 8,
+        "text": "The user selects the country where the training program takes place."
+       },
+       {
+        "step": 9,
+        "text": "The system displays all districts in that country."
+       },
+       {
+        "step": 10,
+        "text": "The user selects the district where the training program takes place."
+       },
+       {
+        "step": 11,
+        "text": "The system displays all counties in that district."
+       },
+       {
+        "step": 12,
+        "text": "The user selects the county where the training program takes place (optional)."
+       },
+       {
+        "step": 13,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 14,
+        "text": "The system saves the class details with the training program information and makes the class available for scheduling for employees."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The date is not entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system selects the current date."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The end date is before the start date.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case was added to allow scheduling of specific instances of a training program.",
+        "dateAdded": "12/3/2007",
+        "date": "2007-12-03"
+       },
+       {
+        "text": "This functionality is accessed from a training course's record via the Configure System --> Administer Database screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT59",
+      "title": "Schedule a training for an employee",
+      "priority": "P10",
+      "package": "1.6",
+      "description": "The Training Manager adds an employee to the schedule for a training class.",
+      "parent": "Training Management",
+      "primaryActors": [
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training module is enabled. The user must be logged in to the system. The employee must have a record in the system. The training program must have been added to the system and at least one class must have been added for it. The requestor and evaluation must have been added to the system.",
+      "successGuarantee": "The training program is listed as scheduled in the employee's training history.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to schedule a training in an employee's record."
+       },
+       {
+        "step": 2,
+        "text": "The system lists all training programs."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the training program."
+       },
+       {
+        "step": 4,
+        "text": "The system displays all scheduled classes for that program."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the training class to schedule."
+       },
+       {
+        "step": 6,
+        "text": "The system displays today's date for the date of the request."
+       },
+       {
+        "step": 7,
+        "text": "The user changes the date of the request, if applicable."
+       },
+       {
+        "step": 8,
+        "text": "The user selects the person who requested or recommended the training (optional)."
+       },
+       {
+        "step": 9,
+        "text": "The user selects whether this is a new training or a retraining for the employee."
+       },
+       {
+        "step": 10,
+        "text": "The user enters any notes about the training request."
+       },
+       {
+        "step": 11,
+        "text": "The user selects whether the course has been completed."
+       },
+       {
+        "step": 12,
+        "text": "The user selects an evaluation for the course."
+       },
+       {
+        "step": 13,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 14,
+        "text": "The system adds the training program to the list of the trainings in which the employee is scheduled to take to the employee's training history."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "11.a",
+        "atStep": "11",
+        "text": "The user doesn't select an option.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system records No by default."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This is a new use case as part of the Training Management module.",
+        "dateAdded": "10/16/2007",
+        "date": "2007-10-16"
+       },
+       {
+        "text": "This functionality is accessed via the Training section of a person's record. The In-Service Training Management Module must be enabled.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-PT60",
+      "title": "Assess training results and update competencies",
+      "priority": "P1",
+      "package": "1.6",
+      "description": "After an employee has completed a training, the Training Manager assesses their performance and updates their qualifications accordingly.",
+      "parent": "Training Management",
+      "primaryActors": [
+       "Training Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training module is enabled. A training with associated competencies has been scheduled for the employee. The competency evaluation has been entered in the system. The user must be logged in to the system.",
+      "successGuarantee": "The training is marked complete and the results are recorded in the Employee's training history.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Released",
+      "implementationStatus": "Partially Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user opens an employee's training history in the employee's record."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the course competency evaluation for the training that the employee completed from the list of scheduled trainings."
+       },
+       {
+        "step": 3,
+        "text": "The system displays all competencies selected for the training, if any."
+       },
+       {
+        "step": 4,
+        "text": "For each competency associated with the training, the user selects the evaluation (optional)."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the date of the evaluation."
+       },
+       {
+        "step": 6,
+        "text": "The user enters a date when the assessment expires or should be re-evaluated (optional)."
+       },
+       {
+        "step": 7,
+        "text": "The system sets a flag to appear on the person's record when the date has passed that reminds the user that the person needs reassessment."
+       },
+       {
+        "step": 8,
+        "text": "The user enters any notes about the evaluation."
+       },
+       {
+        "step": 9,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 10,
+        "text": "The system saves the completed training in the employee's training history as completed (rather than scheduled) and records the performance."
+       },
+       {
+        "step": 11,
+        "text": "The system adds the assessed competencies to the employee's record."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "No date is entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system records today's date by default."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This is a new use case as part of the Training Management module.",
+        "dateAdded": "10/16/2007",
+        "date": "2007-10-16"
+       },
+       {
+        "text": "The In-Service Training Management Module must be enabled to access this functionality. It is disabled by default.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       },
+       {
+        "text": "This functionality is accessed via the Training section of a person's record.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.7",
+    "name": "Requirements",
+    "level": 2,
+    "description": "Requirements for iHRIS Manage.",
+    "notes": [],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [],
+    "requirements": [
+     {
+      "id": "REQ-PT9",
+      "name": "Localization",
+      "priority": "P10",
+      "package": "1.7",
+      "description": "The system must support different international currencies.",
+      "referencedBy": [
+       "UC-PT19",
+       "UC-PT32"
+      ]
+     },
+     {
+      "id": "REQ-PT10",
+      "name": "Job applicant questions",
+      "priority": "P6",
+      "package": "1.7",
+      "description": "Specifies all questions that the organization requires be asked of a job applicant, such as to satisfy a law or the organization's need.\n\nExample job applicant questions: If you are not a citizen, are you authorized to work in the country? Have you ever been convicted of a felony? If yes, describe the circumstances. How did you hear of this opening? When can you start work? What is your desired wage? Are you looking for full-time employment? What hours are you available?",
+      "referencedBy": [
+       "UC-PT40"
+      ]
+     },
+     {
+      "id": "REQ-PT11",
+      "name": "Privacy",
+      "priority": "P1",
+      "package": "1.7",
+      "description": "Some data cannot be viewed except by specified roles in HR and management. These may change depending on laws and organizational policies, but will probably always include salary and identification numbers.",
+      "referencedBy": [
+       "UC-PT29",
+       "UC-PT35",
+       "UC-PT32"
+      ]
+     }
+    ]
+   }
+  ],
+  "useCases": [],
+  "requirements": []
+ },
+ "dangling": [
+  {
+   "id": "A-PT9",
+   "kind": "actor",
+   "product": "manage",
+   "title": "Any User",
+   "citedBy": [
+    "table of contents"
+   ]
+  }
+ ]
+}

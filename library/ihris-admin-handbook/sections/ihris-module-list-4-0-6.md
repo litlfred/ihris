@@ -1,0 +1,212 @@
+---
+title: "IHRIS Module List (4.0.6)"
+source: http://open.intrahealth.org/w/index.php?oldid=33762
+contributors: ["Litlfred"]
+pages: 293-297
+licence: GFDL-1.2
+capturedFrom: uploads/ihris-admin-handbook/ihris_admin_handbook_sep_17_2010.pdf
+---
+# IHRIS Module List (4.0.6)
+
+This is a list of all the modules available in the iHRIS Suite
+
+- BackgroundProcess is a part of I2CE version 4.0.6-release
+- BinField is a part of I2CE version 4.0.6-release
+- CEUs is a part of iHRIS Common version 4.0.6-release
+- CachedForms is a part of I2CE version 4.0.6-release
+- ColorPicker is a part of I2CE version 4.0.6-release
+- Contact is a part of iHRIS Common version 4.0.6-release
+- Currency is a part of iHRIS Common version 4.0.6-release
+- CustomReports is a part of I2CE version 4.0.6-release
+- CustomReports\_Export is a part of I2CE version 4.0.6-release
+- CustomReports\_PDF is a part of I2CE version 4.0.6-release
+- CustomReports\_PieChart is a part of I2CE version 4.0.6-release
+- DatePicker is a part of I2CE version 4.0.6-release
+- DisplayData is a part of I2CE version 4.0.6-release
+- Document is a part of iHRIS Common version 4.0.6-release
+- Facility is a part of iHRIS Common version 4.0.6-release
+- FacilityContact is a part of iHRIS Common version 4.0.6-release
+- Fields is a part of I2CE version 4.0.6-release
+- FileDump is a part of I2CE version 4.0.6-release
+- Float is a part of I2CE version 4.0.6-release
+- FormWorm is a part of I2CE version 4.0.6-release
+- Geography is a part of iHRIS Common version 4.0.6-release
+- I2CE is a part of I2CE version 4.0.6-release
+- ImportExport is a part of I2CE version 4.0.6-release
+- Lists is a part of I2CE version 4.0.6-release
+- Lists-LinkTo is a part of I2CE version 4.0.6-release
+- Lists-LinkTo-List is a part of I2CE version 4.0.6-release
+- Lists-LinkTo-String is a part of I2CE version 4.0.6-release
+- LocaleForm is a part of I2CE version 4.0.6-release
+- LoginPage is a part of I2CE version 4.0.6-release
+- ManageRegistration is a part of iHRIS Manage version 4.0.6-release
+- MimeTypes is a part of I2CE version 4.0.6-release
+- MooTools is a part of I2CE version 4.0.6-release
+- MooTools-I2CE is a part of I2CE version 4.0.6-release
+- Options is a part of I2CE version 4.0.6-release
+- Person is a part of iHRIS Common version 4.0.6-release
+- PersonArchivedScan is a part of iHRIS Common version 4.0.6-release
+- PersonContact is a part of iHRIS Common version 4.0.6-release
+- PersonDemographic is a part of iHRIS Common version 4.0.6-release
+- PersonEducation is a part of iHRIS Common version 4.0.6-release
+- PersonEmployment is a part of iHRIS Common version 4.0.6-release
+- PersonID is a part of iHRIS Common version 4.0.6-release
+
+- PersonLanguage is a part of iHRIS Common version 4.0.6-release
+- PersonNotes is a part of iHRIS Common version 4.0.6-release
+
+- PersonPassportPhoto is a part of iHRIS Common version 4.0.6-release
+- PersonResume is a part of iHRIS Common version 4.0.6-release
+- Photo is a part of iHRIS Common version 4.0.6-release
+- PrintedForms is a part of I2CE version 4.0.6-release
+- ReportArchiver is a part of I2CE version 4.0.6-release
+- SDMX-HD-CodeLists is a part of iHRIS Common version 4.0.6-release
+- SampleData-Common is a part of iHRIS Common version 4.0.6-release
+- SampleData-Geography is a part of iHRIS Common version 4.0.6-release
+- SampleData-accident\_type is a part of iHRIS Manage version 4.0.6-release
+- SampleData-benefit\_type is a part of iHRIS Manage version 4.0.6-release
+- SampleData-cadre is a part of iHRIS Manage version 4.0.6-release
+- SampleData-classification is a part of iHRIS Manage version 4.0.6-release
+- SampleData-competency is a part of iHRIS Manage version 4.0.6-release
+- SampleData-competency\_type is a part of iHRIS Manage version 4.0.6-release
+- SampleData-confirmation\_type is a part of iHRIS Manage version 4.0.6-release
+- SampleData-council is a part of iHRIS Manage version 4.0.6-release
+- SampleData-country is a part of iHRIS Common version 4.0.6-release
+- SampleData-county is a part of iHRIS Common version 4.0.6-release
+- SampleData-currency is a part of iHRIS Common version 4.0.6-release
+- SampleData-degree is a part of iHRIS Common version 4.0.6-release
+- SampleData-department is a part of iHRIS Manage version 4.0.6-release
+- SampleData-disciplinary\_action\_type is a part of iHRIS Manage version 4.0.6-release
+- SampleData-district is a part of iHRIS Common version 4.0.6-release
+- SampleData-edu\_type is a part of iHRIS Common version 4.0.6-release
+- SampleData-establishment is a part of iHRIS Manage version 4.0.6-release
+- SampleData-facility is a part of iHRIS Manage version 4.0.6-release
+- SampleData-facility\_type is a part of iHRIS Manage version 4.0.6-release
+- SampleData-id\_type is a part of iHRIS Manage version 4.0.6-release
+- SampleData-job is a part of iHRIS Manage version 4.0.6-release
+- SampleData-language is a part of iHRIS Manage version 4.0.6-release
+- SampleData-marital\_status is a part of iHRIS Manage version 4.0.6-release
+- SampleData-pos\_change\_reason is a part of iHRIS Manage version 4.0.6-release
+- SampleData-position\_type is a part of iHRIS Manage version 4.0.6-release
+- SampleData-region is a part of iHRIS Common version 4.0.6-release
+- SampleData-salary\_grade is a part of iHRIS Manage version 4.0.6-release
+- SampleData-salary\_source is a part of iHRIS Manage version 4.0.6-release
+- SampleData-training\_course\_category is a part of iHRIS Manage version 4.0.6-release
+- SampleData-training\_course\_requestor is a part of iHRIS Manage version 4.0.6-release
+- StretchPage is a part of I2CE version 4.0.6-release
+- Tags is a part of I2CE version 4.0.6-release
+- Timer is a part of I2CE version 4.0.6-release
+- TreeSelect is a part of I2CE version 4.0.6-release
+- UUID\_map is a part of iHRIS Common version 4.0.6-release
+- UserAccess is a part of I2CE version 4.0.6-release
+- UserAccess\_DHIS is a part of I2CE version 4.0.6-release
+
+- UserAccess\_LDAP is a part of I2CE version 4.0.6-release
+- UserAccess\_LDAP\_Hybrid is a part of I2CE version 4.0.6-release
+
+- UserForm is a part of I2CE version 4.0.6-release
+- YAML\_spyc is a part of I2CE version 4.0.6-release
+- accident is a part of iHRIS Manage version 4.0.6-release
+- admin is a part of I2CE version 4.0.6-release
+- dependents is a part of iHRIS Common version 4.0.6-release
+- disciplinary\_action is a part of iHRIS Manage version 4.0.6-release
+- establishment is a part of iHRIS Common version 4.0.6-release
+- fancyDebug is a part of I2CE version 4.0.6-release
+- field-limits is a part of I2CE version 4.0.6-release
+- form-limits is a part of I2CE version 4.0.6-release
+- formBrowser is a part of I2CE version 4.0.6-release
+- formDocumentor is a part of I2CE version 4.0.6-release
+- formRelationships is a part of I2CE version 4.0.6-release
+- forms is a part of I2CE version 4.0.6-release
+- forms-storage is a part of I2CE version 4.0.6-release
+- forms-storage-CSV is a part of I2CE version 4.0.6-release
+- forms-storage-SDMXHD is a part of I2CE version 4.0.6-release
+- forms-storage-entry is a part of I2CE version 4.0.6-release
+- forms-storage-eval is a part of I2CE version 4.0.6-release
+- forms-storage-file is a part of I2CE version 4.0.6-release
+- forms-storage-flat is a part of I2CE version 4.0.6-release
+- forms-storage-magicdata is a part of I2CE version 4.0.6-release
+- forms-storage-multiflat is a part of I2CE version 4.0.6-release
+- forms-storage-xml is a part of I2CE version 4.0.6-release
+- ihris-common is a part of iHRIS Common version 4.0.6-release
+- ihris-common-Cadre is a part of iHRIS Common version 4.0.6-release
+- ihris-common-Job is a part of iHRIS Common version 4.0.6-release
+- ihris-common-RecentForm is a part of iHRIS Common version 4.0.6-release
+- ihris-common-Search is a part of iHRIS Common version 4.0.6-release
+- ihris-manage is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-Application is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-ApplicationAttachment is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-Benefit is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-ConfirmationAttachment is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-CustomReports is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-CustomReports-FilledPositions is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-CustomReports-facility-reports is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-CustomReports-position-reports is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-CustomReports-search-people is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-CustomReports-staff-reports is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-Job is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-Person is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-PersonDemographic is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-PersonPosition is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-Salary is a part of iHRIS Manage version 4.0.6-release
+
+- ihris-manage-base-data is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-confirmation is a part of iHRIS Manage version 4.0.6-release
+
+- ihris-manage-help is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-medical-data is a part of iHRIS Manage version 4.0.6-release
+- ihris-manage-sample-data is a part of iHRIS Manage version 4.0.6-release
+- isco-08 is a part of iHRIS Common version 4.0.6-release
+- isco-08-major-00 is a part of iHRIS Common version 4.0.6-release
+- isco-08-major-01 is a part of iHRIS Common version 4.0.6-release
+- isco-08-major-02 is a part of iHRIS Common version 4.0.6-release
+- isco-08-major-03 is a part of iHRIS Common version 4.0.6-release
+- isco-08-major-04 is a part of iHRIS Common version 4.0.6-release
+- isco-08-major-05 is a part of iHRIS Common version 4.0.6-release
+- isco-08-major-06 is a part of iHRIS Common version 4.0.6-release
+- isco-08-major-07 is a part of iHRIS Common version 4.0.6-release
+- isco-08-major-08 is a part of iHRIS Common version 4.0.6-release
+- isco-08-major-09 is a part of iHRIS Common version 4.0.6-release
+- isco-88 is a part of iHRIS Common version 4.0.6-release
+- isco-88-major-00 is a part of iHRIS Common version 4.0.6-release
+- isco-88-major-01 is a part of iHRIS Common version 4.0.6-release
+- isco-88-major-02 is a part of iHRIS Common version 4.0.6-release
+- isco-88-major-03 is a part of iHRIS Common version 4.0.6-release
+- isco-88-major-04 is a part of iHRIS Common version 4.0.6-release
+- isco-88-major-05 is a part of iHRIS Common version 4.0.6-release
+- isco-88-major-06 is a part of iHRIS Common version 4.0.6-release
+- isco-88-major-07 is a part of iHRIS Common version 4.0.6-release
+- isco-88-major-08 is a part of iHRIS Common version 4.0.6-release
+- isco-88-major-09 is a part of iHRIS Common version 4.0.6-release
+- jumper is a part of I2CE version 4.0.6-release
+- localeSelector is a part of I2CE version 4.0.6-release
+- maani-charts is a part of I2CE version 4.0.6-release
+- magicDataBrowser is a part of I2CE version 4.0.6-release
+- magicDataExport is a part of I2CE version 4.0.6-release
+- manage-training-course is a part of iHRIS Manage version 4.0.6-release
+- manage-training-institution is a part of iHRIS Manage version 4.0.6-release
+- manage-training-simple-competency is a part of iHRIS Manage version 4.0.6-release
+- menu\_select is a part of I2CE version 4.0.6-release
+- messageBox is a part of I2CE version 4.0.6-release
+- messageHandler is a part of I2CE version 4.0.6-release
+- messageNotice is a part of I2CE version 4.0.6-release
+- modDocumentor is a part of I2CE version 4.0.6-release
+- modulePrompter is a part of I2CE version 4.0.6-release
+- nextOfKin is a part of iHRIS Common version 4.0.6-release
+- pages is a part of I2CE version 4.0.6-release
+- person-simple-competency is a part of iHRIS Common version 4.0.6-release
+- simple-competency is a part of iHRIS Common version 4.0.6-release
+- stub is a part of I2CE version 4.0.6-release
+- swissConfig is a part of I2CE version 4.0.6-release
+
+- swissMagic is a part of I2CE version 4.0.6-release
+- swissfactory is a part of I2CE version 4.0.6-release
+
+- tasks-roles is a part of I2CE version 4.0.6-release
+- tcpdf is a part of TextLayout Tools version 4.0.6-release
+- template-data is a part of I2CE version 4.0.6-release
+- textlayout is a part of TextLayout Tools version 4.0.6-release
+- training-course is a part of iHRIS Common version 4.0.6-release
+- training-institution is a part of iHRIS Common version 4.0.6-release
+- training-simple-competency is a part of iHRIS Common version 4.0.6-release
+- user is a part of I2CE version 4.0.6-release

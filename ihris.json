@@ -2,7 +2,7 @@
   "_comment": "THE REPOSITORY ROOT's declaration: what this instance IS and which directories it holds. Its sibling `ihris.config.json` says how it is configured. Written following folio-assistant's cat-harness/docs/bootstrap/initialization.md: declaration first, then only the directories it names.",
   "name": "ihris",
   "title": "iHRIS Knowledge Base",
-  "description": "A folio-assistant folio that ingests and DESCRIBES the knowledge assets of iHRIS, the open-source health workforce information system: Launchpad source (by `lp:` reference, never copied), iHRIS 5 on GitHub (pinned by commit), the Implementation Toolkit, the old wiki, and documents people share. It is the umbrella over one instance per core source repository and one per knowledge source.",
+  "description": "A folio-assistant folio that ingests and DESCRIBES the knowledge assets of iHRIS, the open-source health workforce information system: Launchpad source (by `lp:` reference, never copied), iHRIS 5 on GitHub (pinned by commit), the Implementation Toolkit, the old wiki (and its 2010 handbook export), the 2009 use-case model, and documents people share. It is the umbrella over one instance per core source repository and one per knowledge source.",
   "instances": [
     {
       "name": "i2ce",
@@ -50,6 +50,16 @@
       "kind": "knowledge-source"
     },
     {
+      "name": "ihris-admin-handbook",
+      "path": "library/ihris-admin-handbook",
+      "kind": "knowledge-source"
+    },
+    {
+      "name": "ihris-use-cases",
+      "path": "library/ihris-use-cases",
+      "kind": "knowledge-source"
+    },
+    {
       "name": "ihris-data-dictionary",
       "path": "src/ihris-data-dictionary",
       "kind": "derived-knowledge-asset"
@@ -60,7 +70,7 @@
       "kind": "derived-knowledge-asset"
     }
   ],
-  "_instances_comment": "One instance per core Launchpad repository, per the owner's ruling on issue #1 ('instance for each lp repo'), plus iHRIS 5, the toolkit and the wiki. Core = i2ce, ihris-common, ihris-manage, ihris-qualify, ihris-plan, openhie-pr. The other 31 Launchpad projects (country customizations and side tools) are described in the root catalogue at src/catalogue/ only. ihris-4-on-fhir (2026-09-23) is derived content, and the only subgraph that depends on smart-base.",
+  "_instances_comment": "One instance per core Launchpad repository, per the owner's ruling on issue #1 ('instance for each lp repo'), plus iHRIS 5, the toolkit and the wiki. Core = i2ce, ihris-common, ihris-manage, ihris-qualify, ihris-plan, openhie-pr. The other 31 Launchpad projects (country customizations and side tools) are described in the root catalogue at src/catalogue/ only. ihris-4-on-fhir (2026-09-23) is derived content, and the only subgraph that depends on smart-base. ihris-admin-handbook (the 2010 wiki export, GFDL-1.2) and ihris-use-cases (the 2009 use-case model, owner's permission) were added 2026-09-23 (bean ihris-hbuc).",
   "assets": [
     {
       "id": "agent-instructions",

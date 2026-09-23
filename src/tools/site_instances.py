@@ -6,6 +6,9 @@ may reproduce (AGENTS.md §2.4):
 
   Launchpad sources, modules, data lists   GPL: described in full, with source paths and checksums
   library/ihris-wiki help pages            GPL (shipped in the 4.3.3 release): rendered in full, with attribution
+  library/ihris-admin-handbook             GFDL-1.2 text (stated in the export) and images (owner's permission): in full,
+                                           with each article's revision and contributors; only while both are recorded
+  library/ihris-use-cases                  the owner's permission (2026-09-23): in full, attributed; only while recorded
   library/ihris-toolkit                    the text only while its declaration records a licence (the owner's
                                            permission, 2026-09-23, bean ihris-kngr); otherwise structure only.
                                            Reader comments never: third parties' words and names
@@ -33,7 +36,10 @@ WIKI = "library/ihris-wiki/osi-help-4.3.3"
 INSTANCE_PAGE = {**{n: f"sources/{n}/index.html" for n in LP_INSTANCES},
                  "ihris5": "sources/ihris5/index.html", "ihris-toolkit": "library/toolkit/index.html",
                  "ihris-wiki": "library/wiki/index.html", "ihris-data-dictionary": "data-dictionary/index.html",
-                 "ihris-4-on-fhir": "fhir/index.html"}
+                 "ihris-4-on-fhir": "fhir/index.html", "ihris-admin-handbook": "library/handbook/index.html",
+                 "ihris-use-cases": "library/use-cases/index.html"}
+HANDBOOK = "library/ihris-admin-handbook"
+USE_CASES = "library/ihris-use-cases"
 
 
 def J(p):
@@ -357,8 +363,121 @@ def library_index(theme):
     inner = f"""<div class="board">
 <article class="card"><span class="kind">knowledge source</span><h3>iHRIS Implementation Toolkit</h3><p>Six stages, nine domains, the tools for each.</p><a class="go" href="toolkit/index.html">Open</a></article>
 <article class="card"><span class="kind">knowledge source</span><h3>iHRIS wiki</h3><p>The user manual as shipped in the {RELEASE} release.</p><a class="go" href="wiki/index.html">Open</a></article>
+<article class="card"><span class="kind">knowledge source</span><h3>iHRIS Administrator Handbook</h3><p>79 wiki articles for administrators and developers, exported 2010-09-17 (GFDL-1.2).</p><a class="go" href="handbook/index.html">Open</a></article>
+<article class="card"><span class="kind">knowledge source</span><h3>iHRIS use cases (2009)</h3><p>Use cases, actors and requirements of Common, Manage, Qualify and Plan, with a crosswalk to the data model.</p><a class="go" href="use-cases/index.html">Open</a></article>
 </div>"""
     return page(path, "Library", [("index.html", "Home")], inner, theme, "library/index.html")
+
+
+# ------------------------------------------------------------------ handbook (GFDL text, images by permission)
+def handbook_pages(theme, out_dir):
+    """The 2010 Administrator Handbook. The text is published only while ihris-admin-handbook.json records the
+    stated licence, and the images only while it records the owner's permission for them."""
+    decl = J(f"{HANDBOOK}/ihris-admin-handbook.json")
+    lic = decl.get("licence") or {}
+    text_ok = lic.get("status") == "stated"
+    img_ok = text_ok and (lic.get("images") or {}).get("status") == "permission"
+    book = J(f"{HANDBOOK}/book.json")
+    idx = "library/handbook/index.html"
+    crumbs = [("index.html", "Home"), ("library/index.html", "Library"), (idx, "Handbook")]
+    credit = {i["id"]: i for i in book["images"]}
+    if img_ok:
+        os.makedirs(os.path.join(out_dir, "library/handbook/images"), exist_ok=True)
+        for i in book["images"]:
+            shutil.copy(os.path.join(ROOT, HANDBOOK, i["file"]), os.path.join(out_dir, "library/handbook/images", os.path.basename(i["file"])))
+    ids = {a["id"] for a in book["articles"]}
+    by_title = {a["title"].lower(): a["id"] for a in book["articles"]}
+    note = (f'<p class="src">{E(lic.get("attribution", ""))} Text under the <a href="https://www.gnu.org/licenses/old-licenses/fdl-1.2.html">GNU FDL 1.2</a>'
+            f'{"; images published with the owner&#39;s permission (" + E(lic["images"]["grantedOn"]) + ")" if img_ok else ""}. '
+            f'E-mail addresses and phone numbers are redacted.</p>')
+    out, rows = [], []
+    for a in book["articles"]:
+        rows.append([f'<a href="{E(a["id"])}.html">{E(a["title"])}</a>', f'{a["pageStart"]}&ndash;{a["pageEnd"]}', E(", ".join(a["contributors"]))])
+        if not text_ok:
+            continue
+        text = open(os.path.join(ROOT, HANDBOOK, a["file"]), encoding="utf-8").read()
+        body = re.sub(r"\A\s*<h1>.*?</h1>", "", md_to_html(text), flags=re.S)
+
+        def fig(m):
+            iid = os.path.basename(html.unescape(m.group(1)))[:-4]
+            c = credit.get(iid)
+            if not (img_ok and c):
+                return f'<p class="mute">[image {E(iid)} not published]</p>'
+            cr = c["credit"]
+            return (f'<figure style="margin:16px 0"><img src="images/{E(iid)}.png" alt="{E(cr["name"])}">'
+                    f'<figcaption class="legend"><a href="{E(cr["source"])}">{E(cr["name"])}</a>, by {E(", ".join(cr["contributors"]))}. '
+                    f'Licence stated in the export: {E(cr["licence"])}; published with the owner&#39;s permission.</figcaption></figure>')
+        body = re.sub(r'<p><img alt="[^"]*" src="([^"]+)" ?/?></p>', fig, body)
+        body = re.sub(r'<img alt="[^"]*" src="([^"]+)" ?/?>', fig, body)
+        src = (f'<h2>Source</h2><p class="src">iHRIS wiki, <a href="{E(a["source"])}">revision {a["oldid"]}</a>; contributors: '
+               f'{E(", ".join(a["contributors"]))}. Pages {a["pageStart"]}&ndash;{a["pageEnd"]} of the 2010-09-17 export '
+               f'(sha256 <code>{E(book["source"]["sha256"][:16])}&hellip;</code>). GNU FDL 1.2.</p>')
+        out.append(page(f"library/handbook/{a['id']}.html", a["title"], crumbs, f'<div class="wiki">{body}</div>{src}', theme, "library/index.html"))
+    wiki_rel = ('<p>It is a different cut of the wiki that <a href="../wiki/index.html">the iHRIS wiki</a> restores from the '
+                f'{RELEASE} help modules: earlier (2010), under a different licence, and mostly the administrator and developer articles '
+                'that the help modules never shipped. The two share one page by title (<i>IHRIS Manage Form Fields - 4.0</i>).</p>')
+    imgs = "".join(f'<li><code>{E(i["credit"]["name"])}</code> (page {i["page"]}, licence stated: {E(i["credit"]["licence"])}), by '
+                   f'{E(", ".join(i["credit"]["contributors"]))}</li>' for i in book["images"])
+    inner = (f'<p><i>{E(book["title"])}</i> (sic), {len(book["articles"])} articles of the iHRIS wiki (open.intrahealth.org), exported to a '
+             f'{book["source"]["pages"]}-page PDF by {E(book["generator"])} on {E(book["generatedAt"][:10])}.</p>{note}{wiki_rel}'
+             + ("" if text_ok else '<p class="mute">No licence is recorded, so only the article list is shown.</p>')
+             + rows_table(["Article", "Pages", "Contributors (wiki usernames)"], rows, "Handbook articles")
+             + (f"<h2>Image credits</h2><ul>{imgs}</ul>" if img_ok else ""))
+    out.append(page(idx, "iHRIS Administrator Handbook (2010)", crumbs[:2], inner, theme, "library/index.html"))
+    return out
+
+
+# ------------------------------------------------------------------ use cases (owner's permission)
+def use_case_pages(theme, cls_index):
+    decl = J(f"{USE_CASES}/ihris-use-cases.json")
+    lic = decl.get("licence") or {}
+    ok = lic.get("status") in ("stated", "permission")
+    xw = J(f"{USE_CASES}/crosswalk.json")
+    prods = [J(f"{USE_CASES}/{p}.json") for p in ("common", "manage", "qualify", "plan")]
+    idx = "library/use-cases/index.html"
+    crumbs = [("index.html", "Home"), ("library/index.html", "Library"), (idx, "Use cases")]
+    note = (f'<p class="src">{E(lic.get("attribution", ""))} Published with the owner&#39;s permission ({E(lic.get("grantedOn", ""))}). '
+            'Staff initials (&ldquo;Assigned To&rdquo;) and requirement sources naming a person are withheld.</p>') if ok else \
+        '<p class="mute">No licence or permission is recorded, so only counts are shown.</p>'
+    out = []
+    rows = []
+    for d in prods:
+        c = d["counts"]
+        name = d["title"]
+        link = f'<a href="{E(d["product"])}.html">{E(name)}</a>' if ok else E(name)
+        rows.append([link, E(d["report"]["generatedAt"]), str(c["useCases"]), str(c["actors"]), str(c["requirements"]), str(c["steps"]), str(c["extensions"])])
+        if ok:
+            text = open(os.path.join(ROOT, USE_CASES, d["product"] + ".md"), encoding="utf-8").read()
+            body = re.sub(r"\A\s*<h1>.*?</h1>", "", md_to_html(text), flags=re.S)
+            out.append(page(f"library/use-cases/{d['product']}.html", name + " (2009)", crumbs, note + f'<div class="wiki">{body}</div>', theme, "library/index.html"))
+    xrows = []
+    for e in xw["entries"]:
+        if e["matches"]:
+            links = []
+            for m in e["matches"]:
+                cls = m.get("class")
+                target = bs.page_of(cls_index[cls], cls) if cls and cls in cls_index else None
+                f = f"<code>{E(m['form'])}</code>"
+                links.append((f'<a href="{E(bs.rel("library/use-cases/crosswalk.html", target))}">{f}</a>' if target else f) + f' <span class="mute">{E(m["package"])}</span>')
+            forms = ", ".join(links)
+        else:
+            forms = '<span class="mute">' + ("no data model here" if e["status"] == "no-data-model" else "not linked") + "</span>"
+        uc = f'<a href="{E(e["product"])}.html">{E(e["useCase"])}</a>' if ok else E(e["useCase"])
+        xrows.append([uc, E(e["title"]), forms])
+    c = xw["counts"]
+    out.append(page("library/use-cases/crosswalk.html", "Use cases to iHRIS forms", crumbs,
+                    f'<p>{E(xw["method"])}</p><p>{c["matched"]} use cases linked ({c["links"]} links), {c["unmatched"]} not linked, '
+                    f'{c["no-data-model"]} in iHRIS Plan, which has no data model in this folio.</p>'
+                    + rows_table(["Use case", "Title", f"iHRIS {xw['release']} forms (name match)"], xrows, "Use case crosswalk"), theme, "library/index.html"))
+    dang = "".join(f'<li><code>{E(x["id"])}</code> ({E(x["kind"])}, {E(x["product"])}){": <i>" + E(x["title"]) + "</i>" if x.get("title") else ""}, '
+                   f'cited by {E(", ".join(x["citedBy"]))}</li>' for d in prods for x in d["dangling"])
+    inner = (f'<p>The use-case model of iHRIS Common, Manage, Qualify and Plan: four Serlio CaseComplete reports from 2009, parsed into '
+             f'structured records.</p>{note}' + rows_table(["Product", "Report generated", "Use cases", "Actors", "Requirements", "Steps", "Extensions"], rows, "Use-case reports")
+             + f'<h2>Crosswalk</h2><p><a href="crosswalk.html">Each use case to the iHRIS {xw["release"]} forms its title names</a>, by name matching only: '
+               f'{c["matched"]} linked, {c["unmatched"]} not linked, {c["no-data-model"]} without a data model (iHRIS Plan).</p>'
+             + f"<h2>Cited but not described</h2><ul>{dang}</ul>")
+    out.append(page(idx, "iHRIS use cases (2009)", crumbs[:2], inner, theme, "library/index.html"))
+    return out
 
 
 # ------------------------------------------------------------------ data dictionary
@@ -461,6 +580,7 @@ def schemas_page(theme, out_dir):
               ["Bean graph", "<code>beans/beans.json</code>", "<code>cat-harness/schemas/bean-graph.ts</code>"],
               ["Skill package", "<code>src/skills/package-manifest.json</code>", "<code>cat-harness/schemas/skill-package.ts</code>"],
               ["<code>pdf-structure/v1</code>", "<code>library/*/structure.json</code>", "<code>cat-harness/schemas/pdf-structure.ts</code>"],
+              ["<code>folio-document-images/v1</code>", "<code>library/*/images.json</code>", "<code>cat-harness/schemas/document-image.ts</code>"],
               ["FHIR R4", "<code>src/ihris-data-dictionary/terminology/*.json</code>", "<code>fhir.resources</code> (R4)"]]
     import importlib.util as ilu
     spec = ilu.spec_from_file_location("qa", os.path.join(ROOT, "src/tools/qa.py"))
@@ -493,6 +613,8 @@ def all_pages(theme, cls_index, out_dir):
     wp, wiki_ids = wiki_pages(theme, out_dir)
     pages += wp
     pages += dd_pages(theme, cls_index, wiki_ids)
+    pages += handbook_pages(theme, out_dir)
+    pages += use_case_pages(theme, cls_index)
     os.makedirs(os.path.join(out_dir, "assets"), exist_ok=True)
     for f in ("data-dictionary.xlsx", "data-dictionary.csv"):
         shutil.copy(os.path.join(ROOT, "src/ihris-data-dictionary", f), os.path.join(out_dir, "assets", f))

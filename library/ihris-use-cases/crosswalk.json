@@ -1,0 +1,2410 @@
+{
+ "$schema": "ihris-use-case-crosswalk/v1",
+ "release": "4.3.3",
+ "method": "Name matching only (src/tools/ingest_use_cases.py): a form matches a use case when the form's name, with underscores read as spaces, or a display name a module declares for it, occurs word for word in the use case's TITLE, after folding simple plurals on both sides. A shorter match inside a longer one is dropped. Nothing is inferred from meaning: an unmatched use case has `matches: null` until a person links it (AGENTS.md §7). Every link says `derivedBy: name-match`.",
+ "scope": {
+  "common": [
+   "i2ce",
+   "ihris-common",
+   "ihris-manage",
+   "ihris-qualify"
+  ],
+  "manage": [
+   "i2ce",
+   "ihris-common",
+   "ihris-manage"
+  ],
+  "qualify": [
+   "i2ce",
+   "ihris-common",
+   "ihris-qualify"
+  ],
+  "plan": []
+ },
+ "excludedForms": "forms whose name starts with csd_ (the OpenHIE Care Services Discovery model, added to ihris-common after 2009)",
+ "noDataModel": {
+  "plan": "iHRIS Plan has no data model in this repository: src/ihris-plan holds series and releases only, and its modules need a release tarball (see src/ihris-plan/README.md). Its use cases are listed with status no-data-model."
+ },
+ "counts": {
+  "matched": 88,
+  "unmatched": 38,
+  "no-data-model": 12,
+  "links": 108
+ },
+ "entries": [
+  {
+   "useCase": "UC-ICE1",
+   "product": "common",
+   "title": "Configure modules",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE2",
+   "product": "common",
+   "title": "Save a record",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE3",
+   "product": "common",
+   "title": "Search for a record",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE4",
+   "product": "common",
+   "title": "View a record",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE5",
+   "product": "common",
+   "title": "Update a record",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE7",
+   "product": "common",
+   "title": "Add a user account",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "user",
+     "class": "I2CE_User_Form",
+     "package": "i2ce",
+     "formClass": "i2ce/form-class/I2CE_User_Form",
+     "modules": [
+      "i2ce/module/UserForm"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "user",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "user",
+     "class": null,
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/UserAlerts",
+      "ihris-common/module/UserCronReports",
+      "ihris-common/module/UserTriggers"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "user",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "user",
+     "class": null,
+     "package": "ihris-manage",
+     "formClass": null,
+     "modules": [
+      "ihris-manage/module/ManageAccessDepartment",
+      "ihris-manage/module/ManageAccessFacility"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "user",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-ICE8",
+   "product": "common",
+   "title": "Update a user account",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "user",
+     "class": "I2CE_User_Form",
+     "package": "i2ce",
+     "formClass": "i2ce/form-class/I2CE_User_Form",
+     "modules": [
+      "i2ce/module/UserForm"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "user",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "user",
+     "class": null,
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/UserAlerts",
+      "ihris-common/module/UserCronReports",
+      "ihris-common/module/UserTriggers"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "user",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "user",
+     "class": null,
+     "package": "ihris-manage",
+     "formClass": null,
+     "modules": [
+      "ihris-manage/module/ManageAccessDepartment",
+      "ihris-manage/module/ManageAccessFacility"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "user",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-ICE9",
+   "product": "common",
+   "title": "Log in",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE10",
+   "product": "common",
+   "title": "Retrieve a password or username",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE11",
+   "product": "common",
+   "title": "Change password",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE12",
+   "product": "common",
+   "title": "Give feedback",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE13",
+   "product": "common",
+   "title": "Log out",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE14",
+   "product": "common",
+   "title": "Create a report relationship",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE15",
+   "product": "common",
+   "title": "Create a report",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE16",
+   "product": "common",
+   "title": "Add a report view",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE17",
+   "product": "common",
+   "title": "Run a report",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE19",
+   "product": "common",
+   "title": "Import data",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE20",
+   "product": "common",
+   "title": "Export data",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE6",
+   "product": "common",
+   "title": "Correct data",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE18",
+   "product": "common",
+   "title": "Install the Windows version",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-ICE25",
+   "product": "common",
+   "title": "Install sample data",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT1",
+   "product": "manage",
+   "title": "Add or update a facility type",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "facility_type",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/Facility"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "facility type",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT2",
+   "product": "manage",
+   "title": "Add or update an office or facility",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "facility",
+     "class": "iHRIS_Facility",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Facility",
+     "modules": [
+      "ihris-common/module/DHIS-Dashboard",
+      "ihris-common/module/Facility",
+      "ihris-common/module/FacilityContact"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "facility",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT3",
+   "product": "manage",
+   "title": "Add or update a department",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "department",
+     "class": "iHRIS_Department",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_Department",
+     "modules": [
+      "ihris-manage/module/ihris-manage-PersonPosition"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "department",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT70",
+   "product": "manage",
+   "title": "Add or update a registration council",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "council",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/ihris-common-ProfessionalRegistration"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "council",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "registration",
+     "class": "iHRIS_Registration",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Registration",
+     "modules": [
+      "ihris-common/module/ihris-common-ProfessionalRegistration"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "registration",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT4",
+   "product": "manage",
+   "title": "Add or update an education type",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "edu_type",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/PersonEducation"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Education Type",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT5",
+   "product": "manage",
+   "title": "Add or update a degree",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "degree",
+     "class": "iHRIS_Degree",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Degree",
+     "modules": [
+      "ihris-common/module/PersonEducation"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "degree",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT6",
+   "product": "manage",
+   "title": "Add or update a language",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "language",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/PersonLanguage"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "language",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT7",
+   "product": "manage",
+   "title": "Add or update an identification type",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "id_type",
+     "class": "iHRIS_PersonID_Type",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_PersonID_Type",
+     "modules": [
+      "ihris-common/module/PersonID"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Identification Type",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT8",
+   "product": "manage",
+   "title": "Add or update a benefit type",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "benefit_type",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-manage",
+     "formClass": null,
+     "modules": [
+      "ihris-manage/module/ihris-manage-Benefit"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "benefit type",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT9",
+   "product": "manage",
+   "title": "Add or update a marital status",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "marital_status",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/PersonDemographic"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "marital status",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT10",
+   "product": "manage",
+   "title": "Add or update a reason for departure",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "pos_change_reason",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-manage",
+     "formClass": null,
+     "modules": [
+      "ihris-manage/module/ihris-manage-PersonPosition"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Reasons for Departure",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT11",
+   "product": "manage",
+   "title": "Add or update a country",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "country",
+     "class": "iHRIS_Country",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Country",
+     "modules": [
+      "ihris-common/module/Geography"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "country",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT12",
+   "product": "manage",
+   "title": "Add or update a region",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "region",
+     "class": "iHRIS_Region",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Region",
+     "modules": [
+      "ihris-common/module/Geography"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "region",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT13",
+   "product": "manage",
+   "title": "Add or update a district",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "district",
+     "class": "iHRIS_District",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_District",
+     "modules": [
+      "ihris-common/module/Geography"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "district",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT14",
+   "product": "manage",
+   "title": "Add or update a county",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "county",
+     "class": "iHRIS_County",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_County",
+     "modules": [
+      "ihris-common/module/Geography"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "county",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT15",
+   "product": "manage",
+   "title": "Add or update a currency",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "cl_currency",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/SDMX-HD-CodeLists"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Currency",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "currency",
+     "class": "iHRIS_Currency",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Currency",
+     "modules": [
+      "ihris-common/module/Currency"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "currency",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT17",
+   "product": "manage",
+   "title": "Add or update a cadre",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "cadre",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/ihris-common-Cadre"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "cadre",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT18",
+   "product": "manage",
+   "title": "Add or update a job classification",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "classification",
+     "class": "iHRIS_Classification",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Classification",
+     "modules": [
+      "ihris-common/module/ihris-common-Job"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "classification",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "job",
+     "class": "iHRIS_Job",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Job",
+     "modules": [
+      "ihris-common/module/ihris-common-Job"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "job",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "job",
+     "class": "iHRIS_ManageJob",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_ManageJob",
+     "modules": [
+      "ihris-manage/module/ihris-manage-Job"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "job",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT19",
+   "product": "manage",
+   "title": "Create a salary grade",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "salary_grade",
+     "class": "iHRIS_SalaryGrade",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_SalaryGrade",
+     "modules": [
+      "ihris-manage/module/ihris-manage-Job"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "salary grade",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT20",
+   "product": "manage",
+   "title": "Create a job",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "job",
+     "class": "iHRIS_Job",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Job",
+     "modules": [
+      "ihris-common/module/ihris-common-Job"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "job",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "job",
+     "class": "iHRIS_ManageJob",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_ManageJob",
+     "modules": [
+      "ihris-manage/module/ihris-manage-Job"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "job",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT21",
+   "product": "manage",
+   "title": "Add or update a salary source",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "salary_source",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-manage",
+     "formClass": null,
+     "modules": [
+      "ihris-manage/module/ihris-manage-Salary"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "salary source",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT22",
+   "product": "manage",
+   "title": "Add or update a position type",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "position_type",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-manage",
+     "formClass": null,
+     "modules": [
+      "ihris-manage/module/ihris-manage-PersonPosition"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "position type",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT23",
+   "product": "manage",
+   "title": "Create a position",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "position",
+     "class": "iHRIS_MultiPosition",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_Position",
+     "modules": [
+      "ihris-manage/module/ihris-manage-MultiPosition",
+      "ihris-manage/module/ihris-manage-PersonPosition",
+      "ihris-manage/module/ihris-manage-Salary"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "position",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT24",
+   "product": "manage",
+   "title": "Update a position",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "position",
+     "class": "iHRIS_MultiPosition",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_Position",
+     "modules": [
+      "ihris-manage/module/ihris-manage-MultiPosition",
+      "ihris-manage/module/ihris-manage-PersonPosition",
+      "ihris-manage/module/ihris-manage-Salary"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "position",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT25",
+   "product": "manage",
+   "title": "Discontinue a position",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "position",
+     "class": "iHRIS_MultiPosition",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_Position",
+     "modules": [
+      "ihris-manage/module/ihris-manage-MultiPosition",
+      "ihris-manage/module/ihris-manage-PersonPosition",
+      "ihris-manage/module/ihris-manage-Salary"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "position",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT27",
+   "product": "manage",
+   "title": "Enter a new record",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT28",
+   "product": "manage",
+   "title": "Set a position for an employee",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "position",
+     "class": "iHRIS_MultiPosition",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_Position",
+     "modules": [
+      "ihris-manage/module/ihris-manage-MultiPosition",
+      "ihris-manage/module/ihris-manage-PersonPosition",
+      "ihris-manage/module/ihris-manage-Salary"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "position",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT29",
+   "product": "manage",
+   "title": "Add identification information",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT30",
+   "product": "manage",
+   "title": "Add demographic information",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "demographic",
+     "class": "iHRIS_Demographic",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Demographic",
+     "modules": [
+      "ihris-common/module/PersonDemographic"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Demographic Information",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "demographic",
+     "class": "iHRIS_ManageDemographic",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_ManageDemographic",
+     "modules": [
+      "ihris-manage/module/ihris-manage-PersonDemographic"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Demographic Information",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT31",
+   "product": "manage",
+   "title": "Add contact information",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "contact",
+     "class": "iHRIS_Contact",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Contact",
+     "modules": [
+      "ihris-common/module/Contact"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "contact",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT32",
+   "product": "manage",
+   "title": "Record a special payment",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT33",
+   "product": "manage",
+   "title": "Terminate an employee",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT34",
+   "product": "manage",
+   "title": "Record a position change",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "position",
+     "class": "iHRIS_MultiPosition",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_Position",
+     "modules": [
+      "ihris-manage/module/ihris-manage-MultiPosition",
+      "ihris-manage/module/ihris-manage-PersonPosition",
+      "ihris-manage/module/ihris-manage-Salary"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "position",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT35",
+   "product": "manage",
+   "title": "Record a salary change",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "salary",
+     "class": "iHRIS_Salary",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_Salary",
+     "modules": [
+      "ihris-manage/module/ihris-manage-Salary"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "salary",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT71",
+   "product": "manage",
+   "title": "Add registrations",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "registration",
+     "class": "iHRIS_Registration",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Registration",
+     "modules": [
+      "ihris-common/module/ihris-common-ProfessionalRegistration"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "registration",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT36",
+   "product": "manage",
+   "title": "Add language proficiencies",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "language_proficiency",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/PersonLanguage"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "language proficiency",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT43",
+   "product": "manage",
+   "title": "Enter employment history",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "employment",
+     "class": "iHRIS_Employment",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Employment",
+     "modules": [
+      "ihris-common/module/PersonEmployment"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Employment History",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT44",
+   "product": "manage",
+   "title": "Enter educational history",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT37",
+   "product": "manage",
+   "title": "Record notes",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "notes",
+     "class": "iHRIS_Notes",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Notes",
+     "modules": [
+      "ihris-common/module/PersonNotes"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "notes",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT40",
+   "product": "manage",
+   "title": "Apply for a position",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "position",
+     "class": "iHRIS_MultiPosition",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_Position",
+     "modules": [
+      "ihris-manage/module/ihris-manage-MultiPosition",
+      "ihris-manage/module/ihris-manage-PersonPosition",
+      "ihris-manage/module/ihris-manage-Salary"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "position",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT41",
+   "product": "manage",
+   "title": "Log interview details",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT42",
+   "product": "manage",
+   "title": "Log a hiring decision",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT45",
+   "product": "manage",
+   "title": "Review applicants",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "application",
+     "class": "iHRIS_Applicant",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_Applicant",
+     "modules": [
+      "ihris-manage/module/ihris-manage-Application"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Applicant",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT46",
+   "product": "manage",
+   "title": "Make a job offer",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "job",
+     "class": "iHRIS_Job",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Job",
+     "modules": [
+      "ihris-common/module/ihris-common-Job"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "job",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "job",
+     "class": "iHRIS_ManageJob",
+     "package": "ihris-manage",
+     "formClass": "ihris-manage/form-class/iHRIS_ManageJob",
+     "modules": [
+      "ihris-manage/module/ihris-manage-Job"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "job",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT49",
+   "product": "manage",
+   "title": "Create a competency model",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "competency",
+     "class": "iHRIS_Competency",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Competency",
+     "modules": [
+      "ihris-common/module/simple-competency"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "competency",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT68",
+   "product": "manage",
+   "title": "Add or update a competency evaluation",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "competency_evaluation",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/person-simple-competency"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "competency evaluation",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT50",
+   "product": "manage",
+   "title": "Assess an employee's competencies",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "competency",
+     "class": "iHRIS_Competency",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Competency",
+     "modules": [
+      "ihris-common/module/simple-competency"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "competency",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT53",
+   "product": "manage",
+   "title": "Add or update a training funder",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training_funder",
+     "class": "iHRIS_ListByCountry",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_ListByCountry",
+     "modules": [
+      "ihris-common/module/Geography",
+      "ihris-common/module/training-institution"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training funder",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT54",
+   "product": "manage",
+   "title": "Add or update a training organization",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT65",
+   "product": "manage",
+   "title": "Add or update a training course status",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training_course_status",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/training-course"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training course status",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT66",
+   "product": "manage",
+   "title": "Add or update a training course requestor",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training_course_requestor",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/training-course"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training course requestor",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT67",
+   "product": "manage",
+   "title": "Add or update a training course evaluation",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training_course_evaluation",
+     "class": "iHRIS_Training_Course_Evaluation",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Training_Course_Evaluation",
+     "modules": [
+      "ihris-common/module/training-course"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training course evaluation",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT55",
+   "product": "manage",
+   "title": "Add or update a training course category",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training_course_category",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/training-course"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training course category",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT69",
+   "product": "manage",
+   "title": "Add or update a continuing education course",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "continuing_education_course",
+     "class": "iHRIS_ContinuingEducationCourse",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_ContinuingEducationCourse",
+     "modules": [
+      "ihris-common/module/CEUs"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "continuing education course",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PT56",
+   "product": "manage",
+   "title": "Add or update an in-service training program",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT57",
+   "product": "manage",
+   "title": "Enter the schedule for a training program",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT59",
+   "product": "manage",
+   "title": "Schedule a training for an employee",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PT60",
+   "product": "manage",
+   "title": "Assess training results and update competencies",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "competency",
+     "class": "iHRIS_Competency",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Competency",
+     "modules": [
+      "ihris-common/module/simple-competency"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "competency",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS1",
+   "product": "qualify",
+   "title": "Add or update a qualification",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "qualification",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-qualify",
+     "formClass": null,
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "qualification",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS2",
+   "product": "qualify",
+   "title": "Add or update a cadre",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "cadre",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/ihris-common-Cadre"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "cadre",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "cadre",
+     "class": "iHRIS_Cadre",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_Cadre",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "cadre",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS3",
+   "product": "qualify",
+   "title": "Add or update a continuing education course",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "continuing_education_course",
+     "class": "iHRIS_ContinuingEducationCourse",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_ContinuingEducationCourse",
+     "modules": [
+      "ihris-common/module/CEUs"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "continuing education course",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS4",
+   "product": "qualify",
+   "title": "Add or update a disciplinary action category",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "disciplinary_action_category",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-qualify",
+     "formClass": null,
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "disciplinary action category",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS5",
+   "product": "qualify",
+   "title": "Add or update a reason for disciplinary action",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "disciplinary_action",
+     "class": "iHRIS_DisciplinaryAction",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_DisciplinaryAction",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "disciplinary action",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS6",
+   "product": "qualify",
+   "title": "Add or update a reason for out migration",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "out_migration",
+     "class": "iHRIS_OutMigration",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_OutMigration",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "out migration",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS7",
+   "product": "qualify",
+   "title": "Add or update a training disruption category",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training_disruption_category",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-qualify",
+     "formClass": null,
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training disruption category",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS8",
+   "product": "qualify",
+   "title": "Add or update a reason for training disruption",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training_disrupt",
+     "class": "iHRIS_TrainingDisrupt",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_TrainingDisrupt",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Training Disruption",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS9",
+   "product": "qualify",
+   "title": "Add or update an academic level",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "academic_level",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-qualify",
+     "formClass": null,
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "academic level",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS10",
+   "product": "qualify",
+   "title": "Add or update a certificate",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "certificate",
+     "class": "iHRIS_Certificate",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_Certificate",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "certificate",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS11",
+   "product": "qualify",
+   "title": "Add or update an identification type",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "id_type",
+     "class": "iHRIS_PersonID_Type",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_PersonID_Type",
+     "modules": [
+      "ihris-common/module/PersonID"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Identification Type",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS12",
+   "product": "qualify",
+   "title": "Add or update a marital status",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "marital_status",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/PersonDemographic"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "marital status",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS13",
+   "product": "qualify",
+   "title": "Add or update a country",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "country",
+     "class": "iHRIS_Country",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Country",
+     "modules": [
+      "ihris-common/module/Geography"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "country",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS14",
+   "product": "qualify",
+   "title": "Add or update a region",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "region",
+     "class": "iHRIS_Region",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Region",
+     "modules": [
+      "ihris-common/module/Geography"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "region",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS15",
+   "product": "qualify",
+   "title": "Add or update a district",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "district",
+     "class": "iHRIS_District",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_District",
+     "modules": [
+      "ihris-common/module/Geography"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "district",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS16",
+   "product": "qualify",
+   "title": "Add or update a county",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "county",
+     "class": "iHRIS_County",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_County",
+     "modules": [
+      "ihris-common/module/Geography"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "county",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS17",
+   "product": "qualify",
+   "title": "Add or update a health facility",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "health_facility",
+     "class": "iHRIS_HealthFacility",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_HealthFacility",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "health facility",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS18",
+   "product": "qualify",
+   "title": "Associate a training institution with a health facility",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training_institution",
+     "class": "iHRIS_ListByCountry",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_ListByCountry",
+     "modules": [
+      "ihris-common/module/Geography",
+      "ihris-common/module/training-institution"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training institution",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "health_facility",
+     "class": "iHRIS_HealthFacility",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_HealthFacility",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "health facility",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "training_institution",
+     "class": "iHRIS_QualifyTrainingInstitution",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_QualifyTrainingInstitution",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training institution",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS19",
+   "product": "qualify",
+   "title": "Add or update a training institution",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training_institution",
+     "class": "iHRIS_ListByCountry",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_ListByCountry",
+     "modules": [
+      "ihris-common/module/Geography",
+      "ihris-common/module/training-institution"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training institution",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "training_institution",
+     "class": "iHRIS_QualifyTrainingInstitution",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_QualifyTrainingInstitution",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training institution",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS20",
+   "product": "qualify",
+   "title": "Associate a health facility with a training institution",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training_institution",
+     "class": "iHRIS_ListByCountry",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_ListByCountry",
+     "modules": [
+      "ihris-common/module/Geography",
+      "ihris-common/module/training-institution"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training institution",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "health_facility",
+     "class": "iHRIS_HealthFacility",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_HealthFacility",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "health facility",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "training_institution",
+     "class": "iHRIS_QualifyTrainingInstitution",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_QualifyTrainingInstitution",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training institution",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS21",
+   "product": "qualify",
+   "title": "Add or update a pre-service training program",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training_program",
+     "class": "iHRIS_TrainingProgram",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_TrainingProgram",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training program",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS22",
+   "product": "qualify",
+   "title": "Enter inspection information",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PS23",
+   "product": "qualify",
+   "title": "Add or update a facility agent",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "facility_agent",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-qualify",
+     "formClass": null,
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "facility agent",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS24",
+   "product": "qualify",
+   "title": "Add or update a facility type",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "facility_type",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-common",
+     "formClass": null,
+     "modules": [
+      "ihris-common/module/Facility"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "facility type",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS25",
+   "product": "qualify",
+   "title": "Add or update a facility status",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "facility_status",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-qualify",
+     "formClass": null,
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "facility status",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS51",
+   "product": "qualify",
+   "title": "Add or update a verification change",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "verify_change",
+     "class": "I2CE_SimpleList",
+     "package": "ihris-qualify",
+     "formClass": null,
+     "modules": [
+      "ihris-qualify/module/RecordVerify"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Verification Change",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS27",
+   "product": "qualify",
+   "title": "Enter a new record",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PS28",
+   "product": "qualify",
+   "title": "Add identification information",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PS29",
+   "product": "qualify",
+   "title": "Add demographic information",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "demographic",
+     "class": "iHRIS_Demographic",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Demographic",
+     "modules": [
+      "ihris-common/module/PersonDemographic"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Demographic Information",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "demographic",
+     "class": "iHRIS_QualifyDemographic",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_QualifyDemographic",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Demographic Information",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS30",
+   "product": "qualify",
+   "title": "Add academic information",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PS31",
+   "product": "qualify",
+   "title": "Add contact information",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "contact",
+     "class": "iHRIS_Contact",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Contact",
+     "modules": [
+      "ihris-common/module/Contact"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "contact",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS32",
+   "product": "qualify",
+   "title": "Record notes",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "notes",
+     "class": "iHRIS_Notes",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Notes",
+     "modules": [
+      "ihris-common/module/PersonNotes"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "notes",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS50",
+   "product": "qualify",
+   "title": "Record verification",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "record_verify",
+     "class": "iHRIS_RecordVerify",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_RecordVerify",
+     "modules": [
+      "ihris-qualify/module/RecordVerify"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Record Verification",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS35",
+   "product": "qualify",
+   "title": "Index a training",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "training",
+     "class": "iHRIS_Training",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_Training",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "training",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS36",
+   "product": "qualify",
+   "title": "Record a discontinuation",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PS37",
+   "product": "qualify",
+   "title": "Record a resumption",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PS38",
+   "product": "qualify",
+   "title": "Set a graduation date",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PS39",
+   "product": "qualify",
+   "title": "Record exam details",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "exam",
+     "class": "iHRIS_Exam",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_Exam",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "exam",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS40",
+   "product": "qualify",
+   "title": "Issue a registration",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "registration",
+     "class": "iHRIS_Registration",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_Registration",
+     "modules": [
+      "ihris-common/module/ihris-common-ProfessionalRegistration"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "registration",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "registration",
+     "class": "iHRIS_Registration",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_Registration",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "registration",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS41",
+   "product": "qualify",
+   "title": "Issue a license",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "license",
+     "class": "iHRIS_License",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_License",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "license",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS42",
+   "product": "qualify",
+   "title": "Renew a license",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "license",
+     "class": "iHRIS_License",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_License",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "license",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS43",
+   "product": "qualify",
+   "title": "Add continuing education credits",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "continuing_education",
+     "class": "iHRIS_ContinuingEducation",
+     "package": "ihris-common",
+     "formClass": "ihris-common/form-class/iHRIS_ContinuingEducation",
+     "modules": [
+      "ihris-common/module/CEUs"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "continuing education",
+     "derivedBy": "name-match"
+    },
+    {
+     "form": "person_training",
+     "class": "iHRIS_PersonTraining",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_PersonTraining",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify-PersonTraining"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Continuing Education",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS44",
+   "product": "qualify",
+   "title": "Issue a private practice license",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "private_practice",
+     "class": "iHRIS_PrivatePractice",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_PrivatePractice",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "display name",
+     "matchedText": "Private Practice License",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS45",
+   "product": "qualify",
+   "title": "Document a disciplinary action",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "disciplinary_action",
+     "class": "iHRIS_DisciplinaryAction",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_DisciplinaryAction",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "disciplinary action",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS46",
+   "product": "qualify",
+   "title": "Document a reinstatement",
+   "status": "unmatched",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PS47",
+   "product": "qualify",
+   "title": "Update deployment information",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "deployment",
+     "class": "iHRIS_Deployment",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_Deployment",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "deployment",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PS48",
+   "product": "qualify",
+   "title": "Record out migration verification",
+   "status": "matched",
+   "matches": [
+    {
+     "form": "out_migration",
+     "class": "iHRIS_OutMigration",
+     "package": "ihris-qualify",
+     "formClass": "ihris-qualify/form-class/iHRIS_OutMigration",
+     "modules": [
+      "ihris-qualify/module/ihris-qualify"
+     ],
+     "matchedOn": "form name",
+     "matchedText": "out migration",
+     "derivedBy": "name-match"
+    }
+   ]
+  },
+  {
+   "useCase": "UC-PP1",
+   "product": "plan",
+   "title": "Add or update a currency",
+   "status": "no-data-model",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PP2",
+   "product": "plan",
+   "title": "Add or update a cadre",
+   "status": "no-data-model",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PP3",
+   "product": "plan",
+   "title": "Add or update a country",
+   "status": "no-data-model",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PP5",
+   "product": "plan",
+   "title": "Create a projection",
+   "status": "no-data-model",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PP24",
+   "product": "plan",
+   "title": "Copy a projection",
+   "status": "no-data-model",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PP6",
+   "product": "plan",
+   "title": "Enter population",
+   "status": "no-data-model",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PP8",
+   "product": "plan",
+   "title": "Create a cadre pool",
+   "status": "no-data-model",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PP9",
+   "product": "plan",
+   "title": "Enter supply",
+   "status": "no-data-model",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PP10",
+   "product": "plan",
+   "title": "Enter targets",
+   "status": "no-data-model",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PP12",
+   "product": "plan",
+   "title": "Create a pool change",
+   "status": "no-data-model",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PP19",
+   "product": "plan",
+   "title": "Generate a base projection",
+   "status": "no-data-model",
+   "matches": null
+  },
+  {
+   "useCase": "UC-PP21",
+   "product": "plan",
+   "title": "Compare actual results to predicted results",
+   "status": "no-data-model",
+   "matches": null
+  }
+ ]
+}

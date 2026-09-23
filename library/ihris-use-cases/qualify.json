@@ -1,0 +1,4992 @@
+{
+ "$schema": "ihris-use-cases/v1",
+ "product": "qualify",
+ "title": "iHRIS Qualify use cases",
+ "report": {
+  "title": "Use Case Model - Complete Report",
+  "generator": "Serlio Software Case Complete",
+  "generatedAt": "3/25/2009 4:18 PM",
+  "author": "sturlington"
+ },
+ "source": {
+  "file": "iHRISQualifyUseCases.doc",
+  "md5": "7d22d41b0a156cd2577b56826a7e81f0",
+  "sha256": "83367f1f628ba0561263eae60cf53f3cbeade425a1de1dc57024bb07ee060a62",
+  "extractedWith": "antiword -w 0",
+  "textSha256": "e61e59ec93b594db71a16c1860ee3288e024616c3c85fb01dd3c8399cb0b4db4",
+  "manifest": "uploads/ihris-use-cases/manifest.json"
+ },
+ "attribution": "iHRIS use-case model, IntraHealth International / the Capacity Project iHRIS team (2009). Published with the owner's permission.",
+ "counts": {
+  "useCases": 47,
+  "actors": 6,
+  "requirements": 14,
+  "packages": 7,
+  "steps": 426,
+  "extensions": 105
+ },
+ "withheld": [
+  {
+   "field": "source",
+   "why": "a named person",
+   "count": 12
+  }
+ ],
+ "actors": [
+  {
+   "id": "A-PS1",
+   "name": "Data Operations Manager",
+   "description": "This person is responsible for managing data entry and data entry roles, including verifying and correcting data and updating standard lists in the system.",
+   "goals": [
+    "Create or update standard lists of data within the system.",
+    "Check for, correct and report on data entry errors."
+   ],
+   "notes": [
+    {
+     "text": "Can perform any use case that a Records Officer, Examination Supervisor or Registration Supervisor can.",
+     "dateAdded": "7/13/2006",
+     "date": "2006-07-13"
+    }
+   ],
+   "useCases": [
+    {
+     "id": "UC-PS2",
+     "title": "Add or update a cadre"
+    },
+    {
+     "id": "UC-PS10",
+     "title": "Add or update a certificate"
+    },
+    {
+     "id": "UC-PS3",
+     "title": "Add or update a continuing education course"
+    },
+    {
+     "id": "UC-PS13",
+     "title": "Add or update a country"
+    },
+    {
+     "id": "UC-PS16",
+     "title": "Add or update a county"
+    },
+    {
+     "id": "UC-PS4",
+     "title": "Add or update a disciplinary action category"
+    },
+    {
+     "id": "UC-PS15",
+     "title": "Add or update a district"
+    },
+    {
+     "id": "UC-PS23",
+     "title": "Add or update a facility agent"
+    },
+    {
+     "id": "UC-PS25",
+     "title": "Add or update a facility status"
+    },
+    {
+     "id": "UC-PS24",
+     "title": "Add or update a facility type"
+    },
+    {
+     "id": "UC-PS17",
+     "title": "Add or update a health facility"
+    },
+    {
+     "id": "UC-PS12",
+     "title": "Add or update a marital status"
+    },
+    {
+     "id": "UC-PS26",
+     "title": "Add or update a personal title"
+    },
+    {
+     "id": "UC-PS21",
+     "title": "Add or update a pre-service training program"
+    },
+    {
+     "id": "UC-PS1",
+     "title": "Add or update a qualification"
+    },
+    {
+     "id": "UC-PS5",
+     "title": "Add or update a reason for disciplinary action"
+    },
+    {
+     "id": "UC-PS6",
+     "title": "Add or update a reason for out migration"
+    },
+    {
+     "id": "UC-PS8",
+     "title": "Add or update a reason for training disruption"
+    },
+    {
+     "id": "UC-PS14",
+     "title": "Add or update a region"
+    },
+    {
+     "id": "UC-PS7",
+     "title": "Add or update a training disruption category"
+    },
+    {
+     "id": "UC-PS19",
+     "title": "Add or update a training institution"
+    },
+    {
+     "id": "UC-PS51",
+     "title": "Add or update a verification change"
+    },
+    {
+     "id": "UC-PS9",
+     "title": "Add or update an academic level"
+    },
+    {
+     "id": "UC-PS11",
+     "title": "Add or update an identification type"
+    },
+    {
+     "id": "UC-PS20",
+     "title": "Associate a health facility with a training institution"
+    },
+    {
+     "id": "UC-PS18",
+     "title": "Associate a training institution with a health facility"
+    },
+    {
+     "id": "UC-PS22",
+     "title": "Enter inspection information"
+    }
+   ]
+  },
+  {
+   "id": "A-PS2",
+   "name": "Records Officer",
+   "description": "This person is responsible for basic data entry, including initial indexing and upgrades of health professional students entering training programs, tracking out migration verifications and demographic data entry.",
+   "goals": [
+    "Create a new record for a health worker or student.",
+    "Add information to or update a record with demographic, contact, identification or academic information.",
+    "Add training program information to a health student's record.",
+    "Record out migration verification requests and deployments in a health worker's record.",
+    "Add notes to a record.",
+    "Re-enter a record to ensure data quality."
+   ],
+   "notes": [
+    {
+     "text": "Can enter examination results when they are not required and the Examination Supervisor role is not activated.",
+     "dateAdded": "6/4/2007",
+     "date": "2007-06-04"
+    }
+   ],
+   "useCases": [
+    {
+     "id": "UC-PS30",
+     "title": "Add academic information"
+    },
+    {
+     "id": "UC-PS31",
+     "title": "Add contact information"
+    },
+    {
+     "id": "UC-PS29",
+     "title": "Add demographic information"
+    },
+    {
+     "id": "UC-PS28",
+     "title": "Add identification information"
+    },
+    {
+     "id": "UC-PS27",
+     "title": "Enter a new record"
+    },
+    {
+     "id": "UC-PS35",
+     "title": "Index a training"
+    },
+    {
+     "id": "UC-PS36",
+     "title": "Record a discontinuation"
+    },
+    {
+     "id": "UC-PS37",
+     "title": "Record a resumption"
+    },
+    {
+     "id": "UC-PS39",
+     "title": "Record exam details"
+    },
+    {
+     "id": "UC-PS32",
+     "title": "Record notes"
+    },
+    {
+     "id": "UC-PS48",
+     "title": "Record out migration verification"
+    },
+    {
+     "id": "UC-PS50",
+     "title": "Record verification"
+    },
+    {
+     "id": "UC-PS38",
+     "title": "Set a graduation date"
+    },
+    {
+     "id": "UC-PS47",
+     "title": "Update deployment information"
+    }
+   ]
+  },
+  {
+   "id": "A-PS3",
+   "name": "Registration Supervisor",
+   "description": "This person is responsible for data entry related to licensing updates, including entering initial registration, issuing new licenses and license renewals, issuing and renewing private practice licenses, and registering and licensing foreign-trained health care professionals applying to work in the country.",
+   "goals": [
+    "Issue registrations and licenses to a health worker.",
+    "Record continuing education credits in a health worker's record.",
+    "Record disciplinary actions in a health worker's record.",
+    "Record deployment information in a health worker's record."
+   ],
+   "notes": [
+    {
+     "text": "Can perform any use cases that a Records Officer can.",
+     "dateAdded": "7/13/2006",
+     "date": "2006-07-13"
+    }
+   ],
+   "useCases": [
+    {
+     "id": "UC-PS43",
+     "title": "Add continuing education credits"
+    },
+    {
+     "id": "UC-PS45",
+     "title": "Document a disciplinary action"
+    },
+    {
+     "id": "UC-PS46",
+     "title": "Document a reinstatement"
+    },
+    {
+     "id": "UC-PS41",
+     "title": "Issue a license"
+    },
+    {
+     "id": "UC-PS44",
+     "title": "Issue a private practice license"
+    },
+    {
+     "id": "UC-PS40",
+     "title": "Issue a registration"
+    },
+    {
+     "id": "UC-PS32",
+     "title": "Record notes"
+    },
+    {
+     "id": "UC-PS42",
+     "title": "Renew a license"
+    },
+    {
+     "id": "UC-PS47",
+     "title": "Update deployment information"
+    }
+   ]
+  },
+  {
+   "id": "A-PS4",
+   "name": "Examination Supervisor",
+   "description": "This person is responsible for data entry related to national exams, including verifying applications to take exams and recording results. This is an optional role, used only when entering examination results is required for the system.",
+   "goals": [
+    "Record information about national exam applications and results."
+   ],
+   "notes": [
+    {
+     "text": "Can perform any use case that a Records Officer can.",
+     "dateAdded": "7/13/2006",
+     "date": "2006-07-13"
+    },
+    {
+     "text": "The Examination Supervisor will not be a role in the core release system.",
+     "dateAdded": "6/11/2007",
+     "date": "2007-06-11"
+    }
+   ],
+   "useCases": [
+    {
+     "id": "UC-PS39",
+     "title": "Record exam details"
+    }
+   ]
+  },
+  {
+   "id": "A-PS5",
+   "name": "Decision Maker",
+   "description": "This person runs reports in order to view and analyze data, and make health workforce policy and planning decisions. This person does not perform any data entry tasks.",
+   "goals": [
+    "Generate reports to analyze data entered in the system."
+   ],
+   "notes": [],
+   "useCases": []
+  },
+  {
+   "id": "A-PS6",
+   "name": "Any User",
+   "description": "A generic user (applies to all users of the system).",
+   "goals": [
+    "Search for and view a record."
+   ],
+   "notes": [],
+   "useCases": []
+  }
+ ],
+ "root": {
+  "number": "1",
+  "name": "iHRIS Qualify - Core Functional",
+  "level": 1,
+  "description": "iHRIS Qualify is a health worker training, licensing and certification tracking system.",
+  "notes": [
+   {
+    "text": "This documentation refers to the core version of the Training, Certification and Licensure database (working title: PowerSupply)",
+    "dateAdded": "8/2/2006",
+    "date": "2006-08-02"
+   },
+   {
+    "text": "This documentation was based on specifications gathered for Uganda UNMC release and also serves as documentation for that release. (UNMC release version 1.0)",
+    "dateAdded": "7/13/2006",
+    "date": "2006-07-13"
+   },
+   {
+    "text": "Version 3.0 of iHRIS Qualify was released on March 18, 2007.",
+    "dateAdded": "7/24/2008",
+    "date": "2008-07-24"
+   },
+   {
+    "text": "Core version 1.0 released August 8, 2008.",
+    "dateAdded": "9/29/2008",
+    "date": "2008-09-29"
+   }
+  ],
+  "relatedDocuments": [
+   "https://launchpad.net/ihris-qualify",
+   "http://www.capacityproject.org/hris/suite/ihris_qualify.php"
+  ],
+  "packages": [
+   {
+    "number": "1.1",
+    "name": "Data Administration",
+    "level": 2,
+    "description": "Create and update standard lists of data for selection in system menus.",
+    "notes": [
+     {
+      "text": "Access is limited to System Administrators and Data Operations Managers.",
+      "dateAdded": "10/15/2007",
+      "date": "2007-10-15"
+     },
+     {
+      "text": "Locate these functions via the Configure System / Administer Database link on the main menu.",
+      "dateAdded": "10/15/2007",
+      "date": "2007-10-15"
+     }
+    ],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-PS1",
+      "title": "Add or update a qualification",
+      "priority": "P7",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds or edits the list of qualifications that are available for selection within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new qualification is saved and available for selection in various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of qualifications."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all qualifications entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new qualification."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description of the qualification."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the qualification available for selection when adding cadres."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item and enables it to be edited."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the name of the qualification matches a qualification already entered in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS2",
+      "title": "Add or update a cadre",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager enters or edits a cadre for selection within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "Each cadre, as applied by the health professionals, is defined within the system and available for selection in various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update the list of cadres."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all cadres entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new cadre."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the cadre."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the ISCO classification code for the cadre (optional)."
+       },
+       {
+        "step": 6,
+        "text": "The user selects the minimum qualification for the cadre."
+       },
+       {
+        "step": 7,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 8,
+        "text": "The system displays the new or edited cadre in selection lists of cadres."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user enters a new qualification if the correct one does not appear (UC-PS1)",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to enter the cadre."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The system determines that the cadre name already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not proceed."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS3",
+      "title": "Add or update a continuing education course",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager enters valid continuing education courses for selection when renewing a license.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new continuing education course is saved and available for selection in appropriate use cases.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update the list of continuing education courses."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all continuing education courses added to the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new continuing education course."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the course."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the number of credit hours that can be earned by completing the course."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system makes the new course available for selection when adding continuing education information to a record."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing continuing education course name.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the course's details and provides the option to update them."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS4",
+      "title": "Add or update a disciplinary action category",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds a new broad category to contain reasons for disciplinary action.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The category is successfully added to the system and is available for selection in applicable use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update disciplinary action categories."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all disciplinary action categories entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new category."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a description for the category."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the disciplinary action category available for selection when adding disciplinary actions."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the disciplinary action category already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS5",
+      "title": "Add or update a reason for disciplinary action",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds or edits a reason for disciplinary action for display in selection menus.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The reason is successfully added to the system and is available for selection whenever its parent category is selected.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update the list of disciplinary action reasons."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all reasons entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new reason."
+       },
+       {
+        "step": 4,
+        "text": "The user selects a category for the reason."
+       },
+       {
+        "step": 5,
+        "text": "The user enters a description for the reason."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system makes the reason available for selection when adding disciplinary actions."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The user adds a new disciplinary action category (UC-PS4).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the disciplinary action reason."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The system determines that the disciplinary action reason is already in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS6",
+      "title": "Add or update a reason for out migration",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds or edits a reason for out migration to the system and makes it available for selection.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The out migration reason is saved to the system and is available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage out migration reasons."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all reasons entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new out migration reason."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a description for the out migration reason."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the reason available for selection when recording out migration verification requests."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the out migration reason already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS7",
+      "title": "Add or update a training disruption category",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds a new broad category to contain reasons for training disruption.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The category is successfully added to the system and is available for selection in applicable use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of training disruption categories."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all categories entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new category."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a description for the category."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the training disruption category available for selection when adding training disruptions."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the training disruption category already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS8",
+      "title": "Add or update a reason for training disruption",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds or edits a reason for training disruption for display in selection menus.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The reason is successfully added to the system and is available for selection whenever its parent disruption category is selected.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update the list of reasons for training disruption."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all reasons entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new reason."
+       },
+       {
+        "step": 4,
+        "text": "The user selects a category for the reason."
+       },
+       {
+        "step": 5,
+        "text": "The user enters a description for the reason."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system makes the reason available for selection when adding training disruptions."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The user adds a new training disruption category (UC-PS7).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the training disruption reason."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The system determines that the training disruption reason has already been entered in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS9",
+      "title": "Add or update an academic level",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds or edits the list of academic levels that are available for selection within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new academic level is saved and available for selection in various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of academic levels."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all academic levels entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new academic level."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description of the academic level."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the academic level available for selection when adding academic information."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing"
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the academic level has already been entered in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS10",
+      "title": "Add or update a certificate",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager updates the list of certificates that are available for selection within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The certificate is added to the system and available for selection when its parent academic level is selected.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of certificates held."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all certificates entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new certificate."
+       },
+       {
+        "step": 4,
+        "text": "The user selects the academic level to which the certificate belongs."
+       },
+       {
+        "step": 5,
+        "text": "The user enters a description of the certificate."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system makes the certificate available for selection when adding academic information."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The user adds a new academic level (UC-PS9).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the certificate."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The system determines that the certificate already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS11",
+      "title": "Add or update an identification type",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager updates a list of identification types that are available for selection within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new identification type is saved and available for selection when adding an identification.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of identification types."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all identification types entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new identification type."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the description or name of the item."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the identification type available for selection when adding identifications."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the identification type already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is identical for both iHRIS Manage and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       }
+      ]
+     },
+     {
+      "id": "UC-PS12",
+      "title": "Add or update a marital status",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds a new marital status to the system that is available in selection lists.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The marital status is added to the system and is available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of marital statuses."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all marital statuses entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new marital status."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a description for the marital status."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the marital status available for selection when adding demographic information."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the marital status was already entered in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is the same for both iHRIS Manage and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       }
+      ]
+     },
+     {
+      "id": "UC-PS13",
+      "title": "Add or update a country",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager updates the list of countries available for selection in the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new or changed country is defined within the system and available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage lists of countries."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all countries entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new country."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the two-letter country code."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the ISO numeric code for the country (optional)."
+       },
+       {
+        "step": 6,
+        "text": "The user selects whether the country is the primary country for the system."
+       },
+       {
+        "step": 7,
+        "text": "The user selects whether the country is used for location selection."
+       },
+       {
+        "step": 8,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 9,
+        "text": "The system makes the country available for selection whenever adding geographical locations or nationalities/citizenships."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing country",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user selects the country as the primary country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays the country first in all country selection menus."
+         }
+        ]
+       },
+       {
+        "id": "6.b",
+        "atStep": "6",
+        "text": "The user selects more than one country as the primary country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays all primary countries at the top of selection menus in alphabetical order."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The user selects that the country is used for location selection.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system makes the country available for selection when a location, such as an address, is being specified."
+         }
+        ]
+       },
+       {
+        "id": "8.a",
+        "atStep": "8",
+        "text": "The system determines that the country and country code are already in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is the same for iHRIS Manage, iHRIS Plan and iHRIS Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "Geographical locations are tied together from largest to smallest: country --> region --> district, state or province --> county or sector.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "The country list also displays nationalities for selection. Disabling the location selection limits the country to nationality selection only (new feature in version 3.0).",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       }
+      ]
+     },
+     {
+      "id": "UC-PS14",
+      "title": "Add or update a region",
+      "priority": "P6",
+      "package": "1.1",
+      "description": "The Data Operations Manager updates the list of regions available for selection in the system and establishes the region's parent country.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new or changed region is defined within the system and available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage lists of regions."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all countries entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the country where the region is located."
+       },
+       {
+        "step": 4,
+        "text": "The system displays all regions entered for that country."
+       },
+       {
+        "step": 5,
+        "text": "The user adds a new region."
+       },
+       {
+        "step": 6,
+        "text": "The user selects the name of the country inside which the new region is located."
+       },
+       {
+        "step": 7,
+        "text": "The user enters the name of the region."
+       },
+       {
+        "step": 8,
+        "text": "The user enters the code for the region."
+       },
+       {
+        "step": 9,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 10,
+        "text": "The system makes the region available for reporting."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "2.a",
+        "atStep": "2",
+        "text": "The user does not select a country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides only the option to add a new region."
+         },
+         {
+          "step": 2,
+          "text": "Skip to Step 5."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user adds a new country (UC-PS13).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the region."
+         }
+        ]
+       },
+       {
+        "id": "6.b",
+        "atStep": "6",
+        "text": "The system detects that the country was previously selected.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system fills in the selected country."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The system determines that the region and its parent are the same as a location previously entered in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is identical for iHRIS Manage and iHRIS Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       }
+      ]
+     },
+     {
+      "id": "UC-PS15",
+      "title": "Add or update a district",
+      "priority": "P6",
+      "package": "1.1",
+      "description": "The Data Operations Manager updates the list of districts available for selection in the system and establishes the district's parent region.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new or changed district is defined within the system and available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage lists of districts."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all countries entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the country where the district is located."
+       },
+       {
+        "step": 4,
+        "text": "The system displays all regions entered for that country."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the region where the district is located."
+       },
+       {
+        "step": 6,
+        "text": "The system displays all districts entered for that region."
+       },
+       {
+        "step": 7,
+        "text": "The user adds a new district."
+       },
+       {
+        "step": 8,
+        "text": "The user selects the name of the country and region inside which the new district is located."
+       },
+       {
+        "step": 9,
+        "text": "The user enters the name of the district."
+       },
+       {
+        "step": 10,
+        "text": "The user enters the code for the district."
+       },
+       {
+        "step": 11,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 12,
+        "text": "The system makes the district available for selection when adding geographical locations."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user does not select a country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides the option to add a new district only."
+         },
+         {
+          "step": 2,
+          "text": "Skip to Step 7."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The user selects an existing district.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays its information for editing."
+         }
+        ]
+       },
+       {
+        "id": "8.a",
+        "atStep": "8",
+        "text": "The system detects that the country and region were previously selected.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system fills in the selections for the district."
+         }
+        ]
+       },
+       {
+        "id": "9.a",
+        "atStep": "9",
+        "text": "The systerm determines that the district and its parents are the same as a location previously entered in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is identical for iHRIS Manage and iHRIS Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       }
+      ]
+     },
+     {
+      "id": "UC-PS16",
+      "title": "Add or update a county",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager updates the list of counties available for selection in the system and establishes the county's parent district.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new or changed county is defined within the system and available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage lists of counties."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all countries entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the country where the county is located."
+       },
+       {
+        "step": 4,
+        "text": "The system displays a list of regions for that country."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the region inside which the county is located."
+       },
+       {
+        "step": 6,
+        "text": "The system displays all districts entered for that region."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the district where the county is located."
+       },
+       {
+        "step": 8,
+        "text": "The system displays all districts entered for that county."
+       },
+       {
+        "step": 9,
+        "text": "The user adds a new county."
+       },
+       {
+        "step": 10,
+        "text": "The user selects the country, region and district where the county is located."
+       },
+       {
+        "step": 11,
+        "text": "The user enters the name of the county."
+       },
+       {
+        "step": 12,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 13,
+        "text": "The system makes the county available for selection whenever geographical locations are added."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "2.a",
+        "atStep": "2",
+        "text": "The user does not select a country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides the option to add a new county only."
+         },
+         {
+          "step": 2,
+          "text": "Skip to Step 9."
+         }
+        ]
+       },
+       {
+        "id": "9.a",
+        "atStep": "9",
+        "text": "The user selects an existing county.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays all information entered for that county and provides the option to update that information."
+         }
+        ]
+       },
+       {
+        "id": "10.a",
+        "atStep": "10",
+        "text": "The system detects that the country, region and district were previously selected.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system fills in the previous selections for the county."
+         }
+        ]
+       },
+       {
+        "id": "11.a",
+        "atStep": "11",
+        "text": "The system determines that the county and its parents are the same as a location previously entered in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "The use case is the same for iHRIS Manage and iHRIS Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       }
+      ]
+     },
+     {
+      "id": "UC-PS17",
+      "title": "Add or update a health facility",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds a new health facility or updates an existing health facility in the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The health facility is added to the system and is available for selection from lists in various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of health facilities."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all health facilities entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new health facility."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the health facility."
+       },
+       {
+        "step": 5,
+        "text": "The user enters a health facility identification code."
+       },
+       {
+        "step": 6,
+        "text": "The user adds contact information (UC-PS31)."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the country where the health facility is located."
+       },
+       {
+        "step": 8,
+        "text": "The system displays a list of districts in that country."
+       },
+       {
+        "step": 9,
+        "text": "The user selects the district where the health facility is located."
+       },
+       {
+        "step": 10,
+        "text": "The system displays a list of counties in that district."
+       },
+       {
+        "step": 11,
+        "text": "The user selects the county where the health facility is located (optional)."
+       },
+       {
+        "step": 12,
+        "text": "The user selects the facility agent."
+       },
+       {
+        "step": 13,
+        "text": "The user selects the facility type."
+       },
+       {
+        "step": 14,
+        "text": "The user selects the status of the health facility."
+       },
+       {
+        "step": 15,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 16,
+        "text": "The system makes the health facility available for selection."
+       },
+       {
+        "step": 17,
+        "text": "The system provides the option to update the health facility."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing health facility.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays the health facility's record with options to edit any of the information."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The user adds the country, district or county.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the health facility."
+         }
+        ]
+       },
+       {
+        "id": "12.a",
+        "atStep": "12",
+        "text": "The user adds the facility agent (UC-PS23).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the health facility."
+         }
+        ]
+       },
+       {
+        "id": "13.a",
+        "atStep": "13",
+        "text": "The user adds the facility type (UC-PS24).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the health facility."
+         }
+        ]
+       },
+       {
+        "id": "14.a",
+        "atStep": "14",
+        "text": "The user adds the facility status (UC-PS25).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the health facility."
+         }
+        ]
+       },
+       {
+        "id": "16.a",
+        "atStep": "16",
+        "text": "The system determines that the health facility name already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "The health facility identification code is optional and is numbers only.",
+        "dateAdded": "8/23/2006",
+        "date": "2006-08-23"
+       }
+      ]
+     },
+     {
+      "id": "UC-PS18",
+      "title": "Associate a training institution with a health facility",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager selects one or more training institutions that are associated with a particular health facility.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system. The health facility's record must have been previously created.",
+      "successGuarantee": "The health facility is successfully associated with the training institution.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of health facilities."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all health facilities entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the health facility to edit."
+       },
+       {
+        "step": 4,
+        "text": "The user selects the option to associate a training institution."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the training institution(s) associated with the health facility."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system displays the training institution with the health facility's record."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The user adds a training institution (UC-PS19).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to associate the training institution with the health facility."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS19",
+      "title": "Add or update a training institution",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager enters identifying information about a training institution so that it may be used within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The training institution is successfully entered into the database and is available for selection in other use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of training institutions."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all training institutions entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a training institution."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the name of the training institution."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the training institution's identification code (optional)."
+       },
+       {
+        "step": 6,
+        "text": "The user adds contact information (UC-PS31)."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the country where the training institution is located."
+       },
+       {
+        "step": 8,
+        "text": "The system displays a list of districts within that country."
+       },
+       {
+        "step": 9,
+        "text": "The user selects the district where the training institution is located."
+       },
+       {
+        "step": 10,
+        "text": "The system displays a list of counties within that district."
+       },
+       {
+        "step": 11,
+        "text": "The user selects the county where the training institution is located (optional)."
+       },
+       {
+        "step": 12,
+        "text": "The user selects the agent under which the training institution belongs."
+       },
+       {
+        "step": 13,
+        "text": "The user selects the status of the training institution."
+       },
+       {
+        "step": 14,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 15,
+        "text": "The system displays the training institution information and provides the option to associate a health facility with a training institution (UC-PS20), add a cadre offered by a training institution (UC-PS21) or add inspection information for a training institution (UC-PS22)."
+       },
+       {
+        "step": 16,
+        "text": "The system provides the option to update the training institution information."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing training institution.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays the training institution's record and provides options to update the information."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The user adds a new country, district or county.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the training institution."
+         }
+        ]
+       },
+       {
+        "id": "12.a",
+        "atStep": "12",
+        "text": "The user adds a new facility agent (UC-PS23).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the training institution."
+         }
+        ]
+       },
+       {
+        "id": "13.a",
+        "atStep": "13",
+        "text": "The user adds a new facility status (UC-PS25).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the training institution."
+         }
+        ]
+       },
+       {
+        "id": "14.a",
+        "atStep": "14",
+        "text": "The system determines that the training institution has already been entered in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "The institution/centre code is numbers only and is optional.",
+        "dateAdded": "8/23/2006",
+        "date": "2006-08-23"
+       }
+      ]
+     },
+     {
+      "id": "UC-PS20",
+      "title": "Associate a health facility with a training institution",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager selects one or more health facilities that are associated with a particular training institution.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system. The training institution's record must have been previously created.",
+      "successGuarantee": "The training institution is successfully associated with the health facility.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage training institutions."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all training institutions that have been entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user selects a training institution."
+       },
+       {
+        "step": 4,
+        "text": "The system displays the training institution's record."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the option to associate a health facility."
+       },
+       {
+        "step": 6,
+        "text": "The user selects the health facility or facilities associated with the training institution."
+       },
+       {
+        "step": 7,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 8,
+        "text": "The system displays the health facility with the training institution's record."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user adds a new health facility (UC-PS17).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to associate the health facility with the training institution."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS21",
+      "title": "Add or update a pre-service training program",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager associates a cadre with a training institution so that when a new training is added to a student's record, the cadre is available for selection when that training institution is selected.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training institution has been added to the system. The user must be logged in to the system.",
+      "successGuarantee": "The program is associated with the training institution so that when the training institution is selected in other use cases, the program is displayed.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to update a training institution."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all training institutions entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user selects a training institution to edit."
+       },
+       {
+        "step": 4,
+        "text": "The system displays the training institution's record with all training programs entered for that institution."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the option to add a training program or select an existing training program to edit."
+       },
+       {
+        "step": 6,
+        "text": "The user selects the cadre."
+       },
+       {
+        "step": 7,
+        "text": "The system displays today's date for the program's start date."
+       },
+       {
+        "step": 8,
+        "text": "The user changes the start date for the program, if necessary."
+       },
+       {
+        "step": 9,
+        "text": "If the program is no longer being offered, The user selects an end date for it."
+       },
+       {
+        "step": 10,
+        "text": "The user enters the recommended number of students for the program."
+       },
+       {
+        "step": 11,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 12,
+        "text": "The system displays the program information with the training institution's record and provides the option to add another program or edit the existing programs."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The user selects an existing training program.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays all of the training program's information and enables any field to be changed."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user adds a cadre (UC-PS2).",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user returns to Step 1 to add the training program."
+         }
+        ]
+       },
+       {
+        "id": "6.b",
+        "atStep": "6",
+        "text": "The system determines that a cadre has already been added for that training institution.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system removes the cadre from the selection list."
+         }
+        ]
+       },
+       {
+        "id": "10.a",
+        "atStep": "10",
+        "text": "The user does not enter a recommended number of students.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system saves 0 by default."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS22",
+      "title": "Enter inspection information",
+      "priority": "P2",
+      "package": "1.1",
+      "description": "The Data Operations Manager records the details of a training institution's inspection.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The training institution has already been added to the system. The user must be logged in to the system.",
+      "successGuarantee": "The inspection information is saved with the training institution's record.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of training institutions."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all training institutions entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the training institution to edit."
+       },
+       {
+        "step": 4,
+        "text": "The system displays the training institution's record."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the option to add inspection information."
+       },
+       {
+        "step": 6,
+        "text": "The system displays today's date for the inspection date."
+       },
+       {
+        "step": 7,
+        "text": "The user changes the date of the inspection, if necessary."
+       },
+       {
+        "step": 8,
+        "text": "The user enters any notes about the inspection."
+       },
+       {
+        "step": 9,
+        "text": "The user selects whether the training institution passed or failed inspection."
+       },
+       {
+        "step": 10,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 11,
+        "text": "The system saves the inspection information and displays it with the training institution's record."
+       },
+       {
+        "step": 12,
+        "text": "The system saves the previous inspection information as historical data and displays it in the inspection history."
+       },
+       {
+        "step": 13,
+        "text": "The system provides the option to view the training institution's inspection history and update the current inspection information."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "9.a",
+        "atStep": "9",
+        "text": "The user does not select any inspection results.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system selects Pass by default."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS23",
+      "title": "Add or update a facility agent",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds or edits a facility agent for selection in the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The facility agent is added to the system and available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage facility agents."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all facility agents entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new facility agent."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a description for the facility agent."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the facility agent available for selection when adding facilities."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing facility agent.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the facility agent already exists in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS24",
+      "title": "Add or update a facility type",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds a new facility type for selection in the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The facility type is added to the system and is available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of facility types."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all facility types entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new facility type."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a description or name for the facility type."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the facility type available for selection when adding facilities."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the facility type has already been entered in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is identical for iHRIS Manage and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       }
+      ]
+     },
+     {
+      "id": "UC-PS25",
+      "title": "Add or update a facility status",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds a new facility status for selection in the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The facility status is added to the system and is available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of facility statuses."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all facility statuses entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new facility status."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a description or name for the facility status."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the facility status available for selection when adding facilities."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the facility status has already been entered in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PS51",
+      "title": "Add or update a verification change",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Data Operations Manager adds a new verification change option for selection in the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Data Operations Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The verification change is added to the system and is available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage the list of verification changes."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all verification changes entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new verification change."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a description or name for the verification change."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system makes the verification change available for selection when recording verifications."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing item.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the item for editing."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system determines that the verification change has already been entered in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and will not continue."
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.2",
+    "name": "Record Management",
+    "level": 2,
+    "description": "Add a new record to the system and update records that have been entered into the system.",
+    "notes": [
+     {
+      "text": "Access these functions via the Add Person link on the main menu.",
+      "dateAdded": "10/15/2007",
+      "date": "2007-10-15"
+     }
+    ],
+    "relatedDocuments": [],
+    "packages": [
+     {
+      "number": "1.2.1",
+      "name": "General",
+      "level": 3,
+      "description": "This module enables entering general information about a person into his/her record that is not related to training, registration or licensing.",
+      "notes": [
+       {
+        "text": "These functions become available when a new record is added or when a person's record is displayed; this is the first editable screen that appears.",
+        "dateAdded": "10/15/2007",
+        "date": "2007-10-15"
+       }
+      ],
+      "relatedDocuments": [],
+      "packages": [],
+      "useCases": [
+       {
+        "id": "UC-PS27",
+        "title": "Enter a new record",
+        "priority": "P4",
+        "package": "1.2.1",
+        "description": "The Records Officer creates an initial record for a person in the system.",
+        "parent": "General",
+        "primaryActors": [
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The user must be logged in to the system. The personal title, nationality, country and district of residence have been entered in the system.",
+        "successGuarantee": "The health worker's basic details are recorded in the system and a new record for the person is created.",
+        "level": "User",
+        "complexity": "Low",
+        "status": "Updated",
+        "implementationStatus": "Partially Complete",
+        "release": "1.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to add a new record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the title for the person (optional)."
+         },
+         {
+          "step": 3,
+          "text": "The user enters the name of the person:",
+          "options": [
+           "surname (required)",
+           "first name (required)",
+           "any other names",
+           "suffix"
+          ]
+         },
+         {
+          "step": 4,
+          "text": "The user selects the person's nationality / citizenship (required)."
+         },
+         {
+          "step": 5,
+          "text": "The user selects the country where the person resides (required)."
+         },
+         {
+          "step": 6,
+          "text": "The system displays all districts in the country."
+         },
+         {
+          "step": 7,
+          "text": "The user selects the district where the person resides (the home district; required)."
+         },
+         {
+          "step": 8,
+          "text": "The system displays all counties within that district."
+         },
+         {
+          "step": 9,
+          "text": "The user selects the county where the person resides (the home county), if known."
+         },
+         {
+          "step": 10,
+          "text": "The user selects the person's home (permanent) country."
+         },
+         {
+          "step": 11,
+          "text": "The system displays all districts in that country."
+         },
+         {
+          "step": 12,
+          "text": "The user selects the person's home (permanent) district."
+         },
+         {
+          "step": 13,
+          "text": "The system displays all counties within that district."
+         },
+         {
+          "step": 14,
+          "text": "The user selects the person's home county."
+         },
+         {
+          "step": 15,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 16,
+          "text": "The system validates that the name does not already exist in the system."
+         },
+         {
+          "step": 17,
+          "text": "The system logs the system date as the entry date for the index."
+         },
+         {
+          "step": 18,
+          "text": "The system displays the new record and the option to add additional information."
+         },
+         {
+          "step": 19,
+          "text": "The system provides the option to update the name or other information."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "15.a",
+          "atStep": "15",
+          "text": "The system determines that the surname and first name combination match a record that is already in the system.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system prompts the user to compare the two records and determine whether they are the same."
+           },
+           {
+            "step": 2,
+            "text": "The user selects the matching record and edits it, or continues editing the new record, if it is different."
+           }
+          ]
+         },
+         {
+          "id": "19.a",
+          "atStep": "19",
+          "text": "The user selects the update option and changes the person's name.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system saves the former name in the person's name history."
+           },
+           {
+            "step": 2,
+            "text": "The system provides the option to view the name history."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "This use case generally occurs after the student has been admitted to a training institution or has received a registration or license.",
+          "dateAdded": "2/11/2008",
+          "date": "2008-02-11"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS28",
+        "title": "Add identification information",
+        "priority": "P1",
+        "package": "1.2.1",
+        "description": "The Records Officer enters identifications into a person's record.",
+        "parent": "General",
+        "primaryActors": [
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The required identification types have been added to the system. The person has a record in the system. The user must be logged in to the system.",
+        "successGuarantee": "The identification information is saved to the database and displayed with the person's record.",
+        "level": "User",
+        "complexity": "Low",
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to add an identification to a person's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects a type of identification."
+         },
+         {
+          "step": 3,
+          "text": "The user enters the identification number."
+         },
+         {
+          "step": 4,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 5,
+          "text": "The system displays the new identification information in the person's record."
+         },
+         {
+          "step": 6,
+          "text": "The system provides the option to update the identification."
+         },
+         {
+          "step": 7,
+          "text": "The user repeats Steps 1-6 for each required type of identification."
+         }
+        ],
+        "extensions": [],
+        "notes": [
+         {
+          "text": "Identification checking will have to be implemented at the time of customization because requirements change so much depending on where the system is located.",
+          "dateAdded": "10/31/2007",
+          "date": "2007-10-31"
+         },
+         {
+          "text": "This use case is the same in both iHRIS Manage and iHRIS Qualify.",
+          "dateAdded": "10/31/2007",
+          "date": "2007-10-31"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS29",
+        "title": "Add demographic information",
+        "priority": "P1",
+        "package": "1.2.1",
+        "description": "The Records Officer adds demographic information about a person to his or her record.",
+        "parent": "General",
+        "primaryActors": [
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The person has a record in the system. The user must be logged in to the system. The marital status and country, district and county have been entered into the system for selection.",
+        "successGuarantee": "The demographic information is saved and is displayed with the person's record.",
+        "level": "User",
+        "complexity": "Low",
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to add demographic information to a person's record."
+         },
+         {
+          "step": 2,
+          "text": "The user sets the date of birth."
+         },
+         {
+          "step": 3,
+          "text": "The user selects the gender."
+         },
+         {
+          "step": 4,
+          "text": "The user selects the marital status."
+         },
+         {
+          "step": 5,
+          "text": "The user selects the country of birth."
+         },
+         {
+          "step": 6,
+          "text": "The system displays all districts in that country."
+         },
+         {
+          "step": 7,
+          "text": "The user selects the district of birth."
+         },
+         {
+          "step": 8,
+          "text": "The system displays all counties within that district."
+         },
+         {
+          "step": 9,
+          "text": "The user selects the county of birth for the person, if known."
+         },
+         {
+          "step": 10,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 11,
+          "text": "The system displays the demographic information in the record."
+         },
+         {
+          "step": 12,
+          "text": "The system provides the option to update the demographic information."
+         }
+        ],
+        "extensions": [],
+        "notes": [
+         {
+          "text": "This use case is essentially the same for iHRIS Manage and iHRIS Qualify.",
+          "dateAdded": "10/31/2007",
+          "date": "2007-10-31"
+         },
+         {
+          "text": "Country, district and county of birth data entry fields are implemented in iHRIS Qualify only.",
+          "dateAdded": "10/31/2007",
+          "date": "2007-10-31"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS30",
+        "title": "Add academic information",
+        "priority": "P1",
+        "package": "1.2.1",
+        "description": "The Records Officer adds secondary education information about a person to his or her record.",
+        "parent": "General",
+        "primaryActors": [
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The person has a record in the system. The correct academic levels and certificates have been entered into the system. The user is logged in.",
+        "successGuarantee": "The health worker's academic qualification details are recorded in the system and displayed with his/her record.",
+        "level": "User",
+        "complexity": "Low",
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "1.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to add secondary education information to a person's record."
+         },
+         {
+          "step": 2,
+          "text": "The user enters the name of the secondary school that the person attended."
+         },
+         {
+          "step": 3,
+          "text": "The user selects the highest academic level achieved."
+         },
+         {
+          "step": 4,
+          "text": "The system displays all certificates for that academic level."
+         },
+         {
+          "step": 5,
+          "text": "The user selects the certificate that the person holds."
+         },
+         {
+          "step": 6,
+          "text": "The user enters the grade obtained (optional)."
+         },
+         {
+          "step": 7,
+          "text": "The user enters the certificate number (optional)."
+         },
+         {
+          "step": 8,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 9,
+          "text": "The system displays the academic information in the person's record."
+         },
+         {
+          "step": 10,
+          "text": "The system provides the option to update the academic information."
+         }
+        ],
+        "extensions": [],
+        "notes": [
+         {
+          "text": "Academic information refers to any education that took place prior to entering the health training program.",
+          "dateAdded": "11/1/2007",
+          "date": "2007-11-01"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS31",
+        "title": "Add contact information",
+        "priority": "P1",
+        "package": "1.2.1",
+        "description": "The Records Officer adds any type of contact information for a person or institution.",
+        "parent": "General",
+        "primaryActors": [
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The record exists in the system. The user must be logged in to the system.",
+        "successGuarantee": "The contact information is saved with the appropriate record.",
+        "level": "Subfunction",
+        "complexity": "Low",
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the type of contact to add to a record."
+         },
+         {
+          "step": 2,
+          "text": "The user enters the full mailing address."
+         },
+         {
+          "step": 3,
+          "text": "The user enters the telephone number."
+         },
+         {
+          "step": 4,
+          "text": "The user enters the alternate telephone number."
+         },
+         {
+          "step": 5,
+          "text": "The user enters the fax number."
+         },
+         {
+          "step": 6,
+          "text": "The user enters the email address."
+         },
+         {
+          "step": 7,
+          "text": "The user enters notes about the contact."
+         },
+         {
+          "step": 8,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 9,
+          "text": "The system displays the contact information in the record."
+         },
+         {
+          "step": 10,
+          "text": "The system provides the option to update the contact information."
+         },
+         {
+          "step": 11,
+          "text": "The user repeats Steps 1-10 for each contact."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "1.a",
+          "atStep": "1",
+          "text": "The system determines that a contact of that type has previously been added.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system does not provide the option to allow another contact of the same type."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "This use case is the same for iHRIS Manage and iHRIS Qualify, although the specific types of contacts for each are slightly different.",
+          "dateAdded": "10/31/2007",
+          "date": "2007-10-31"
+         },
+         {
+          "text": "All fields are optional.",
+          "dateAdded": "10/31/2007",
+          "date": "2007-10-31"
+         },
+         {
+          "text": "This subfunction is referenced wherever contact information additions or updates are required.",
+          "dateAdded": "10/31/2007",
+          "date": "2007-10-31"
+         },
+         {
+          "text": "Institutions only have one contact type (as opposed to people records). The contact type does not need to be selected, as the contact information can be entered with the institution's other details.",
+          "dateAdded": "2/11/2008",
+          "date": "2008-02-11"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS32",
+        "title": "Record notes",
+        "priority": "P1",
+        "package": "1.2.1",
+        "description": "The Records Officer or Registration Supervisor records notes about a particular person and saves them with the person's record.",
+        "parent": "General",
+        "primaryActors": [
+         "Records Officer",
+         "Registration Supervisor"
+        ],
+        "supportingActors": [],
+        "preconditions": "The person has a record in the system. The user must be logged in to the system.",
+        "successGuarantee": "The notes are entered and saved with the person's record.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "1.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to add a note to a person's record."
+         },
+         {
+          "step": 2,
+          "text": "The user enters any notes or special information about the person."
+         },
+         {
+          "step": 3,
+          "text": "The system displays today's date as the note entry date."
+         },
+         {
+          "step": 4,
+          "text": "The user changes the note entry date, if it is different."
+         },
+         {
+          "step": 5,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 6,
+          "text": "The system maintains and displays a log of all notes that were entered in reverse chronological order."
+         },
+         {
+          "step": 7,
+          "text": "The system provides an option to update each note."
+         }
+        ],
+        "extensions": [],
+        "notes": [
+         {
+          "text": "The notes area is an open area that can be used for any purpose.",
+          "dateAdded": "10/31/2007",
+          "date": "2007-10-31"
+         },
+         {
+          "text": "This use case is the same for iHRIS Manage and Qualify.",
+          "dateAdded": "10/31/2007",
+          "date": "2007-10-31"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS50",
+        "title": "Record verification",
+        "priority": "P1",
+        "package": "1.2.1",
+        "description": "The Records Officer records a verification of a user's record.",
+        "parent": "General",
+        "primaryActors": [
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The verification change has been entered in the system. The user is logged in.",
+        "successGuarantee": "The verification change is saved in the person's verification history and can be viewed in the record.",
+        "level": "User",
+        "complexity": "Low",
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "3.1.1",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to record a verification in a record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the date of the verification."
+         },
+         {
+          "step": 3,
+          "text": "The user selects any verification changes made."
+         },
+         {
+          "step": 4,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 5,
+          "text": "The system saves the verification changes to the person's verification history and displays the latest verification change in the record."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "2.a",
+          "atStep": "2",
+          "text": "The user does not select a date.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system records today's date by default."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "This is a new use case to fulfill a verification requirement requested by the Uganda users of the system.",
+          "dateAdded": "10/7/2008",
+          "date": "2008-10-07"
+         }
+        ]
+       }
+      ],
+      "requirements": []
+     },
+     {
+      "number": "1.2.2",
+      "name": "Training",
+      "level": 3,
+      "description": "This module enables adding a pre-service training program to a person's record. It includes optional functions for recording national exam results.",
+      "notes": [
+       {
+        "text": "These functions are available when clicking Add Training in a person's record.",
+        "dateAdded": "10/15/2007",
+        "date": "2007-10-15"
+       },
+       {
+        "text": "The person's pre-service training program determines the health worker's cadre in the system. A person may have completed more than one training program and thus be registered/licensed in more than one cadre.",
+        "dateAdded": "10/15/2007",
+        "date": "2007-10-15"
+       },
+       {
+        "text": "At least one pre-service training program, with a graduation date, must be added to a person's record before the person can be registered. Each registration/license is linked to one pre-service training program.",
+        "dateAdded": "10/15/2007",
+        "date": "2007-10-15"
+       }
+      ],
+      "relatedDocuments": [],
+      "packages": [],
+      "useCases": [
+       {
+        "id": "UC-PS35",
+        "title": "Index a training",
+        "priority": "P1",
+        "package": "1.2.2",
+        "description": "The Records Officer records details about the training program that the student is enrolled in.",
+        "parent": "Training",
+        "primaryActors": [
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The training institution and its cadres have already been entered into the system. The initial record for the student has been created. The user must be logged in to the system.",
+        "successGuarantee": "The student's record is updated and saved with the training information, and the student is assigned an index number for that training.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to add a training to a person's record."
+         },
+         {
+          "step": 2,
+          "text": "The user enters the index number for the training."
+         },
+         {
+          "step": 3,
+          "text": "The user selects the date of intake (optional)."
+         },
+         {
+          "step": 4,
+          "text": "The user selects the training institution where the student has been admitted."
+         },
+         {
+          "step": 5,
+          "text": "The system displays the cadres offered by the training institution."
+         },
+         {
+          "step": 6,
+          "text": "The user selects the cadre where the student is to be indexed."
+         },
+         {
+          "step": 7,
+          "text": "The user enters the training end (graduation) date if the student has completed training."
+         },
+         {
+          "step": 8,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 9,
+          "text": "The system displays the record with the training information and provides the option to document a disruption (UC-PS36), record an application to sit for the exam (UC-PS40) or issue a registration (UC-PS40)."
+         },
+         {
+          "step": 10,
+          "text": "The system provides the option to correct the information."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "2.a",
+          "atStep": "2",
+          "text": "The user selects the option to generate a new index number.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system generates the next index number available upon saving the record."
+           }
+          ]
+         },
+         {
+          "id": "4.a",
+          "atStep": "4",
+          "text": "The user selects the country where the person was trained if the training was outside the country.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The user enters the name of the training institution, if known."
+           },
+           {
+            "step": 2,
+            "text": "Continue to Step 6."
+           }
+          ]
+         },
+         {
+          "id": "7.a",
+          "atStep": "7",
+          "text": "The user sets the graduation date for before the intake date.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system displays an error message and will not continue."
+           }
+          ]
+         },
+         {
+          "id": "7.b",
+          "atStep": "7",
+          "text": "The user enters a foreign country where the training took place.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system prompts the user to enter the graduation date."
+           }
+          ]
+         },
+         {
+          "id": "9.a",
+          "atStep": "9",
+          "text": "The user leaves the end date blank.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system marks the training as \"in progress.\""
+           },
+           {
+            "step": 2,
+            "text": "The system provides the option to set a graduation date (UC-PS38)."
+           },
+           {
+            "step": 3,
+            "text": "The system does not provide the option to issue a registration."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "Once a student has passed an exam for a particular cadre inside the country, the person cannot enroll in another training in that same cadre.",
+          "dateAdded": "9/22/2006",
+          "date": "2006-09-22"
+         },
+         {
+          "text": "A training or upgrade, either inside or outside the country, can be added for any person at any time.",
+          "dateAdded": "6/4/2007",
+          "date": "2007-06-04"
+         },
+         {
+          "text": "The training end date (graduation date) signifies that the person is eligible for registration.",
+          "dateAdded": "6/4/2007",
+          "date": "2007-06-04"
+         },
+         {
+          "text": "To ensure the system is universal, the student can be registered in more than one instance of the same training program (cadre). It is up to the data entry person to ensure this information is entered correctly. Some implementations may be customized to prevent double-entry of cadres.",
+          "dateAdded": "7/26/2007",
+          "date": "2007-07-26"
+         },
+         {
+          "text": "The training may be the student's first or an upgrade. The training program may be inside or outside the country. Training information may be recorded separately, when the student enters a training program, or as part of the registration process, after training is complete.",
+          "dateAdded": "11/1/2007",
+          "date": "2007-11-01"
+         },
+         {
+          "text": "Index number is not unique. A new index number is issued with each training, and index numbers may be duplicated. The index number is linked to the training rather than to the entire record. The index number is used primarily for searching and display.",
+          "dateAdded": "2/11/2008",
+          "date": "2008-02-11"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS36",
+        "title": "Record a discontinuation",
+        "priority": "P1",
+        "package": "1.2.2",
+        "description": "If a student has discontinued a training program, the Records Officer notes this with the student's record.",
+        "parent": "Training",
+        "primaryActors": [
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The appropriate disruption category and disruption reason have been added to the system. The student record has been created and the enrollment in a training program has been recorded in the student's record. The user must be logged in to the system.",
+        "successGuarantee": "The disruption in training is correctly recorded with the student's record, and no registrations or licenses can be issued to the student.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "1.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to update a training in the student's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the option to disrupt training."
+         },
+         {
+          "step": 3,
+          "text": "The user selects the disruption category."
+         },
+         {
+          "step": 4,
+          "text": "The system displays a list of specific reasons for disruption in that disruption category."
+         },
+         {
+          "step": 5,
+          "text": "The user selects the specific disruption reason."
+         },
+         {
+          "step": 6,
+          "text": "The user selects the date of disruption."
+         },
+         {
+          "step": 7,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 8,
+          "text": "The system displays the record with the updated training disruption information and provides the option to document a resumption. (UC-PS37)"
+         }
+        ],
+        "extensions": [
+         {
+          "id": "2.a",
+          "atStep": "2",
+          "text": "The system determines that a disruption has already been recorded for the training and no resumption has been recorded.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system does not provide the option to disrupt training again."
+           }
+          ]
+         },
+         {
+          "id": "6.a",
+          "atStep": "6",
+          "text": "The user enters a disruption date that comes before the date of intake.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system displays an error and prompts to enter a valid date."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "This use case is triggered by the report of a training disruption from the training institution to the Licensing and Certification Authority.",
+          "dateAdded": "7/14/2006",
+          "date": "2006-07-14"
+         },
+         {
+          "text": "This use case is optional and is not needed if disruptions are not recorded.",
+          "dateAdded": "6/4/2007",
+          "date": "2007-06-04"
+         },
+         {
+          "text": "All fields are required if used.",
+          "dateAdded": "8/2/2007",
+          "date": "2007-08-02"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS37",
+        "title": "Record a resumption",
+        "priority": "P1",
+        "package": "1.2.2",
+        "description": "If the student has resumed training after a disruption, the Records Officer notes this along with the resumption date.",
+        "parent": "Training",
+        "primaryActors": [
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The student's training disruption has been recorded with the student's record in the system. The user must be logged in to the system.",
+        "successGuarantee": "The resumption in training is correctly recorded with the student's record, and a graduation date can be set for the training program.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to update a training in a health student's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the option to resume training."
+         },
+         {
+          "step": 3,
+          "text": "The user enters the date of resumption."
+         },
+         {
+          "step": 4,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 5,
+          "text": "The system displays the record with the new resumption information and provides the option to document a disruption (UC-PS36) as well as the option to set a graduation date (UC-PS38)."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "3.a",
+          "atStep": "3",
+          "text": "The user enters a resumption date that occurred before the disruption date.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system displays an error message and will not continue."
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "UC-PS38",
+        "title": "Set a graduation date",
+        "priority": "P1",
+        "package": "1.2.2",
+        "description": "The Records Officer sets a graduation date for a student to indicate that the student has completed training.",
+        "parent": "Training",
+        "primaryActors": [
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The user is logged in to the system. The student has entered a training program, which has been entered in the system, but has not completed or discontinued it.",
+        "successGuarantee": "The graduation date is recorded in the student's record, and a registration can be issued to the student.",
+        "level": "User",
+        "complexity": "Low",
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to update a training in a student's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the option to set a graduation date."
+         },
+         {
+          "step": 3,
+          "text": "The user enters the graduation date."
+         },
+         {
+          "step": 4,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 5,
+          "text": "The system displays the graduation date, marks the training as complete and provides the option to issue a registration to the student (UC-PS40)."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "2.a",
+          "atStep": "2",
+          "text": "The system determines that the training was marked discontinued.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system does not provide the option to set a graduation date."
+           }
+          ]
+         },
+         {
+          "id": "3.a",
+          "atStep": "3",
+          "text": "The user sets a graduation date that falls before the intake date.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system generates an error message and will not proceed."
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "UC-PS39",
+        "title": "Record exam details",
+        "priority": "P1",
+        "package": "1.2.2",
+        "description": "The Examination Supervisor or Records Officer documents a student's application to take the national exam and the results.",
+        "parent": "Training",
+        "primaryActors": [
+         "Examination Supervisor",
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The student has completed a training and training information has been entered in the student's record. The user must be logged in to the system.",
+        "successGuarantee": "The student's record is successfully updated with their examination application information and the results of the examination that s/he took.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to update a training in a student's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the option to record an exam."
+         },
+         {
+          "step": 3,
+          "text": "The system displays today's date for the application date."
+         },
+         {
+          "step": 4,
+          "text": "The user changes the date, if it is different."
+         },
+         {
+          "step": 5,
+          "text": "The user indicates whether the student's required application materials have been received."
+         },
+         {
+          "step": 6,
+          "text": "The user indicates whether the student's required application materials have been approved."
+         },
+         {
+          "step": 7,
+          "text": "The user enters the endorser information, if known:",
+          "options": [
+           "name",
+           "date of endorsement",
+           "qualifications"
+          ]
+         },
+         {
+          "step": 8,
+          "text": "The system displays today's date for the exam date."
+         },
+         {
+          "step": 9,
+          "text": "The user changes the exam date, if it is different."
+         },
+         {
+          "step": 10,
+          "text": "The user selects the number of tries for the exam:",
+          "options": [
+           "First",
+           "Re-try",
+           "Final"
+          ]
+         },
+         {
+          "step": 11,
+          "text": "The user selects the examination results:",
+          "options": [
+           "pass",
+           "fail",
+           "did not sit for exam"
+          ]
+         },
+         {
+          "step": 12,
+          "text": "The user enters the examination number."
+         },
+         {
+          "step": 13,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 14,
+          "text": "The system displays the record with the exam application information."
+         },
+         {
+          "step": 15,
+          "text": "The system provides the option to correct the exam information."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "5.a",
+          "atStep": "5",
+          "text": "The user does not select an option.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system saves yes by default."
+           }
+          ]
+         },
+         {
+          "id": "6.a",
+          "atStep": "6",
+          "text": "The user does not select an option.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system saves yes by default."
+           }
+          ]
+         },
+         {
+          "id": "9.a",
+          "atStep": "9",
+          "text": "The user sets the exam date for before the application date.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system displays an error and will not continue."
+           }
+          ]
+         },
+         {
+          "id": "10.a",
+          "atStep": "10",
+          "text": "The user selects final.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system does not allow the exam results to be updated."
+           }
+          ]
+         },
+         {
+          "id": "11.a",
+          "atStep": "11",
+          "text": "The user selects fail or did not sit for exam.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system provides the option to update the exam information."
+           },
+           {
+            "step": 2,
+            "text": "When exam performance is re-recorded, the system displays the new results and saves the previous results to an examination history."
+           }
+          ]
+         },
+         {
+          "id": "11.b",
+          "atStep": "11",
+          "text": "The user selects pass.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system does not allow any more updates to the exam information."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "Exams are optional in the base system. In some implementations, entering exam results may be required, in which case a registration cannot be issued until a passing exam result is recorded by an Examination Supervisor, a special role authorized to enter examination results. When exams are optional, the Records Officer can enter exam results.",
+          "dateAdded": "6/4/2007",
+          "date": "2007-06-04"
+         },
+         {
+          "text": "If the exam is passed, the graduation date must also be recorded so a registration can be added.",
+          "dateAdded": "7/19/2007",
+          "date": "2007-07-19"
+         },
+         {
+          "text": "This use case is triggered when a student has completed a training program and has submitted an application to sit for the final exam (conducted annually).",
+          "dateAdded": "11/1/2007",
+          "date": "2007-11-01"
+         }
+        ]
+       }
+      ],
+      "requirements": []
+     },
+     {
+      "number": "1.2.3",
+      "name": "Licensing",
+      "level": 3,
+      "description": "This module captures registration, licensing and other post-graduation actions, such as private practice licensing, out migration verification requests and deployment records.",
+      "notes": [
+       {
+        "text": "These functions are only enabled once a pre-service training program with a graduation date is recorded in a health worker's record.",
+        "dateAdded": "10/15/2007",
+        "date": "2007-10-15"
+       },
+       {
+        "text": "These functions can be accessed by clicking Update Registrations/Licenses beside the training program in the Training Information section of a person's record.",
+        "dateAdded": "10/15/2007",
+        "date": "2007-10-15"
+       }
+      ],
+      "relatedDocuments": [],
+      "packages": [],
+      "useCases": [
+       {
+        "id": "UC-PS40",
+        "title": "Issue a registration",
+        "priority": "P7",
+        "package": "1.2.3",
+        "description": "The Registration Supervisor documents an application for registration and issues a registration number.",
+        "parent": "Licensing",
+        "primaryActors": [
+         "Registration Supervisor"
+        ],
+        "supportingActors": [],
+        "preconditions": "The student completed a training (the end date of the training has been recorded). The user must be logged in to the system.",
+        "successGuarantee": "The student's record is successfully updated and a registration number is issued; a license can now be issued to the health worker.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to update a training in a student's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the option to add a registration."
+         },
+         {
+          "step": 3,
+          "text": "The user enters the registration number."
+         },
+         {
+          "step": 4,
+          "text": "The system displays today's date for the application date."
+         },
+         {
+          "step": 5,
+          "text": "The user changes the application date, if it is different."
+         },
+         {
+          "step": 6,
+          "text": "The system displays today's date for the registration date."
+         },
+         {
+          "step": 7,
+          "text": "The user changes the registration date, if it is different."
+         },
+         {
+          "step": 8,
+          "text": "The user selects whether the practice type is temporary or permanent."
+         },
+         {
+          "step": 9,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 10,
+          "text": "The system validates that the registration number does not already exist in the system."
+         },
+         {
+          "step": 11,
+          "text": "The system displays the record with the registration information and provides the option to issue a new license (UC-PS41)."
+         },
+         {
+          "step": 12,
+          "text": "The system provides the option to correct the registration information."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "3.a",
+          "atStep": "3",
+          "text": "The user selects the option to generate a registration number.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system generates the next registration number when the record is saved."
+           }
+          ]
+         },
+         {
+          "id": "8.a",
+          "atStep": "8",
+          "text": "The user does not select a practice type.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system enters permanent by default."
+           }
+          ]
+         },
+         {
+          "id": "10.a",
+          "atStep": "10",
+          "text": "The system determines that the number exists in the database.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system prompts the user to correct the number or generate a new number."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "This is not reflected in this use case, but there can be a duplicate registration number for different cadres. This should only occur when entering historical data; new data should have a unique registration number every time.",
+          "dateAdded": "7/14/2006",
+          "date": "2006-07-14"
+         },
+         {
+          "text": "This use case is triggered when a person applies for registration.",
+          "dateAdded": "11/1/2007",
+          "date": "2007-11-01"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS41",
+        "title": "Issue a license",
+        "priority": "P1",
+        "package": "1.2.3",
+        "description": "The Registration Supervisor issues a new license to a health care professional who has successfully registered, with a license number.",
+        "parent": "Licensing",
+        "primaryActors": [
+         "Registration Supervisor"
+        ],
+        "supportingActors": [],
+        "preconditions": "The person has been issued a registration, and that has been recorded in his/her record. The user must be logged in to the system.",
+        "successGuarantee": "The license is successfully added to the health worker's record, and a license number is issued to the health worker.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to update a registration in a health worker's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the option to add a license."
+         },
+         {
+          "step": 3,
+          "text": "The system displays the registration number for the license number."
+         },
+         {
+          "step": 4,
+          "text": "The user enters a new license number, if it is different."
+         },
+         {
+          "step": 5,
+          "text": "The system displays today's date for the license start date."
+         },
+         {
+          "step": 6,
+          "text": "The user changes the start date for the license, if it is different."
+         },
+         {
+          "step": 7,
+          "text": "The user enters the end date for the license."
+         },
+         {
+          "step": 8,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 9,
+          "text": "The system displays the record with the license information and provides these options: Renew a license (UC-PS45); Add a completed continuing education course (UC-PS45); Issue or renew a private practice license (UC-PS45); Document a disciplinary action (UC-PS45)."
+         },
+         {
+          "step": 10,
+          "text": "The system provides the option to correct the license information."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "4.a",
+          "atStep": "4",
+          "text": "The user generates a new license number rather than entering one.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system generates the next license number when the record is saved."
+           }
+          ]
+         },
+         {
+          "id": "7.a",
+          "atStep": "7",
+          "text": "The system determines that the end date entered comes before or is the same as the start date.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system displays an error and prompts the user to enter a different end date."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "In the ideal situation, the registration number will be used to identify every transaction, including issuing a license. However, a separate license number may be needed. The use case provides the option of entering a different license number or reusing the registration number as the license number.",
+          "dateAdded": "6/5/2007",
+          "date": "2007-06-05"
+         },
+         {
+          "text": "This use case is triggered when a health worker applies for a new license.",
+          "dateAdded": "11/1/2007",
+          "date": "2007-11-01"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS42",
+        "title": "Renew a license",
+        "priority": "P1",
+        "package": "1.2.3",
+        "description": "The Registration Supervisor records a license renewal.",
+        "parent": "Licensing",
+        "primaryActors": [
+         "Registration Supervisor"
+        ],
+        "supportingActors": [],
+        "preconditions": "The person has previously been issued a license number in the system. The user must be logged in to the system.",
+        "successGuarantee": "The record is successfully updated with the new license information and number; the previous license is recorded in the person's license history.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to update a license in a health worker's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the option to renew the license."
+         },
+         {
+          "step": 3,
+          "text": "The system displays the previously issued license number for the license number of the renewal."
+         },
+         {
+          "step": 4,
+          "text": "The system displays today's date for the license start date."
+         },
+         {
+          "step": 5,
+          "text": "The user changes the start date for the renewal, if it is different."
+         },
+         {
+          "step": 6,
+          "text": "The user enters the end date for the renewal."
+         },
+         {
+          "step": 7,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 8,
+          "text": "The system saves the previous license to the person's license history."
+         },
+         {
+          "step": 9,
+          "text": "The system displays the record with the latest license and provides an option to display the license history."
+         },
+         {
+          "step": 10,
+          "text": "The system provides the option to correct the license information."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "5.a",
+          "atStep": "5",
+          "text": "The system determines that the start date entered comes before the end date for a previous license.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system displays an error and prompts the user to correct the date."
+           }
+          ]
+         },
+         {
+          "id": "6.a",
+          "atStep": "6",
+          "text": "The system determines that the end date entered comes before or the same as the start date.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system displays an error message and prompts the user to enter a new end date."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "In the ideal situation, the registration number will be used to identify every transaction, including issuing a license. However, a separate license number may be needed. The use case covers both situations by reusing the previous license number as the license number for the renewal.",
+          "dateAdded": "6/5/2007",
+          "date": "2007-06-05"
+         },
+         {
+          "text": "This use case is triggered when a worker applies for a license renewal.",
+          "dateAdded": "2/11/2008",
+          "date": "2008-02-11"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS43",
+        "title": "Add continuing education credits",
+        "priority": "P6",
+        "package": "1.2.3",
+        "description": "The Registration Supervisor documents continuing medical education requirements that have been fulfilled by the health worker to meet license renewal requirements.",
+        "parent": "Licensing",
+        "primaryActors": [
+         "Registration Supervisor"
+        ],
+        "supportingActors": [],
+        "preconditions": "The person has been issued a license, which has been recorded in his/her record. The appropriate continuing education courses have been entered in the system for selection. The user must be logged in to the system.",
+        "successGuarantee": "The record is successfully updated with the completed continuing education courses.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to update a license in a health worker's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the option to record a continuing education course."
+         },
+         {
+          "step": 3,
+          "text": "The user selects a continuing education course that was completed."
+         },
+         {
+          "step": 4,
+          "text": "The user enters the number of credit hours that were earned."
+         },
+         {
+          "step": 5,
+          "text": "The user enters the start and end dates for the course."
+         },
+         {
+          "step": 6,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 7,
+          "text": "The system displays the completed course information in the person's record."
+         },
+         {
+          "step": 8,
+          "text": "The system provides the option to correct the continuing education information."
+         },
+         {
+          "step": 9,
+          "text": "The user repeats Steps 1-8 for each course that the health worker has completed."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "5.a",
+          "atStep": "5",
+          "text": "The system determines that the end date comes before the start date.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system displays an error message and prompts the user to enter a new end date."
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "UC-PS44",
+        "title": "Issue a private practice license",
+        "priority": "P1",
+        "package": "1.2.3",
+        "description": "The Registration Supervisor issues a private practice license to a health care worker applying to operate a private health facility.",
+        "parent": "Licensing",
+        "primaryActors": [
+         "Registration Supervisor"
+        ],
+        "supportingActors": [],
+        "preconditions": "The worker has received a license, which has been recorded in the system. The health facility where the person will be practicing has been entered in the database. The user must be logged in to the system.",
+        "successGuarantee": "The private practice license number is issued and the person's record is updated with the private practice license information.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to update a license in a health worker's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the option to issue a private practice license."
+         },
+         {
+          "step": 3,
+          "text": "The system displays the registration number for the private practice license number."
+         },
+         {
+          "step": 4,
+          "text": "The user enters a private practice license number, if it is different."
+         },
+         {
+          "step": 5,
+          "text": "The system displays today's date for the license start date."
+         },
+         {
+          "step": 6,
+          "text": "The user changes the start date for the license, if it is different."
+         },
+         {
+          "step": 7,
+          "text": "The user enters the end date for the license."
+         },
+         {
+          "step": 8,
+          "text": "The user enters the inspection results, if known."
+         },
+         {
+          "step": 9,
+          "text": "The system displays today's date for the inspection date."
+         },
+         {
+          "step": 10,
+          "text": "The user changes the inspection date, if it is different."
+         },
+         {
+          "step": 11,
+          "text": "The user selects the health facility where the person will be practicing."
+         },
+         {
+          "step": 12,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 13,
+          "text": "The system displays the record with the private practice license information."
+         },
+         {
+          "step": 14,
+          "text": "The system provides the option to correct the private practice license information."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "4.a",
+          "atStep": "4",
+          "text": "The user generates a new private practice license number.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system generates the next private practice license number when the record is saved."
+           }
+          ]
+         },
+         {
+          "id": "7.a",
+          "atStep": "7",
+          "text": "The system determines that the end date comes before or is the same as the start date.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system displays an error message and prompts the user to enter a new end date."
+           }
+          ]
+         },
+         {
+          "id": "13.a",
+          "atStep": "13",
+          "text": "The system determines that a private practice license has previously been issued for that person.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system saves the previous license as historical data and provides the option to review the past private practice license history."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "In the ideal situation, the registration number will be used to identify every transaction, including issuing a license. However, a separate private practice license number may be needed. The use case provides the option of entering a different license number or reusing the registration number as the license number.",
+          "dateAdded": "6/5/2007",
+          "date": "2007-06-05"
+         },
+         {
+          "text": "This use case is triggered by an application for a private practice license.",
+          "dateAdded": "11/1/2007",
+          "date": "2007-11-01"
+         },
+         {
+          "text": "The private practice license is issued and maintained separately from the health worker's license to practice.",
+          "dateAdded": "2/11/2008",
+          "date": "2008-02-11"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS45",
+        "title": "Document a disciplinary action",
+        "priority": "P1",
+        "package": "1.2.3",
+        "description": "If a member has been disciplined, the Registration Supervisor notes this with the member's record.",
+        "parent": "Licensing",
+        "primaryActors": [
+         "Registration Supervisor"
+        ],
+        "supportingActors": [],
+        "preconditions": "The health worker has been issued a license, which has been recorded in the system. The appropriate disciplinary category and reason have been added to the system. The user must be logged in to the system.",
+        "successGuarantee": "The disciplinary action is correctly recorded with the member's record. If the license is suspended, the system prevents any further license renewals or related information to be recorded.",
+        "level": "User",
+        "complexity": "Low",
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to update a license in a health worker's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the option to record a disciplinary action."
+         },
+         {
+          "step": 3,
+          "text": "The user selects the disciplinary action category."
+         },
+         {
+          "step": 4,
+          "text": "The system displays a list of specific reasons for that category."
+         },
+         {
+          "step": 5,
+          "text": "The user selects the specific disciplinary action."
+         },
+         {
+          "step": 6,
+          "text": "The system displays today's date for the date of the disciplinary action."
+         },
+         {
+          "step": 7,
+          "text": "The user changes the date of the disciplinary action, if it is different."
+         },
+         {
+          "step": 8,
+          "text": "The user indicates whether the license is suspended (yes or no)."
+         },
+         {
+          "step": 9,
+          "text": "The user enters any notes about the disciplinary action."
+         },
+         {
+          "step": 10,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 11,
+          "text": "The system displays the record with the updated disciplinary action information."
+         },
+         {
+          "step": 12,
+          "text": "The system provides the option to correct the disciplinary action information."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "8.a",
+          "atStep": "8",
+          "text": "The user suspends the license.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system does not permit any new actions recorded on the record other than documenting a reinstatement (UC-PS46)."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "Disciplinary actions can only be taken after licensing.",
+          "dateAdded": "6/4/2007",
+          "date": "2007-06-04"
+         }
+        ]
+       },
+       {
+        "id": "UC-PS46",
+        "title": "Document a reinstatement",
+        "priority": "P1",
+        "package": "1.2.3",
+        "description": "If the member has been reinstated after a disciplinary action, the Registration Supervisor notes this along with the reinstatement date.",
+        "parent": "Licensing",
+        "primaryActors": [
+         "Registration Supervisor"
+        ],
+        "supportingActors": [],
+        "preconditions": "The health worker has been issued a license that has been suspended, and this has been recorded in the system. The user must be logged in to the system.",
+        "successGuarantee": "The reinstatement is correctly recorded with the health worker's record, and license renewals and other actions can be recorded for that person's current license.",
+        "level": "User",
+        "complexity": "Low",
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to update a license in a health worker's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the option to enter a reinstatement."
+         },
+         {
+          "step": 3,
+          "text": "The user enters the date of the reinstatement."
+         },
+         {
+          "step": 4,
+          "text": "The user enters any notes about the reinstatement."
+         },
+         {
+          "step": 5,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 6,
+          "text": "The system displays the record with the new reinstatement information and makes all license options available."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "3.a",
+          "atStep": "3",
+          "text": "The system determines that the reinstatement date occurred before the suspension date.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system displays an error and prompts the user to change the reinstatement date."
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "UC-PS47",
+        "title": "Update deployment information",
+        "priority": "P1",
+        "package": "1.2.3",
+        "description": "The Registration Supervisor or Records Officer enters or updates a health care worker's deployment information.",
+        "parent": "Licensing",
+        "primaryActors": [
+         "Records Officer",
+         "Registration Supervisor"
+        ],
+        "supportingActors": [],
+        "preconditions": "The person has been registered, which has been entered in the system. The health care facility where the person is deployed has been entered into the database. The user must be logged in to the system.",
+        "successGuarantee": "The deployment information is entered correctly and saved with the person's record.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "2.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to add deployment information to a health worker's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the health facility where the person has been deployed."
+         },
+         {
+          "step": 3,
+          "text": "The user enters the job or post title."
+         },
+         {
+          "step": 4,
+          "text": "The user enters the job or post code, if known."
+         },
+         {
+          "step": 5,
+          "text": "The system displays today's date for the date of deployment."
+         },
+         {
+          "step": 6,
+          "text": "The user changes the date of deployment., if it is different."
+         },
+         {
+          "step": 7,
+          "text": "The user saves the record (UC-ICE2)."
+         },
+         {
+          "step": 8,
+          "text": "The system displays the record with the deployment information."
+         },
+         {
+          "step": 9,
+          "text": "The system provides the option to correct the deployment information."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "8.a",
+          "atStep": "8",
+          "text": "The system determines that a deployment has previously been entered for this health care worker.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system saves the past deployment to the person's deployment history and provides an option to view all past deployments."
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "UC-PS48",
+        "title": "Record out migration verification",
+        "priority": "P1",
+        "package": "1.2.3",
+        "description": "When a verification request is received for a health care worker, the Records Officer documents such details as the country the person is migrating to and the reason for migrating, which may be useful in analyzing health worker retention issues.",
+        "parent": "Licensing",
+        "primaryActors": [
+         "Records Officer"
+        ],
+        "supportingActors": [],
+        "preconditions": "The person has been issued a registration in the system. The user must be logged in to the system.",
+        "successGuarantee": "The details of out migration are captured by the system during the process of verification and saved with the health worker's record.",
+        "level": "User",
+        "complexity": null,
+        "status": "Released",
+        "implementationStatus": "Complete",
+        "release": "1.0",
+        "mainSuccessScenario": [
+         {
+          "step": 1,
+          "text": "The user selects the option to record out migration verification in a person's record."
+         },
+         {
+          "step": 2,
+          "text": "The user selects the country where the request came from."
+         },
+         {
+          "step": 3,
+          "text": "The user enters the worker's new address in the foreign country, if known."
+         },
+         {
+          "step": 4,
+          "text": "The user selects the reason given for out migration."
+         },
+         {
+          "step": 5,
+          "text": "The user records the name of the organization requesting the verification (country board), if known."
+         },
+         {
+          "step": 6,
+          "text": "The system displays today's date for the date of the verification request."
+         },
+         {
+          "step": 7,
+          "text": "The user changes the date of the verification request, if it is different."
+         },
+         {
+          "step": 8,
+          "text": "The user saves the record (UC-ICE9)."
+         },
+         {
+          "step": 9,
+          "text": "The system displays the record with the out migration details."
+         },
+         {
+          "step": 10,
+          "text": "The system provides the option to update the out migration details."
+         },
+         {
+          "step": 11,
+          "text": "The user repeats Steps 1-8 for each out migration verification request."
+         }
+        ],
+        "extensions": [
+         {
+          "id": "9.a",
+          "atStep": "9",
+          "text": "The system determines that a verification request for out migration has previously been recorded for this person.",
+          "steps": [
+           {
+            "step": 1,
+            "text": "The system saves and displays all out migration verification requests that have been recorded."
+           }
+          ]
+         }
+        ],
+        "notes": [
+         {
+          "text": "A request for verification for out migration does not mean that the health care worker has actually out migrated; that cannot be determined with this system.",
+          "dateAdded": "11/1/2007",
+          "date": "2007-11-01"
+         }
+        ]
+       }
+      ],
+      "requirements": []
+     }
+    ],
+    "useCases": [],
+    "requirements": []
+   },
+   {
+    "number": "1.3",
+    "name": "Requirements",
+    "level": 2,
+    "description": null,
+    "notes": [],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [],
+    "requirements": [
+     {
+      "id": "REQ-PS3",
+      "name": "Index numbers",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "Each training receives a unique index number, which is tied to that training program in that cadre. An index number can be typed or automatically generated. The index number is used only to identify the training and may be issued by the training institution.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "2.0",
+      "referencedBy": [
+       "UC-PS35"
+      ]
+     },
+     {
+      "id": "REQ-PS4",
+      "name": "Upgrades",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "When a person receives a subsequent training in another cadre other than the one s/he is initially registered in, this is called an upgrade. If the training is received in-country, the person cannot receive an upgrade in the same cadre. (The person can receive upgrades for the same cadre when trained outside the country.)",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "2.0",
+      "referencedBy": [
+       "UC-PS35"
+      ]
+     },
+     {
+      "id": "REQ-PS5",
+      "name": "Training location",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "A training may be received inside or outside the country.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "2.0",
+      "referencedBy": [
+       "UC-PS35"
+      ]
+     },
+     {
+      "id": "REQ-PS6",
+      "name": "Examination numbers",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "Recording examination results is optional. The examination number must be unique.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "2.0",
+      "referencedBy": [
+       "UC-PS39"
+      ]
+     },
+     {
+      "id": "REQ-PS7",
+      "name": "Examination attempts",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "A person can retake the exam three times by default. They must receive a passing exam result on one try to be eligible for registration, if exam results are required. If they do not receive a passing result in three tries, no more examination results can be recorded for that person.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "1.0",
+      "referencedBy": [
+       "UC-PS39"
+      ]
+     },
+     {
+      "id": "REQ-PS8",
+      "name": "Private practice license numbers",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "When a person opens a clinic, s/he receives a private practice license in their name associated with the registration that they will be practicing. The registration number is reused for the private practice license number by default, or a new number may be entered.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "2.0",
+      "referencedBy": [
+       "UC-PS44"
+      ]
+     },
+     {
+      "id": "REQ-PS9",
+      "name": "Disciplinary action",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "Disciplinary action can only be recorded after a license has been issued.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "2.0",
+      "referencedBy": [
+       "UC-PS45"
+      ]
+     },
+     {
+      "id": "REQ-PS10",
+      "name": "License renewal dates",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "The start date for a license renewal cannot occur before the end date of the previous license period.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "1.0",
+      "referencedBy": [
+       "UC-PS43",
+       "UC-PS42"
+      ]
+     },
+     {
+      "id": "REQ-PS11",
+      "name": "Registration numbers",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "The registration number is the person's main identification number. It must be unique within a cadre. It can be reused for all licenses and license renewals.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "2.0",
+      "referencedBy": [
+       "UC-PS40"
+      ]
+     },
+     {
+      "id": "REQ-PS12",
+      "name": "Registration requirements",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "The only details about a training that must be recorded are the cadre and training end date. This specifies which cadre a person has received pre-service training in and makes that person eligible for registration in that cadre.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "2.0",
+      "referencedBy": [
+       "UC-PS35",
+       "UC-PS40"
+      ]
+     },
+     {
+      "id": "REQ-PS13",
+      "name": "Multiple registrations",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "Registration numbers are tied to cadres. When a person receives more than one registration in multiple cadres, a new registration number is issued for each subsequent registration.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "1.0",
+      "referencedBy": [
+       "UC-PS40"
+      ]
+     },
+     {
+      "id": "REQ-PS14",
+      "name": "License numbers",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "When the person applies for a license, the registration number is reused for the license number by default. A new license number may be entered. License numbers do not have to be unique.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "2.0",
+      "referencedBy": [
+       "UC-PS41"
+      ]
+     },
+     {
+      "id": "REQ-PS15",
+      "name": "License renewals",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "When a license is renewed, the original license number is provided for the renewal by default. A new license number may not be typed in.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "2.0",
+      "referencedBy": [
+       "UC-PS43",
+       "UC-PS42"
+      ]
+     },
+     {
+      "id": "REQ-PS16",
+      "name": "Suspension of license",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "If a license is suspended, no actions can be performed on the person's record until the license is reinstated.",
+      "parent": "Requirements",
+      "type": "Business Rule",
+      "status": "Implemented",
+      "release": "2.0",
+      "referencedBy": [
+       "UC-PS45"
+      ]
+     }
+    ]
+   }
+  ],
+  "useCases": [],
+  "requirements": []
+ },
+ "dangling": [
+  {
+   "id": "UC-PS26",
+   "kind": "use-case",
+   "product": "qualify",
+   "title": "Add or update a personal title",
+   "citedBy": [
+    "A-PS1"
+   ]
+  }
+ ]
+}

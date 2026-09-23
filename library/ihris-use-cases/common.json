@@ -1,0 +1,2513 @@
+{
+ "$schema": "ihris-use-cases/v1",
+ "product": "common",
+ "title": "iHRIS Common use cases",
+ "report": {
+  "title": "Use Case Model - Complete Report",
+  "generator": "Serlio Software Case Complete",
+  "generatedAt": "7/13/2009 3:33 PM",
+  "author": "sturlington"
+ },
+ "source": {
+  "file": "iHRISCommonUseCases.doc",
+  "md5": "1191117b7635b700e6a4dc404b0a2f25",
+  "sha256": "6e2fbbbf02595b7b9404d8a99561414b7cb91aebdfad7f8bebd2019ec0189a93",
+  "extractedWith": "antiword -w 0",
+  "textSha256": "95eb6aa01b7816681339ad951ea561cc67a14ac4c68e29522094b5b93190e0a3",
+  "manifest": "uploads/ihris-use-cases/manifest.json"
+ },
+ "attribution": "iHRIS use-case model, IntraHealth International / the Capacity Project iHRIS team (2009). Published with the owner's permission.",
+ "counts": {
+  "useCases": 21,
+  "actors": 4,
+  "requirements": 19,
+  "packages": 9,
+  "steps": 163,
+  "extensions": 37
+ },
+ "withheld": [],
+ "actors": [
+  {
+   "id": "A-ICE1",
+   "name": "System Administrator",
+   "description": "The System Administrator has complete access and control over the HRIS and supporting hardware and software systems; installs, supports and troubleshoots the software; and creates and manages access accounts for all users.",
+   "goals": [
+    "Install and configure the system for use.",
+    "Add and update user accounts.",
+    "Define report relationships and create reports."
+   ],
+   "notes": [
+    {
+     "text": "This is the same as the System Administrator role for iHRIS Plan, iHRIS Manage and iHRIS Qualify.",
+     "dateAdded": "10/30/2007",
+     "date": "2007-10-30"
+    },
+    {
+     "text": "Can perform any use case and view all data entered in the system.",
+     "dateAdded": "10/30/2007",
+     "date": "2007-10-30"
+    },
+    {
+     "text": "All system developers should have a System Administrator login.",
+     "dateAdded": "10/30/2007",
+     "date": "2007-10-30"
+    }
+   ],
+   "useCases": [
+    {
+     "id": "UC-ICE7",
+     "title": "Add a user account"
+    },
+    {
+     "id": "UC-ICE1",
+     "title": "Configure modules"
+    },
+    {
+     "id": "UC-ICE14",
+     "title": "Create a report relationship"
+    },
+    {
+     "id": "UC-ICE20",
+     "title": "Export data"
+    },
+    {
+     "id": "UC-ICE19",
+     "title": "Import data"
+    },
+    {
+     "id": "UC-ICE8",
+     "title": "Update a user account"
+    }
+   ]
+  },
+  {
+   "id": "A-ICE2",
+   "name": "Data Manager",
+   "description": "This person manages the database, creates standard data lists and oversees data entry.",
+   "goals": [
+    "Spot-check records for errors and oversee data quality.",
+    "Correct erroneous data.",
+    "Define reports and report views for users to access."
+   ],
+   "notes": [
+    {
+     "text": "This role is equivalent to the HR Manager in iHRIS Manage, the Data Operations Manager in iHRIS Qualify and the Health Workforce Planner in iHRIS Plan.",
+     "dateAdded": "8/11/2008",
+     "date": "2008-08-11"
+    }
+   ],
+   "useCases": [
+    {
+     "id": "UC-ICE16",
+     "title": "Add a report view"
+    },
+    {
+     "id": "UC-ICE6",
+     "title": "Correct data"
+    },
+    {
+     "id": "UC-ICE15",
+     "title": "Create a report"
+    }
+   ]
+  },
+  {
+   "id": "A-ICE3",
+   "name": "Data Analyst",
+   "description": "This person generates reports in the system for the purposes of analyzing data.",
+   "goals": [
+    "Define and generate reports to analyze data entered in the system."
+   ],
+   "notes": [
+    {
+     "text": "This role is equivalent to the Health Workforce Planner in iHRIS Plan, the Executive Manager in iHRIS Manage or the Decision Maker in iHRIS Qualify.",
+     "dateAdded": "10/31/2007",
+     "date": "2007-10-31"
+    }
+   ],
+   "useCases": [
+    {
+     "id": "UC-ICE17",
+     "title": "Run a report"
+    }
+   ]
+  },
+  {
+   "id": "A-ICE4",
+   "name": "Any User",
+   "description": "A generic user (applies to all users of the system).",
+   "goals": [
+    "Access the system by logging in or out.",
+    "Retrieve a forgotten password.",
+    "Change a password.",
+    "Give feedback.",
+    "Search for and view a record.",
+    "Update and save records.",
+    "Run a standard report.",
+    "Uses the Windows-based iHRIS Suite."
+   ],
+   "notes": [],
+   "useCases": [
+    {
+     "id": "UC-ICE11",
+     "title": "Change password"
+    },
+    {
+     "id": "UC-ICE12",
+     "title": "Give feedback"
+    },
+    {
+     "id": "UC-ICE25",
+     "title": "Install sample data"
+    },
+    {
+     "id": "UC-ICE18",
+     "title": "Install the Windows version"
+    },
+    {
+     "id": "UC-ICE9",
+     "title": "Log in"
+    },
+    {
+     "id": "UC-ICE13",
+     "title": "Log out"
+    },
+    {
+     "id": "UC-ICE10",
+     "title": "Retrieve a password or username"
+    },
+    {
+     "id": "UC-ICE2",
+     "title": "Save a record"
+    },
+    {
+     "id": "UC-ICE3",
+     "title": "Search for a record"
+    },
+    {
+     "id": "UC-ICE5",
+     "title": "Update a record"
+    },
+    {
+     "id": "UC-ICE4",
+     "title": "View a record"
+    }
+   ]
+  }
+ ],
+ "root": {
+  "number": "1",
+  "name": "iHRIS Common",
+  "level": 1,
+  "description": "These are use cases and requirements shared by multiple iHRIS products.",
+  "notes": [
+   {
+    "text": "Core version 3.1 released August 15, 2008.",
+    "dateAdded": "9/29/2008",
+    "date": "2008-09-29"
+   },
+   {
+    "text": "Core version 4.0 released July 13, 2009.",
+    "dateAdded": "7/13/2009",
+    "date": "2009-07-13"
+   }
+  ],
+  "relatedDocuments": [
+   "https://launchpad.net/ihris-common"
+  ],
+  "packages": [
+   {
+    "number": "1.1",
+    "name": "System-wide",
+    "level": 2,
+    "description": "System-wide actions that do not apply to any other package.",
+    "notes": [
+     {
+      "text": "Documentation needs to be written for the following configuration functions: Browse Magic Data; Manage Locales; Background Processes; and Cached Forms. To be included in the System Administrator manual.",
+      "dateAdded": "7/29/2008",
+      "date": "2008-07-29"
+     }
+    ],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-ICE1",
+      "title": "Configure modules",
+      "priority": "P7",
+      "package": "1.1",
+      "description": "The System Administrator configures modules that will be used by the system.",
+      "parent": "System-wide",
+      "primaryActors": [
+       "System Administrator"
+      ],
+      "supportingActors": [],
+      "preconditions": "Hardware and supporting software have been set up properly. There is a network connection. The system files have been installed. The database connection has been established. The System Administrator account has been created.",
+      "successGuarantee": "The system is configured and can be used. Modules, configuration options and roles perform as configured.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user accesses the configuration screen."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the system to configure sub-modules for: Manage, Qualify or Plan."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the modules to install."
+       },
+       {
+        "step": 4,
+        "text": "The system installs each selected module."
+       },
+       {
+        "step": 5,
+        "text": "The system enables, or turns on, each new module."
+       },
+       {
+        "step": 6,
+        "text": "The user selects the modules to turn off or disable."
+       },
+       {
+        "step": 7,
+        "text": "The system de-activates the selected modules."
+       },
+       {
+        "step": 8,
+        "text": "The user selects a module to configure."
+       },
+       {
+        "step": 9,
+        "text": "The system displays the configuration options for that module."
+       },
+       {
+        "step": 10,
+        "text": "The user sets the desired options for that module."
+       },
+       {
+        "step": 11,
+        "text": "The user saves the configuration."
+       },
+       {
+        "step": 12,
+        "text": "The system activates the options that the user has selected."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user does not install any modules.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "Skip to Step 6."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The system determines that a module is required to be enabled for the system to operate.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system does not allow the module to be disabled."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is identical for iHRIS Plan, iHRIS Manage and iHRIS Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality can be accessed through the Configure System --> Configure Modules menu option.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE2",
+      "title": "Save a record",
+      "priority": "P6",
+      "package": "1.1",
+      "description": "The system confirms that data are entered correctly and all required data have been entered before saving that data.",
+      "parent": "System-wide",
+      "primaryActors": [
+       "Any User"
+      ],
+      "supportingActors": [],
+      "preconditions": "Data have been entered into a data entry form. The user must be logged in to the system.",
+      "successGuarantee": "The data are validated and saved to the database.",
+      "level": "Subfunction",
+      "complexity": null,
+      "status": "Updated",
+      "implementationStatus": "Partially Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The system validates that all required fields have been completed."
+       },
+       {
+        "step": 2,
+        "text": "The system displays the data that the user entered."
+       },
+       {
+        "step": 3,
+        "text": "The user corrects any errors."
+       },
+       {
+        "step": 4,
+        "text": "The user confirms that the data are correct."
+       },
+       {
+        "step": 5,
+        "text": "The system saves the data to the database."
+       },
+       {
+        "step": 6,
+        "text": "The system logs the date and the username of the person who filled out the record."
+       },
+       {
+        "step": 7,
+        "text": "The system displays the last modified date with the affected record."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "1.a",
+        "atStep": "1",
+        "text": "The user does not complete a required field.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system prompts the user to complete the field and will not continue."
+         }
+        ]
+       },
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user does not make any corrections.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "Skip to Step 4."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "The use case is the same for iHRIS Plan, Manage and Quailfy.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This use case is triggered when the Confirm button is clicked.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "Updated: Dual data entry actions have been removed from this use case, as we have chosen not to support dual data entry in the system.",
+        "dateAdded": "7/24/2008",
+        "date": "2008-07-24"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE3",
+      "title": "Search for a record",
+      "priority": "P4",
+      "package": "1.1",
+      "description": "The user searches for a record that has been entered in the system.",
+      "parent": "System-wide",
+      "primaryActors": [
+       "Any User"
+      ],
+      "supportingActors": [],
+      "preconditions": "The record has been entered in the system. The user must be logged in to the system.",
+      "successGuarantee": "The record is found and displayed.",
+      "level": "User",
+      "complexity": null,
+      "status": "Updated",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to search records."
+       },
+       {
+        "step": 2,
+        "text": "The user selections the type of record to search for."
+       },
+       {
+        "step": 3,
+        "text": "The user enters the name of the item to search for."
+       },
+       {
+        "step": 4,
+        "text": "The user selects any filters to limit the search."
+       },
+       {
+        "step": 5,
+        "text": "The system displays the matching records."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user does not enter a name.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system finds all records."
+         }
+        ]
+       },
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The user does not select a filter.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system searches all records."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The system does not find a matching record.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message."
+         }
+        ]
+       },
+       {
+        "id": "5.b",
+        "atStep": "5",
+        "text": "The system locates more than one matching record.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays all matching records."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is the same for iHRIS Qualify, Plan and Manage, although search fields may differ between the two systems.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "These functions are found via the Search Records menu option on Manage and Qualify, and via Manage Projections --> Find Projection on Plan.",
+        "dateAdded": "7/25/2008",
+        "date": "2008-07-25"
+       },
+       {
+        "text": "Searching is done by creating a report.",
+        "dateAdded": "6/29/2009",
+        "date": "2009-06-29"
+       },
+       {
+        "text": "In iHRIS Manage, Positions and Staff can be searched. Search can be limited to Nationality, Facility or Department.",
+        "dateAdded": "6/29/2009",
+        "date": "2009-06-29"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE4",
+      "title": "View a record",
+      "priority": "P6",
+      "package": "1.1",
+      "description": "The user displays a record and all the data entered for it.",
+      "parent": "System-wide",
+      "primaryActors": [
+       "Any User"
+      ],
+      "supportingActors": [],
+      "preconditions": "The record exists in the system. The user is logged into the system.",
+      "successGuarantee": "The record is displayed to the user, along with any actions the user can take based on the user's role.",
+      "level": "Subfunction",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user searches for a record (UC-ICE3)."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the record to view."
+       },
+       {
+        "step": 3,
+        "text": "The system checks the role of the user."
+       },
+       {
+        "step": 4,
+        "text": "The system displays the record and all the data entered for it that the user is authorized to view."
+       },
+       {
+        "step": 5,
+        "text": "The system provides options for updating or adding new data depending on the user's role and the level of data already entered in the record."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This use case is the same for iHRIS Manage, Plan and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "Employees can only view their own record, Supervisors can only view records of employees they supervise, and Managers can only view records of employees they manage.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed by clicking on a person's name.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE5",
+      "title": "Update a record",
+      "priority": "P6",
+      "package": "1.1",
+      "description": "When a change in information is reported, the user updates the system with that information.",
+      "parent": "System-wide",
+      "primaryActors": [
+       "Any User"
+      ],
+      "supportingActors": [],
+      "preconditions": "The record has previously been entered in the system. The user must be logged in to the system. The user must have the access privileges required to edit the record.",
+      "successGuarantee": "The record is updated with the correct information and the previous information is saved for validation purposes.",
+      "level": "User",
+      "complexity": null,
+      "status": "Updated",
+      "implementationStatus": "Partially Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user opens the record to update."
+       },
+       {
+        "step": 2,
+        "text": "In the record, the user selects the option to update specific information."
+       },
+       {
+        "step": 3,
+        "text": "The system checks the user's role."
+       },
+       {
+        "step": 4,
+        "text": "The user changes the appropriate fields."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system logs the date of the update."
+       },
+       {
+        "step": 7,
+        "text": "The system marks all changed data as \"updated.\""
+       },
+       {
+        "step": 8,
+        "text": "The system saves the previously entered information in that item's history log."
+       },
+       {
+        "step": 9,
+        "text": "The system displays the new data and the date of the most recent update with the record."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user's role does not allow the user to update the information.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system does not provide the option to update the record."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "In iHRIS Manage, position and salary information cannot be updated. It must be corrected by an HR Manager.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "This use case is the same for iHRIS Manage, Plan and Qualify.",
+        "dateAdded": "2/11/2008",
+        "date": "2008-02-11"
+       },
+       {
+        "text": "In iHRIS Plan, a record is updated by adding new data; new data cannot be added to a record for the same year as data that have already been entered.",
+        "dateAdded": "8/5/2008",
+        "date": "2008-08-05"
+       },
+       {
+        "text": "This use case has been updated to specify that the date of the update should be logged and displayed.",
+        "dateAdded": "2/11/2009",
+        "date": "2009-02-11"
+       },
+       {
+        "text": "This functionality is accessed via the Update This Information link on a record (Manage and Qualify).",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.2",
+    "name": "User Administration",
+    "level": 2,
+    "description": "Create, update and disable user accounts to enforce secure access to the system.",
+    "notes": [
+     {
+      "text": "Access is limited to the System Administrator.",
+      "dateAdded": "10/30/2007",
+      "date": "2007-10-30"
+     },
+     {
+      "text": "Locate these functions via the Configure System --> Administer Users link on the main menu.",
+      "dateAdded": "10/30/2007",
+      "date": "2007-10-30"
+     }
+    ],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-ICE7",
+      "title": "Add a user account",
+      "priority": "P10",
+      "package": "1.2",
+      "description": "The System Administrator creates a user account so the user can log on to the system.",
+      "parent": "User Administration",
+      "primaryActors": [
+       "System Administrator"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The user account is created; the new user can log in and work on the system.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to create a new user account."
+       },
+       {
+        "step": 2,
+        "text": "The user enters a username for the new user."
+       },
+       {
+        "step": 3,
+        "text": "The user enters the name of the new user, if known:",
+        "options": [
+         "first name",
+         "surname"
+        ]
+       },
+       {
+        "step": 4,
+        "text": "The user enters an email address for the new user (optional)."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the option to generate a random password or enter a new password for the new user."
+       },
+       {
+        "step": 6,
+        "text": "If the password is entered, the user re-enters it to confirm."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the role of the new user."
+       },
+       {
+        "step": 8,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 9,
+        "text": "The system enables the user account and permits a log in with that username and password."
+       },
+       {
+        "step": 10,
+        "text": "The system sends an email message to the user with the username and password."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The user does not enter an email address.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system does not email the user information to the user."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The user enters the new password but does not re-enter it.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system prompts the user to re-enter the password and will not proceed."
+         }
+        ]
+       },
+       {
+        "id": "5.b",
+        "atStep": "5",
+        "text": "The system determines that the two passwords do not match.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and prompts the user to re-enter the password."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user does not select a role.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system marks the new user as disabled and does not permit the new user to log in with that username and password."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The system determines that the username is already in the system.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not proceed."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case applies to iHRIS Plan, iHRIS Manage and iHRIS Qualify.",
+        "dateAdded": "10/30/2007",
+        "date": "2007-10-30"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Users screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE8",
+      "title": "Update a user account",
+      "priority": "P10",
+      "package": "1.2",
+      "description": "The system administrator changes the details for a user account or closes the account.",
+      "parent": "User Administration",
+      "primaryActors": [
+       "System Administrator"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user account has been created. The user must be logged in to the system.",
+      "successGuarantee": "The account information is changed or the account is disabled so that the user cannot access the system.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage user accounts."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all user accounts."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the user account to change."
+       },
+       {
+        "step": 4,
+        "text": "The system displays the user account information."
+       },
+       {
+        "step": 5,
+        "text": "The user makes any changes."
+       },
+       {
+        "step": 6,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 7,
+        "text": "The system saves the changes to the user account."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The user selects No Access for the user role.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system disables the account or gives it Guest access."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is the same for iHRIS Plan, iHRIS Qualify and iHRIS Manage.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Administer Users screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.3",
+    "name": "User Access",
+    "level": 2,
+    "description": "General actions that the user can perform to access and use the system.",
+    "notes": [],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-ICE9",
+      "title": "Log in",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "The user logs in to authenticate his/her access to the system and role and to perform any other task.",
+      "parent": "User Access",
+      "primaryActors": [
+       "Any User"
+      ],
+      "supportingActors": [],
+      "preconditions": "A user account for the user has been created.",
+      "successGuarantee": "The user can successfully log in and perform actions appropriate for his/her role.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user connects to the system."
+       },
+       {
+        "step": 2,
+        "text": "The user enters the username and password."
+       },
+       {
+        "step": 3,
+        "text": "The system validates the username and password."
+       },
+       {
+        "step": 4,
+        "text": "The system determines the user's role and displays that role to the user."
+       },
+       {
+        "step": 5,
+        "text": "The system displays a list of actions the user can perform based on the user's role."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The system determines that the password is incorrect for the username entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system prompts the user to re-enter the password."
+         },
+         {
+          "step": 2,
+          "text": "The system provides the option to retrieve a forgotten password."
+         }
+        ]
+       },
+       {
+        "id": "3.b",
+        "atStep": "3",
+        "text": "The system determines that the username does not match a username for any account.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message."
+         }
+        ]
+       },
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The system determines that the user has no role assigned in the system.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system does not allow access."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is similar for iHRIS Plan, Manage and iHRIS Qualify, although there may be some additional role actions in Manage.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the home page.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE10",
+      "title": "Retrieve a password or username",
+      "priority": "P10",
+      "package": "1.3",
+      "description": "If the user has forgotten a password or username, s/he can generate a new one.",
+      "parent": "User Access",
+      "primaryActors": [
+       "Any User"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user has a user account on the system.",
+      "successGuarantee": "The user is able to retrieve the password or username and log in to the system.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "From the login page, the user selects the option to retrieve a forgotten username or password."
+       },
+       {
+        "step": 2,
+        "text": "To reset the password, the user enters their username."
+       },
+       {
+        "step": 3,
+        "text": "The system emails the new password to the user."
+       },
+       {
+        "step": 4,
+        "text": "To recover the username, the user enters their email address."
+       },
+       {
+        "step": 5,
+        "text": "The system displays the username."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "2.1.a",
+        "atStep": "2.1",
+        "text": "The system does not find the user's email address in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message."
+         }
+        ]
+       },
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The system does not find the user's email address in the database.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system cannot recover the username and displays an error message."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "The use case is identical for iHRIS Manage, Plan and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the home page (Forgot password or username link).",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE11",
+      "title": "Change password",
+      "priority": "P10",
+      "package": "1.3",
+      "description": "A user can change his/her own password for logging into the system.",
+      "parent": "User Access",
+      "primaryActors": [
+       "Any User"
+      ],
+      "supportingActors": [],
+      "preconditions": "A user account has been created for the user. The user must be logged in to the system.",
+      "successGuarantee": "The user resets his/her password and can use it to log in to the system.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to change the password."
+       },
+       {
+        "step": 2,
+        "text": "The user enters the current password."
+       },
+       {
+        "step": 3,
+        "text": "The user enters the desired new password."
+       },
+       {
+        "step": 4,
+        "text": "The user re-enters the new password."
+       },
+       {
+        "step": 5,
+        "text": "The system resets the password."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The system determines that the passwords do not match.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error and prompts the user to re-enter the passwords."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is identical for iHRIS Plan, Manage and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Change Password screen.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE12",
+      "title": "Give feedback",
+      "priority": "P10",
+      "package": "1.3",
+      "description": "The user provides feedback on a specific page in the system.",
+      "parent": "User Access",
+      "primaryActors": [
+       "Any User"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged into the system.",
+      "successGuarantee": "The feedback is captured and emailed.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to give feedback."
+       },
+       {
+        "step": 2,
+        "text": "The system captures the system form that is open."
+       },
+       {
+        "step": 3,
+        "text": "The system captures the username and role of the user who is logged in."
+       },
+       {
+        "step": 4,
+        "text": "The system opens the feedback form."
+       },
+       {
+        "step": 5,
+        "text": "The user enters their name and contact information."
+       },
+       {
+        "step": 6,
+        "text": "The user enters questions or comments."
+       },
+       {
+        "step": 7,
+        "text": "The user indicates whether they would like to be contacted."
+       },
+       {
+        "step": 8,
+        "text": "The user sends the form."
+       },
+       {
+        "step": 9,
+        "text": "The system emails the form to a feedback address including information about the system form the user was working on when they provided the feedback, the username and the user role, plus the date and time the form was submitted."
+       },
+       {
+        "step": 10,
+        "text": "The system logs the contents of the feedback form."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This use case is identical for iHRIS Plan, Manage and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Feedback button.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE13",
+      "title": "Log out",
+      "priority": "P10",
+      "package": "1.3",
+      "description": "The user logs out of the system.",
+      "parent": "User Access",
+      "primaryActors": [
+       "Any User"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user is logged in to the system.",
+      "successGuarantee": "The user can no longer perform any actions without logging back in.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to log out."
+       },
+       {
+        "step": 2,
+        "text": "The system displays the login page."
+       },
+       {
+        "step": 3,
+        "text": "The system disables the user from accessing any actions in the system."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This use case is the same for iHRIS Plan, Manage and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This functionality is accessed via the Log Out button in the upper right corner of any screen.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.4",
+    "name": "Reporting",
+    "level": 2,
+    "description": "Reports enable analysis of human resource data in various ways. Customize, display and print staff lists, statistical charts and other standard reports.",
+    "notes": [
+     {
+      "text": "Access these functions via the Configure System link on the main menu of iHRIS Manage or iHRIS Qualify.",
+      "dateAdded": "10/30/2007",
+      "date": "2007-10-30"
+     },
+     {
+      "text": "The custom report-building tool was released in version 3.1.",
+      "dateAdded": "7/24/2008",
+      "date": "2008-07-24"
+     },
+     {
+      "text": "Reports may be implemented differently in iHRIS Plan.",
+      "dateAdded": "7/24/2008",
+      "date": "2008-07-24"
+     },
+     {
+      "text": "Creating custom reports is complicated, and most functions are limited to System Administrators. These functions will be fully documented in the System Administrator's manual.",
+      "dateAdded": "8/11/2008",
+      "date": "2008-08-11"
+     }
+    ],
+    "relatedDocuments": [
+     "http://open.intrahealth.org/wiki/index.php/Customizing_Reports"
+    ],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-ICE14",
+      "title": "Create a report relationship",
+      "priority": "P10",
+      "package": "1.4",
+      "description": "The System Administrator creates a relationship between forms for defining reports.",
+      "parent": "Reporting",
+      "primaryActors": [
+       "System Administrator"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in.",
+      "successGuarantee": "The report relationship is defined and made available for creating reports.",
+      "level": "User",
+      "complexity": "High",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to create a report relationship."
+       },
+       {
+        "step": 2,
+        "text": "The user enters a name, display name and description of the report relationship."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the system forms that will be used in the report."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a name and description of each joined form."
+       },
+       {
+        "step": 5,
+        "text": "The user defines any limits for the selected fields."
+       },
+       {
+        "step": 6,
+        "text": "The user defines any functions necessary for the report relationship."
+       },
+       {
+        "step": 7,
+        "text": "The user saves the report relationship."
+       },
+       {
+        "step": 8,
+        "text": "The system makes the defined report relationships available for building reports."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The relationship has already been defined.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user can edit, copy or delete the relationship."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The function has already been defined.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user can edit or delete the function."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case applies to iHRIS Manage, Qualify and Plan.",
+        "dateAdded": "8/11/2008",
+        "date": "2008-08-11"
+       },
+       {
+        "text": "This use case has not been implemented in iHRIS Plan and may not be.",
+        "dateAdded": "8/11/2008",
+        "date": "2008-08-11"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Report Relationships screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE15",
+      "title": "Create a report",
+      "priority": "P10",
+      "package": "1.4",
+      "description": "The Data Manager designs a report using the data contained within the system.",
+      "parent": "Reporting",
+      "primaryActors": [
+       "Data Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "Some data have been entered into the system. The report relationship to be used for the report has been defined. The user must be logged in to the system.",
+      "successGuarantee": "The user can specify the report fields and generate a report that includes all of the desired data.",
+      "level": "User",
+      "complexity": "High",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to create a report."
+       },
+       {
+        "step": 2,
+        "text": "The user enters a name for the report."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the defined report relationship to base the report on."
+       },
+       {
+        "step": 4,
+        "text": "The user creates the report."
+       },
+       {
+        "step": 5,
+        "text": "The system displays those selection fields and functions taken from the report relationship that contain data."
+       },
+       {
+        "step": 6,
+        "text": "The user selects the data fields and functions to include in the report."
+       },
+       {
+        "step": 7,
+        "text": "The user specifies the limit options for each data field (optional)."
+       },
+       {
+        "step": 8,
+        "text": "The user specifies the link options for each data field (optional)."
+       },
+       {
+        "step": 9,
+        "text": "The user enters the header text to display for the field."
+       },
+       {
+        "step": 10,
+        "text": "The user saves the report."
+       },
+       {
+        "step": 11,
+        "text": "The system makes the report available for creating report views."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "9.a",
+        "atStep": "9",
+        "text": "The user does not enter a header.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system takes the header from the field name."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is probably the same for iHRIS Plan, Qualify and Manage.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "The blueprint for the customizing report procedure was written and posted to the wiki.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "This function has not been implemented in iHRIS Plan and may not be.",
+        "dateAdded": "8/5/2008",
+        "date": "2008-08-05"
+       },
+       {
+        "text": "This functionality is accessed via the Configure System --> Reports screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE16",
+      "title": "Add a report view",
+      "priority": "P1",
+      "package": "1.4",
+      "description": "The Data Manager creates a new view of a report to display the data differently.",
+      "parent": "Reporting",
+      "primaryActors": [
+       "Data Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "Some data have been entered into the system. The user must be logged in to the system. The report relationship and report have been defined.",
+      "successGuarantee": "The user can create the report view to display the appropriate data.",
+      "level": "User",
+      "complexity": null,
+      "status": "Updated",
+      "implementationStatus": "Partially Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the report views option."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all saved reports and their views."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a view for the desired report."
+       },
+       {
+        "step": 4,
+        "text": "The user enters a name for the view."
+       },
+       {
+        "step": 5,
+        "text": "The user enters a description of the view."
+       },
+       {
+        "step": 6,
+        "text": "The user selects whether to display the total number of rows in the view."
+       },
+       {
+        "step": 7,
+        "text": "The user selects the fields to display."
+       },
+       {
+        "step": 8,
+        "text": "For each field, the user selects whether to aggregate and display the total."
+       },
+       {
+        "step": 9,
+        "text": "The user selects which roles are authorized to access the report view."
+       },
+       {
+        "step": 10,
+        "text": "The user saves the view."
+       },
+       {
+        "step": 11,
+        "text": "The system makes the view available under the report and enables the user to run the report (UC-ICE17)."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The view already exists.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The user case edit or delete the view."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case applies to iHRIS Manage, Plan and Qualify.",
+        "dateAdded": "7/30/2008",
+        "date": "2008-07-30"
+       },
+       {
+        "text": "This is a new use case for the customized reports functionality.",
+        "dateAdded": "7/30/2008",
+        "date": "2008-07-30"
+       },
+       {
+        "text": "This function has not been implemented in iHRIS Plan and may not be.",
+        "dateAdded": "8/5/2008",
+        "date": "2008-08-05"
+       },
+       {
+        "text": "The use case was updated to specify that roles should be associated with report views, so that some reports may be restricted. This has not been implemented.",
+        "dateAdded": "2/11/2009",
+        "date": "2009-02-11"
+       },
+       {
+        "text": "This functionality can be accessed via the Configure System --> Report Views screens.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE17",
+      "title": "Run a report",
+      "priority": "P1",
+      "package": "1.4",
+      "description": "The user runs a report to answer a policy question.",
+      "parent": "Reporting",
+      "primaryActors": [
+       "Data Analyst"
+      ],
+      "supportingActors": [],
+      "preconditions": "Some data have been entered into the system. The user must be logged in to the system. The report relationship, report and a view for the report have been defined.",
+      "successGuarantee": "The user can successfully run a report to answer a policy question.",
+      "level": "User",
+      "complexity": null,
+      "status": "Updated",
+      "implementationStatus": "Partially Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the report views option."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all saved reports and their views that the user is authorized to view based on the user's role."
+       },
+       {
+        "step": 3,
+        "text": "The user selects the report view from the list to display."
+       },
+       {
+        "step": 4,
+        "text": "The user selects limits for the report."
+       },
+       {
+        "step": 5,
+        "text": "The system displays the requested report, including all selected limits and the date the report was generated."
+       },
+       {
+        "step": 6,
+        "text": "The system provides the option to:",
+        "options": [
+         "convert the report to a chart",
+         "export the data from the report",
+         "format the report for printing"
+        ]
+       },
+       {
+        "step": 7,
+        "text": "The user clicks a linked item in the report."
+       },
+       {
+        "step": 8,
+        "text": "The system displays the full record for the item."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The user does not select any filters.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays all report data."
+         }
+        ]
+       },
+       {
+        "id": "4.b",
+        "atStep": "4",
+        "text": "The user selects more than one filter.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system applies all filters to the report."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The user enters new data into the database to display in the report.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system downloads and displays the most recent dataset in the report."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case applies to iHRIS Manage, Plan and Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "Some roles may be limited in the reports they can run; this will be decided for each system individually.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "System Administrators, data managers and executive managers/decision makers can always access all reports.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "Use case updated for custom reports, which includes the ability to program report views.",
+        "dateAdded": "7/30/2008",
+        "date": "2008-07-30"
+       },
+       {
+        "text": "This function has not been implemented in iHRIS Plan and may not be.",
+        "dateAdded": "8/5/2008",
+        "date": "2008-08-05"
+       },
+       {
+        "text": "The use case was updated to specify that the system checks the role before displaying the report.",
+        "dateAdded": "2/11/2009",
+        "date": "2009-02-11"
+       },
+       {
+        "text": "This functionality can be accessed via View Reports or via Configure System --> Report Views.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.5",
+    "name": "Data Management",
+    "level": 2,
+    "description": "Import and export data for use in other instances of iHRIS or in another system. These functions are primarily intended to be use to send standard data from a centralized server to implementations at the district or facility level, and to regularly update the centralized server with record changes from the district or facility level for reporting.",
+    "notes": [],
+    "relatedDocuments": [
+     "http://open.intrahealth.org/mediawiki/Import_and_Export_Data"
+    ],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-ICE19",
+      "title": "Import data",
+      "priority": "P10",
+      "package": "1.5",
+      "description": "A user imports data from another instance of the system, such as from a district or facility office to the central location.",
+      "parent": "Data Management",
+      "primaryActors": [
+       "System Administrator"
+      ],
+      "supportingActors": [],
+      "preconditions": "An exported file of data from another instance of the system is available for importing. The user is logged in.",
+      "successGuarantee": "The data are imported and can be viewed and updated in the system.",
+      "level": "User",
+      "complexity": null,
+      "status": "Full",
+      "implementationStatus": "Complete",
+      "release": "4.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to import a site."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the dataset to import (such as people records, position records, facility records, standard data lists)."
+       },
+       {
+        "step": 3,
+        "text": "The system imports the data and saves it to a temporary table."
+       },
+       {
+        "step": 4,
+        "text": "The system displays a report of the imported data."
+       },
+       {
+        "step": 5,
+        "text": "The user checks for duplicate records (UC-ICE26)."
+       },
+       {
+        "step": 6,
+        "text": "The user verifies the imported data."
+       },
+       {
+        "step": 7,
+        "text": "The system merges the imported data into the current dataset."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user does not verify the imported data.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system deletes the imported data and returns the dataset to its state before the import began."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case applies to iHRIS Manage and Qualify.",
+        "dateAdded": "12/12/2008",
+        "date": "2008-12-12"
+       },
+       {
+        "text": "Data for import are grouped by type. To import all data from a system may require multiple separate imports.",
+        "dateAdded": "12/12/2008",
+        "date": "2008-12-12"
+       },
+       {
+        "text": "Import Data functions are found under Configure System --> Cached Forms.",
+        "dateAdded": "6/29/2009",
+        "date": "2009-06-29"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE20",
+      "title": "Export data",
+      "priority": "P10",
+      "package": "1.5",
+      "description": "The user exports data to a file for import into another instance of the system, for example to export centrally managed data to an instance installed at a district office or facility.",
+      "parent": "Data Management",
+      "primaryActors": [
+       "System Administrator"
+      ],
+      "supportingActors": [],
+      "preconditions": "Data have been entered or imported into the system. The user is logged in.",
+      "successGuarantee": "The data file is correctly exported and can be imported into another instance of the system.",
+      "level": "User",
+      "complexity": "High",
+      "status": "Full",
+      "implementationStatus": "Complete",
+      "release": "4.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to export the site."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the type of data to export."
+       },
+       {
+        "step": 3,
+        "text": "The system exports all of the selected data."
+       },
+       {
+        "step": 4,
+        "text": "The system notifies the user when the exported data file is ready."
+       },
+       {
+        "step": 5,
+        "text": "The user selects the location to save the file."
+       },
+       {
+        "step": 6,
+        "text": "The system saves the file to that location."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This use case applies to iHRIS Manage and Qualify.",
+        "dateAdded": "12/12/2008",
+        "date": "2008-12-12"
+       },
+       {
+        "text": "Data for export are grouped by type. To export all data from a system may require multiple separate exports.",
+        "dateAdded": "12/12/2008",
+        "date": "2008-12-12"
+       },
+       {
+        "text": "The Export function is located under Configure System --> Browse Magic Data.",
+        "dateAdded": "6/29/2009",
+        "date": "2009-06-29"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.6",
+    "name": "Data Quality",
+    "level": 2,
+    "description": "Enables HR Managers to check and correct data entered by HR Staff and evaluate whether data are being entered correctly. Also incorporates other data quality functions, such as merging duplicate records.",
+    "notes": [
+     {
+      "text": "This module previously included dual data entry, which we have decided not to include in the core system. Legacy use cases have been retained.",
+      "dateAdded": "7/24/2008",
+      "date": "2008-07-24"
+     },
+     {
+      "text": "Spot-checking has not been implemented in any system.",
+      "dateAdded": "7/24/2008",
+      "date": "2008-07-24"
+     }
+    ],
+    "relatedDocuments": [
+     "http://open.intrahealth.org/wiki/index.php/Dual_Data_Entry_Procedure"
+    ],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-ICE6",
+      "title": "Correct data",
+      "priority": "P10",
+      "package": "1.6",
+      "description": "The Data Manager corrects any data previously entered in the system if those data are found to be incorrect or incomplete.",
+      "parent": "Data Quality",
+      "primaryActors": [
+       "Data Manager"
+      ],
+      "supportingActors": [],
+      "preconditions": "The information to be corrected has been entered in the system. The user must be logged in to the system. The user must be assigned a role that is allowed to correct data in the system.",
+      "successGuarantee": "The record is overwritten with the correct information and is marked as corrected. The date and username of the person correcting the record is logged.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "2.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user opens a record."
+       },
+       {
+        "step": 2,
+        "text": "The user selects the option to correct information in the record."
+       },
+       {
+        "step": 3,
+        "text": "The system checks the user's role."
+       },
+       {
+        "step": 4,
+        "text": "The user changes the appropriate fields."
+       },
+       {
+        "step": 5,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system marks all changed fields as \"corrected\"."
+       },
+       {
+        "step": 7,
+        "text": "The system displays the record with the corrected information."
+       },
+       {
+        "step": 8,
+        "text": "The system logs that the record has been checked and the username and date of the person who made the corrections."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user does not have a role at the data or system administrator level.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system does not provide the option to correct the record."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "In iHRIS Manage, only position and salary information requires correcting by an HR Manager; all other data can be updated by HR Staff.",
+        "dateAdded": "2/7/2008",
+        "date": "2008-02-07"
+       },
+       {
+        "text": "This use case is the same for iHRIS Manage, Plan and Qualify.",
+        "dateAdded": "2/11/2008",
+        "date": "2008-02-11"
+       },
+       {
+        "text": "In iHRIS Qualify, the following types of data can only be corrected by the Data Operations Manager: deployment, out migration, training, examination, registration, license, continuing education, private practice license and disciplinary action.",
+        "dateAdded": "7/25/2008",
+        "date": "2008-07-25"
+       },
+       {
+        "text": "Only Data Operations Managers, HR Managers, Health Workforce Planners and System Administrators can correct information.",
+        "dateAdded": "7/25/2008",
+        "date": "2008-07-25"
+       },
+       {
+        "text": "In iHRIS Plan, correcting information overwrites previously entered data; to add additional data for another year, the Add New Data option must be selected instead.",
+        "dateAdded": "8/5/2008",
+        "date": "2008-08-05"
+       },
+       {
+        "text": "This functionality is accessed via the Correct This Information link on a record (Manage and Qualify).",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.7",
+    "name": "Windows Version (Offline Tool)",
+    "level": 2,
+    "description": "The offline tool provides a working Windows Installer for a standalone version of the software so that it can be used to enter data and run reports on a Windows desktop without being connected to a server or network.",
+    "notes": [],
+    "relatedDocuments": [
+     "http://open.intrahealth.org/wiki/index.php/Offline_iHRIS"
+    ],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-ICE18",
+      "title": "Install the Windows version",
+      "priority": "P10",
+      "package": "1.7",
+      "description": "A user installs the offline tool on a local computer.",
+      "parent": "Windows Version (Offline Tool)",
+      "primaryActors": [
+       "Any User"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user has downloaded the installer program to his or her local computer.",
+      "successGuarantee": "The offline tool is installed successfully and all functions of the system become available to the user.",
+      "level": "User",
+      "complexity": null,
+      "status": "Updated",
+      "implementationStatus": "Complete",
+      "release": "3.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user starts the installer."
+       },
+       {
+        "step": 2,
+        "text": "The system opens the installation wizard."
+       },
+       {
+        "step": 3,
+        "text": "The user starts the installation."
+       },
+       {
+        "step": 4,
+        "text": "The user accepts the license agreement."
+       },
+       {
+        "step": 5,
+        "text": "The user selects which components to install."
+       },
+       {
+        "step": 6,
+        "text": "The user selects the folder where the program will be installed."
+       },
+       {
+        "step": 7,
+        "text": "The user enters an SMTP server and email address (optional)."
+       },
+       {
+        "step": 8,
+        "text": "The user selects whether the software should run on the local network or desktop."
+       },
+       {
+        "step": 9,
+        "text": "The user sets the port numbers for the web server and database."
+       },
+       {
+        "step": 10,
+        "text": "The user enters a database password."
+       },
+       {
+        "step": 11,
+        "text": "The user creates Quick Launch and/or Desktop icons for the installation."
+       },
+       {
+        "step": 12,
+        "text": "The system installs the files on the user's computer."
+       },
+       {
+        "step": 13,
+        "text": "The system launches the software program in the user's default browser."
+       },
+       {
+        "step": 14,
+        "text": "The system provides the option to launch Plan, Manage or Qualify."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "*.a",
+        "atStep": "*",
+        "text": "The user cancels the installation.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system stops the installation and exits the installer."
+         }
+        ]
+       },
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The user does not accept the license agreement.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides only the option to cancel the installation, not to continue the installation."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user does not select a folder.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system installs to the default folder."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The user does not enter a SMTP server or email address.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system prompts the user to accept the default values and continue the installation."
+         }
+        ]
+       },
+       {
+        "id": "9.a",
+        "atStep": "9",
+        "text": "The user does not enter the port numbers.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system prompts the user to accept the default values and continue the installation."
+         }
+        ]
+       },
+       {
+        "id": "13.a",
+        "atStep": "13",
+        "text": "The user deselects the option to launch the software after finishing the installation.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system does not launch the software."
+         }
+        ]
+       },
+       {
+        "id": "14.a",
+        "atStep": "14",
+        "text": "A component was not installed.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system does not provide the option to launch that component."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "A Windows computer is required for the offline tool only.",
+        "dateAdded": "1/31/2008",
+        "date": "2008-01-31"
+       },
+       {
+        "text": "The login account is also set up as username admin and password admin.",
+        "dateAdded": "1/31/2008",
+        "date": "2008-01-31"
+       },
+       {
+        "text": "The user has full System Administrator access to the offline tool and its data.",
+        "dateAdded": "1/31/2008",
+        "date": "2008-01-31"
+       },
+       {
+        "text": "An offline version of iHRIS Plan is now available; use case has been updated for this and some other new features available in version 3.1.",
+        "dateAdded": "10/3/2008",
+        "date": "2008-10-03"
+       },
+       {
+        "text": "Use case is updated with name change to Windows iHRIS.",
+        "dateAdded": "11/20/2008",
+        "date": "2008-11-20"
+       }
+      ]
+     },
+     {
+      "id": "UC-ICE25",
+      "title": "Install sample data",
+      "priority": "P7",
+      "package": "1.7",
+      "description": "The user can install data in the offline version for demonstration purposes.",
+      "parent": "Windows Version (Offline Tool)",
+      "primaryActors": [
+       "Any User"
+      ],
+      "supportingActors": [],
+      "preconditions": "Offline iHRIS has been installed with at least one component of iHRIS (Plan, Manage or Qualify).",
+      "successGuarantee": "Offline data selected by the user is loaded into Offline iHRIS and can be seen in dropdown menus and reports.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "3.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user launches Windows iHRIS."
+       },
+       {
+        "step": 2,
+        "text": "The user selects one of the components to launch."
+       },
+       {
+        "step": 3,
+        "text": "The system displays the login page with the administrator login credentials."
+       },
+       {
+        "step": 4,
+        "text": "The user logs in as the administrator."
+       },
+       {
+        "step": 5,
+        "text": "The system prompts the user to load sample data."
+       },
+       {
+        "step": 6,
+        "text": "The user selects the sample datasets to load."
+       },
+       {
+        "step": 7,
+        "text": "The system loads the selected data and makes that data available when using Windows iHRIS."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This is a new use case to fulfill the sample data requirement for version 3.1.",
+        "dateAdded": "10/3/2008",
+        "date": "2008-10-03"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.8",
+    "name": "Requirements",
+    "level": 2,
+    "description": "This package holds miscellaneous requirements for the project.",
+    "notes": [],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [],
+    "requirements": [
+     {
+      "id": "REQ-ICE1",
+      "name": "Cadres",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "Cadres refer only to health professionals. Non-health professionals should not be included in a cadre.",
+      "notes": [
+       {
+        "text": "This requirement applies to all iHRIS products.",
+        "dateAdded": "2/18/2008",
+        "date": "2008-02-18"
+       }
+      ]
+     },
+     {
+      "id": "REQ-ICE2",
+      "name": "Technology requirements",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "The system must run on an Apache web server running Linux with PHP and a MySQL database. A web browser--IE 5+, Firefox, Safari--is required to use the system.",
+      "notes": [
+       {
+        "text": "This requirement applies to all iHRIS products.",
+        "dateAdded": "10/26/2007",
+        "date": "2007-10-26"
+       }
+      ]
+     },
+     {
+      "id": "REQ-ICE3",
+      "name": "Multilingual support",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "The system should be able to support translation of all commands and instructions into multiple languages."
+     },
+     {
+      "id": "REQ-ICE4",
+      "name": "Log usage",
+      "priority": "P7",
+      "package": "1.8",
+      "description": "Log which pages are viewed, by whom and when so system usage data can be reported.",
+      "notes": [
+       {
+        "text": "Report scripts need to be written to pull out data from log files.",
+        "dateAdded": "7/24/2008",
+        "date": "2008-07-24"
+       }
+      ]
+     },
+     {
+      "id": "REQ-ICE5",
+      "name": "Leveragability",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "If the system is being used in conjunction with other systems in the suite, common functionality should be shared among all systems to reduce redundancy; for example, user accounts should only be defined once for all systems in use."
+     },
+     {
+      "id": "REQ-ICE6",
+      "name": "Integratability",
+      "priority": "P7",
+      "package": "1.8",
+      "description": "The system should be able to exchange data with the other iHRIS systems.",
+      "notes": [
+       {
+        "text": "Some features may need to be implemented to fully support this (to be determined).",
+        "dateAdded": "10/26/2007",
+        "date": "2007-10-26"
+       }
+      ]
+     },
+     {
+      "id": "REQ-ICE7",
+      "name": "Idle logout",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "If the user is idle for a certain period of time, the person is automatically logged out by the system."
+     },
+     {
+      "id": "REQ-ICE9",
+      "name": "Extensibility",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "The system should be extensible to other modules to be developed."
+     },
+     {
+      "id": "REQ-ICE10",
+      "name": "Data reliability",
+      "priority": "P7",
+      "package": "1.8",
+      "description": "Data errors are more highly tolerated in ongoing use of the system than in mass entry of historical data. The system's functions support the highest level of data quality and reduction of errors/duplication.",
+      "notes": [
+       {
+        "text": "Data quality processes are being improved in later releases.",
+        "dateAdded": "7/24/2008",
+        "date": "2008-07-24"
+       }
+      ]
+     },
+     {
+      "id": "REQ-ICE11",
+      "name": "Compatibility",
+      "priority": "P1",
+      "package": "1.8",
+      "description": "As much as is known, data fields should configure to standards set by global bodies such as WHO and the HR/professional licensing industry in general, to ensure better compatibility with other HR systems."
+     },
+     {
+      "id": "REQ-ICE12",
+      "name": "Caching of report data",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "All reports are cached for faster display. Caches can be updated manually by the user (after adding data, for instance) and will automatically regenerate on a periodic basis to ensure that the displayed data are up to date."
+     },
+     {
+      "id": "REQ-ICE13",
+      "name": "Authorization",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "All user accounts have an assigned role that determines which actions the user can perform within the system. All non-authorized data and actions are hidden from the user. Role access is described in the use cases."
+     },
+     {
+      "id": "REQ-ICE14",
+      "name": "Auditing",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "All user actions need to be logged for auditing purposes: record username, date and time the action was taken, the number of the record being modified, the name of the table being modified, the code number if there is a unique one for that table, and a note about the type of modification."
+     },
+     {
+      "id": "REQ-ICE15",
+      "name": "Archival",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "All data should be archived indefinitely. Data can only be deleted through the database by a System Administrator. Archived data must be available for reporting functions."
+     },
+     {
+      "id": "REQ-ICE16",
+      "name": "Authentication",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "Users must be authenticated via username and password before they can access any system actions or data."
+     },
+     {
+      "id": "REQ-ICE18",
+      "name": "User error reporting",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "Error alerts should provide meaningful messages to users when an error or bug is encountered."
+     },
+     {
+      "id": "REQ-ICE20",
+      "name": "Customized Roles",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "The user can create roles and assign tasks to them to create customized roles.",
+      "notes": [
+       {
+        "text": "This requirement applies to iHRIS Manage, Qualify and Plan.",
+        "dateAdded": "7/24/2008",
+        "date": "2008-07-24"
+       },
+       {
+        "text": "Accessible via System Config file.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     },
+     {
+      "id": "REQ-ICE22",
+      "name": "Geographical locations",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "There are four levels of geographical location: country --> region --> district/state/province --> county/sector. At least one region is required for each country. At least one district is required for each region.",
+      "notes": [
+       {
+        "text": "This requirement applies to both iHRIS Manage and iHRIS Qualify.",
+        "dateAdded": "10/26/2007",
+        "date": "2007-10-26"
+       }
+      ]
+     },
+     {
+      "id": "REQ-ICE23",
+      "name": "Customization",
+      "priority": "P10",
+      "package": "1.8",
+      "description": "The system should be easily customizable with regard to field names, fields that are displayed, etc., to easily adapt to different organization's HR procedures. For example, field names should be linked to alternates so that they can be changed globally. Fields that are not used can be disabled.",
+      "notes": [
+       {
+        "text": "Accessible via system config file.",
+        "dateAdded": "7/10/2009",
+        "date": "2009-07-10"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "useCases": [],
+  "requirements": []
+ },
+ "dangling": [
+  {
+   "id": "UC-ICE26",
+   "kind": "use-case",
+   "product": "common",
+   "title": null,
+   "citedBy": [
+    "UC-ICE19"
+   ]
+  }
+ ]
+}

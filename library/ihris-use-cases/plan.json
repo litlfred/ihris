@@ -1,0 +1,1345 @@
+{
+ "$schema": "ihris-use-cases/v1",
+ "product": "plan",
+ "title": "iHRIS Plan use cases",
+ "report": {
+  "title": "Use Case Model - Complete Report",
+  "generator": "Serlio Software Case Complete",
+  "generatedAt": "3/25/2009 4:13 PM",
+  "author": "sturlington"
+ },
+ "source": {
+  "file": "iHRISPlanUseCases.doc",
+  "md5": "5a425b3f113550ff41ad52f137edafee",
+  "sha256": "c4f73ecf8d131a5455d3e1a8406262ff4e9e6be3fd0211fe94b6220cef469c86",
+  "extractedWith": "antiword -w 0",
+  "textSha256": "8d60e09cb00c70c0b0abb07221d15ed6bf7d3ea0311aa5bab8253d6b5305b914",
+  "manifest": "uploads/ihris-use-cases/manifest.json"
+ },
+ "attribution": "iHRIS use-case model, IntraHealth International / the Capacity Project iHRIS team (2009). Published with the owner's permission.",
+ "counts": {
+  "useCases": 12,
+  "actors": 1,
+  "requirements": 0,
+  "packages": 6,
+  "steps": 106,
+  "extensions": 21
+ },
+ "withheld": [],
+ "actors": [
+  {
+   "id": "A-PP1",
+   "name": "Health Workforce Planner",
+   "description": "The Health Workforce Planner enters workforce data into the software, creates projections, runs scenarios, and analyzes and reports on the results. This is the primary user of the software. This person has some knowledge of workforce planning methods and access to necessary data for creating projections.",
+   "goals": [
+    "Enter workforce planning data and assumptions.",
+    "Create a projection of health workforce supply, need and costs.",
+    "Model the effects of interventions on the health workforce projection.",
+    "Produce health workforce plans and supporting reports."
+   ],
+   "notes": [],
+   "useCases": [
+    {
+     "id": "UC-PP2",
+     "title": "Add or update a cadre"
+    },
+    {
+     "id": "UC-PP3",
+     "title": "Add or update a country"
+    },
+    {
+     "id": "UC-PP1",
+     "title": "Add or update a currency"
+    },
+    {
+     "id": "UC-PP20",
+     "title": "Apply interventions to a base projection model"
+    },
+    {
+     "id": "UC-PP21",
+     "title": "Compare actual results to predicted results"
+    },
+    {
+     "id": "UC-PP24",
+     "title": "Copy a projection"
+    },
+    {
+     "id": "UC-PP8",
+     "title": "Create a cadre pool"
+    },
+    {
+     "id": "UC-PP12",
+     "title": "Create a pool change"
+    },
+    {
+     "id": "UC-PP5",
+     "title": "Create a projection"
+    },
+    {
+     "id": "UC-PP14",
+     "title": "Enter attrition assumptions"
+    },
+    {
+     "id": "UC-PP6",
+     "title": "Enter population"
+    },
+    {
+     "id": "UC-PP15",
+     "title": "Enter pre-service training assumptions"
+    },
+    {
+     "id": "UC-PP11",
+     "title": "Enter pre-service training data"
+    },
+    {
+     "id": "UC-PP13",
+     "title": "Enter retirement assumptions"
+    },
+    {
+     "id": "UC-PP9",
+     "title": "Enter supply"
+    },
+    {
+     "id": "UC-PP10",
+     "title": "Enter targets"
+    },
+    {
+     "id": "UC-PP19",
+     "title": "Generate a base projection"
+    },
+    {
+     "id": "UC-PP23",
+     "title": "Import supply data"
+    },
+    {
+     "id": "UC-PP22",
+     "title": "Produce a health workforce implementation plan"
+    }
+   ]
+  }
+ ],
+ "root": {
+  "number": "1",
+  "name": "iHRIS Plan - Core Functional",
+  "level": 1,
+  "description": "iHRIS Plan is workforce planning and modeling software.",
+  "notes": [
+   {
+    "text": "This documentation refers to the core version of iHRIS Plan (working title: PowerPlan).",
+    "dateAdded": "2/22/2008",
+    "date": "2008-02-22"
+   },
+   {
+    "text": "This documentation is based on the outputs of the Workforce Planning Model Workshop, held in December 2007, and the HRH Workforce Projection Model, specifically the simplified John Dewdney version of the model.",
+    "dateAdded": "2/22/2008",
+    "date": "2008-02-22"
+   },
+   {
+    "text": "Core version 1.0 released August 8, 2008.",
+    "dateAdded": "9/29/2008",
+    "date": "2008-09-29"
+   }
+  ],
+  "relatedDocuments": [
+   "http://www.capacityproject.org/suite/ihris_plan.php",
+   "http://launchpad.net/ihris-plan/"
+  ],
+  "packages": [
+   {
+    "number": "1.1",
+    "name": "Data Administration",
+    "level": 2,
+    "description": "Create and update standard lists of data for selection in system menus.",
+    "notes": [
+     {
+      "text": "Access is limited to Health Workforce Planners and System Administrators.",
+      "dateAdded": "2/6/2008",
+      "date": "2008-02-06"
+     },
+     {
+      "text": "Access these functions via the Configure System --> Administer Database menu links.",
+      "dateAdded": "7/25/2008",
+      "date": "2008-07-25"
+     }
+    ],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-PP1",
+      "title": "Add or update a currency",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Health Workforce Planner adds a currency for selection when setting monetary amounts.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new currency is added to the system and can be selected whenever specifying monetary amounts.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "Select the option to update the list of currencies."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all currencies entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "Select the option to add a new currency or update an existing one."
+       },
+       {
+        "step": 4,
+        "text": "Enter the currency code."
+       },
+       {
+        "step": 5,
+        "text": "Enter the name of the currency."
+       },
+       {
+        "step": 6,
+        "text": "Enter the symbol for the currency."
+       },
+       {
+        "step": 7,
+        "text": "Save a record (UC-ICE2)."
+       },
+       {
+        "step": 8,
+        "text": "The system makes the currency available for selection by symbol and code."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "An existing currency is selected.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The currency opens and its information can be edited."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is identical to the one used in iHRIS Manage.",
+        "dateAdded": "2/2/2007",
+        "date": "2007-02-02"
+       }
+      ]
+     },
+     {
+      "id": "UC-PP2",
+      "title": "Add or update a cadre",
+      "priority": "P7",
+      "package": "1.1",
+      "description": "The Health Workforce Planner enters or edits a cadre for selection within the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "Each cadre, as applied by the health professionals, is defined within the system and available for selection in various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "Select the option to update the list of cadres."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all cadres entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "Select the option to add a new cadre or update an existing one."
+       },
+       {
+        "step": 4,
+        "text": "Enter the name of the cadre."
+       },
+       {
+        "step": 5,
+        "text": "Save a record (UC-ICE2)."
+       },
+       {
+        "step": 6,
+        "text": "The system displays the new or edited cadre in selection lists of cadres."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "An existing item is selected.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The item form opens and the item can be edited."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is similar to the Add a Cadre use for iHRIS Qualify and Manage, but the qualification is not required.",
+        "dateAdded": "2/6/2008",
+        "date": "2008-02-06"
+       }
+      ]
+     },
+     {
+      "id": "UC-PP3",
+      "title": "Add or update a country",
+      "priority": "P1",
+      "package": "1.1",
+      "description": "The Health Workforce Planner updates the list of countries available for selection in the system.",
+      "parent": "Data Administration",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in to the system.",
+      "successGuarantee": "The new or changed country is defined within the system and available for selection within various use cases.",
+      "level": "User",
+      "complexity": null,
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "The user selects the option to manage lists of countries."
+       },
+       {
+        "step": 2,
+        "text": "The system displays all countries entered in the system."
+       },
+       {
+        "step": 3,
+        "text": "The user adds a new country."
+       },
+       {
+        "step": 4,
+        "text": "The user enters the two-letter country code."
+       },
+       {
+        "step": 5,
+        "text": "The user enters the ISO numeric code for the country (optional)."
+       },
+       {
+        "step": 6,
+        "text": "The user selects whether the country is the primary country for the system."
+       },
+       {
+        "step": 7,
+        "text": "The user saves the record (UC-ICE2)."
+       },
+       {
+        "step": 8,
+        "text": "The system makes the country available for selection whenever adding geographical locations or nationalities/citizenships."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The user selects an existing country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system opens the country for editing."
+         }
+        ]
+       },
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The user selects the country as the primary country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays the country first in all country selection menus."
+         }
+        ]
+       },
+       {
+        "id": "6.b",
+        "atStep": "6",
+        "text": "The system determines that more than one country was selected as the primary country.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays all primary countries at the top of selection menus in alphabetical order."
+         }
+        ]
+       },
+       {
+        "id": "7.a",
+        "atStep": "7",
+        "text": "The system determines that the name and country code are the same as a country previously entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays an error message and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "This use case is the same for iHRIS Manage, iHRIS Plan and iHRIS Qualify.",
+        "dateAdded": "10/31/2007",
+        "date": "2007-10-31"
+       },
+       {
+        "text": "The option to use the country for location selection does not apply to Plan and is hidden.",
+        "dateAdded": "8/5/2008",
+        "date": "2008-08-05"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.2",
+    "name": "Projection",
+    "level": 2,
+    "description": "This package enables the user to create and save a new projection or update a saved projection. The user can enter a target and non-cadre specific demographic data for projections.",
+    "notes": [
+     {
+      "text": "This is the first step in the workforce projection process and should appear first on the model map.",
+      "dateAdded": "2/6/2008",
+      "date": "2008-02-06"
+     },
+     {
+      "text": "The section will need to be completed before proceeding on to any other sections.",
+      "dateAdded": "2/6/2008",
+      "date": "2008-02-06"
+     },
+     {
+      "text": "Access these functions and all projection-related actions via the Manage Projections menu link.",
+      "dateAdded": "7/25/2008",
+      "date": "2008-07-25"
+     }
+    ],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-PP5",
+      "title": "Create a projection",
+      "priority": "P6",
+      "package": "1.2",
+      "description": "The Health Workforce Planner creates a new projection for modeling.",
+      "parent": "Projection",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in.",
+      "successGuarantee": "The projection is saved and additional data can be added.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Updated",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "Select the option to create a projection."
+       },
+       {
+        "step": 2,
+        "text": "Enter a brief name by which to identify the projection."
+       },
+       {
+        "step": 3,
+        "text": "Enter the name of the category under which to group the projection."
+       },
+       {
+        "step": 4,
+        "text": "Type in a text description of the targeted goals for the projection."
+       },
+       {
+        "step": 5,
+        "text": "Select the country for the projection."
+       },
+       {
+        "step": 6,
+        "text": "Select the start year for the projection."
+       },
+       {
+        "step": 7,
+        "text": "Enter the projection duration in years."
+       },
+       {
+        "step": 8,
+        "text": "Save a record (UC-ICE2)."
+       },
+       {
+        "step": 9,
+        "text": "The system saves the projection and displays the entered data."
+       },
+       {
+        "step": 10,
+        "text": "The system provides the options to enter additional information into the projection."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "The first-release model does not take into account the difference between short-term and long-term projections.",
+        "dateAdded": "7/23/2008",
+        "date": "2008-07-23"
+       }
+      ]
+     },
+     {
+      "id": "UC-PP24",
+      "title": "Copy a projection",
+      "priority": "P1",
+      "package": "1.2",
+      "description": "The Health Workforce Planner copies an existing projection.",
+      "parent": "Projection",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The projection to copy has already been entered in the system. The user is logged in.",
+      "successGuarantee": "The original projection is copied with a new name and all of its data. The copied data can be modified or updated.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "Select the option to find a projection."
+       },
+       {
+        "step": 2,
+        "text": "Enter the name of the projection to copy."
+       },
+       {
+        "step": 3,
+        "text": "The system displays all matching projections."
+       },
+       {
+        "step": 4,
+        "text": "Open the projection to copy."
+       },
+       {
+        "step": 5,
+        "text": "Copy the projection."
+       },
+       {
+        "step": 6,
+        "text": "The system copies all the projection data to the new projection."
+       },
+       {
+        "step": 7,
+        "text": "The system makes the projection available for modifications."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "This is a new use case based on a request from Namibia. The purpose is to allow users to easily reuse projection data.",
+        "dateAdded": "9/11/2008",
+        "date": "2008-09-11"
+       }
+      ]
+     },
+     {
+      "id": "UC-PP6",
+      "title": "Enter population",
+      "priority": "P1",
+      "package": "1.2",
+      "description": "The Health Workforce Planner enters the starting population and population growth rate for the projection.",
+      "parent": "Projection",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in. The projection must be created and saved.",
+      "successGuarantee": "The population and population growth rate are saved and are used by the system to calculate workforce requirements.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "Open the projection to modify."
+       },
+       {
+        "step": 2,
+        "text": "Select the option to enter the population."
+       },
+       {
+        "step": 3,
+        "text": "Select the year for which the population is known."
+       },
+       {
+        "step": 4,
+        "text": "Enter the total population."
+       },
+       {
+        "step": 5,
+        "text": "Enter the population growth rate as a percentage."
+       },
+       {
+        "step": 6,
+        "text": "Enter the source of the population data."
+       },
+       {
+        "step": 7,
+        "text": "Save a record (UC-ICE2)."
+       },
+       {
+        "step": 8,
+        "text": "The system calculates the population growth for each year in the projection."
+       },
+       {
+        "step": 9,
+        "text": "The system uses the population to determine requirements."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "2.a",
+        "atStep": "2",
+        "text": "The population has already been entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides the option to correct the data that has been entered or to add new population data for another year."
+         }
+        ]
+       },
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The year is before the start of the projection.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system does not provide the option to select a year before the projection base year."
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.3",
+    "name": "Cadre Pools",
+    "level": 2,
+    "description": "This package enables a user to define the cadres that will be modeled in the projection, enter supply and requirements data for the cadre, and enter assumptions that will affect the size of the cadre over time.",
+    "notes": [
+     {
+      "text": "This is the second step in the workforce planning process and should appear second on the model map.",
+      "dateAdded": "2/6/2008",
+      "date": "2008-02-06"
+     },
+     {
+      "text": "This step will need to be repeated for each cadre in the workforce projection.",
+      "dateAdded": "2/6/2008",
+      "date": "2008-02-06"
+     },
+     {
+      "text": "Assumptions should include explanation of numbers used and any defaults that are pre-entered, as well as extensive help with reaching the assumptions.",
+      "dateAdded": "2/6/2008",
+      "date": "2008-02-06"
+     }
+    ],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-PP8",
+      "title": "Create a cadre pool",
+      "priority": "P1",
+      "package": "1.3",
+      "description": "The Health Workforce Planner selects a cadre and saves it as a pool of health workers in the health workforce that is being modeled.",
+      "parent": "Cadre Pools",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user is logged in. The target and demographics have been entered and saved. The cadre has been entered in the selection menu.",
+      "successGuarantee": "The cadre is saved and a pool is created for that cadre that the user can add data to and update over time.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "Open the projection to modify."
+       },
+       {
+        "step": 2,
+        "text": "Enter a name for the cadre pool."
+       },
+       {
+        "step": 3,
+        "text": "Select the cadre from the dropdown menu."
+       },
+       {
+        "step": 4,
+        "text": "Save a record (UC-ICE2)."
+       },
+       {
+        "step": 5,
+        "text": "The system saves the cadre pool name and cadre to identify the cadre pool."
+       },
+       {
+        "step": 6,
+        "text": "The system provides the option to enter data for that cadre or to create another cadre pool."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "All data entered after this point pertain solely to the selected cadre.",
+        "dateAdded": "2/6/2008",
+        "date": "2008-02-06"
+       }
+      ]
+     },
+     {
+      "id": "UC-PP9",
+      "title": "Enter supply",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "The Health Workforce Planner enters data to project the actual supply of health workers.",
+      "parent": "Cadre Pools",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user must be logged in. The projection must be started or updated and population data entered. The cadre pool has been created. The currency has been entered in the system.",
+      "successGuarantee": "The system can project the workforce supply and salary costs in that cadre for each year in the projection range.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Released",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "Open the projection to modify."
+       },
+       {
+        "step": 2,
+        "text": "Select the cadre pool to update."
+       },
+       {
+        "step": 3,
+        "text": "Select the option to enter supply data."
+       },
+       {
+        "step": 4,
+        "text": "Select the year for which supply data are being entered."
+       },
+       {
+        "step": 5,
+        "text": "Enter the number of staff actually employed at the start of the year."
+       },
+       {
+        "step": 6,
+        "text": "Enter the data source."
+       },
+       {
+        "step": 7,
+        "text": "Select the currency of the salary."
+       },
+       {
+        "step": 8,
+        "text": "Enter the average salary for a worker in the cadre pool."
+       },
+       {
+        "step": 9,
+        "text": "Enter the average percentage by which salaries increase each year."
+       },
+       {
+        "step": 10,
+        "text": "Save a record (UC-ICE2)."
+       },
+       {
+        "step": 11,
+        "text": "The system calculates the population per employee at the year start."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "The supply data have already been entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides the option to correct the previously entered data or to enter new supply data for a subsequent year."
+         }
+        ]
+       },
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The year is prior to the base year of the projection.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system does not allow a year before the base year to be selected."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "The population per employee can be compared to the population per position calculated in the requirements.",
+        "dateAdded": "2/6/2008",
+        "date": "2008-02-06"
+       },
+       {
+        "text": "The total number of staff at year end can be compared to the required number of positions at the beginning of the next year to analyze the gap between actual and required staff.",
+        "dateAdded": "2/6/2008",
+        "date": "2008-02-06"
+       }
+      ]
+     },
+     {
+      "id": "UC-PP10",
+      "title": "Enter targets",
+      "priority": "P2",
+      "package": "1.3",
+      "description": "The Health Workforce Planner enters the required number of positions for the cadre.",
+      "parent": "Cadre Pools",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user is logged in. The user has started or is updating a projection and has entered population data for the projection. The cadre pool has been created.",
+      "successGuarantee": "The requirements are correctly calculated and can be graphed in the results.",
+      "level": "User",
+      "complexity": "Medium",
+      "status": "Updated",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "Open the projection to modify."
+       },
+       {
+        "step": 2,
+        "text": "Select the cadre pool for which to enter target data."
+       },
+       {
+        "step": 3,
+        "text": "Select the option to enter target data."
+       },
+       {
+        "step": 4,
+        "text": "Select the year for which targets are known."
+       },
+       {
+        "step": 5,
+        "text": "Enter the target as either:",
+        "options": [
+         "the number of positions to be filled in the year or"
+        ]
+       },
+       {
+        "step": 6,
+        "text": "the health worker-to-population ratio target."
+       },
+       {
+        "step": 7,
+        "text": "Enter the data source."
+       },
+       {
+        "step": 8,
+        "text": "Save a record (UC-ICE2)."
+       },
+       {
+        "step": 9,
+        "text": "The system calculates the required number of positions needed to maintain the initial position-to-population ratio for each year in the projection range."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "2.a",
+        "atStep": "2",
+        "text": "The target data have already been entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system provides the option to correct the previously entered data or to add new target data for a subsequent year."
+         }
+        ]
+       },
+       {
+        "id": "4.a",
+        "atStep": "4",
+        "text": "The year is before the base year of the projection.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system does not provide an option to select a year prior to the base year."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "Both a number and a ratio are entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system generates an error and will not continue."
+         }
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "text": "The population per position remains the same for each year; requirements are calculated based on this figure.",
+        "dateAdded": "2/6/2008",
+        "date": "2008-02-06"
+       }
+      ]
+     },
+     {
+      "id": "UC-PP12",
+      "title": "Create a pool change",
+      "priority": "P6",
+      "package": "1.3",
+      "description": "The Health Workforce Planner creates a change in the pool supply due to an increase or decrease in health workers to be applied to the projection.",
+      "parent": "Cadre Pools",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The projection has been created and a cadre pool has been created for it. Supply data have been entered for the cadre pool. The currency has been entered in the system.",
+      "successGuarantee": "The system calculates the changes to the supply of health workers and displays the results in the projection.",
+      "level": "User",
+      "complexity": null,
+      "status": "Updated",
+      "implementationStatus": "Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "Open the projection to modify."
+       },
+       {
+        "step": 2,
+        "text": "Select the cadre pool to update."
+       },
+       {
+        "step": 3,
+        "text": "Select the option to enter a pool change."
+       },
+       {
+        "step": 4,
+        "text": "Enter a name for the pool change."
+       },
+       {
+        "step": 5,
+        "text": "Enter a description of the assumption being made."
+       },
+       {
+        "step": 6,
+        "text": "Select whether to enable the pool change."
+       },
+       {
+        "step": 7,
+        "text": "Select whether the pool change is a:",
+        "options": [
+         "intake, or increase in health workers",
+         "exit, or decrease in health workers"
+        ]
+       },
+       {
+        "step": 8,
+        "text": "Enter the data source."
+       },
+       {
+        "step": 9,
+        "text": "Enter the change amount as either the number or the percentage of health workers to increase or decrease the supply by."
+       },
+       {
+        "step": 10,
+        "text": "Enter a maximum amount for the change (optional)."
+       },
+       {
+        "step": 11,
+        "text": "Select a currency for any costs associated with the change."
+       },
+       {
+        "step": 12,
+        "text": "Enter the average cost of the change per year per worker (optional)."
+       },
+       {
+        "step": 13,
+        "text": "Enter the average percentage increase in the costs per year (optional)."
+       },
+       {
+        "step": 14,
+        "text": "Select the initial year to apply the change."
+       },
+       {
+        "step": 15,
+        "text": "Enter the number of years to apply the change."
+       },
+       {
+        "step": 16,
+        "text": "Save the change (UC-ICE2)."
+       },
+       {
+        "step": 17,
+        "text": "The system calculates the effects of the change on the projected workforce and the costs."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "6.a",
+        "atStep": "6",
+        "text": "The pool change is disabled.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The change does not affect the projection and the data are not displayed in the projection."
+         }
+        ]
+       },
+       {
+        "id": "9.a",
+        "atStep": "9",
+        "text": "A number of health workers is entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "Enter the rate by which to increase the amount of workers added to or subtracted from the supply (optional)."
+         }
+        ]
+       },
+       {
+        "id": "9.b",
+        "atStep": "9",
+        "text": "Both an amount and a percentage are entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system generates an error and will not continue."
+         }
+        ]
+       },
+       {
+        "id": "14.a",
+        "atStep": "14",
+        "text": "A year is not selected.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system selects the base year for the initial year."
+         }
+        ]
+       },
+       {
+        "id": "15.a",
+        "atStep": "15",
+        "text": "The number of years is not entered.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system calculates the change for the entire projection duration."
+         }
+        ]
+       },
+       {
+        "id": "17.a",
+        "atStep": "17",
+        "text": "There is more than one change affecting the cadre pool.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "Repeat all steps for each pool change."
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.4",
+    "name": "Data Modeling",
+    "level": 2,
+    "description": "This module enables a user to graph the actual and required human resources pools, showing changes over time as determined by the influences. The user may then define one or more interventions on actual human resources by adjusting variables from a menu of options. The graph will dynamically update, showing the results of the interventions as they are adjusted.",
+    "notes": [],
+    "relatedDocuments": [],
+    "packages": [],
+    "useCases": [
+     {
+      "id": "UC-PP19",
+      "title": "Generate a base projection",
+      "priority": "P3",
+      "package": "1.4",
+      "description": "Before the Health Workforce Planner can run any interventions, a base projection must be generated showing the gap between resources and requirements.",
+      "parent": "Data Modeling",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user is logged in. The projection has been created and all requirements, supply and pool change data have been entered.",
+      "successGuarantee": "The base projection and costs projection are generated, and all data for the projection are displayed.",
+      "level": "User",
+      "complexity": "Low",
+      "status": "Updated",
+      "implementationStatus": "Partially Complete",
+      "release": "1.0",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "Select a projection model."
+       },
+       {
+        "step": 2,
+        "text": "Select the cadre pools within the projection to include in the model."
+       },
+       {
+        "step": 3,
+        "text": "The system generates the base projection graph of changes in total numbers for all health workers and all required workers over the date range of the projection."
+       },
+       {
+        "step": 4,
+        "text": "The system graphs the costs of all workers over the duration of the projection."
+       },
+       {
+        "step": 5,
+        "text": "The system displays the data for all selected cadre pools by year."
+       },
+       {
+        "step": 6,
+        "text": "The system provides the option to print the base projection as a graph or table."
+       }
+      ],
+      "extensions": [
+       {
+        "id": "3.a",
+        "atStep": "3",
+        "text": "Supply and target data have been entered for more than one year in the projection.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system displays separate graph lines for each year that data were entered."
+         }
+        ]
+       },
+       {
+        "id": "5.a",
+        "atStep": "5",
+        "text": "The user disables a cadre pool change in the model.",
+        "steps": [
+         {
+          "step": 1,
+          "text": "The system hides the pool change data and does not include the data in calculating the results of the model."
+         },
+         {
+          "step": 2,
+          "text": "The system graphs the new supply and the original supply on the same model."
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "UC-PP21",
+      "title": "Compare actual results to predicted results",
+      "priority": "P2",
+      "package": "1.4",
+      "description": "After proposed interventions have been implemented, the Health Workforce Planner regularly imports new actual human resources data to determine whether the interventions are having the desired effect and to make adjustments as needed.",
+      "parent": "Data Modeling",
+      "primaryActors": [
+       "Health Workforce Planner"
+      ],
+      "supportingActors": [],
+      "preconditions": "The user is logged in. A projection has been completed created and saved.",
+      "successGuarantee": "Interventions are producing results.",
+      "level": "User",
+      "complexity": "High",
+      "status": "Documented",
+      "implementationStatus": "Complete",
+      "release": "1.0.1",
+      "mainSuccessScenario": [
+       {
+        "step": 1,
+        "text": "Select a saved projection."
+       },
+       {
+        "step": 2,
+        "text": "Enter a new starting year subsequent to the initial data."
+       },
+       {
+        "step": 3,
+        "text": "The system creates a projection with the new starting year using all assumptions and requirements entered for the saved projection."
+       },
+       {
+        "step": 4,
+        "text": "Enter the training data for the new starting year (UC-PP11)."
+       },
+       {
+        "step": 5,
+        "text": "Enter the workforce data for the new starting year (UC-PP9)."
+       },
+       {
+        "step": 6,
+        "text": "Save the projection for comparison."
+       },
+       {
+        "step": 7,
+        "text": "The system generates a report comparing the projected results for the original projection to the actual results."
+       },
+       {
+        "step": 8,
+        "text": "The system provides the option to adjust the assumptions for the new projection."
+       },
+       {
+        "step": 9,
+        "text": "The system provides the option to adjust the requirements for the new projection."
+       }
+      ],
+      "extensions": [],
+      "notes": [
+       {
+        "text": "Assumptions: Proposed interventions in the model have been implemented for at least one calendar year; human resources data have been collected for the preceding year.",
+        "dateAdded": "11/12/2007",
+        "date": "2007-11-12"
+       },
+       {
+        "text": "Triggered when new human resources data are available; this use case will generally occur on an annual cycle.",
+        "dateAdded": "11/12/2007",
+        "date": "2007-11-12"
+       }
+      ]
+     }
+    ],
+    "requirements": []
+   },
+   {
+    "number": "1.5",
+    "name": "Requirements",
+    "level": 2,
+    "description": "This package holds miscellaneous requirements for the project.",
+    "notes": [
+     {
+      "text": "Requirements are still in the process of being defined. See the wiki for a full list of proposed requirements.",
+      "dateAdded": "2/6/2008",
+      "date": "2008-02-06"
+     }
+    ],
+    "relatedDocuments": [
+     "http://open.intrahealth.org/wiki/index.php/Planned_Features_--_Software",
+     "http://open.intrahealth.org/wiki/index.php/Planned_Features_--_Workforce_Projection_Model"
+    ],
+    "packages": [],
+    "useCases": [],
+    "requirements": []
+   }
+  ],
+  "useCases": [],
+  "requirements": []
+ },
+ "dangling": [
+  {
+   "id": "UC-PP11",
+   "kind": "use-case",
+   "product": "plan",
+   "title": "Enter pre-service training data",
+   "citedBy": [
+    "A-PP1",
+    "UC-PP21"
+   ]
+  },
+  {
+   "id": "UC-PP13",
+   "kind": "use-case",
+   "product": "plan",
+   "title": "Enter retirement assumptions",
+   "citedBy": [
+    "A-PP1"
+   ]
+  },
+  {
+   "id": "UC-PP14",
+   "kind": "use-case",
+   "product": "plan",
+   "title": "Enter attrition assumptions",
+   "citedBy": [
+    "A-PP1"
+   ]
+  },
+  {
+   "id": "UC-PP15",
+   "kind": "use-case",
+   "product": "plan",
+   "title": "Enter pre-service training assumptions",
+   "citedBy": [
+    "A-PP1"
+   ]
+  },
+  {
+   "id": "UC-PP20",
+   "kind": "use-case",
+   "product": "plan",
+   "title": "Apply interventions to a base projection model",
+   "citedBy": [
+    "A-PP1"
+   ]
+  },
+  {
+   "id": "UC-PP22",
+   "kind": "use-case",
+   "product": "plan",
+   "title": "Produce a health workforce implementation plan",
+   "citedBy": [
+    "A-PP1"
+   ]
+  },
+  {
+   "id": "UC-PP23",
+   "kind": "use-case",
+   "product": "plan",
+   "title": "Import supply data",
+   "citedBy": [
+    "A-PP1"
+   ]
+  }
+ ]
+}

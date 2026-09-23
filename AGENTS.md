@@ -5,14 +5,14 @@ What a cold agent does here, in order. The platform's rules are in
 
 ## 1. Know what this is
 
-A **folio** (content repository) on the `folio-assistant` platform, `contentType: document`. The root instance is `ihris` ([`ihris.json`](ihris.json)), and it lists ten sub-instances, each with its own `<name>.json`. Read the [README](README.md) for the map.
+A **folio** (content repository) on the `folio-assistant` platform, `contentType: document`. The root instance is `ihris` ([`ihris.json`](ihris.json)), and it lists thirteen sub-instances, each with its own `<name>.json`. Read the [README](README.md) for the map.
 
 ## 2. Rules that bind here
 
 1. **Describe, never materialize, Launchpad source** (owner ruling, issue #1). Never commit a source tarball or a copy of a branch. Tarballs go in `uploads/<name>/`, which is git-ignored, with a `manifest.json` pinning `md5` and `sha256`.
 2. **Verify before deriving.** A tarball's MD5 must match the one recorded from Launchpad (`uploads/launchpad/release-file-md5.tsv`) before anything is derived from it. `build_kg.py` re-checks the sha256 and refuses on mismatch.
-3. **Generated means generated.** `src/*/catalogue`, `src/*/modules`, `src/*/data-model`, `src/ihris5/inventory`, `library/ihris-toolkit/{sections,stages,images}`, `library/ihris-wiki/osi-help-*`, `src/ihris-data-dictionary/{data-dictionary,core-data-elements}` + its csv/xlsx/json, `docs/generated`, `src/site/theme` (from `extract_theme.py`) and the site `_site/` (from `build_site.py`, never committed) are build output. Change `uploads/` or the tool in `src/tools/`, never the output.
-4. **Licence decides what may be reproduced.** GPL/LGPL content may be ingested with attribution. Content with no licence (e.g. `iHRIS/ihris-documentation`) is listed by path and heading only, unless its declaration records a `licence`: either `stated` (with the licence id and where it is stated) or the owner's `permission` (who granted it, when, and the scope). Only the owner grants permission. The toolkit has one (2026-09-23, bean `ihris-kngr`). Third parties' personal content, such as reader comments, is never published.
+3. **Generated means generated.** `src/*/catalogue`, `src/*/modules`, `src/*/data-model`, `src/ihris5/inventory`, `library/ihris-toolkit/{sections,stages,images}`, `library/ihris-wiki/osi-help-*`, `library/ihris-admin-handbook/{sections,images,images.json,book.json,structure.json,manifest.jsonld}` (from `ingest_handbook.py`), `library/ihris-use-cases/{common,manage,qualify,plan}.{json,md}` + `crosswalk.json` + `manifest.jsonld` (from `ingest_use_cases.py`), `src/ihris-data-dictionary/{data-dictionary,core-data-elements}` + its csv/xlsx/json, `docs/generated`, `src/site/theme` (from `extract_theme.py`) and the site `_site/` (from `build_site.py`, never committed) are build output. Change `uploads/` or the tool in `src/tools/`, never the output.
+4. **Licence decides what may be reproduced.** GPL/LGPL content may be ingested with attribution. Content with no licence (e.g. `iHRIS/ihris-documentation`) is listed by path and heading only, unless its declaration records a `licence`: either `stated` (with the licence id and where it is stated) or the owner's `permission` (who granted it, when, and the scope). Only the owner grants permission. The toolkit has one (2026-09-23, bean `ihris-kngr`), and so do the 2009 use cases and the handbook's images (bean `ihris-hbuc`). The handbook's text is GFDL-1.2, as stated in the export. Third parties' personal content, such as reader comments, is never published.
 5. **Core is the owner's call.** Core = i2ce, ihris-common, ihris-manage, ihris-qualify, ihris-plan, openhie-pr. Do not promote a country customization.
 6. **Reuse folio-assistant's schemas first.** Catalogue nodes are `folio-catalogue-node/v1`, validated with folio-assistant's own zod. New schemas in `src/schemas/` only for what it has no field for.
 
@@ -41,6 +41,8 @@ Use the skills in [`src/skills/`](src/skills/):
 | a GitHub repo | `snapshot-github-repo` |
 | a changed data model, or DAK work | `derive-dak-data-dictionary` |
 | a PDF or Word document | folio-assistant's `library-ingestion` skill, into `library/<slug>/` (Tool `ihris-ingest-pdf`) |
+| a MediaWiki book export (mwlib PDF) | `ingest-wiki-book-export` (Tool `ihris-ingest-handbook`) |
+| a use-case model report (CaseComplete .doc) | `ingest-use-case-model` (Tool `ihris-ingest-use-cases`) |
 | a paper or standard whose **method** is to be used | `adopt-methodology-from-source` (process `processes/methodology-from-source.bpmn`) |
 | a UI to design (pages, visualisers) | `wireframe-design-review` (methodology `wiregen`): web **and** mobile, with adjudication |
 | the site to (re)build or restyle | `build-ihris-site`: iHRIS theme measured from the release CSS, pages from the data, published on the `gh-pages` branch by `.github/workflows/pages.yml`, at litlfred.github.io/ihris/ |
