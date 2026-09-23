@@ -6,8 +6,9 @@ may reproduce (AGENTS.md §2.4):
 
   Launchpad sources, modules, data lists   GPL: described in full, with source paths and checksums
   library/ihris-wiki help pages            GPL (shipped in the 4.3.3 release): rendered in full, with attribution
-  library/ihris-toolkit                    no licence recorded: STRUCTURE ONLY (stage, tagline, domains,
-                                           tool titles), each linking to toolkit.ihris.org
+  library/ihris-toolkit                    the text only while its declaration records a licence (the owner's
+                                           permission, 2026-09-23, bean ihris-kngr); otherwise structure only.
+                                           Reader comments never: third parties' words and names
   iHRIS/iHRIS (LGPL-3.0)                   inventory: FSH definition headers and paths
   iHRIS/ihris-documentation (no licence)   path and heading only
   src/ihris-data-dictionary, 4-on-fhir     this repository's own derived content: in full
@@ -234,35 +235,71 @@ def ihris5_page(theme):
 
 
 # ------------------------------------------------------------------ toolkit (structure only)
-def toolkit_pages(theme):
+def toolkit_pages(theme, out_dir):
+    """The toolkit. Its text is published only while library/ihris-toolkit/ihris-toolkit.json
+    records a licence (`stated`, or the owner's `permission`, bean ihris-kngr). Without one the
+    pages fall back to structure only, so removing that record is enough to withdraw the text.
+    Reader comments are never published: they are third parties' words and names."""
     out = []
+    decl = J("library/ihris-toolkit/ihris-toolkit.json")
+    lic = decl.get("licence")
+    full = bool(lic and lic.get("status") in ("stated", "permission"))
     stages = sorted((J(os.path.relpath(f, ROOT)) for f in glob.glob(os.path.join(ROOT, "library/ihris-toolkit/stages/*.json"))), key=lambda s: s["ordinal"])
     struct = J("library/ihris-toolkit/structure.json")
     idx = "library/toolkit/index.html"
-    note = ('<p class="mute">No licence is recorded for toolkit.ihris.org, so this folio shows its <b>structure only</b>: stages, domains and '
-            'tool titles, each linking to the original. The text stays on the toolkit.</p>')
+    if full:
+        how = ("published with the owner's permission (" + E(lic["grantedOn"]) + ")" if lic["status"] == "permission"
+               else "published under " + E(lic.get("id", "")))
+        attrib = E(lic["attribution"]).replace("toolkit.ihris.org", '<a href="https://toolkit.ihris.org/">toolkit.ihris.org</a>', 1)
+        note = f'<p class="src">{attrib} Text {how}; reader comments from the original site are not reproduced.</p>'
+    else:
+        note = ('<p class="mute">No licence is recorded for toolkit.ihris.org, so this folio shows its <b>structure only</b>: stages, domains and '
+                'tool titles, each linking to the original. The text stays on the toolkit.</p>')
     counts = collections.Counter((t["stage"], t["domain"]) for t in J("library/ihris-toolkit/tools-index.json"))
     head = ["Domain"] + [f'<a href="stage-{s["ordinal"]}.html">{E(s["name"])}</a>' for s in stages]
     rows = [[E(d)] + [str(counts.get((s["name"], d), "")) or "&middot;" for s in stages] for d in struct["domains"]]
     cards = "".join(f'<article class="card"><span class="kind">stage {s["ordinal"]}</span><h3>{E(s["name"])}</h3><p>{E(s["tagline"])}</p>'
-                    f'<a class="go" href="stage-{s["ordinal"]}.html">Tools by domain</a></article>' for s in stages)
+                    f'<a class="go" href="stage-{s["ordinal"]}.html">{"Read the stage" if full else "Tools by domain"}</a></article>' for s in stages)
     inner = (f'<p><a href="https://toolkit.ihris.org/">toolkit.ihris.org</a>: {len(stages)} implementation stages across {len(struct["domains"])} domains, '
              f'{struct["toolCount"]} tools ({struct["toolsHostedOnToolkit"]} hosted on the toolkit).</p>{note}<div class="board">{cards}</div>'
              f'<h2>Tools per stage and domain</h2>{rows_table(head, rows, "Tools per stage and domain")}')
     out.append(page(idx, "iHRIS Implementation Toolkit", [("index.html", "Home"), ("library/index.html", "Library")], inner, theme, "library/index.html"))
+    if full:
+        os.makedirs(os.path.join(out_dir, "library/toolkit/images"), exist_ok=True)
+
+    def tool_li(t):
+        return (f'<li><a href="{E(t["href"])}">{E(t["title"])}</a> <span class="mute">{E(t.get("kind") or "")}'
+                f'{"" if t.get("hostedOnToolkit") else " · external"}</span></li>')
+
     for s in stages:
         path = f"library/toolkit/stage-{s['ordinal']}.html"
-        parts = []
+        parts = [f'<p><i>{E(s["tagline"])}</i> &middot; <a href="{E(s["url"])}">this stage on toolkit.ihris.org</a></p>', note]
+        if full:
+            parts += [f"<p>{E(t)}</p>" for t in s.get("intro") or []]
+            g = s.get("graphic")
+            if g and g.get("localPath") and os.path.exists(os.path.join(ROOT, g["localPath"])):
+                name = os.path.basename(g["localPath"])
+                shutil.copy(os.path.join(ROOT, g["localPath"]), os.path.join(out_dir, "library/toolkit/images", name))
+                parts.append(f'<figure class="wiki" style="margin:16px 0"><img src="images/{E(name)}" alt="{E(g.get("alt") or "")}">'
+                             f'<figcaption class="legend">{E(g.get("caption") or "")}</figcaption></figure>')
         for d in s.get("domains") or []:
-            tools = [t for o in d.get("objectives") or [] for t in o.get("tools") or []]
-            if not tools:
-                continue
-            lis = "".join(f'<li><a href="{E(t["href"])}">{E(t["title"])}</a> <span class="mute">{E(t.get("kind") or "")}'
-                          f'{"" if t.get("hostedOnToolkit") else " · external"}</span></li>' for t in tools)
-            parts.append(f"<h2>{E(d['domain'])}</h2><ul>{lis}</ul>")
-        inner = (f'<p><i>{E(s["tagline"])}</i> &middot; <a href="{E(s["url"])}">read this stage on toolkit.ihris.org</a></p>{note}' + "".join(parts))
+            objs = d.get("objectives") or []
+            if full:
+                items = "".join(f'<li>{E(o["objective"])}' + (f'<ul>{"".join(tool_li(t) for t in o.get("tools") or [])}</ul>' if o.get("tools") else "")
+                                + "</li>" for o in objs)
+                if items:
+                    parts.append(f"<h2>{E(d['domain'])}</h2><ul>{items}</ul>")
+            else:
+                tools = [t for o in objs for t in o.get("tools") or []]
+                if tools:
+                    parts.append(f"<h2>{E(d['domain'])}</h2><ul>{''.join(tool_li(t) for t in tools)}</ul>")
+        if full and s.get("challenges"):
+            parts.append(f"<h2>Challenges</h2><p>{E(s['challenges'])}</p>")
+        if full and s.get("technicalTerms"):
+            parts.append("<h2>Technical terms</h2><dl>" + "".join(f"<dt><b>{E(t['term'])}</b></dt><dd>{E(t.get('definition') or '')}</dd>"
+                                                             for t in s["technicalTerms"]) + "</dl>")
         out.append(page(path, f"Stage {s['ordinal']}: {s['name']}", [("index.html", "Home"), ("library/index.html", "Library"), (idx, "Toolkit")],
-                        inner, theme, "library/index.html"))
+                        "".join(parts), theme, "library/index.html"))
     return out
 
 
@@ -440,7 +477,7 @@ def all_pages(theme, cls_index, out_dir):
         if have:
             pages += modules_pages(inst, theme, cls_index)
             pages.append(data_lists_page(inst, theme))
-    pages += toolkit_pages(theme)
+    pages += toolkit_pages(theme, out_dir)
     wp, wiki_ids = wiki_pages(theme, out_dir)
     pages += wp
     pages += dd_pages(theme, cls_index, wiki_ids)

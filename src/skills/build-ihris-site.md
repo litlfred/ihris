@@ -26,7 +26,7 @@ python3 src/tools/extract_theme.py          # needs uploads/ihris-suite-4.3.3/*.
 
 The generator is `src/tools/build_site.py`, with the data-model pages and chrome. `src/tools/site_instances.py` holds every other instance's pages. Licence decides what a page shows (AGENTS.md §2.4):
 - GPL sources, modules, data lists and wiki pages: in full, with attribution.
-- The toolkit (no licence recorded): structure only.
+- The toolkit: its text is published because its declaration records the owner's permission (2026-09-23). Without that record, it falls back to structure only. Its reader comments are never published.
 - `iHRIS/ihris-documentation` (no licence): path and heading only.
 
 ```sh
