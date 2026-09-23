@@ -1,0 +1,53 @@
+{
+  "id": "ihris-build-site",
+  "title": "Build the iHRIS-themed harness site",
+  "description": "Generates the static site published at litlfred.github.io/ihris/: a landing board from ihris.json and each instance's declaration, and a page per package and per form class laid out as the accepted wireframe H2. Themed with src/site/theme/ihris-classic.json. All links are relative. --check-links fails on any internal link that does not resolve.",
+  "install": {
+    "none": true
+  },
+  "invoke": {
+    "shell": "python3 src/tools/build_site.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "out",
+        "schema": "https://www.w3.org/2001/XMLSchema#string",
+        "required": false,
+        "arg": {
+          "flag": "--out"
+        }
+      },
+      {
+        "name": "check-links",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--check-links"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "site",
+        "schema": "https://www.iana.org/assignments/media-types/text/html"
+      }
+    ]
+  },
+  "satisfies": [
+    "build-ihris-site"
+  ],
+  "requires": {
+    "runtime": [
+      "python3"
+    ],
+    "network": false
+  },
+  "maintains": [
+    {
+      "source": "src",
+      "artefact": "_site",
+      "format": "html"
+    }
+  ]
+}

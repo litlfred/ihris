@@ -1,0 +1,45 @@
+{
+  "id": "ihris-extract-theme",
+  "title": "Derive the iHRIS site theme from the verified release",
+  "description": "Measures the iHRIS Classic Manage colours and fonts from ihris-common/css/globalStyles.css and ihris-manage/css/themeStyles.css in the sha256-verified ihris-suite-4.3.3 tarball, in cascade order. Substitutes another measured colour, never an invented one, where a colour fails WCAG AA in its role, and records why. Copies the iHRIS logo with GPL attribution. --check fails when src/site/theme is stale; without the tarball it verifies the logo sha256 only.",
+  "install": {
+    "none": true
+  },
+  "invoke": {
+    "shell": "python3 src/tools/extract_theme.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "check",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--check"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "theme",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/ihris-site-theme.schema.json"
+      }
+    ]
+  },
+  "satisfies": [
+    "build-ihris-site"
+  ],
+  "requires": {
+    "runtime": [
+      "python3"
+    ],
+    "network": false
+  },
+  "maintains": [
+    {
+      "source": "uploads/ihris-suite-4.3.3",
+      "artefact": "src/site/theme",
+      "format": "json"
+    }
+  ]
+}

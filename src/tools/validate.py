@@ -63,6 +63,18 @@ if r.returncode != 0:
     errors.append("processes: " + (r.stdout + r.stderr).strip())
 counts["bpmn process"] = len(glob.glob(os.path.join(ROOT, "processes", "*.bpmn")))
 
+# The site theme is derived from the verified release (src/tools/extract_theme.py), and the
+# site must build with every internal link resolving (src/tools/build_site.py).
+r = subprocess.run([sys.executable, os.path.join(ROOT, "src/tools/extract_theme.py"), "--check"], capture_output=True, text=True)
+sys.stderr.write(r.stderr)
+if r.returncode != 0:
+    errors.append("site theme: " + (r.stdout + r.stderr).strip())
+r = subprocess.run([sys.executable, os.path.join(ROOT, "src/tools/build_site.py"), "--out", ".build/site", "--check-links"],
+                   capture_output=True, text=True)
+if r.returncode != 0:
+    errors.append("site: " + (r.stdout + r.stderr).strip()[-2000:])
+counts["site page"] = sum(1 for _, _, fs in os.walk(os.path.join(ROOT, ".build", "site")) for f in fs if f.endswith(".html"))
+
 fa = os.environ.get("FOLIO_ASSISTANT", os.path.join(ROOT, "..", "litlfred", "folio-assistant"))
 
 if os.path.isdir(os.path.join(fa, "folio-assistant-core")):

@@ -1,0 +1,56 @@
+# Build the iHRIS-themed harness site (src/tools/build_site.py) and publish it on the
+# gh-pages branch, served at https://litlfred.github.io/ihris/.
+# The owner sets it once: Settings -> Pages -> Source: Deploy from a branch -> gh-pages / (root).
+# gh-pages holds build output only. Never edit it by hand; change the generator.
+name: pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "library/**"
+      - "ihris.json"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify the committed theme (the tarball is not in git; logo sha256 only)
+        run: python3 src/tools/extract_theme.py --check
+      - name: Build the site and check every internal link
+        run: python3 src/tools/build_site.py --out _site --check-links
+      - name: Commit the build to gh-pages
+        env:
+          SRC_SHA: ${{ github.sha }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch --depth 1 origin gh-pages; then
+            git worktree add ghp FETCH_HEAD
+            git -C ghp checkout -B gh-pages
+          else
+            git worktree add --orphan -b gh-pages ghp
+          fi
+          find ghp -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -r _site/. ghp/
+          git -C ghp add -A
+          if git -C ghp diff --cached --quiet; then
+            echo "gh-pages already up to date"
+            exit 0
+          fi
+          git -C ghp commit -m "Publish the ihris site (build_site.py @ ${SRC_SHA::7})"
+          git -C ghp push origin gh-pages
