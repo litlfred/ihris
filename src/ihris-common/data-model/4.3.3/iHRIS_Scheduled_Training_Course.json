@@ -8,7 +8,8 @@
     "scheduled_training_course"
   ],
   "definedIn": [
-    "ihris-common/module/training-course"
+    "ihris-common/module/training-course",
+    "ihris-common/module/training-instructor"
   ],
   "fields": [
     {
@@ -100,6 +101,19 @@
       ],
       "definedIn": [
         "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "training_instructor",
+      "type": "REFERENCE",
+      "label": "Registered Instructor",
+      "required": false,
+      "unique": null,
+      "references": [
+        "person"
+      ],
+      "definedIn": [
+        "ihris-common/module/training-instructor"
       ]
     }
   ]

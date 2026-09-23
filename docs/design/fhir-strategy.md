@@ -36,7 +36,7 @@
 
 | what | state |
 |---|---|
-| L2 data dictionary | `src/ihris-data-dictionary/data-dictionary`: 242 data elements in 49 logical models (one per I2CE form class), in WHO column order. It is not FHIR. |
+| L2 data dictionary | `src/ihris-data-dictionary/data-dictionary`: 247 data elements in 51 logical models (one per I2CE form class), in WHO column order. It is not FHIR. |
 | Terminology | `src/ihris-data-dictionary/terminology`: 44 CodeSystems, 57 ValueSets and 5 ConceptMaps. These are FHIR R4 **JSON** written directly by `build_dak.py`, with no FSH and no sushi. `validate_fhir.py` checks their structure (`fhir.resources` 6.5). |
 | CoreDataElements | Removed 2026-09-23 (independence ruling). |
 | Canonical | `https://litlfred.github.io/ihris/dak`, confirmed by the owner 2026-09-23 (D4, bean `ihris-gj3u` completed). |
@@ -73,7 +73,7 @@ These are already rules, and every option below respects them.
 | **b (recommended)** | Python **generates FSH** into a generated directory (for example `src/ihris-data-dictionary/fsh/`). **Sushi is the build**, and `validate.py` fails unless sushi reports 0 errors. The authored overlay stays as JSON proposals, which the generator renders into FSH. |
 | c | Hand-author the FSH. |
 
-*Why b:* it matches how the smart-* DAKs and iHRIS 5 are built. It also makes sushi the conformance check your rule asks for, and FSH diffs are reviewable. Option c would break "derived never invents", because 242 hand-typed elements would drift from the source.
+*Why b:* it matches how the smart-* DAKs and iHRIS 5 are built. It also makes sushi the conformance check your rule asks for, and FSH diffs are reviewable. Option c would break "derived never invents", because 247 hand-typed elements would drift from the source.
 
 *Prerequisite:* a pinned SUSHI version, run with Node in the session. Whether it installs here is not yet measured.
 
@@ -134,7 +134,7 @@ The recommendation is to keep the JSON until the sushi build of the same content
 | F0 | Owner reviews this document | `ihris-dmgf` completed, with D1 to D8 answered |
 | F1 | Pin SUSHI; create an empty IG skeleton (`sushi-config.yaml`, dependencies) | sushi: 0 errors, 0 warnings; `validate.py` runs it |
 | F2 | Terminology as generated FSH | content-equal to today's JSON (D8); JSON path retired |
-| F3 | 49 logical models as generated FSH (`SGLogicalModel`) | sushi clean; every data element present, and no field filled that the source leaves null |
+| F3 | 51 logical models as generated FSH (`SGLogicalModel`) | sushi clean; every data element present, and no field filled that the source leaves null |
 | F4 | iHRIS 5 mapping (D6) | every logical model has a `mapping`; gap report generated; uncertain matches are proposals |
 | F5 | Publication (bean `ihris-bwls`) | blocked until folio-assistant's new lightweight IG render pipeline is done (`jut3`, `kn0t`, `nsbb`) |
 

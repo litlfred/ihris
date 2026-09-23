@@ -1,13 +1,14 @@
 {
   "$schema": "ihris-form-class/v1",
-  "id": "ihris-common/form-class/dep_class",
-  "class": "dep_class",
+  "id": "ihris-common/form-class/iHRIS_Dependent",
+  "class": "iHRIS_Dependent",
   "release": "4.3.3",
   "extends": "I2CE_Form",
-  "forms": [],
+  "forms": [
+    "dependent"
+  ],
   "definedIn": [
-    "ihris-common/module/dependents",
-    "ihris-common/module/nextOfKin"
+    "ihris-common/module/dependents"
   ],
   "fields": [
     {
@@ -40,19 +41,7 @@
       "unique": null,
       "references": null,
       "definedIn": [
-        "ihris-common/module/dependents",
-        "ihris-common/module/nextOfKin"
-      ]
-    },
-    {
-      "field": "relationship",
-      "type": "STRING_LINE",
-      "label": "Relationship",
-      "required": true,
-      "unique": null,
-      "references": null,
-      "definedIn": [
-        "ihris-common/module/nextOfKin"
+        "ihris-common/module/dependents"
       ]
     }
   ]

@@ -5,7 +5,7 @@
 | instance | modules | with description | form classes | fields | sites |
 |---|---|---|---|---|---|
 | [`i2ce`](../../src/i2ce/README.md) | 129 | 113 | 12 | 29 |  |
-| [`ihris-common`](../../src/ihris-common/README.md) | 115 | 115 | 93 | 334 |  |
+| [`ihris-common`](../../src/ihris-common/README.md) | 115 | 115 | 93 | 335 |  |
 | [`ihris-manage`](../../src/ihris-manage/README.md) | 78 | 73 | 26 | 124 | Demo, TwitterBootstrap, blank |
 | [`ihris-qualify`](../../src/ihris-qualify/README.md) | 29 | 27 | 25 | 98 | Demo, blank |
 

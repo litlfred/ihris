@@ -4,10 +4,10 @@ A **data dictionary** for health workforce information, laid out in the column o
 
 | | |
 |---|---|
-| data elements | 242 (101 required, 141 optional) |
-| logical models | 49, one per iHRIS record form (Person, Demographic, Education, Position, License, Leave, …) |
+| data elements | 247 (104 required, 143 optional) |
+| logical models | 51, one per iHRIS record form (Person, Demographic, Education, Position, License, Leave, …) |
 | value sets | 47: 41 used as input options, plus 6 reached only through other lists' properties (e.g. degree → education type, salary grade → currency). 12 ship default codes, 24 ship sample data only, 11 are defined by each deployment |
-| wiki evidence | 156 elements are mentioned in a restored user-manual page |
+| wiki evidence | 160 elements are mentioned in a restored user-manual page |
 
 ## Files
 
@@ -96,7 +96,7 @@ The only part of this instance that a person writes and the build never touches.
 
 The builder **never invents** these columns: they are `null` until authored.
 
-1. **Descriptions and definitions** (all 242): `descriptionStatus: "to-author"`. Start from the `evidence` wiki pages.
+1. **Descriptions and definitions** (all 247): `descriptionStatus: "to-author"`. Start from the `evidence` wiki pages.
 2. **Activity IDs**, once the business processes (L2 BPMN) exist. The toolkit stages and the wiki user manual are the source for them.
 3. **Conditionality (C)**, **reasons for requiring**, **indicator linkages** (e.g. WHO National Health Workforce Accounts) and **decision-support linkages**.
 4. **Codes for the 24 sample-only and 11 deployment-defined lists**: these are national decisions (cadres, districts, facilities, …). Candidate standards to bind: ISO 3166 (already the iHRIS default for country), ISCO-08 for cadre and occupation.

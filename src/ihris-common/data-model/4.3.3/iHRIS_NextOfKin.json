@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_NextOfKin",
+  "class": "iHRIS_NextOfKin",
+  "release": "4.3.3",
+  "extends": "iHRIS_Contact",
+  "forms": [
+    "nextofkin"
+  ],
+  "definedIn": [
+    "ihris-common/module/nextOfKin"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/nextOfKin"
+      ]
+    },
+    {
+      "field": "relationship",
+      "type": "STRING_LINE",
+      "label": "Relationship",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/nextOfKin"
+      ]
+    }
+  ]
+}

@@ -1,10 +1,12 @@
 {
   "$schema": "ihris-form-class/v1",
-  "id": "i2ce/form-class/user_request_class_data",
-  "class": "user_request_class_data",
+  "id": "i2ce/form-class/I2CE_User_Request",
+  "class": "I2CE_User_Request",
   "release": "4.3.3",
   "extends": "I2CE_User_Form",
-  "forms": [],
+  "forms": [
+    "user_request"
+  ],
   "definedIn": [
     "i2ce/module/RequestAccount-VerifyEmail"
   ],
