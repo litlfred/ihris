@@ -1,0 +1,13 @@
+{
+  "round": 3,
+  "after": "reviews/agent-3.json",
+  "patchedOn": "2026-09-23",
+  "by": {"kind": "agent", "id": "author"},
+  "why": "agent-3's two warnings were concrete and local. They were patched in place and verified mechanically. They were not re-reviewed, so the owner's acceptance covers them.",
+  "patches": [
+    {"answers": "fix 1 (warn): menu links were 32px, and 'all 93' had no minimum", "change": ".nav a is inline-flex with min-height 44px at phone width (h2.html and h2-menu.html)", "verified": "Playwright at 390x844 on h2-menu.html: the smallest .nav a, .tile or .menu-btn is 44px tall"},
+    {"answers": "accessibility (warn): aria-label 'Open navigation' hid the visible text (WCAG 2.5.3) and did not change when the menu opened", "change": "aria-label removed, so the accessible name is the visible text: 'Menu', or 'Close' when open (the glyph is aria-hidden). aria-expanded carries the state", "verified": "by reading the markup"},
+    {"answers": "accessibility (warn): aria-controls pointed only at #nav", "change": "aria-controls=\"nav vis-tile\", and the tile has id vis-tile", "verified": "by reading the markup"}
+  ],
+  "checks": "checks/report.json was re-run after the patch: all pass at web and mobile for both files"
+}

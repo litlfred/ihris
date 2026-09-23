@@ -19,6 +19,17 @@ Process: [`wireframe-design-review`](../../../../processes/wireframe-design-revi
 | candidate | [`round-2/h.html`](round-2/h.html) (catalogue with neighbourhood) |
 | mechanical checks | `round-2/checks/report.json`: all `pass` at web and mobile |
 | blind review | [`round-2/reviews/agent-2.json`](round-2/reviews/agent-2.json) (non-author, blind). Intent-fit, web and alternatives pass. Mobile warns: the opened menu is not drawn. Accessibility warns on five smaller points (cards strip table semantics, a label with no role, no skip link, decorative glyphs are not hidden, the graph's name is its legend). Carry-forward fixes 1–4 pass; fix 5 warns because the 156/153 note is hidden on phones. Every fact matches the data. It also found an extraction artefact, the phantom class `formClass`, filed as bean `ihris-73by` and since fixed. The fix renamed four phantom records to their real classes, so the counts H shows (93, 156, 153) still hold. |
-| acceptance | open: the owner accepts H, or sends it round again |
+| acceptance | the owner sent H round again to fix agent-2's warnings (round 3) |
+
+## Round 3: H refined
+
+| step | state |
+|---|---|
+| intent | [`round-3/intent.md`](round-3/intent.md): eight fixes answering agent-2 |
+| candidate | [`round-3/h2.html`](round-3/h2.html), plus its phone-menu-open state [`round-3/h2-menu.html`](round-3/h2-menu.html) |
+| mechanical checks | `round-3/checks/report.json`: all `pass` at web and mobile, for both files |
+| blind review | [`round-3/reviews/agent-3.json`](round-3/reviews/agent-3.json) (non-author, blind). Intent-fit, web and alternatives pass; fixes 2–8 pass. Two warnings: menu touch targets under 44px, and the menu button's aria-label hid its visible text. Every fact matches the data. |
+| post-review patch | [`round-3/post-review-patch.json`](round-3/post-review-patch.json): both warnings patched and verified mechanically (the smallest touch target is 44px). The checks were re-run. |
+| acceptance | **accepted** by the owner, 2026-09-23: [`acceptance.json`](acceptance.json). H2 is the design for the data-model site. |
 
 `authors.json` records who made each candidate. Reviewers should not open it.
