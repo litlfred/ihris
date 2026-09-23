@@ -36,24 +36,31 @@ Use the skills in [`src/skills/`](src/skills/):
 | wiki HTML / an export | `restore-wiki-from-help-export` |
 | a GitHub repo | `snapshot-github-repo` |
 | a changed data model, or DAK work | `derive-dak-data-dictionary` |
-| a PDF or Word document | folio-assistant's `library-ingestion` skill, into `library/<slug>/` |
+| a PDF or Word document | folio-assistant's `library-ingestion` skill, into `library/<slug>/` (Tool `ihris-ingest-pdf`) |
+| a paper or standard whose **method** is to be used | `adopt-methodology-from-source` (process `processes/methodology-from-source.bpmn`) |
+| a UI to design (pages, visualisers) | `wireframe-design-review` (methodology `wiregen`): web **and** mobile, with adjudication |
+| FHIR work on the iHRIS 4 data model | `ihris-4-on-fhir` (documented; SUSHI later) |
 
-## 5. Network
+## 5. Processes and tools
+
+`processes/*.bpmn` are generated from `processes/specs/*.json` by `src/tools/gen_bpmn.py`, and `validate.py` fails when one is stale. Judgement points call folio-assistant's processes (`Process_Adjudication`, `Process_OptionsAnalysis`, `Process_Ingestion`) instead of copying them. **Every skill and tool used gets a Tool node** in `src/tools/*.tool.json`.
+
+## 6. Network
 
 A Claude Code cloud session reaches `launchpad.net` (project, series and milestone pages, `+rdf`, `+md5`) and GitHub (anonymous git). It does **not** reach code/bazaar/bugs/api.launchpad.net, launchpadlibrarian.net, wiki.ihris.org, toolkit.ihris.org or web.archive.org. Ask the owner to upload what those hold.
 
-## 6. Derived knowledge assets never invent
+## 7. Derived knowledge assets never invent
 
 `src/ihris-dak` is derived. Columns the source cannot answer (definitions, conditionality, indicator and decision-support linkages) stay null until a person authors them. Never fill them with plausible text. Human decisions go in `src/ihris-dak/authored/` (`ihris-dak-proposal/v1`), which no build writes. Only the owner moves a proposal's `status`.
 
-## 7. FHIR: independent, and gated by design
+## 8. FHIR: independent, and gated by design
 
-iHRIS is **independent**: it is not a SMART DAK and is not related to smart-base (owner ruling, 2026-09-23). Do not add smart-base dependencies or smart-base types.
+iHRIS is **independent**: it is not a SMART DAK and is not related to smart-base (owner ruling, 2026-09-23). Do not add smart-base dependencies or smart-base types, **except in `src/ihris-4-on-fhir/`**. That is new derived content, and it depends on the smart-base harness and IG (owner, 2026-09-23).
 
 The design is [`docs/design/fhir-strategy.md`](docs/design/fhir-strategy.md), approved 2026-09-23 (bean `ihris-dmgf`). Its rules:
 - Python generates FSH, and sushi is the build. Sushi must run clean before any commit that contains FSH.
 - The build depends on R4 core only. The canonical is `https://litlfred.github.io/ihris/dak`.
-- **Unpaused:** the SUSHI skeleton and terminology as FSH.
+- **Documented, run later** (owner: "do sushi later"): the SUSHI skeleton and terminology as FSH. Skill `ihris-4-on-fhir`, process `processes/ihris-4-on-fhir.bpmn`, Tool `ihris-sushi`.
 - **Still blocked:** logical models, the iHRIS 5 StructureMaps, and any IG Publisher or HTML render. The render also waits for folio-assistant's new lightweight IG render pipeline (bean `ihris-bwls`).
 
 Work items are beans in `beans/defs/` (`.beans.yml`, prefix `ihris-`); the epic is `ihris-g768`.

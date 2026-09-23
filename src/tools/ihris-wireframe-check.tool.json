@@ -1,0 +1,52 @@
+{
+  "id": "ihris-wireframe-check",
+  "title": "Check wireframe candidates at web and mobile viewports",
+  "description": "Renders each mid-fidelity wireframe candidate at a web viewport (1280x800) and a mobile viewport (390x844). Per viewport it records script entries, each pass or fail with a note and never a score: renders, no-overflow and no-placeholder. It writes a screenshot per viewport and a report.json, and exits 1 on any fail.",
+  "install": {
+    "cli": "(cd ../litlfred/folio-assistant && bun install)"
+  },
+  "invoke": {
+    "shell": "node src/tools/wireframe_check.mjs"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "candidate",
+        "schema": "https://www.iana.org/assignments/media-types/text/html",
+        "required": true,
+        "repeated": true,
+        "arg": {
+          "positional": 0
+        }
+      },
+      {
+        "name": "out",
+        "schema": "https://www.iana.org/assignments/media-types/inode/directory",
+        "required": false,
+        "arg": {
+          "flag": "--out"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "report",
+        "schema": "https://www.iana.org/assignments/media-types/application/json"
+      },
+      {
+        "name": "screenshots",
+        "schema": "https://www.iana.org/assignments/media-types/image/png"
+      }
+    ]
+  },
+  "satisfies": [
+    "wireframe-design-review"
+  ],
+  "requires": {
+    "runtime": [
+      "node",
+      "chromium"
+    ],
+    "network": false
+  }
+}

@@ -53,9 +53,14 @@
       "name": "ihris-dak",
       "path": "src/ihris-dak",
       "kind": "derived-knowledge-asset"
+    },
+    {
+      "name": "ihris-4-on-fhir",
+      "path": "src/ihris-4-on-fhir",
+      "kind": "derived-knowledge-asset"
     }
   ],
-  "_instances_comment": "One instance per core Launchpad repository, per the owner's ruling on issue #1 ('instance for each lp repo'), plus iHRIS 5, the toolkit and the wiki. Core = i2ce, ihris-common, ihris-manage, ihris-qualify, ihris-plan, openhie-pr. The other 31 Launchpad projects (country customizations and side tools) are described in the root catalogue at src/catalogue/ only.",
+  "_instances_comment": "One instance per core Launchpad repository, per the owner's ruling on issue #1 ('instance for each lp repo'), plus iHRIS 5, the toolkit and the wiki. Core = i2ce, ihris-common, ihris-manage, ihris-qualify, ihris-plan, openhie-pr. The other 31 Launchpad projects (country customizations and side tools) are described in the root catalogue at src/catalogue/ only. ihris-4-on-fhir (2026-09-23) is derived content, and the only subgraph that depends on smart-base.",
   "assets": [
     {
       "id": "agent-instructions",
@@ -132,6 +137,30 @@
         "docs"
       ],
       "description": "Reader-facing documentation about this knowledge base. docs/generated/ is build output."
+    },
+    {
+      "id": "methodologies",
+      "path": "methodologies/",
+      "graphKinds": [
+        "skills"
+      ],
+      "description": "Adopted methodologies (folio-methodology/v1), one directory each. wiregen is drafted here provisionally; by methodology-adoption §4 it belongs in the harness (bean ihris-0nml)."
+    },
+    {
+      "id": "processes",
+      "path": "processes/",
+      "graphKinds": [
+        "processes"
+      ],
+      "description": "BPMN processes GENERATED from processes/specs/*.json by src/tools/gen_bpmn.py. Judgement points call folio-assistant's existing processes (Process_Adjudication, Process_OptionsAnalysis, Process_Ingestion) instead of copying them."
+    },
+    {
+      "id": "library-papers",
+      "path": "library/arxiv-2312.07755/",
+      "graphKinds": [
+        "library"
+      ],
+      "description": "Referenced source documents (reference only when the source states no licence): headings, page ranges and a summary in our own words."
     }
   ]
 }

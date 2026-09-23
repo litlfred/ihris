@@ -1,0 +1,39 @@
+{
+  "id": "Process_WireframeDesignReview",
+  "file": "wireframe-design-review.bpmn",
+  "name": "Wireframe design review",
+  "documentation": "WireGen (methodologies/wiregen) made executable: a written design intent, at least two mid-fidelity candidates each with a web AND a mobile layout, mechanical checks, a blind per-criterion review, adjudication where reviewers disagree, and a recorded choice. A wireframe is part of the design process for adjudication (owner, 2026-09-23). Operating skill: wireframe-design-review.",
+  "lanes": [
+    {"id": "Lane_Designer", "name": "Designer", "role": "authoring-agent", "documentation": "Writes the intent, produces candidates with real content, and runs the mechanical checks. Does not review its own candidates."},
+    {"id": "Lane_Reviewers", "name": "Feedback providers", "role": "feedback-provider", "documentation": "One or more reviewers (agent and human) who see candidates shuffled, without their author, and record pass, warn or fail per criterion with a reason. There are no scores and no averages."},
+    {"id": "Lane_Adjudicator", "name": "Adjudicator", "role": "adjudicator", "documentation": "Reached only when entries for one criterion disagree. Settles the disagreement with a reason, and decides between surviving candidates through options analysis."}
+  ],
+  "nodes": [
+    {"id": "Start_WDR", "type": "startEvent", "lane": "Lane_Designer", "col": 0, "name": "A UI needs designing"},
+    {"id": "D_Intent", "type": "task", "lane": "Lane_Designer", "col": 1, "name": "Write the design intent", "skill": "wireframe-design-review", "documentation": "A short statement of who the screen is for, what they need to do, and what it must show. It is the criterion every candidate is judged against."},
+    {"id": "D_Candidates", "type": "task", "lane": "Lane_Designer", "col": 2, "name": "Produce >= 2 candidates, web + mobile", "skill": "wireframe-design-review", "documentation": "Mid-fidelity HTML: monochrome, real folio content, semantic icons, no placeholder text. Each candidate has both a web layout and a mobile layout."},
+    {"id": "D_Check", "type": "task", "lane": "Lane_Designer", "col": 3, "name": "Mechanical checks, both viewports", "skill": "wireframe-design-review", "documentation": "Tool ihris-wireframe-check renders every candidate at a web and a mobile viewport. It fails on horizontal overflow at mobile width, on placeholder text, and on a missing viewport, and writes screenshots and a script entry per criterion."},
+    {"id": "GW_Checks", "type": "exclusiveGateway", "lane": "Lane_Designer", "col": 4, "name": "Checks pass?"},
+    {"id": "R_Review", "type": "task", "lane": "Lane_Reviewers", "col": 5, "name": "Blind review per criterion", "skill": "wireframe-design-review", "documentation": "Criteria: intent-fit, web usability, mobile usability, accessibility, and alternatives considered. A review at one viewport only is incomplete."},
+    {"id": "GW_Agree", "type": "exclusiveGateway", "lane": "Lane_Reviewers", "col": 6, "name": "Entries agree?"},
+    {"id": "Call_Adjudicate", "type": "callActivity", "lane": "Lane_Adjudicator", "col": 7, "name": "Adjudication", "calledElement": "Process_Adjudication", "documentation": "folio-assistant's adjudication: the adjudication leads, the checker's entry is kept, and the dispensation carries its reason."},
+    {"id": "Call_Choose", "type": "callActivity", "lane": "Lane_Adjudicator", "col": 8, "name": "Choose a candidate", "calledElement": "Process_OptionsAnalysis", "documentation": "A one-off choice between surviving candidates. Rejected candidates are kept, with the reason each lost."},
+    {"id": "GW_Iterate", "type": "exclusiveGateway", "lane": "Lane_Adjudicator", "col": 9, "name": "Revise the intent?"},
+    {"id": "End_WDR", "type": "endEvent", "lane": "Lane_Adjudicator", "col": 10, "name": "Wireframe accepted"}
+  ],
+  "flows": [
+    {"from": "Start_WDR", "to": "D_Intent"},
+    {"from": "D_Intent", "to": "D_Candidates"},
+    {"from": "D_Candidates", "to": "D_Check"},
+    {"from": "D_Check", "to": "GW_Checks"},
+    {"from": "GW_Checks", "to": "R_Review", "name": "yes"},
+    {"from": "GW_Checks", "to": "D_Candidates", "name": "no"},
+    {"from": "R_Review", "to": "GW_Agree"},
+    {"from": "GW_Agree", "to": "Call_Adjudicate", "name": "no"},
+    {"from": "GW_Agree", "to": "Call_Choose", "name": "yes"},
+    {"from": "Call_Adjudicate", "to": "Call_Choose"},
+    {"from": "Call_Choose", "to": "GW_Iterate"},
+    {"from": "GW_Iterate", "to": "D_Intent", "name": "yes"},
+    {"from": "GW_Iterate", "to": "End_WDR", "name": "no"}
+  ]
+}

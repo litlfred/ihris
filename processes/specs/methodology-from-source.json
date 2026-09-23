@@ -1,0 +1,40 @@
+{
+  "id": "Process_MethodologyFromSource",
+  "file": "methodology-from-source.bpmn",
+  "name": "Adopt a methodology from a source document",
+  "documentation": "The general process an agent follows when someone shares a paper, book or standard and asks for its method to be used: establish origin and licence, ingest it, render what the method says with what is adopted and refused, place it by ownership, integrate it into the processes that already exist by calling them rather than copying them, make every skill and tool it uses a declared Tool, relate it to existing beans and issues, and put the adoption to the owner. Written 2026-09-23 while adopting WireGen (arXiv:2312.07755) as the worked case. Operating skill: adopt-methodology-from-source; the adoption rules themselves are folio-assistant's methodology-adoption.",
+  "lanes": [
+    {"id": "Lane_Owner", "name": "Owner", "role": "user", "documentation": "Shares the source and the intent in chat, answers the coordination question, and decides the adoption. Only the owner accepts an adoption or moves a proposal's status."},
+    {"id": "Lane_Agent", "name": "Agent", "role": "authoring-agent", "documentation": "Does every step between the share and the review, and records each decision it made with its reason, so the owner reviews a record rather than an impression."}
+  ],
+  "nodes": [
+    {"id": "Start_MFS", "type": "startEvent", "lane": "Lane_Owner", "col": 0, "name": "Source shared, with an intent"},
+    {"id": "A_Origin", "type": "task", "lane": "Lane_Agent", "col": 1, "name": "Establish origin and licence", "skill": "adopt-methodology-from-source", "documentation": "Authors, publication, identifier, and the licence the source itself states. No stated licence means reference only: headings, page ranges and a summary in our own words; the file stays in uploads/ (git-ignored) pinned by checksum. A method with no origin is a house process; write a skill instead."},
+    {"id": "Call_Ingest", "type": "callActivity", "lane": "Lane_Agent", "col": 2, "name": "Ingest into library/", "calledElement": "Process_Ingestion", "documentation": "folio-assistant's document ingestion, choosing the rung mechanically (embedded outline, pages, OCR). The Tool is ihris-ingest-pdf. Section text is written only when the licence allows it."},
+    {"id": "A_Relate", "type": "task", "lane": "Lane_Agent", "col": 3, "name": "Find related beans and issues; summarize", "skill": "adopt-methodology-from-source", "documentation": "Search beans and GitHub issues for work the method touches. Categorize each hit (duplicates, depends-on, affected-by, unrelated) with a one-line summary. Judgement decides the categories; the list is shown to the owner, not acted on."},
+    {"id": "O_Coordinate", "type": "task", "lane": "Lane_Owner", "col": 4, "name": "Coordinate with related work?", "noSkill": "The owner decides whether and how to coordinate. The agent offers the options as a structured question.", "documentation": "Asked as a structured question: coordinate (link, block, merge), note only, or ignore."},
+    {"id": "A_Render", "type": "task", "lane": "Lane_Agent", "col": 5, "name": "Render the method: adopted vs refused", "skill": "methodology-adoption", "documentation": "What the source says, section by section, then a table of what this platform adopts and what it refuses, each with a reason. Extensions beyond the source (such as web plus mobile where the paper studied mobile) are stated as ours. Reported results are not imported as facts."},
+    {"id": "A_Place", "type": "task", "lane": "Lane_Agent", "col": 6, "name": "Place by ownership; declare the directory", "skill": "methodology-adoption", "documentation": "A domain-neutral method belongs to the harness and a domain method to the folio that owns the domain. If the session cannot write where it belongs, draft it where it can, say so in the file, and open a bean to move it."},
+    {"id": "A_Integrate", "type": "task", "lane": "Lane_Agent", "col": 7, "name": "Integrate: call existing processes", "skill": "adopt-methodology-from-source", "documentation": "The method's steps become a process whose judgement points call the processes that already exist (adjudication, options analysis, review) by calledElement. Nothing is re-implemented. A needed change to an existing process becomes a bean against its owner."},
+    {"id": "A_Tools", "type": "task", "lane": "Lane_Agent", "col": 8, "name": "Every skill and tool used becomes a Tool", "skill": "adopt-methodology-from-source", "documentation": "Each script, CLI or checker the process relies on gets a Tool node (src/tools/*.tool.json) that satisfies a named skill, validated by folio-assistant's ToolDefinitionSchema."},
+    {"id": "O_Review", "type": "task", "lane": "Lane_Owner", "col": 9, "name": "Review the adoption", "noSkill": "The owner's judgement over the rendered method, its refusals and its placement."},
+    {"id": "GW_Decision", "type": "exclusiveGateway", "lane": "Lane_Owner", "col": 10, "name": "Adopted?"},
+    {"id": "End_Adopted", "type": "endEvent", "lane": "Lane_Owner", "col": 11, "name": "Adopted"},
+    {"id": "End_Declined", "type": "endEvent", "lane": "Lane_Agent", "col": 11, "name": "Declined, with the reason recorded"}
+  ],
+  "flows": [
+    {"from": "Start_MFS", "to": "A_Origin"},
+    {"from": "A_Origin", "to": "Call_Ingest"},
+    {"from": "Call_Ingest", "to": "A_Relate"},
+    {"from": "A_Relate", "to": "O_Coordinate"},
+    {"from": "O_Coordinate", "to": "A_Render"},
+    {"from": "A_Render", "to": "A_Place"},
+    {"from": "A_Place", "to": "A_Integrate"},
+    {"from": "A_Integrate", "to": "A_Tools"},
+    {"from": "A_Tools", "to": "O_Review"},
+    {"from": "O_Review", "to": "GW_Decision"},
+    {"from": "GW_Decision", "to": "End_Adopted", "name": "yes"},
+    {"from": "GW_Decision", "to": "End_Declined", "name": "no"},
+    {"from": "GW_Decision", "to": "A_Render", "name": "changes"}
+  ]
+}

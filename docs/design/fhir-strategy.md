@@ -1,6 +1,6 @@
 # Design strategy: how the iHRIS DAK becomes FHIR
 
-> **Status: approved by the owner, 2026-09-23 (gate `ihris-dmgf` completed).** Decisions are in §0. **iHRIS is independent: it is not a SMART DAK and is not related to smart-base.** Sections 3 onward keep the original options for the record; where §0 differs, §0 wins. Each section offers options and marks one as the *recommendation*. The owner accepts, changes or rejects each decision. Until the owner completes bean `ihris-dmgf`, the pause in [AGENTS.md §7](../../AGENTS.md) holds: no new FHIR resources, no FSH, and no sushi runs toward an IG.
+> **Status: approved by the owner, 2026-09-23 (gate `ihris-dmgf` completed).** Decisions are in §0. **iHRIS is independent: it is not a SMART DAK and is not related to smart-base.** Sections 3 onward keep the original options for the record; where §0 differs, §0 wins. The rules in force are in [AGENTS.md §8](../../AGENTS.md).
 
 ## 0. Owner decisions so far
 
@@ -16,6 +16,15 @@
 | D6 format | **γ**: StructureMaps, as executable transforms. | owner, 2026-09-23 |
 | D7 | Sushi and validation only, with no IG Publisher and no HTML in this phase. | owner, 2026-09-23 |
 | D8 | Keep the terminology JSON until the sushi output is equal in content, then switch in one commit. | owner, 2026-09-23 |
+
+### Later rulings (owner, 2026-09-23, after the gate)
+
+| # | ruling |
+|---|---|
+| subgraph | The FHIR content is **new derived content in its own subgraph, `src/ihris-4-on-fhir`**, and *that* subgraph depends on the **smart-base harness and IG**. The rest of iHRIS stays independent. This supersedes D5 ("R4 core only") **for this subgraph**, and it is consistent with D3 (wait for `cz17`). |
+| timing | **SUSHI later.** Document the skills, processes and tools now: skill `ihris-4-on-fhir`, `processes/ihris-4-on-fhir.bpmn`, Tool `ihris-sushi`. |
+| rename | `ihris-dak` is to be renamed. The new name is not yet chosen. |
+| focus | Now: modelling the iHRIS 4 data model on just-the-docs, with a harness visualiser. |
 
 ### Consequences
 
@@ -38,7 +47,7 @@
 
 These are already rules, and every option below respects them.
 
-1. **Derived never invents** (AGENTS.md §6). A FHIR element carries what the source states. Definitions, conditionality and linkages stay empty until a person authors them in `authored/`.
+1. **Derived never invents** (AGENTS.md §7). A FHIR element carries what the source states. Definitions, conditionality and linkages stay empty until a person authors them in `authored/`.
 2. **Generated means generated.** FHIR output is build output. People change the inputs or the generator, never the output.
 3. **Sushi runs clean before any commit that contains FSH** (owner preference).
 4. **Describe, do not materialize,** third-party sources. The iHRIS 5 FSH is read and cited by commit and path. It is not copied in.

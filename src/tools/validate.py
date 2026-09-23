@@ -57,6 +57,12 @@ for f, d in docs.items():
         if not os.path.exists(os.path.join(ROOT, d["source"]["releaseFile"])):
             errors.append(f"{os.path.relpath(f, ROOT)}: source.releaseFile {d['source']['releaseFile']} does not resolve")
 
+# Generated BPMN must match its spec (src/tools/gen_bpmn.py).
+r = subprocess.run([sys.executable, os.path.join(ROOT, "src/tools/gen_bpmn.py"), "--check"], capture_output=True, text=True)
+if r.returncode != 0:
+    errors.append("processes: " + (r.stdout + r.stderr).strip())
+counts["bpmn process"] = len(glob.glob(os.path.join(ROOT, "processes", "*.bpmn")))
+
 fa = os.environ.get("FOLIO_ASSISTANT", os.path.join(ROOT, "..", "litlfred", "folio-assistant"))
 
 if os.path.isdir(os.path.join(fa, "folio-assistant-core")):

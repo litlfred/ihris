@@ -1,0 +1,33 @@
+{
+  "id": "Process_Ihris4OnFhir",
+  "file": "ihris-4-on-fhir.bpmn",
+  "name": "iHRIS 4 on FHIR",
+  "documentation": "How the derived subgraph src/ihris-4-on-fhir is built: generate FSH from the data dictionary and terminology, build with SUSHI, validate, and map to iHRIS 5. Documented 2026-09-23; SUSHI runs later (owner). Logical models wait for folio-assistant cz17, StructureMaps wait for the logical models, and render waits for the lightweight IG render pipeline. Operating skill: ihris-4-on-fhir.",
+  "lanes": [
+    {"id": "Lane_Agent", "name": "Agent", "role": "fhir-modeller", "documentation": "Generates FSH. It never edits generated FSH or SUSHI output; it changes the inputs or the generator."},
+    {"id": "Lane_Pipeline", "name": "Build pipeline", "role": "build-pipeline", "documentation": "Runs SUSHI and the validators. A dirty SUSHI run blocks the commit."},
+    {"id": "Lane_Owner", "name": "Owner", "role": "user", "documentation": "Unblocks phases and accepts the mapping. Uncertain mappings arrive as proposals, which only the owner moves."}
+  ],
+  "nodes": [
+    {"id": "Start_F", "type": "startEvent", "lane": "Lane_Agent", "col": 0, "name": "Data model or terminology changed"},
+    {"id": "A_GenTerm", "type": "task", "lane": "Lane_Agent", "col": 1, "name": "Generate terminology FSH", "skill": "ihris-4-on-fhir", "documentation": "F2. CodeSystems, ValueSets and ConceptMaps from src/ihris-dak/terminology inputs."},
+    {"id": "GW_LM", "type": "exclusiveGateway", "lane": "Lane_Agent", "col": 2, "name": "cz17 settled?"},
+    {"id": "A_GenLM", "type": "task", "lane": "Lane_Agent", "col": 3, "name": "Generate logical models", "skill": "ihris-4-on-fhir", "documentation": "F3. One logical model per form class, in the form smart-base's DAK model settles on."},
+    {"id": "A_GenMap", "type": "task", "lane": "Lane_Agent", "col": 4, "name": "Generate StructureMaps to iHRIS 5", "skill": "ihris-4-on-fhir", "documentation": "F4. Maps to all three iHRIS 5 IGs, pinned to a commit. Uncertain matches become proposals."},
+    {"id": "P_Sushi", "type": "task", "lane": "Lane_Pipeline", "col": 5, "name": "SUSHI build (must be clean)", "skill": "ihris-4-on-fhir", "documentation": "Tool ihris-sushi. Zero errors are required, and warnings are reported."},
+    {"id": "P_Validate", "type": "task", "lane": "Lane_Pipeline", "col": 6, "name": "Validate", "skill": "ihris-4-on-fhir", "documentation": "Tool ihris-validate-kg: FHIR structure, content-equality with the retired JSON (D8), and codes that resolve."},
+    {"id": "O_Accept", "type": "task", "lane": "Lane_Owner", "col": 7, "name": "Accept mappings and phase", "noSkill": "The owner's decision on proposals and on unblocking the next phase."},
+    {"id": "End_F", "type": "endEvent", "lane": "Lane_Owner", "col": 8, "name": "Built; render waits for the pipeline"}
+  ],
+  "flows": [
+    {"from": "Start_F", "to": "A_GenTerm"},
+    {"from": "A_GenTerm", "to": "GW_LM"},
+    {"from": "GW_LM", "to": "A_GenLM", "name": "yes"},
+    {"from": "GW_LM", "to": "P_Sushi", "name": "no"},
+    {"from": "A_GenLM", "to": "A_GenMap"},
+    {"from": "A_GenMap", "to": "P_Sushi"},
+    {"from": "P_Sushi", "to": "P_Validate"},
+    {"from": "P_Validate", "to": "O_Accept"},
+    {"from": "O_Accept", "to": "End_F"}
+  ]
+}

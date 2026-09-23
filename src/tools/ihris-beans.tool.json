@@ -1,0 +1,38 @@
+{
+  "id": "ihris-beans",
+  "title": "Beans work tracker",
+  "description": "The beans CLI over beans/defs (.beans.yml, prefix ihris-): it creates, updates and queries work items and their blocking links. Used to find and categorize related work before adopting a method or starting CRDM.",
+  "install": {
+    "cli": "../litlfred/folio-assistant/cat-harness/scripts/install-beans.sh"
+  },
+  "invoke": {
+    "shell": "beans"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "command",
+        "schema": "https://www.w3.org/2001/XMLSchema#string",
+        "required": true,
+        "arg": {
+          "positional": 0
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "beans",
+        "schema": "https://www.iana.org/assignments/media-types/text/markdown"
+      }
+    ]
+  },
+  "satisfies": [
+    "adopt-methodology-from-source"
+  ],
+  "requires": {
+    "runtime": [
+      "beans"
+    ],
+    "network": false
+  }
+}
