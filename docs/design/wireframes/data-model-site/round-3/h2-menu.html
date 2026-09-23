@@ -48,7 +48,7 @@
     .side { border-right:0; border-bottom:1px solid var(--line); padding:10px 16px; }
     .side .nav { display:block; margin-top:8px; }   /* state: menu open */
     .side .tile { display:flex; min-height:44px; }
-    .nav a { display:inline-block; min-height:32px; }
+    .nav a { display:inline-flex; align-items:center; min-height:44px; }
     .topbar { display:flex; align-items:center; justify-content:space-between; }
     .menu-btn { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--ink); padding:6px 10px; background:var(--bg); min-height:44px; font:inherit; }
     .site { margin:0; }
@@ -76,7 +76,7 @@
   <aside class="side" aria-label="Site navigation">
     <div class="topbar">
       <div class="site">iHRIS 4.3.3 data model</div>
-      <button class="menu-btn" type="button" aria-label="Open navigation" aria-expanded="true" aria-controls="nav"><span aria-hidden="true">&#10005;</span> Close</button>
+      <button class="menu-btn" type="button" aria-expanded="true" aria-controls="nav vis-tile"><span aria-hidden="true">&#10005;</span> Close</button>
     </div>
     <form class="search" role="search" action="#">
       <label for="q">Search classes, fields, lists</label>
@@ -102,7 +102,7 @@
         <li class="note">156 package records, 153 distinct classes: iHRIS_DisciplinaryAction, iHRIS_Registration and iHRIS_SalaryGrade are each defined in two packages.</li>
       </ul>
     </nav>
-    <a class="tile" href="#"><span aria-hidden="true">&#9711;&#8212;&#9711;</span> <span><b>Harness visualiser</b><br><span class="src">whole data-model graph, 153 classes</span></span></a>
+    <a class="tile" id="vis-tile" href="#"><span aria-hidden="true">&#9711;&#8212;&#9711;</span> <span><b>Harness visualiser</b><br><span class="src">whole data-model graph, 153 classes</span></span></a>
   </aside>
 
   <main id="main" tabindex="-1">
