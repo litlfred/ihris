@@ -1,0 +1,29 @@
+{
+  "id": "ihris-qa",
+  "title": "Semantic QA for every schema and node type",
+  "description": "Runs the QA registry in src/tools/qa.py. Every schema the folio defines or reuses has checks beyond shape: references resolve, counts match, and files exist at their sha256. A schema with no check is the finding qa-missing, and a registry entry for a vanished schema is qa-orphan. Accepted upstream facts are listed in qa-known.json, which is itself checked. Exit 1 on any finding. validate.py runs it, and CI runs validate.py on every push and PR.",
+  "install": {
+    "none": true
+  },
+  "invoke": {
+    "shell": "python3 src/tools/qa.py"
+  },
+  "io": {
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "findings",
+        "schema": "https://www.iana.org/assignments/media-types/text/plain"
+      }
+    ]
+  },
+  "satisfies": [
+    "qa-coverage"
+  ],
+  "requires": {
+    "runtime": [
+      "python3"
+    ],
+    "network": false
+  }
+}

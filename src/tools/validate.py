@@ -107,6 +107,17 @@ for rel in uncovered:
     errors.append(f"{rel}: no schema covers this file (add a $schema tag or a binding in src/schemas/bindings.json)")
 counts["json files with no schema"] = len(uncovered)
 
+# Semantic QA for every schema and node type (src/tools/qa.py). A schema with no QA
+# check is itself a finding (qa-missing): missing QA is a QA failure.
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location("qa", os.path.join(ROOT, "src/tools/qa.py"))
+_qa = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_qa)
+_findings, _coverage = _qa.run()
+errors += [f"qa: {x}" for x in _findings]
+counts["qa schemas covered"] = sum(1 for c in _coverage if c["checks"])
+counts["qa checks"] = sum(len(c["checks"]) for c in _coverage)
+
 # Generated BPMN must match its spec (src/tools/gen_bpmn.py).
 r = subprocess.run([sys.executable, os.path.join(ROOT, "src/tools/gen_bpmn.py"), "--check"], capture_output=True, text=True)
 if r.returncode != 0:
@@ -134,6 +145,8 @@ if os.path.isdir(os.path.join(fa, "folio-assistant-core")):
         errors.append("folio-assistant zod validation failed:\n" + (r.stdout + r.stderr)[-3000:])
 else:
     print(f"WARNING: no folio-assistant checkout at {fa}; folio-catalogue(-node)/v1 NOT validated")
+    if os.environ.get("CI"):  # a skipped check is not a pass, and CI must not report one as such
+        errors.append(f"CI: no folio-assistant checkout at {fa}, so the zod checks did not run")
 
 # FHIR R4 structure of the generated terminology, with fhir.resources in its own venv (needs pydantic<2).
 venv_py = os.path.join(ROOT, ".build", "fhir-venv", "bin", "python")
@@ -145,6 +158,8 @@ if glob.glob(os.path.join(ROOT, "src/ihris-data-dictionary/terminology/*.json"))
             errors.append("FHIR R4 validation failed:\n" + (r.stdout + r.stderr)[-3000:])
     else:
         print("WARNING: .build/fhir-venv missing; FHIR terminology NOT validated (see src/tools/validate_fhir.py)")
+        if os.environ.get("CI"):
+            errors.append("CI: .build/fhir-venv missing, so FHIR R4 validation did not run")
 
 print(json.dumps(counts, indent=1))
 if errors:
