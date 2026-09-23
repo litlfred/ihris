@@ -10,6 +10,7 @@
 #   - semantic QA for every schema and node type (src/tools/qa.py), where a schema
 #     with no QA is itself a failure (qa-missing)
 #   - generated BPMN is current; the site theme is current; the site builds with no broken link
+# and first lints the workflow files themselves (actionlint).
 #
 # folio-assistant is cloned OUTSIDE the workspace ($RUNNER_TEMP): validate.py scans
 # every JSON file under the repository root, and the platform's files must not be
@@ -32,13 +33,18 @@ concurrency:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    env:
-      FOLIO_ASSISTANT: ${{ runner.temp }}/folio-assistant
     steps:
       - uses: actions/checkout@v4
+      # The runner context is not available in a job-level env, so the path is set here.
+      - name: Where folio-assistant goes
+        run: echo "FOLIO_ASSISTANT=$RUNNER_TEMP/folio-assistant" >> "$GITHUB_ENV"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Lint the workflows themselves (a broken workflow file fails before any check runs)
+        run: |
+          pip install actionlint-py
+          actionlint .github/workflows/*.yml
       - uses: oven-sh/setup-bun@v2
       - name: Python dependencies
         run: |
