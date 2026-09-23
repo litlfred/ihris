@@ -21,7 +21,7 @@ files = sorted(glob.glob(os.path.join(ROOT, "src/ihris-dak/terminology/*.json"))
 docs = {f: json.load(open(f)) for f in files}
 urls = {d["url"] for d in docs.values() if d["resourceType"] == "CodeSystem"}
 codes = {d["url"]: {c["code"] for c in d.get("concept", [])} for d in docs.values() if d["resourceType"] == "CodeSystem"}
-# External systems referenced on purpose (not generated here): the ILO ISCO-08 URL WHO smart-base uses.
+# External systems referenced on purpose (not generated here): the ILO's ISCO-08 system URL.
 EXTERNAL = {"http://www.ilo.org/public/english/bureau/stat/isco/isco08/", "urn:iso:std:iso:3166", "urn:iso:std:iso:4217"}
 MODEL = {"CodeSystem": CodeSystem, "ValueSet": ValueSet, "ConceptMap": ConceptMap}
 errs, n = [], {"CodeSystem": 0, "ValueSet": 0, "ConceptMap": 0}

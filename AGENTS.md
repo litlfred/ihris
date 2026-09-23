@@ -46,6 +46,14 @@ A Claude Code cloud session reaches `launchpad.net` (project, series and milesto
 
 `src/ihris-dak` is derived. Columns the source cannot answer (definitions, conditionality, indicator and decision-support linkages) stay null until a person authors them. Never fill them with plausible text. Human decisions go in `src/ihris-dak/authored/` (`ihris-dak-proposal/v1`), which no build writes. Only the owner moves a proposal's `status`.
 
-## 7. FHIR/sushi migration is paused
+## 7. FHIR: independent, and gated by design
 
-Owner ruling, 2026-09-23: do not produce new FHIR resources or FSH, and do not run sushi toward an IG, until the design strategy bean `ihris-dmgf` is completed by the owner. The existing `src/ihris-dak/terminology/` JSON keeps regenerating unchanged. Work items are tracked as beans in `beans/defs/` (`.beans.yml`, prefix `ihris-`); the epic is `ihris-g768`.
+iHRIS is **independent**: it is not a SMART DAK and is not related to smart-base (owner ruling, 2026-09-23). Do not add smart-base dependencies or smart-base types.
+
+The design is [`docs/design/fhir-strategy.md`](docs/design/fhir-strategy.md), approved 2026-09-23 (bean `ihris-dmgf`). Its rules:
+- Python generates FSH, and sushi is the build. Sushi must run clean before any commit that contains FSH.
+- The build depends on R4 core only. The canonical is `https://litlfred.github.io/ihris/dak`.
+- **Unpaused:** the SUSHI skeleton and terminology as FSH.
+- **Still blocked:** logical models, the iHRIS 5 StructureMaps, and any IG Publisher or HTML render. The render also waits for folio-assistant's new lightweight IG render pipeline (bean `ihris-bwls`).
+
+Work items are beans in `beans/defs/` (`.beans.yml`, prefix `ihris-`); the epic is `ihris-g768`.

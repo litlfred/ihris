@@ -20,3 +20,7 @@ Turn `src/ihris-dak/data-dictionary` into FHIR logical models. Format depends on
 ## Owner decision D3 (2026-09-23)
 
 Wait for smart-base's DAK model: [folio-assistant cz17](https://github.com/litlfred/folio-assistant/blob/main/beans/defs/folio-assistant-cz17--migrate-dakjson-in-the-dak-type-is-ours-and-its-lo.md). This is blocked upstream in addition to the gate.
+
+## Open after the independence ruling (2026-09-23)
+
+D3 said to wait for folio-assistant cz17, which is smart-base's DAK model. iHRIS is now independent of smart-base, so whether to keep waiting is for the owner to decide.

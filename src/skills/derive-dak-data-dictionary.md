@@ -1,9 +1,9 @@
 ---
 name: derive-dak-data-dictionary
 description: >
-  Derive a WHO SMART Guidelines DAK (L2) data dictionary from the iHRIS data
-  model: data elements in the WHO column order, and smart-base CoreDataElement
-  instances (logical models and value sets). Use when the data model changes or
+  Derive a data dictionary from the iHRIS data model, in the column order of
+  WHO's DAK L2 guide, plus FHIR R4 terminology from the shipped lists. iHRIS is
+  independent of SMART Guidelines and smart-base. Use when the data model changes or
   when starting DAK authoring for health workforce information.
 ---
 
@@ -22,8 +22,8 @@ columns stay `null` and are authored by a person. A plausible guessed
 definition is worse than a blank, because it reads as sourced.
 
 Column meanings come from WHO's *Form data mapping guide* (Digital
-transformation handbook for primary health care, 9789240093362, pp. 86-90), in
-folio-assistant's `smart-base/library/9789240093362-eng/sections/sec-041-*`.
+transformation handbook for primary health care, 9789240093362, pp. 86-90). Only the
+column layout is borrowed; nothing here depends on smart-base.
 
 | decision | rule |
 |---|---|
@@ -47,7 +47,7 @@ A MAP value `list|id` becomes a Coding to whichever CodeSystem **holds** that id
 
 ## Occupations (ISCO)
 
-- iHRIS record ids in `isco_08_*` **are** ISCO-08 codes. Emit ValueSets on the ILO system URL smart-base uses. Do not mint an ISCO-08 CodeSystem.
+- iHRIS record ids in `isco_08_*` **are** ISCO-08 codes. Emit ValueSets on the ILO's own ISCO-08 system URL. Do not mint an ISCO-08 CodeSystem.
 - Map only what a record itself states. A job code's ISCO-88 prefix counts only when it is a shipped ISCO-88 unit group. A classification's `code` field counts. A cadre is reached only through its jobs, and the map is `inexact` and lists the jobs.
 - **Never** map ISCO-88 to ISCO-08 from memory. It needs ILO's correspondence table. Record the gap as a `blocked` item in `authored/`.
 - Anything a person decides (a binding, a definition) goes in `authored/` as an `ihris-dak-proposal/v1`. Builds never write there.
@@ -59,8 +59,7 @@ Where iHRIS's record ids *are* a standard's codes (country → ISO 3166-1 alpha-
 ## Steps
 
 1. `python3 src/tools/build_dak.py`
-2. `python3 src/tools/validate.py`. This checks the terminology as FHIR R4 (`.build/fhir-venv`, see `validate_fhir.py`), sheets against
-   `ihris-dak-data-dictionary/v1`, and `CoreDataElement` against smart-base's
-   own JSON Schema plus `CoreDataElementTypeVS`.
+2. `python3 src/tools/validate.py`. This checks the terminology as FHIR R4 (`.build/fhir-venv`, see `validate_fhir.py`), and sheets against
+   `ihris-dak-data-dictionary/v1`.
 3. Review `excluded.json`: a class wrongly marked `system` silently drops data
    elements.

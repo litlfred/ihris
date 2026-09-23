@@ -4,7 +4,6 @@
 Input : src/<instance>/data-model/<release>/*.json   (ihris-form-class/v1, from build_kg.py)
         library/ihris-wiki/osi-help-<release>/sections/*.md (evidence only)
 Output: src/ihris-dak/data-dictionary/<group>.json   (ihris-dak-data-dictionary/v1)
-        src/ihris-dak/core-data-elements/*.json      (smart-base CoreDataElement)
         src/ihris-dak/data-dictionary.csv / .xlsx    (WHO column order)
         src/ihris-dak/terminology/*.json             (FHIR R4 CodeSystem / ValueSet)
         docs/generated/dak-data-dictionary.md
@@ -18,8 +17,9 @@ What this does NOT do, on purpose:
   linkages. Those columns are left empty for a human, as the WHO guide intends.
 
 Column semantics follow the "Form data mapping guide" in WHO's Digital
-transformation handbook for primary health care (9789240093362, pp. 86-90),
-held in folio-assistant's smart-base library.
+transformation handbook for primary health care (9789240093362, pp. 86-90).
+The column layout is borrowed from that WHO guide; iHRIS is independent of
+WHO SMART Guidelines and smart-base (owner ruling, 2026-09-23).
 """
 from __future__ import annotations
 
@@ -278,8 +278,6 @@ def build_terminology(forms, form_to_class, fdisp, merged):
                 cs["property"] = props
             cs["concept"] = concepts
             write_json(os.path.join(tdir, f"CodeSystem-{form}.json"), cs)
-            write_json(os.path.join(OUT, "core-data-elements", f"CS-{form}.json"),
-                       {"resourceType": "CoreDataElement", "type": "codesystem", "id": f"{DAK_PREFIX}.CS.{form}", "canonical": cs_url})
         by_mod = collections.defaultdict(list)
         for r in recs:
             if r["provenance"] == "sample":
@@ -330,16 +328,16 @@ ISO_SYSTEMS = {
     "country": {"system": "urn:iso:std:iso:3166", "name": "ISO 3166-1 alpha-2", "slug": "iso-3166"},
     "currency": {"system": "urn:iso:std:iso:4217", "name": "ISO 4217", "slug": "iso-4217"},
 }
-ILO_ISCO08 = "http://www.ilo.org/public/english/bureau/stat/isco/isco08/"  # the system URL smart-base's CodeSystem ISCO08 uses
+ILO_ISCO08 = "http://www.ilo.org/public/english/bureau/stat/isco/isco08/"  # the ILO's own system URL for ISCO-08
 
 
 def build_isco(fdisp):
     """ISCO-08 / ISCO-88 terminology and the occupation mappings the source itself supports.
 
     - ValueSet isco-08-unit: the 436 ISCO-08 unit groups iHRIS ships (default data), bound to the
-      ILO system URL smart-base uses. iHRIS's record ids ARE ISCO-08 codes, so no ConceptMap is
+      ILO's own ISCO-08 system URL. iHRIS's record ids ARE ISCO-08 codes, so no ConceptMap is
       needed between them; the level lists become ValueSets too.
-    - ISCO-88 has no canonical in smart-base, so iHRIS's shipped ISCO-88 lists become CodeSystems
+    - ISCO-88 has no FHIR canonical we can cite, so iHRIS's shipped ISCO-88 lists become CodeSystems
       here (via build_terminology).
     - job -> ISCO-88 unit group: the first four digits of the job code, kept ONLY when that prefix
       is an ISCO-88 unit group iHRIS ships. classification -> ISCO-88 minor group: its own `code`.
@@ -356,7 +354,7 @@ def build_isco(fdisp):
               "version": RELEASE, "name": f"IHRISISCO08{_pascal(lvl)}VS", "title": f"ISCO-08 {lvl.replace('_', '-')} groups (as shipped in iHRIS)",
               "status": "draft", "experimental": True,
               "description": f"The {len(rs)} ISCO-08 {lvl.replace('_', '-')} groups iHRIS {RELEASE} ships by default (`isco_08_{lvl}`), "
-                             f"as codes of the ILO ISCO-08 system under the URL WHO smart-base uses for it ({ILO_ISCO08}).",
+                             f"as codes of the ILO ISCO-08 system under the ILO's system URL ({ILO_ISCO08}).",
               "compose": {"include": [{"system": ILO_ISCO08, "concept": [{"code": r["id"], "display": r["fields"].get("name", r["id"])} for r in rs]}]}}
         write_json(os.path.join(tdir, f"ValueSet-isco_08_{lvl}.json"), vs)
         report["isco08"][lvl] = len(rs)
@@ -507,7 +505,7 @@ def main():
     for c, m in merged.items():
         for fm in m["forms"]:
             form_to_class.setdefault(fm, c)
-    for sub in ("data-dictionary", "core-data-elements"):
+    for sub in ("data-dictionary",):
         d = os.path.join(OUT, sub)
         if os.path.isdir(d):
             for f in glob.glob(os.path.join(d, "*.json")):
@@ -585,15 +583,6 @@ def main():
                  "logicalModel": f"{CANONICAL}/StructureDefinition/{group}", "elements": elements}
         write_json(os.path.join(OUT, "data-dictionary", f"{group}.json"), sheet)
         sheets.append(sheet)
-        write_json(os.path.join(OUT, "core-data-elements", f"LM-{group}.json"), {
-            "resourceType": "CoreDataElement", "type": "logicalmodel", "id": f"{DAK_PREFIX}.{group}",
-            "canonical": f"{CANONICAL}/StructureDefinition/{group}"})
-
-    for form in sorted(lists_used):
-        cls = form_to_class[form]
-        write_json(os.path.join(OUT, "core-data-elements", f"VS-{form}.json"), {
-            "resourceType": "CoreDataElement", "type": "valueset", "id": f"{DAK_PREFIX}.VS.{form}",
-            "canonical": f"{CANONICAL}/ValueSet/{form}"})
 
     term = {e["form"]: e for e in build_terminology(sorted(set(lists_used) | {"isco_88_unit", "isco_88_minor"}), form_to_class, fdisp, merged)}
     isco = build_isco(fdisp)
@@ -601,14 +590,6 @@ def main():
     iso = build_iso()
     if iso is not None:
         write_json(os.path.join(OUT, "iso-report.json"), iso)
-    for f in sorted(glob.glob(os.path.join(OUT, "terminology", "ConceptMap-*.json"))):
-        cm = json.load(open(f))
-        write_json(os.path.join(OUT, "core-data-elements", f"CM-{cm['id']}.json"),
-                   {"resourceType": "CoreDataElement", "type": "conceptmap", "id": f"{DAK_PREFIX}.CM.{cm['id']}", "canonical": cm["url"]})
-    for f in term:
-        if f not in lists_used:  # reached only through another list's MAP property (e.g. district -> region)
-            write_json(os.path.join(OUT, "core-data-elements", f"VS-{f}.json"), {
-                "resourceType": "CoreDataElement", "type": "valueset", "id": f"{DAK_PREFIX}.VS.{f}", "canonical": f"{CANONICAL}/ValueSet/{f}"})
     # value-set catalogue (which list backs which value set, who uses it, what codes ship)
     write_json(os.path.join(OUT, "value-sets.json"), {
         "note": "Each value set is backed by an iHRIS list form. `defaultCodes` ship with the module and are in the ValueSet; "

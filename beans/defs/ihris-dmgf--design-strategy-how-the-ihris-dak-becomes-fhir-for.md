@@ -1,15 +1,14 @@
 ---
 # ihris-dmgf
 title: 'DESIGN STRATEGY: how the iHRIS DAK becomes FHIR — for owner review'
-status: draft
+status: completed
 type: task
 priority: normal
 tags:
     - fhir
     - needs-owner
-    - ready-for-review
 created_at: 2026-09-23T06:04:45Z
-updated_at: 2026-09-23T06:14:06Z
+updated_at: 2026-09-23T06:28:07Z
 parent: ihris-g768
 ---
 
@@ -27,3 +26,7 @@ The gate. Everything else under the epic is blocked by this bean. Only the owner
 ## Draft
 
 [`docs/design/fhir-strategy.md`](../../docs/design/fhir-strategy.md), 2026-09-23: decisions D1 to D8, each with a recommendation, and phases F0 to F5. Awaiting the owner's review. Nothing in it is decided.
+
+## Completed by the owner, 2026-09-23
+
+Approved with the decisions in the doc's §0. iHRIS is independent of smart-base.

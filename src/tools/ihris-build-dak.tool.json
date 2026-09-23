@@ -1,7 +1,7 @@
 {
   "id": "ihris-build-dak",
   "title": "Derive the DAK data dictionary",
-  "description": "Derives a WHO SMART DAK (L2) data dictionary from the iHRIS data model: data elements in WHO column order (JSON, CSV, XLSX) and smart-base CoreDataElement instances. Never fills description, conditionality or linkage columns.",
+  "description": "Derives a data dictionary from the iHRIS data model: data elements in the WHO DAK L2 column order (JSON, CSV, XLSX) and FHIR R4 terminology. Never fills description, conditionality or linkage columns.",
   "install": {
     "cli": "pip install openpyxl pycountry==24.6.1"
   },
@@ -14,10 +14,6 @@
       {
         "name": "data-dictionary-sheet",
         "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-dak-data-dictionary.schema.json"
-      },
-      {
-        "name": "core-data-element",
-        "schema": "http://smart.who.int/base/StructureDefinition-CoreDataElement.schema.json"
       },
       {
         "name": "fhir-terminology",

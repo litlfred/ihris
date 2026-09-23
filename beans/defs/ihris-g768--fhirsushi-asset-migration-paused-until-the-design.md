@@ -1,13 +1,13 @@
 ---
 # ihris-g768
-title: 'FHIR/SUSHI ASSET MIGRATION: paused until the design strategy is human-reviewed'
-status: draft
+title: 'FHIR ASSET MIGRATION (independent of smart-base): gated by the approved design'
+status: in-progress
 type: epic
+priority: normal
 tags:
-    - paused
     - fhir
 created_at: 2026-09-23T06:04:45Z
-updated_at: 2026-09-23T06:04:45Z
+updated_at: 2026-09-23T06:28:07Z
 ---
 
 ## Why paused

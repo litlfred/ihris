@@ -1,6 +1,6 @@
 # iHRIS health workforce DAK: draft data dictionary (`ihris-dak`)
 
-A **WHO SMART Guidelines DAK (L2) data dictionary** for health workforce information. It is derived mechanically from the iHRIS 4.3.3 data model (`src/*/data-model/4.3.3/`), which itself comes from the checksum-verified release.
+A **data dictionary** for health workforce information, laid out in the column order of WHO's DAK L2 guide. iHRIS is independent: it is not a SMART Guidelines DAK and does not depend on smart-base (owner ruling, 2026-09-23). It is derived mechanically from the iHRIS 4.3.3 data model (`src/*/data-model/4.3.3/`), which itself comes from the checksum-verified release.
 
 | | |
 |---|---|
@@ -13,7 +13,6 @@ A **WHO SMART Guidelines DAK (L2) data dictionary** for health workforce informa
 
 - [`data-dictionary.xlsx`](data-dictionary.xlsx) / [`.csv`](data-dictionary.csv): the dictionary in the **WHO column order** of the *Form data mapping guide* (Digital transformation handbook for primary health care, 9789240093362, pp. 86-90), plus a *Value sets* sheet.
 - [`data-dictionary/`](data-dictionary/): one `ihris-dak-data-dictionary/v1` sheet per logical model, with full provenance (class, field, I2CE type, defining modules).
-- [`core-data-elements/`](core-data-elements/): smart-base `CoreDataElement` instances (`logicalmodel` / `valueset`). They validate against smart-base's own JSON Schema.
 - [`value-sets.json`](value-sets.json): which iHRIS list backs each value set, and which elements use it.
 - [`excluded.json`](excluded.json): what was left out and why (system, interoperability and list classes; password and remap fields).
 - Overview: [docs/generated/dak-data-dictionary.md](../../docs/generated/dak-data-dictionary.md).
@@ -40,8 +39,8 @@ iHRIS ships **both ISCO classifications as default data**: ISCO-08 with 10 / 43 
 
 | file | what it is | basis |
 |---|---|---|
-| `ValueSet-isco_08_{major,sub_major,minor,unit}.json` | the ISCO-08 groups iHRIS ships, as codes of the ILO ISCO-08 system (`http://www.ilo.org/public/english/bureau/stat/isco/isco08/`, the URL WHO smart-base uses) | iHRIS record ids *are* ISCO-08 codes |
-| `CodeSystem-isco_88_*.json` | ISCO-88 as shipped (smart-base has no ISCO-88 canonical) | shipped default data |
+| `ValueSet-isco_08_{major,sub_major,minor,unit}.json` | the ISCO-08 groups iHRIS ships, as codes of the ILO ISCO-08 system (`http://www.ilo.org/public/english/bureau/stat/isco/isco08/`, the ILO's own system URL) | iHRIS record ids *are* ISCO-08 codes |
+| `CodeSystem-isco_88_*.json` | ISCO-88 as shipped (no FHIR canonical for ISCO-88 exists to cite) | shipped default data |
 | `ConceptMap-job-to-isco-88-unit.json` | sample jobs → ISCO-88 unit group: 48 mapped, 3 unmatched | the job code's four-digit prefix, kept only where it is a shipped ISCO-88 unit group |
 | `ConceptMap-classification-to-isco-88-minor.json` | sample classifications → ISCO-88 minor group: 5 mapped, 1 unmatched | the record's own `code` field |
 | `ConceptMap-cadre-to-isco-88-minor.json` | sample cadres → ISCO-88 minor groups: 3 mapped, 1 unmatched | through the cadre's sample jobs; `inexact`, citing the jobs |
