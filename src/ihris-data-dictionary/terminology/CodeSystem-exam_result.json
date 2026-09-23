@@ -1,0 +1,28 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-exam-result",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/exam_result",
+  "version": "4.3.3",
+  "name": "IHRISExamResult",
+  "title": "iHRIS Exam Result",
+  "status": "draft",
+  "experimental": true,
+  "description": "The `exam_result` list as shipped by default in iHRIS 4.3.3 (modules: ihris-qualify/module/ihris-qualify). Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped baseline, not a closed international code set.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 3,
+  "concept": [
+    {
+      "code": "pass",
+      "display": "Pass"
+    },
+    {
+      "code": "fail",
+      "display": "Fail"
+    },
+    {
+      "code": "notake",
+      "display": "Did not sit for exam"
+    }
+  ]
+}

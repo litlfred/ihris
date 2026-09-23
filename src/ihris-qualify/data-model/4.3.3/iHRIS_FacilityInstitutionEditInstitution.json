@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_FacilityInstitutionEditInstitution",
+  "class": "iHRIS_FacilityInstitutionEditInstitution",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "facility_institution_edit_inst"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "health_facility",
+      "type": "MAP_MULT",
+      "label": "Health Facility",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "training_institution",
+      "type": "MAP",
+      "label": "Training Institution",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

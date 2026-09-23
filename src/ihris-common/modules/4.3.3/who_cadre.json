@@ -1,0 +1,47 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/who_cadre",
+  "module": "who_cadre",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Job/modules/who_cadre/who-cadre.xml",
+    "sha256": "8f84bca809f1a0580a3624d1d30de52673a1910516ac6eaa7e51d5f807f7ede4"
+  },
+  "parent": "ihris-common/module/ihris-common-Job",
+  "site": null,
+  "displayName": "WHO Cadres",
+  "description": "WHO Cadres",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Site",
+  "creator": "Kayode ODUSOTE",
+  "link": "https://launchpad.net/ihris-manage-liberia",
+  "requirements": [],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "who_cadre_form",
+      "class": "I2CE_SimpleCodedList",
+      "displayName": "Cadre (WHO)"
+    }
+  ],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "who_cadre": 37
+  },
+  "locales": [
+    "en_US",
+    "es",
+    "fr",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR"
+  ]
+}

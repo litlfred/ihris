@@ -1,0 +1,109 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "cadre-to-isco-88-minor",
+  "url": "https://litlfred.github.io/ihris/dak/ConceptMap/cadre-to-isco-88-minor",
+  "version": "4.3.3",
+  "name": "CadreToIsco88Minor",
+  "title": "iHRIS sample cadres to ISCO-88 minor groups (via jobs)",
+  "status": "draft",
+  "experimental": true,
+  "description": "A cadre is broader than any one occupation group, so each target is `inexact` and lists the sample jobs that justify it. Derived from SAMPLE data only; a deployment's cadres need their own map.",
+  "sourceUri": "https://litlfred.github.io/ihris/dak/ValueSet/cadre",
+  "targetUri": "https://litlfred.github.io/ihris/dak/ValueSet/isco_88_minor",
+  "group": [
+    {
+      "source": "https://litlfred.github.io/ihris/dak/CodeSystem/cadre-example-sampledata-cadre",
+      "target": "https://litlfred.github.io/ihris/dak/CodeSystem/isco_88_minor",
+      "element": [
+        {
+          "code": "1",
+          "display": "Medical Doctor",
+          "target": [
+            {
+              "code": "222",
+              "display": "HEALTH PROFESSIONALS (except nursing)",
+              "equivalence": "inexact",
+              "comment": "Sample jobs of this cadre fall in this ISCO-88 minor group: 2221-1D, 2221-2D, 2221-3D, 2221-4D, 2221-5D."
+            }
+          ]
+        },
+        {
+          "code": "2",
+          "display": "Nurse",
+          "target": [
+            {
+              "code": "223",
+              "display": "NURSING AND MIDWIFERY PROFESSIONALS",
+              "equivalence": "inexact",
+              "comment": "Sample jobs of this cadre fall in this ISCO-88 minor group: 2230-1B, 2230-1C, 2230-1D, 2230-2B."
+            },
+            {
+              "code": "323",
+              "display": "NURSING AND MIDWIFERY ASSOCIATE PROFESSIONALS",
+              "equivalence": "inexact",
+              "comment": "Sample jobs of this cadre fall in this ISCO-88 minor group: 3232-2A."
+            },
+            {
+              "code": "513",
+              "display": "PERSONAL CARE AND RELATED WORKERS",
+              "equivalence": "inexact",
+              "comment": "Sample jobs of this cadre fall in this ISCO-88 minor group: 5132-1A."
+            }
+          ]
+        },
+        {
+          "code": "3",
+          "display": "Allied Health Professional",
+          "target": [
+            {
+              "code": "222",
+              "display": "HEALTH PROFESSIONALS (except nursing)",
+              "equivalence": "inexact",
+              "comment": "Sample jobs of this cadre fall in this ISCO-88 minor group: 2222-2D, 2224-1D, 2229-3C."
+            },
+            {
+              "code": "243",
+              "display": "ARCHIVISTS, LIBRARIANS AND RELATED INFORMATION PROFESSIONALS",
+              "equivalence": "inexact",
+              "comment": "Sample jobs of this cadre fall in this ISCO-88 minor group: 2432-1B."
+            },
+            {
+              "code": "244",
+              "display": "SOCIAL SCIENCE AND RELATED PROFESSIONALS",
+              "equivalence": "inexact",
+              "comment": "Sample jobs of this cadre fall in this ISCO-88 minor group: 2445-1C, 2446-1C."
+            },
+            {
+              "code": "321",
+              "display": "LIFE SCIENCE TECHNICIANS AND RELATED ASSOCIATE",
+              "equivalence": "inexact",
+              "comment": "Sample jobs of this cadre fall in this ISCO-88 minor group: 3211-1A, 3211-1C, 3211-2A, 3211-3B, 3211-4B."
+            },
+            {
+              "code": "322",
+              "display": "MODERN HEALTH ASSOCIATE PROFESSIONALS (except nursing)",
+              "equivalence": "inexact",
+              "comment": "Sample jobs of this cadre fall in this ISCO-88 minor group: 3221-1C, 3221-2B, 3222-1A, 3222-1B, 3223-1B, 3223-1C, 3223-2A, 3225-1B, 3226-1A, 3226-1B, 3228-1B, 3229-3A."
+            },
+            {
+              "code": "346",
+              "display": "SOCIAL WORK ASSOCIATE PROFESSIONALS",
+              "equivalence": "inexact",
+              "comment": "Sample jobs of this cadre fall in this ISCO-88 minor group: 3460-1A."
+            }
+          ]
+        },
+        {
+          "code": "4",
+          "display": "Pharmacist",
+          "target": [
+            {
+              "equivalence": "unmatched",
+              "comment": "No sample job of this cadre carries an ISCO-88 prefix."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

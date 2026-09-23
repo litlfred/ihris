@@ -1,0 +1,127 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-PersonPosition",
+  "module": "ihris-manage-PersonPosition",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManagePersonPosition/PersonPosition.xml",
+    "sha256": "e803c4ebd58ebf0df4c27b158b5fe5af2ca3e9c1092a8a54e1a203ba8dc2507b"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage Person Position",
+  "description": "The iHRIS Manage Position. Adds a position which is linked to a person and is defined by a job,",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_PersonPosition",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage-Job",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Facility",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "form-limits",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "ihris-manage-Salary"
+    },
+    {
+      "module": "ihris-manage-Benefit"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person",
+      "class": null,
+      "displayName": "Person"
+    },
+    {
+      "form": "person_position",
+      "class": "iHRIS_PersonPosition",
+      "displayName": "Person Position"
+    },
+    {
+      "form": "pos_change_reason",
+      "class": "I2CE_SimpleList",
+      "displayName": "Reasons for Departure"
+    },
+    {
+      "form": "position_status",
+      "class": "I2CE_SimpleList",
+      "displayName": "Position Status"
+    },
+    {
+      "form": "position",
+      "class": "iHRIS_Position",
+      "displayName": "Position"
+    },
+    {
+      "form": "position_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Position Type"
+    },
+    {
+      "form": "department",
+      "class": "iHRIS_Department",
+      "displayName": "Department"
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_Department",
+    "ihris-manage/form-class/iHRIS_PersonPosition",
+    "ihris-manage/form-class/iHRIS_Position"
+  ],
+  "pages": [
+    {
+      "page": "departure",
+      "class": "iHRIS_PageFormDeparture",
+      "style": "ihris_manage_page_form_parent_person"
+    },
+    {
+      "page": "make_offer",
+      "class": "iHRIS_PageFormMakeOffer",
+      "style": "ihris_manage_page_form_parent_person"
+    },
+    {
+      "page": "person_position",
+      "class": null,
+      "style": "ihris_manage_page_form_parent_person"
+    },
+    {
+      "page": "view_position",
+      "class": "iHRIS_PageViewPosition",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {
+    "position_status": 3
+  },
+  "locales": []
+}

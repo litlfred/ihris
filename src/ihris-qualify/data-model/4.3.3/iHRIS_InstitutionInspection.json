@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_InstitutionInspection",
+  "class": "iHRIS_InstitutionInspection",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "institution_inspection"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "date",
+      "type": "DATE_YMD",
+      "label": "Inspection Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "notes",
+      "type": "STRING_TEXT",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "pass",
+      "type": "YESNO",
+      "label": "Passed?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

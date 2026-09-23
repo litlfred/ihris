@@ -1,0 +1,28 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-exam-try",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/exam_try",
+  "version": "4.3.3",
+  "name": "IHRISExamTry",
+  "title": "iHRIS Exam Try",
+  "status": "draft",
+  "experimental": true,
+  "description": "The `exam_try` list as shipped by default in iHRIS 4.3.3 (modules: ihris-qualify/module/ihris-qualify). Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped baseline, not a closed international code set.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 3,
+  "concept": [
+    {
+      "code": "first",
+      "display": "First Try"
+    },
+    {
+      "code": "retry",
+      "display": "Re-Try"
+    },
+    {
+      "code": "final",
+      "display": "Final Try"
+    }
+  ]
+}

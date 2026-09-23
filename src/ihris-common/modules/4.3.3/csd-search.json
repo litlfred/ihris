@@ -1,0 +1,121 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/csd-search",
+  "module": "csd-search",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CSD/modules/CSDSearchPage/CSD_Search.xml",
+    "sha256": "6bdfac9c1c97fbd2995e977fe536eca05924a66894932d3071d8c0d2153c24f2"
+  },
+  "parent": "ihris-common/module/CSD",
+  "site": null,
+  "displayName": "Search Page",
+  "description": "The iHRIS Search page.",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_CSD_Search",
+  "category": "Reporting",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "csd-infoman-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "web-services",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "csd_facility_name_search",
+      "class": "CSD_FacilityNameSearch",
+      "displayName": "Facility Name Search"
+    },
+    {
+      "form": "csd_facility_search",
+      "class": "CSD_FacilitySearch",
+      "displayName": "Facility Search"
+    },
+    {
+      "form": "csd_service_search",
+      "class": "CSD_ServiceSearch",
+      "displayName": "Service Search"
+    },
+    {
+      "form": "csd_organization_name_search",
+      "class": "CSD_OrganizationNameSearch",
+      "displayName": "Organization Name Search"
+    },
+    {
+      "form": "csd_organization_search",
+      "class": "CSD_OrganizationSearch",
+      "displayName": "Organization Search"
+    },
+    {
+      "form": "csd_provider_name_search",
+      "class": "CSD_ProviderNameSearch",
+      "displayName": "Provider Name Search"
+    },
+    {
+      "form": "csd_provider_search",
+      "class": "CSD_ProviderSearch",
+      "displayName": "Health Worker Search"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/CSD_FacilityNameSearch",
+    "ihris-common/form-class/CSD_FacilitySearch",
+    "ihris-common/form-class/CSD_OrganizationNameSearch",
+    "ihris-common/form-class/CSD_OrganizationSearch",
+    "ihris-common/form-class/CSD_ProviderNameSearch",
+    "ihris-common/form-class/CSD_ProviderSearch",
+    "ihris-common/form-class/CSD_Search",
+    "ihris-common/form-class/CSD_SearchMatches",
+    "ihris-common/form-class/CSD_ServiceSearch"
+  ],
+  "pages": [
+    {
+      "page": "search_facility",
+      "class": "CSD_PageSearch",
+      "style": "csd_search"
+    },
+    {
+      "page": "csd_search_results",
+      "class": "CSD_WebServices_Search",
+      "style": "action"
+    },
+    {
+      "page": "search_organization",
+      "class": "CSD_PageSearch",
+      "style": "csd_search"
+    },
+    {
+      "page": "search_service",
+      "class": "CSD_PageSearch",
+      "style": "csd_search"
+    },
+    {
+      "page": "search_provider",
+      "class": "CSD_PageSearch",
+      "style": "csd_search"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

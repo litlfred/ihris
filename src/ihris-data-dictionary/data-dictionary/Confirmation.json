@@ -1,0 +1,166 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Confirmation",
+  "group": "Confirmation",
+  "title": "Confirmation",
+  "class": "iHRIS_Confirmation",
+  "extends": "I2CE_Form",
+  "forms": [
+    "confirmation"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_Confirmation"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Confirmation",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Confirmation.valid",
+      "activityId": null,
+      "formIds": [
+        "confirmation"
+      ],
+      "formDataElementLabel": "Valid",
+      "dataElementLabel": "Valid",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Confirmation",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Confirmation",
+        "field": "valid",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-confirmation"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Confirmation.confirmation_type",
+      "activityId": null,
+      "formIds": [
+        "confirmation"
+      ],
+      "formDataElementLabel": "Confirmation Type",
+      "dataElementLabel": "Confirmation Type",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/confirmation_type"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Confirmation",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "unique",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Confirmation",
+        "field": "confirmation_type",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-confirmation"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Confirmation.date",
+      "activityId": null,
+      "formIds": [
+        "confirmation"
+      ],
+      "formDataElementLabel": "Date",
+      "dataElementLabel": "Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Confirmation",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Confirmation",
+        "field": "date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-confirmation"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Confirmation.record",
+      "activityId": null,
+      "formIds": [
+        "confirmation"
+      ],
+      "formDataElementLabel": "Record",
+      "dataElementLabel": "Record",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Attachment",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Confirmation",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Confirmation",
+        "field": "record",
+        "i2ceType": "DOCUMENT",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-ConfirmationAttachment"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

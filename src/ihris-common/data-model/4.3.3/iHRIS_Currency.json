@@ -1,0 +1,59 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Currency",
+  "class": "iHRIS_Currency",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "currency"
+  ],
+  "definedIn": [
+    "ihris-common/module/Currency"
+  ],
+  "fields": [
+    {
+      "field": "code",
+      "type": "STRING_LINE",
+      "label": "Currency Code",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Currency"
+      ]
+    },
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Currency"
+      ]
+    },
+    {
+      "field": "country",
+      "type": "MAP",
+      "label": "Country",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Currency"
+      ]
+    },
+    {
+      "field": "symbol",
+      "type": "STRING_LINE",
+      "label": "Symbol",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Currency"
+      ]
+    }
+  ]
+}

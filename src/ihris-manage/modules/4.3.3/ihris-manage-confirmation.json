@@ -1,0 +1,72 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-confirmation",
+  "module": "ihris-manage-confirmation",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/Confirmation/Confirmation.xml",
+    "sha256": "d397c5252e37ef0ac457f73fab5459a408b9f18edaddcf0e84df6a18ba1c7f12"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage Confirmation",
+  "description": "The iHRIS Manage Confirmation module provides confirmation tracking",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_Confirmation",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-common-Job",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "confirmation",
+      "class": "iHRIS_Confirmation",
+      "displayName": "Confirmation"
+    },
+    {
+      "form": "confirmation_type",
+      "class": "iHRIS_ConfirmationType",
+      "displayName": "Confirmation Type"
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_Confirmation",
+    "ihris-manage/form-class/iHRIS_ConfirmationType"
+  ],
+  "pages": [
+    {
+      "page": "confirmation",
+      "class": null,
+      "style": "ihris_manage_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

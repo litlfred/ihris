@@ -1,0 +1,278 @@
+{
+  "$schema": "ihris-toolkit-stage/v1",
+  "id": "ihris-toolkit/stage/plan",
+  "ordinal": 1,
+  "name": "Plan",
+  "tagline": "Ensure a Successful Implementation",
+  "url": "https://toolkit.ihris.org/plan/",
+  "wpPageId": 8,
+  "tags": [
+    "crdm",
+    "data-quality",
+    "data-standards",
+    "implementation-plan",
+    "planning",
+    "project-management-software",
+    "software-development",
+    "software-development-life-cycle",
+    "stakeholder-leadership-group",
+    "system-requirements"
+  ],
+  "intro": [
+    "A planning phase is essential for defining the system requirements before installation of iHRIS begins. These requirements should build on the work done during the Assess stage.",
+    "Planning (as well as all subsequent stages) should be done in consultation with stakeholders. Understanding the various perspectives of the stakeholders and finding areas of consensus are important to ensure the success of the implementation. Representatives from the stakeholder organizations make up the Stakeholder Leadership Group (SLG). (An alternative established mechanism of stakeholder leadership might be an existing national Health Workforce Observatory or an HRH taskforce.) Forming the SLG requires high-level buy-in from HRIS champions (see Stage 0: Governance).",
+    "Together with the SLG, you will write the implementation plan, a detailed action plan for how iHRIS will be deployed. You will also collaboratively determine the requirements for customizing iHRIS so that it will produce the necessary data for informed decision making. The SLG should have final approval of these important deliverables."
+  ],
+  "emphasisedTerms": [
+    "Stakeholder Leadership Group (SLG)",
+    "implementation plan",
+    "system requirements"
+  ],
+  "domains": [
+    {
+      "domain": "Governance",
+      "objectives": [
+        {
+          "objective": "Working with identified leaders, determine which representatives from stakeholder groups to invite to join the SLG. In the initial meeting, agree on Principles of Operation and Terms of Reference for the group.",
+          "tools": [
+            {
+              "title": "Template: SLG Principles of Operation and Terms of Reference",
+              "href": "https://toolkit.ihris.org/plan/template-slg-principles-of-operation-and-terms-of-reference/",
+              "kind": "document",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Guidelines for Forming and Sustaining Human Resources for Health Stakeholder Leadership Groups (CapacityPlus, 2011)",
+              "href": "https://www.capacityplus.org/guidelines-forming-and-sustaining-human-resources-health-stakeholder-leadership-groups.html",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Project Management",
+      "objectives": [
+        {
+          "objective": "Develop roles and responsibilities for the members of the implementation team.",
+          "tools": [
+            {
+              "title": "Template: Terms of Reference for iHRIS Project Team",
+              "href": "https://toolkit.ihris.org/plan/template-terms-of-reference-for-ihris-project-team/",
+              "kind": "document",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            }
+          ]
+        },
+        {
+          "objective": "Establish tools for managing the project and working with the implementation team.",
+          "tools": [
+            {
+              "title": "Example: GANTT Chart",
+              "href": "https://toolkit.ihris.org/plan/example-gantt-chart/",
+              "kind": "pdf",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Open source project management software, such as GanttProject",
+              "href": "http://www.ganttproject.biz/",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Software & Systems",
+      "objectives": [
+        {
+          "objective": "With the SLG and the implementation team, collaboratively develop the system requirements and document them using a standard methodology.",
+          "tools": [
+            {
+              "title": "Template: User Requirements Specifications",
+              "href": "https://toolkit.ihris.org/plan/template-user-requirements-specifications/",
+              "kind": "document",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Collaborative Requirements Development Methodology (CRDM) Walk-through",
+              "href": "http://phii.org/crdm/",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Documentation: Use Case Development Tool and iHRIS Use Cases",
+              "href": "https://toolkit.ihris.org/plan/documentation-use-case-development-tool-and-ihris-use-cases/",
+              "kind": "document",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Data Sharing & Interoperability",
+      "objectives": [
+        {
+          "objective": "Identify standards to use when sharing data with other systems in the HIS.",
+          "tools": [
+            {
+              "title": "Tipsheet: Standardized Data Lists",
+              "href": "https://toolkit.ihris.org/plan/tipsheet-standardized-data-lists/",
+              "kind": "document",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            },
+            {
+              "title": "WHO’s ISCO-08 Classification of a health worker",
+              "href": "https://www.who.int/publications/m/item/classifying-health-workers",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Care Services Discovery Standard",
+              "href": "http://wiki.ihe.net/index.php?title=Care_Services_Discovery",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Data Quality & Standards",
+      "objectives": [
+        {
+          "objective": "Identify the sources of standard HRH data to be used in iHRIS. Determine whether the data are consistently formatted and coded across these sources. If not, decide with the SLG what the standards should be and document them with the system requirements.",
+          "tools": [
+            {
+              "title": "Worksheet: Standard Datasets",
+              "href": "https://toolkit.ihris.org/plan/worksheet-standard-datasets/",
+              "kind": "spreadsheet",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Establishing and Using Data Standards in Health Workforce Information Systems (CapacityPlus, 2014)",
+              "href": "http://www.capacityplus.org/files/resources/establishing-using-data-standards-health-workforce-information-systems.pdf",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            }
+          ]
+        },
+        {
+          "objective": "Review with the SLG data collection processes and forms. Revise forms to provide the minimum necessary dataset to answer policy and management questions.",
+          "tools": [
+            {
+              "title": "Template: Sample Data Collection Forms",
+              "href": "https://toolkit.ihris.org/plan/template-sample-data-collection-forms/",
+              "kind": "document",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Training & Support",
+      "objectives": [
+        {
+          "objective": "Train data collectors to use revised data collection forms. Data collection can begin at any point after the data collectors are trained.",
+          "tools": [
+            {
+              "title": "Job Aid: Fill Data Collection Form",
+              "href": "https://toolkit.ihris.org/plan/job-aid-fill-data-collection-form/",
+              "kind": "document",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Data Use & Reporting",
+      "objectives": [
+        {
+          "objective": "Document requirements for reports produced by iHRIS.",
+          "tools": [
+            {
+              "title": "Template: Reporting Requirements",
+              "href": "https://toolkit.ihris.org/plan/template-reporting-requirements/",
+              "kind": "spreadsheet",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Deliverable",
+      "objectives": [
+        {
+          "objective": "Write the project implementation plan and attach the system and reporting requirements, as well as any data collection forms and supporting documentation. Share the plan with the SLG for their approval before proceeding with deployment.",
+          "tools": [
+            {
+              "title": "Example and Template: Implementation Workplan",
+              "href": "https://toolkit.ihris.org/plan/example-and-template-implementation-workplan/",
+              "kind": "pdf",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ],
+      "keyQuestions": [
+        "Have all stakeholders agreed on the implementation plan and system requirements?",
+        "Are stakeholders engaged to provide input on policy and management questions?",
+        "Are infrastructure, personnel, and financial resources available to support the deployment?"
+      ]
+    }
+  ],
+  "graphic": {
+    "file": "1-graphic.jpg",
+    "alt": "Software Development Life Cycle",
+    "caption": "Software development is a set of related activities that leads to the production of a software product. Software development includes five fundamental activities: 1) requirements analysis; 2) design; 3) implementation, or coding; 4) validation, or testing; 5) evolution, or maintenance and further development. Source",
+    "localPath": "library/ihris-toolkit/images/1-plan-1-graphic.jpg"
+  },
+  "challenges": "When determining the system requirements, it is important to assess the priority of each desired feature. A common challenge in software development projects is what’s known as “feature creep,” when the number of features expected of the system begin to creep outside the defined scope or document requirements for the software. Setting priorities and estimating development times will help determine which features are most important and which can be put off until a later iteration. As project manager, you will need to manage changing priorities and keep expectations realistic.",
+  "technicalTerms": [
+    {
+      "term": "Stakeholder Leadership Group (SLG)",
+      "definition": "The Stakeholder Leadership Group (SLG)is a committee of representatives from all of the stakeholder organizations; the purpose of the group is to agree on the goals for iHRIS and oversee its implementation."
+    },
+    {
+      "term": "System requirements",
+      "definition": "System requirements tell the software developers how to customize the software in order to fulfill the stakeholders’ needs for collecting, sharing, reporting, and ensuring quality of data."
+    },
+    {
+      "term": "Principles of operation",
+      "definition": "Principles of operation define how the group will work together and the values that underlie the group’s operations."
+    },
+    {
+      "term": "Terms of reference",
+      "definition": "Terms of reference describe the group’s purpose, vision, and goals, and they often assign roles and responsibilities to group members."
+    },
+    {
+      "term": "dataset",
+      "definition": "A dataset is a collection of related sets of information composed of separate elements that can be manipulated as a unit."
+    }
+  ],
+  "comments": [],
+  "capturedFrom": "uploads/toolkit/plan.html"
+}

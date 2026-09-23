@@ -1,0 +1,18 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-exam-result",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/exam_result",
+  "version": "4.3.3",
+  "name": "IHRISExamResultVS",
+  "title": "iHRIS Exam Result",
+  "status": "draft",
+  "experimental": true,
+  "description": "All codes of the iHRIS `exam_result` list as shipped by default in iHRIS 4.3.3.",
+  "compose": {
+    "include": [
+      {
+        "system": "https://litlfred.github.io/ihris/dak/CodeSystem/exam_result"
+      }
+    ]
+  }
+}

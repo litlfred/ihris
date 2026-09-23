@@ -1,0 +1,49 @@
+{
+  "$schema": "ihris-data-list/v1",
+  "id": "ihris-common/data-list/csd_provider_status",
+  "form": "csd_provider_status",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a"
+  },
+  "counts": {
+    "default": 4
+  },
+  "records": [
+    {
+      "id": "Active",
+      "fields": {
+        "name": "Active"
+      },
+      "lastModified": "2014-01-16 16:20:00",
+      "definedIn": "ihris-common/module/csd-data-provider-status",
+      "provenance": "default"
+    },
+    {
+      "id": "Inactive",
+      "fields": {
+        "name": "Inactive"
+      },
+      "lastModified": "2014-01-16 16:20:00",
+      "definedIn": "ihris-common/module/csd-data-provider-status",
+      "provenance": "default"
+    },
+    {
+      "id": "Deceased",
+      "fields": {
+        "name": "Deceased"
+      },
+      "lastModified": "2014-01-16 16:20:00",
+      "definedIn": "ihris-common/module/csd-data-provider-status",
+      "provenance": "default"
+    },
+    {
+      "id": "Retired",
+      "fields": {},
+      "lastModified": "2014-01-16 16:20:00",
+      "definedIn": "ihris-common/module/csd-data-provider-status",
+      "provenance": "default"
+    }
+  ]
+}

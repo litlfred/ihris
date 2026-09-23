@@ -1,0 +1,264 @@
+{
+  "$schema": "ihris-toolkit-stage/v1",
+  "id": "ihris-toolkit/stage/deploy",
+  "ordinal": 2,
+  "name": "Deploy",
+  "tagline": "Make iHRIS Work for You",
+  "url": "https://toolkit.ihris.org/deploy-2/",
+  "wpPageId": 17,
+  "tags": [
+    "adaptation",
+    "country-coordination-and-facilitation",
+    "customizations",
+    "data-import",
+    "deployment",
+    "development-code",
+    "documentation",
+    "e-learning",
+    "installation",
+    "iterative-development",
+    "production-code",
+    "programming",
+    "reporting",
+    "software-development",
+    "stakeholder-leadership-group",
+    "system-administration"
+  ],
+  "intro": [
+    "During the Deploy (or adaptation) phase, the implementation team installs iHRIS and customizes it to meet the system requirements. It is unlikely that iHRIS as installed will fulfill the requirements decided upon by the SLG. iHRIS has been designed to be easily customized by modifying fields, forms, and modules, or even programming new modules, if necessary.",
+    "While iHRIS is being installed, customized, and tested, consult the system requirements frequently. Often the unexpected occurs, and changes must be made to the requirements. It is important to document these changes by updating the requirements and noting what updates have been made.",
+    "The deliverable of this stage is production code, a version of iHRIS that fulfills the SLG’s requirements and is ready to use. The production code should be deployed on a dedicated server that has proper backups, uninterruptible power supply (UPS), and line conditioners installed. Do not edit any of the source code on the production server; instead pull in committed, tested code from the source code repository.",
+    "In addition to production code, you should maintain development code, a version of iHRIS that will continue to be customized as new needs emerge. The development code typically exists in two places: on the software developer’s computer or laptop, from which the developer commits changes to the source code repository; and on a testing server, where the committed code can be reviewed to ensure that the requested functionality is met.",
+    "Don’t neglect the SLG during this phase. Set a regular meeting schedule to establish roles and responsibilities and address issues that will arise. Since this group will oversee iHRIS throughout its operation—not only during the implementation phase, but well beyond—now is a good time to put in place standard operating procedures to ensure efficient operation of the SLG."
+  ],
+  "emphasisedTerms": [
+    "development code,",
+    "fields, forms",
+    "modules",
+    "production code,",
+    "source code repository",
+    "standard operating procedures"
+  ],
+  "domains": [
+    {
+      "domain": "Governance",
+      "objectives": [
+        {
+          "objective": "Document any standard operating procedures that exist or have been decided on by the SLG.",
+          "tools": [
+            {
+              "title": "Example: Standard Operating Procedures for the Ministry of Health",
+              "href": "https://toolkit.ihris.org/deploy-2/example-standard-operating-procedures-for-the-ministry-of-health/",
+              "kind": "document",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Guideline for Forming and Sustaining Stakeholder Leadership Groups",
+              "href": "https://www.capacityplus.org/guidelines-forming-and-sustaining-stakeholder-leadership-groups.html",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Applying Stakeholder Leadership Group Guidelines in Ghana: A Case Study (CapacityPlus, 2013)",
+              "href": "http://www.capacityplus.org/files/resources/applying-stakeholder-leadership-group-guidelines-in-ghana.pdf",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Project Management",
+      "objectives": [
+        {
+          "objective": "Monitor whether customizations to iHRIS conform to the system requirements. Test the software with users or stakeholders to determine if the customizations meet expectations. If a change to the requirements is needed, log the change and the reason for it.",
+          "tools": [
+            {
+              "title": "Worksheet: Issue Management List",
+              "href": "https://toolkit.ihris.org/deploy-2/worksheet-issue-management-list/",
+              "kind": "spreadsheet",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Software & Systems",
+      "objectives": [
+        {
+          "objective": "Download, install, set up, and customize the iHRIS software.",
+          "tools": [
+            {
+              "title": "iHRIS Software",
+              "href": "https://www.ihris.org/download/",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            },
+            {
+              "title": "iHRIS Global Support Community",
+              "href": "https://www.ihris.org/community/",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Documentation: iHRIS Implementation Tutorials",
+              "href": "https://www.ihris.org/implementers/support-for-implementers/",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Documentation: iHRIS Developers’ Guide",
+              "href": "https://www.ihris.org/implementers/developers-guide/",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Documentation: iHRIS Operations Guide",
+              "href": "https://toolkit.ihris.org/deploy-2/documentation-ihris-operations-guide/",
+              "kind": "document",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Data Quality & Standards",
+      "objectives": [
+        {
+          "objective": "Customize fields, forms, and modules in iHRIS according to the agreed-upon data standards.",
+          "tools": [
+            {
+              "title": "Worksheet: Customization of Fields",
+              "href": "https://toolkit.ihris.org/deploy-2/worksheet-list-of-data-fields-in-ihris-and-customization-of-fields/",
+              "kind": "spreadsheet",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Data Sharing & Interoperability",
+      "objectives": [
+        {
+          "objective": "If existing data are available in electronic format, you may choose to import the data into iHRIS during this phase. Before importing, convert data to standardized data lists [ref to Tool1-D]. Otherwise, collect and enter initial data during the Pilot phase, after ensuring that data collection tools report according to the standardized data lists. See iHRIS Technical Documentation for instructions on how to import and store data in iHRIS.",
+          "tools": []
+        }
+      ]
+    },
+    {
+      "domain": "Data Use & Reporting",
+      "objectives": [
+        {
+          "objective": "Customize reports based on the reporting requirements. Produce sample reports for testing. Engage with the SLG early on the report templates. See iHRIS Technical Documentation for instructions on how to customize reports.",
+          "tools": []
+        }
+      ]
+    },
+    {
+      "domain": "Training & Support",
+      "objectives": [
+        {
+          "objective": "Develop and implement a program for training ICT staff on administering iHRIS. Plan for how ongoing support of iHRIS will be provided, including needed skills updates.",
+          "tools": [
+            {
+              "title": "Presentation: iHRIS System Administration Training",
+              "href": "https://toolkit.ihris.org/deploy-2/presentation-ihris-system-administration-training/",
+              "kind": "presentation",
+              "hostedOnToolkit": true,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Open of Course free e-courses in Linux, programming, web design, and open source software development",
+              "href": "http://www.open-of-course.org/courses/",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            },
+            {
+              "title": "Free Linux Training from the Linux Foundation",
+              "href": "http://training.linuxfoundation.org/free-linux-training",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Deliverable",
+      "objectives": [
+        {
+          "objective": "By the end of this phase, you should have two code branches of iHRIS: a production branch and a development branch. We recommend that you publish the code on Launchpad, the hosting site for all of the iHRIS code branches. See iHRIS documentation [above] for instructions on how to manage a site on Launchpad.",
+          "tools": [
+            {
+              "title": "iHRIS Source Code on Launchpad",
+              "href": "https://launchpad.net/ihris-suite/",
+              "kind": "external-link",
+              "hostedOnToolkit": false,
+              "materialization": "referenced"
+            }
+          ]
+        }
+      ],
+      "keyQuestions": [
+        "Does iHRIS meet the system requirements?",
+        "Have all operability, customization, and systematic issues been identified and corrected?",
+        "If there were changes to the requirements, have they been approved by the stakeholders?"
+      ]
+    }
+  ],
+  "graphic": {
+    "file": "2-graphic.jpg",
+    "alt": "Iterative development model",
+    "caption": "This model depicts an iterative software development process, in which the software is modified, deployed, tested, and evaluated in short cycles. Source",
+    "localPath": "library/ihris-toolkit/images/2-deploy-2-graphic.jpg"
+  },
+  "challenges": "Without reading the documentation first, the developer or contractor installing iHRIS may assume it is just a simple database. If they don’t know iHRIS in detail, they may waste time or do some tasks incorrectly. For instance, they may not be able to import data stored in an Excel spreadsheet correctly because they don’t understand how iHRIS is structured. Developers should read through all of the technical documentation before proceeding with the installation.  More importantly, developers should join the iHRIS Google Group and explain what they are trying to do; there is a lot of help to be found from the iHRIS community.  Chances are someone has already done something similar to what the developer needs to do and can guide them along.",
+  "technicalTerms": [
+    {
+      "term": "field",
+      "definition": "A field records a unit of data in the database."
+    },
+    {
+      "term": "form",
+      "definition": "A form contains numerous fields, or spaces to enter data. Records are stored in iHRIS as forms."
+    },
+    {
+      "term": "module",
+      "definition": "A module is software code that provides a set of related features for the system. Modules serve as the building blocks of iHRIS and are grouped according to the functionality they provide."
+    },
+    {
+      "term": "Production code",
+      "definition": "Production code, also called deployment code,is a version of the software code in which all changes have been tested, no errors or bugs have been found, and the software is ready for use."
+    },
+    {
+      "term": "source code repository",
+      "definition": "A source code repository is a place where source code is kept, either publicly or privately. The source code repository handles different versions of the software code and resolves conflicts arising from developers submitting modifications to the code."
+    },
+    {
+      "term": "Development code",
+      "definition": "Development code is a version of the software to which changes are being made; this code will be merged into the production code branch once the changes have been tested and are ready for release."
+    },
+    {
+      "term": "Standard operating procedures",
+      "definition": "Standard operating procedures document how business tasks should be performed."
+    }
+  ],
+  "comments": [],
+  "capturedFrom": "uploads/toolkit/deploy.html"
+}

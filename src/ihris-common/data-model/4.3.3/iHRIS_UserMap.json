@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_UserMap",
+  "class": "iHRIS_UserMap",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "user_map"
+  ],
+  "definedIn": [
+    "ihris-common/module/SelfService"
+  ],
+  "fields": [
+    {
+      "field": "username",
+      "type": "MAP",
+      "label": "Username",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/SelfService"
+      ]
+    }
+  ]
+}

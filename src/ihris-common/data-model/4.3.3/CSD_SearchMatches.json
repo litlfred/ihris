@@ -1,0 +1,24 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_SearchMatches",
+  "class": "CSD_SearchMatches",
+  "release": "4.3.3",
+  "extends": "CSD_Search",
+  "forms": [],
+  "definedIn": [
+    "ihris-common/module/csd-search"
+  ],
+  "fields": [
+    {
+      "field": "matches",
+      "type": "ASSOC_MAP_RESULTS",
+      "label": "Matched Records",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    }
+  ]
+}

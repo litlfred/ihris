@@ -1,0 +1,51 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "release/i2ce/4.3.3",
+  "kind": "item",
+  "flavour": "release",
+  "title": "I2CE 4.3.3",
+  "parents": [
+    [
+      "project/i2ce",
+      "series/i2ce/4.3"
+    ]
+  ],
+  "metadataRef": "records/release--i2ce--4.3.3.json",
+  "bitstreams": [
+    {
+      "name": "ihris-suite-4.3.3.tar.bz2",
+      "bytes": 23295559,
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://launchpad.net/i2ce/4.3/4.3.3/+download/ihris-suite-4.3.3.tar.bz2"
+        },
+        "note": "A copy was received 2026-09-22 and its MD5 matched Launchpad's; it is deliberately NOT committed (owner ruling: describe, do not materialize). See uploads/ihris-suite-4.3.3/manifest.json."
+      }
+    },
+    {
+      "name": "i2ce-full-4.3.3.tar.bz2",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://launchpad.net/i2ce/4.3/4.3.3/+download/i2ce-full-4.3.3.tar.bz2"
+        }
+      }
+    },
+    {
+      "name": "i2ce-4.3.3.tar.bz2",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://launchpad.net/i2ce/4.3/4.3.3/+download/i2ce-4.3.3.tar.bz2"
+        }
+      }
+    }
+  ],
+  "materialization": {
+    "state": "referenced",
+    "provenance": {
+      "upstream": "https://launchpad.net/i2ce/+milestone/4.3.3"
+    }
+  }
+}

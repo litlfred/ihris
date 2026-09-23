@@ -1,0 +1,40 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/SampleData-edu_type",
+  "module": "SampleData-edu_type",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CommonSampleData/modules/SampleData-edu_type/SampleData-edu_type.xml",
+    "sha256": "d6031b8047927de8da2219a190779957ec598d2e6f659fa46faf86a221ce6f63"
+  },
+  "parent": "ihris-common/module/SampleData-Common",
+  "site": null,
+  "displayName": "Education Type",
+  "description": "Sample Data for form: edu_type",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "PersonEducation",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "edu_type": 5
+  },
+  "locales": [
+    "en_US"
+  ]
+}

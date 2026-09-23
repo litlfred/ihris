@@ -1,0 +1,40 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "release/ihris-qualify/4.1.11",
+  "kind": "item",
+  "flavour": "release",
+  "title": "iHRIS Qualify 4.1.11",
+  "parents": [
+    [
+      "project/ihris-qualify",
+      "series/ihris-qualify/4.1"
+    ]
+  ],
+  "metadataRef": "records/release--ihris-qualify--4.1.11.json",
+  "bitstreams": [
+    {
+      "name": "ihris-qualify-full-4.1.11.tar.bz2",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://launchpad.net/ihris-qualify/4.1/4.1.11/+download/ihris-qualify-full-4.1.11.tar.bz2"
+        }
+      }
+    },
+    {
+      "name": "ihris-qualify-4.1.11.tar.bz2",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://launchpad.net/ihris-qualify/4.1/4.1.11/+download/ihris-qualify-4.1.11.tar.bz2"
+        }
+      }
+    }
+  ],
+  "materialization": {
+    "state": "referenced",
+    "provenance": {
+      "upstream": "https://launchpad.net/ihris-qualify/+milestone/4.1.11"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.RecordVerify",
+  "group": "RecordVerify",
+  "title": "Record Verification",
+  "class": "iHRIS_RecordVerify",
+  "extends": "I2CE_Form",
+  "forms": [
+    "record_verify"
+  ],
+  "instances": [
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-qualify/form-class/iHRIS_RecordVerify"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/RecordVerify",
+  "elements": [
+    {
+      "id": "IHRIS.DE.RecordVerify.verify_date",
+      "activityId": null,
+      "formIds": [
+        "record_verify"
+      ],
+      "formDataElementLabel": "Verification Date",
+      "dataElementLabel": "Verification Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Record Verification",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_RecordVerify",
+        "field": "verify_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/RecordVerify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.RecordVerify.verify_change",
+      "activityId": null,
+      "formIds": [
+        "record_verify"
+      ],
+      "formDataElementLabel": "Changes Made",
+      "dataElementLabel": "Changes Made",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select all that apply",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/verify_change"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Record Verification",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_RecordVerify",
+        "field": "verify_change",
+        "i2ceType": "MAP_MULT",
+        "definedIn": [
+          "ihris-qualify/module/RecordVerify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md"
+      ]
+    }
+  ]
+}

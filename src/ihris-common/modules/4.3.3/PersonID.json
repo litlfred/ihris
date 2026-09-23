@@ -1,0 +1,63 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/PersonID",
+  "module": "PersonID",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/ID/ID.xml",
+    "sha256": "b8098dfbc98af1eb6e84d4be6e04e5e2c2df4bc5e7562dc252c8d041930f03fe"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "iHRIS Person ID",
+  "description": "A Person's ID",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_PersonID",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "id_type",
+      "class": "iHRIS_PersonID_Type",
+      "displayName": "Identification Type"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "person_id",
+      "class": "iHRIS_PersonID",
+      "displayName": "Person Identification"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_PersonID",
+    "ihris-common/form-class/iHRIS_PersonID_Type"
+  ],
+  "pages": [
+    {
+      "page": "person_id",
+      "class": "iHRIS_PageFormParentPerson",
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Exam",
+  "group": "Exam",
+  "title": "Exam",
+  "class": "iHRIS_Exam",
+  "extends": "I2CE_Form",
+  "forms": [
+    "exam"
+  ],
+  "instances": [
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-qualify/form-class/iHRIS_Exam"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Exam",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Exam.application_date",
+      "activityId": null,
+      "formIds": [
+        "exam"
+      ],
+      "formDataElementLabel": "Application Date",
+      "dataElementLabel": "Application Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Exam",
+        "field": "application_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Exam.materials_received",
+      "activityId": null,
+      "formIds": [
+        "exam"
+      ],
+      "formDataElementLabel": "Materials Received?",
+      "dataElementLabel": "Materials Received?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Exam",
+        "field": "materials_received",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Exam.materials_approved",
+      "activityId": null,
+      "formIds": [
+        "exam"
+      ],
+      "formDataElementLabel": "Materials Approved?",
+      "dataElementLabel": "Materials Approved?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Exam",
+        "field": "materials_approved",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Exam.endorser_name",
+      "activityId": null,
+      "formIds": [
+        "exam"
+      ],
+      "formDataElementLabel": "Endorser Name",
+      "dataElementLabel": "Endorser Name",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Exam",
+        "field": "endorser_name",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Exam.endorser_date",
+      "activityId": null,
+      "formIds": [
+        "exam"
+      ],
+      "formDataElementLabel": "Endorser Date",
+      "dataElementLabel": "Endorser Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Exam",
+        "field": "endorser_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Exam.endorser_qualifications",
+      "activityId": null,
+      "formIds": [
+        "exam"
+      ],
+      "formDataElementLabel": "Endorser Qualifications",
+      "dataElementLabel": "Endorser Qualifications",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Exam",
+        "field": "endorser_qualifications",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Exam.exam_date",
+      "activityId": null,
+      "formIds": [
+        "exam"
+      ],
+      "formDataElementLabel": "Exam Date",
+      "dataElementLabel": "Exam Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Exam",
+        "field": "exam_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Exam.try",
+      "activityId": null,
+      "formIds": [
+        "exam"
+      ],
+      "formDataElementLabel": "Exam Try",
+      "dataElementLabel": "Exam Try",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/exam_try"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Exam",
+        "field": "try",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Exam.results",
+      "activityId": null,
+      "formIds": [
+        "exam"
+      ],
+      "formDataElementLabel": "Exam Results",
+      "dataElementLabel": "Exam Results",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/exam_result"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Exam",
+        "field": "results",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Exam.exam_number",
+      "activityId": null,
+      "formIds": [
+        "exam"
+      ],
+      "formDataElementLabel": "Exam Number",
+      "dataElementLabel": "Exam Number",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Exam",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Exam",
+        "field": "exam_number",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

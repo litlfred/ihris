@@ -1,0 +1,92 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_UserAlert",
+  "class": "iHRIS_UserAlert",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "user_alert"
+  ],
+  "definedIn": [
+    "ihris-common/module/UserAlerts"
+  ],
+  "fields": [
+    {
+      "field": "alert_type",
+      "type": "ENUM",
+      "label": "Alert Type",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/UserAlerts"
+      ]
+    },
+    {
+      "field": "message",
+      "type": "STRING_MLINE",
+      "label": "Message",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/UserAlerts"
+      ]
+    },
+    {
+      "field": "time_sent",
+      "type": "DATE_TIME",
+      "label": "Time Sent",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/UserAlerts"
+      ]
+    },
+    {
+      "field": "time_ack",
+      "type": "DATE_TIME",
+      "label": "Time Acknowledged",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/UserAlerts"
+      ]
+    },
+    {
+      "field": "repeated",
+      "type": "INT",
+      "label": "Repeated",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/UserAlerts"
+      ]
+    },
+    {
+      "field": "link",
+      "type": "STRING_LINE",
+      "label": "Link (URL)",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/UserAlerts"
+      ]
+    },
+    {
+      "field": "link_text",
+      "type": "STRING_LINE",
+      "label": "Link Text",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/UserAlerts"
+      ]
+    }
+  ]
+}

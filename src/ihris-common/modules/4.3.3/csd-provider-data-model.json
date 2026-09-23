@@ -1,0 +1,271 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/csd-provider-data-model",
+  "module": "csd-provider-data-model",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CSD/modules/CSDDataModel/CSD_DataModel.xml",
+    "sha256": "31c8a32e07f92f92b03b7d4dd51d8dfe0c8d3168e310aa1e7d4c56272d4ae9fb"
+  },
+  "parent": "ihris-common/module/CSD",
+  "site": null,
+  "displayName": "CSD Health Worker Data Model",
+  "description": "CSD Health Worker Data Model",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "IntraHealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Float",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "SVS",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "csd_provider",
+      "class": "CSD_Provider",
+      "displayName": "Health Worker"
+    },
+    {
+      "form": "csd_provider_facility",
+      "class": "CSD_ProviderFacility",
+      "displayName": "Health Worker's Facility"
+    },
+    {
+      "form": "csd_facility_organization_service",
+      "class": "CSD_FacilityOrganizationService",
+      "displayName": "Facility's Organizational Services"
+    },
+    {
+      "form": "csd_provider_service",
+      "class": "CSD_ProviderService",
+      "displayName": "Health Worker's Service"
+    },
+    {
+      "form": "csd_provider_credential_type",
+      "class": "SVS_CodedList",
+      "displayName": "Health Worker Credential Type"
+    },
+    {
+      "form": "csd_organization_credential_type",
+      "class": "SVS_CodedList",
+      "displayName": "Organization Credential Type"
+    },
+    {
+      "form": "csd_address_components",
+      "class": "SVS_CodedList",
+      "displayName": "Address Components"
+    },
+    {
+      "form": "day_of_week",
+      "class": "I2CE_SimpleCodedList",
+      "displayName": "Day Of Week"
+    },
+    {
+      "form": "csd_contact_point_type",
+      "class": "SVS_CodedList",
+      "displayName": "Contact Point Type"
+    },
+    {
+      "form": "csd_operating_hours",
+      "class": "CSD_OperatingHours",
+      "displayName": "Operating Hours"
+    },
+    {
+      "form": "csd_provider_status",
+      "class": "SVS_CodedList",
+      "displayName": "Health Worker Status"
+    },
+    {
+      "form": "csd_facility_status",
+      "class": "SVS_CodedList",
+      "displayName": "Facility Status"
+    },
+    {
+      "form": "csd_organization_status",
+      "class": "SVS_CodedList",
+      "displayName": "Organization Status"
+    },
+    {
+      "form": "csd_service_status",
+      "class": "SVS_CodedList",
+      "displayName": "Service Status"
+    },
+    {
+      "form": "csd_provider_credential",
+      "class": "CSD_ProviderCredential",
+      "displayName": "Health Worker Credential"
+    },
+    {
+      "form": "csd_organization_credential",
+      "class": "CSD_OrganizationCredential",
+      "displayName": "Organization Credential"
+    },
+    {
+      "form": "csd_provider_otherid",
+      "class": "CSD_ProviderOtherID",
+      "displayName": "Other Identification"
+    },
+    {
+      "form": "csd_facility_otherid",
+      "class": "CSD_FacilityOtherID",
+      "displayName": "Other Facility Identification"
+    },
+    {
+      "form": "csd_organzation_otherid",
+      "class": "CSD_OrganizationOtherID",
+      "displayName": "Other Organization Identification"
+    },
+    {
+      "form": "csd_provider_gender",
+      "class": "SVS_CodedList",
+      "displayName": "Gender"
+    },
+    {
+      "form": "csd_organization",
+      "class": "CSD_Organization",
+      "displayName": "Organization"
+    },
+    {
+      "form": "csd_facility",
+      "class": "CSD_Facility",
+      "displayName": "Facility"
+    },
+    {
+      "form": "csd_service",
+      "class": "CSD_Service",
+      "displayName": "Service"
+    },
+    {
+      "form": "csd_address_type",
+      "class": "SVS_CodedList",
+      "displayName": "Address Type"
+    },
+    {
+      "form": "csd_provider_type",
+      "class": "SVS_CodedList",
+      "displayName": "Health Worker Type"
+    },
+    {
+      "form": "csd_provider_specialty",
+      "class": "SVS_CodedList",
+      "displayName": "Health Worker Specialty"
+    },
+    {
+      "form": "csd_service_type",
+      "class": "SVS_CodedList",
+      "displayName": "Service Type"
+    },
+    {
+      "form": "csd_organization_type",
+      "class": "SVS_CodedList",
+      "displayName": "Organization Type"
+    },
+    {
+      "form": "csd_facility_type",
+      "class": "SVS_CodedList",
+      "displayName": "Facility Type"
+    },
+    {
+      "form": "csd_language",
+      "class": "SVS_CodedList",
+      "displayName": "Language"
+    },
+    {
+      "form": "csd_facility_organization",
+      "class": "CSD_FacilityOrganization",
+      "displayName": "Facility Organizational Affiliation"
+    },
+    {
+      "form": "csd_provider_organization",
+      "class": "CSD_ProviderOrganization",
+      "displayName": "Health Worker's Organization"
+    },
+    {
+      "form": "csd_provider_organization_address",
+      "class": "CSD_Address",
+      "displayName": "Health Worker's Organizational Address"
+    },
+    {
+      "form": "csd_provider_address",
+      "class": "CSD_Address",
+      "displayName": "Address"
+    },
+    {
+      "form": "csd_organization_address",
+      "class": "CSD_Address",
+      "displayName": "Address"
+    },
+    {
+      "form": "csd_facility_address",
+      "class": "CSD_Address",
+      "displayName": "Address"
+    },
+    {
+      "form": "csd_provider_name",
+      "class": "CSD_ProviderName",
+      "displayName": "Health Worker Name"
+    },
+    {
+      "form": "csd_provider_organization_contact_point",
+      "class": "CSD_ContactPoint",
+      "displayName": "Health Worker's Organizational Contact Point"
+    },
+    {
+      "form": "csd_facility_contact_point",
+      "class": "CSD_ContactPoint",
+      "displayName": "Facility Contact Point"
+    },
+    {
+      "form": "csd_provider_contact_point",
+      "class": "CSD_ContactPoint",
+      "displayName": "Health Worker's Contact Point"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/CSD_Address",
+    "ihris-common/form-class/CSD_ContactPoint",
+    "ihris-common/form-class/CSD_Credential",
+    "ihris-common/form-class/CSD_Entity",
+    "ihris-common/form-class/CSD_Facility",
+    "ihris-common/form-class/CSD_FacilityOrganization",
+    "ihris-common/form-class/CSD_FacilityOrganizationService",
+    "ihris-common/form-class/CSD_FacilityOtherID",
+    "ihris-common/form-class/CSD_NamedEntity",
+    "ihris-common/form-class/CSD_OperatingHours",
+    "ihris-common/form-class/CSD_Organization",
+    "ihris-common/form-class/CSD_OrganizationCredential",
+    "ihris-common/form-class/CSD_OrganizationOtherID",
+    "ihris-common/form-class/CSD_OtherID_Base",
+    "ihris-common/form-class/CSD_Provider",
+    "ihris-common/form-class/CSD_ProviderCredential",
+    "ihris-common/form-class/CSD_ProviderFacility",
+    "ihris-common/form-class/CSD_ProviderName",
+    "ihris-common/form-class/CSD_ProviderOrganization",
+    "ihris-common/form-class/CSD_ProviderOtherID",
+    "ihris-common/form-class/CSD_ProviderService",
+    "ihris-common/form-class/CSD_Service"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

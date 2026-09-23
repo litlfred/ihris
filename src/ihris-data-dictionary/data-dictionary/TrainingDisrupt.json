@@ -1,0 +1,133 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.TrainingDisrupt",
+  "group": "TrainingDisrupt",
+  "title": "Training Disruption",
+  "class": "iHRIS_TrainingDisrupt",
+  "extends": "I2CE_Form",
+  "forms": [
+    "training_disrupt"
+  ],
+  "instances": [
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-qualify/form-class/iHRIS_TrainingDisrupt"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/TrainingDisrupt",
+  "elements": [
+    {
+      "id": "IHRIS.DE.TrainingDisrupt.disruption_reason",
+      "activityId": null,
+      "formIds": [
+        "training_disrupt"
+      ],
+      "formDataElementLabel": "Disruption Reason",
+      "dataElementLabel": "Disruption Reason",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/training_disruption_reason"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training Disruption",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_TrainingDisrupt",
+        "field": "disruption_reason",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.TrainingDisrupt.disruption_date",
+      "activityId": null,
+      "formIds": [
+        "training_disrupt"
+      ],
+      "formDataElementLabel": "Disruption Date",
+      "dataElementLabel": "Disruption Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training Disruption",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_TrainingDisrupt",
+        "field": "disruption_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.TrainingDisrupt.resumption_date",
+      "activityId": null,
+      "formIds": [
+        "training_disrupt"
+      ],
+      "formDataElementLabel": "Resumption Date",
+      "dataElementLabel": "Resumption Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training Disruption",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_TrainingDisrupt",
+        "field": "resumption_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Archive",
+  "class": "iHRIS_Archive",
+  "release": "4.3.3",
+  "extends": "iHRIS_Photo",
+  "forms": [
+    "person_archive_scan"
+  ],
+  "definedIn": [
+    "ihris-common/module/PersonArchivedScan"
+  ],
+  "fields": [
+    {
+      "field": "document",
+      "type": "DOCUMENT",
+      "label": "Document",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonArchivedScan"
+      ]
+    }
+  ]
+}

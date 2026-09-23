@@ -1,0 +1,47 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-MultiPosition",
+  "module": "ihris-manage-MultiPosition",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManagePersonPosition/modules/ManageMultiPosition/ManageMultiPosition.xml",
+    "sha256": "8ac630e2e6c7fb4e3bcfadf7f073230f0e7b04640d979206e31353ec3bfc1294"
+  },
+  "parent": "ihris-manage/module/ihris-manage-PersonPosition",
+  "site": null,
+  "displayName": "iHRIS Manage Multiple Position",
+  "description": "The iHRIS Manage Multiple Position. Allows you to create multiple positions based on similar details,",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "position",
+      "class": "iHRIS_MultiPosition",
+      "displayName": "Position"
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_MultiPosition"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

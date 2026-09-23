@@ -1,0 +1,75 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-confirmation-type-example-sampledata-confirmation-type",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/confirmation_type-example-sampledata-confirmation-type",
+  "version": "4.3.3",
+  "name": "IHRISConfirmationTypeExampleSampledataConfirmationType",
+  "title": "iHRIS Confirmation Type: sample data from ihris-manage/module/SampleData-confirmation_type",
+  "status": "draft",
+  "experimental": true,
+  "description": "SAMPLE records for `confirmation_type` from the iHRIS 4.3.3 module `ihris-manage/module/SampleData-confirmation_type`. Illustrative data for one fictional or example deployment. NOT a standard code set, and no ValueSet includes it.",
+  "caseSensitive": true,
+  "content": "example",
+  "count": 2,
+  "property": [
+    {
+      "code": "i2ce_hidden",
+      "type": "string",
+      "description": "iHRIS field `i2ce_hidden`"
+    },
+    {
+      "code": "job",
+      "type": "Coding",
+      "description": "iHRIS MAP field `job`: a code in the job list"
+    },
+    {
+      "code": "probation_period",
+      "type": "string",
+      "description": "iHRIS field `probation_period`"
+    }
+  ],
+  "concept": [
+    {
+      "code": "1",
+      "display": "Six Month Confirmation",
+      "property": [
+        {
+          "code": "i2ce_hidden",
+          "valueString": "0"
+        },
+        {
+          "code": "job",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/job-example-sampledata-job",
+            "code": "2230-1B"
+          }
+        },
+        {
+          "code": "probation_period",
+          "valueString": "6"
+        }
+      ]
+    },
+    {
+      "code": "2",
+      "display": "Six Month Confirmation",
+      "property": [
+        {
+          "code": "i2ce_hidden",
+          "valueString": "0"
+        },
+        {
+          "code": "job",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/job-example-sampledata-job",
+            "code": "2230-2B"
+          }
+        },
+        {
+          "code": "probation_period",
+          "valueString": "6"
+        }
+      ]
+    }
+  ]
+}

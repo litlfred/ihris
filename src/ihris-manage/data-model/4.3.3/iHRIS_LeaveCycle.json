@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_LeaveCycle",
+  "class": "iHRIS_LeaveCycle",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "leave_cycle"
+  ],
+  "definedIn": [
+    "ihris-manage/module/leave"
+  ],
+  "fields": [
+    {
+      "field": "years",
+      "type": "INT",
+      "label": "Years",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    }
+  ]
+}

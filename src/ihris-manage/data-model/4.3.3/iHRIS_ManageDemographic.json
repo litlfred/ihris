@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_ManageDemographic",
+  "class": "iHRIS_ManageDemographic",
+  "release": "4.3.3",
+  "extends": "iHRIS_Demographic",
+  "forms": [
+    "demographic"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ihris-manage-PersonDemographic"
+  ],
+  "fields": [
+    {
+      "field": "dependents",
+      "type": "INT",
+      "label": "Number of Dependents",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonDemographic"
+      ]
+    }
+  ]
+}

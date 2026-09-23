@@ -1,0 +1,65 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/Person",
+  "module": "Person",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/Person.xml",
+    "sha256": "d419674213f748da02dab0086d8bd95f2c562f88c3a2f757cac59b4cbb75c175"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Person",
+  "description": "Makes Person information available to the system",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_Person",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Geography",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms",
+      "atLeast": "4.2.0.1"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person",
+      "class": "iHRIS_Person",
+      "displayName": "Person"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Person"
+  ],
+  "pages": [
+    {
+      "page": "person",
+      "class": "iHRIS_PageFormPerson",
+      "style": "shell"
+    },
+    {
+      "page": "view",
+      "class": "iHRIS_PageView",
+      "style": "shell"
+    },
+    {
+      "page": "view_child",
+      "class": "iHRIS_PageViewChild",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

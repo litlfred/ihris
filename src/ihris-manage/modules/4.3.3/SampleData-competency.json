@@ -1,0 +1,38 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/SampleData-competency",
+  "module": "SampleData-competency",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/MedicalData/modules/SampleData-competency/SampleData-competency.xml",
+    "sha256": "4bbe256a51d363b4bdaa61b67aae08efaff5ba8e5492c23f61eb53175b2b494e"
+  },
+  "parent": "ihris-manage/module/ihris-manage-medical-data",
+  "site": null,
+  "displayName": "Competency",
+  "description": "Sample Data for form: competency",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "SampleData-competency_type",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "competency": 30
+  },
+  "locales": []
+}

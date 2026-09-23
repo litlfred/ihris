@@ -1,0 +1,71 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-qualify/module/ihris-qualify-CustomReports",
+  "module": "ihris-qualify-CustomReports",
+  "instance": "ihris-qualify",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-qualify/modules/QualifyCustomReports/QualifyCustomReports.xml",
+    "sha256": "3616d10eb1ec7ab33f72c4c962680049dcf1bdabb8ed104dd09a01f274fab93a"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Qualify Custom Reports",
+  "description": "The Qualify Reporting System",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Option",
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "CustomReports_PieChart"
+    },
+    {
+      "module": "CustomReports_Export"
+    },
+    {
+      "module": "CustomReports_PDF"
+    },
+    {
+      "module": "ihris-qualify-CustomReports-disruption"
+    },
+    {
+      "module": "ihris-qualify-CustomReports-exam"
+    },
+    {
+      "module": "ihris-qualify-CustomReports-institution"
+    },
+    {
+      "module": "ihris-qualify-CustomReports-license"
+    },
+    {
+      "module": "ihris-qualify-CustomReports-person"
+    },
+    {
+      "module": "ihris-qualify-CustomReports-registration"
+    },
+    {
+      "module": "ihris-qualify-CustomReports-search-people"
+    },
+    {
+      "module": "ihris-qualify-CustomReports-search-training"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

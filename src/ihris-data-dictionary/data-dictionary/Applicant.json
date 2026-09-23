@@ -1,0 +1,339 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Applicant",
+  "group": "Applicant",
+  "title": "Applicant",
+  "class": "iHRIS_Applicant",
+  "extends": "I2CE_Form",
+  "forms": [
+    "application"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_Applicant"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Applicant",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Applicant.position",
+      "activityId": null,
+      "formIds": [
+        "application"
+      ],
+      "formDataElementLabel": "Position(s)",
+      "dataElementLabel": "Position(s)",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select all that apply",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/position"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Applicant",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Applicant",
+        "field": "position",
+        "i2ceType": "MAP_MULT",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-an-application.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Applicant.felony",
+      "activityId": null,
+      "formIds": [
+        "application"
+      ],
+      "formDataElementLabel": "Have you ever been convicted of a felony?",
+      "dataElementLabel": "Have you ever been convicted of a felony?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Applicant",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Applicant",
+        "field": "felony",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Applicant.felony_circumstance",
+      "activityId": null,
+      "formIds": [
+        "application"
+      ],
+      "formDataElementLabel": "If yes, give the circumstances.",
+      "dataElementLabel": "If yes, give the circumstances.",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Applicant",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Applicant",
+        "field": "felony_circumstance",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Applicant.other_info",
+      "activityId": null,
+      "formIds": [
+        "application"
+      ],
+      "formDataElementLabel": "In addition to your work history, are there other skills, qualifications or experience we should consider?",
+      "dataElementLabel": "In addition to your work history, are there other skills, qualifications or experience we should consider?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Applicant",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Applicant",
+        "field": "other_info",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Applicant.hear",
+      "activityId": null,
+      "formIds": [
+        "application"
+      ],
+      "formDataElementLabel": "How did you hear of this opening?",
+      "dataElementLabel": "How did you hear of this opening?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Applicant",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Applicant",
+        "field": "hear",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Applicant.start_date",
+      "activityId": null,
+      "formIds": [
+        "application"
+      ],
+      "formDataElementLabel": "When can you start?",
+      "dataElementLabel": "When can you start?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Applicant",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Applicant",
+        "field": "start_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Applicant.desired_wage",
+      "activityId": null,
+      "formIds": [
+        "application"
+      ],
+      "formDataElementLabel": "Desired Wage",
+      "dataElementLabel": "Desired Wage",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Decimal quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Applicant",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "monetary amount; the currency is part of the value in iHRIS",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Applicant",
+        "field": "desired_wage",
+        "i2ceType": "CURRENCY",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Applicant.full_time",
+      "activityId": null,
+      "formIds": [
+        "application"
+      ],
+      "formDataElementLabel": "Are you looking for full-time employment?",
+      "dataElementLabel": "Are you looking for full-time employment?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Applicant",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Applicant",
+        "field": "full_time",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Applicant.hours",
+      "activityId": null,
+      "formIds": [
+        "application"
+      ],
+      "formDataElementLabel": "If no, what hours are you available?",
+      "dataElementLabel": "If no, what hours are you available?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Applicant",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Applicant",
+        "field": "hours",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

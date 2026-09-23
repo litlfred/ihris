@@ -1,0 +1,28 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-competency-evaluation",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_evaluation",
+  "version": "4.3.3",
+  "name": "IHRISCompetencyEvaluation",
+  "title": "iHRIS Competency Evaluation",
+  "status": "draft",
+  "experimental": true,
+  "description": "The `competency_evaluation` list as shipped by default in iHRIS 4.3.3 (modules: ihris-common/module/person-simple-competency). Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped baseline, not a closed international code set.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 3,
+  "concept": [
+    {
+      "code": "not_evaluated",
+      "display": "Not Evaluated"
+    },
+    {
+      "code": "competent",
+      "display": "Competent"
+    },
+    {
+      "code": "not_competent",
+      "display": "Not Competent"
+    }
+  ]
+}

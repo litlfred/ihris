@@ -1,0 +1,71 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Facility",
+  "class": "iHRIS_Facility",
+  "release": "4.3.3",
+  "extends": "iHRIS_ListByCountry",
+  "forms": [
+    "facility"
+  ],
+  "definedIn": [
+    "ihris-common/module/DHIS-Dashboard",
+    "ihris-common/module/Facility"
+  ],
+  "fields": [
+    {
+      "field": "facility_code",
+      "type": "STRING_LINE",
+      "label": "Facility Code",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/DHIS-Dashboard"
+      ]
+    },
+    {
+      "field": "facility_type",
+      "type": "MAP",
+      "label": "Facility Type",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Facility"
+      ]
+    },
+    {
+      "field": "code",
+      "type": "STRING_LINE",
+      "label": "Facility Code",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Facility"
+      ]
+    },
+    {
+      "field": "latitude",
+      "type": "STRING_LINE",
+      "label": "Facility Latitude",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Facility"
+      ]
+    },
+    {
+      "field": "longitude",
+      "type": "STRING_LINE",
+      "label": "Facility Longitude",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Facility"
+      ]
+    }
+  ]
+}

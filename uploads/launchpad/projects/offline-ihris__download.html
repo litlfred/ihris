@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Windows iHRIS project files : Windows iHRIS</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/@@/apple-touch-icon.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/@@/favicon-32x32.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/@@/favicon-16x16.png?v=2022" />
+    <link rel="manifest" href="/@@/site.webmanifest?v=2022" />
+    <link rel="mask-icon" href="/@@/safari-pinned-tab.svg?v=2022" color="#e9531f" />
+    <link rel="shortcut icon" href="/@@/favicon.ico?v=2022" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/@@/browserconfig.xml?v=2022" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    
+    
+
+    
+  
+  <link type="text/css" rel="stylesheet" media="screen, print" href="/+icing/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/combo.css" />
+
+
+    
+
+    
+      <meta name="description" content="This project builds on the WAMPServer project to provide a full-stack that can be installed on a Windows Desktop. It is primarily intended for a single user running the software on one desktop computer, although it may be accessed by multiple users via a local area network or the Internet. Windows iHRIS may also be installed with sample data as a demonstration of the program before installing the full server-based version. Advanced users may export data from Windows iHRIS for import into a se..." />
+      <meta property="og:description" content="This project builds on the WAMPServer project to provide a full-stack that can be installed on a Windows Desktop. It is primarily intended for a single user running the software on one desktop computer, although it may be accessed by multiple users via a local area network or the Internet. Windows iHRIS may also be installed with sample data as a demonstration of the program before installing the full server-based version. Advanced users may export data from Windows iHRIS for import into a se..." />
+    
+
+    
+    
+      <meta property="og:title" content="Windows iHRIS project files : Windows iHRIS" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="/@@/launchpad-og-image.png" />
+      <meta property="og:url" content="https://launchpad.net/offline-ihris/+download" />
+      <meta property="og:site_name" content="Launchpad" />
+    
+
+    
+
+    
+  
+
+  
+  
+  <script type="text/javascript">
+    var LP = {
+        cache: {},
+        links: {}
+    };
+  </script>
+
+  
+
+  <script type="text/javascript">var cookie_scope = '; Path=/; Secure; Domain=.launchpad.net';</script>
+
+   <script type="text/javascript" src="/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?yui/yui/yui-min.js&amp;lp/meta.js&amp;yui/loader/loader-min.js"></script>
+   <script type="text/javascript">
+        var raw = null;
+        if (LP.devmode) {
+           raw = 'raw';
+        }
+        YUI.GlobalConfig = {
+            combine: true,
+            comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+            root: 'yui/',
+            filter: raw,
+            debug: false,
+            fetchCSS: false,
+            maxURLLength: 2000,
+            groups: {
+                lp: {
+                    combine: true,
+                    base: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?lp/',
+                    comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+                    root: 'lp/',
+                    // comes from including lp/meta.js
+                    modules: LP_MODULES,
+                    fetchCSS: false
+                }
+            }
+        }</script>
+
+  <script type="text/javascript">
+      // we need this to create a single YUI instance all events and code
+      // talks across. All instances of YUI().use should be based off of
+      // LPJS instead.
+      var LPJS = new YUI();
+  </script>
+
+
+
+    <script id="base-layout-load-scripts" type="text/javascript">
+        //<![CDATA[
+        LPJS.use('base', 'node', 'console', 'event',
+            'oop', 'lp', 'lp.app.foldables','lp.app.sorttable',
+            'lp.app.inlinehelp', 'lp.app.links',
+            'lp.bugs.bugtask_index', 'lp.bugs.subscribers',
+            'lp.app.ellipsis', 'lp.code.branchmergeproposal.diff',
+            'lp.views.global',
+             function(Y) {
+
+            Y.on("domready", function () {
+                var global_view = new Y.lp.views.Global();
+                global_view.render();
+
+                Y.lp.app.sorttable.SortTable.init();
+                Y.lp.app.inlinehelp.init_help();
+                Y.lp.activate_collapsibles();
+                Y.lp.app.foldables.activate();
+                Y.lp.app.links.check_valid_lp_links();
+            });
+
+            Y.on('lp:context:web_link:changed', function(e) {
+                  window.location = e.new_value;
+            });
+        });
+        //]]>
+    </script>
+    <script id="base-helper-functions" type="text/javascript">
+         //<![CDATA[
+        // This code is pulled from lp.js that needs to be available on every
+        // request. Pulling here to get it outside the scope of the YUI block.
+        function setFocusByName(name) {
+            // Focus the first element matching the given name which can be focused.
+            var nodes = document.getElementsByName(name);
+            var i, node;
+            for (i = 0; i < nodes.length; i++) {
+                node = nodes[i];
+                if (node.focus) {
+                    try {
+                        // Trying to focus a hidden element throws an error in IE8.
+                        if (node.offsetHeight !== 0) {
+                            node.focus();
+                        }
+                    } catch (e) {
+                        LPJS.use('console', function(Y) {
+                            Y.log('In setFocusByName(<' +
+                                node.tagName + ' type=' + node.type + '>): ' + e);
+                        });
+                    }
+                    break;
+                }
+            }
+        }
+
+        function selectWidget(widget_name, event) {
+          if (event && (event.keyCode === 9 || event.keyCode === 13)) {
+              // Avoid firing if user is tabbing through or simply pressing
+              // enter to submit the form.
+              return;
+          }
+          document.getElementById(widget_name).checked = true;
+        }
+        //]]>
+    </script>
+
+    
+      
+    
+  </head>
+
+  <body id="document" itemscope="" itemtype="http://schema.org/WebPage" class="tab-overview
+      main_only
+      public
+      yui3-skin-sam">
+          
+          
+          
+    <div class="yui-d0">
+      <div id="locationbar" class="login-logout">
+        
+
+<div id="logincontrol"><a href="https://launchpad.net/offline-ihris/+download/+login">Log in / Register</a></div>
+
+
+
+      </div><!--id="locationbar"-->
+
+      <div id="watermark" class="watermark-apps-portlet">
+        <div>
+          <a href="https://launchpad.net/offline-ihris"><img alt="" width="64" height="64" src="/@@/product-logo" /></a>
+        </div>
+        <div class="wide">
+          <h2 id="watermark-heading"><a href="https://launchpad.net/offline-ihris">Windows iHRIS</a></h2>
+        </div>
+        
+  <!-- Application Menu -->
+  <ul class="facetmenu">
+    
+      <li class="overview active"><a href="https://launchpad.net/offline-ihris">Overview</a></li>
+      
+      
+    
+    
+      
+      <li class="branches"><a href="https://code.launchpad.net/offline-ihris">Code</a></li>
+      
+    
+    
+      
+      <li class="bugs"><a href="https://bugs.launchpad.net/offline-ihris">Bugs</a></li>
+      
+    
+    
+      
+      <li class="specifications"><a href="https://blueprints.launchpad.net/offline-ihris">Blueprints</a></li>
+      
+    
+    
+      
+      <li class="translations"><a href="https://translations.launchpad.net/offline-ihris">Translations</a></li>
+      
+    
+    
+      
+      <li class="answers"><a href="https://answers.launchpad.net/offline-ihris">Answers</a></li>
+      
+    
+  </ul>
+
+      </div>
+
+      
+        <div id="maincontent" class="yui-main">
+          <div class="yui-b" dir="ltr">
+            <div class="context-publication">
+              <h1>Download project files</h1>
+              
+
+              <div id="registration" class="registering">
+                
+              </div>
+            </div>
+
+            
+            <div id="request-notifications">
+              
+            </div>
+
+            
+              <div>
+
+  <p>
+    <a href="/+help-registry/verify-downloads.html" target="help">How do I verify a
+    download?</a>
+  </p>
+  <br />
+
+  <form id="project-downloads" method="POST" action="https://launchpad.net/offline-ihris/+download">
+
+    
+
+    <div class="freeform-batch">
+    
+      
+      
+        <div id="series-3-1">
+
+          
+            
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/offline-ihris/3.1/3.1.3">
+                    3.1.3 (sapphire) release</a>
+                  from the
+                  <a href="/offline-ihris/3.1">3.1</a> series released
+                  <time title="2008-11-19 21:10:01 UTC" datetime="2008-11-19T21:10:01.753166+00:00">2008-11-19</time>
+                </h3>
+
+                <div id="release-information-3-1-3">
+
+                  <div class="collapsible">
+                    <div>Release information</div>
+                    <div class="hide-on-load">
+                    <div>
+                      <strong>Release notes:</strong>
+                      <div style="margin-bottom: 0px;" id="release-notes-3-1-3"><p>This release includes minor bug fixes and improved translation support.</p></div>
+                    </div>
+
+                    
+                  </div>
+                  </div>
+                </div>
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="README (8.6 KiB)" href="https://launchpad.net/offline-ihris/3.1/3.1.3/+download/Readme_Windows_v3.1.3.txt">Readme_Windows_v3.1.3.txt</a> </strong>(<a href="https://launchpad.net/offline-ihris/3.1/3.1.3/+download/Readme_Windows_v3.1.3.txt/+md5">md5</a>)
+    </td>
+    <td>README</td>
+    <td style="text-align: center;">
+      
+        609
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            7 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="Installer for Windows iHRIS (45.6 MiB)" href="https://launchpad.net/offline-ihris/3.1/3.1.3/+download/iHRIS-3.1.3.exe">iHRIS-3.1.3.exe</a> </strong>(<a href="https://launchpad.net/offline-ihris/3.1/3.1.3/+download/iHRIS-3.1.3.exe/+md5">md5</a>)
+    </td>
+    <td>Installer for Windows iHRIS</td>
+    <td style="text-align: center;">
+      
+        2,269
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            10 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          2,878
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-3-1">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/offline-ihris/3.1/3.1.2">
+                    3.1.2 release</a>
+                  from the
+                  <a href="/offline-ihris/3.1">3.1</a> series released
+                  <time title="2008-10-14 13:14:21 UTC" datetime="2008-10-14T13:14:21.647885+00:00">2008-10-14</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="README (9.1 KiB)" href="https://launchpad.net/offline-ihris/3.1/3.1.2/+download/README_Offline_iHRIS_3.1.2.txt">README_Offline_iHRIS_3.1.2.txt</a> </strong>(<a href="https://launchpad.net/offline-ihris/3.1/3.1.2/+download/README_Offline_iHRIS_3.1.2.txt/+md5">md5</a>)
+    </td>
+    <td>README</td>
+    <td style="text-align: center;">
+      
+        59
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            9 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="Windows Installer (47.0 MiB)" href="https://launchpad.net/offline-ihris/3.1/3.1.2/+download/OfflineIHRIS-3.1.2.exe">OfflineIHRIS-3.1.2.exe</a> </strong>(<a href="https://launchpad.net/offline-ihris/3.1/3.1.2/+download/OfflineIHRIS-3.1.2.exe/+md5">md5</a>)
+    </td>
+    <td>Windows Installer</td>
+    <td style="text-align: center;">
+      
+        79
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            88 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          138
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-3-0">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/offline-ihris/3.0/3.0.1">
+                    3.0.1 release</a>
+                  from the
+                  <a href="/offline-ihris/3.0">3.0</a> series released
+                  <time title="2008-07-03 19:49:47 UTC" datetime="2008-07-03T19:49:47.810064+00:00">2008-07-03</time>
+                </h3>
+
+                <div id="release-information-3-0-1">
+
+                  <div class="collapsible">
+                    <div>Release information</div>
+                    <div class="hide-on-load">
+                    <div>
+                      <strong>Release notes:</strong>
+                      <div style="margin-bottom: 0px;" id="release-notes-3-0-1"><p>This release fixes some problems with the installer.</p></div>
+                    </div>
+
+                    
+                  </div>
+                  </div>
+                </div>
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="Offline iHRIS 3.0.1 Installer (58.2 MiB)" href="https://launchpad.net/offline-ihris/3.0/3.0.1/+download/OfflineIHRIS3.0.1.exe">OfflineIHRIS3.0.1.exe</a> </strong>(<a href="https://launchpad.net/offline-ihris/3.0/3.0.1/+download/OfflineIHRIS3.0.1.exe/+md5">md5</a>)
+    </td>
+    <td>Offline iHRIS 3.0.1 Installer</td>
+    <td style="text-align: center;">
+      
+        44
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            23 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="Readme for Offline iHRIS 3.0.1 Installer (6.4 KiB)" href="https://launchpad.net/offline-ihris/3.0/3.0.1/+download/README.txt">README.txt</a> </strong>(<a href="https://launchpad.net/offline-ihris/3.0/3.0.1/+download/README.txt/+md5">md5</a>)
+    </td>
+    <td>Readme for Offline iHRIS 3.0.1 Installer</td>
+    <td style="text-align: center;">
+      
+        51
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            16 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          95
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-3-0">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/offline-ihris/3.0/3.0.0">
+                    3.0.0 release</a>
+                  from the
+                  <a href="/offline-ihris/3.0">3.0</a> series released
+                  <time title="2008-06-13 18:40:22 UTC" datetime="2008-06-13T18:40:22.589941+00:00">2008-06-13</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="ISO for Burning CDs (54.1 MiB)" href="https://launchpad.net/offline-ihris/3.0/3.0.0/+download/CD-Image.iso">CD-Image.iso</a> </strong>(<a href="https://launchpad.net/offline-ihris/3.0/3.0.0/+download/CD-Image.iso/+md5">md5</a>, <a href="https://launchpad.net/offline-ihris/3.0/3.0.0/+download/CD-Image.iso.asc">sig</a>)
+    </td>
+    <td>ISO for Burning CDs</td>
+    <td style="text-align: center;">
+      
+        43
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            23 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="Installer for Offline iHRIS (53.7 MiB)" href="https://launchpad.net/offline-ihris/3.0/3.0.0/+download/OfflineIHRIS3.0.0.exe">OfflineIHRIS3.0.0.exe</a> </strong>(<a href="https://launchpad.net/offline-ihris/3.0/3.0.0/+download/OfflineIHRIS3.0.0.exe/+md5">md5</a>, <a href="https://launchpad.net/offline-ihris/3.0/3.0.0/+download/OfflineIHRIS3.0.0.exe.asc">sig</a>)
+    </td>
+    <td>Installer for Offline iHRIS</td>
+    <td style="text-align: center;">
+      
+        35
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            23 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          78
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+    
+    </div>
+    <div id="admin-links">
+      
+        
+      
+      
+        
+      
+      
+        
+          
+        
+      
+      
+        
+          
+        
+      
+    </div>
+    
+
+  </form>
+</div>
+            
+            
+          </div><!-- yui-b -->
+        </div><!-- yui-main -->
+
+        
+          <!-- yui-b side -->
+        
+      <!-- yui-t4 -->
+
+      
+  <div id="footer" class="footer">
+    <div class="lp-arcana">
+        <div class="lp-branding">
+          <a href="https://launchpad.net/"><img src="/@@/launchpad-footer-logo.svg" alt="Launchpad" width="65" height="18" /></a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://launchpad.net/+tour">Take the tour</a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://documentation.ubuntu.com/launchpad/">Read the guide</a>
+          &nbsp;
+          <form id="globalsearch" method="get" accept-charset="UTF-8" action="https://launchpad.net/+search">
+            <input type="search" id="search-text" name="field.text" />
+            <input type="image" src="/@@/search" style="vertical-align:5%" alt="Search Launchpad" />
+          </form>
+        </div>
+        
+  
+
+    </div>
+
+    <div class="colophon">
+      &copy; 2004
+      <a href="http://canonical.com/">Canonical&nbsp;Ltd.</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://ubuntu.com/legal/launchpad-terms-of-service">Terms of use</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://www.ubuntu.com/legal/dataprivacy">Data privacy</a>
+      &nbsp;&bull;&nbsp;
+      <a href="/feedback">Contact Launchpad Support</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://blog.launchpad.net/">Blog</a>
+      
+	&nbsp;&bull;&nbsp;
+	<a href="https://canonical.com/careers">Careers</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="https://status.canonical.com/">System status</a>
+      <span id="lp-version">
+      &nbsp;&bull;&nbsp;
+        6c05f5b
+        
+        
+        (<a href="https://documentation.ubuntu.com/launchpad/developer/how-to/get-source-code/">Get the code!</a>)
+      </span>
+    </div>
+  </div>
+
+    </div><!-- yui-d0-->
+
+    
+  
+  
+  <script id="json-cache-script">LP.cache = {"related_features": {}, "context": {"self_link": "https://launchpad.net/api/devel/offline-ihris", "web_link": "https://launchpad.net/offline-ihris", "resource_type_link": "https://launchpad.net/api/devel/#project", "translations_usage": "Unknown", "official_answers": true, "official_blueprints": true, "official_codehosting": false, "official_bugs": true, "information_type": "Public", "active": true, "all_specifications_collection_link": "https://launchpad.net/api/devel/offline-ihris/all_specifications", "valid_specifications_collection_link": "https://launchpad.net/api/devel/offline-ihris/valid_specifications", "bug_reporting_guidelines": null, "content_templates": null, "bug_reported_acknowledgement": null, "official_bug_tags": [], "recipes_collection_link": "https://launchpad.net/api/devel/offline-ihris/recipes", "webhooks_collection_link": "https://launchpad.net/api/devel/offline-ihris/webhooks", "active_milestones_collection_link": "https://launchpad.net/api/devel/offline-ihris/active_milestones", "all_milestones_collection_link": "https://launchpad.net/api/devel/offline-ihris/all_milestones", "bug_supervisor_link": "https://launchpad.net/api/devel/~sturlington", "translationgroup_link": null, "translationpermission": "Open", "qualifies_for_free_hosting": true, "reviewer_whiteboard": "tag:launchpad.net:2008:redacted", "is_permitted": "tag:launchpad.net:2008:redacted", "project_reviewed": "tag:launchpad.net:2008:redacted", "license_approved": "tag:launchpad.net:2008:redacted", "private": false, "display_name": "Windows iHRIS", "icon_link": "https://launchpad.net/api/devel/offline-ihris/icon", "logo_link": "https://launchpad.net/api/devel/offline-ihris/logo", "name": "offline-ihris", "owner_link": "https://launchpad.net/api/devel/~intrahealth+informatics", "project_group_link": "https://launchpad.net/api/devel/ihris-suite", "title": "Windows iHRIS", "registrant_link": "https://launchpad.net/api/devel/~intrahealth+informatics", "driver_link": "https://launchpad.net/api/devel/~intrahealth+informatics", "summary": "A Windows version of the iHRIS Suite designed for use in locations where there is no or limited Internet access, or where it is not practical to install a Linux server. It installs all three components of the iHRIS Suite on the Windows desktop. ", "description": "This project builds on the WAMPServer project to provide a full-stack that can be installed on a Windows Desktop. It is primarily intended for a single user running the software on one desktop computer, although it may be accessed by multiple users via a local area network or the Internet. Windows iHRIS may also be installed with sample data as a demonstration of the program before installing the full server-based version. Advanced users may export data from Windows iHRIS for import into a server-based version of iHRIS using the PHP MyAdmin tool included with Windows iHRIS.  In the future, the ability to import and export data from a primary server will be provided.", "date_created": "2008-06-12T15:11:26.915988+00:00", "homepage_url": "http://www.capacityproject.org/hris/suite/offline_ihris.php", "wiki_url": "http://open.intrahealth.org/", "screenshots_url": null, "download_url": null, "programming_language": "PHP", "sourceforge_project": null, "freshmeat_project": null, "brand_link": "https://launchpad.net/api/devel/offline-ihris/brand", "branch_sharing_policy": "Public", "bug_sharing_policy": "Public", "specification_sharing_policy": "Public", "licenses": ["GNU GPL v3"], "license_info": null, "bug_tracker_link": null, "series_collection_link": "https://launchpad.net/api/devel/offline-ihris/series", "development_focus_link": "https://launchpad.net/api/devel/offline-ihris/trunk", "releases_collection_link": "https://launchpad.net/api/devel/offline-ihris/releases", "translation_focus_link": null, "commercial_subscription_link": null, "commercial_subscription_is_due": false, "remote_product": null, "vcs": "Bazaar", "http_etag": "\"ca6a1a02fb22dc97c6fe6dba947faaecf0ff504a-cd50f4e70945580aad9bc95139bf2a91f0bd9af3\""}};</script>
+
+    
+  
+
+    
+  </body>
+
+
+  <!--
+    Facet name: overview
+    Page type: main_only
+    Has global search: True
+    Has application tabs: True
+    Has side portlets: False
+
+    At least 18 queries/external actions issued in 0.37 seconds
+
+    Features: {'profiling.enabled': None, 'hard_timeout': '5000', 'js.yui_version': None, 'app.mainsite_only.canonical_url': None, 'app.maintenance_message': None, 'baselayout.careers_link.disabled': None, 'visible_render_time': None}
+
+    r6c05f5b
+
+    -->
+
+</html>
+

@@ -1,0 +1,448 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Training",
+  "group": "Training",
+  "title": "Training",
+  "class": "iHRIS_Training",
+  "extends": "I2CE_Form",
+  "forms": [
+    "training"
+  ],
+  "instances": [
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-qualify/form-class/iHRIS_Training"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Training",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Training.index_num",
+      "activityId": null,
+      "formIds": [
+        "training"
+      ],
+      "formDataElementLabel": "Index Number",
+      "dataElementLabel": "Index Number",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "ID",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "system-generated number",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training",
+        "field": "index_num",
+        "i2ceType": "INT_GENERATE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Training.cadre",
+      "activityId": null,
+      "formIds": [
+        "training"
+      ],
+      "formDataElementLabel": "Cadre",
+      "dataElementLabel": "Cadre",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/cadre"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training",
+        "field": "cadre",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/create-a-job-structure--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/create-a-job-structure.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Training.intake_date",
+      "activityId": null,
+      "formIds": [
+        "training"
+      ],
+      "formDataElementLabel": "Intake Date",
+      "dataElementLabel": "Intake Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training",
+        "field": "intake_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Training.graduation",
+      "activityId": null,
+      "formIds": [
+        "training"
+      ],
+      "formDataElementLabel": "Graduation Date",
+      "dataElementLabel": "Graduation Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training",
+        "field": "graduation",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Training.trained_outside",
+      "activityId": null,
+      "formIds": [
+        "training"
+      ],
+      "formDataElementLabel": "Trained Outside this Country",
+      "dataElementLabel": "Trained Outside this Country",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training",
+        "field": "trained_outside",
+        "i2ceType": "BOOL",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Training.training_program",
+      "activityId": null,
+      "formIds": [
+        "training"
+      ],
+      "formDataElementLabel": "Training Program",
+      "dataElementLabel": "Training Program",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/training_program"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training",
+        "field": "training_program",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Training.training_institution",
+      "activityId": null,
+      "formIds": [
+        "training"
+      ],
+      "formDataElementLabel": "Training Institution",
+      "dataElementLabel": "Training Institution",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/training_institution"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training",
+        "field": "training_institution",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Training.in_cadre",
+      "activityId": null,
+      "formIds": [
+        "training"
+      ],
+      "formDataElementLabel": "Cadre",
+      "dataElementLabel": "Cadre",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/cadre"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training",
+        "field": "in_cadre",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/create-a-job-structure--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/create-a-job-structure.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Training.out_country",
+      "activityId": null,
+      "formIds": [
+        "training"
+      ],
+      "formDataElementLabel": "Country Trained in",
+      "dataElementLabel": "Country Trained in",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/country"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training",
+        "field": "out_country",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Training.out_institution",
+      "activityId": null,
+      "formIds": [
+        "training"
+      ],
+      "formDataElementLabel": "Training Institution",
+      "dataElementLabel": "Training Institution",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training",
+        "field": "out_institution",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Training.out_cadre",
+      "activityId": null,
+      "formIds": [
+        "training"
+      ],
+      "formDataElementLabel": "Cadre",
+      "dataElementLabel": "Cadre",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/cadre"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Training",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Training",
+        "field": "out_cadre",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/create-a-job-structure--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/create-a-job-structure.md"
+      ]
+    }
+  ]
+}

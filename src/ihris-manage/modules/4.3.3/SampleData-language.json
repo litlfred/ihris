@@ -1,0 +1,38 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/SampleData-language",
+  "module": "SampleData-language",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/BaseData/modules/SampleData-language/SampleData-language.xml",
+    "sha256": "5e87781fe145c9a0b99d46240dfdc1166736007c48885a592687733bfc7fb4b8"
+  },
+  "parent": "ihris-manage/module/ihris-manage-base-data",
+  "site": null,
+  "displayName": "Language",
+  "description": "Sample Data for form: language",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "PersonLanguage",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "language": 9
+  },
+  "locales": []
+}

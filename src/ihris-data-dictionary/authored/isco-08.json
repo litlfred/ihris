@@ -1,0 +1,67 @@
+{
+  "$schema": "ihris-dak-proposal/v1",
+  "id": "isco-08",
+  "title": "Classifying iHRIS cadres and jobs with ISCO-08",
+  "author": "Claude (session https://claude.ai/code/session_01TA4id51RCSxZ4NxijDwrWQ), for owner review",
+  "date": "2026-09-22",
+  "refs": [
+    "litlfred/ihris#3"
+  ],
+  "items": [
+    {
+      "id": "isco-08-P1",
+      "kind": "binding",
+      "status": "accepted",
+      "appliesTo": [
+        "IHRIS.DE.VS.cadre",
+        "IHRIS.DE.VS.job",
+        "IHRIS.DE.Training.cadre",
+        "IHRIS.DE.Training.in_cadre",
+        "IHRIS.DE.Training.out_cadre",
+        "IHRIS.DE.PersonPosition.position"
+      ],
+      "statement": "Each deployment maps its own `cadre` and `job` codes to ISCO-08 unit groups (ValueSet isco_08_unit, system http://www.ilo.org/public/english/bureau/stat/isco/isco08/), as a ConceptMap maintained with the lists.",
+      "rationale": "`cadre` and `job` are deployment-defined lists (iHRIS 4.3.3 ships sample data only), so the DAK cannot fix their codes. It can fix what they are classified BY. The toolkit's Plan stage names WHO's ISCO-08 classification of health workers as the standard for data sharing, and smart-base binds DAK personas to ISCO-08 (GenericPersona.iscoCode -> ISCO08ValueSet). iHRIS already ships the full ISCO-08 hierarchy (10/43/130/436 groups) and a free-text `isco` field on Qualify's cadre.",
+      "evidence": [
+        "library/ihris-toolkit/stages/1-plan.json",
+        "src/ihris-qualify/data-model/4.3.3/iHRIS_Cadre.json",
+        "src/ihris-data-dictionary/terminology/ValueSet-isco_08_unit.json",
+        "folio-assistant: smart-base/fhir-artifact-index/dak/StructureDefinition-GenericPersona.schema.json"
+      ],
+      "decision": {
+        "by": "litlfred (repository owner)",
+        "on": "2026-09-22",
+        "status": "accepted",
+        "where": "Claude Code session https://claude.ai/code/session_01TA4id51RCSxZ4NxijDwrWQ",
+        "note": "\"accept P1\""
+      }
+    },
+    {
+      "id": "isco-08-P2",
+      "kind": "mapping",
+      "status": "blocked",
+      "appliesTo": [
+        "src/ihris-data-dictionary/terminology/ConceptMap-job-to-isco-88-unit.json",
+        "src/ihris-data-dictionary/terminology/ConceptMap-classification-to-isco-88-minor.json",
+        "src/ihris-data-dictionary/terminology/ConceptMap-cadre-to-isco-88-minor.json"
+      ],
+      "statement": "Chain the ISCO-88 maps to ISCO-08 through the official ILO ISCO-88/ISCO-08 correspondence table.",
+      "rationale": "iHRIS's sample jobs and classifications are keyed on ISCO-88 (48 of 51 job codes carry a verified ISCO-88 unit-group prefix; 5 of 6 classifications carry an ISCO-88 minor group). The step to ISCO-08 is many-to-many and must come from ILO's table, not from recall.",
+      "needs": "The ILO correspondence table (e.g. the ISCO-88 to ISCO-08 index workbook) uploaded to uploads/isco/. ilo.org is egress-blocked from the building session."
+    },
+    {
+      "id": "isco-08-O1",
+      "kind": "upstream-observation",
+      "status": "to-verify",
+      "appliesTo": [
+        "WorldHealthOrganization/smart-base@5891a22: input/fsh/codesystems/ISCO08.fsh, input/data/ISCO-08_EN_Structure_and_definitions.xlsx"
+      ],
+      "statement": "smart-base's ISCO08 CodeSystem holds 182 of ISCO-08's 619 groups while declaring `content: complete`, and includes a code `913` \"Helpers in Food Preparation\" that iHRIS's full ISCO-08 list does not have.",
+      "rationale": "Measured 2026-09-22 against smart-base's own ILO workbook (182 codes, identical to its FSH): 181 codes are in both, 179 with matching titles and 2 differing only in spelling or capitalization (1113, 2265). The other 438 iHRIS codes are absent from smart-base. Whether 913 is a valid ISCO-08 minor group was NOT verified: it needs the full ILO structure. Internal evidence, from smart-base alone: 7 unit groups have no parent group present (6111-6114, 9211-9213), and 54 higher-level groups have no children present. On 913: smart-base itself carries sub-major group 94 \"Food Preparation Assistants\" with no minor group under it, while 913 sits under 91 \"Cleaners and Helpers\". iHRIS's independently shipped ISCO-08 list has 941 \"Food preparation assistants\" (9411, 9412) and no 913.",
+      "needs": "Owner review of the drafted upstream issue, then filing it on WorldHealthOrganization/smart-base. The full ILO structure (webapps.ilo.org, cited by smart-base's extractor) is egress-blocked here, so the 913 finding is stated as evidence-based, not ILO-confirmed.",
+      "followUp": [
+        "docs/upstream/smart-base-isco08-codesystem.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_QualifyTrainingInstitution",
+  "class": "iHRIS_QualifyTrainingInstitution",
+  "release": "4.3.3",
+  "extends": "iHRIS_ListByCountry",
+  "forms": [
+    "training_institution"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "id_code",
+      "type": "STRING_LINE",
+      "label": "Identification Code",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "facility_agent",
+      "type": "MAP",
+      "label": "Facility Agent",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "facility_status",
+      "type": "MAP",
+      "label": "Facility Status",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

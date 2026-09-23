@@ -1,0 +1,53 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/page-builder",
+  "module": "page-builder",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Pages/modules/PageBuilder/PageBuilder.xml",
+    "sha256": "b3c80843017228e4dfca083d3e4a393a75eded5a6346c6bacaeb45d8f68c754e"
+  },
+  "parent": "i2ce/module/pages",
+  "site": null,
+  "displayName": "Page Builder",
+  "description": "Page Builder",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Administration",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "swissfactory",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "page",
+      "class": "I2CE_PageBuilder",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "de",
+    "en_US",
+    "es",
+    "fr"
+  ]
+}

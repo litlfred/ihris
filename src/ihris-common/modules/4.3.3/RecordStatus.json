@@ -1,0 +1,45 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/RecordStatus",
+  "module": "RecordStatus",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/RecordStatus/RecordStatus.xml",
+    "sha256": "247e8e647353efe2fb511f3e6024d1de751f8a9e4f9691a587dd86bfe088ca77"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "Record Status",
+  "description": "Adds in two new forms for tracking professional development",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_RecordStatus",
+  "category": "Application Component",
+  "creator": null,
+  "link": null,
+  "requirements": [],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person_record_status",
+      "class": "iHRIS_Person_Record_Status",
+      "displayName": "Person Record Status"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Person_Record_Status"
+  ],
+  "pages": [
+    {
+      "page": "person_record_status",
+      "class": "iHRIS_PageFormParentPerson",
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

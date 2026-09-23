@@ -1,0 +1,68 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_SalaryGrade",
+  "class": "iHRIS_SalaryGrade",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [],
+  "definedIn": [
+    "ihris-common/module/ihris-common-Job"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    },
+    {
+      "field": "start",
+      "type": "CURRENCY",
+      "label": "Start",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    },
+    {
+      "field": "end",
+      "type": "CURRENCY",
+      "label": "End",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    },
+    {
+      "field": "midpoint",
+      "type": "CURRENCY",
+      "label": "MidPoint",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    },
+    {
+      "field": "notes",
+      "type": "STRING_MLINE",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_PersonCompetency",
+  "class": "iHRIS_PersonCompetency",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_competency"
+  ],
+  "definedIn": [
+    "ihris-common/module/person-simple-competency"
+  ],
+  "fields": [
+    {
+      "field": "evaluation_date",
+      "type": "DATE_YMD",
+      "label": "Last Evaluated",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/person-simple-competency"
+      ]
+    },
+    {
+      "field": "competency_evaluation",
+      "type": "MAP",
+      "label": "Evaluation",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/person-simple-competency"
+      ]
+    },
+    {
+      "field": "competency",
+      "type": "MAP",
+      "label": "Competency",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/person-simple-competency"
+      ]
+    }
+  ]
+}

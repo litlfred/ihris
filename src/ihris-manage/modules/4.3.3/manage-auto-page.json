@@ -1,0 +1,93 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/manage-auto-page",
+  "module": "manage-auto-page",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManageAutoPage/manage-auto-page.xml",
+    "sha256": "fcd2c7630deb9125ae2206416a56550ca0b991bb118e4b44b107c46f8f7b6435"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Manage Auto Pages",
+  "description": null,
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "person_passport_photo",
+      "class": null,
+      "style": "parent_person"
+    },
+    {
+      "page": "person_id",
+      "class": null,
+      "style": "parent_person"
+    },
+    {
+      "page": "nextofkin",
+      "class": null,
+      "style": "parent_person"
+    },
+    {
+      "page": "demographic",
+      "class": null,
+      "style": "parent_person"
+    },
+    {
+      "page": "person_contact_work",
+      "class": null,
+      "style": "parent_person"
+    },
+    {
+      "page": "person_contact_emergency",
+      "class": null,
+      "style": "parent_person"
+    },
+    {
+      "page": "person_contact_personal",
+      "class": null,
+      "style": "parent_person"
+    },
+    {
+      "page": "person_contact_other",
+      "class": null,
+      "style": "parent_person"
+    },
+    {
+      "page": "view_person",
+      "class": "I2CE_PageTabbed",
+      "style": "shell"
+    },
+    {
+      "page": "view_person_position",
+      "class": "I2CE_PageViewChildren",
+      "style": "shell"
+    },
+    {
+      "page": "view_demographics",
+      "class": "I2CE_PageViewChildren",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "nl"
+  ]
+}

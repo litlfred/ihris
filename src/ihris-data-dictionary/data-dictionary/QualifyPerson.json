@@ -1,0 +1,58 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.QualifyPerson",
+  "group": "QualifyPerson",
+  "title": "Person",
+  "class": "iHRIS_QualifyPerson",
+  "extends": "iHRIS_Person",
+  "forms": [
+    "person"
+  ],
+  "instances": [
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-qualify/form-class/iHRIS_QualifyPerson"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/QualifyPerson",
+  "elements": [
+    {
+      "id": "IHRIS.DE.QualifyPerson.home",
+      "activityId": null,
+      "formIds": [
+        "person"
+      ],
+      "formDataElementLabel": "Home",
+      "dataElementLabel": "Home",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/county",
+        "https://litlfred.github.io/ihris/dak/ValueSet/district"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "hierarchical selection across lists: county, district",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_QualifyPerson",
+        "field": "home",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

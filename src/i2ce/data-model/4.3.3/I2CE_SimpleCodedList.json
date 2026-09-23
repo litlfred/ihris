@@ -1,0 +1,24 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "i2ce/form-class/I2CE_SimpleCodedList",
+  "class": "I2CE_SimpleCodedList",
+  "release": "4.3.3",
+  "extends": "I2CE_SimpleList",
+  "forms": [],
+  "definedIn": [
+    "i2ce/module/Lists"
+  ],
+  "fields": [
+    {
+      "field": "code",
+      "type": "STRING_LINE",
+      "label": "Code",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/Lists"
+      ]
+    }
+  ]
+}

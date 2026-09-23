@@ -1,0 +1,28 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_ProviderOrganization",
+  "class": "CSD_ProviderOrganization",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "csd_provider_organization"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-provider-data-model"
+  ],
+  "fields": [
+    {
+      "field": "csd_organization",
+      "type": "MAP",
+      "label": "Organization",
+      "required": false,
+      "unique": true,
+      "references": [
+        "csd_organization"
+      ],
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    }
+  ]
+}

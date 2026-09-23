@@ -1,0 +1,56 @@
+{
+  "id": "ihris-ingest-pdf",
+  "title": "Ingest a PDF into library/ (folio-assistant rungs)",
+  "description": "Runs folio-assistant's pdf-structure rung on an uploaded PDF. It records the embedded outline as sections with page ranges and the file's sha256 in structure.json. Use --no-sections when the source states no licence: then only headings and page ranges are kept (AGENTS.md §2.4). A PDF with no outline goes to the pdf-pages rung instead; an inferred chapter tree is never accepted.",
+  "install": {
+    "cli": "python3 -m venv .build/pdfenv && .build/pdfenv/bin/pip install pypdf"
+  },
+  "invoke": {
+    "shell": ".build/pdfenv/bin/python ../litlfred/folio-assistant/cat-harness/scripts/pdf-structure.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "pdf",
+        "schema": "https://www.iana.org/assignments/media-types/application/pdf",
+        "required": true,
+        "arg": {
+          "positional": 0
+        }
+      },
+      {
+        "name": "outdir",
+        "schema": "https://www.iana.org/assignments/media-types/inode/directory",
+        "required": true,
+        "arg": {
+          "flag": "-o"
+        }
+      },
+      {
+        "name": "no-sections",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--no-sections"
+        },
+        "description": "headings only, for a source with no licence"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "structure",
+        "schema": "https://www.iana.org/assignments/media-types/application/json",
+        "description": "pdf-structure/v1"
+      }
+    ]
+  },
+  "satisfies": [
+    "adopt-methodology-from-source"
+  ],
+  "requires": {
+    "runtime": [
+      "python3"
+    ],
+    "network": false
+  }
+}

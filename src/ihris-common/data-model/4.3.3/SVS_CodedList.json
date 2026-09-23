@@ -1,0 +1,52 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/SVS_CodedList",
+  "class": "SVS_CodedList",
+  "release": "4.3.3",
+  "extends": "I2CE_SimpleList",
+  "forms": [
+    "csd_address_components",
+    "csd_address_type",
+    "csd_contact_point_type",
+    "csd_facility_status",
+    "csd_facility_type",
+    "csd_language",
+    "csd_organization_credential_type",
+    "csd_organization_status",
+    "csd_organization_type",
+    "csd_provider_credential_type",
+    "csd_provider_gender",
+    "csd_provider_specialty",
+    "csd_provider_status",
+    "csd_provider_type",
+    "csd_service_status",
+    "csd_service_type"
+  ],
+  "definedIn": [
+    "ihris-common/module/SVS"
+  ],
+  "fields": [
+    {
+      "field": "code",
+      "type": "STRING_LINE",
+      "label": "Code",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/SVS"
+      ]
+    },
+    {
+      "field": "codeSystem",
+      "type": "STRING_LINE",
+      "label": "Code System",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/SVS"
+      ]
+    }
+  ]
+}

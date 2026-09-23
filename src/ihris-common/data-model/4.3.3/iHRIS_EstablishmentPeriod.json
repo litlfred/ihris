@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_EstablishmentPeriod",
+  "class": "iHRIS_EstablishmentPeriod",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "establishment_period"
+  ],
+  "definedIn": [
+    "ihris-common/module/establishment"
+  ],
+  "fields": [
+    {
+      "field": "establishment_type",
+      "type": "MAP",
+      "label": "Establishment Type",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/establishment"
+      ]
+    },
+    {
+      "field": "year",
+      "type": "DATE_Y",
+      "label": "Year of Applicability",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/establishment"
+      ]
+    }
+  ]
+}

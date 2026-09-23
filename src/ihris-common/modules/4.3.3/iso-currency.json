@@ -1,0 +1,49 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/iso-currency",
+  "module": "iso-currency",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Currency/modules/ISO_Currency/ISO_Currency.xml",
+    "sha256": "db8faf9bfb56702974c1444ae9e47aa71d6259d777e9706be8f8264fe9afb8f4"
+  },
+  "parent": "ihris-common/module/Currency",
+  "site": null,
+  "displayName": "ISO Currency Codes",
+  "description": "ISO Currency Codes",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "Currency",
+      "atLeast": "4.0"
+    },
+    {
+      "module": "iso-country",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "currency": 192
+  },
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr"
+  ]
+}

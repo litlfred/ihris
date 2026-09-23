@@ -1,0 +1,72 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_ContactPoint",
+  "class": "CSD_ContactPoint",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "csd_facility_contact_point",
+    "csd_provider_contact_point",
+    "csd_provider_organization_contact_point"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-provider-data-model"
+  ],
+  "fields": [
+    {
+      "field": "value",
+      "type": "STRING_LINE",
+      "label": "Value",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "equipment",
+      "type": "STRING_LINE",
+      "label": "Equipment",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "csd_contact_point_type",
+      "type": "MAP",
+      "label": "Contact Point Type",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "purpose",
+      "type": "STRING_LINE",
+      "label": "Purpose",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "certificate",
+      "type": "STRING_LINE",
+      "label": "Certificate",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    }
+  ]
+}

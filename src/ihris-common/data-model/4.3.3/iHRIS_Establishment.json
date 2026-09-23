@@ -1,0 +1,65 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Establishment",
+  "class": "iHRIS_Establishment",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "establishment"
+  ],
+  "definedIn": [
+    "ihris-common/module/establishment"
+  ],
+  "fields": [
+    {
+      "field": "establishment_period",
+      "type": "MAP",
+      "label": "Establishment Period",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/establishment"
+      ]
+    },
+    {
+      "field": "job_cadre",
+      "type": "MAP",
+      "label": "Job or Cadre",
+      "required": true,
+      "unique": null,
+      "references": [
+        "cadre",
+        "job"
+      ],
+      "definedIn": [
+        "ihris-common/module/establishment"
+      ]
+    },
+    {
+      "field": "location",
+      "type": "MAP",
+      "label": "Facility or Facility Type",
+      "required": true,
+      "unique": null,
+      "references": [
+        "facility",
+        "facility_type"
+      ],
+      "definedIn": [
+        "ihris-common/module/establishment"
+      ]
+    },
+    {
+      "field": "amount",
+      "type": "INT",
+      "label": "Number of Health Workers",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/establishment"
+      ]
+    }
+  ]
+}

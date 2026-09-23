@@ -1,0 +1,47 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/formRelationship-viewer",
+  "module": "formRelationship-viewer",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/FormRelationshipViewer/FormRelationshipViewer.xml",
+    "sha256": "3e0f398c947b54ed864211c21b8ddaee2e283207d16444437ab1cc6ed11e4dfe"
+  },
+  "parent": "i2ce/module/forms",
+  "site": null,
+  "displayName": "Form Relationship Viewer",
+  "description": "Provides Viewing and Edit of instances of a Form Relationships for use by a Swiss Factory",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "formRelationships",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "swissfactory",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

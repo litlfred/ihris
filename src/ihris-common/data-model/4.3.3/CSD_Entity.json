@@ -1,0 +1,35 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_Entity",
+  "class": "CSD_Entity",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [],
+  "definedIn": [
+    "ihris-common/module/csd-provider-data-model"
+  ],
+  "fields": [
+    {
+      "field": "entityID",
+      "type": "STRING_LINE",
+      "label": "Entity ID",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "source_directory",
+      "type": "STRING_LINE",
+      "label": "Source Directory",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    }
+  ]
+}

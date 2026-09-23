@@ -1,0 +1,501 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Employment",
+  "group": "Employment",
+  "title": "Employment History",
+  "class": "iHRIS_Employment",
+  "extends": "I2CE_Form",
+  "forms": [
+    "employment"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Employment"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Employment",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Employment.company_name",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Company Name",
+      "dataElementLabel": "Company Name",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "company_name",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Employment.company_address",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Company Address",
+      "dataElementLabel": "Company Address",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "company_address",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Employment.company_phone",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Company Telephone",
+      "dataElementLabel": "Company Telephone",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "company_phone",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Employment.start_date",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Date Started",
+      "dataElementLabel": "Date Started",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "start_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Employment.start_wage",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Starting Wage",
+      "dataElementLabel": "Starting Wage",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Decimal quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "monetary amount; the currency is part of the value in iHRIS",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "start_wage",
+        "i2ceType": "CURRENCY",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Employment.start_position",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Starting Position",
+      "dataElementLabel": "Starting Position",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "start_position",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Employment.end_date",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Date Ended (leave blank if still employed)",
+      "dataElementLabel": "Date Ended (leave blank if still employed)",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "end_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Employment.end_wage",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Ending Wage",
+      "dataElementLabel": "Ending Wage",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Decimal quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "monetary amount; the currency is part of the value in iHRIS",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "end_wage",
+        "i2ceType": "CURRENCY",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Employment.end_position",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Ending Position",
+      "dataElementLabel": "Ending Position",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "end_position",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Employment.supervisor",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Supervisor",
+      "dataElementLabel": "Supervisor",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "supervisor",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-positions--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-positions.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Employment.contact_ok",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Ok to Contact?",
+      "dataElementLabel": "Ok to Contact?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "contact_ok",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Employment.responsibilities",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Job Responsibilities",
+      "dataElementLabel": "Job Responsibilities",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "responsibilities",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Employment.reason_for_leaving",
+      "activityId": null,
+      "formIds": [
+        "employment"
+      ],
+      "formDataElementLabel": "Reason for Leaving",
+      "dataElementLabel": "Reason for Leaving",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Employment History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Employment",
+        "field": "reason_for_leaving",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-common/module/PersonEmployment"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-history.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ManageSelfServiceApplication",
+  "module": "ManageSelfServiceApplication",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManageSelfService/modules/SelfServiceApplication/ManageSelfServiceApplication.xml",
+    "sha256": "e8b0caf84f930ad47a85cb94ed6c280634bd2b7c139a0b40d81acb3fcd32a949"
+  },
+  "parent": "ihris-manage/module/ManageSelfService",
+  "site": null,
+  "displayName": "Self Service Application",
+  "description": null,
+  "version": "4.3.0",
+  "className": "iHRIS_Module_ManageSelfServiceApplication",
+  "category": "Application Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "ManageSelfService",
+      "atLeast": "4.0"
+    },
+    {
+      "module": "ihris-manage-Application",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

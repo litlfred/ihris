@@ -1,0 +1,44 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-qualify/module/ihris-qualify-PrintedForms",
+  "module": "ihris-qualify-PrintedForms",
+  "instance": "ihris-qualify",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-qualify/modules/QualifyPrintedForms/QualifyPrintedForms.xml",
+    "sha256": "cee3b58cd9bbc73474a5a1a8f6454562455d231aeb858773ffc723944389583f"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Qualify Printed Forms",
+  "description": "The Qualify Printed Forms",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Option",
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "PrintedForms",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "ihris-qualify-PrintedForms-registration"
+    },
+    {
+      "module": "ihris-qualify-PrintedForms-license"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

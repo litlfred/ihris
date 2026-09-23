@@ -1,0 +1,81 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_Provider",
+  "class": "CSD_Provider",
+  "release": "4.3.3",
+  "extends": "CSD_Entity",
+  "forms": [
+    "csd_provider"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-provider-data-model"
+  ],
+  "fields": [
+    {
+      "field": "csd_provider_gender",
+      "type": "MAP",
+      "label": "Gender",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "csd_provider_specialty",
+      "type": "MAP_MULT",
+      "label": "Specialty",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "csd_provider_type",
+      "type": "MAP_MULT",
+      "label": "Type/Cadre",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "csd_language",
+      "type": "MAP_MULT",
+      "label": "Language",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "date_of_birth",
+      "type": "DATE_YMD",
+      "label": "Date Of Birth",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "csd_provider_status",
+      "type": "MAP",
+      "label": "Health Worker Status",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    }
+  ]
+}

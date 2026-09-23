@@ -1,0 +1,91 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "classification-to-isco-88-minor",
+  "url": "https://litlfred.github.io/ihris/dak/ConceptMap/classification-to-isco-88-minor",
+  "version": "4.3.3",
+  "name": "ClassificationToIsco88Minor",
+  "title": "iHRIS sample classifications to ISCO-88 minor groups",
+  "status": "draft",
+  "experimental": true,
+  "description": "Derived from the iHRIS SAMPLE classification list, whose `code` field holds an ISCO-88 minor group.",
+  "sourceUri": "https://litlfred.github.io/ihris/dak/ValueSet/classification",
+  "targetUri": "https://litlfred.github.io/ihris/dak/ValueSet/isco_88_minor",
+  "group": [
+    {
+      "source": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+      "target": "https://litlfred.github.io/ihris/dak/CodeSystem/isco_88_minor",
+      "element": [
+        {
+          "code": "1",
+          "display": "Medical Doctor",
+          "target": [
+            {
+              "code": "222",
+              "display": "HEALTH PROFESSIONALS (except nursing)",
+              "equivalence": "equivalent",
+              "comment": "Asserted by the record's own `code` field; verified against iHRIS's shipped ISCO-88 minor groups."
+            }
+          ]
+        },
+        {
+          "code": "2",
+          "display": "Nurse",
+          "target": [
+            {
+              "code": "223",
+              "display": "NURSING AND MIDWIFERY PROFESSIONALS",
+              "equivalence": "equivalent",
+              "comment": "Asserted by the record's own `code` field; verified against iHRIS's shipped ISCO-88 minor groups."
+            }
+          ]
+        },
+        {
+          "code": "3",
+          "display": "Allied Health Professional",
+          "target": [
+            {
+              "code": "322",
+              "display": "MODERN HEALTH ASSOCIATE PROFESSIONALS (except nursing)",
+              "equivalence": "equivalent",
+              "comment": "Asserted by the record's own `code` field; verified against iHRIS's shipped ISCO-88 minor groups."
+            }
+          ]
+        },
+        {
+          "code": "4",
+          "display": "Non-Health Professional",
+          "target": [
+            {
+              "code": "241",
+              "display": "BUSINESS PROFESSIONALS",
+              "equivalence": "equivalent",
+              "comment": "Asserted by the record's own `code` field; verified against iHRIS's shipped ISCO-88 minor groups."
+            }
+          ]
+        },
+        {
+          "code": "5",
+          "display": "Non-Health Support Staff",
+          "target": [
+            {
+              "code": "411",
+              "display": "SECRETARIES AND KEYBOARD-OPERATING CLERKS",
+              "equivalence": "equivalent",
+              "comment": "Asserted by the record's own `code` field; verified against iHRIS's shipped ISCO-88 minor groups."
+            }
+          ]
+        },
+        {
+          "code": "6",
+          "display": "Pharmacist",
+          "target": [
+            {
+              "equivalence": "unmatched",
+              "comment": "The record carries no ISCO-88 code."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

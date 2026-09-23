@@ -1,0 +1,65 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/Fields",
+  "module": "Fields",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/Fields/Fields.xml",
+    "sha256": "1e46e208277164280c775b59b579441af091e7d9af1bdde3301daa02fb9313ba"
+  },
+  "parent": "i2ce/module/forms",
+  "site": null,
+  "displayName": "I2CE Fields",
+  "description": "Adds a few basic form field types to the system as well as some field container functionality",
+  "version": "4.3.0",
+  "className": "I2CE_Module_Fields",
+  "category": "Base System Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "I2CE",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "template-data",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "DisplayData",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "MooTools",
+      "atLeast": "1.4",
+      "lessThan": "1.5"
+    }
+  ],
+  "enables": [
+    {
+      "module": "DatePicker"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "it",
+    "nl",
+    "pt_BR"
+  ]
+}

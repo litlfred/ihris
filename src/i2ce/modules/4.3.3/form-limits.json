@@ -1,0 +1,42 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/form-limits",
+  "module": "form-limits",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/FormLimits/FormLimits.xml",
+    "sha256": "3717f2195355b9292170bd90dcca8263c827a170d136da94c993763dbe9af969"
+  },
+  "parent": "i2ce/module/forms",
+  "site": null,
+  "displayName": "Form Limits",
+  "description": "A module that enables limits for forms.",
+  "version": "4.3.3.0",
+  "className": "I2CE_Module_FormLimits",
+  "category": "Base System Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "forms",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "field-limits",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

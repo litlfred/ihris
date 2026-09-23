@@ -1,0 +1,47 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/Tags",
+  "module": "Tags",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/TemplateData/modules/Tags/Tags.xml",
+    "sha256": "dbac8af86625ce95859f22fb11efdf30380caae8114a171dfa8f181149649587"
+  },
+  "parent": "i2ce/module/template-data",
+  "site": null,
+  "displayName": "Tags",
+  "description": "Adds module and script tag processing to the template",
+  "version": "4.3.0",
+  "className": "I2CE_Module_Tags",
+  "category": "Base System Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "I2CE",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "template-data",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "DisplayData",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

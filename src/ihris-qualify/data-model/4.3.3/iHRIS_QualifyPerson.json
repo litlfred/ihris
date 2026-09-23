@@ -1,0 +1,29 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_QualifyPerson",
+  "class": "iHRIS_QualifyPerson",
+  "release": "4.3.3",
+  "extends": "iHRIS_Person",
+  "forms": [
+    "person"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "home",
+      "type": "MAP",
+      "label": "Home",
+      "required": false,
+      "unique": null,
+      "references": [
+        "county",
+        "district"
+      ],
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

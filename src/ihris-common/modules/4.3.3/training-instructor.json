@@ -1,0 +1,49 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/training-instructor",
+  "module": "training-instructor",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/TrainingCourse/modules/TrainingInstructor/TrainingInstructor.xml",
+    "sha256": "24529d294c2d1a47db04493b8a96b1848491f99ad888c829c135b87a63139249"
+  },
+  "parent": "ihris-common/module/training-course",
+  "site": null,
+  "displayName": "Training Instructor",
+  "description": "Adds functionality to track training course instructors as individuals registered in the system by training institution",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "training-course",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ReferenceField",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CustomReports-Selector",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [
+    "ihris-common/form-class/formClass"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

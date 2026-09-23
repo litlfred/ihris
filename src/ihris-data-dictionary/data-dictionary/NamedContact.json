@@ -1,0 +1,61 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.NamedContact",
+  "group": "NamedContact",
+  "title": "Emergency Contact",
+  "class": "iHRIS_NamedContact",
+  "extends": "iHRIS_Contact",
+  "forms": [
+    "person_contact_emergency"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_NamedContact"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/NamedContact",
+  "elements": [
+    {
+      "id": "IHRIS.DE.NamedContact.name",
+      "activityId": null,
+      "formIds": [
+        "person_contact_emergency"
+      ],
+      "formDataElementLabel": "Name",
+      "dataElementLabel": "Name",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Emergency Contact",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_NamedContact",
+        "field": "name",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/Contact"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-demographics-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-geographical-areas-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-license-lists-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-record-verification-changes-4-0-4.md"
+      ]
+    }
+  ]
+}

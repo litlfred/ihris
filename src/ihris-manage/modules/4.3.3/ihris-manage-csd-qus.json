@@ -1,0 +1,62 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-csd-qus",
+  "module": "ihris-manage-csd-qus",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/CSDUpdatedServices/CSDQueryUpdatedServices.xml",
+    "sha256": "e283f117573ad5a7dfa5bf4ce0c0e0d2fc97d1f9bc6b605ddda7a14e473aa160"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "CSD Query For Updated Services",
+  "description": "CSD Query For Updated Services",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_ManageCSD",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage-Job",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Person-CSD",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "csd_cache",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "csd_geography_default",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "csd_facility_default",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

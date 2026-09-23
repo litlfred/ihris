@@ -1,0 +1,160 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Training_Course",
+  "class": "iHRIS_Training_Course",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "training_course"
+  ],
+  "definedIn": [
+    "ihris-common/module/training-course",
+    "ihris-common/module/training-exam",
+    "ihris-common/module/training-simple-competency"
+  ],
+  "fields": [
+    {
+      "field": "training_course_mod",
+      "type": "MAP_MULT",
+      "label": "Modules",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "has_certification_date",
+      "type": "YESNO",
+      "label": "Use Certification Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "certificate",
+      "type": "DOCUMENT",
+      "label": "Certificate Template",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "topic",
+      "type": "STRING_LINE",
+      "label": "Topic",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "notes",
+      "type": "STRING_MLINE",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "training_institution",
+      "type": "MAP",
+      "label": "Training Institution",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "training_funder",
+      "type": "MAP_MULT",
+      "label": "Training Funders",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "continuing_education_course",
+      "type": "MAP_MULT",
+      "label": "CEUs Provided",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "training_course_status",
+      "type": "MAP",
+      "label": "Status",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "training_course_category",
+      "type": "MAP",
+      "label": "Category",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-course"
+      ]
+    },
+    {
+      "field": "passing_score",
+      "type": "INT",
+      "label": "Passing Score For Final Exam",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-exam"
+      ]
+    },
+    {
+      "field": "competency",
+      "type": "MAP_MULT",
+      "label": "Competencies Provided",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-simple-competency"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/sample-hire-letter@Demo",
+  "module": "sample-hire-letter",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/sites/Demo/modules/SampleHireLetter/sample-hire-letter.xml",
+    "sha256": "e9b07c814506da029438757aae362c332e2f7006c56341bfb5c3222f0123efa0"
+  },
+  "parent": "ihris-manage/module/ihris-manage-site-demo@Demo",
+  "site": "Demo",
+  "displayName": "Sample Staff Hire Letter",
+  "description": "Sample staff hire letter generated from the staff form relationship.",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ihris-manage-CustomReports-staff-reports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "PrintedForms",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

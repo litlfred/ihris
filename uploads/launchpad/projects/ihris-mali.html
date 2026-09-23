@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+<base href="https://launchpad.net/ihris-mali/+index" />
+
+    <meta charset="UTF-8" />
+    <title>iHRIS Mali in Launchpad</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/@@/apple-touch-icon.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/@@/favicon-32x32.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/@@/favicon-16x16.png?v=2022" />
+    <link rel="manifest" href="/@@/site.webmanifest?v=2022" />
+    <link rel="mask-icon" href="/@@/safari-pinned-tab.svg?v=2022" color="#e9531f" />
+    <link rel="shortcut icon" href="/@@/favicon.ico?v=2022" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/@@/browserconfig.xml?v=2022" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    
+      <link rel="alternate" type="application/atom+xml" href="http://feeds.launchpad.net/ihris-mali/announcements.atom" title="Announcements for iHRIS Mali" />
+      <link rel="alternate" type="application/atom+xml" href="http://feeds.launchpad.net/ihris-mali/latest-bugs.atom" title="Latest Bugs for iHRIS Mali" />
+      <link rel="alternate" type="application/atom+xml" href="http://feeds.launchpad.net/ihris-mali/branches.atom" title="Latest Branches for iHRIS Mali" />
+      <link rel="alternate" type="application/atom+xml" href="http://feeds.launchpad.net/ihris-mali/revisions.atom" title="Latest Revisions for iHRIS Mali" />
+    
+
+    
+  
+  <link type="text/css" rel="stylesheet" media="screen, print" href="/+icing/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/combo.css" />
+
+
+    
+
+    
+      
+      
+    
+
+    
+    
+      <meta property="og:title" content="iHRIS Mali in Launchpad" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="/@@/launchpad-og-image.png" />
+      <meta property="og:url" content="https://launchpad.net/ihris-mali/+index" />
+      <meta property="og:site_name" content="Launchpad" />
+    
+
+    
+
+    
+  
+
+  
+  
+  <script type="text/javascript">
+    var LP = {
+        cache: {},
+        links: {}
+    };
+  </script>
+
+  
+
+  <script type="text/javascript">var cookie_scope = '; Path=/; Secure; Domain=.launchpad.net';</script>
+
+   <script type="text/javascript" src="/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?yui/yui/yui-min.js&amp;lp/meta.js&amp;yui/loader/loader-min.js"></script>
+   <script type="text/javascript">
+        var raw = null;
+        if (LP.devmode) {
+           raw = 'raw';
+        }
+        YUI.GlobalConfig = {
+            combine: true,
+            comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+            root: 'yui/',
+            filter: raw,
+            debug: false,
+            fetchCSS: false,
+            maxURLLength: 2000,
+            groups: {
+                lp: {
+                    combine: true,
+                    base: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?lp/',
+                    comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+                    root: 'lp/',
+                    // comes from including lp/meta.js
+                    modules: LP_MODULES,
+                    fetchCSS: false
+                }
+            }
+        }</script>
+
+  <script type="text/javascript">
+      // we need this to create a single YUI instance all events and code
+      // talks across. All instances of YUI().use should be based off of
+      // LPJS instead.
+      var LPJS = new YUI();
+  </script>
+
+
+
+    <script id="base-layout-load-scripts" type="text/javascript">
+        //<![CDATA[
+        LPJS.use('base', 'node', 'console', 'event',
+            'oop', 'lp', 'lp.app.foldables','lp.app.sorttable',
+            'lp.app.inlinehelp', 'lp.app.links',
+            'lp.bugs.bugtask_index', 'lp.bugs.subscribers',
+            'lp.app.ellipsis', 'lp.code.branchmergeproposal.diff',
+            'lp.views.global',
+             function(Y) {
+
+            Y.on("domready", function () {
+                var global_view = new Y.lp.views.Global();
+                global_view.render();
+
+                Y.lp.app.sorttable.SortTable.init();
+                Y.lp.app.inlinehelp.init_help();
+                Y.lp.activate_collapsibles();
+                Y.lp.app.foldables.activate();
+                Y.lp.app.links.check_valid_lp_links();
+            });
+
+            Y.on('lp:context:web_link:changed', function(e) {
+                  window.location = e.new_value;
+            });
+        });
+        //]]>
+    </script>
+    <script id="base-helper-functions" type="text/javascript">
+         //<![CDATA[
+        // This code is pulled from lp.js that needs to be available on every
+        // request. Pulling here to get it outside the scope of the YUI block.
+        function setFocusByName(name) {
+            // Focus the first element matching the given name which can be focused.
+            var nodes = document.getElementsByName(name);
+            var i, node;
+            for (i = 0; i < nodes.length; i++) {
+                node = nodes[i];
+                if (node.focus) {
+                    try {
+                        // Trying to focus a hidden element throws an error in IE8.
+                        if (node.offsetHeight !== 0) {
+                            node.focus();
+                        }
+                    } catch (e) {
+                        LPJS.use('console', function(Y) {
+                            Y.log('In setFocusByName(<' +
+                                node.tagName + ' type=' + node.type + '>): ' + e);
+                        });
+                    }
+                    break;
+                }
+            }
+        }
+
+        function selectWidget(widget_name, event) {
+          if (event && (event.keyCode === 9 || event.keyCode === 13)) {
+              // Avoid firing if user is tabbing through or simply pressing
+              // enter to submit the form.
+              return;
+          }
+          document.getElementById(widget_name).checked = true;
+        }
+        //]]>
+    </script>
+
+    
+      
+    
+      <script type="text/javascript">
+          LPJS.use('lp.registry.structural_subscription', function(Y) {
+              var module = Y.lp.registry.structural_subscription;
+              Y.on('domready', function() {
+                module.setup({content_box: "#structural-subscription-content-box"});
+              });
+          });
+      </script>
+    
+    
+
+    <meta name="go-import" content="launchpad.net/ihris-mali bzr https://launchpad.net/~ihris+mali/ihris-mali/4.1" />
+  
+    
+  </head>
+
+  <body id="document" itemscope="" itemtype="http://schema.org/WebPage" class="tab-overview
+      main_side
+      public
+      yui3-skin-sam">
+          
+          
+          
+    <div class="yui-d0">
+      <div id="locationbar" class="login-logout">
+        
+
+<div id="logincontrol"><a href="https://launchpad.net/ihris-mali/+login">Log in / Register</a></div>
+
+
+
+      </div><!--id="locationbar"-->
+
+      <div id="watermark" class="watermark-apps-portlet">
+        <div>
+          <a href="https://launchpad.net/ihris-mali"><img alt="" width="64" height="64" src="/@@/product-logo" /></a>
+        </div>
+        <div class="wide">
+          <h2 id="watermark-heading"><a href="https://launchpad.net/ihris-mali">iHRIS Mali</a></h2>
+        </div>
+        
+  <!-- Application Menu -->
+  <ul class="facetmenu">
+    
+      <li class="overview active"><span>Overview</span></li>
+      
+      
+    
+    
+      
+      <li class="branches"><a href="https://code.launchpad.net/ihris-mali">Code</a></li>
+      
+    
+    
+      
+      <li class="bugs"><a href="https://bugs.launchpad.net/ihris-mali">Bugs</a></li>
+      
+    
+    
+      
+      <li class="specifications"><a href="https://blueprints.launchpad.net/ihris-mali">Blueprints</a></li>
+      
+    
+    
+      
+      <li class="translations"><a href="https://translations.launchpad.net/ihris-mali">Translations</a></li>
+      
+    
+    
+      
+      <li class="answers"><a href="https://answers.launchpad.net/ihris-mali">Answers</a></li>
+      
+    
+  </ul>
+
+      </div>
+
+      <div class="yui-t4">
+        <div id="maincontent" class="yui-main">
+          <div class="yui-b" dir="ltr">
+            <div class="context-publication">
+              
+              
+
+              <div id="registration" class="registering">
+                
+    Registered
+    <time title="2011-04-06 13:57:25 UTC" datetime="2011-04-06T13:57:25.013327+00:00">2011-04-06</time>
+    by
+    <a href="/~litlfred" class="sprite person">Carl Leitner</a>
+  
+              </div>
+            </div>
+
+            
+            <div id="request-notifications">
+              
+            </div>
+
+            
+              
+      <div class="top-portlet">
+        
+
+    
+
+	<div class="summary"><p>iHRIS Mali</p></div>
+
+        
+
+        
+        
+      </div>
+
+      <div class="yui-g">
+        <div class="yui-u first">
+          <div id="project-info" class="portlet">
+            <h2>Project information</h2>
+
+            <div class="two-column-list">
+              <dl id="partof">
+                <dt>Part of:</dt>
+                <dd><a href="/ihris-suite" class="bg-image" style="background-image: url(https://launchpadlibrarian.net/9381760/C%3A%5CDocuments%20and%20Settings%5Csturlington%5CMy%20Documents%5CMy%20Pictures%5CiHRIS_suite_multicolor14.PNG)">iHRIS Suite</a></dd>
+              </dl>
+
+              <dl id="owner">
+                <dt>Maintainer:</dt>
+                <dd>
+  <span id="edit-owner">
+    <span class="yui3-activator-data-box">
+      <a href="/~ihris+mali" class="sprite team">iHRIS Mali</a>
+    </span>
+    
+  </span>
+
+  
+
+</dd>
+              </dl>
+
+              
+
+              <dl id="driver">
+                <dt>Driver:</dt>
+                <dd>
+  <span id="edit-driver">
+    <span class="yui3-activator-data-box">
+      Not yet selected
+    </span>
+    
+  </span>
+
+  
+
+</dd>
+              </dl>
+            </div>
+
+            <div>
+              <dl id="licences">
+                <dt>Licence:</dt>
+                <dd>
+                  
+                    GNU GPL v3
+                  
+                  
+                  
+                </dd>
+                
+                
+              </dl>
+            </div>
+
+            <p>
+              <a class="menu-link-rdf sprite download" href="https://launchpad.net/ihris-mali/+rdf"><abbr title="Resource Description Framework">RDF</abbr> metadata</a>
+            </p>
+
+            
+          </div>
+        </div>
+
+        <div class="yui-u">
+          <div class="portlet">
+            <h2>
+              <span class="see-all"><a class="menu-link-series sprite info" href="https://launchpad.net/ihris-mali/+series">View full history</a></span>
+              Series and milestones
+            </h2>
+
+            
+  
+  <div id="timeline-loading" class="hidden">
+    <img src="/@@/spinner" /> Loading graph...
+  </div>
+
+  <!-- Opera ignores overflow:hidden for iframe, so use scrolling=no. -->
+  <iframe id="timeline-iframe" name="timeline-iframe" class="timeline-iframe hidden" style="border: 0" scrolling="no" width="100%" height="216px"></iframe>
+  <script>
+  //<![CDATA[
+  function timeline_iframe(auto_resize, include_inactive, start, size) {
+      var timeline_url = "+timeline-graph?";
+      if (include_inactive == 'true') {
+          timeline_url += "include_inactive=true&";
+      }
+
+      if (auto_resize == 'true') {
+          timeline_url += 'resize_frame=timeline-iframe&';
+      }
+
+      start = parseInt(start);
+      size = parseInt(size);
+      if (start != NaN && start >= 0) {
+          timeline_url += "start=" + start + "&";
+      }
+      if (size != NaN && size >= 1) {
+          timeline_url += "size=" + size + "&";
+      }
+      LPJS.use('node', 'lp.registry.timeline', function(Y) {
+          if (!Y.lp.registry.timeline.isCanvasSupported()) {
+              return;
+          }
+          var loading_el = Y.one('#timeline-loading');
+          loading_el.setStyle('display', 'block');
+          var iframe = Y.one('#timeline-iframe');
+          iframe.set('src', timeline_url);
+          Y.on('load', function(e) {
+              loading_el.setStyle('display', 'none');
+              iframe.setStyle('display', 'block');
+          }, iframe);
+      });
+  }
+  //]]>
+  </script>
+  <script>
+      timeline_iframe(
+        'None',
+        'None',
+        'None',
+        'None'
+        );
+      </script>
+
+
+            <p id="development-focus">
+              <a href="/ihris-mali/4.1">4.1 series</a>
+                is the current focus of development.
+              
+            </p>
+
+            <ul class="horizontal" id="project-link-info">
+              
+              <li class="nowrap">
+                <a class="menu-link-milestones sprite info" href="https://launchpad.net/ihris-mali/+milestones">View milestones</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-view_recipes sprite info" href="https://code.launchpad.net/ihris-mali/+recipes">View source package recipes</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-view_snaps sprite info" href="https://launchpad.net/ihris-mali/+snaps">View snap packages</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-create_snap sprite add" href="https://launchpad.net/ihris-mali/+new-snap">Create snap package</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-view_charm_recipes sprite info" href="https://launchpad.net/ihris-mali/+charm-recipes">View charm recipes</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-create_charm_recipe sprite add" href="https://launchpad.net/ihris-mali/+new-charm-recipe">Create charm recipe</a>
+              </li>
+              <li class="nowrap">
+                <a class="menu-link-view_rock_recipes sprite info" href="https://launchpad.net/ihris-mali/+rock-recipes">View rock recipes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="yui-g">
+        <div class="yui-u first">
+          
+          <div id="code-info" class="portlet">
+            <h2>
+              <span class="see-all"><a href="https://code.launchpad.net/ihris-mali">
+                All code</a></span>
+              Code
+            </h2>
+
+            <div id="code-trunk">
+              <p>
+                <a href="https://code.launchpad.net/~ihris+mali/ihris-mali/4.1" class="sprite branch">lp:ihris-mali</a>&nbsp;
+                
+                <br />
+                
+              </p>
+            </div>
+
+            <div class="two-column-list">
+              <dl id="product-vcs">
+                <dt>Version control system:</dt>
+                <dd>Bazaar</dd>
+              </dl>
+
+              
+            </div>
+          </div>
+
+          <div>
+</div>
+
+          <div>
+</div>
+          <div>
+</div>
+        </div>
+
+        <div class="yui-u">
+          <div><div class="portlet" id="portlet-latest-bugs">
+  <h2><span class="see-all"><a href="https://bugs.launchpad.net/ihris-mali">All bugs</a></span>
+    Latest bugs reported</h2>
+
+  <ul>
+    <li>
+      <a href="https://bugs.launchpad.net/ihris-mali/+bug/969204" class="sprite bug-high" title="High - In Progress">Bug #969204: Decentralized Site Setup Needed</a>
+      <br /><span class="registered">
+        Reported
+        <time title="2012-03-30 13:22:33 UTC" datetime="2012-03-30T13:22:33.754105+00:00">on 2012-03-30</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://bugs.launchpad.net/ihris-mali/+bug/836777" class="sprite bug-medium" title="Medium - New">Bug #836777: Deployment history dates shold be blank</a>
+      <br /><span class="registered">
+        Reported
+        <time title="2011-08-29 15:20:26 UTC" datetime="2011-08-29T15:20:26.333366+00:00">on 2011-08-29</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://bugs.launchpad.net/ihris-mali/+bug/836775" class="sprite bug-medium" title="Medium - New">Bug #836775: Promotion history dates should be blank</a>
+      <br /><span class="registered">
+        Reported
+        <time title="2011-08-29 15:19:43 UTC" datetime="2011-08-29T15:19:43.264569+00:00">on 2011-08-29</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://bugs.launchpad.net/ihris-mali/+bug/836773" class="sprite bug-medium" title="Medium - New">Bug #836773: Adding a new position should have blank dates</a>
+      <br /><span class="registered">
+        Reported
+        <time title="2011-08-29 15:19:17 UTC" datetime="2011-08-29T15:19:17.964468+00:00">on 2011-08-29</time>
+      </span>
+    </li>
+    <li>
+      <a href="https://bugs.launchpad.net/ihris-mali/+bug/836771" class="sprite bug-medium" title="Medium - New">Bug #836771: Default date for employment history is not blank</a>
+      <br /><span class="registered">
+        Reported
+        <time title="2011-08-29 15:18:16 UTC" datetime="2011-08-29T15:18:16.144325+00:00">on 2011-08-29</time>
+      </span>
+    </li>
+  </ul>
+</div>
+</div>
+
+          
+
+          <div>
+</div>
+
+          <div>
+  
+
+</div>
+        </div>
+        <div class="yui-u">
+          <div id="structural-subscription-content-box"></div>
+        </div>
+
+      </div>
+    
+            
+            
+          </div><!-- yui-b -->
+        </div><!-- yui-main -->
+
+        
+          <div id="side-portlets" class="yui-b side">
+            
+      
+
+      <div id="involvement" class="portlet">
+  <h2>Get Involved</h2>
+
+  <ul class="involvement">
+    <li>
+      <a class="menu-link-report_bug sprite bugs" href="https://bugs.launchpad.net/ihris-mali/+filebug">Report a bug</a>
+    </li>
+    <li>
+      <a class="menu-link-ask_question sprite answers" href="https://answers.launchpad.net/ihris-mali/+addquestion">Ask a question</a>
+    </li>
+    <li>
+      <a class="menu-link-help_translate sprite translations" href="https://translations.launchpad.net/ihris-mali">Help translate</a>
+    </li>
+  </ul>
+
+  
+    
+    
+  
+
+  
+</div>
+
+
+      <div id="downloads" class="top-portlet downloads">
+        <h2>Downloads</h2>
+
+        
+
+        <p class="alternate">
+          
+           
+             iHRIS Mali
+             does not have any download files registered with Launchpad.
+           
+        </p>
+      </div>
+
+      
+
+<div id="portlet-latest-announcements" class="portlet announcements">
+  <h2>
+    <span style="float: right;"><a title="Atom 1.0 feed" href="http://feeds.launchpad.net/ihris-mali/announcements.atom"><img src="/@@/rss.png" /></a></span>
+    Announcements
+  </h2>
+
+  
+
+  
+    <ul>
+      <li>
+        <div class="latest-announcement">
+          
+          <a href="/ihris-suite/+announcement/10634">iHRIS Retain 1.2 Released</a>
+          <strong>on 2012-09-18</strong>
+          <br /> iHRIS Retain is the newest addition to the iHRIS platform of tools and techno...
+        </div>
+      </li>
+      <li>
+        
+          
+          <a href="/ihris-suite/+announcement/9749">4.0.22 Release Announcement</a>
+          <strong>on 2012-03-14</strong>
+          <br /> We are pleased to announce the release of iHRIS Manage and iHRIS Qualify 4.0....
+        
+      </li>
+      <li>
+        
+          
+          <a href="/ihris-suite/+announcement/9221">iHRIS 4.0.19 Release</a>
+          <strong>on 2011-11-18</strong>
+          <br /> We are pleased to announce the release of iHRIS Manage and iHRIS Qualify 4.0....
+        
+      </li>
+      <li>
+        
+          
+          <a href="/ihris-suite/+announcement/7929">iHRIS Manage and iHRIS Qualify 4.0.12 Released</a>
+          <strong>on 2011-03-10</strong>
+          <br /> We are pleased to announce the release of iHRIS Manage and iHRIS Qualify 4.0....
+        
+      </li>
+      <li>
+        
+          
+          <a href="/ihris-suite/+announcement/6093">iHRIS Manage and Qualify 4.0.5 Released</a>
+          <strong>on 2010-06-14</strong>
+          <br /> We are pleased to announce the release of iHRIS Manage and iHRIS Qualify 4.0....
+        
+      </li>
+    </ul>
+
+    <div class="see-all"><a class="menu-link-announcements sprite info" href="https://launchpad.net/ihris-mali/+announcements">Read all announcements</a></div>
+  
+
+  <div class="actions"></div>
+</div>
+
+
+
+    
+          </div><!-- yui-b side -->
+        
+      </div><!-- yui-t4 -->
+
+      
+  <div id="footer" class="footer">
+    <div class="lp-arcana">
+        <div class="lp-branding">
+          <a href="https://launchpad.net/"><img src="/@@/launchpad-footer-logo.svg" alt="Launchpad" width="65" height="18" /></a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://launchpad.net/+tour">Take the tour</a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://documentation.ubuntu.com/launchpad/">Read the guide</a>
+          &nbsp;
+          <form id="globalsearch" method="get" accept-charset="UTF-8" action="https://launchpad.net/+search">
+            <input type="search" id="search-text" name="field.text" />
+            <input type="image" src="/@@/search" style="vertical-align:5%" alt="Search Launchpad" />
+          </form>
+        </div>
+        
+  
+
+    </div>
+
+    <div class="colophon">
+      &copy; 2004
+      <a href="http://canonical.com/">Canonical&nbsp;Ltd.</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://ubuntu.com/legal/launchpad-terms-of-service">Terms of use</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://www.ubuntu.com/legal/dataprivacy">Data privacy</a>
+      &nbsp;&bull;&nbsp;
+      <a href="/feedback">Contact Launchpad Support</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://blog.launchpad.net/">Blog</a>
+      
+	&nbsp;&bull;&nbsp;
+	<a href="https://canonical.com/careers">Careers</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="https://status.canonical.com/">System status</a>
+      <span id="lp-version">
+      &nbsp;&bull;&nbsp;
+        6c05f5b
+        
+        
+        (<a href="https://documentation.ubuntu.com/launchpad/developer/how-to/get-source-code/">Get the code!</a>)
+      </span>
+    </div>
+  </div>
+
+    </div><!-- yui-d0-->
+
+    
+  
+  
+  <script id="json-cache-script">LP.cache = {"related_features": {}, "team_membership_policy_data": [{"name": "Restricted Team", "value": "RESTRICTED", "description": "", "description_css_class": "choice-description", "style": "", "help": "", "disabled": false}, {"name": "Moderated Team", "value": "MODERATED", "description": "", "description_css_class": "choice-description", "style": "", "help": "", "disabled": false}], "administratedTeams": [], "importances": ["Unknown", "Undecided", "Critical", "High", "Medium", "Low", "Wishlist"], "statuses": ["New", "Incomplete", "Opinion", "Invalid", "Won't Fix", "Expired", "Confirmed", "Triaged", "In Progress", "Deferred", "Fix Committed", "Fix Released", "Does Not Exist", "Unknown"], "information_types": ["Public", "Public Security", "Private Security", "Private", "Proprietary", "Embargoed"], "target_info": {"title": "iHRIS Mali", "url": "https://launchpad.net/ihris-mali"}, "context": {"self_link": "https://launchpad.net/api/devel/ihris-mali", "web_link": "https://launchpad.net/ihris-mali", "resource_type_link": "https://launchpad.net/api/devel/#project", "translations_usage": "Launchpad", "official_answers": true, "official_blueprints": false, "official_codehosting": true, "official_bugs": true, "information_type": "Public", "active": true, "all_specifications_collection_link": "https://launchpad.net/api/devel/ihris-mali/all_specifications", "valid_specifications_collection_link": "https://launchpad.net/api/devel/ihris-mali/valid_specifications", "bug_reporting_guidelines": null, "content_templates": null, "bug_reported_acknowledgement": null, "official_bug_tags": [], "recipes_collection_link": "https://launchpad.net/api/devel/ihris-mali/recipes", "webhooks_collection_link": "https://launchpad.net/api/devel/ihris-mali/webhooks", "active_milestones_collection_link": "https://launchpad.net/api/devel/ihris-mali/active_milestones", "all_milestones_collection_link": "https://launchpad.net/api/devel/ihris-mali/all_milestones", "bug_supervisor_link": null, "translationgroup_link": null, "translationpermission": "Open", "qualifies_for_free_hosting": true, "reviewer_whiteboard": "tag:launchpad.net:2008:redacted", "is_permitted": "tag:launchpad.net:2008:redacted", "project_reviewed": "tag:launchpad.net:2008:redacted", "license_approved": "tag:launchpad.net:2008:redacted", "private": false, "display_name": "iHRIS Mali", "icon_link": "https://launchpad.net/api/devel/ihris-mali/icon", "logo_link": "https://launchpad.net/api/devel/ihris-mali/logo", "name": "ihris-mali", "owner_link": "https://launchpad.net/api/devel/~ihris+mali", "project_group_link": "https://launchpad.net/api/devel/ihris-suite", "title": "iHRIS Mali", "registrant_link": "https://launchpad.net/api/devel/~litlfred", "driver_link": null, "summary": "iHRIS Mali", "description": null, "date_created": "2011-04-06T13:57:25.013327+00:00", "homepage_url": null, "wiki_url": null, "screenshots_url": null, "download_url": null, "programming_language": null, "sourceforge_project": null, "freshmeat_project": null, "brand_link": "https://launchpad.net/api/devel/ihris-mali/brand", "branch_sharing_policy": "Public", "bug_sharing_policy": "Public", "specification_sharing_policy": "Public", "licenses": ["GNU GPL v3"], "license_info": null, "bug_tracker_link": null, "series_collection_link": "https://launchpad.net/api/devel/ihris-mali/series", "development_focus_link": "https://launchpad.net/api/devel/ihris-mali/4.1", "releases_collection_link": "https://launchpad.net/api/devel/ihris-mali/releases", "translation_focus_link": "https://launchpad.net/api/devel/ihris-mali/4.1", "commercial_subscription_link": null, "commercial_subscription_is_due": false, "remote_product": null, "vcs": "Bazaar", "http_etag": "\"9bd337c3cb0a5dc6c3a3084092085ff67a44ade8-e9c18bff96914316b28f6b81fc9d5690ea8af803\""}};</script>
+
+    
+  
+
+    
+  </body>
+
+
+  <!--
+    Facet name: overview
+    Page type: main_side
+    Has global search: True
+    Has application tabs: True
+    Has side portlets: True
+
+    At least 36 queries/external actions issued in 0.59 seconds
+
+    Features: {'profiling.enabled': None, 'hard_timeout': '5000', 'app.mainsite_only.canonical_url': None, 'js.yui_version': None, 'app.maintenance_message': None, 'markdown.enabled': None, 'charm.recipe.create.enabled': 'on', 'oci.project.create.enabled': None, 'bugs.webhooks.disabled': None, 'baselayout.careers_link.disabled': None, 'visible_render_time': None}
+
+    r6c05f5b
+
+    -->
+
+</html>
+

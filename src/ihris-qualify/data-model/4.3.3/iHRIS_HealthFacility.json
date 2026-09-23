@@ -1,0 +1,73 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_HealthFacility",
+  "class": "iHRIS_HealthFacility",
+  "release": "4.3.3",
+  "extends": "iHRIS_Facility",
+  "forms": [
+    "health_facility"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "id_code",
+      "type": "STRING_LINE",
+      "label": "Identification Code",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "location",
+      "type": "MAP",
+      "label": "Location",
+      "required": false,
+      "unique": null,
+      "references": [
+        "county",
+        "district"
+      ],
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "facility_agent",
+      "type": "MAP",
+      "label": "Facility Agent",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "facility_status",
+      "type": "MAP",
+      "label": "Facility Status",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

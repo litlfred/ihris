@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Classification",
+  "class": "iHRIS_Classification",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "classification"
+  ],
+  "definedIn": [
+    "ihris-common/module/ihris-common-Job"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    },
+    {
+      "field": "description",
+      "type": "STRING_LINE",
+      "label": "Description",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    },
+    {
+      "field": "code",
+      "type": "STRING_LINE",
+      "label": "Code",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/ihris-common-Job"
+      ]
+    }
+  ]
+}

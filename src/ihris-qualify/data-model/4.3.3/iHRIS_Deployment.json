@@ -1,0 +1,59 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_Deployment",
+  "class": "iHRIS_Deployment",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "deployment"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "health_facility",
+      "type": "MAP",
+      "label": "Health Facility",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "job_title",
+      "type": "STRING_LINE",
+      "label": "Job/Post Title",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "job_code",
+      "type": "STRING_LINE",
+      "label": "Job/Post Code",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "deployment_date",
+      "type": "DATE_YMD",
+      "label": "Deployment Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

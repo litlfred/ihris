@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/Dashboard",
+  "module": "Dashboard",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/CustomReports/modules/Dashboard/Dashboard.xml",
+    "sha256": "08175936d7519669a7e81ca9da41b478b85565d8fb93fee5ae80b1c8713de565"
+  },
+  "parent": "i2ce/module/CustomReports",
+  "site": null,
+  "displayName": "iHRIS Dashboard",
+  "description": "Makes available dashboard reports functionality onto iHRIS Software",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application",
+  "creator": null,
+  "link": null,
+  "requirements": [],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "dashboards",
+      "class": "I2CE_PageDashboard",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

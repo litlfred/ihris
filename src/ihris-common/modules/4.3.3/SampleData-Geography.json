@@ -1,0 +1,49 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/SampleData-Geography",
+  "module": "SampleData-Geography",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CommonSampleData/modules/SampleData-Geography/SampleData-Geography.xml",
+    "sha256": "ecc65499f2a4eaa0cf55b1188c6febaca4a41305980ef35709df887936017792"
+  },
+  "parent": "ihris-common/module/SampleData-Common",
+  "site": null,
+  "displayName": "Geography Sample Data",
+  "description": "Sample Data for Geography forms.",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "Geography",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [
+    {
+      "module": "SampleData-country"
+    },
+    {
+      "module": "SampleData-region"
+    },
+    {
+      "module": "SampleData-district"
+    },
+    {
+      "module": "SampleData-county"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

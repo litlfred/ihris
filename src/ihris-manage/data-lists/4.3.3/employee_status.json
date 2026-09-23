@@ -1,0 +1,51 @@
+{
+  "$schema": "ihris-data-list/v1",
+  "id": "ihris-manage/data-list/employee_status",
+  "form": "employee_status",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a"
+  },
+  "counts": {
+    "default": 4
+  },
+  "records": [
+    {
+      "id": "employee",
+      "fields": {
+        "name": "Employee"
+      },
+      "lastModified": "2009-06-29 16:16:00",
+      "definedIn": "ihris-manage/module/ihris-manage-CustomReports-search-people",
+      "provenance": "default"
+    },
+    {
+      "id": "old_employee",
+      "fields": {
+        "name": "Old Employee"
+      },
+      "lastModified": "2009-06-29 16:16:00",
+      "definedIn": "ihris-manage/module/ihris-manage-CustomReports-search-people",
+      "provenance": "default"
+    },
+    {
+      "id": "applicant",
+      "fields": {
+        "name": "Applicant"
+      },
+      "lastModified": "2009-06-29 16:16:00",
+      "definedIn": "ihris-manage/module/ihris-manage-CustomReports-search-people",
+      "provenance": "default"
+    },
+    {
+      "id": "old_applicant",
+      "fields": {
+        "name": "Old Applicant"
+      },
+      "lastModified": "2009-06-29 16:16:00",
+      "definedIn": "ihris-manage/module/ihris-manage-CustomReports-search-people",
+      "provenance": "default"
+    }
+  ]
+}

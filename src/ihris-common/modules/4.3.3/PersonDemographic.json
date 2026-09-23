@@ -1,0 +1,69 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/PersonDemographic",
+  "module": "PersonDemographic",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/Demographic/Demographic.xml",
+    "sha256": "0179d396c45cae13f3cb1da3cd61f7db18a5988b04f31a50cbaa4d90581a3389"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "iHRIS Person Demographic",
+  "description": "A Person's Demographic",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_PersonDemographic",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.1"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "demographic",
+      "class": "iHRIS_Demographic",
+      "displayName": "Demographic Information"
+    },
+    {
+      "form": "marital_status",
+      "class": "I2CE_SimpleList",
+      "displayName": "Marital Status"
+    },
+    {
+      "form": "gender",
+      "class": "I2CE_SimpleList",
+      "displayName": "Gender"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Demographic"
+  ],
+  "pages": [
+    {
+      "page": "demographic",
+      "class": null,
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {
+    "gender": 2
+  },
+  "locales": [
+    "en_US"
+  ]
+}

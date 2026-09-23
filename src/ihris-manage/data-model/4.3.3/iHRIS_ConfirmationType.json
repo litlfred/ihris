@@ -1,0 +1,50 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_ConfirmationType",
+  "class": "iHRIS_ConfirmationType",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "confirmation_type"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ihris-manage-confirmation"
+  ],
+  "fields": [
+    {
+      "field": "probation_period",
+      "type": "INT",
+      "label": "Probationary Period (Months)",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-confirmation"
+      ]
+    },
+    {
+      "field": "job",
+      "type": "MAP",
+      "label": "Associated Job",
+      "required": false,
+      "unique": null,
+      "references": [
+        "job"
+      ],
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-confirmation"
+      ]
+    },
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-confirmation"
+      ]
+    }
+  ]
+}

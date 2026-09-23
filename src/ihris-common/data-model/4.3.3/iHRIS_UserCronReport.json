@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_UserCronReport",
+  "class": "iHRIS_UserCronReport",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "cron_report"
+  ],
+  "definedIn": [
+    "ihris-common/module/UserCronReports"
+  ],
+  "fields": [
+    {
+      "field": "report_view",
+      "type": "ENUM",
+      "label": "Report View",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/UserCronReports"
+      ]
+    },
+    {
+      "field": "cron_type",
+      "type": "ENUM",
+      "label": "Frequency",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/UserCronReports"
+      ]
+    }
+  ]
+}

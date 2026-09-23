@@ -1,0 +1,42 @@
+{
+  "$schema": "ihris-data-list/v1",
+  "id": "ihris-qualify/data-list/exam_result",
+  "form": "exam_result",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a"
+  },
+  "counts": {
+    "default": 3
+  },
+  "records": [
+    {
+      "id": "pass",
+      "fields": {
+        "name": "Pass"
+      },
+      "lastModified": "2009-08-10 00:00:00",
+      "definedIn": "ihris-qualify/module/ihris-qualify",
+      "provenance": "default"
+    },
+    {
+      "id": "fail",
+      "fields": {
+        "name": "Fail"
+      },
+      "lastModified": "2009-08-10 00:00:00",
+      "definedIn": "ihris-qualify/module/ihris-qualify",
+      "provenance": "default"
+    },
+    {
+      "id": "notake",
+      "fields": {
+        "name": "Did not sit for exam"
+      },
+      "lastModified": "2009-08-10 00:00:00",
+      "definedIn": "ihris-qualify/module/ihris-qualify",
+      "provenance": "default"
+    }
+  ]
+}

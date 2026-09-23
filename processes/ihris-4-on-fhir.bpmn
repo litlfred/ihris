@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  xmlns:folio="https://litlfred.github.io/folio-assistant/bpmn"
+                  id="Definitions_Process_Ihris4OnFhir" targetNamespace="https://litlfred.github.io/ihris/workflows"
+                  exporter="ihris gen_bpmn.py" exporterVersion="1">
+  <bpmn:collaboration id="Collaboration_Process_Ihris4OnFhir">
+    <bpmn:participant id="Participant_Process_Ihris4OnFhir" name="iHRIS 4 on FHIR" processRef="Process_Ihris4OnFhir"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Ihris4OnFhir" name="iHRIS 4 on FHIR" isExecutable="false">
+    <bpmn:documentation>How the derived subgraph src/ihris-4-on-fhir is built: generate FSH from the data dictionary and terminology, build with SUSHI, validate, and map to iHRIS 5. Documented 2026-09-23; SUSHI runs later (owner). Logical models wait for folio-assistant cz17, StructureMaps wait for the logical models, and render waits for the lightweight IG render pipeline. Operating skill: ihris-4-on-fhir.</bpmn:documentation>
+    <bpmn:laneSet id="LaneSet_Process_Ihris4OnFhir">
+      <bpmn:lane id="Lane_Agent" name="Agent">
+        <bpmn:documentation>Generates FSH. It never edits generated FSH or SUSHI output; it changes the inputs or the generator.</bpmn:documentation>
+        <bpmn:extensionElements><folio:role ref="fhir-modeller"/></bpmn:extensionElements>
+        <bpmn:flowNodeRef>Start_F</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>A_GenTerm</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>GW_LM</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>A_GenLM</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>A_GenMap</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Pipeline" name="Build pipeline">
+        <bpmn:documentation>Runs SUSHI and the validators. A dirty SUSHI run blocks the commit.</bpmn:documentation>
+        <bpmn:extensionElements><folio:role ref="build-pipeline"/></bpmn:extensionElements>
+        <bpmn:flowNodeRef>P_Sushi</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P_Validate</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Owner" name="Owner">
+        <bpmn:documentation>Unblocks phases and accepts the mapping. Uncertain mappings arrive as proposals, which only the owner moves.</bpmn:documentation>
+        <bpmn:extensionElements><folio:role ref="user"/></bpmn:extensionElements>
+        <bpmn:flowNodeRef>O_Accept</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_F</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_F" name="Data model or terminology changed"/>
+    <bpmn:task id="A_GenTerm" name="Generate terminology FSH">
+      <bpmn:documentation>F2. CodeSystems, ValueSets and ConceptMaps from src/ihris-data-dictionary/terminology inputs.</bpmn:documentation>
+      <bpmn:extensionElements><folio:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="GW_LM" name="cz17 settled?"/>
+    <bpmn:task id="A_GenLM" name="Generate logical models">
+      <bpmn:documentation>F3. One logical model per form class, in the form smart-base's DAK model settles on.</bpmn:documentation>
+      <bpmn:extensionElements><folio:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:task id="A_GenMap" name="Generate StructureMaps to iHRIS 5">
+      <bpmn:documentation>F4. Maps to all three iHRIS 5 IGs, pinned to a commit. Uncertain matches become proposals.</bpmn:documentation>
+      <bpmn:extensionElements><folio:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:task id="P_Sushi" name="SUSHI build (must be clean)">
+      <bpmn:documentation>Tool ihris-sushi. Zero errors are required, and warnings are reported.</bpmn:documentation>
+      <bpmn:extensionElements><folio:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:task id="P_Validate" name="Validate">
+      <bpmn:documentation>Tool ihris-validate-kg: FHIR structure, content-equality with the retired JSON (D8), and codes that resolve.</bpmn:documentation>
+      <bpmn:extensionElements><folio:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:task id="O_Accept" name="Accept mappings and phase">
+      <bpmn:extensionElements><folio:no-skill reason="The owner's decision on proposals and on unblocking the next phase."/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:endEvent id="End_F" name="Built; render waits for the pipeline"/>
+    <bpmn:sequenceFlow id="SF_Process_Ihris4OnFhir_1" sourceRef="Start_F" targetRef="A_GenTerm"/>
+    <bpmn:sequenceFlow id="SF_Process_Ihris4OnFhir_2" sourceRef="A_GenTerm" targetRef="GW_LM"/>
+    <bpmn:sequenceFlow id="SF_Process_Ihris4OnFhir_3" name="yes" sourceRef="GW_LM" targetRef="A_GenLM"/>
+    <bpmn:sequenceFlow id="SF_Process_Ihris4OnFhir_4" name="no" sourceRef="GW_LM" targetRef="P_Sushi"/>
+    <bpmn:sequenceFlow id="SF_Process_Ihris4OnFhir_5" sourceRef="A_GenLM" targetRef="A_GenMap"/>
+    <bpmn:sequenceFlow id="SF_Process_Ihris4OnFhir_6" sourceRef="A_GenMap" targetRef="P_Sushi"/>
+    <bpmn:sequenceFlow id="SF_Process_Ihris4OnFhir_7" sourceRef="P_Sushi" targetRef="P_Validate"/>
+    <bpmn:sequenceFlow id="SF_Process_Ihris4OnFhir_8" sourceRef="P_Validate" targetRef="O_Accept"/>
+    <bpmn:sequenceFlow id="SF_Process_Ihris4OnFhir_9" sourceRef="O_Accept" targetRef="End_F"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_Process_Ihris4OnFhir">
+    <bpmndi:BPMNPlane id="Plane_Process_Ihris4OnFhir" bpmnElement="Collaboration_Process_Ihris4OnFhir">
+      <bpmndi:BPMNShape id="Shape_Participant_Process_Ihris4OnFhir" bpmnElement="Participant_Process_Ihris4OnFhir" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1890" height="510" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_Agent" bpmnElement="Lane_Agent" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1860" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_Pipeline" bpmnElement="Lane_Pipeline" isHorizontal="true">
+        <dc:Bounds x="190" y="250" width="1860" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_Owner" bpmnElement="Lane_Owner" isHorizontal="true">
+        <dc:Bounds x="190" y="420" width="1860" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Start_F" bpmnElement="Start_F">
+        <dc:Bounds x="302" y="147" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A_GenTerm" bpmnElement="A_GenTerm">
+        <dc:Bounds x="440" y="125" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GW_LM" bpmnElement="GW_LM" isMarkerVisible="true">
+        <dc:Bounds x="675" y="140" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A_GenLM" bpmnElement="A_GenLM">
+        <dc:Bounds x="820" y="125" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A_GenMap" bpmnElement="A_GenMap">
+        <dc:Bounds x="1010" y="125" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_P_Sushi" bpmnElement="P_Sushi">
+        <dc:Bounds x="1200" y="295" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_P_Validate" bpmnElement="P_Validate">
+        <dc:Bounds x="1390" y="295" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_O_Accept" bpmnElement="O_Accept">
+        <dc:Bounds x="1580" y="465" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_F" bpmnElement="End_F">
+        <dc:Bounds x="1822" y="487" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_Ihris4OnFhir_1" bpmnElement="SF_Process_Ihris4OnFhir_1">
+        <di:waypoint x="338" y="165" />
+        <di:waypoint x="440" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_Ihris4OnFhir_2" bpmnElement="SF_Process_Ihris4OnFhir_2">
+        <di:waypoint x="580" y="165" />
+        <di:waypoint x="675" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_Ihris4OnFhir_3" bpmnElement="SF_Process_Ihris4OnFhir_3">
+        <di:waypoint x="725" y="165" />
+        <di:waypoint x="820" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_Ihris4OnFhir_4" bpmnElement="SF_Process_Ihris4OnFhir_4">
+        <di:waypoint x="725" y="165" />
+        <di:waypoint x="1175" y="165" />
+        <di:waypoint x="1175" y="335" />
+        <di:waypoint x="1200" y="335" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_Ihris4OnFhir_5" bpmnElement="SF_Process_Ihris4OnFhir_5">
+        <di:waypoint x="960" y="165" />
+        <di:waypoint x="1010" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_Ihris4OnFhir_6" bpmnElement="SF_Process_Ihris4OnFhir_6">
+        <di:waypoint x="1150" y="165" />
+        <di:waypoint x="1175" y="165" />
+        <di:waypoint x="1175" y="335" />
+        <di:waypoint x="1200" y="335" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_Ihris4OnFhir_7" bpmnElement="SF_Process_Ihris4OnFhir_7">
+        <di:waypoint x="1340" y="335" />
+        <di:waypoint x="1390" y="335" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_Ihris4OnFhir_8" bpmnElement="SF_Process_Ihris4OnFhir_8">
+        <di:waypoint x="1530" y="335" />
+        <di:waypoint x="1555" y="335" />
+        <di:waypoint x="1555" y="505" />
+        <di:waypoint x="1580" y="505" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_Ihris4OnFhir_9" bpmnElement="SF_Process_Ihris4OnFhir_9">
+        <di:waypoint x="1720" y="505" />
+        <di:waypoint x="1822" y="505" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

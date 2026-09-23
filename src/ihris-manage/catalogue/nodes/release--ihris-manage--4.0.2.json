@@ -1,0 +1,40 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "release/ihris-manage/4.0.2",
+  "kind": "item",
+  "flavour": "release",
+  "title": "iHRIS Manage 4.0.2",
+  "parents": [
+    [
+      "project/ihris-manage",
+      "series/ihris-manage/4.0"
+    ]
+  ],
+  "metadataRef": "records/release--ihris-manage--4.0.2.json",
+  "bitstreams": [
+    {
+      "name": "ihris-manage-full-4_0_2.tar.bz2",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://launchpad.net/ihris-manage/4.0/4.0.2/+download/ihris-manage-full-4_0_2.tar.bz2"
+        }
+      }
+    },
+    {
+      "name": "ihris-manage-4_0_2.tar.bz2",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://launchpad.net/ihris-manage/4.0/4.0.2/+download/ihris-manage-4_0_2.tar.bz2"
+        }
+      }
+    }
+  ],
+  "materialization": {
+    "state": "referenced",
+    "provenance": {
+      "upstream": "https://launchpad.net/ihris-manage/+milestone/4.0.2"
+    }
+  }
+}

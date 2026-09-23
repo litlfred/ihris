@@ -1,0 +1,55 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/BinField",
+  "module": "BinField",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/Binary_Files/BinFiles.xml",
+    "sha256": "7fde3ebad6c965f77fec8a9baf6b17e922d950ba26e189a325a1d4e5c6b36390"
+  },
+  "parent": "i2ce/module/forms",
+  "site": null,
+  "displayName": "Binary Fields",
+  "description": "A module that allows binary files for form fields",
+  "version": "4.3.3.0",
+  "className": "I2CE_Module_BinaryFiles",
+  "category": null,
+  "creator": null,
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "forms",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "MimeTypes",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "page",
+      "class": "I2CE_Page_BinaryField",
+      "style": "empty"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

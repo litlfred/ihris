@@ -1,0 +1,57 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-training-course-evaluation",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/training_course_evaluation",
+  "version": "4.3.3",
+  "name": "IHRISTrainingCourseEvaluation",
+  "title": "iHRIS Training Course Evaluation",
+  "status": "draft",
+  "experimental": true,
+  "description": "The `training_course_evaluation` list as shipped by default in iHRIS 4.3.3 (modules: ihris-common/module/training-course). Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped baseline, not a closed international code set.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 4,
+  "property": [
+    {
+      "code": "competency_evaluation",
+      "type": "Coding",
+      "description": "iHRIS MAP field `competency_evaluation`: a code in the competency_evaluation list"
+    }
+  ],
+  "concept": [
+    {
+      "code": "pass",
+      "display": "Pass",
+      "property": [
+        {
+          "code": "competency_evaluation",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_evaluation",
+            "code": "competent"
+          }
+        }
+      ]
+    },
+    {
+      "code": "fail",
+      "display": "Fail",
+      "property": [
+        {
+          "code": "competency_evaluation",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/competency_evaluation",
+            "code": "not_competent"
+          }
+        }
+      ]
+    },
+    {
+      "code": "incomplete",
+      "display": "Incomplete"
+    },
+    {
+      "code": "not_evaluated",
+      "display": "Not Evaluated"
+    }
+  ]
+}

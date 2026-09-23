@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/IL-HWR",
+  "module": "IL-HWR",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CSD/modules/IL-HWR/IL-HWR.xml",
+    "sha256": "734ccab0c433b2b7363a6c2ab6665b943dde7214852df1c836233358339b0746"
+  },
+  "parent": "ihris-common/module/CSD",
+  "site": null,
+  "displayName": "Interlinked Health Worker Registry",
+  "description": "Provides Interface for OpenInfoMan based Health Worker Registry based on CSD",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "csd_cache",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "page",
+      "class": "CSD_Page_IL_HWR_Redirect",
+      "style": "action"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

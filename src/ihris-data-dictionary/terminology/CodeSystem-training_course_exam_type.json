@@ -1,0 +1,28 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-training-course-exam-type",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/training_course_exam_type",
+  "version": "4.3.3",
+  "name": "IHRISTrainingCourseExamType",
+  "title": "iHRIS Training Course Exam Type",
+  "status": "draft",
+  "experimental": true,
+  "description": "The `training_course_exam_type` list as shipped by default in iHRIS 4.3.3 (modules: ihris-common/module/training-exam). Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped baseline, not a closed international code set.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 3,
+  "concept": [
+    {
+      "code": "final",
+      "display": "Final"
+    },
+    {
+      "code": "incourse",
+      "display": "In Course Exam"
+    },
+    {
+      "code": "pretest",
+      "display": "PreTest"
+    }
+  ]
+}

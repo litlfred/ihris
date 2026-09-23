@@ -1,0 +1,61 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/PrintedForms",
+  "module": "PrintedForms",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/PrintedForms/PrintedForm.xml",
+    "sha256": "0bf8c3a0bed39694e55720edb33c2f4f024c4d6f83dc22747294a7632e198fc4"
+  },
+  "parent": "i2ce/module/forms",
+  "site": null,
+  "displayName": "Printed Forms",
+  "description": "Engine used to generated standard printed forms from a form relationship",
+  "version": "4.3.0",
+  "className": "I2CE_Module_PrintedForms",
+  "category": "Reporting",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "formRelationships",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "textlayout",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "BinField"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "generated_doc",
+      "class": "I2CE_GeneratedDoc",
+      "displayName": "Generated Document"
+    }
+  ],
+  "formClasses": [
+    "i2ce/form-class/I2CE_GeneratedDoc"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

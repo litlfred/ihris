@@ -1,0 +1,52 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/I2CE",
+  "module": "I2CE",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/I2CE_Configuration.xml",
+    "sha256": "dd71f2dfa5f1d8b4128944eb79962fff6f7b81cdb82f0a379f2b1167d6114052"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "I2CE Basic System",
+  "description": "The I2CE Core System Configuration",
+  "version": "4.3.3.0",
+  "className": "I2CE_Module_Core",
+  "category": "Base System Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "PHP",
+      "atLeast": "5.2.6"
+    },
+    {
+      "module": "PHP-CLI",
+      "atLeast": "5.2.6"
+    },
+    {
+      "module": "PECL:APC",
+      "atLeast": "0"
+    },
+    {
+      "module": "PHP-MySQL",
+      "atLeast": "0"
+    },
+    {
+      "module": "PHP-Tidy",
+      "atLeast": "0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

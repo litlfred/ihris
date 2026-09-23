@@ -1,0 +1,98 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Contact",
+  "class": "iHRIS_Contact",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "contact",
+    "facility_contact",
+    "person_contact_other",
+    "person_contact_personal",
+    "person_contact_work",
+    "training_funder_contact",
+    "training_institution_contact"
+  ],
+  "definedIn": [
+    "ihris-common/module/Contact"
+  ],
+  "fields": [
+    {
+      "field": "address",
+      "type": "STRING_MLINE",
+      "label": "Mailing Address",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Contact"
+      ]
+    },
+    {
+      "field": "telephone",
+      "type": "STRING_LINE",
+      "label": "Telephone Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Contact"
+      ]
+    },
+    {
+      "field": "mobile_phone",
+      "type": "STRING_LINE",
+      "label": "Mobile Phone Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Contact"
+      ]
+    },
+    {
+      "field": "alt_telephone",
+      "type": "STRING_LINE",
+      "label": "Alternate Telephone Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Contact"
+      ]
+    },
+    {
+      "field": "fax",
+      "type": "STRING_LINE",
+      "label": "Fax Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Contact"
+      ]
+    },
+    {
+      "field": "email",
+      "type": "STRING_LINE",
+      "label": "Email Address",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Contact"
+      ]
+    },
+    {
+      "field": "notes",
+      "type": "STRING_MLINE",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Contact"
+      ]
+    }
+  ]
+}

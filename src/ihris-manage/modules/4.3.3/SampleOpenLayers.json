@@ -1,0 +1,44 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/SampleOpenLayers",
+  "module": "SampleOpenLayers",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/SampleOpenLayers/SampleOpenLayers.xml",
+    "sha256": "98e599dd80fa676f76a26431e59c749a8bd14374d47af2877effe21d0864ee85"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Sample Open Layers Mapping",
+  "description": "Sample Open Layers page for examples and testing.",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Site",
+  "creator": "Luke Duncan",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "OpenLayers",
+      "atLeast": "3.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "sample_map",
+      "class": null,
+      "style": "openlayers"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

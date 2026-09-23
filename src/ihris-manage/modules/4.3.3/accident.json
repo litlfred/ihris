@@ -1,0 +1,72 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/accident",
+  "module": "accident",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/Accident/Accident.xml",
+    "sha256": "7743345df940b2870574e48dcd3c4b14ecc4af6a2f5c03984cb87965256130e8"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Workplace Accident",
+  "description": "A Workplace Accident Tracking Module",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_Accident",
+  "category": "Application Component",
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "accident",
+      "class": "iHRIS_Accident",
+      "displayName": "Accident"
+    },
+    {
+      "form": "accident_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Workplace Accident Type"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": "Person"
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_Accident"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "et",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "si",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

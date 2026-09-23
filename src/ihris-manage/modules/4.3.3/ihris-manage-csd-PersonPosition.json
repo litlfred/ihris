@@ -1,0 +1,44 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-csd-PersonPosition",
+  "module": "ihris-manage-csd-PersonPosition",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManagePersonPosition/modules/CSDPersonPosition/CSDPersonPosition.xml",
+    "sha256": "fb0c688aca6e23abdf5c147dd95568410456edda9e6ae7ce5438335dfb22c2a0"
+  },
+  "parent": "ihris-manage/module/ihris-manage-PersonPosition",
+  "site": null,
+  "displayName": "CSD Person Position",
+  "description": "CSD Person Position Configuration",
+  "version": "4.3.3.0",
+  "className": "iHRIS_Module_CSDPersonPosition",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "csd_cache",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

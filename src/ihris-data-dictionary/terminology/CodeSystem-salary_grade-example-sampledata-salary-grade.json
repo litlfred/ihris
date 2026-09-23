@@ -1,0 +1,260 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-salary-grade-example-sampledata-salary-grade",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/salary_grade-example-sampledata-salary-grade",
+  "version": "4.3.3",
+  "name": "IHRISSalaryGradeExampleSampledataSalaryGrade",
+  "title": "iHRIS Salary Grade: sample data from ihris-manage/module/SampleData-salary_grade",
+  "status": "draft",
+  "experimental": true,
+  "description": "SAMPLE records for `salary_grade` from the iHRIS 4.3.3 module `ihris-manage/module/SampleData-salary_grade`. Illustrative data for one fictional or example deployment. NOT a standard code set, and no ValueSet includes it.",
+  "caseSensitive": true,
+  "content": "example",
+  "count": 5,
+  "property": [
+    {
+      "code": "start",
+      "type": "decimal",
+      "description": "iHRIS CURRENCY field `start`: the amount"
+    },
+    {
+      "code": "start_currency",
+      "type": "Coding",
+      "description": "iHRIS CURRENCY field `start`: its currency"
+    },
+    {
+      "code": "end",
+      "type": "decimal",
+      "description": "iHRIS CURRENCY field `end`: the amount"
+    },
+    {
+      "code": "end_currency",
+      "type": "Coding",
+      "description": "iHRIS CURRENCY field `end`: its currency"
+    },
+    {
+      "code": "midpoint",
+      "type": "decimal",
+      "description": "iHRIS CURRENCY field `midpoint`: the amount"
+    },
+    {
+      "code": "midpoint_currency",
+      "type": "Coding",
+      "description": "iHRIS CURRENCY field `midpoint`: its currency"
+    },
+    {
+      "code": "notes",
+      "type": "string",
+      "description": "iHRIS field `notes`"
+    }
+  ],
+  "concept": [
+    {
+      "code": "1",
+      "display": "Entry-Level",
+      "property": [
+        {
+          "code": "start",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "start_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "end",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "end_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "midpoint",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "midpoint_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Entry-level and support positions."
+        }
+      ]
+    },
+    {
+      "code": "2",
+      "display": "Professional Entry-Level",
+      "property": [
+        {
+          "code": "start",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "start_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "end",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "end_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "midpoint",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "midpoint_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Professional first grade."
+        }
+      ]
+    },
+    {
+      "code": "3",
+      "display": "Professional Mid-Level/Managerial",
+      "property": [
+        {
+          "code": "start",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "start_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "end",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "end_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "midpoint",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "midpoint_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        }
+      ]
+    },
+    {
+      "code": "4",
+      "display": "Specialist/Director",
+      "property": [
+        {
+          "code": "start",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "start_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "end",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "end_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "midpoint",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "midpoint_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        }
+      ]
+    },
+    {
+      "code": "5",
+      "display": "Technical Specialist",
+      "property": [
+        {
+          "code": "start",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "start_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "end",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "end_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "midpoint",
+          "valueDecimal": 0.0
+        },
+        {
+          "code": "midpoint_currency",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency-example-sampledata-currency",
+            "code": "1"
+          }
+        },
+        {
+          "code": "notes",
+          "valueString": "Not included in any standard salary grades."
+        }
+      ]
+    }
+  ]
+}

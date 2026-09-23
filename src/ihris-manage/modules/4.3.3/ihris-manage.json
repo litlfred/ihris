@@ -1,0 +1,157 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage",
+  "module": "ihris-manage",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/iHRIS-Manage-Configuration.xml",
+    "sha256": "8b640904d3271be446458c72fa2f4aeb32777f3a3288e0306c715f434c6548fe"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage",
+  "description": "The iHRIS Manage system.",
+  "version": "4.3.3.0",
+  "className": "iHRIS_Module_Manage",
+  "category": "Application",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-manage-Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Currency",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "simple-competency",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-common-Search",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-common-RecentForm",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "page-relationship-builder"
+    },
+    {
+      "module": "ihris-manage-Benefit"
+    },
+    {
+      "module": "ihris-manage-csd-qus"
+    },
+    {
+      "module": "web-services-lists"
+    },
+    {
+      "module": "ihris-manage-CustomReports"
+    },
+    {
+      "module": "ihris-manage-AutoList"
+    },
+    {
+      "module": "ihris-manage-Application"
+    },
+    {
+      "module": "ihris-manage-help"
+    },
+    {
+      "module": "FacilityContact"
+    },
+    {
+      "module": "ManageRegistration"
+    },
+    {
+      "module": "ManageAccessFacility"
+    }
+  ],
+  "conflicts": [
+    {
+      "module": "ihris-qualify",
+      "atLeast": "2",
+      "lessThan": "5"
+    },
+    {
+      "module": "ihris-plan",
+      "atLeast": "1",
+      "lessThan": "2"
+    }
+  ],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "configure",
+      "class": null,
+      "style": null
+    },
+    {
+      "page": "feedback",
+      "class": null,
+      "style": "shell"
+    },
+    {
+      "page": "view",
+      "class": "iHRIS_PageView",
+      "style": null
+    },
+    {
+      "page": "manage",
+      "class": "iHRIS_PageManage",
+      "style": "shell"
+    },
+    {
+      "page": "user",
+      "class": "iHRIS_PageFormUser",
+      "style": null
+    }
+  ],
+  "dataLists": {
+    "role": 4
+  },
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "et",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "si",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

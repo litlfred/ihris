@@ -1,0 +1,38 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/SampleData-department",
+  "module": "SampleData-department",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/MedicalData/modules/SampleData-department/SampleData-department.xml",
+    "sha256": "f645b2f22bb85dcd90e57dfdca698775cc928bac483b9ebe4dd85e0448fedd10"
+  },
+  "parent": "ihris-manage/module/ihris-manage-medical-data",
+  "site": null,
+  "displayName": "Department",
+  "description": "Sample Data for form: department",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "department": 22
+  },
+  "locales": []
+}

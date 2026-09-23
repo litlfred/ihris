@@ -1,0 +1,18 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-currency",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/currency",
+  "version": "4.3.3",
+  "name": "IHRISCurrencyVS",
+  "title": "iHRIS Currency",
+  "status": "draft",
+  "experimental": true,
+  "description": "All current codes of ISO 4217 (urn:iso:std:iso:4217). The DAK binds to the standard, not to iHRIS's shipped `currency` list; that list is CodeSystem `currency` here, mapped to the standard by ConceptMap `currency-to-iso-4217`.",
+  "compose": {
+    "include": [
+      {
+        "system": "urn:iso:std:iso:4217"
+      }
+    ]
+  }
+}

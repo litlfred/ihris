@@ -1,0 +1,35 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "i2ce/form-class/class",
+  "class": "class",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [],
+  "definedIn": [
+    "i2ce/module/LocaleForm"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Locale",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/LocaleForm"
+      ]
+    },
+    {
+      "field": "selectable",
+      "type": "YESNO",
+      "label": "Selectable",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/LocaleForm"
+      ]
+    }
+  ]
+}

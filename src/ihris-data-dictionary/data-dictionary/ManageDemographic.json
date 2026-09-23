@@ -1,0 +1,57 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.ManageDemographic",
+  "group": "ManageDemographic",
+  "title": "Demographic Information",
+  "class": "iHRIS_ManageDemographic",
+  "extends": "iHRIS_Demographic",
+  "forms": [
+    "demographic"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_ManageDemographic"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/ManageDemographic",
+  "elements": [
+    {
+      "id": "IHRIS.DE.ManageDemographic.dependents",
+      "activityId": null,
+      "formIds": [
+        "demographic"
+      ],
+      "formDataElementLabel": "Number of Dependents",
+      "dataElementLabel": "Number of Dependents",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Integer quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Demographic Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_ManageDemographic",
+        "field": "dependents",
+        "i2ceType": "INT",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-PersonDemographic"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md"
+      ]
+    }
+  ]
+}

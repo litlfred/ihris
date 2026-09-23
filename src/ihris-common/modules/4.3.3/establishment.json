@@ -1,0 +1,72 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/establishment",
+  "module": "establishment",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Establishment/Establishment.xml",
+    "sha256": "2042e2214cf73e4cbbce1536cba079e3f99527b7e4c6c2942fe9579092bc9efa"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage Establishment",
+  "description": "The iHRIS Manage Establishment provides establishment information by cadre",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-common-Job",
+      "atLeast": "4.0"
+    },
+    {
+      "module": "Facility",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "establishment",
+      "class": "iHRIS_Establishment",
+      "displayName": "Establishment"
+    },
+    {
+      "form": "establishment_period",
+      "class": "iHRIS_EstablishmentPeriod",
+      "displayName": "Establishment Period"
+    },
+    {
+      "form": "establishment_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Establishment Type"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Establishment",
+    "ihris-common/form-class/iHRIS_EstablishmentPeriod"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "tl",
+    "uk"
+  ]
+}

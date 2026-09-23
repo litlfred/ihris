@@ -1,0 +1,70 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_TrainingProgram",
+  "class": "iHRIS_TrainingProgram",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "training_program"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "training_institution",
+      "type": "MAP",
+      "label": "Training Institution",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "cadre",
+      "type": "MAP",
+      "label": "Cadre",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "start_date",
+      "type": "DATE_YMD",
+      "label": "Start Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "end_date",
+      "type": "DATE_YMD",
+      "label": "End Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "num_students",
+      "type": "INT",
+      "label": "Number of Students",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

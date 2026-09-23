@@ -1,0 +1,31 @@
+{
+  "name": "ihris-toolkit",
+  "title": "iHRIS Implementation Toolkit",
+  "description": "toolkit.ihris.org: six implementation stages (Assess, Plan, Deploy, Pilot, Scale-up, Sustain) across seven cross-cutting domains, each objective pointing at tools.",
+  "source": {
+    "web": "https://toolkit.ihris.org/",
+    "captures": "uploads/toolkit/"
+  },
+  "assets": [
+    {
+      "id": "readme",
+      "src": "README.md",
+      "role": "instance-readme",
+      "title": "iHRIS Implementation Toolkit",
+      "description": "What was captured and what is still only referenced."
+    }
+  ],
+  "directories": [
+    {
+      "id": "ihris-toolkit-library",
+      "path": "./",
+      "dependents": "reproduce",
+      "graphKinds": [
+        "library"
+      ],
+      "readOnly": true,
+      "readOnlyBasis": "Ingested from uploads/toolkit/ by src/tools/build_kg.py.",
+      "description": "manifest.jsonld + sections/*.md (one per stage), stages/*.json (ihris-toolkit-stage/v1), structure.json (the stage x domain matrix), tools-index.json, images/."
+    }
+  ]
+}

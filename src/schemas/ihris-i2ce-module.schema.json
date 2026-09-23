@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-i2ce-module.schema.json",
+  "title": "ihris-i2ce-module/v1",
+  "description": "One I2CE module as declared by its <I2CEConfiguration> <metadata> in a specific release. Modules are the unit of iHRIS functionality: each declares what it needs (requirement), turns on (enable), refuses (conflict), and which forms and pages it contributes. Transcribed from the module's XML file inside a checksum-verified release tarball. The XML itself is not copied; `source` pins it by path and sha256.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "id",
+    "module",
+    "instance",
+    "release",
+    "source"
+  ],
+  "$defs": {
+    "rel": {
+      "type": "object",
+      "required": [
+        "module"
+      ],
+      "properties": {
+        "module": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "description": "A requirement/enable/conflict/optional edge. Keys other than `module` are the version operators as written in the source XML (atLeast, lessThan, atMost, greaterThan, exactly), KEPT VERBATIM, including the lowercase `atleast` two i2ce test modules use, and `eval`, which carries a PHP expression instead of a version."
+    }
+  },
+  "properties": {
+    "$schema": {
+      "const": "ihris-i2ce-module/v1"
+    },
+    "id": {
+      "type": "string"
+    },
+    "module": {
+      "type": "string",
+      "description": "the I2CEConfiguration name, the key other modules require it by"
+    },
+    "instance": {
+      "type": "string",
+      "description": "the instance (Launchpad project) whose package holds it"
+    },
+    "release": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "releaseFile",
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "releaseFile": {
+          "type": "string"
+        },
+        "releaseFileMd5": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "parent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "id of the module whose directory contains this one"
+    },
+    "site": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "set when the module lives under a site (e.g. Demo, Blank) rather than the core module tree"
+    },
+    "displayName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "className": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "category": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "creator": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "link": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rel"
+      }
+    },
+    "enables": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rel"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rel"
+      }
+    },
+    "optional": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rel"
+      }
+    },
+    "forms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "form": {
+            "type": "string"
+          },
+          "class": {
+            "type": [
+              "string",
+              "null",
+              "array"
+            ]
+          },
+          "displayName": {
+            "type": [
+              "string",
+              "null",
+              "array"
+            ]
+          }
+        }
+      }
+    },
+    "formClasses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "ids of ihris-form-class/v1 nodes this module contributes fields to"
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "page": {
+            "type": "string"
+          },
+          "class": {
+            "type": [
+              "string",
+              "null",
+              "array"
+            ]
+          },
+          "style": {
+            "type": [
+              "string",
+              "null",
+              "array"
+            ]
+          }
+        }
+      }
+    },
+    "dataLists": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "description": "form -> number of standard/sample records this module ships (//I2CE/formsData)"
+    },
+    "locales": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "locales for which the release ships a translation overlay (configs/<locale>/<module>.xml). Overlays are not modules."
+    }
+  }
+}

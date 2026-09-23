@@ -1,0 +1,63 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/ihris-common-Search",
+  "module": "ihris-common-Search",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Search/Search.xml",
+    "sha256": "d97d3b2de541d91b5f8db2eea9223940118f31125a84aa0e4bef9f31633e2c49"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Search Page",
+  "description": "The iHRIS Search page.",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Reporting",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "search",
+      "class": "iHRIS_PageSearch",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

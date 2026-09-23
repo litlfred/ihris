@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_OrganizationNameSearch",
+  "class": "CSD_OrganizationNameSearch",
+  "release": "4.3.3",
+  "extends": "CSD_SearchMatches",
+  "forms": [
+    "csd_organization_name_search"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-search"
+  ],
+  "fields": [
+    {
+      "field": "primary_name",
+      "type": "STRING_LINE",
+      "label": "Primary Name",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    }
+  ]
+}

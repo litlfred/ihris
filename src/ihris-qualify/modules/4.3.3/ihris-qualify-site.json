@@ -1,0 +1,62 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-qualify/module/ihris-qualify-site",
+  "module": "ihris-qualify-site",
+  "instance": "ihris-qualify",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-qualify/sites/blank/iHRIS-Qualify-BLANK.xml",
+    "sha256": "7e683249d39156477364aab527478d4c869dceb9969641ec55a53b69450b1f03"
+  },
+  "parent": null,
+  "site": "blank",
+  "displayName": "iHRIS Qualify",
+  "description": "the iHRIS Qualify Site",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Site",
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ihris-qualify",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "UserAccess",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "default-locales"
+    },
+    {
+      "module": "stub"
+    },
+    {
+      "module": "PersonContact"
+    },
+    {
+      "module": "PersonDemographic"
+    },
+    {
+      "module": "PersonID"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "en_US",
+    "fr"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "i2ce/form-class/I2CE_Role",
+  "class": "I2CE_Role",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "roleForm"
+  ],
+  "definedIn": [
+    "i2ce/module/UserForm"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Role",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/UserForm"
+      ]
+    },
+    {
+      "field": "assignable",
+      "type": "YESNO",
+      "label": "Can Assign To User",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/UserForm"
+      ]
+    },
+    {
+      "field": "homepage",
+      "type": "STRING_LINE",
+      "label": "Preferred Home Page",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/UserForm"
+      ]
+    },
+    {
+      "field": "trickle_up",
+      "type": "MAP_MULT",
+      "label": "Trickle Up",
+      "required": false,
+      "unique": null,
+      "references": [
+        "role"
+      ],
+      "definedIn": [
+        "i2ce/module/UserForm"
+      ]
+    }
+  ]
+}

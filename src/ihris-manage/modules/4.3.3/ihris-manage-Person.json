@@ -1,0 +1,50 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-Person",
+  "module": "ihris-manage-Person",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManagePerson/Person.xml",
+    "sha256": "6697d67a989e0069dda43f050cb5dc290656d69f9004876e416f004312bb7f3b"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage Person",
+  "description": "The iHRIS Manage Person",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.1"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person",
+      "class": "iHRIS_ManagePerson",
+      "displayName": "Person"
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_ManagePerson"
+  ],
+  "pages": [
+    {
+      "page": "person",
+      "class": "iHRIS_PageFormPersonManage",
+      "style": null
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

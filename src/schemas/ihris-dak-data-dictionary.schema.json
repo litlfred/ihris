@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-dak-data-dictionary.schema.json",
+  "title": "ihris-dak-data-dictionary/v1",
+  "description": "One sheet of a WHO SMART Guidelines DAK (L2) data dictionary, derived from one iHRIS record form class. Each element row carries the columns of the WHO 'Form data mapping guide' (Digital transformation handbook for primary health care, 9789240093362, pp. 86-90), plus the provenance of the iHRIS field it was derived from. Columns the source cannot answer (description, activity, conditionality, indicator and decision-support linkages) are null until authored: they are never inferred.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "id", "group", "class", "elements"],
+  "properties": {
+    "$schema": { "const": "ihris-dak-data-dictionary/v1" },
+    "id": { "type": "string" }, "group": { "type": "string" }, "title": { "type": "string" },
+    "class": { "type": "string" }, "extends": { "type": ["string", "null"] },
+    "forms": { "type": "array", "items": { "type": "string" } },
+    "instances": { "type": "array", "items": { "type": "string" } },
+    "sources": { "type": "array", "items": { "type": "string" }, "description": "ihris-form-class/v1 ids merged into this sheet" },
+    "logicalModel": { "type": "string", "format": "uri" },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "dataElementLabel", "dataType", "optionality", "source"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^IHRIS\\.DE\\.[A-Za-z0-9_]+\\.[A-Za-z0-9_]+$" },
+          "activityId": { "type": ["string", "null"] },
+          "formIds": { "type": "array", "items": { "type": "string" } },
+          "formDataElementLabel": { "type": ["string", "null"] },
+          "dataElementLabel": { "type": "string" },
+          "labelSource": { "enum": ["i2ce-header", "field-name", "authored"] },
+          "description": { "type": ["string", "null"] },
+          "descriptionStatus": { "enum": ["to-author", "authored", "reviewed"] },
+          "dataType": { "enum": ["Boolean", "String", "Date", "Time", "DateTime", "ID", "Quantity", "Signature", "Attachment", "List - select one", "List - select all that apply", "List value"] },
+          "quantitySubType": { "enum": [null, "Integer quantity", "Decimal quantity", "Duration"] },
+          "inputOptions": { "type": ["array", "null"], "items": { "type": "string", "format": "uri" } },
+          "inputOptionsSource": { "type": ["string", "null"] },
+          "calculation": { "type": ["string", "null"] },
+          "optionality": { "enum": ["R", "O", "C"] },
+          "reasonForRequiring": { "type": ["string", "null"] },
+          "explainConditionality": { "type": ["string", "null"] },
+          "duplicates": { "enum": ["Yes", "No"] },
+          "functionalGrouping": { "type": ["string", "null"] },
+          "linkagesToIndicators": { "type": ["string", "array", "null"] },
+          "linkagesToDecisionSupport": { "type": ["string", "array", "null"] },
+          "annotations": { "type": ["string", "null"] },
+          "source": {
+            "type": "object", "additionalProperties": false, "required": ["release", "class", "field", "i2ceType"],
+            "properties": { "release": { "type": "string" }, "class": { "type": "string" }, "field": { "type": "string" }, "i2ceType": { "type": ["string", "null"] }, "definedIn": { "type": "array", "items": { "type": "string" } } }
+          },
+          "evidence": { "type": "array", "items": { "type": "string" }, "description": "restored wiki sections that mention this label in bold: material for authoring the description" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-qualify/module/QualifySampleData-verify_change",
+  "module": "QualifySampleData-verify_change",
+  "instance": "ihris-qualify",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-qualify/modules/SampleData/modules/SampleData-verify_change/SampleData-verify_change.xml",
+    "sha256": "f967c1761ce5b2d6f4828b5a8a675c8be17be146d1da78436744c09c3c0d22c2"
+  },
+  "parent": "ihris-qualify/module/ihris-qualify-sample-data",
+  "site": null,
+  "displayName": "Record Verify Changes",
+  "description": "Sample data for form: verify_change.",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "RecordVerify",
+      "atLeast": "4.0.3"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "verify_change": 4
+  },
+  "locales": []
+}

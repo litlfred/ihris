@@ -1,0 +1,54 @@
+{
+  "id": "ihris-gen-bpmn",
+  "title": "Generate BPMN from a process spec",
+  "description": "Generates processes/<name>.bpmn (with diagram) from processes/specs/<name>.json, following folio-assistant's conventions: one role per lane, a skill (or a stated reason for none) on every task, and callActivity into existing processes. --check fails when a generated file is stale.",
+  "install": {
+    "none": true
+  },
+  "invoke": {
+    "shell": "python3 src/tools/gen_bpmn.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "spec",
+        "schema": "https://www.iana.org/assignments/media-types/application/json",
+        "required": false,
+        "repeated": true,
+        "arg": {
+          "positional": 0
+        }
+      },
+      {
+        "name": "check",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--check"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "process",
+        "schema": "https://www.omg.org/spec/BPMN/20100524/MODEL"
+      }
+    ]
+  },
+  "satisfies": [
+    "adopt-methodology-from-source"
+  ],
+  "requires": {
+    "runtime": [
+      "python3"
+    ],
+    "network": false
+  },
+  "maintains": [
+    {
+      "source": "processes/specs",
+      "artefact": "processes",
+      "format": "bpmn"
+    }
+  ]
+}

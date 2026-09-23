@@ -1,0 +1,57 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/isco-88",
+  "module": "isco-88",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Job/modules/isco_88/ISCO_88.xml",
+    "sha256": "00195d8d8e517d4fcbfa064248302ac019abadc2be1a15613b1b955cba5dea89"
+  },
+  "parent": "ihris-common/module/ihris-common-Job",
+  "site": null,
+  "displayName": "ISCO 88 Job Codes",
+  "description": "The ISCO 88 Job Codes",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "isco_88_major",
+      "class": "iHRIS_ISCO_88_Major",
+      "displayName": "ISCO 88 Major"
+    },
+    {
+      "form": "isco_88_sub_major",
+      "class": "iHRIS_ISCO_88_Sub_Major",
+      "displayName": "ISCO 88 Sub-Major"
+    },
+    {
+      "form": "isco_88_minor",
+      "class": "iHRIS_ISCO_88_Minor",
+      "displayName": "ISCO 88 Minor"
+    },
+    {
+      "form": "isco_88_unit",
+      "class": "iHRIS_ISCO_88_Unit",
+      "displayName": "ISCO 88 Unit"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_ISCO_88_Major",
+    "ihris-common/form-class/iHRIS_ISCO_88_Minor",
+    "ihris-common/form-class/iHRIS_ISCO_88_Sub_Major",
+    "ihris-common/form-class/iHRIS_ISCO_88_Unit"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

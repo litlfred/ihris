@@ -1,0 +1,75 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/simple-competency",
+  "module": "simple-competency",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/SimpleComptency/SimpleCompetency.xml",
+    "sha256": "c81b6940d195459e792dc76f43059828ce1087511a3aef1fd30b5d257fbcdfd3"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Simple Competency",
+  "description": "A simple two-tiered compotency module",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_SimpleCompetency",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "form-limits",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage-magicdata",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "competency",
+      "class": "iHRIS_Competency",
+      "displayName": "Competency"
+    },
+    {
+      "form": "competency_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Competency Type"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Competency"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

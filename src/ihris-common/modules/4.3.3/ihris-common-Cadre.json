@@ -1,0 +1,63 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/ihris-common-Cadre",
+  "module": "ihris-common-Cadre",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Cadre/Cadre.xml",
+    "sha256": "9b55925049544caa01b61d90de36a1c0f9d7a648c7fc03feea8a9ff670b76bc8"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Commone Cadre",
+  "description": "The iHRIS Manage Job",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "form-limits",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "cadre",
+      "class": "I2CE_SimpleList",
+      "displayName": "Cadre"
+    }
+  ],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "si",
+    "tl",
+    "uk"
+  ]
+}

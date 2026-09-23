@@ -1,0 +1,42 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/isco-08-major-05",
+  "module": "isco-08-major-05",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Job/modules/isco_08/modules/isco_08_major_5/majorgroup5.xml",
+    "sha256": "93279565a0a95c3a27c3aaec25c444757e13299d664c134f621013f41684225e"
+  },
+  "parent": "ihris-common/module/isco-08",
+  "site": null,
+  "displayName": "ISCO 08 Job Codes",
+  "description": "The ISCO 08 Job Codes",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "isco-08",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "isco_08_major": 1,
+    "isco_08_sub_major": 4,
+    "isco_08_minor": 13,
+    "isco_08_unit": 40
+  },
+  "locales": []
+}

@@ -1,0 +1,168 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.SecondaryEducation",
+  "group": "SecondaryEducation",
+  "title": "Education History",
+  "class": "iHRIS_SecondaryEducation",
+  "extends": "I2CE_Form",
+  "forms": [
+    "education"
+  ],
+  "instances": [
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-qualify/form-class/iHRIS_SecondaryEducation"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/SecondaryEducation",
+  "elements": [
+    {
+      "id": "IHRIS.DE.SecondaryEducation.sec_school",
+      "activityId": null,
+      "formIds": [
+        "education"
+      ],
+      "formDataElementLabel": "Secondary School Name",
+      "dataElementLabel": "Secondary School Name",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Education History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_SecondaryEducation",
+        "field": "sec_school",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.SecondaryEducation.certificate",
+      "activityId": null,
+      "formIds": [
+        "education"
+      ],
+      "formDataElementLabel": "Certificate",
+      "dataElementLabel": "Certificate",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/certificate"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Education History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_SecondaryEducation",
+        "field": "certificate",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.SecondaryEducation.grade",
+      "activityId": null,
+      "formIds": [
+        "education"
+      ],
+      "formDataElementLabel": "Grade Obtained",
+      "dataElementLabel": "Grade Obtained",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Education History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_SecondaryEducation",
+        "field": "grade",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.SecondaryEducation.certificate_number",
+      "activityId": null,
+      "formIds": [
+        "education"
+      ],
+      "formDataElementLabel": "Certificate Number",
+      "dataElementLabel": "Certificate Number",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Education History",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_SecondaryEducation",
+        "field": "certificate_number",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    }
+  ]
+}

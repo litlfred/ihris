@@ -1,0 +1,125 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_InfoManager",
+  "class": "CSD_InfoManager",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "csd_info_manager"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-infoman-storage"
+  ],
+  "fields": [
+    {
+      "field": "ssl_version",
+      "type": "STRING_LINE",
+      "label": "SSL Version",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-infoman-storage"
+      ]
+    },
+    {
+      "field": "user",
+      "type": "STRING_LINE",
+      "label": "Info Manager User (Basic Auth)",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-infoman-storage"
+      ]
+    },
+    {
+      "field": "password",
+      "type": "STRING_LINE",
+      "label": "Info Manager Password (Basic Auth)",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-infoman-storage"
+      ]
+    },
+    {
+      "field": "url",
+      "type": "STRING_LINE",
+      "label": "CSD Info Manager URL",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-infoman-storage"
+      ]
+    },
+    {
+      "field": "url_updating",
+      "type": "STRING_LINE",
+      "label": "CSD Info Manager URL (Updates)",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-infoman-storage"
+      ]
+    },
+    {
+      "field": "is_provider",
+      "type": "BOOL",
+      "label": "Contains Health Worker Directory Information",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-infoman-storage"
+      ]
+    },
+    {
+      "field": "is_service",
+      "type": "BOOL",
+      "label": "Contains Service Directory Information",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-infoman-storage"
+      ]
+    },
+    {
+      "field": "is_facility",
+      "type": "BOOL",
+      "label": "Contains Facility Directory Information",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-infoman-storage"
+      ]
+    },
+    {
+      "field": "is_organization",
+      "type": "BOOL",
+      "label": "Contains Organization Directory Information",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-infoman-storage"
+      ]
+    },
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "CSD Info Manager Name",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-infoman-storage"
+      ]
+    }
+  ]
+}

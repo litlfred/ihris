@@ -1,0 +1,50 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_TrainingDisrupt",
+  "class": "iHRIS_TrainingDisrupt",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "training_disrupt"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "disruption_reason",
+      "type": "MAP",
+      "label": "Disruption Reason",
+      "required": true,
+      "unique": null,
+      "references": [
+        "training_disruption_reason"
+      ],
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "disruption_date",
+      "type": "DATE_YMD",
+      "label": "Disruption Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "resumption_date",
+      "type": "DATE_YMD",
+      "label": "Resumption Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

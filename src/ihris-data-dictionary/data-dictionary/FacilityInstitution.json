@@ -1,0 +1,137 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.FacilityInstitution",
+  "group": "FacilityInstitution",
+  "title": "Facility Institution",
+  "class": "iHRIS_FacilityInstitution",
+  "extends": "I2CE_Form",
+  "forms": [
+    "facility_institution"
+  ],
+  "instances": [
+    "ihris-qualify"
+  ],
+  "sources": [
+    "ihris-qualify/form-class/iHRIS_FacilityInstitution"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/FacilityInstitution",
+  "elements": [
+    {
+      "id": "IHRIS.DE.FacilityInstitution.health_facility",
+      "activityId": null,
+      "formIds": [
+        "facility_institution"
+      ],
+      "formDataElementLabel": "Health Facility",
+      "dataElementLabel": "Health Facility",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/health_facility"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Facility Institution",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "unique",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_FacilityInstitution",
+        "field": "health_facility",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-registrations-and-licenses-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.FacilityInstitution.training_institution",
+      "activityId": null,
+      "formIds": [
+        "facility_institution"
+      ],
+      "formDataElementLabel": "Training Institution",
+      "dataElementLabel": "Training Institution",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/training_institution"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Facility Institution",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "unique",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_FacilityInstitution",
+        "field": "training_institution",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-training-information-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/in-service-training-management-module.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.FacilityInstitution.active",
+      "activityId": null,
+      "formIds": [
+        "facility_institution"
+      ],
+      "formDataElementLabel": "Active?",
+      "dataElementLabel": "Active?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Facility Institution",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_FacilityInstitution",
+        "field": "active",
+        "i2ceType": "BOOL",
+        "definedIn": [
+          "ihris-qualify/module/ihris-qualify"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

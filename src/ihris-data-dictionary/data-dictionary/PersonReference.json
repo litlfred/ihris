@@ -1,0 +1,242 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.PersonReference",
+  "group": "PersonReference",
+  "title": "Personal Reference",
+  "class": "iHRIS_PersonReference",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_reference"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_PersonReference"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/PersonReference",
+  "elements": [
+    {
+      "id": "IHRIS.DE.PersonReference.surname",
+      "activityId": null,
+      "formIds": [
+        "person_reference"
+      ],
+      "formDataElementLabel": "Surname",
+      "dataElementLabel": "Surname",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Personal Reference",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonReference",
+        "field": "surname",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-PersonReference"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users--variant-3.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-people.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PersonReference.firstname",
+      "activityId": null,
+      "formIds": [
+        "person_reference"
+      ],
+      "formDataElementLabel": "First Name",
+      "dataElementLabel": "First Name",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Personal Reference",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonReference",
+        "field": "firstname",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-PersonReference"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users--variant-3.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-people.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PersonReference.phone",
+      "activityId": null,
+      "formIds": [
+        "person_reference"
+      ],
+      "formDataElementLabel": "Phone",
+      "dataElementLabel": "Phone",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Personal Reference",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonReference",
+        "field": "phone",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-PersonReference"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonReference.mobile",
+      "activityId": null,
+      "formIds": [
+        "person_reference"
+      ],
+      "formDataElementLabel": "Mobile Phone",
+      "dataElementLabel": "Mobile Phone",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Personal Reference",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonReference",
+        "field": "mobile",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-PersonReference"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonReference.address",
+      "activityId": null,
+      "formIds": [
+        "person_reference"
+      ],
+      "formDataElementLabel": "Address",
+      "dataElementLabel": "Address",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Personal Reference",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonReference",
+        "field": "address",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-PersonReference"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonReference.how_long",
+      "activityId": null,
+      "formIds": [
+        "person_reference"
+      ],
+      "formDataElementLabel": "How long have you known this person?",
+      "dataElementLabel": "How long have you known this person?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Personal Reference",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonReference",
+        "field": "how_long",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-PersonReference"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

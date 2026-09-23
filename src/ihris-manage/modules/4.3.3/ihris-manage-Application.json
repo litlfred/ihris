@@ -1,0 +1,95 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-Application",
+  "module": "ihris-manage-Application",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManageApplication/ManageApplication.xml",
+    "sha256": "9739ba30019df02a133237c4ae3cba01f709bf1d96e31f65c3bd871f0b21dc8a"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage Application",
+  "description": "The iHRIS Manage Application Module.",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_Application",
+  "category": "Application",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "Person",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "application",
+      "class": "iHRIS_Applicant",
+      "displayName": "Applicant"
+    },
+    {
+      "form": "position_interview",
+      "class": "iHRIS_PositionInterview",
+      "displayName": "Position Interview"
+    },
+    {
+      "form": "position_decision",
+      "class": "iHRIS_PositionDecision",
+      "displayName": "Position Decision"
+    }
+  ],
+  "formClasses": [
+    "ihris-manage/form-class/iHRIS_Applicant",
+    "ihris-manage/form-class/iHRIS_PositionDecision",
+    "ihris-manage/form-class/iHRIS_PositionInterview"
+  ],
+  "pages": [
+    {
+      "page": "application",
+      "class": null,
+      "style": "ihris_manage_page_form_parent_person"
+    },
+    {
+      "page": "position_decision",
+      "class": null,
+      "style": "ihris_manage_page_form_parent_person"
+    },
+    {
+      "page": "position_interview",
+      "class": null,
+      "style": "ihris_manage_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "et",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "si",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

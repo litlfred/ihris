@@ -1,0 +1,202 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_Position",
+  "class": "iHRIS_Position",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "position"
+  ],
+  "definedIn": [
+    "ihris-manage/module/ihris-manage-PersonPosition",
+    "ihris-manage/module/ihris-manage-Salary"
+  ],
+  "fields": [
+    {
+      "field": "code",
+      "type": "STRING_LINE",
+      "label": "Position Code",
+      "required": false,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "job",
+      "type": "MAP",
+      "label": "Job",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "title",
+      "type": "STRING_LINE",
+      "label": "Position Title",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "description",
+      "type": "STRING_MLINE",
+      "label": "Position Description",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "supervisor",
+      "type": "MAP",
+      "label": "Supervisor",
+      "required": false,
+      "unique": null,
+      "references": [
+        "position"
+      ],
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "facility",
+      "type": "MAP",
+      "label": "Facility",
+      "required": true,
+      "unique": null,
+      "references": [
+        "facility"
+      ],
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "department",
+      "type": "MAP",
+      "label": "Department",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "pos_type",
+      "type": "MAP",
+      "label": "Position Type",
+      "required": false,
+      "unique": null,
+      "references": [
+        "position_type"
+      ],
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "proposed_end_date",
+      "type": "DATE_YMD",
+      "label": "Proposed End Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "proposed_hiring_date",
+      "type": "DATE_YMD",
+      "label": "Proposed Hiring Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "posted_date",
+      "type": "DATE_YMD",
+      "label": "Date Posted",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "status",
+      "type": "MAP",
+      "label": "Status",
+      "required": true,
+      "unique": null,
+      "references": [
+        "position_status"
+      ],
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "comments",
+      "type": "STRING_TEXT",
+      "label": "Position Comments",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "interview_comments",
+      "type": "STRING_TEXT",
+      "label": "Interview Comments",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-PersonPosition"
+      ]
+    },
+    {
+      "field": "proposed_salary",
+      "type": "CURRENCY",
+      "label": "Proposed Salary",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Salary"
+      ]
+    },
+    {
+      "field": "source",
+      "type": "MAP_MULT",
+      "label": "Source",
+      "required": false,
+      "unique": null,
+      "references": [
+        "salary_source"
+      ],
+      "definedIn": [
+        "ihris-manage/module/ihris-manage-Salary"
+      ]
+    }
+  ]
+}

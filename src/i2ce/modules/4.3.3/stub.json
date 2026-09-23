@@ -1,0 +1,71 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/stub",
+  "module": "stub",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Pages/modules/Stub/Stub.xml",
+    "sha256": "ae31514575893445b4d8c829bbce20a0a83a0b36a3d608769e080af2e1faeb54"
+  },
+  "parent": "i2ce/module/pages",
+  "site": null,
+  "displayName": "Page Stubs",
+  "description": "Request only the stub of a page -- intended for ajax use.",
+  "version": "4.3.0",
+  "className": "I2CE_Stub",
+  "category": "Base System Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "I2CE",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "MooTools",
+      "atLeast": "1.4",
+      "lessThan": "1.5"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "page",
+      "class": "I2CE_Page_Stub",
+      "style": "main"
+    },
+    {
+      "page": "ajax-page",
+      "class": "I2CE_Page_Stub_Ajax_Test",
+      "style": "empty"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "nl",
+    "pt",
+    "pt_BR",
+    "tl",
+    "uk"
+  ]
+}

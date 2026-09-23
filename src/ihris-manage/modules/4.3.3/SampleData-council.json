@@ -1,0 +1,38 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/SampleData-council",
+  "module": "SampleData-council",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/MedicalData/modules/SampleData-council/SampleData-council.xml",
+    "sha256": "0c615f6da8af9a5474fb58172986818d75d67ec0dd0914a9267339343f5cd110"
+  },
+  "parent": "ihris-manage/module/ihris-manage-medical-data",
+  "site": null,
+  "displayName": "Registration Councils",
+  "description": "Sample Data for form: council",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ManageRegistration",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "council": 5
+  },
+  "locales": []
+}

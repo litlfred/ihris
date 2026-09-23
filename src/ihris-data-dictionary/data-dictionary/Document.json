@@ -1,0 +1,135 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Document",
+  "group": "Document",
+  "title": "Person Resume",
+  "class": "iHRIS_Document",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_resume"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Document"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Document",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Document.document",
+      "activityId": null,
+      "formIds": [
+        "person_resume"
+      ],
+      "formDataElementLabel": "Document",
+      "dataElementLabel": "Document",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Attachment",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Resume",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Document",
+        "field": "document",
+        "i2ceType": "DOCUMENT",
+        "definedIn": [
+          "ihris-common/module/Document"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Document.date",
+      "activityId": null,
+      "formIds": [
+        "person_resume"
+      ],
+      "formDataElementLabel": "Date",
+      "dataElementLabel": "Date",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Resume",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Document",
+        "field": "date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/Document"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/update-health-worker-information-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Document.description",
+      "activityId": null,
+      "formIds": [
+        "person_resume"
+      ],
+      "formDataElementLabel": "Description",
+      "dataElementLabel": "Description",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Resume",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Document",
+        "field": "description",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/Document"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/create-a-job-structure--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/create-a-job-structure.md"
+      ]
+    }
+  ]
+}

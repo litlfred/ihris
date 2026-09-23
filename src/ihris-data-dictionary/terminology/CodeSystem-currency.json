@@ -1,0 +1,2779 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-currency",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/currency",
+  "version": "4.3.3",
+  "name": "IHRISCurrency",
+  "title": "iHRIS Currency",
+  "status": "draft",
+  "experimental": true,
+  "description": "The `currency` list as shipped by default in iHRIS 4.3.3 (modules: ihris-common/module/iso-currency). Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped baseline, not a closed international code set. 30 record(s) sharing an id with an earlier one were merged, as I2CE's configuration tree merges them.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 162,
+  "property": [
+    {
+      "code": "code",
+      "type": "string",
+      "description": "iHRIS field `code`"
+    },
+    {
+      "code": "country",
+      "type": "Coding",
+      "description": "iHRIS MAP field `country`: a code in the country list"
+    }
+  ],
+  "concept": [
+    {
+      "code": "AFN",
+      "display": "Afghani",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "AFN"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "AF"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ALL",
+      "display": "Lek",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "ALL"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "AL"
+          }
+        }
+      ]
+    },
+    {
+      "code": "DZD",
+      "display": "Algerian Dinar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "DZD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "DZ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "AOA",
+      "display": "Kwanza",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "AOA"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "AO"
+          }
+        }
+      ]
+    },
+    {
+      "code": "XCD",
+      "display": "East Caribbean Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "XCD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "AI"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ARS",
+      "display": "Argentine Peso",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "ARS"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "AR"
+          }
+        }
+      ]
+    },
+    {
+      "code": "AMD",
+      "display": "Armenian Dram",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "AMD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "AM"
+          }
+        }
+      ]
+    },
+    {
+      "code": "AWG",
+      "display": "Aruban Guilder",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "AWG"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "AW"
+          }
+        }
+      ]
+    },
+    {
+      "code": "AUD",
+      "display": "Australian Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "AUD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "AU"
+          }
+        }
+      ]
+    },
+    {
+      "code": "EUR",
+      "display": "Euro",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "EUR"
+        },
+        {
+          "code": "country",
+          "valueString": "|"
+        }
+      ]
+    },
+    {
+      "code": "AZM",
+      "display": "Azerbaijanian Manat",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "AZM"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "AZ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BSD",
+      "display": "Bahamian Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BSD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BS"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BHD",
+      "display": "Bahraini Dinar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BHD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BH"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BDT",
+      "display": "Taka",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BDT"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BD"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BBD",
+      "display": "Barbados Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BBD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BB"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BYR",
+      "display": "Belarussian Ruble",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BYR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BY"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BZD",
+      "display": "Belize Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BZD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BZ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "XOF",
+      "display": "Cfa Franc Bceao",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "XOF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BJ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BMD",
+      "display": "Bermudian Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BMD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BM"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BTN",
+      "display": "Ngultrum",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BTN"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BT"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BOB",
+      "display": "Boliviano",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BOB"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BO"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BAM",
+      "display": "Convertible Marks",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BAM"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BA"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BWP",
+      "display": "Pula",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BWP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BW"
+          }
+        }
+      ]
+    },
+    {
+      "code": "NOK",
+      "display": "Norwegian Krone",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "NOK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BV"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BRL",
+      "display": "Brazilian Real",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BRL"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BR"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BND",
+      "display": "Brunei Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BND"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BN"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BGN",
+      "display": "Bulgarian Lev",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BGN"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BG"
+          }
+        }
+      ]
+    },
+    {
+      "code": "BIF",
+      "display": "Burundi Franc",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "BIF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "BI"
+          }
+        }
+      ]
+    },
+    {
+      "code": "KHR",
+      "display": "Riel",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "KHR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "KH"
+          }
+        }
+      ]
+    },
+    {
+      "code": "XAF",
+      "display": "Cfa Franc Beac",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "XAF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CM"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CAD",
+      "display": "Canadian Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "CAD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CA"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CVE",
+      "display": "Cape Verde Escudo",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "CVE"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CV"
+          }
+        }
+      ]
+    },
+    {
+      "code": "KYD",
+      "display": "Cayman Islands Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "KYD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "KY"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CLP",
+      "display": "Chilean Peso",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "CLP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CL"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CNY",
+      "display": "Yuan Renminbi",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "CNY"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CN"
+          }
+        }
+      ]
+    },
+    {
+      "code": "COP",
+      "display": "Colombian Peso",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "COP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CO"
+          }
+        }
+      ]
+    },
+    {
+      "code": "KMF",
+      "display": "Comoro Franc",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "KMF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "KM"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CDF",
+      "display": "Franc Congolais",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "CDF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CD"
+          }
+        }
+      ]
+    },
+    {
+      "code": "NZD",
+      "display": "New Zealand Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "NZD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CK"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CRC",
+      "display": "Costa Rican Colon",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "CRC"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CR"
+          }
+        }
+      ]
+    },
+    {
+      "code": "HRK",
+      "display": "Croatian Kuna",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "HRK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "HR"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CUP",
+      "display": "Cuban Peso",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "CUP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CU"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CYP",
+      "display": "Cyprus Pound",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "CYP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CY"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CZK",
+      "display": "Czech Koruna",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "CZK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "CZ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "DKK",
+      "display": "Danish Krone",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "DKK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "DK"
+          }
+        }
+      ]
+    },
+    {
+      "code": "DJF",
+      "display": "Djibouti Franc",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "DJF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "DJ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "DOP",
+      "display": "Dominican Peso",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "DOP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "DO"
+          }
+        }
+      ]
+    },
+    {
+      "code": "EGP",
+      "display": "Egyptian Pound",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "EGP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "EG"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SVC",
+      "display": "El Salvador Colon",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SVC"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SV"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ERN",
+      "display": "Nakfa",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "ERN"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "ER"
+          }
+        }
+      ]
+    },
+    {
+      "code": "EEK",
+      "display": "Kroon",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "EEK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "EE"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ETB",
+      "display": "Ethiopian Birr",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "ETB"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "ET"
+          }
+        }
+      ]
+    },
+    {
+      "code": "FKP",
+      "display": "Falkland Islands Pound",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "FKP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "FK"
+          }
+        }
+      ]
+    },
+    {
+      "code": "FJD",
+      "display": "Fiji Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "FJD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "FJ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "XPF",
+      "display": "Cfp Franc",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "XPF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "PF"
+          }
+        }
+      ]
+    },
+    {
+      "code": "GMD",
+      "display": "Dalasi",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "GMD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "GM"
+          }
+        }
+      ]
+    },
+    {
+      "code": "GEL",
+      "display": "Lari",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "GEL"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "GE"
+          }
+        }
+      ]
+    },
+    {
+      "code": "GHC",
+      "display": "Cedi",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "GHC"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "GH"
+          }
+        }
+      ]
+    },
+    {
+      "code": "GIP",
+      "display": "Gibraltar Pound",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "GIP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "GI"
+          }
+        }
+      ]
+    },
+    {
+      "code": "GTQ",
+      "display": "Quetzal",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "GTQ"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "GT"
+          }
+        }
+      ]
+    },
+    {
+      "code": "GNF",
+      "display": "Guinea Franc",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "GNF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "GN"
+          }
+        }
+      ]
+    },
+    {
+      "code": "GYD",
+      "display": "Guyana Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "GYD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "GY"
+          }
+        }
+      ]
+    },
+    {
+      "code": "HTG",
+      "display": "Gourde",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "HTG"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "HT"
+          }
+        }
+      ]
+    },
+    {
+      "code": "HNL",
+      "display": "Lempira",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "HNL"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "HN"
+          }
+        }
+      ]
+    },
+    {
+      "code": "HKD",
+      "display": "Hong Kong Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "HKD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "HK"
+          }
+        }
+      ]
+    },
+    {
+      "code": "HUF",
+      "display": "Forint",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "HUF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "HU"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ISK",
+      "display": "Iceland Krona",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "ISK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "IS"
+          }
+        }
+      ]
+    },
+    {
+      "code": "INR",
+      "display": "Indian Rupee",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "INR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "IN"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IDR",
+      "display": "Rupiah",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "IDR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "ID"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IRR",
+      "display": "Iranian Rial",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "IRR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "IR"
+          }
+        }
+      ]
+    },
+    {
+      "code": "IQD",
+      "display": "Iraqi Dinar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "IQD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "IQ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ILS",
+      "display": "New Israeli Sheqel",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "ILS"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "IL"
+          }
+        }
+      ]
+    },
+    {
+      "code": "JMD",
+      "display": "Jamaican Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "JMD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "JM"
+          }
+        }
+      ]
+    },
+    {
+      "code": "JPY",
+      "display": "Yen",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "JPY"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "JP"
+          }
+        }
+      ]
+    },
+    {
+      "code": "JOD",
+      "display": "Jordanian Dinar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "JOD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "JO"
+          }
+        }
+      ]
+    },
+    {
+      "code": "KZT",
+      "display": "Tenge",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "KZT"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "KZ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "KES",
+      "display": "Kenyan Shilling",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "KES"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "KE"
+          }
+        }
+      ]
+    },
+    {
+      "code": "KPW",
+      "display": "North Korean Won",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "KPW"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "KP"
+          }
+        }
+      ]
+    },
+    {
+      "code": "KRW",
+      "display": "Won",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "KRW"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "KR"
+          }
+        }
+      ]
+    },
+    {
+      "code": "KWD",
+      "display": "Kuwaiti Dinar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "KWD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "KW"
+          }
+        }
+      ]
+    },
+    {
+      "code": "KGS",
+      "display": "Som",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "KGS"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "KG"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LAK",
+      "display": "Kip",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "LAK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "LA"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LVL",
+      "display": "Latvian Lats",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "LVL"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "LV"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LBP",
+      "display": "Lebanese Pound",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "LBP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "LB"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LSL",
+      "display": "Loti",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "LSL"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "LS"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LRD",
+      "display": "Liberian Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "LRD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "LR"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LYD",
+      "display": "Libyan Dinar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "LYD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "LY"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CHF",
+      "display": "Swiss Franc",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "CHF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "LI"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LTL",
+      "display": "Lithuanian Litas",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "LTL"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "LT"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MOP",
+      "display": "Pataca",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MOP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MO"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MKD",
+      "display": "Denar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MKD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MK"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MGA",
+      "display": "Malagasy Ariary",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MGA"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MG"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MWK",
+      "display": "Kwacha",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MWK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MW"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MYR",
+      "display": "Malaysian Ringgit",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MYR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MY"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MVR",
+      "display": "Rufiyaa",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MVR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MV"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MTL",
+      "display": "Maltese Lira",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MTL"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MT"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MRO",
+      "display": "Ouguiya",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MRO"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MR"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MUR",
+      "display": "Mauritius Rupee",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MUR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MU"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MXN",
+      "display": "Mexican Peso",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MXN"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MX"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MDL",
+      "display": "Moldovan Leu",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MDL"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MD"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MNT",
+      "display": "Tugrik",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MNT"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MN"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MAD",
+      "display": "Moroccan Dirham",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MAD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MA"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MZM",
+      "display": "Merical",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MZM"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MZ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "MMK",
+      "display": "Kyat",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "MMK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "MM"
+          }
+        }
+      ]
+    },
+    {
+      "code": "NAD",
+      "display": "Namibian Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "NAD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "NA"
+          }
+        }
+      ]
+    },
+    {
+      "code": "NPR",
+      "display": "Nepalese Rupee",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "NPR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "NP"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ANG",
+      "display": "Netherlands Antillian Guikder",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "ANG"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "AN"
+          }
+        }
+      ]
+    },
+    {
+      "code": "NIO",
+      "display": "Cordoba Oro",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "NIO"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "NI"
+          }
+        }
+      ]
+    },
+    {
+      "code": "NGN",
+      "display": "Naira",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "NGN"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "NG"
+          }
+        }
+      ]
+    },
+    {
+      "code": "OMR",
+      "display": "Rial Omani",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "OMR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "OM"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PKR",
+      "display": "Pakistan Rupee",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "PKR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "PK"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PAB",
+      "display": "Balboa",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "PAB"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "PA"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PGK",
+      "display": "Kina",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "PGK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "PG"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PYG",
+      "display": "Guarani",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "PYG"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "PY"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PEN",
+      "display": "Nuevo Sol",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "PEN"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "PE"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PHP",
+      "display": "Philippine Peso",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "PHP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "PH"
+          }
+        }
+      ]
+    },
+    {
+      "code": "PLN",
+      "display": "Zloty",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "PLN"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "PL"
+          }
+        }
+      ]
+    },
+    {
+      "code": "QAR",
+      "display": "Qatari Rial",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "QAR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "QA"
+          }
+        }
+      ]
+    },
+    {
+      "code": "RON",
+      "display": "New Leu",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "RON"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "RO"
+          }
+        }
+      ]
+    },
+    {
+      "code": "RUB",
+      "display": "Russian Ruble",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "RUB"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "RU"
+          }
+        }
+      ]
+    },
+    {
+      "code": "RWF",
+      "display": "Rwanda Franc",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "RWF"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "RW"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SHP",
+      "display": "Saint Helena Pound",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SHP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SH"
+          }
+        }
+      ]
+    },
+    {
+      "code": "WST",
+      "display": "Tala",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "WST"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "WS"
+          }
+        }
+      ]
+    },
+    {
+      "code": "STD",
+      "display": "Dobra",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "STD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "ST"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SAR",
+      "display": "Saudi Riyal",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SAR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SA"
+          }
+        }
+      ]
+    },
+    {
+      "code": "CSD",
+      "display": "Serbian Dinar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "CSD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "RS"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SCR",
+      "display": "Seychelles Rupee",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SCR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SC"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SLL",
+      "display": "Leone",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SLL"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SL"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SGD",
+      "display": "Singapore Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SGD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SG"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SKK",
+      "display": "Slovak Koruna",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SKK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SK"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SIT",
+      "display": "Tolar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SIT"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SI"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SBD",
+      "display": "Solomon Islands Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SBD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SB"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SOS",
+      "display": "Somali Shilling",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SOS"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SO"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ZAR",
+      "display": "Rand",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "ZAR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "ZA"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LKR",
+      "display": "Sri Lanka Rupee",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "LKR"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "LK"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SDD",
+      "display": "Sudanese Dinar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SDD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SD"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SRD",
+      "display": "Surinam Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SRD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SR"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SZL",
+      "display": "Lilangeni",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SZL"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SZ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SEK",
+      "display": "Swedish Krona",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SEK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SE"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SYP",
+      "display": "Syrian Pound",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "SYP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "SY"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TWD",
+      "display": "New Taiwan Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "TWD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "TW"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TJS",
+      "display": "Somoni",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "TJS"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "TJ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TZS",
+      "display": "Tanzanian Shilling",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "TZS"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "TZ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "THB",
+      "display": "Baht",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "THB"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "TH"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TOP",
+      "display": "Pa'Anga",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "TOP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "TO"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TTD",
+      "display": "Trinidad And Tobago Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "TTD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "TT"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TND",
+      "display": "Tunisian Dinar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "TND"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "TN"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TRY",
+      "display": "New Turkish Lira",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "TRY"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "TR"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TMM",
+      "display": "Manat",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "TMM"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "TM"
+          }
+        }
+      ]
+    },
+    {
+      "code": "UGX",
+      "display": "Uganda Shilling",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "UGX"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "UG"
+          }
+        }
+      ]
+    },
+    {
+      "code": "UAH",
+      "display": "Hryvnia",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "UAH"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "UA"
+          }
+        }
+      ]
+    },
+    {
+      "code": "AED",
+      "display": "UAE Dirham",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "AED"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "AE"
+          }
+        }
+      ]
+    },
+    {
+      "code": "GBP",
+      "display": "Pound Sterling",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "GBP"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "GB"
+          }
+        }
+      ]
+    },
+    {
+      "code": "USD",
+      "display": "US Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "USD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "US"
+          }
+        }
+      ]
+    },
+    {
+      "code": "UYU",
+      "display": "Peso Uruguayo",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "UYU"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "UY"
+          }
+        }
+      ]
+    },
+    {
+      "code": "UZS",
+      "display": "Uzbekistan Sum",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "UZS"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "UZ"
+          }
+        }
+      ]
+    },
+    {
+      "code": "VUV",
+      "display": "Vatu",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "VUV"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "VU"
+          }
+        }
+      ]
+    },
+    {
+      "code": "VEB",
+      "display": "Bolivar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "VEB"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "VE"
+          }
+        }
+      ]
+    },
+    {
+      "code": "VND",
+      "display": "Dong",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "VND"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "VN"
+          }
+        }
+      ]
+    },
+    {
+      "code": "YER",
+      "display": "Yemeni Rial",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "YER"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "YE"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ZMK",
+      "display": "Kwacha",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "ZMK"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "ZM"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ZWD",
+      "display": "Zimbabwe Dollar",
+      "property": [
+        {
+          "code": "code",
+          "valueString": "ZWD"
+        },
+        {
+          "code": "country",
+          "valueCoding": {
+            "system": "https://litlfred.github.io/ihris/dak/CodeSystem/country",
+            "code": "ZW"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "ihris-sushi",
+  "title": "SUSHI: build the ihris-4-on-fhir FSH (planned, not yet run)",
+  "description": "Compiles the generated FSH in src/ihris-4-on-fhir into FHIR resources. Planned: owner ruling 2026-09-23, 'do sushi later'. The version is pinned at phase F1 (bean ihris-dipr). Any commit containing FSH needs a clean sushi run first.",
+  "install": {
+    "cli": "npm install -g fsh-sushi"
+  },
+  "invoke": {
+    "shell": "sushi build src/ihris-4-on-fhir"
+  },
+  "io": {
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "fhir-resources",
+        "schema": "http://hl7.org/fhir/R4/fhir.schema.json"
+      }
+    ]
+  },
+  "satisfies": [
+    "ihris-4-on-fhir"
+  ],
+  "requires": {
+    "runtime": [
+      "node"
+    ],
+    "network": true
+  }
+}

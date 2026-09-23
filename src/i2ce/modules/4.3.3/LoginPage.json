@@ -1,0 +1,72 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/LoginPage",
+  "module": "LoginPage",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Pages/modules/Login/Login.xml",
+    "sha256": "a7b155da1711253c7648753f05647d925e2efe8aa8371750d2f2c22a3467af28"
+  },
+  "parent": "i2ce/module/pages",
+  "site": null,
+  "displayName": "Login Page",
+  "description": "The login Page",
+  "version": "4.3.0",
+  "className": "I2CE_Module_Login",
+  "category": "Base System Page",
+  "creator": null,
+  "link": "http://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Mailer",
+      "atLeast": "1.2",
+      "lessThan": "1.3"
+    },
+    {
+      "module": "PEAR:Text_Password",
+      "atLeast": "0"
+    },
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "login",
+      "class": "I2CE_PageLogin",
+      "style": "main"
+    },
+    {
+      "page": "logout",
+      "class": "I2CE_PageLogout",
+      "style": "empty"
+    },
+    {
+      "page": "forgot",
+      "class": "I2CE_PageForgot",
+      "style": "main"
+    },
+    {
+      "page": "password",
+      "class": "I2CE_PagePassword",
+      "style": "shell"
+    },
+    {
+      "page": "feedback",
+      "class": "I2CE_PageFeedback",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

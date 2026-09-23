@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_County",
+  "class": "iHRIS_County",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "county"
+  ],
+  "definedIn": [
+    "ihris-common/module/Geography"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    },
+    {
+      "field": "district",
+      "type": "MAP",
+      "label": "District",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Geography"
+      ]
+    }
+  ]
+}

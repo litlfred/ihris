@@ -1,0 +1,71 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/training-simple-competency",
+  "module": "training-simple-competency",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/TrainingCourse/modules/TrainingSimpleCompetency/TrainingSimpleCompetency.xml",
+    "sha256": "112b88fa37d657020c5ab9d389f0768c37c3cf4d735fe00c271ca6eacd0a3392"
+  },
+  "parent": "ihris-common/module/training-course",
+  "site": null,
+  "displayName": "Training Competency (Simple)",
+  "description": "Makes the Simple Competency module available to training course module",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_TrainingSimpleCompetency",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "training-course",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "person-simple-competency",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "training_course_competency_evaluation",
+      "class": "iHRIS_Training_Course_Competency_Evaluation",
+      "displayName": "Training Course Competency Evaluation"
+    },
+    {
+      "form": "person_scheduled_training_course",
+      "class": null,
+      "displayName": "Person Scheduled Training Course"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Training_Course",
+    "ihris-common/form-class/iHRIS_Training_Course_Competency_Evaluation"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

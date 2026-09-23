@@ -1,0 +1,29 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "i2ce/form-class/I2CE_ListLink_List",
+  "class": "I2CE_ListLink_List",
+  "release": "4.3.3",
+  "extends": "I2CE_ListLink",
+  "forms": [
+    "list_linkto_list_CSV",
+    "list_linkto_list_entry",
+    "list_linkto_list_flat",
+    "list_linkto_list_magicdata"
+  ],
+  "definedIn": [
+    "i2ce/module/Lists-LinkTo-List"
+  ],
+  "fields": [
+    {
+      "field": "links_to",
+      "type": "MAP",
+      "label": "Links To",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/Lists-LinkTo-List"
+      ]
+    }
+  ]
+}

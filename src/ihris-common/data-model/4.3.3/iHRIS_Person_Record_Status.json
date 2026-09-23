@@ -1,0 +1,59 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Person_Record_Status",
+  "class": "iHRIS_Person_Record_Status",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_record_status"
+  ],
+  "definedIn": [
+    "ihris-common/module/RecordStatus"
+  ],
+  "fields": [
+    {
+      "field": "duplicate",
+      "type": "YESNO",
+      "label": "Duplicate",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/RecordStatus"
+      ]
+    },
+    {
+      "field": "incomplete",
+      "type": "YESNO",
+      "label": "Incomplete",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/RecordStatus"
+      ]
+    },
+    {
+      "field": "incorrect",
+      "type": "YESNO",
+      "label": "Incorrect",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/RecordStatus"
+      ]
+    },
+    {
+      "field": "comment",
+      "type": "STRING_MLINE",
+      "label": "Comments",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/RecordStatus"
+      ]
+    }
+  ]
+}

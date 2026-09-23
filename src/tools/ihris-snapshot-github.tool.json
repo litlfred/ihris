@@ -1,0 +1,56 @@
+{
+  "id": "ihris-snapshot-github",
+  "title": "Snapshot a GitHub repository",
+  "description": "Writes a path-level inventory of a cloned repository (commit, licence, FSH definitions, Markdown pages, packages) to uploads/github/<repo>.json without copying file contents.",
+  "install": {
+    "none": true
+  },
+  "invoke": {
+    "shell": "python3 src/tools/snapshot_github.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "clone",
+        "schema": "https://www.iana.org/assignments/media-types/inode/directory",
+        "required": true,
+        "arg": {
+          "positional": 0
+        }
+      },
+      {
+        "name": "repo",
+        "schema": "https://www.w3.org/2001/XMLSchema#string",
+        "required": true,
+        "arg": {
+          "positional": 1
+        },
+        "description": "owner/repo"
+      },
+      {
+        "name": "title",
+        "schema": "https://www.w3.org/2001/XMLSchema#string",
+        "required": false,
+        "arg": {
+          "positional": 2
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "snapshot",
+        "schema": "https://www.iana.org/assignments/media-types/application/json"
+      }
+    ]
+  },
+  "satisfies": [
+    "snapshot-github-repo"
+  ],
+  "requires": {
+    "runtime": [
+      "python3",
+      "git"
+    ],
+    "network": false
+  }
+}

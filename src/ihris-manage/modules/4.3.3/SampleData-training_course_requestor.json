@@ -1,0 +1,38 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/SampleData-training_course_requestor",
+  "module": "SampleData-training_course_requestor",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/MedicalData/modules/SampleData-training_course_requestor/SampleData-training_course_requestor.xml",
+    "sha256": "1a5bf572bbb2d1497abe5a178db7ab1540171e6dadb867f4f23f34e20c21c2ce"
+  },
+  "parent": "ihris-manage/module/ihris-manage-medical-data",
+  "site": null,
+  "displayName": "Training Requestor",
+  "description": "Sample Data for form: training_course_requestor",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "training-course",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "training_course_requestor": 5
+  },
+  "locales": []
+}

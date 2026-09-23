@@ -1,0 +1,24 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_NamedEntity",
+  "class": "CSD_NamedEntity",
+  "release": "4.3.3",
+  "extends": "CSD_Entity",
+  "forms": [],
+  "definedIn": [
+    "ihris-common/module/csd-provider-data-model"
+  ],
+  "fields": [
+    {
+      "field": "primary_name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    }
+  ]
+}

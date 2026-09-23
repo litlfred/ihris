@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_DataSet",
+  "class": "iHRIS_DataSet",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "forms"
+  ],
+  "definedIn": [
+    "ihris-common/module/DHIS-Dashboard"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/DHIS-Dashboard"
+      ]
+    },
+    {
+      "field": "shortname",
+      "type": "STRING_LINE",
+      "label": "Short Name",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/DHIS-Dashboard"
+      ]
+    },
+    {
+      "field": "dataset_code",
+      "type": "STRING_LINE",
+      "label": "Code",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/DHIS-Dashboard"
+      ]
+    }
+  ]
+}

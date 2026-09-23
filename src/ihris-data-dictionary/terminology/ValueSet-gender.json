@@ -1,0 +1,18 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-gender",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/gender",
+  "version": "4.3.3",
+  "name": "IHRISGenderVS",
+  "title": "iHRIS Gender",
+  "status": "draft",
+  "experimental": true,
+  "description": "All codes of the iHRIS `gender` list as shipped by default in iHRIS 4.3.3.",
+  "compose": {
+    "include": [
+      {
+        "system": "https://litlfred.github.io/ihris/dak/CodeSystem/gender"
+      }
+    ]
+  }
+}

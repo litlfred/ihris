@@ -1,0 +1,38 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-FacilityTree",
+  "module": "ihris-manage-FacilityTree",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManageFacilityTree/ManageFacilityTree.xml",
+    "sha256": "2e9a6325a1ebec4d340405b6d393af84fc171e316fcff1741036a47521b0b9ec"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Facility Tree Report",
+  "description": "This module defines the facility_tree report and configures the position facility field to use this report for displaying the tree to speed up generation of this tree view. When changes are made to facilities, the report needs to be re-generated before changes will be seen.",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.1.5"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

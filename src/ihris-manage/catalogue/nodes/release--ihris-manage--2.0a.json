@@ -1,0 +1,40 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "release/ihris-manage/2.0a",
+  "kind": "item",
+  "flavour": "release",
+  "title": "iHRIS Manage 2.0a",
+  "parents": [
+    [
+      "project/ihris-manage",
+      "series/ihris-manage/2.0"
+    ]
+  ],
+  "metadataRef": "records/release--ihris-manage--2.0a.json",
+  "bitstreams": [
+    {
+      "name": "OfflineIHRIS2.0.exe",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://launchpad.net/ihris-manage/2.0/2.0a/+download/OfflineIHRIS2.0.exe"
+        }
+      }
+    },
+    {
+      "name": "OfflineIHRIS2.0.exe.asc",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://launchpad.net/ihris-manage/2.0/2.0a/+download/OfflineIHRIS2.0.exe.asc"
+        }
+      }
+    }
+  ],
+  "materialization": {
+    "state": "referenced",
+    "provenance": {
+      "upstream": "https://launchpad.net/ihris-manage/+milestone/2.0a"
+    }
+  }
+}

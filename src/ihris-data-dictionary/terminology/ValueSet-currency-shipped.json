@@ -1,0 +1,18 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-currency-shipped",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/currency-shipped",
+  "version": "4.3.3",
+  "name": "IHRISCurrencyShippedVS",
+  "title": "iHRIS currency list as shipped",
+  "status": "draft",
+  "experimental": true,
+  "description": "Every code of the `currency` list iHRIS 4.3.3 ships by default: the source side of ConceptMap `currency-to-iso-4217`.",
+  "compose": {
+    "include": [
+      {
+        "system": "https://litlfred.github.io/ihris/dak/CodeSystem/currency"
+      }
+    ]
+  }
+}

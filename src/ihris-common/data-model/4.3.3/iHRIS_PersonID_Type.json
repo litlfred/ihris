@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_PersonID_Type",
+  "class": "iHRIS_PersonID_Type",
+  "release": "4.3.3",
+  "extends": "I2CE_SimpleList",
+  "forms": [
+    "id_type"
+  ],
+  "definedIn": [
+    "ihris-common/module/PersonID"
+  ],
+  "fields": [
+    {
+      "field": "pattern",
+      "type": "STRING_LINE",
+      "label": "Pattern (regular expression)",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonID"
+      ]
+    }
+  ]
+}

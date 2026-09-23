@@ -1,0 +1,70 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-manage/form-class/iHRIS_LeaveCategory",
+  "class": "iHRIS_LeaveCategory",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "leave_category"
+  ],
+  "definedIn": [
+    "ihris-manage/module/leave"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Category Name",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "days",
+      "type": "INT",
+      "label": "Number Of Days",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "start_date",
+      "type": "DATE_MD",
+      "label": "Start Date in a Year**",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "end_date",
+      "type": "DATE_MD",
+      "label": "End Date in a Year**",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    },
+    {
+      "field": "leave_cycle",
+      "type": "MAP",
+      "label": "Leave Cycle in Years (Years Before Taking Another Leave)**",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-manage/module/leave"
+      ]
+    }
+  ]
+}

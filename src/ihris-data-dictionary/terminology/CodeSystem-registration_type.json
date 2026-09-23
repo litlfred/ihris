@@ -1,0 +1,24 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-registration-type",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/registration_type",
+  "version": "4.3.3",
+  "name": "IHRISRegistrationType",
+  "title": "iHRIS Registration Type",
+  "status": "draft",
+  "experimental": true,
+  "description": "The `registration_type` list as shipped by default in iHRIS 4.3.3 (modules: ihris-qualify/module/ihris-qualify). Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped baseline, not a closed international code set.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 2,
+  "concept": [
+    {
+      "code": "permanent",
+      "display": "Permanent"
+    },
+    {
+      "code": "temporary",
+      "display": "Temporary"
+    }
+  ]
+}

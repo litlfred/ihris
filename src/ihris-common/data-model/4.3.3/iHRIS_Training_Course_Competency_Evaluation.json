@@ -1,0 +1,59 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Training_Course_Competency_Evaluation",
+  "class": "iHRIS_Training_Course_Competency_Evaluation",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "training_course_competency_evaluation"
+  ],
+  "definedIn": [
+    "ihris-common/module/training-simple-competency"
+  ],
+  "fields": [
+    {
+      "field": "notes",
+      "type": "STRING_MLINE",
+      "label": "Notes",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-simple-competency"
+      ]
+    },
+    {
+      "field": "evaluation_date",
+      "type": "DATE_YMD",
+      "label": "Evaluation Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-simple-competency"
+      ]
+    },
+    {
+      "field": "competency_evaluation",
+      "type": "MAP",
+      "label": "Evaluation",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-simple-competency"
+      ]
+    },
+    {
+      "field": "competency",
+      "type": "MAP",
+      "label": "Competency",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/training-simple-competency"
+      ]
+    }
+  ]
+}

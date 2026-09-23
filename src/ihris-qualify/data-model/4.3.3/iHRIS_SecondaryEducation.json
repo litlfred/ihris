@@ -1,0 +1,59 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_SecondaryEducation",
+  "class": "iHRIS_SecondaryEducation",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "education"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "sec_school",
+      "type": "STRING_LINE",
+      "label": "Secondary School Name",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "certificate",
+      "type": "MAP",
+      "label": "Certificate",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "grade",
+      "type": "STRING_LINE",
+      "label": "Grade Obtained",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "certificate_number",
+      "type": "STRING_LINE",
+      "label": "Certificate Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

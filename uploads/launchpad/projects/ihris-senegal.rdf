@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:doaml="http://ns.balbinus.net/doaml#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:lp="https://launchpad.net/rdf/launchpad#" xmlns:wot="http://xmlns.com/wot/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <lp:Product>
+        <lp:specifiedAt rdf:resource="/ihris-senegal/+rdf"/>
+        <lp:name>ihris-senegal</lp:name>
+        <lp:displayName>Senegal iHRIS</lp:displayName>
+        <lp:title>Senegal iHRIS</lp:title>
+        <lp:shortDescription>iHRIS customizations for Senegal.</lp:shortDescription>
+        <lp:description></lp:description>
+        <lp:creationDate>2013-02-13 15:50:06 UTC</lp:creationDate>
+        <lp:homepage/>
+        
+        <lp:programmingLanguage>PHP</lp:programmingLanguage>
+        
+        <lp:inProject>
+            <lp:Project>
+                <lp:specifiedAt rdf:resource="/ihris-suite/+rdf"/>
+            </lp:Project>
+        </lp:inProject>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/ihris-senegal/sn-manage/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:series>
+            <lp:ProductSeries>
+                <lp:specifiedAt rdf:resource="/ihris-senegal/trunk/+rdf"/>
+            </lp:ProductSeries>
+        </lp:series>
+        <lp:owner>
+            <foaf:Agent>
+                <foaf:Account rdf:resource="/~ihris-senegal-team/+rdf"/>
+            </foaf:Agent>
+        </lp:owner>
+        <lp:status>Active</lp:status>
+        
+    </lp:Product>
+</rdf:RDF>

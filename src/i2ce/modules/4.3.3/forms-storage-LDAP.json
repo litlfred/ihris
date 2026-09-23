@@ -1,0 +1,41 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/forms-storage-LDAP",
+  "module": "forms-storage-LDAP",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/FormStorage/modules/FormStorageLDAP/FormStorageLDAP.xml",
+    "sha256": "c14a12d1f50a70282e795abc00a05a24f7ba0e6efedfc1747428a2c38316aed6"
+  },
+  "parent": "i2ce/module/forms-storage",
+  "site": null,
+  "displayName": "Form Storage - LDAP",
+  "description": "A module that enables reading storage of Forms from a LDAP server",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Base System Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "forms-storage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "php_5_3",
+      "eval": null
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": []
+}

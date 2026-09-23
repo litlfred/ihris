@@ -1,0 +1,65 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_PersonLanguage",
+  "class": "iHRIS_PersonLanguage",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_language"
+  ],
+  "definedIn": [
+    "ihris-common/module/PersonLanguage"
+  ],
+  "fields": [
+    {
+      "field": "language",
+      "type": "MAP",
+      "label": "Language",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonLanguage"
+      ]
+    },
+    {
+      "field": "speaking",
+      "type": "MAP",
+      "label": "Speaking Proficiency",
+      "required": true,
+      "unique": null,
+      "references": [
+        "language_proficiency"
+      ],
+      "definedIn": [
+        "ihris-common/module/PersonLanguage"
+      ]
+    },
+    {
+      "field": "reading",
+      "type": "MAP",
+      "label": "Reading Proficiency",
+      "required": true,
+      "unique": null,
+      "references": [
+        "language_proficiency"
+      ],
+      "definedIn": [
+        "ihris-common/module/PersonLanguage"
+      ]
+    },
+    {
+      "field": "writing",
+      "type": "MAP",
+      "label": "Writing Proficiency",
+      "required": true,
+      "unique": null,
+      "references": [
+        "language_proficiency"
+      ],
+      "definedIn": [
+        "ihris-common/module/PersonLanguage"
+      ]
+    }
+  ]
+}

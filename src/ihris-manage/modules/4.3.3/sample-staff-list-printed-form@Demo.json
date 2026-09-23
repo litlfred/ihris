@@ -1,0 +1,50 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/sample-staff-list-printed-form@Demo",
+  "module": "sample-staff-list-printed-form",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/sites/Demo/modules/SampleStaffListPrintedForm/SampleStaffListPrintedForm.xml",
+    "sha256": "7f329c1e68c77edf4afd82e129fcd02e7bb0b7397cedb8bebf32f89f29f81542"
+  },
+  "parent": "ihris-manage/module/ihris-manage-site-demo@Demo",
+  "site": "Demo",
+  "displayName": "Sample Staff Printed Forms",
+  "description": "Sample staff printed forms generated from the staff_directory report view.",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ihris-manage-CustomReports-staff-reports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CustomReports-PrintedReportsODT",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "ar",
+    "cs",
+    "en_US",
+    "es",
+    "fr",
+    "pt_BR",
+    "si"
+  ]
+}

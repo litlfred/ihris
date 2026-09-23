@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+<base href="https://launchpad.net/openhie-pr/4.2-dev/+index" />
+
+    <meta charset="UTF-8" />
+    <title>Series 4.2-dev : OpenHIE Health Worker Registry</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/@@/apple-touch-icon.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/@@/favicon-32x32.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/@@/favicon-16x16.png?v=2022" />
+    <link rel="manifest" href="/@@/site.webmanifest?v=2022" />
+    <link rel="mask-icon" href="/@@/safari-pinned-tab.svg?v=2022" color="#e9531f" />
+    <link rel="shortcut icon" href="/@@/favicon.ico?v=2022" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/@@/browserconfig.xml?v=2022" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    
+    
+
+    
+  
+  <link type="text/css" rel="stylesheet" media="screen, print" href="/+icing/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/combo.css" />
+
+
+    
+
+    
+      
+      
+    
+
+    
+    
+      <meta property="og:title" content="Series 4.2-dev : OpenHIE Health Worker Registry" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="/@@/launchpad-og-image.png" />
+      <meta property="og:url" content="https://launchpad.net/openhie-pr/4.2-dev/+index" />
+      <meta property="og:site_name" content="Launchpad" />
+    
+
+    
+
+    
+  
+
+  
+  
+  <script type="text/javascript">
+    var LP = {
+        cache: {},
+        links: {}
+    };
+  </script>
+
+  
+
+  <script type="text/javascript">var cookie_scope = '; Path=/; Secure; Domain=.launchpad.net';</script>
+
+   <script type="text/javascript" src="/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?yui/yui/yui-min.js&amp;lp/meta.js&amp;yui/loader/loader-min.js"></script>
+   <script type="text/javascript">
+        var raw = null;
+        if (LP.devmode) {
+           raw = 'raw';
+        }
+        YUI.GlobalConfig = {
+            combine: true,
+            comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+            root: 'yui/',
+            filter: raw,
+            debug: false,
+            fetchCSS: false,
+            maxURLLength: 2000,
+            groups: {
+                lp: {
+                    combine: true,
+                    base: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?lp/',
+                    comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+                    root: 'lp/',
+                    // comes from including lp/meta.js
+                    modules: LP_MODULES,
+                    fetchCSS: false
+                }
+            }
+        }</script>
+
+  <script type="text/javascript">
+      // we need this to create a single YUI instance all events and code
+      // talks across. All instances of YUI().use should be based off of
+      // LPJS instead.
+      var LPJS = new YUI();
+  </script>
+
+
+
+    <script id="base-layout-load-scripts" type="text/javascript">
+        //<![CDATA[
+        LPJS.use('base', 'node', 'console', 'event',
+            'oop', 'lp', 'lp.app.foldables','lp.app.sorttable',
+            'lp.app.inlinehelp', 'lp.app.links',
+            'lp.bugs.bugtask_index', 'lp.bugs.subscribers',
+            'lp.app.ellipsis', 'lp.code.branchmergeproposal.diff',
+            'lp.views.global',
+             function(Y) {
+
+            Y.on("domready", function () {
+                var global_view = new Y.lp.views.Global();
+                global_view.render();
+
+                Y.lp.app.sorttable.SortTable.init();
+                Y.lp.app.inlinehelp.init_help();
+                Y.lp.activate_collapsibles();
+                Y.lp.app.foldables.activate();
+                Y.lp.app.links.check_valid_lp_links();
+            });
+
+            Y.on('lp:context:web_link:changed', function(e) {
+                  window.location = e.new_value;
+            });
+        });
+        //]]>
+    </script>
+    <script id="base-helper-functions" type="text/javascript">
+         //<![CDATA[
+        // This code is pulled from lp.js that needs to be available on every
+        // request. Pulling here to get it outside the scope of the YUI block.
+        function setFocusByName(name) {
+            // Focus the first element matching the given name which can be focused.
+            var nodes = document.getElementsByName(name);
+            var i, node;
+            for (i = 0; i < nodes.length; i++) {
+                node = nodes[i];
+                if (node.focus) {
+                    try {
+                        // Trying to focus a hidden element throws an error in IE8.
+                        if (node.offsetHeight !== 0) {
+                            node.focus();
+                        }
+                    } catch (e) {
+                        LPJS.use('console', function(Y) {
+                            Y.log('In setFocusByName(<' +
+                                node.tagName + ' type=' + node.type + '>): ' + e);
+                        });
+                    }
+                    break;
+                }
+            }
+        }
+
+        function selectWidget(widget_name, event) {
+          if (event && (event.keyCode === 9 || event.keyCode === 13)) {
+              // Avoid firing if user is tabbing through or simply pressing
+              // enter to submit the form.
+              return;
+          }
+          document.getElementById(widget_name).checked = true;
+        }
+        //]]>
+    </script>
+
+    
+      
+    
+    
+    <script type="text/javascript">
+        LPJS.use('lang', 'node', 'lp.app.calendar', function(Y) {
+                Y.lp.app.calendar.setup_calendar_widgets();
+            });
+    </script>
+
+    
+    
+    <meta name="go-import" content="launchpad.net/openhie-pr/4.2-dev bzr https://launchpad.net/~intrahealth+informatics/openhie-pr/trunk" />
+  
+    
+  </head>
+
+  <body id="document" itemscope="" itemtype="http://schema.org/WebPage" class="tab-overview
+      main_side
+      public
+      yui3-skin-sam">
+          
+          
+          
+    <div class="yui-d0">
+      <div id="locationbar" class="login-logout">
+        
+
+<div id="logincontrol"><a href="https://launchpad.net/openhie-pr/4.2-dev/+login">Log in / Register</a></div>
+
+
+
+      </div><!--id="locationbar"-->
+
+      <div id="watermark" class="watermark-apps-portlet">
+        <div>
+          <a href="https://launchpad.net/openhie-pr"><img alt="" width="64" height="64" src="/@@/product-logo" /></a>
+        </div>
+        <div class="wide">
+          <h2 id="watermark-heading"><a href="https://launchpad.net/openhie-pr">OpenHIE Health Worker Registry</a></h2>
+        </div>
+        
+  <!-- Application Menu -->
+  <ul class="facetmenu">
+    
+      <li class="overview active"><a href="https://launchpad.net/openhie-pr">Overview</a></li>
+      
+      
+    
+    
+      
+      <li class="branches"><a href="https://code.launchpad.net/openhie-pr">Code</a></li>
+      
+    
+    
+      
+      <li class="bugs"><a href="https://bugs.launchpad.net/openhie-pr">Bugs</a></li>
+      
+    
+    
+      
+      <li class="specifications"><a href="https://blueprints.launchpad.net/openhie-pr">Blueprints</a></li>
+      
+    
+    
+      
+      <li class="translations"><a href="https://translations.launchpad.net/openhie-pr">Translations</a></li>
+      
+    
+    
+      
+      <li class="answers"><a href="https://answers.launchpad.net/openhie-pr">Answers</a></li>
+      
+    
+  </ul>
+
+      </div>
+
+      <div class="yui-t4">
+        <div id="maincontent" class="yui-main">
+          <div class="yui-b" dir="ltr">
+            <div class="context-publication">
+              
+      <h1>OpenHIE Health Worker Registry 4.2-dev series</h1>
+    
+              
+
+              <div id="registration" class="registering">
+                
+              </div>
+            </div>
+
+            
+            <div id="request-notifications">
+              
+            </div>
+
+            
+              <div>
+
+      <div class="top-portlet">
+        <div id="description"><p>4.2 Dev</p></div>
+
+        <div style="padding-top: 1em">
+          
+  
+  <div id="timeline-loading" class="hidden">
+    <img src="/@@/spinner" /> Loading graph...
+  </div>
+
+  <!-- Opera ignores overflow:hidden for iframe, so use scrolling=no. -->
+  <iframe id="timeline-iframe" name="timeline-iframe" class="timeline-iframe hidden" style="border: 0" scrolling="no" width="100%" height="216px"></iframe>
+  <script>
+  //<![CDATA[
+  function timeline_iframe(auto_resize, include_inactive, start, size) {
+      var timeline_url = "+timeline-graph?";
+      if (include_inactive == 'true') {
+          timeline_url += "include_inactive=true&";
+      }
+
+      if (auto_resize == 'true') {
+          timeline_url += 'resize_frame=timeline-iframe&';
+      }
+
+      start = parseInt(start);
+      size = parseInt(size);
+      if (start != NaN && start >= 0) {
+          timeline_url += "start=" + start + "&";
+      }
+      if (size != NaN && size >= 1) {
+          timeline_url += "size=" + size + "&";
+      }
+      LPJS.use('node', 'lp.registry.timeline', function(Y) {
+          if (!Y.lp.registry.timeline.isCanvasSupported()) {
+              return;
+          }
+          var loading_el = Y.one('#timeline-loading');
+          loading_el.setStyle('display', 'block');
+          var iframe = Y.one('#timeline-iframe');
+          iframe.set('src', timeline_url);
+          Y.on('load', function(e) {
+              loading_el.setStyle('display', 'none');
+              iframe.setStyle('display', 'block');
+          }, iframe);
+      });
+  }
+  //]]>
+  </script>
+  <script>
+      timeline_iframe(
+        'true',
+        'true',
+        'None',
+        'None'
+        );
+      </script>
+
+        </div>
+      </div>
+
+      <div class="yui-g">
+        <div class="yui-u first">
+          <div id="series-details" class="portlet">
+            <h2>Series information</h2>
+
+            <div class="two-column-list">
+              <dl id="series-project">
+                <dt>Project:</dt>
+                <dd><a href="/openhie-pr" class="sprite product">OpenHIE Health Worker Registry</a></dd>
+              </dl>
+
+              <dl id="series-name">
+                <dt>Series:</dt>
+                <dd>4.2-dev</dd>
+              </dl>
+
+              <dl id="series-drivers">
+                <dt>Project drivers:</dt>
+                <dd>
+                  
+                    <a href="/~litlfred" class="sprite person">Carl Leitner</a>
+                  
+                </dd>
+              </dl>
+
+              <dl id="series-release-manager">
+                <dt>Release manager:</dt>
+                <dd>
+                  None
+                  
+                  
+                 </dd>
+               </dl>
+
+              <dl id="series-status">
+                <dt>Status:</dt>
+                <dd>
+                  Active Development
+                  
+                </dd>
+              </dl>
+
+              <dl id="series-focus">
+                <dt>Project development focus:</dt>
+                <dd>
+                  is
+                  not
+                  the focus of development.
+                  
+                </dd>
+              </dl>
+            </div>
+
+            <dl id="series-releasefileglob" style="margin-bottom: 1em;" title="Launchpad automatically scans sites to import releases">
+              <dt>Release URL pattern:</dt>
+              <dd>
+                
+                  None
+                
+                
+               </dd>
+            </dl>
+
+            <p>
+              <a class="menu-link-rdf sprite download" href="https://launchpad.net/openhie-pr/4.2-dev/+rdf">Download RDF metadata</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="yui-u">
+          <div class="portlet">
+  <h2>Code for this series</h2>
+
+
+
+
+  <p>The following branch has been registered as the mainline branch
+  for this release series:</p>
+
+  <div id="branch-details">
+    <a id="series-branch" class="sprite branch" href="https://code.launchpad.net/~intrahealth+informatics/openhie-pr/trunk">lp:~intrahealth+informatics/openhie-pr/trunk</a>
+    - <a href="https://code.launchpad.net/~intrahealth+informatics" class="sprite team">IntraHealth Informatics</a>
+    
+  </div>
+  <div id="branch-revision-details">
+    150 revisions.
+  </div>
+
+  <p>
+    You can get a copy of the development focus branch using the command:<br />
+    <tt class="command">
+      bzr branch lp:openhie-pr
+    </tt>
+  </p>
+
+
+</div>
+
+
+          <p>
+            
+          </p>
+        </div>
+      </div>
+
+      <div class="portlet">
+        <h2>Milestones and releases</h2>
+
+        
+        <div>
+          
+
+
+<table class="listing hidden" id="series-4-2-dev">
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Expected</th>
+      <th>Released</th>
+      <th>Summary</th>
+    </tr>
+  </thead>
+  <tbody id="milestone-rows">
+  </tbody>
+</table>
+
+
+
+
+          <ul class="table-actions" style="margin-bottom: 1em;">
+            <li>
+              
+            </li>
+            <li>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="yui-g">
+        <div class="yui-u first">
+          
+
+          <div><div class="portlet" id="portlet-packages">
+  <h2>
+    <span class="see-all">
+      <a href="https://launchpad.net/openhie-pr/+packages">
+        All packages
+      </a>
+    </span>
+    Distribution packaging
+  </h2>
+
+  <p id="distribution-packaging-explanation">
+    
+    
+      This series is not packaged in any distribution series.
+    
+  </p>
+
+  
+
+  <ul class="horizontal">
+    <li>
+      
+    </li>
+  </ul>
+</div>
+</div>
+        </div>
+
+        <div class="yui-u">
+          
+
+          
+
+
+          <div class="portlet">
+            <h2>Related series, milestones, and releases</h2>
+
+            <ul id="related-series">
+              <li>
+                <a class="sprite info" href="https://launchpad.net/openhie-pr/+series">View
+                  series for the
+                  OpenHIE Health Worker Registry project</a>
+              </li>
+              <li>
+                <a class="sprite info" href="https://launchpad.net/openhie-pr/+milestones">View
+                  milestones for the
+                  OpenHIE Health Worker Registry project</a>
+              </li>
+              <li>
+                <a class="sprite info" href="https://launchpad.net/openhie-pr/+download">View
+                  downloads for the
+                  OpenHIE Health Worker Registry project</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="yui-u">
+          <div id="structural-subscription-content-box"></div>
+        </div>
+      </div>
+    </div>
+            
+            
+          </div><!-- yui-b -->
+        </div><!-- yui-main -->
+
+        
+          <div id="side-portlets" class="yui-b side">
+            
+      <div id="global-actions" class="portlet">
+        <ul>
+          
+          
+          
+          
+        </ul>
+      </div>
+
+      <div id="privacy" class="portlet public">
+    <span id="information-type-summary" class="sprite public">This series
+      contains <strong id="information-type">Public</strong> information</span>
+
+    <div id="information-type-description" style="padding-top: 5px">Everyone can see this information.
+</div>
+</div>
+
+
+
+      <div id="downloads" class="top-portlet downloads">
+        <h2>Downloads</h2>
+
+        
+
+        <p class="alternate">
+          
+           
+             4.2-dev does not have any
+              download files.
+           
+        </p>
+      </div>
+
+      <div id="involvement" class="portlet">
+  <h2>Get Involved</h2>
+
+  <ul class="involvement">
+    <li>
+      <a class="menu-link-help_translate sprite translations" href="https://translations.launchpad.net/openhie-pr/4.2-dev">Help translate</a>
+    </li>
+  </ul>
+
+  
+    
+    
+  
+
+  
+</div>
+
+    
+          </div><!-- yui-b side -->
+        
+      </div><!-- yui-t4 -->
+
+      
+  <div id="footer" class="footer">
+    <div class="lp-arcana">
+        <div class="lp-branding">
+          <a href="https://launchpad.net/"><img src="/@@/launchpad-footer-logo.svg" alt="Launchpad" width="65" height="18" /></a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://launchpad.net/+tour">Take the tour</a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://documentation.ubuntu.com/launchpad/">Read the guide</a>
+          &nbsp;
+          <form id="globalsearch" method="get" accept-charset="UTF-8" action="https://launchpad.net/+search">
+            <input type="search" id="search-text" name="field.text" />
+            <input type="image" src="/@@/search" style="vertical-align:5%" alt="Search Launchpad" />
+          </form>
+        </div>
+        
+  
+
+    </div>
+
+    <div class="colophon">
+      &copy; 2004
+      <a href="http://canonical.com/">Canonical&nbsp;Ltd.</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://ubuntu.com/legal/launchpad-terms-of-service">Terms of use</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://www.ubuntu.com/legal/dataprivacy">Data privacy</a>
+      &nbsp;&bull;&nbsp;
+      <a href="/feedback">Contact Launchpad Support</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://blog.launchpad.net/">Blog</a>
+      
+	&nbsp;&bull;&nbsp;
+	<a href="https://canonical.com/careers">Careers</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="https://status.canonical.com/">System status</a>
+      <span id="lp-version">
+      &nbsp;&bull;&nbsp;
+        6c05f5b
+        
+        
+        (<a href="https://documentation.ubuntu.com/launchpad/developer/how-to/get-source-code/">Get the code!</a>)
+      </span>
+    </div>
+  </div>
+
+    </div><!-- yui-d0-->
+
+    
+  
+  
+  <script id="json-cache-script">LP.cache = {"related_features": {}, "administratedTeams": [], "importances": ["Unknown", "Undecided", "Critical", "High", "Medium", "Low", "Wishlist"], "statuses": ["New", "Incomplete", "Opinion", "Invalid", "Won't Fix", "Expired", "Confirmed", "Triaged", "In Progress", "Deferred", "Fix Committed", "Fix Released", "Does Not Exist", "Unknown"], "information_types": ["Public", "Public Security", "Private Security", "Private", "Proprietary", "Embargoed"], "target_info": {"title": "OpenHIE Health Worker Registry 4.2-dev series", "url": "https://launchpad.net/openhie-pr/4.2-dev"}, "context": {"self_link": "https://launchpad.net/api/devel/openhie-pr/4.2-dev", "web_link": "https://launchpad.net/openhie-pr/4.2-dev", "resource_type_link": "https://launchpad.net/api/devel/#project_series", "translations_usage": "Launchpad", "all_specifications_collection_link": "https://launchpad.net/api/devel/openhie-pr/4.2-dev/all_specifications", "valid_specifications_collection_link": "https://launchpad.net/api/devel/openhie-pr/4.2-dev/valid_specifications", "bug_reporting_guidelines": null, "content_templates": null, "bug_reported_acknowledgement": null, "official_bug_tags": [], "active": true, "summary": "4.2 Dev", "drivers_collection_link": "https://launchpad.net/api/devel/openhie-pr/4.2-dev/drivers", "name": "4.2-dev", "project_link": "https://launchpad.net/api/devel/openhie-pr", "status": "Active Development", "date_created": "2015-02-17T18:15:32.477075+00:00", "owner_link": "https://launchpad.net/api/devel/~litlfred", "driver_link": null, "title": "OpenHIE Health Worker Registry 4.2-dev series", "display_name": "4.2-dev", "releases_collection_link": "https://launchpad.net/api/devel/openhie-pr/4.2-dev/releases", "active_milestones_collection_link": "https://launchpad.net/api/devel/openhie-pr/4.2-dev/active_milestones", "all_milestones_collection_link": "https://launchpad.net/api/devel/openhie-pr/4.2-dev/all_milestones", "branch_link": "https://launchpad.net/api/devel/~intrahealth+informatics/openhie-pr/trunk", "translations_autoimport_mode": "None", "release_finder_url_pattern": null, "http_etag": "\"e8e1c2fd6a51865b5dca92a49b2b7ce483de31d8-4644a5abe96c977708aceb5571b0a289cdfff780\""}};</script>
+
+    
+  
+
+    
+  </body>
+
+
+  <!--
+    Facet name: overview
+    Page type: main_side
+    Has global search: True
+    Has application tabs: True
+    Has side portlets: True
+
+    At least 21 queries/external actions issued in 0.36 seconds
+
+    Features: {'profiling.enabled': None, 'hard_timeout': '10000', 'app.mainsite_only.canonical_url': None, 'js.yui_version': None, 'app.maintenance_message': None, 'baselayout.careers_link.disabled': None, 'visible_render_time': None}
+
+    r6c05f5b
+
+    -->
+
+</html>
+

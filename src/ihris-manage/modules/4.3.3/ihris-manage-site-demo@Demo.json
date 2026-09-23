@@ -1,0 +1,203 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-site-demo@Demo",
+  "module": "ihris-manage-site-demo",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/sites/Demo/iHRIS-Manage-Demo.xml",
+    "sha256": "99f5790b67e34926044878d148fa85da575eeae2d22b796c60a7caab8ea8ceba"
+  },
+  "parent": null,
+  "site": "Demo",
+  "displayName": "iHRIS Manage Demo",
+  "description": "the iHRIS Manage Demo Site",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_ManageSiteDemo",
+  "category": "Site",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "ManageDashboard",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-manage",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "UserAccess",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "accident"
+    },
+    {
+      "module": "ReportArchiver"
+    },
+    {
+      "module": "dependents"
+    },
+    {
+      "module": "disciplinary_action"
+    },
+    {
+      "module": "default-locales"
+    },
+    {
+      "module": "nextOfKin"
+    },
+    {
+      "module": "ManageSelfService"
+    },
+    {
+      "module": "ManageSelfServiceApplication"
+    },
+    {
+      "module": "formDocumentor"
+    },
+    {
+      "module": "PersonArchivedScan"
+    },
+    {
+      "module": "PersonPassportPhoto"
+    },
+    {
+      "module": "PersonResume"
+    },
+    {
+      "module": "PersonContact"
+    },
+    {
+      "module": "ihris-manage-PersonDemographic"
+    },
+    {
+      "module": "PersonEducation"
+    },
+    {
+      "module": "PersonEmployment"
+    },
+    {
+      "module": "PersonID"
+    },
+    {
+      "module": "PersonLanguage"
+    },
+    {
+      "module": "PersonNotes"
+    },
+    {
+      "module": "person-simple-competency"
+    },
+    {
+      "module": "ihris-manage-sample-data"
+    },
+    {
+      "module": "magicDataBrowser"
+    },
+    {
+      "module": "stub"
+    },
+    {
+      "module": "FileDump"
+    },
+    {
+      "module": "StretchPage"
+    },
+    {
+      "module": "messageBox"
+    },
+    {
+      "module": "messageNotice"
+    },
+    {
+      "module": "localeSelector"
+    },
+    {
+      "module": "ihris-manage-Application"
+    },
+    {
+      "module": "ihris-manage-ApplicationAttachment"
+    },
+    {
+      "module": "ihris-manage-confirmation"
+    },
+    {
+      "module": "ihris-manage-ConfirmationAttachment"
+    },
+    {
+      "module": "isco-88"
+    },
+    {
+      "module": "isco-88-major-00"
+    },
+    {
+      "module": "isco-88-major-01"
+    },
+    {
+      "module": "isco-88-major-02"
+    },
+    {
+      "module": "isco-88-major-03"
+    },
+    {
+      "module": "isco-88-major-04"
+    },
+    {
+      "module": "isco-88-major-05"
+    },
+    {
+      "module": "isco-88-major-06"
+    },
+    {
+      "module": "isco-88-major-07"
+    },
+    {
+      "module": "isco-88-major-08"
+    },
+    {
+      "module": "isco-88-major-09"
+    },
+    {
+      "module": "manage-training-course"
+    },
+    {
+      "module": "RecordStatus"
+    },
+    {
+      "module": "training-exam"
+    },
+    {
+      "module": "SDMX-HD-CodeLists"
+    },
+    {
+      "module": "sample-hire-letter"
+    },
+    {
+      "module": "ihris-manage-FacilityTree"
+    },
+    {
+      "module": "ihris-manage-PositionTree"
+    },
+    {
+      "module": "SampleOpenLayers"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

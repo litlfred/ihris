@@ -1,0 +1,27 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_DHIS_CodedList",
+  "class": "iHRIS_DHIS_CodedList",
+  "release": "4.3.3",
+  "extends": "I2CE_SimpleCodedList",
+  "forms": [
+    "dhis_data_element",
+    "dhis_orgunit"
+  ],
+  "definedIn": [
+    "ihris-common/module/DHIS_Metadata"
+  ],
+  "fields": [
+    {
+      "field": "dhis_uid",
+      "type": "STRING_LINE",
+      "label": "DHIS UID",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/DHIS_Metadata"
+      ]
+    }
+  ]
+}

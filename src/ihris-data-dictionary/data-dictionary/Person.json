@@ -1,0 +1,257 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Person",
+  "group": "Person",
+  "title": "Person",
+  "class": "iHRIS_Person",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Person"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Person",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Person.surname",
+      "activityId": null,
+      "formIds": [
+        "person"
+      ],
+      "formDataElementLabel": "Surname",
+      "dataElementLabel": "Surname",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person",
+        "field": "surname",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/Person"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users--variant-3.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-people.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Person.firstname",
+      "activityId": null,
+      "formIds": [
+        "person"
+      ],
+      "formDataElementLabel": "First Name",
+      "dataElementLabel": "First Name",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person",
+        "field": "firstname",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/Person"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users--variant-3.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/administer-users.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-people.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Person.othername",
+      "activityId": null,
+      "formIds": [
+        "person"
+      ],
+      "formDataElementLabel": "Other Names",
+      "dataElementLabel": "Other Names",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person",
+        "field": "othername",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/Person"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-people.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Person.nationality",
+      "activityId": null,
+      "formIds": [
+        "person"
+      ],
+      "formDataElementLabel": "Nationality",
+      "dataElementLabel": "Nationality",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/country"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person",
+        "field": "nationality",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/Person"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-people.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Person.surname_ignore",
+      "activityId": null,
+      "formIds": [
+        "person"
+      ],
+      "formDataElementLabel": null,
+      "dataElementLabel": "surname ignore",
+      "labelSource": "field-name",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person",
+        "field": "surname_ignore",
+        "i2ceType": "BOOL",
+        "definedIn": [
+          "ihris-common/module/Person"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Person.residence",
+      "activityId": null,
+      "formIds": [
+        "person"
+      ],
+      "formDataElementLabel": "Residence",
+      "dataElementLabel": "Residence",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/country",
+        "https://litlfred.github.io/ihris/dak/ValueSet/county",
+        "https://litlfred.github.io/ihris/dak/ValueSet/district",
+        "https://litlfred.github.io/ihris/dak/ValueSet/region"
+      ],
+      "inputOptionsSource": "meta/form",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "hierarchical selection across lists: country, county, district, region",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Person",
+        "field": "residence",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/Person"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/manage-people.md"
+      ]
+    }
+  ]
+}

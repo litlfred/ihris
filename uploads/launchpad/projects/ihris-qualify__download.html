@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>iHRIS Qualify project files : iHRIS Qualify</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/@@/apple-touch-icon.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/@@/favicon-32x32.png?v=2022" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/@@/favicon-16x16.png?v=2022" />
+    <link rel="manifest" href="/@@/site.webmanifest?v=2022" />
+    <link rel="mask-icon" href="/@@/safari-pinned-tab.svg?v=2022" color="#e9531f" />
+    <link rel="shortcut icon" href="/@@/favicon.ico?v=2022" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/@@/browserconfig.xml?v=2022" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    
+    
+
+    
+  
+  <link type="text/css" rel="stylesheet" media="screen, print" href="/+icing/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/combo.css" />
+
+
+    
+
+    
+      <meta name="description" content="iHRIS Qualify is a free, Open Source software solution distributed under the GPL and developed by The Capacity Project, an innovative global initiative to help developing countries build and sustain the health workforce. The database captures information about health professionals from the time they enter pre-service training through registration, certification and licensure, and it is updated every time a professional's license or certification is renewed. This system is also capable of trac..." />
+      <meta property="og:description" content="iHRIS Qualify is a free, Open Source software solution distributed under the GPL and developed by The Capacity Project, an innovative global initiative to help developing countries build and sustain the health workforce. The database captures information about health professionals from the time they enter pre-service training through registration, certification and licensure, and it is updated every time a professional's license or certification is renewed. This system is also capable of trac..." />
+    
+
+    
+    
+      <meta property="og:title" content="iHRIS Qualify project files : iHRIS Qualify" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="/@@/launchpad-og-image.png" />
+      <meta property="og:url" content="https://launchpad.net/ihris-qualify/+download" />
+      <meta property="og:site_name" content="Launchpad" />
+    
+
+    
+
+    
+  
+
+  
+  
+  <script type="text/javascript">
+    var LP = {
+        cache: {},
+        links: {}
+    };
+  </script>
+
+  
+
+  <script type="text/javascript">var cookie_scope = '; Path=/; Secure; Domain=.launchpad.net';</script>
+
+   <script type="text/javascript" src="/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?yui/yui/yui-min.js&amp;lp/meta.js&amp;yui/loader/loader-min.js"></script>
+   <script type="text/javascript">
+        var raw = null;
+        if (LP.devmode) {
+           raw = 'raw';
+        }
+        YUI.GlobalConfig = {
+            combine: true,
+            comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+            root: 'yui/',
+            filter: raw,
+            debug: false,
+            fetchCSS: false,
+            maxURLLength: 2000,
+            groups: {
+                lp: {
+                    combine: true,
+                    base: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?lp/',
+                    comboBase: '/+combo/rev6c05f5b586acbfd5d3a5f5142777242f41e711b8/?',
+                    root: 'lp/',
+                    // comes from including lp/meta.js
+                    modules: LP_MODULES,
+                    fetchCSS: false
+                }
+            }
+        }</script>
+
+  <script type="text/javascript">
+      // we need this to create a single YUI instance all events and code
+      // talks across. All instances of YUI().use should be based off of
+      // LPJS instead.
+      var LPJS = new YUI();
+  </script>
+
+
+
+    <script id="base-layout-load-scripts" type="text/javascript">
+        //<![CDATA[
+        LPJS.use('base', 'node', 'console', 'event',
+            'oop', 'lp', 'lp.app.foldables','lp.app.sorttable',
+            'lp.app.inlinehelp', 'lp.app.links',
+            'lp.bugs.bugtask_index', 'lp.bugs.subscribers',
+            'lp.app.ellipsis', 'lp.code.branchmergeproposal.diff',
+            'lp.views.global',
+             function(Y) {
+
+            Y.on("domready", function () {
+                var global_view = new Y.lp.views.Global();
+                global_view.render();
+
+                Y.lp.app.sorttable.SortTable.init();
+                Y.lp.app.inlinehelp.init_help();
+                Y.lp.activate_collapsibles();
+                Y.lp.app.foldables.activate();
+                Y.lp.app.links.check_valid_lp_links();
+            });
+
+            Y.on('lp:context:web_link:changed', function(e) {
+                  window.location = e.new_value;
+            });
+        });
+        //]]>
+    </script>
+    <script id="base-helper-functions" type="text/javascript">
+         //<![CDATA[
+        // This code is pulled from lp.js that needs to be available on every
+        // request. Pulling here to get it outside the scope of the YUI block.
+        function setFocusByName(name) {
+            // Focus the first element matching the given name which can be focused.
+            var nodes = document.getElementsByName(name);
+            var i, node;
+            for (i = 0; i < nodes.length; i++) {
+                node = nodes[i];
+                if (node.focus) {
+                    try {
+                        // Trying to focus a hidden element throws an error in IE8.
+                        if (node.offsetHeight !== 0) {
+                            node.focus();
+                        }
+                    } catch (e) {
+                        LPJS.use('console', function(Y) {
+                            Y.log('In setFocusByName(<' +
+                                node.tagName + ' type=' + node.type + '>): ' + e);
+                        });
+                    }
+                    break;
+                }
+            }
+        }
+
+        function selectWidget(widget_name, event) {
+          if (event && (event.keyCode === 9 || event.keyCode === 13)) {
+              // Avoid firing if user is tabbing through or simply pressing
+              // enter to submit the form.
+              return;
+          }
+          document.getElementById(widget_name).checked = true;
+        }
+        //]]>
+    </script>
+
+    
+      
+    
+  </head>
+
+  <body id="document" itemscope="" itemtype="http://schema.org/WebPage" class="tab-overview
+      main_only
+      public
+      yui3-skin-sam">
+          
+          
+          
+    <div class="yui-d0">
+      <div id="locationbar" class="login-logout">
+        
+
+<div id="logincontrol"><a href="https://launchpad.net/ihris-qualify/+download/+login">Log in / Register</a></div>
+
+
+
+      </div><!--id="locationbar"-->
+
+      <div id="watermark" class="watermark-apps-portlet">
+        <div>
+          <a href="https://launchpad.net/ihris-qualify"><img alt="" width="64" height="64" src="https://launchpadlibrarian.net/9207615/iHRISQualify_logo64.png" /></a>
+        </div>
+        <div class="wide">
+          <h2 id="watermark-heading"><a href="https://launchpad.net/ihris-qualify">iHRIS Qualify</a></h2>
+        </div>
+        
+  <!-- Application Menu -->
+  <ul class="facetmenu">
+    
+      <li class="overview active"><a href="https://launchpad.net/ihris-qualify">Overview</a></li>
+      
+      
+    
+    
+      
+      <li class="branches"><a href="https://code.launchpad.net/ihris-qualify">Code</a></li>
+      
+    
+    
+      
+      <li class="bugs"><a href="https://bugs.launchpad.net/ihris-qualify">Bugs</a></li>
+      
+    
+    
+      
+      <li class="specifications"><a href="https://blueprints.launchpad.net/ihris-qualify">Blueprints</a></li>
+      
+    
+    
+      
+      <li class="translations"><a href="https://translations.launchpad.net/ihris-qualify">Translations</a></li>
+      
+    
+    
+      
+      <li class="answers"><a href="https://answers.launchpad.net/ihris-qualify">Answers</a></li>
+      
+    
+  </ul>
+
+      </div>
+
+      
+        <div id="maincontent" class="yui-main">
+          <div class="yui-b" dir="ltr">
+            <div class="context-publication">
+              <h1>Download project files</h1>
+              
+
+              <div id="registration" class="registering">
+                
+              </div>
+            </div>
+
+            
+            <div id="request-notifications">
+              
+            </div>
+
+            
+              <div>
+
+  <p>
+    <a href="/+help-registry/verify-downloads.html" target="help">How do I verify a
+    download?</a>
+  </p>
+  <br />
+
+  <form id="project-downloads" method="POST" action="https://launchpad.net/ihris-qualify/+download">
+
+    
+
+    <div class="freeform-batch">
+    
+      
+        <table style="width: 100%;" class="upper-batch-nav">
+  <tbody>
+    <tr>
+      <td style="white-space: nowrap" class="batch-navigation-index">
+        
+            <strong>1</strong>
+            
+              &rarr;
+              <strong>10</strong>
+            
+            of
+            42
+            releases
+        
+      </td>
+      <td style="text-align: right; white-space: nowrap" class="batch-navigation-links">
+        
+        <span class="first inactive">First</span>
+        &bull;
+        
+        <span class="previous inactive">Previous</span>
+        &bull;
+        <a class="next" rel="next" href="https://launchpad.net/ihris-qualify/+download?memo=10&amp;start=10" id="upper-batch-nav-batchnav-next"><strong>Next</strong></a>
+        
+        
+          &bull;
+          <a class="last" rel="last" href="https://launchpad.net/ihris-qualify/+download?direction=backwards&amp;start=40" id="upper-batch-nav-batchnav-last">Last</a>
+          
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+      
+      
+        <div id="series-4-3">
+
+          
+            
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/ihris-qualify/4.3/4.3.3">
+                    4.3.3 release</a>
+                  from the
+                  <a href="/ihris-qualify/4.3">4.3</a> series released
+                  <time title="2018-06-13 11:22:33 UTC" datetime="2018-06-13T11:22:33+00:00">2018-06-13</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify Full 4.3.3 (15.3 MiB)" href="https://launchpad.net/ihris-qualify/4.3/4.3.3/+download/ihris-qualify-full-4.3.3.tar.bz2">ihris-qualify-full-4.3.3.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.3/4.3.3/+download/ihris-qualify-full-4.3.3.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify Full 4.3.3</td>
+    <td style="text-align: center;">
+      
+        99
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            10 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify 4.3.3 (6.2 MiB)" href="https://launchpad.net/ihris-qualify/4.3/4.3.3/+download/ihris-qualify-4.3.3.tar.bz2">ihris-qualify-4.3.3.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.3/4.3.3/+download/ihris-qualify-4.3.3.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify 4.3.3</td>
+    <td style="text-align: center;">
+      
+        71
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            10 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          170
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-4-3">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/ihris-qualify/4.3/4.3.2">
+                    4.3.2 release</a>
+                  from the
+                  <a href="/ihris-qualify/4.3">4.3</a> series released
+                  <time title="2018-04-18 11:22:33 UTC" datetime="2018-04-18T11:22:33+00:00">2018-04-18</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify Full 4.3.2 (15.6 MiB)" href="https://launchpad.net/ihris-qualify/4.3/4.3.2/+download/ihris-qualify-full-4.3.2.tar.bz2">ihris-qualify-full-4.3.2.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.3/4.3.2/+download/ihris-qualify-full-4.3.2.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify Full 4.3.2</td>
+    <td style="text-align: center;">
+      
+        28
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            18 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify 4.3.2 (6.2 MiB)" href="https://launchpad.net/ihris-qualify/4.3/4.3.2/+download/ihris-qualify-4.3.2.tar.bz2">ihris-qualify-4.3.2.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.3/4.3.2/+download/ihris-qualify-4.3.2.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify 4.3.2</td>
+    <td style="text-align: center;">
+      
+        27
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            18 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          55
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-4-3">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/ihris-qualify/4.3/4.3.0">
+                    4.3.0 release</a>
+                  from the
+                  <a href="/ihris-qualify/4.3">4.3</a> series released
+                  <time title="2018-02-14 11:22:33 UTC" datetime="2018-02-14T11:22:33+00:00">2018-02-14</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify Full 4.3.0 (15.5 MiB)" href="https://launchpad.net/ihris-qualify/4.3/4.3.0/+download/ihris-qualify-full-4.3.0.tar.bz2">ihris-qualify-full-4.3.0.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.3/4.3.0/+download/ihris-qualify-full-4.3.0.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify Full 4.3.0</td>
+    <td style="text-align: center;">
+      
+        1,532
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            12 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify 4.3.0 (6.2 MiB)" href="https://launchpad.net/ihris-qualify/4.3/4.3.0/+download/ihris-qualify-4.3.0.tar.bz2">ihris-qualify-4.3.0.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.3/4.3.0/+download/ihris-qualify-4.3.0.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify 4.3.0</td>
+    <td style="text-align: center;">
+      
+        28
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            19 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          1,560
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-4-2">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/ihris-qualify/4.2/4.2.1">
+                    4.2.1 release</a>
+                  from the
+                  <a href="/ihris-qualify/4.2">4.2</a> series released
+                  <time title="2015-09-24 11:22:33 UTC" datetime="2015-09-24T11:22:33+00:00">2015-09-24</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify Full 4.2.1 (13.5 MiB)" href="https://launchpad.net/ihris-qualify/4.2/4.2.1/+download/ihris-qualify-full-4.2.1.tar.bz2">ihris-qualify-full-4.2.1.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.2/4.2.1/+download/ihris-qualify-full-4.2.1.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify Full 4.2.1</td>
+    <td style="text-align: center;">
+      
+        245
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            6 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify 4.2.1 (6.2 MiB)" href="https://launchpad.net/ihris-qualify/4.2/4.2.1/+download/ihris-qualify-4.2.1.tar.bz2">ihris-qualify-4.2.1.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.2/4.2.1/+download/ihris-qualify-4.2.1.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify 4.2.1</td>
+    <td style="text-align: center;">
+      
+        31
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            6 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          276
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-4-1">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/ihris-qualify/4.1/4.1.12">
+                    4.1.12 release</a>
+                  from the
+                  <a href="/ihris-qualify/4.1">4.1</a> series released
+                  <time title="2015-08-18 11:22:33 UTC" datetime="2015-08-18T11:22:33+00:00">2015-08-18</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify Full 4.1.12 (13.2 MiB)" href="https://launchpad.net/ihris-qualify/4.1/4.1.12/+download/ihris-qualify-full-4.1.12.tar.bz2">ihris-qualify-full-4.1.12.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.1/4.1.12/+download/ihris-qualify-full-4.1.12.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify Full 4.1.12</td>
+    <td style="text-align: center;">
+      
+        29
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            6 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify 4.1.12 (6.1 MiB)" href="https://launchpad.net/ihris-qualify/4.1/4.1.12/+download/ihris-qualify-4.1.12.tar.bz2">ihris-qualify-4.1.12.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.1/4.1.12/+download/ihris-qualify-4.1.12.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify 4.1.12</td>
+    <td style="text-align: center;">
+      
+        24
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            6 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          53
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-4-1">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/ihris-qualify/4.1/4.1.11">
+                    4.1.11 release</a>
+                  from the
+                  <a href="/ihris-qualify/4.1">4.1</a> series released
+                  <time title="2014-12-19 11:22:33 UTC" datetime="2014-12-19T11:22:33+00:00">2014-12-19</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify Full 4.1.11 (13.1 MiB)" href="https://launchpad.net/ihris-qualify/4.1/4.1.11/+download/ihris-qualify-full-4.1.11.tar.bz2">ihris-qualify-full-4.1.11.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.1/4.1.11/+download/ihris-qualify-full-4.1.11.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify Full 4.1.11</td>
+    <td style="text-align: center;">
+      
+        26
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            16 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify 4.1.11 (6.2 MiB)" href="https://launchpad.net/ihris-qualify/4.1/4.1.11/+download/ihris-qualify-4.1.11.tar.bz2">ihris-qualify-4.1.11.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.1/4.1.11/+download/ihris-qualify-4.1.11.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify 4.1.11</td>
+    <td style="text-align: center;">
+      
+        25
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            16 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          51
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-4-1">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/ihris-qualify/4.1/4.1.10">
+                    4.1.10 release</a>
+                  from the
+                  <a href="/ihris-qualify/4.1">4.1</a> series released
+                  <time title="2014-09-05 11:22:33 UTC" datetime="2014-09-05T11:22:33+00:00">2014-09-05</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify Full 4.1.10 (13.0 MiB)" href="https://launchpad.net/ihris-qualify/4.1/4.1.10/+download/ihris-qualify-full-4.1.10.tar.bz2">ihris-qualify-full-4.1.10.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.1/4.1.10/+download/ihris-qualify-full-4.1.10.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify Full 4.1.10</td>
+    <td style="text-align: center;">
+      
+        27
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            17 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify 4.1.10 (6.1 MiB)" href="https://launchpad.net/ihris-qualify/4.1/4.1.10/+download/ihris-qualify-4.1.10.tar.bz2">ihris-qualify-4.1.10.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.1/4.1.10/+download/ihris-qualify-4.1.10.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify 4.1.10</td>
+    <td style="text-align: center;">
+      
+        22
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            17 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          49
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-4-1">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/ihris-qualify/4.1/4.1.9">
+                    4.1.9 release</a>
+                  from the
+                  <a href="/ihris-qualify/4.1">4.1</a> series released
+                  <time title="2014-01-09 11:22:33 UTC" datetime="2014-01-09T11:22:33+00:00">2014-01-09</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify 4.1.9 with I2CE, Common and TextLayout (12.9 MiB)" href="https://launchpad.net/ihris-qualify/4.1/4.1.9/+download/ihris-qualify-full-4.1.9.tar.bz2">ihris-qualify-full-4.1.9.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.1/4.1.9/+download/ihris-qualify-full-4.1.9.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify 4.1.9 with I2CE, Common and TextLayout</td>
+    <td style="text-align: center;">
+      
+        3,768
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            17 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify 4.1.9 (6.1 MiB)" href="https://launchpad.net/ihris-qualify/4.1/4.1.9/+download/ihris-qualify-4.1.9.tar.bz2">ihris-qualify-4.1.9.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.1/4.1.9/+download/ihris-qualify-4.1.9.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify 4.1.9</td>
+    <td style="text-align: center;">
+      
+        24
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            17 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          3,792
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-4-1">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/ihris-qualify/4.1/4.1.8">
+                    4.1.8 release</a>
+                  from the
+                  <a href="/ihris-qualify/4.1">4.1</a> series released
+                  <time title="2013-08-23 15:08:00 UTC" datetime="2013-08-23T15:08:00+00:00">2013-08-23</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify 4.1.8 (12.7 MiB)" href="https://launchpad.net/ihris-qualify/4.1/4.1.8/+download/ihris-qualify-full-4.1.8.tar.bz2">ihris-qualify-full-4.1.8.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.1/4.1.8/+download/ihris-qualify-full-4.1.8.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify 4.1.8</td>
+    <td style="text-align: center;">
+      
+        223
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            18 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          223
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <div id="series-4-1">
+
+          
+            <div class="portlet-border" />
+
+            
+
+              <div class="top-portlet">
+                <h3>
+                  <a href="/ihris-qualify/4.1/4.1.7">
+                    4.1.7 release</a>
+                  from the
+                  <a href="/ihris-qualify/4.1">4.1</a> series released
+                  <time title="2013-08-22 23:35:00 UTC" datetime="2013-08-22T23:35:00+00:00">2013-08-22</time>
+                </h3>
+
+                
+                <div>
+                  <table class="listing" style="margin-top: 1em;">
+                    <thead>
+                      <tr>
+                        <th width="35%">File</th>
+                        <th width="45%">Description</th>
+                        <th>Downloads</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                          
+  
+
+  
+    <td>
+      <img alt="download icon" src="/@@/download" /><strong>  <a title="iHRIS Qualify 4.1.7 (6.0 MiB)" href="https://launchpad.net/ihris-qualify/4.1/4.1.7/+download/ihris-qualify-4.1.7.tar.bz2">ihris-qualify-4.1.7.tar.bz2</a> </strong>(<a href="https://launchpad.net/ihris-qualify/4.1/4.1.7/+download/ihris-qualify-4.1.7.tar.bz2/+md5">md5</a>)
+    </td>
+    <td>iHRIS Qualify 4.1.7</td>
+    <td style="text-align: center;">
+      
+        25
+        <br />
+        <span class="lesser greyed-out">
+          last downloaded
+          
+          <strong>
+            6 weeks
+            ago
+          </strong>
+        </span>
+      
+      
+    </td>
+    
+  
+
+
+                        
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="2" style="padding-top: 1em; text-align: right;">
+                          Total downloads:
+                        </th>
+                        <td style="border: none; text-align: center;">
+                          25
+                        </td>
+                        
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                
+
+                
+              </div>
+            
+
+            <br />
+          
+
+        </div>
+      
+      
+        <table style="width: 100%;" class="lower-batch-nav">
+  <tbody>
+    <tr>
+      <td style="white-space: nowrap" class="batch-navigation-index">
+        
+            <strong>1</strong>
+            
+              &rarr;
+              <strong>10</strong>
+            
+            of
+            42
+            releases
+        
+      </td>
+      <td style="text-align: right; white-space: nowrap" class="batch-navigation-links">
+        
+        <span class="first inactive">First</span>
+        &bull;
+        
+        <span class="previous inactive">Previous</span>
+        &bull;
+        <a class="next" rel="next" href="https://launchpad.net/ihris-qualify/+download?memo=10&amp;start=10" id="lower-batch-nav-batchnav-next"><strong>Next</strong></a>
+        
+        
+          &bull;
+          <a class="last" rel="last" href="https://launchpad.net/ihris-qualify/+download?direction=backwards&amp;start=40" id="lower-batch-nav-batchnav-last">Last</a>
+          
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+      
+    
+    </div>
+    <div id="admin-links">
+      
+        
+      
+      
+        
+          
+        
+      
+      
+        
+          
+        
+      
+      
+        
+          
+        
+      
+      
+        
+          
+        
+      
+      
+        
+      
+      
+        
+          
+        
+      
+      
+        
+          
+        
+      
+    </div>
+    
+
+  </form>
+</div>
+            
+            
+          </div><!-- yui-b -->
+        </div><!-- yui-main -->
+
+        
+          <!-- yui-b side -->
+        
+      <!-- yui-t4 -->
+
+      
+  <div id="footer" class="footer">
+    <div class="lp-arcana">
+        <div class="lp-branding">
+          <a href="https://launchpad.net/"><img src="/@@/launchpad-footer-logo.svg" alt="Launchpad" width="65" height="18" /></a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://launchpad.net/+tour">Take the tour</a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://documentation.ubuntu.com/launchpad/">Read the guide</a>
+          &nbsp;
+          <form id="globalsearch" method="get" accept-charset="UTF-8" action="https://launchpad.net/+search">
+            <input type="search" id="search-text" name="field.text" />
+            <input type="image" src="/@@/search" style="vertical-align:5%" alt="Search Launchpad" />
+          </form>
+        </div>
+        
+  
+
+    </div>
+
+    <div class="colophon">
+      &copy; 2004
+      <a href="http://canonical.com/">Canonical&nbsp;Ltd.</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://ubuntu.com/legal/launchpad-terms-of-service">Terms of use</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://www.ubuntu.com/legal/dataprivacy">Data privacy</a>
+      &nbsp;&bull;&nbsp;
+      <a href="/feedback">Contact Launchpad Support</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://blog.launchpad.net/">Blog</a>
+      
+	&nbsp;&bull;&nbsp;
+	<a href="https://canonical.com/careers">Careers</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="https://status.canonical.com/">System status</a>
+      <span id="lp-version">
+      &nbsp;&bull;&nbsp;
+        6c05f5b
+        
+        
+        (<a href="https://documentation.ubuntu.com/launchpad/developer/how-to/get-source-code/">Get the code!</a>)
+      </span>
+    </div>
+  </div>
+
+    </div><!-- yui-d0-->
+
+    
+  
+  
+  <script id="json-cache-script">LP.cache = {"related_features": {}, "context": {"self_link": "https://launchpad.net/api/devel/ihris-qualify", "web_link": "https://launchpad.net/ihris-qualify", "resource_type_link": "https://launchpad.net/api/devel/#project", "translations_usage": "Launchpad", "official_answers": true, "official_blueprints": false, "official_codehosting": true, "official_bugs": true, "information_type": "Public", "active": true, "all_specifications_collection_link": "https://launchpad.net/api/devel/ihris-qualify/all_specifications", "valid_specifications_collection_link": "https://launchpad.net/api/devel/ihris-qualify/valid_specifications", "bug_reporting_guidelines": null, "content_templates": null, "bug_reported_acknowledgement": null, "official_bug_tags": [], "recipes_collection_link": "https://launchpad.net/api/devel/ihris-qualify/recipes", "webhooks_collection_link": "https://launchpad.net/api/devel/ihris-qualify/webhooks", "active_milestones_collection_link": "https://launchpad.net/api/devel/ihris-qualify/active_milestones", "all_milestones_collection_link": "https://launchpad.net/api/devel/ihris-qualify/all_milestones", "bug_supervisor_link": "https://launchpad.net/api/devel/~lduncan", "translationgroup_link": null, "translationpermission": "Open", "qualifies_for_free_hosting": true, "reviewer_whiteboard": "tag:launchpad.net:2008:redacted", "is_permitted": "tag:launchpad.net:2008:redacted", "project_reviewed": "tag:launchpad.net:2008:redacted", "license_approved": "tag:launchpad.net:2008:redacted", "private": false, "display_name": "iHRIS Qualify", "icon_link": "https://launchpad.net/api/devel/ihris-qualify/icon", "logo_link": "https://launchpad.net/api/devel/ihris-qualify/logo", "name": "ihris-qualify", "owner_link": "https://launchpad.net/api/devel/~intrahealth+informatics", "project_group_link": "https://launchpad.net/api/devel/ihris-suite", "title": "iHRIS Qualify", "registrant_link": "https://launchpad.net/api/devel/~intrahealth+informatics", "driver_link": null, "summary": "iHRIS Qualify is a health worker training, licensing and certification tracking system. The system enables a licensing or certification authority for a health worker cadre, such as nurses or physicians, to track data on the complete cadre in a country from pre-service training through attrition.", "description": "iHRIS Qualify is a free, Open Source software solution distributed under the GPL and developed by The Capacity Project, an innovative global initiative to help developing countries build and sustain the health workforce. The database captures information about health professionals from the time they enter pre-service training through registration, certification and licensure, and it is updated every time a professional's license or certification is renewed. This system is also capable of tracking continuing medical education attained by health workers, capturing data about foreign-trained workers applying to work within the country and recording out migration verification requests. \n\niHRIS Qualify is intended for use by a health cadre licensing or certification authority. This authority is generally an autonomous council that regulates the registration, operations and conduct of a cadre of medical professionals within a country's health workforce. The council may be charged with enforcing minimum qualifications for students entering health training programs, administering national-level examinations that qualify a graduating student to practice within the country, maintaining licenses for health professionals that are renewed periodically, verifying that continuing medical education requirements have been completed before renewing licenses, issuing private practice licenses to qualified health professionals, verifying qualifications of foreign-trained health workers applying to work within the country and verifying qualifications of health workers applying to work in foreign countries. The council would use iHRIS Qualify to capture, update and report on data from all of these activities. \n\nTypically, there are separate authorities to regulate doctors, dentists, nurses, pharmacists and allied health professionals. Each separate authority would maintain its own iHRIS Qualify system, but data from all systems may be aggregated to provide a complete picture of the country's health workforce. A policy maker can analyze the data captured by iHRIS Qualify to answer critical human resources for health policy and management questions.\n\nTo join the iHRIS forum, go to https://groups.google.com/forum/?fromgroups#!forum/ihris\n\nTo view the development wiki, go to http://open.intrahealth.org/wiki/index.php/Main_Page", "date_created": "2007-09-10T19:20:30.239823+00:00", "homepage_url": "http://www.capacityproject.org/hris/suite/ihris_qualify.php", "wiki_url": "http://open.intrahealth.org/wiki/index.php/Main_Page", "screenshots_url": null, "download_url": null, "programming_language": "PHP", "sourceforge_project": null, "freshmeat_project": null, "brand_link": "https://launchpad.net/api/devel/ihris-qualify/brand", "branch_sharing_policy": "Public", "bug_sharing_policy": "Public", "specification_sharing_policy": "Public", "licenses": ["GNU GPL v3"], "license_info": null, "bug_tracker_link": null, "series_collection_link": "https://launchpad.net/api/devel/ihris-qualify/series", "development_focus_link": "https://launchpad.net/api/devel/ihris-qualify/trunk", "releases_collection_link": "https://launchpad.net/api/devel/ihris-qualify/releases", "translation_focus_link": null, "commercial_subscription_link": null, "commercial_subscription_is_due": false, "remote_product": null, "vcs": "Bazaar", "http_etag": "\"c11f156eee8b46fdad4ccb9c31b677ca859a30e3-eeae15b80e3ad12aa4a07b3de050dcffe018f8c3\""}};</script>
+
+    
+  
+
+    
+  </body>
+
+
+  <!--
+    Facet name: overview
+    Page type: main_only
+    Has global search: True
+    Has application tabs: True
+    Has side portlets: False
+
+    At least 22 queries/external actions issued in 1.11 seconds
+
+    Features: {'profiling.enabled': None, 'hard_timeout': '5000', 'js.yui_version': None, 'app.mainsite_only.canonical_url': None, 'app.maintenance_message': None, 'baselayout.careers_link.disabled': None, 'visible_render_time': None}
+
+    r6c05f5b
+
+    -->
+
+</html>
+

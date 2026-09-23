@@ -1,0 +1,40 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "release/ihris-common/4.1.3",
+  "kind": "item",
+  "flavour": "release",
+  "title": "iHRIS Common 4.1.3",
+  "parents": [
+    [
+      "project/ihris-common",
+      "series/ihris-common/4.1"
+    ]
+  ],
+  "metadataRef": "records/release--ihris-common--4.1.3.json",
+  "bitstreams": [
+    {
+      "name": "ihris-common-full-4.1.3.tar.bz2",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://launchpad.net/ihris-common/4.1/4.1.3/+download/ihris-common-full-4.1.3.tar.bz2"
+        }
+      }
+    },
+    {
+      "name": "ihris-common-4.1.3.tar.bz2",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://launchpad.net/ihris-common/4.1/4.1.3/+download/ihris-common-4.1.3.tar.bz2"
+        }
+      }
+    }
+  ],
+  "materialization": {
+    "state": "referenced",
+    "provenance": {
+      "upstream": "https://launchpad.net/ihris-common/+milestone/4.1.3"
+    }
+  }
+}

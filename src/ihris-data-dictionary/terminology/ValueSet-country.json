@@ -1,0 +1,18 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-country",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/country",
+  "version": "4.3.3",
+  "name": "IHRISCountryVS",
+  "title": "iHRIS Country",
+  "status": "draft",
+  "experimental": true,
+  "description": "All current codes of ISO 3166-1 alpha-2 (urn:iso:std:iso:3166). The DAK binds to the standard, not to iHRIS's shipped `country` list; that list is CodeSystem `country` here, mapped to the standard by ConceptMap `country-to-iso-3166`.",
+  "compose": {
+    "include": [
+      {
+        "system": "urn:iso:std:iso:3166"
+      }
+    ]
+  }
+}

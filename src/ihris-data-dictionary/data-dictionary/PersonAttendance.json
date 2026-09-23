@@ -1,0 +1,337 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.PersonAttendance",
+  "group": "PersonAttendance",
+  "title": "Attendance Information",
+  "class": "iHRIS_PersonAttendance",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_attendance"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_PersonAttendance"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/PersonAttendance",
+  "elements": [
+    {
+      "id": "IHRIS.DE.PersonAttendance.month_year",
+      "activityId": null,
+      "formIds": [
+        "person_attendance"
+      ],
+      "formDataElementLabel": "Month and Year",
+      "dataElementLabel": "Month and Year",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Attendance Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "year and month only",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonAttendance",
+        "field": "month_year",
+        "i2ceType": "DATE_YM",
+        "definedIn": [
+          "ihris-manage/module/PersonAttendance"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonAttendance.days_present",
+      "activityId": null,
+      "formIds": [
+        "person_attendance"
+      ],
+      "formDataElementLabel": "Total Number of Days Present",
+      "dataElementLabel": "Total Number of Days Present",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Integer quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Attendance Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonAttendance",
+        "field": "days_present",
+        "i2ceType": "INT",
+        "definedIn": [
+          "ihris-manage/module/PersonAttendance"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonAttendance.days_off_request",
+      "activityId": null,
+      "formIds": [
+        "person_attendance"
+      ],
+      "formDataElementLabel": "Total Number of Days of Special Request Absence",
+      "dataElementLabel": "Total Number of Days of Special Request Absence",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Integer quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Attendance Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonAttendance",
+        "field": "days_off_request",
+        "i2ceType": "INT",
+        "definedIn": [
+          "ihris-manage/module/PersonAttendance"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonAttendance.days_off_duty",
+      "activityId": null,
+      "formIds": [
+        "person_attendance"
+      ],
+      "formDataElementLabel": "Total Number of Days Off Duty",
+      "dataElementLabel": "Total Number of Days Off Duty",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Integer quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Attendance Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonAttendance",
+        "field": "days_off_duty",
+        "i2ceType": "INT",
+        "definedIn": [
+          "ihris-manage/module/PersonAttendance"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonAttendance.days_leave",
+      "activityId": null,
+      "formIds": [
+        "person_attendance"
+      ],
+      "formDataElementLabel": "Total Number of Days on Leave",
+      "dataElementLabel": "Total Number of Days on Leave",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Integer quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Attendance Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonAttendance",
+        "field": "days_leave",
+        "i2ceType": "INT",
+        "definedIn": [
+          "ihris-manage/module/PersonAttendance"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonAttendance.position",
+      "activityId": null,
+      "formIds": [
+        "person_attendance"
+      ],
+      "formDataElementLabel": "Current Position",
+      "dataElementLabel": "Current Position",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/position"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Attendance Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonAttendance",
+        "field": "position",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-manage/module/PersonAttendance"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonAttendance.days_absent",
+      "activityId": null,
+      "formIds": [
+        "person_attendance"
+      ],
+      "formDataElementLabel": "Total Number of Days Absent",
+      "dataElementLabel": "Total Number of Days Absent",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Integer quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Attendance Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonAttendance",
+        "field": "days_absent",
+        "i2ceType": "INT",
+        "definedIn": [
+          "ihris-manage/module/PersonAttendance"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonAttendance.absenteeism_rate",
+      "activityId": null,
+      "formIds": [
+        "person_attendance"
+      ],
+      "formDataElementLabel": "Absenteeism Rate",
+      "dataElementLabel": "Absenteeism Rate",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Quantity",
+      "quantitySubType": "Integer quantity",
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Attendance Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "percentage (unit %)",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonAttendance",
+        "field": "absenteeism_rate",
+        "i2ceType": "PERCENT_INT",
+        "definedIn": [
+          "ihris-manage/module/PersonAttendance"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.PersonAttendance.month_year_day",
+      "activityId": null,
+      "formIds": [
+        "person_attendance"
+      ],
+      "formDataElementLabel": "Month Year Day",
+      "dataElementLabel": "Month Year Day",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Attendance Information",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonAttendance",
+        "field": "month_year_day",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/PersonAttendance"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

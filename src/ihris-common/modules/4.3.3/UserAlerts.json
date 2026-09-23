@@ -1,0 +1,67 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/UserAlerts",
+  "module": "UserAlerts",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/UserAlerts/UserAlerts.xml",
+    "sha256": "4e781c3f24970b0c36c1755460bc131bf61f9682a6dd956bd9e3c0824b11cae1"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "User Alerts",
+  "description": "A module that enables assigning an alert to a user to be seen on an alert page.",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_UserAlerts",
+  "category": "Application Component",
+  "creator": "Luke Duncan",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "fields-enum"
+    },
+    {
+      "module": "jumper"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "user",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "user_alert",
+      "class": "iHRIS_UserAlert",
+      "displayName": "User Alert"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_UserAlert"
+  ],
+  "pages": [
+    {
+      "page": "user_alert",
+      "class": "iHRIS_PageFormParentUser",
+      "style": "ihris_common_page_form_parent_user"
+    },
+    {
+      "page": "view_alerts",
+      "class": "iHRIS_PageViewUserAlerts",
+      "style": "shell"
+    },
+    {
+      "page": "ack_alert",
+      "class": "iHRIS_PageAckUserAlerts",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

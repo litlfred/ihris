@@ -1,0 +1,60 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-isco-08-major",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/isco_08_major",
+  "version": "4.3.3",
+  "name": "IHRISISCO08MajorVS",
+  "title": "ISCO-08 major groups (as shipped in iHRIS)",
+  "status": "draft",
+  "experimental": true,
+  "description": "The 10 ISCO-08 major groups iHRIS 4.3.3 ships by default (`isco_08_major`), as codes of the ILO ISCO-08 system under the ILO's system URL (http://www.ilo.org/public/english/bureau/stat/isco/isco08/).",
+  "compose": {
+    "include": [
+      {
+        "system": "http://www.ilo.org/public/english/bureau/stat/isco/isco08/",
+        "concept": [
+          {
+            "code": "0",
+            "display": "Armed forces occupations"
+          },
+          {
+            "code": "1",
+            "display": "Managers"
+          },
+          {
+            "code": "2",
+            "display": "Professionals"
+          },
+          {
+            "code": "3",
+            "display": "Technicians and associate professionals"
+          },
+          {
+            "code": "4",
+            "display": "Clerical support workers"
+          },
+          {
+            "code": "5",
+            "display": "Service and sales workers"
+          },
+          {
+            "code": "6",
+            "display": "Skilled agricultural, forestry and fishery workers"
+          },
+          {
+            "code": "7",
+            "display": "Craft and related trades workers"
+          },
+          {
+            "code": "8",
+            "display": "Plant and machine operators, and assemblers"
+          },
+          {
+            "code": "9",
+            "display": "Elementary occupations"
+          }
+        ]
+      }
+    ]
+  }
+}

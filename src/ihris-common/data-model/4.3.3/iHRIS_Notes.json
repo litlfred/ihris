@@ -1,0 +1,37 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Notes",
+  "class": "iHRIS_Notes",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "notes"
+  ],
+  "definedIn": [
+    "ihris-common/module/PersonNotes"
+  ],
+  "fields": [
+    {
+      "field": "note",
+      "type": "STRING_MLINE",
+      "label": "Note",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonNotes"
+      ]
+    },
+    {
+      "field": "date_added",
+      "type": "DATE_YMD",
+      "label": "Date Added",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonNotes"
+      ]
+    }
+  ]
+}

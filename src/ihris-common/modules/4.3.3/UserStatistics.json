@@ -1,0 +1,56 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/UserStatistics",
+  "module": "UserStatistics",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/UserStatistics/UserStatistics.xml",
+    "sha256": "a2da9c0e09995a36e1b39323d47b8eb8e0de47d387df574885ecafcc1826b9ca"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "User Statistics",
+  "description": "User Statistics page and updates for user view page.",
+  "version": "4.3.2.0",
+  "className": "iHRIS_Module_UserStatistics",
+  "category": "Administration",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "UserAccess",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "UserForm",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage-entry",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "entry_change_type": 4
+  },
+  "locales": [
+    "en_US"
+  ]
+}

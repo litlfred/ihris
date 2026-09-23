@@ -1,0 +1,81 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_ProviderName",
+  "class": "CSD_ProviderName",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "csd_provider_name"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-provider-data-model"
+  ],
+  "fields": [
+    {
+      "field": "common_name",
+      "type": "ASSOC_LIST",
+      "label": "Common Name",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "other_name",
+      "type": "ASSOC_LIST",
+      "label": "Other Names",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "honorific",
+      "type": "STRING_LINE",
+      "label": "Honorific",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "forename",
+      "type": "STRING_LINE",
+      "label": "Forename",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "surname",
+      "type": "STRING_LINE",
+      "label": "Surname",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "suffix",
+      "type": "STRING_LINE",
+      "label": "Suffix",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    }
+  ]
+}

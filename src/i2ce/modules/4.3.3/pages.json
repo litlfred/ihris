@@ -1,0 +1,71 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/pages",
+  "module": "pages",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Pages/Page.xml",
+    "sha256": "19def7a7be0b7fd2d08a22f814cacb4409af306f5f04baf2ec3d35f29ffc43ec"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Pages",
+  "description": "Provides pages, Users and Templates",
+  "version": "4.3.3.0",
+  "className": null,
+  "category": "Base System Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "I2CE",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "user",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "permissions",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "noaccess",
+      "class": "I2CE_Page",
+      "style": "main"
+    }
+  ],
+  "dataLists": {
+    "role": 3
+  },
+  "locales": [
+    "ar",
+    "cs",
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "gl",
+    "it",
+    "nl",
+    "pt",
+    "pt_BR",
+    "si",
+    "sw",
+    "tl",
+    "uk"
+  ]
+}

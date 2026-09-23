@@ -1,0 +1,136 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.PersonCompetency",
+  "group": "PersonCompetency",
+  "title": "Person Competency",
+  "class": "iHRIS_PersonCompetency",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_competency"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_PersonCompetency"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/PersonCompetency",
+  "elements": [
+    {
+      "id": "IHRIS.DE.PersonCompetency.evaluation_date",
+      "activityId": null,
+      "formIds": [
+        "person_competency"
+      ],
+      "formDataElementLabel": "Last Evaluated",
+      "dataElementLabel": "Last Evaluated",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Competency",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonCompetency",
+        "field": "evaluation_date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-common/module/person-simple-competency"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PersonCompetency.competency_evaluation",
+      "activityId": null,
+      "formIds": [
+        "person_competency"
+      ],
+      "formDataElementLabel": "Evaluation",
+      "dataElementLabel": "Evaluation",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/competency_evaluation"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Competency",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonCompetency",
+        "field": "competency_evaluation",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/person-simple-competency"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PersonCompetency.competency",
+      "activityId": null,
+      "formIds": [
+        "person_competency"
+      ],
+      "formDataElementLabel": "Competency",
+      "dataElementLabel": "Competency",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "List - select one",
+      "quantitySubType": null,
+      "inputOptions": [
+        "https://litlfred.github.io/ihris/dak/ValueSet/competency"
+      ],
+      "inputOptionsSource": "i2ce-default (form named after the field)",
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Person Competency",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "unique",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PersonCompetency",
+        "field": "competency",
+        "i2ceType": "MAP",
+        "definedIn": [
+          "ihris-common/module/person-simple-competency"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-qualifications.md"
+      ]
+    }
+  ]
+}

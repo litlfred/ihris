@@ -1,0 +1,53 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-leave-status",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/leave_status",
+  "version": "4.3.3",
+  "name": "IHRISLeaveStatus",
+  "title": "iHRIS Leave Status",
+  "status": "draft",
+  "experimental": true,
+  "description": "The `leave_status` list as shipped by default in iHRIS 4.3.3 (modules: ihris-manage/module/leave_data). Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped baseline, not a closed international code set.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 3,
+  "property": [
+    {
+      "code": "i2ce_hidden",
+      "type": "string",
+      "description": "iHRIS field `i2ce_hidden`"
+    }
+  ],
+  "concept": [
+    {
+      "code": "1",
+      "display": "Approved",
+      "property": [
+        {
+          "code": "i2ce_hidden",
+          "valueString": "0"
+        }
+      ]
+    },
+    {
+      "code": "2",
+      "display": "Denied",
+      "property": [
+        {
+          "code": "i2ce_hidden",
+          "valueString": "0"
+        }
+      ]
+    },
+    {
+      "code": "3",
+      "display": "Waiting Approval",
+      "property": [
+        {
+          "code": "i2ce_hidden",
+          "valueString": "0"
+        }
+      ]
+    }
+  ]
+}

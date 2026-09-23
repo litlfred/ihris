@@ -1,0 +1,81 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_OperatingHours",
+  "class": "CSD_OperatingHours",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "csd_operating_hours"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-provider-data-model"
+  ],
+  "fields": [
+    {
+      "field": "begin_date",
+      "type": "DATE_YMD",
+      "label": "Begin Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "end_date",
+      "type": "DATE_YMD",
+      "label": "End Date",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "day_of_week",
+      "type": "MAP",
+      "label": "Day of Week",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "begin_time",
+      "type": "DATE_HMS",
+      "label": "Beginning Time",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "end_time",
+      "type": "DATE_HMS",
+      "label": "Ending Time",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    },
+    {
+      "field": "open",
+      "type": "BOOL",
+      "label": "Open",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-provider-data-model"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/CSD_FacilitySearch",
+  "class": "CSD_FacilitySearch",
+  "release": "4.3.3",
+  "extends": "CSD_FacilityNameSearch",
+  "forms": [
+    "csd_facility_search"
+  ],
+  "definedIn": [
+    "ihris-common/module/csd-search"
+  ],
+  "fields": [
+    {
+      "field": "entityID",
+      "type": "STRING_LINE",
+      "label": "Entity ID",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "csd_facility_otherid_type",
+      "type": "MAP",
+      "label": "ID Type",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "assigning_authority",
+      "type": "STRING_LINE",
+      "label": "Assigning Authority",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "number",
+      "type": "STRING_LINE",
+      "label": "ID Number",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "csd_facility_type",
+      "type": "MAP",
+      "label": "Facility Type",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "csd_facility_status",
+      "type": "MAP",
+      "label": "Facility Status",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    },
+    {
+      "field": "address",
+      "type": "ASSOC_MAP",
+      "label": "Address",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/csd-search"
+      ]
+    }
+  ]
+}

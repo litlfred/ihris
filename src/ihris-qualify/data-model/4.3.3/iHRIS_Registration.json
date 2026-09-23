@@ -1,0 +1,61 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-qualify/form-class/iHRIS_Registration",
+  "class": "iHRIS_Registration",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "registration"
+  ],
+  "definedIn": [
+    "ihris-qualify/module/ihris-qualify"
+  ],
+  "fields": [
+    {
+      "field": "registration_number",
+      "type": "INT_GENERATE",
+      "label": "Registration Number",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "application_date",
+      "type": "DATE_YMD",
+      "label": "Application Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "registration_date",
+      "type": "DATE_YMD",
+      "label": "Registration Date",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    },
+    {
+      "field": "practice_type",
+      "type": "MAP",
+      "label": "Practice Type",
+      "required": true,
+      "unique": null,
+      "references": [
+        "registration_type"
+      ],
+      "definedIn": [
+        "ihris-qualify/module/ihris-qualify"
+      ]
+    }
+  ]
+}

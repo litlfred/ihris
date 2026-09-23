@@ -1,0 +1,55 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/SVS",
+  "module": "SVS",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/SVS/SVS.xml",
+    "sha256": "5633c8bbdb51ad2bc2d22e2a428ed9639fc10dd5bcb9a7fe9ea548207c38ee9a"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "Sharing Value Sets (SVS) Repository",
+  "description": "Allows publishing of lists as SVS according to http://www.ihe.net/Technical_Framework/upload/IHE_ITI_Suppl_SVS_Rev2-1_TI_2010-08-10.pdf",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Data Standards",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/common",
+  "requirements": [
+    {
+      "module": "Lists",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "forms-storage-xml",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [
+    "ihris-common/form-class/SVS_CodedList"
+  ],
+  "pages": [
+    {
+      "page": "retrieve_value_set",
+      "class": "iHRIS_Page_RetrieveValueSet",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": []
+}

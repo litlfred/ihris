@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-data-list.schema.json",
+  "title": "ihris-data-list/v1",
+  "description": "The records one iHRIS package ships for one list form (//I2CE/formsData/forms/<form>/<id>) in a release, each attributed to the module that ships it. `provenance` separates a module's DEFAULT data, installed with the module (e.g. ISO countries, gender), from SAMPLE data (SampleData-* modules and sites), which illustrates one country's lists and must never be read as a standard code set.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "id", "form", "release", "records"],
+  "properties": {
+    "$schema": { "const": "ihris-data-list/v1" },
+    "id": { "type": "string" }, "form": { "type": "string" }, "release": { "type": "string" },
+    "source": { "type": "object", "additionalProperties": false, "properties": { "releaseFile": { "type": "string" }, "releaseFileMd5": { "type": "string" } } },
+    "counts": { "type": "object", "additionalProperties": { "type": "integer" } },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["id", "fields", "definedIn", "provenance"],
+        "properties": {
+          "id": { "type": "string", "description": "the record id; with the form, the I2CE key `form|id`" },
+          "fields": { "type": "object", "additionalProperties": { "type": ["string", "array"] }, "description": "field -> value as shipped; MAP values are `form|id`" },
+          "lastModified": { "type": "string" }, "parent": { "type": "string" },
+          "definedIn": { "type": "string" },
+          "provenance": { "enum": ["default", "sample"] }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/PersonArchivedScan",
+  "module": "PersonArchivedScan",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/ArchivalScans/ArchivalScans.xml",
+    "sha256": "d99a388b6ea976e5621d11aa443b3ff2243265f8248f547cd3f6fd52b05fb4da"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "Archived Paper Records",
+  "description": "Provides place to archive scans of paper records",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_ArchivedScan",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.0"
+    },
+    {
+      "module": "Photo",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person_archive_scan",
+      "class": "iHRIS_Archive",
+      "displayName": "Scanned Paper Record"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Archive"
+  ],
+  "pages": [
+    {
+      "page": "person_archive_scan",
+      "class": null,
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/PersonEducation",
+  "module": "PersonEducation",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/Education/Education.xml",
+    "sha256": "4e508e563777caa1545c2243dde19364d785b8c51dd7c4e70092c571ead5d459"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "iHRIS Person Education",
+  "description": "A Person's Education and Degree Details",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_PersonEducation",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.1"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "degree",
+      "class": "iHRIS_Degree",
+      "displayName": "Degree"
+    },
+    {
+      "form": "edu_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Education Type"
+    },
+    {
+      "form": "education",
+      "class": "iHRIS_Education",
+      "displayName": "Education History"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_Degree",
+    "ihris-common/form-class/iHRIS_Education"
+  ],
+  "pages": [
+    {
+      "page": "education",
+      "class": null,
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

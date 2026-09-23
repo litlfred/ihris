@@ -1,0 +1,59 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/PersonResume",
+  "module": "PersonResume",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/Resume/Resume.xml",
+    "sha256": "ba823cb44527b23dd7c4735b9b959f75837d7a9ff4bd724964a04d49cad7c7a6"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "iHRIS Person Resume",
+  "description": "A Person's Resume",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_Resume",
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "Person",
+      "atLeast": "4.0"
+    },
+    {
+      "module": "Document",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person_resume",
+      "class": "iHRIS_Document",
+      "displayName": "Person Resume"
+    },
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    }
+  ],
+  "formClasses": [],
+  "pages": [
+    {
+      "page": "person_resume",
+      "class": null,
+      "style": "ihris_common_page_form_parent_person"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

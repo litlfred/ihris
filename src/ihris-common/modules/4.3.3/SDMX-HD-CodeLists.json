@@ -1,0 +1,258 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/SDMX-HD-CodeLists",
+  "module": "SDMX-HD-CodeLists",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/SDMX-HD-CodeLists/SDMX-HD-CodeLists.xml",
+    "sha256": "5039d3e52a7acf85d83e3d737522defe5048ebaf0e94accd28df4ce72293c5ca"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "SDMX-HD Code Lists",
+  "description": "Information to load SDMX-HD Code Lists.",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": "Luke Duncan",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "ihris-common",
+      "atLeast": "4.0"
+    },
+    {
+      "module": "forms-storage-SDMXHD",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "cl_asource",
+      "class": "I2CE_SimpleList",
+      "displayName": "Administrative Source"
+    },
+    {
+      "form": "cl_cstype",
+      "class": "I2CE_SimpleList",
+      "displayName": "Calculation Syntax Type"
+    },
+    {
+      "form": "cl_currency",
+      "class": "I2CE_SimpleList",
+      "displayName": "Currency"
+    },
+    {
+      "form": "cl_day",
+      "class": "I2CE_SimpleList",
+      "displayName": "Days"
+    },
+    {
+      "form": "cl_disagg",
+      "class": "I2CE_SimpleList",
+      "displayName": "Disaggregation"
+    },
+    {
+      "form": "cl_disease",
+      "class": "I2CE_SimpleList",
+      "displayName": "Disease"
+    },
+    {
+      "form": "cl_disstat",
+      "class": "I2CE_SimpleList",
+      "displayName": "Disease Status"
+    },
+    {
+      "form": "cl_dsource",
+      "class": "I2CE_SimpleList",
+      "displayName": "Data Source"
+    },
+    {
+      "form": "cl_dstype",
+      "class": "I2CE_SimpleList",
+      "displayName": "Data Source Type"
+    },
+    {
+      "form": "cl_dtype",
+      "class": "I2CE_SimpleList",
+      "displayName": "Datatype"
+    },
+    {
+      "form": "cl_fperiod",
+      "class": "I2CE_SimpleList",
+      "displayName": "Followup Period"
+    },
+    {
+      "form": "cl_gboundary_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Boundary Type"
+    },
+    {
+      "form": "cl_gcode_country",
+      "class": "I2CE_SimpleList",
+      "displayName": "Country Code"
+    },
+    {
+      "form": "cl_gender",
+      "class": "I2CE_SimpleList",
+      "displayName": "Gender"
+    },
+    {
+      "form": "cl_glevel",
+      "class": "I2CE_SimpleList",
+      "displayName": "Geographic Level"
+    },
+    {
+      "form": "cl_glocation",
+      "class": "I2CE_SimpleList",
+      "displayName": "Geographic Location"
+    },
+    {
+      "form": "cl_hif1",
+      "class": "I2CE_SimpleList",
+      "displayName": "Health Indicator Framework 1"
+    },
+    {
+      "form": "cl_hif2",
+      "class": "I2CE_SimpleList",
+      "displayName": "Health Indicator Framework 2"
+    },
+    {
+      "form": "cl_income",
+      "class": "I2CE_SimpleList",
+      "displayName": "Individual Income"
+    },
+    {
+      "form": "cl_logical",
+      "class": "I2CE_SimpleList",
+      "displayName": "Logical: extended list for boolean values"
+    },
+    {
+      "form": "cl_metype",
+      "class": "I2CE_SimpleList",
+      "displayName": "Monitoring and Evaluation Framework"
+    },
+    {
+      "form": "cl_month",
+      "class": "I2CE_SimpleList",
+      "displayName": "Months"
+    },
+    {
+      "form": "cl_mult",
+      "class": "I2CE_SimpleList",
+      "displayName": "Multiplier"
+    },
+    {
+      "form": "cl_operand",
+      "class": "I2CE_SimpleList",
+      "displayName": "Operand type of indicator"
+    },
+    {
+      "form": "cl_orphan",
+      "class": "I2CE_SimpleList",
+      "displayName": "Orphan Type"
+    },
+    {
+      "form": "cl_otype",
+      "class": "I2CE_SimpleList",
+      "displayName": "Organization Type"
+    },
+    {
+      "form": "cl_periodicity",
+      "class": "I2CE_SimpleList",
+      "displayName": "Periodicity"
+    },
+    {
+      "form": "cl_preg",
+      "class": "I2CE_SimpleList",
+      "displayName": "Pregnancy Status"
+    },
+    {
+      "form": "cl_pstatus",
+      "class": "I2CE_SimpleList",
+      "displayName": "Programme Status"
+    },
+    {
+      "form": "cl_ptype",
+      "class": "I2CE_SimpleList",
+      "displayName": "Programme Type"
+    },
+    {
+      "form": "cl_quarter",
+      "class": "I2CE_SimpleList",
+      "displayName": "Quarters"
+    },
+    {
+      "form": "cl_race",
+      "class": "I2CE_SimpleList",
+      "displayName": "Race"
+    },
+    {
+      "form": "cl_sector",
+      "class": "I2CE_SimpleList",
+      "displayName": "Sector"
+    },
+    {
+      "form": "cl_sex",
+      "class": "I2CE_SimpleList",
+      "displayName": "Biologic Sex"
+    },
+    {
+      "form": "cl_special_value",
+      "class": "I2CE_SimpleList",
+      "displayName": "Special Value"
+    },
+    {
+      "form": "cl_stype",
+      "class": "I2CE_SimpleList",
+      "displayName": "Statistic Type"
+    },
+    {
+      "form": "cl_tpop",
+      "class": "I2CE_SimpleList",
+      "displayName": "Target Population"
+    },
+    {
+      "form": "cl_unit",
+      "class": "I2CE_SimpleList",
+      "displayName": "Unit"
+    },
+    {
+      "form": "cl_value_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Value Type"
+    },
+    {
+      "form": "cl_vstatus",
+      "class": "I2CE_SimpleList",
+      "displayName": "Version Status"
+    },
+    {
+      "form": "cl_vulnstat",
+      "class": "I2CE_SimpleList",
+      "displayName": "Vulnerability Status"
+    },
+    {
+      "form": "cl_week",
+      "class": "I2CE_SimpleList",
+      "displayName": "Weeks"
+    },
+    {
+      "form": "cl_year",
+      "class": "I2CE_SimpleList",
+      "displayName": "Years"
+    }
+  ],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_Employment",
+  "class": "iHRIS_Employment",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "employment"
+  ],
+  "definedIn": [
+    "ihris-common/module/PersonEmployment"
+  ],
+  "fields": [
+    {
+      "field": "company_name",
+      "type": "STRING_LINE",
+      "label": "Company Name",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "company_address",
+      "type": "STRING_MLINE",
+      "label": "Company Address",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "company_phone",
+      "type": "STRING_LINE",
+      "label": "Company Telephone",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "start_date",
+      "type": "DATE_YMD",
+      "label": "Date Started",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "start_wage",
+      "type": "CURRENCY",
+      "label": "Starting Wage",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "start_position",
+      "type": "STRING_LINE",
+      "label": "Starting Position",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "end_date",
+      "type": "DATE_YMD",
+      "label": "Date Ended (leave blank if still employed)",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "end_wage",
+      "type": "CURRENCY",
+      "label": "Ending Wage",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "end_position",
+      "type": "STRING_LINE",
+      "label": "Ending Position",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "supervisor",
+      "type": "STRING_LINE",
+      "label": "Supervisor",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "contact_ok",
+      "type": "YESNO",
+      "label": "Ok to Contact?",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "responsibilities",
+      "type": "STRING_MLINE",
+      "label": "Job Responsibilities",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    },
+    {
+      "field": "reason_for_leaving",
+      "type": "STRING_MLINE",
+      "label": "Reason for Leaving",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonEmployment"
+      ]
+    }
+  ]
+}

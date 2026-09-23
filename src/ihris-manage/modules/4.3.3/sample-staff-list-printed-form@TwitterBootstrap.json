@@ -1,0 +1,44 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/sample-staff-list-printed-form@TwitterBootstrap",
+  "module": "sample-staff-list-printed-form",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/sites/TwitterBootstrap/modules/SampleStaffListPrintedForm/SampleStaffListPrintedForm.xml",
+    "sha256": "b0a75eb4940526b03691997834c41ce0c6c1a0057bdb594bc16fd22859c0517b"
+  },
+  "parent": "ihris-manage/module/ihris-manage-site-demo@TwitterBootstrap",
+  "site": "TwitterBootstrap",
+  "displayName": "Sample Staff Printed Forms",
+  "description": "Sample staff printed forms generated from the staff_directory report view.",
+  "version": "4.1.2.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ihris-manage-CustomReports-staff-reports",
+      "atLeast": "4.1",
+      "lessThan": "4.2"
+    },
+    {
+      "module": "CustomReports-PrintedReportsODT",
+      "atLeast": "4.1",
+      "lessThan": "4.2"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

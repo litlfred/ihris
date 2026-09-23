@@ -1,0 +1,38 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/SampleData-pos_change_reason",
+  "module": "SampleData-pos_change_reason",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/BaseData/modules/SampleData-pos_change_reason/SampleData-pos_change_reason.xml",
+    "sha256": "d25c19f445201e9999729a497f7537156225c7d81e5d965116d703e758ec68ed"
+  },
+  "parent": "ihris-manage/module/ihris-manage-base-data",
+  "site": null,
+  "displayName": "Reasons for Departure",
+  "description": "Sample Data for form: pos_change_reason",
+  "version": "4.3.0",
+  "className": null,
+  "category": null,
+  "creator": null,
+  "link": null,
+  "requirements": [
+    {
+      "module": "ihris-manage-PersonPosition",
+      "atLeast": "4.0"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {
+    "pos_change_reason": 9
+  },
+  "locales": []
+}

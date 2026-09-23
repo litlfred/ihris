@@ -1,0 +1,108 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-classification-example-sampledata-classification",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/classification-example-sampledata-classification",
+  "version": "4.3.3",
+  "name": "IHRISClassificationExampleSampledataClassification",
+  "title": "iHRIS Classification: sample data from ihris-manage/module/SampleData-classification",
+  "status": "draft",
+  "experimental": true,
+  "description": "SAMPLE records for `classification` from the iHRIS 4.3.3 module `ihris-manage/module/SampleData-classification`. Illustrative data for one fictional or example deployment. NOT a standard code set, and no ValueSet includes it.",
+  "caseSensitive": true,
+  "content": "example",
+  "count": 6,
+  "property": [
+    {
+      "code": "description",
+      "type": "string",
+      "description": "iHRIS field `description`"
+    },
+    {
+      "code": "code",
+      "type": "string",
+      "description": "iHRIS field `code`"
+    }
+  ],
+  "concept": [
+    {
+      "code": "1",
+      "display": "Medical Doctor",
+      "property": [
+        {
+          "code": "description",
+          "valueString": "Medical doctors"
+        },
+        {
+          "code": "code",
+          "valueString": "222"
+        }
+      ]
+    },
+    {
+      "code": "2",
+      "display": "Nurse",
+      "property": [
+        {
+          "code": "description",
+          "valueString": "Nursing and midwifery professionals"
+        },
+        {
+          "code": "code",
+          "valueString": "223"
+        }
+      ]
+    },
+    {
+      "code": "3",
+      "display": "Allied Health Professional",
+      "property": [
+        {
+          "code": "description",
+          "valueString": "Modern health associate professionals (except nursing)"
+        },
+        {
+          "code": "code",
+          "valueString": "322"
+        }
+      ]
+    },
+    {
+      "code": "4",
+      "display": "Non-Health Professional",
+      "property": [
+        {
+          "code": "description",
+          "valueString": "Professionals, not health"
+        },
+        {
+          "code": "code",
+          "valueString": "241"
+        }
+      ]
+    },
+    {
+      "code": "5",
+      "display": "Non-Health Support Staff",
+      "property": [
+        {
+          "code": "description",
+          "valueString": "Support staff, not health-related"
+        },
+        {
+          "code": "code",
+          "valueString": "411"
+        }
+      ]
+    },
+    {
+      "code": "6",
+      "display": "Pharmacist",
+      "property": [
+        {
+          "code": "description",
+          "valueString": "Dispenses drugs."
+        }
+      ]
+    }
+  ]
+}

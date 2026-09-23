@@ -1,0 +1,48 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "i2ce/module/web-services-lists",
+  "module": "web-services-lists",
+  "instance": "i2ce",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "i2ce/modules/Forms/modules/Lists/modules/WebServicesLists/WebServicesLists.xml",
+    "sha256": "1b3347d86771224cd0dedb57e9fa93b6f81fef1b34dd2772e4236945b79d2bb6"
+  },
+  "parent": "i2ce/module/Lists",
+  "site": null,
+  "displayName": "Lists Web Services",
+  "description": "Provides Web Services for List Forms",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Base System Component",
+  "creator": "Luke Duncan",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "web-services",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "MooTools",
+      "atLeast": "1.4.5"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "it",
+    "pt_BR"
+  ]
+}

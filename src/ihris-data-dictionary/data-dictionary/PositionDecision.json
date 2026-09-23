@@ -1,0 +1,166 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.PositionDecision",
+  "group": "PositionDecision",
+  "title": "Position Decision",
+  "class": "iHRIS_PositionDecision",
+  "extends": "I2CE_Form",
+  "forms": [
+    "position_decision"
+  ],
+  "instances": [
+    "ihris-manage"
+  ],
+  "sources": [
+    "ihris-manage/form-class/iHRIS_PositionDecision"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/PositionDecision",
+  "elements": [
+    {
+      "id": "IHRIS.DE.PositionDecision.date",
+      "activityId": null,
+      "formIds": [
+        "position_decision"
+      ],
+      "formDataElementLabel": "Date of Decision",
+      "dataElementLabel": "Date of Decision",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Date",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "R",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Position Decision",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PositionDecision",
+        "field": "date",
+        "i2ceType": "DATE_YMD",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-an-application.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PositionDecision.offer",
+      "activityId": null,
+      "formIds": [
+        "position_decision"
+      ],
+      "formDataElementLabel": "Make a Job Offer?",
+      "dataElementLabel": "Make a Job Offer?",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Boolean",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Position Decision",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PositionDecision",
+        "field": "offer",
+        "i2ceType": "YESNO",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-an-application.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PositionDecision.comments",
+      "activityId": null,
+      "formIds": [
+        "position_decision"
+      ],
+      "formDataElementLabel": "Comments",
+      "dataElementLabel": "Comments",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Position Decision",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PositionDecision",
+        "field": "comments",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-Application"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-an-application.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.PositionDecision.record",
+      "activityId": null,
+      "formIds": [
+        "position_decision"
+      ],
+      "formDataElementLabel": "Record of Decision",
+      "dataElementLabel": "Record of Decision",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "Attachment",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "No",
+      "functionalGrouping": "Position Decision",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_PositionDecision",
+        "field": "record",
+        "i2ceType": "DOCUMENT",
+        "definedIn": [
+          "ihris-manage/module/ihris-manage-ApplicationAttachment"
+        ]
+      },
+      "evidence": []
+    }
+  ]
+}

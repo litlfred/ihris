@@ -1,0 +1,49 @@
+{
+  "$schema": "ihris-dak-proposal/v1",
+  "id": "iso",
+  "title": "Countries and currencies: ISO 3166-1 and ISO 4217",
+  "author": "Claude (session https://claude.ai/code/session_01TA4id51RCSxZ4NxijDwrWQ), for owner review",
+  "date": "2026-09-22",
+  "refs": [
+    "litlfred/ihris#3"
+  ],
+  "items": [
+    {
+      "id": "iso-B1",
+      "kind": "binding",
+      "status": "accepted",
+      "appliesTo": [
+        "IHRIS.DE.VS.country",
+        "IHRIS.DE.VS.currency"
+      ],
+      "statement": "The DAK binds country to ISO 3166-1 alpha-2 (urn:iso:std:iso:3166) and currency to ISO 4217 (urn:iso:std:iso:4217). iHRIS's shipped lists stay as local CodeSystems (what deployments store), mapped by ConceptMaps country-to-iso-3166 and currency-to-iso-4217.",
+      "rationale": "iHRIS's country record ids ARE ISO 3166-1 alpha-2 codes (246 of 246) and its currency ids ARE ISO 4217 codes. Binding to the standard lets DAK consumers exchange data without an iHRIS-specific code system.",
+      "evidence": [
+        "src/ihris-data-dictionary/iso-report.json",
+        "src/ihris-data-dictionary/terminology/ConceptMap-country-to-iso-3166.json",
+        "src/ihris-data-dictionary/terminology/ConceptMap-currency-to-iso-4217.json"
+      ],
+      "decision": {
+        "by": "litlfred (repository owner)",
+        "on": "2026-09-22",
+        "status": "accepted",
+        "where": "Claude Code session https://claude.ai/code/session_01TA4id51RCSxZ4NxijDwrWQ",
+        "note": "\"map countries and currencies to ISO\""
+      }
+    },
+    {
+      "id": "iso-P1",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "country",
+        "currency"
+      ],
+      "statement": "Deployments still on the iHRIS 4.3.3 lists update them: add the current ISO codes that are missing (country: BQ, CW, SS, SX; currency: 38 codes, including ZMW, GHS, MRU, SSP), retire the withdrawn ones (country: AN; currency: 19 codes, including ZMK, GHC, MRO), and refresh the older names (11 countries, 15 currencies).",
+      "rationale": "The lists date from 2009. The deltas are measured, not inferred: see iso-report.json. Which successor replaces a withdrawn currency in a deployment's historical records (e.g. ZMK amounts before 2013) is a data-migration decision the DAK cannot make.",
+      "evidence": [
+        "src/ihris-data-dictionary/iso-report.json"
+      ]
+    }
+  ]
+}

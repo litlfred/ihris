@@ -1,0 +1,18 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihris-benefit-recurrence",
+  "url": "https://litlfred.github.io/ihris/dak/ValueSet/benefit_recurrence",
+  "version": "4.3.3",
+  "name": "IHRISBenefitRecurrenceVS",
+  "title": "iHRIS Benefit Recurrence",
+  "status": "draft",
+  "experimental": true,
+  "description": "All codes of the iHRIS `benefit_recurrence` list as shipped by default in iHRIS 4.3.3.",
+  "compose": {
+    "include": [
+      {
+        "system": "https://litlfred.github.io/ihris/dak/CodeSystem/benefit_recurrence"
+      }
+    ]
+  }
+}

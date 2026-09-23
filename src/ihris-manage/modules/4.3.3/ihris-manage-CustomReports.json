@@ -1,0 +1,61 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-manage/module/ihris-manage-CustomReports",
+  "module": "ihris-manage-CustomReports",
+  "instance": "ihris-manage",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-manage/modules/ManageCustomReports/ManageCustomReports.xml",
+    "sha256": "98ac4b95b2c062e100e7982675d2793690db3b9498023d1647b2376959466e80"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "iHRIS Manage Custom Reports",
+  "description": "The Manage Reporting System",
+  "version": "4.3.0.1",
+  "className": null,
+  "category": "Application Option",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-manage",
+  "requirements": [
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [
+    {
+      "module": "CustomReports_Visualization"
+    },
+    {
+      "module": "CustomReports_Export"
+    },
+    {
+      "module": "CustomReports_PDF"
+    },
+    {
+      "module": "ihris-manage-CustomReports-position-reports"
+    },
+    {
+      "module": "ihris-manage-CustomReports-staff-reports"
+    },
+    {
+      "module": "ihris-manage-CustomReports-facility-reports"
+    },
+    {
+      "module": "ihris-manage-CustomReports-search-people"
+    }
+  ],
+  "conflicts": [],
+  "optional": [],
+  "forms": [],
+  "formClasses": [],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

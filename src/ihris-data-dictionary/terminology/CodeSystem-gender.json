@@ -1,0 +1,24 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ihris-gender",
+  "url": "https://litlfred.github.io/ihris/dak/CodeSystem/gender",
+  "version": "4.3.3",
+  "name": "IHRISGender",
+  "title": "iHRIS Gender",
+  "status": "draft",
+  "experimental": true,
+  "description": "The `gender` list as shipped by default in iHRIS 4.3.3 (modules: ihris-common/module/PersonDemographic). Codes are the iHRIS record ids. Deployments add their own records, so this is the shipped baseline, not a closed international code set.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 2,
+  "concept": [
+    {
+      "code": "F",
+      "display": "Female"
+    },
+    {
+      "code": "M",
+      "display": "Male"
+    }
+  ]
+}

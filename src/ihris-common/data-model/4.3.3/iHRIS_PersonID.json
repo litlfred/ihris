@@ -1,0 +1,81 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_PersonID",
+  "class": "iHRIS_PersonID",
+  "release": "4.3.3",
+  "extends": "I2CE_Form",
+  "forms": [
+    "person_id"
+  ],
+  "definedIn": [
+    "ihris-common/module/PersonID"
+  ],
+  "fields": [
+    {
+      "field": "id_type",
+      "type": "MAP",
+      "label": "Identification Type",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonID"
+      ]
+    },
+    {
+      "field": "id_num",
+      "type": "STRING_LINE",
+      "label": "Identification Number",
+      "required": true,
+      "unique": true,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonID"
+      ]
+    },
+    {
+      "field": "issue_date",
+      "type": "DATE_YMD",
+      "label": "Date of Issue",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonID"
+      ]
+    },
+    {
+      "field": "expiration_date",
+      "type": "DATE_YMD",
+      "label": "Date of Expiration",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonID"
+      ]
+    },
+    {
+      "field": "country",
+      "type": "MAP",
+      "label": "Country of Issue",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonID"
+      ]
+    },
+    {
+      "field": "place",
+      "type": "STRING_LINE",
+      "label": "Place of Issue",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/PersonID"
+      ]
+    }
+  ]
+}

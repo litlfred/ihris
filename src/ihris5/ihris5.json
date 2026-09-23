@@ -1,0 +1,53 @@
+{
+  "name": "ihris5",
+  "title": "iHRIS 5",
+  "description": "iHRIS 5, the FHIR-based rewrite, on GitHub: the application (backend, frontend, FHIR Implementation Guide in FSH) and its technical documentation, each pinned at a commit.",
+  "source": {
+    "host": "github",
+    "vcs": "git",
+    "repositories": [
+      {
+        "url": "https://github.com/iHRIS/iHRIS",
+        "commit": "fa66e9b375e38525236d28459ec5e5eb3875e2b2"
+      },
+      {
+        "url": "https://github.com/iHRIS/ihris-documentation",
+        "commit": "29a0a8602e71c2887f5333aee3be24e3f9276d54"
+      }
+    ]
+  },
+  "materialization": "referenced",
+  "assets": [
+    {
+      "id": "readme",
+      "src": "README.md",
+      "role": "instance-readme",
+      "title": "iHRIS 5",
+      "description": "What is described, at which commits."
+    }
+  ],
+  "directories": [
+    {
+      "id": "ihris5-catalogue",
+      "path": "catalogue/",
+      "dependents": "reproduce",
+      "graphKinds": [
+        "catalogue"
+      ],
+      "readOnly": true,
+      "readOnlyBasis": "Generated from uploads/github/.",
+      "description": "One folio-catalogue-node/v1 per repository, pinned by commit in its ihris-source-record/v1."
+    },
+    {
+      "id": "ihris5-inventory",
+      "path": "inventory/",
+      "dependents": "reproduce",
+      "graphKinds": [
+        "library"
+      ],
+      "readOnly": true,
+      "readOnlyBasis": "Copied from uploads/github/ by the build.",
+      "description": "Path-level inventories: FSH definitions, Markdown pages, packages. No file contents."
+    }
+  ]
+}

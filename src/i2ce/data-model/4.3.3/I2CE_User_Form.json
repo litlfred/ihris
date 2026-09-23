@@ -1,0 +1,70 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "i2ce/form-class/I2CE_User_Form",
+  "class": "I2CE_User_Form",
+  "release": "4.3.3",
+  "extends": "I2CE_List",
+  "forms": [
+    "userForm"
+  ],
+  "definedIn": [
+    "i2ce/module/UserForm"
+  ],
+  "fields": [
+    {
+      "field": "username",
+      "type": "STRING_LINE",
+      "label": "Username",
+      "required": true,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/UserForm"
+      ]
+    },
+    {
+      "field": "password",
+      "type": "STRING_PASS",
+      "label": "Password (leave blank to keep the same password)",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/UserForm"
+      ]
+    },
+    {
+      "field": "confirm",
+      "type": "STRING_PASS",
+      "label": null,
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/UserForm"
+      ]
+    },
+    {
+      "field": "role",
+      "type": "MAP",
+      "label": "Role",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/UserForm"
+      ]
+    },
+    {
+      "field": "generate_password",
+      "type": "YESNO",
+      "label": null,
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "i2ce/module/UserForm"
+      ]
+    }
+  ]
+}

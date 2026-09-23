@@ -1,0 +1,95 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/DHIS-Dashboard",
+  "module": "DHIS-Dashboard",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/DHIS-Dashboard/DHIS-Dashboard.xml",
+    "sha256": "f7d2be313fcbcfbeb94a678d8cac7d5c3673c67d29671f1397823b5567d434e1"
+  },
+  "parent": null,
+  "site": null,
+  "displayName": "DHIS Dashboard",
+  "description": "Integrate DHIS Dashboard into iHRIS",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_DHISDashboard",
+  "category": null,
+  "creator": "Thai Chuong",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "pages",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    },
+    {
+      "module": "ihris-common",
+      "atLeast": "4.0"
+    },
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "forms",
+      "class": "iHRIS_DataElement",
+      "displayName": "Data Element"
+    },
+    {
+      "form": "forms",
+      "class": "iHRIS_DataSet",
+      "displayName": "Data Set"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_DataElement",
+    "ihris-common/form-class/iHRIS_DataSet",
+    "ihris-common/form-class/iHRIS_Facility"
+  ],
+  "pages": [
+    {
+      "page": "DHISDashboard_page",
+      "class": "iHRIS_PageViewDHIS",
+      "style": "shell"
+    },
+    {
+      "page": "DHISDashboardExport",
+      "class": "iHRIS_Page_ExportDHISDashboard",
+      "style": "shell"
+    },
+    {
+      "page": "dashboard",
+      "class": "iHRIS_PageDashboard",
+      "style": "shell"
+    },
+    {
+      "page": "dataelement",
+      "class": "iHRIS_PageFormDataElement",
+      "style": "shell"
+    },
+    {
+      "page": "dataset",
+      "class": "iHRIS_PageFormDataSet",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {},
+  "locales": [
+    "de",
+    "en_US",
+    "es",
+    "fr",
+    "nl",
+    "pt_BR",
+    "uk"
+  ]
+}

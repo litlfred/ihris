@@ -1,0 +1,26 @@
+{
+  "$schema": "ihris-form-class/v1",
+  "id": "ihris-common/form-class/iHRIS_NamedContact",
+  "class": "iHRIS_NamedContact",
+  "release": "4.3.3",
+  "extends": "iHRIS_Contact",
+  "forms": [
+    "person_contact_emergency"
+  ],
+  "definedIn": [
+    "ihris-common/module/Contact"
+  ],
+  "fields": [
+    {
+      "field": "name",
+      "type": "STRING_LINE",
+      "label": "Name",
+      "required": false,
+      "unique": null,
+      "references": null,
+      "definedIn": [
+        "ihris-common/module/Contact"
+      ]
+    }
+  ]
+}

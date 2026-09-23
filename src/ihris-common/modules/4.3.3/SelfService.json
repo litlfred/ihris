@@ -1,0 +1,52 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/SelfService",
+  "module": "SelfService",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/Person/modules/SelfService/SelfService.xml",
+    "sha256": "4912226f1c17359ee90b79d734d955c9f353dc4693023e9c9803c6698c98fa1d"
+  },
+  "parent": "ihris-common/module/Person",
+  "site": null,
+  "displayName": "Self Service",
+  "description": "A module that enables permission for based on form relationships",
+  "version": "4.3.0",
+  "className": "iHRIS_Module_SelfService",
+  "category": "Base System Component",
+  "creator": "Carl Leitner",
+  "link": "https://launchpad.net/i2ce",
+  "requirements": [
+    {
+      "module": "form-relationship-based-permission",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "user_map",
+      "class": "iHRIS_UserMap",
+      "displayName": "User Map"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_UserMap"
+  ],
+  "pages": [],
+  "dataLists": {},
+  "locales": [
+    "en_US"
+  ]
+}

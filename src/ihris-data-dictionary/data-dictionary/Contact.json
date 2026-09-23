@@ -1,0 +1,337 @@
+{
+  "$schema": "ihris-dak-data-dictionary/v1",
+  "id": "IHRIS.DE.Contact",
+  "group": "Contact",
+  "title": "Contact",
+  "class": "iHRIS_Contact",
+  "extends": "I2CE_Form",
+  "forms": [
+    "contact",
+    "facility_contact",
+    "person_contact_other",
+    "person_contact_personal",
+    "person_contact_work",
+    "training_funder_contact",
+    "training_institution_contact"
+  ],
+  "instances": [
+    "ihris-common"
+  ],
+  "sources": [
+    "ihris-common/form-class/iHRIS_Contact"
+  ],
+  "logicalModel": "https://litlfred.github.io/ihris/dak/StructureDefinition/Contact",
+  "elements": [
+    {
+      "id": "IHRIS.DE.Contact.address",
+      "activityId": null,
+      "formIds": [
+        "contact",
+        "facility_contact",
+        "person_contact_other",
+        "person_contact_personal",
+        "person_contact_work",
+        "training_funder_contact",
+        "training_institution_contact"
+      ],
+      "formDataElementLabel": "Mailing Address",
+      "dataElementLabel": "Mailing Address",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "Yes",
+      "functionalGrouping": "Contact",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Contact",
+        "field": "address",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-common/module/Contact"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Contact.telephone",
+      "activityId": null,
+      "formIds": [
+        "contact",
+        "facility_contact",
+        "person_contact_other",
+        "person_contact_personal",
+        "person_contact_work",
+        "training_funder_contact",
+        "training_institution_contact"
+      ],
+      "formDataElementLabel": "Telephone Number",
+      "dataElementLabel": "Telephone Number",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "Yes",
+      "functionalGrouping": "Contact",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Contact",
+        "field": "telephone",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/Contact"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Contact.mobile_phone",
+      "activityId": null,
+      "formIds": [
+        "contact",
+        "facility_contact",
+        "person_contact_other",
+        "person_contact_personal",
+        "person_contact_work",
+        "training_funder_contact",
+        "training_institution_contact"
+      ],
+      "formDataElementLabel": "Mobile Phone Number",
+      "dataElementLabel": "Mobile Phone Number",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "Yes",
+      "functionalGrouping": "Contact",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Contact",
+        "field": "mobile_phone",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/Contact"
+        ]
+      },
+      "evidence": []
+    },
+    {
+      "id": "IHRIS.DE.Contact.alt_telephone",
+      "activityId": null,
+      "formIds": [
+        "contact",
+        "facility_contact",
+        "person_contact_other",
+        "person_contact_personal",
+        "person_contact_work",
+        "training_funder_contact",
+        "training_institution_contact"
+      ],
+      "formDataElementLabel": "Alternate Telephone Number",
+      "dataElementLabel": "Alternate Telephone Number",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "Yes",
+      "functionalGrouping": "Contact",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Contact",
+        "field": "alt_telephone",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/Contact"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Contact.fax",
+      "activityId": null,
+      "formIds": [
+        "contact",
+        "facility_contact",
+        "person_contact_other",
+        "person_contact_personal",
+        "person_contact_work",
+        "training_funder_contact",
+        "training_institution_contact"
+      ],
+      "formDataElementLabel": "Fax Number",
+      "dataElementLabel": "Fax Number",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "Yes",
+      "functionalGrouping": "Contact",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Contact",
+        "field": "fax",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/Contact"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Contact.email",
+      "activityId": null,
+      "formIds": [
+        "contact",
+        "facility_contact",
+        "person_contact_other",
+        "person_contact_personal",
+        "person_contact_work",
+        "training_funder_contact",
+        "training_institution_contact"
+      ],
+      "formDataElementLabel": "Email Address",
+      "dataElementLabel": "Email Address",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "Yes",
+      "functionalGrouping": "Contact",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": null,
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Contact",
+        "field": "email",
+        "i2ceType": "STRING_LINE",
+        "definedIn": [
+          "ihris-common/module/Contact"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/user-access--variant-2.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/user-access--variant-3.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/user-access.md"
+      ]
+    },
+    {
+      "id": "IHRIS.DE.Contact.notes",
+      "activityId": null,
+      "formIds": [
+        "contact",
+        "facility_contact",
+        "person_contact_other",
+        "person_contact_personal",
+        "person_contact_work",
+        "training_funder_contact",
+        "training_institution_contact"
+      ],
+      "formDataElementLabel": "Notes",
+      "dataElementLabel": "Notes",
+      "labelSource": "i2ce-header",
+      "description": null,
+      "descriptionStatus": "to-author",
+      "dataType": "String",
+      "quantitySubType": null,
+      "inputOptions": null,
+      "inputOptionsSource": null,
+      "calculation": null,
+      "optionality": "O",
+      "reasonForRequiring": null,
+      "explainConditionality": null,
+      "duplicates": "Yes",
+      "functionalGrouping": "Contact",
+      "linkagesToIndicators": null,
+      "linkagesToDecisionSupport": null,
+      "annotations": "multi-line text",
+      "source": {
+        "release": "4.3.3",
+        "class": "iHRIS_Contact",
+        "field": "notes",
+        "i2ceType": "STRING_MLINE",
+        "definedIn": [
+          "ihris-common/module/Contact"
+        ]
+      },
+      "evidence": [
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-and-edit-health-facilities-and-training-institutions-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-employee-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-person-4-0-4.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-position-information.md",
+        "library/ihris-wiki/osi-help-4.3.3/sections/add-trainings.md"
+      ]
+    }
+  ]
+}

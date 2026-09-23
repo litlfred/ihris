@@ -1,0 +1,92 @@
+{
+  "$schema": "ihris-i2ce-module/v1",
+  "id": "ihris-common/module/mHero-base",
+  "module": "mHero-base",
+  "instance": "ihris-common",
+  "release": "4.3.3",
+  "source": {
+    "releaseFile": "src/i2ce/catalogue/nodes/release--i2ce--4.3.3.json",
+    "releaseFileMd5": "398b1808ba0f4528a8c204ad7eea090a",
+    "path": "ihris-common/modules/CSD/modules/mHero/mHero.xml",
+    "sha256": "64cbab085c148da2b93b839636266f0996e4d564eb27dea0849d19b63bffce75"
+  },
+  "parent": "ihris-common/module/CSD",
+  "site": null,
+  "displayName": "mHero",
+  "description": "Provides CSD Interface for RapidPro",
+  "version": "4.3.0",
+  "className": null,
+  "category": "Application Component",
+  "creator": "Intrahealth Informatics",
+  "link": "https://launchpad.net/ihris-common",
+  "requirements": [
+    {
+      "module": "CustomReports",
+      "atLeast": "4.3",
+      "lessThan": "4.4"
+    }
+  ],
+  "enables": [],
+  "conflicts": [],
+  "optional": [],
+  "forms": [
+    {
+      "form": "person",
+      "class": null,
+      "displayName": null
+    },
+    {
+      "form": "rapidpro_flow_run",
+      "class": "iHRIS_RapidproFlowRun",
+      "displayName": "Rapidpro Flow Run Information"
+    },
+    {
+      "form": "rapidpro_flow_run_values",
+      "class": "iHRIS_RapidproFlowRunValues",
+      "displayName": "Rapidpro Flow Run Values"
+    },
+    {
+      "form": "rapidpro_flow_run_steps",
+      "class": "iHRIS_RapidproFlowRunSteps",
+      "displayName": "Rapidpro Flow Steps Results"
+    },
+    {
+      "form": "workflows",
+      "class": "iHRIS_Workflows",
+      "displayName": "Rapidpro Flow Run Information"
+    },
+    {
+      "form": "step_type",
+      "class": "I2CE_SimpleList",
+      "displayName": "Step Type"
+    }
+  ],
+  "formClasses": [
+    "ihris-common/form-class/iHRIS_RapidproFlowRun",
+    "ihris-common/form-class/iHRIS_RapidproFlowRunSteps",
+    "ihris-common/form-class/iHRIS_RapidproFlowRunValues",
+    "ihris-common/form-class/iHRIS_Workflows"
+  ],
+  "pages": [
+    {
+      "page": "command_line",
+      "class": "CSD_Page_PullWorkflowsResults",
+      "style": "shell"
+    },
+    {
+      "page": "bulk_page",
+      "class": "CSD_Page_mHeroBulk",
+      "style": "shell"
+    },
+    {
+      "page": "person_page",
+      "class": "CSD_Page_StartWorkflow",
+      "style": "shell"
+    }
+  ],
+  "dataLists": {
+    "role": 1,
+    "step_type": 2
+  },
+  "locales": []
+}
