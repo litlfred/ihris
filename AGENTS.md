@@ -45,3 +45,7 @@ A Claude Code cloud session reaches `launchpad.net` (project, series and milesto
 ## 6. Derived knowledge assets never invent
 
 `src/ihris-dak` is derived. Columns the source cannot answer (definitions, conditionality, indicator and decision-support linkages) stay null until a person authors them. Never fill them with plausible text. Human decisions go in `src/ihris-dak/authored/` (`ihris-dak-proposal/v1`), which no build writes. Only the owner moves a proposal's `status`.
+
+## 7. FHIR/sushi migration is paused
+
+Owner ruling, 2026-09-23: do not produce new FHIR resources or FSH, and do not run sushi toward an IG, until the design strategy bean `ihris-dmgf` is completed by the owner. The existing `src/ihris-dak/terminology/` JSON keeps regenerating unchanged. Work items are tracked as beans in `beans/defs/` (`.beans.yml`, prefix `ihris-`); the epic is `ihris-g768`.
