@@ -97,8 +97,13 @@ table {{ width:100%; border-collapse:collapse; margin:8px 0 12px; }}
 th, td {{ text-align:left; border-bottom:1px solid var(--rule); padding:6px 8px; vertical-align:top; }}
 th {{ background:var(--active-bg); font-size:13px; }}
 .req {{ font-weight:700; }}
-td, th, h1, code, .side a, .crumbs, .src a {{ overflow-wrap:anywhere; }}
+td, th, h1, h2, code, .side a, .crumbs, .src a, main p, main li, .badge {{ overflow-wrap:break-word; }}
+h1, .crumbs, .side a, .hood td, .hood code, .fields td, .fields code {{ overflow-wrap:anywhere; }}
 .tscroll {{ overflow-x:auto; }}
+.wiki img {{ max-width:100%; height:auto; }}
+.wiki table {{ display:block; overflow-x:auto; }}
+.wiki pre {{ overflow-x:auto; }}
+details > summary {{ cursor:pointer; min-height:32px; padding:4px 0; font-weight:600; }}
 main {{ min-width:0; }}
 .board {{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:14px; }}
 .card {{ border:1px solid var(--rule); border-top:4px solid var(--nav-accent); padding:12px 14px; display:flex; flex-direction:column; gap:6px; }}
@@ -155,8 +160,9 @@ document.querySelectorAll('.menu-btn').forEach(function(b){b.addEventListener('c
 
 def shell(path, title, body, theme, current=None, scripts=""):
     r = lambda p: rel(path, p)  # noqa: E731
-    items = [("index.html", "Home"), ("data-model/index.html", "Data model"),
-             ("data-model/search.html", "Search"), (None, "Source on GitHub")]
+    items = [("index.html", "Home"), ("data-model/index.html", "Data model"), ("data-dictionary/index.html", "Data dictionary"),
+             ("sources/index.html", "Sources"), ("library/index.html", "Library"), ("schemas/index.html", "Schemas"),
+             ("data-model/search.html", "Search"), (None, "GitHub")]
     nav = "".join(
         f'<li><a href="{E(r(p) if p else REPO)}"{AC if p == current else ""}>{E(n)}</a></li>'
         for p, n in items)
@@ -213,9 +219,11 @@ def landing(theme, recs):
         f = os.path.join(ROOT, inst["path"], inst["name"] + ".json")
         if os.path.exists(f):
             j = load(os.path.relpath(f, ROOT))
-        stats, page = instance_stats(inst, recs)
+        stats, _ = instance_stats(inst, recs)
+        import site_instances
+        page = site_instances.INSTANCE_PAGE.get(inst["name"])
         href = rel(path, page) if page else f"{REPO}/tree/main/{inst['path']}"
-        label = "Open the data model" if page else "Open on GitHub"
+        label = "Open" if page else "Open on GitHub"
         desc = (j.get("description") or "").split(". ")[0].rstrip(".") + "."
         cards.append(f"""<article class="card">
   <span class="kind">{E(inst['kind'].replace('-', ' '))}</span>
@@ -492,6 +500,7 @@ def main():
             form_to_cls.setdefault(fm, x["class"])
     if os.path.isdir(out):
         shutil.rmtree(out)
+    os.makedirs(out)
     pages = {"index.html": landing(theme, recs)}
     for fn in (lambda: overview_page(recs, by_pkg, theme), lambda: search_page(recs, theme)):
         p, h = fn()
@@ -502,6 +511,8 @@ def main():
     for x in recs:
         p, h = class_page(x, recs, by_pkg, cls_index, form_to_cls, theme)
         pages[p] = h
+    import site_instances
+    pages.update(site_instances.all_pages(theme, cls_index, out))
     for p, h in pages.items():
         dst = os.path.join(out, p)
         os.makedirs(os.path.dirname(dst), exist_ok=True)

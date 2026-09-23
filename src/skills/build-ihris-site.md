@@ -24,6 +24,11 @@ python3 src/tools/extract_theme.py          # needs uploads/ihris-suite-4.3.3/*.
 
 ## 2. Site (Tool `ihris-build-site`)
 
+The generator is `src/tools/build_site.py`, with the data-model pages and chrome. `src/tools/site_instances.py` holds every other instance's pages. Licence decides what a page shows (AGENTS.md §2.4):
+- GPL sources, modules, data lists and wiki pages: in full, with attribution.
+- The toolkit (no licence recorded): structure only.
+- `iHRIS/ihris-documentation` (no licence): path and heading only.
+
 ```sh
 python3 src/tools/build_site.py --out .build/site --check-links
 ```

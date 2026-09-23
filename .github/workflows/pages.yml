@@ -29,6 +29,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install the site build's pinned dependencies
+        run: pip install -r src/tools/requirements-site.txt
       - name: Verify the committed theme (the tarball is not in git; logo sha256 only)
         run: python3 src/tools/extract_theme.py --check
       - name: Build the site and check every internal link
