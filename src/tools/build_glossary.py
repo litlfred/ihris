@@ -52,9 +52,20 @@ repository's ValueSet for that code list (`<CANONICAL>/ValueSet/<form>`) and who
 system is in VALUESET_IDENTITY. No other system is accepted this way until the owner says so,
 and the scheme's description names the basis.
 
-IRIs are in the INSTANCE namespace (bean lqo9, folio-assistant): `<NS>glossary/<scheme>/<term>`,
-with NS = `<publication root><instance>/ns#`, core's `instanceNs` rule applied to this
-repository's own publication root, https://litlfred.github.io/ihris/.
+IRIs are in the namespace of the SUB-INSTANCE THAT OWNS THE SOURCE (owner, 2026-09-24: "make sure
+all glossary terms properly localed to ihris so [no] collision w/ other subgraphs. general rule/skill";
+folio-assistant skill `glossary-terms`, Conventions): `<ns>glossary/<scheme>/<term>`, with
+ns = `<publication root><sub-instance>/ns#`, core's `instanceNs` rule applied to this repository's own
+publication root, https://litlfred.github.io/ihris/. Never the root instance's namespace just because
+glossary/ is declared at the root. The owner of a scheme (`scheme_owner`):
+  toolkit technical terms   ihris-toolkit     (library/ihris-toolkit)
+  use-case glossaries       ihris-use-cases   (library/ihris-use-cases)
+  a code list               the package whose data model DECLARES the form (a class's `forms`), even
+                            when other packages extend the list (e.g. `role`: i2ce defines it; common,
+                            manage and qualify add records, and each term's `source` still names its
+                            contributing package)
+The owner must be one of ihris.json's instances, so two schemes never share an IRI across sub-instances,
+and no ihris IRI can fall in another folio's namespace (a different publication root).
 
 SKOS JSON-LD: `to_skos()` mirrors core's `toSkos()` in Python rather than calling it through
 bun. The Pages workflow (.github/workflows/pages.yml) builds the site with Python alone, and
@@ -80,7 +91,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 RELEASE = build_dak.RELEASE
 PUBLICATION_ROOT = "https://litlfred.github.io/ihris/"
 INSTANCE = "ihris"
-NS = f"{PUBLICATION_ROOT}{INSTANCE}/ns#"
+NS = f"{PUBLICATION_ROOT}{INSTANCE}/ns#"  # the root instance's own namespace: owns no glossary scheme today
 SCHEMA = "folio-glossary/v1"
 SKOS_NS = "http://www.w3.org/2004/02/skos/core#"
 DCTERMS_NS = "http://purl.org/dc/terms/"
@@ -369,6 +380,68 @@ def outputs():
     return collections.OrderedDict((f"{d}/{g['id']}.glossary.json", dump(g)) for g in schemes())
 
 
+def instance_ns(inst):
+    """core's `instanceNs`, under this repository's publication root. `inst` must be ihris or one of its instances."""
+    if inst != INSTANCE and inst not in {i["name"] for i in J("ihris.json").get("instances") or []}:
+        sys.exit(f"{inst} is not an instance ihris.json declares, so it has no namespace")
+    return f"{PUBLICATION_ROOT}{inst}/ns#"
+
+
+# Dependency order: a product package extends ihris-common, which extends i2ce. A form declared again by a
+# later package is the earlier package's form extended, so the EARLIEST declarer defines it.
+DEPENDENCY_ORDER = ["i2ce", "ihris-common", ("ihris-manage", "ihris-qualify", "ihris-plan")]
+
+
+def _rank(pkg):
+    for i, level in enumerate(DEPENDENCY_ORDER):
+        if pkg == level or (isinstance(level, tuple) and pkg in level):
+            return i
+    return len(DEPENDENCY_ORDER)
+
+
+def form_definers():
+    """{form: {packages whose data model declares it in a class's `forms`}}."""
+    out = collections.defaultdict(set)
+    for f in sorted(glob.glob(os.path.join(ROOT, "src", "*", "data-model", RELEASE, "*.json"))):
+        pkg = os.path.relpath(f, ROOT).split(os.sep)[1]
+        for form in J(os.path.relpath(f, ROOT)).get("forms") or []:
+            out[form].add(pkg)
+    return out
+
+
+def definer(form, definers):
+    """The package that defines a form: the earliest declarer in dependency order; two at one level is an error."""
+    pkgs = definers.get(form) or set()
+    if not pkgs:
+        return None
+    first = min(_rank(p) for p in pkgs)
+    at = sorted(p for p in pkgs if _rank(p) == first)
+    if len(at) != 1:
+        sys.exit(f"form {form} is declared by {at}, none of which extends another: its code list has no single owner")
+    return at[0]
+
+
+def scheme_owner(g, definers=None):
+    """The instance that owns a scheme's source (see the module docstring). Derived from the scheme's `source`."""
+    tokens = [w.strip(",.;()") for w in (g.get("source") or "").split()]
+    tokens += [(t.get("source") or "").split("#")[0] for t in g.get("terms") or []]
+    paths = [w for w in tokens if w.split("/")[0] in ("src", "library", "uploads") and len(w.split("/")) > 2]
+    owners = sorted({w.split("/")[1] for w in paths})
+    if g["id"].startswith("code-list-"):
+        form = os.path.basename(paths[0])[:-5]
+        definers = definers if definers is not None else form_definers()
+        d = definer(form, definers)
+        if d:
+            return d
+    if len(owners) != 1:
+        sys.exit(f"scheme {g['id']}: its sources {owners} name no single owning instance")
+    return owners[0]
+
+
+def scheme_ns(g, definers=None):
+    return instance_ns(scheme_owner(g, definers))
+
+
 def load():
     """The committed schemes, in file order: [(rel, doc)]."""
     d = glossary_dir()
@@ -388,8 +461,10 @@ def _lang_values(t):
     return [{"@value": t}] if isinstance(t, str) else [{"@value": v, "@language": k} for k, v in t.items()]
 
 
-def to_skos(g, ns=NS):
-    """folio-assistant-core/schemas/glossary.ts `toSkos`, key for key and in the same order."""
+def to_skos(g, ns=None):
+    """folio-assistant-core/schemas/glossary.ts `toSkos`, key for key and in the same order.
+    `ns` defaults to the namespace of the instance that owns the scheme's source."""
+    ns = ns or scheme_ns(g)
     scheme = scheme_iri(ns, g)
 
     def ref(r):
@@ -430,8 +505,8 @@ def to_skos(g, ns=NS):
 
 
 def skos_asset(g):
-    """Where the site publishes a scheme's SKOS JSON-LD (core's layout: assets/glossary/<instance>--<scheme>)."""
-    return f"assets/glossary/{INSTANCE}--{g['id']}.skos.jsonld"
+    """Where the site publishes a scheme's SKOS JSON-LD (core's layout: assets/glossary/<owning instance>--<scheme>)."""
+    return f"assets/glossary/{scheme_owner(g)}--{g['id']}.skos.jsonld"
 
 
 def skos_text(g):
