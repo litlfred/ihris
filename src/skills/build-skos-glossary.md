@@ -39,7 +39,21 @@ A term gets a SKOS match **only** from a ConceptMap the repository already verif
 
 Owner, 2026-09-24: *"What does folio-assistant do? B should follow. Update skills so known."* Both are folio-assistant's rules, stated in its skill `glossary-terms`:
 
-- **IRIs are in the instance namespace**, `<publication root><instance stub>/ns#glossary/<scheme>/<term>` (core's `instanceNs` and `termIri`). For this folio: `https://litlfred.github.io/ihris/ihris/ns#glossary/<scheme>/<term>`. Never the path of the file that first defined the term: moving an asset must not move a term.
+- **IRIs are in the namespace of the sub-instance that owns the source** (owner, 2026-09-24: *"make sure all glossary terms properly localed to ihris so [no] collision w/ other subgraphs. general rule/skill"*). The pattern is `<publication root><sub-instance>/ns#glossary/<scheme>/<term>` (core's `instanceNs` and `termIri`). It is never the root instance's namespace, even though `glossary/` is declared at the root, and never the path of the file that first defined the term: moving an asset must not move a term. `build_glossary.py` `scheme_owner` decides the owner:
+
+  | scheme | owner | namespace |
+  |---|---|---|
+  | toolkit technical terms | `ihris-toolkit` | `https://litlfred.github.io/ihris/ihris-toolkit/ns#` |
+  | use-case glossaries | `ihris-use-cases` | `https://litlfred.github.io/ihris/ihris-use-cases/ns#` |
+  | a code list | the package whose data model **declares** the form; if several packages declare it, the earliest in dependency order (i2ce, then ihris-common, then the products) | e.g. `role`: `https://litlfred.github.io/ihris/i2ce/ns#` |
+
+  A code list that later packages extend stays one scheme, owned by its definer, and each term's `source` still names the package that contributed it. The SKOS is published as `assets/glossary/<owner>--<scheme>.skos.jsonld`. QA `glossary-namespaces` checks that:
+  - the owner is a declared sub-instance, never the root;
+  - every term's source is the owner or a package that extends it;
+  - no scheme IRI is minted twice;
+  - the published SKOS mints nothing outside the owner's namespace.
+
+  This is folio-assistant's rule (skill `glossary-terms`, Conventions), applied here.
 - **One ConceptScheme per code list**, as folio-assistant's `schemas/code-list.ts` (`codeListToSkos`) does: a code is addressable in its own list, and two lists may share a code without sharing a concept. So `isco_08_unit`'s `1111` and any other list's `1111` are different concepts; a relation between them is a SKOS match, never a merge.
 
 ## Steps
@@ -50,4 +64,4 @@ Owner, 2026-09-24: *"What does folio-assistant do? B should follow. Update skill
 
 ## QA
 
-`src/tools/qa.py`, schema `folio-glossary/v1`: `glossary-schemes`, `glossary-ids`, `glossary-matches` (recomputed from the ConceptMaps and the ISCO-08 ValueSets), `glossary-counts`, `glossary-verbatim` (the source JSON, and the captured toolkit page), `glossary-page` (every term once). Each was shown to fail on a mutation (bean `ihris-glsk`).
+`src/tools/qa.py`, schema `folio-glossary/v1`: `glossary-schemes`, `glossary-ids`, `glossary-namespaces`, `glossary-matches` (recomputed from the ConceptMaps and the ISCO-08 ValueSets), `glossary-counts`, `glossary-verbatim` (the source JSON, and the captured toolkit page), `glossary-page` (every term once). Each was shown to fail on a mutation (bean `ihris-glsk`).

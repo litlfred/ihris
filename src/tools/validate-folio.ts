@@ -20,8 +20,11 @@
 //                                                 graphKinds ["glossary"]), and core's own toSkos() of each scheme
 //                                                 must equal the SKOS JSON-LD the site published (build_glossary.py
 //                                                 mirrors toSkos in Python; this holds the mirror to it). The site
-//                                                 is <this-repo>/.build/site (validate.py builds it first) and the
-//                                                 instance namespace is argv[3] (build_glossary.NS).
+//                                                 is <this-repo>/.build/site (validate.py builds it first). argv[3]
+//                                                 is a JSON file {scheme id: {owner, ns}} from build_glossary.py:
+//                                                 each scheme's IRIs are in the namespace of the instance that owns
+//                                                 its source (owner, 2026-09-24), and it is published as
+//                                                 assets/glossary/<owner>--<scheme>.skos.jsonld.
 //
 // zod drops keys a schema does not declare. So a declaration passing here says
 // nothing about ihris's own fields (`source`, `materialization`, ...). validate.py
@@ -55,7 +58,9 @@ const { GlossarySchema, toSkos } = await S("folio-assistant-core/schemas/glossar
 const { parse: parseYaml } = await import(resolve(process.cwd(), "node_modules/yaml/dist/index.js"));
 
 const root = process.argv[2];
-const glossaryNs = process.argv[3];
+const glossaryNs: Record<string, { owner: string; ns: string }> | undefined = process.argv[3]
+  ? JSON.parse(readFileSync(process.argv[3], "utf8"))
+  : undefined;
 let bad = 0;
 const counts: Record<string, number> = {};
 const read = (rel: string) => JSON.parse(readFileSync(resolve(root, rel), "utf8"));
@@ -155,12 +160,13 @@ for (const [rel, d] of decls) {
       check(g, "folio-glossary/v1", GlossarySchema, doc);
       const r = GlossarySchema.safeParse(doc);
       if (!r.success) continue;
-      if (!glossaryNs) {
+      const owned = glossaryNs?.[r.data.id];
+      if (!owned) {
         bad++;
-        console.log(`${g}: no instance namespace given (argv[3]), so its SKOS was not compared with core's toSkos`);
+        console.log(`${g}: no owning instance namespace given for it (argv[3]), so its SKOS was not compared with core's toSkos`);
         continue;
       }
-      const published = resolve(root, ".build/site/assets/glossary", `${d.name}--${r.data.id}.skos.jsonld`);
+      const published = resolve(root, ".build/site/assets/glossary", `${owned.owner}--${r.data.id}.skos.jsonld`);
       let site: unknown;
       try {
         site = JSON.parse(readFileSync(published, "utf8"));
@@ -170,7 +176,7 @@ for (const [rel, d] of decls) {
         continue;
       }
       counts["glossary SKOS = core toSkos"] = (counts["glossary SKOS = core toSkos"] ?? 0) + 1;
-      if (JSON.stringify(toSkos(r.data, glossaryNs)) !== JSON.stringify(site)) {
+      if (JSON.stringify(toSkos(r.data, owned.ns)) !== JSON.stringify(site)) {
         bad++;
         console.log(`${g}: the site's SKOS differs from core's toSkos() (src/tools/build_glossary.py to_skos drifted)`);
       }

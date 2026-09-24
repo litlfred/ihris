@@ -1197,6 +1197,53 @@ def c_glossary_ids(C):
     return out
 
 
+def c_glossary_namespaces(C):
+    """Owner, 2026-09-24: "make sure all glossary terms properly localed to ihris so [no] collision w/ other
+    subgraphs". Each scheme's IRIs are in the namespace of the instance that owns its source (build_glossary.py
+    scheme_owner). Checked here: the owner is one of ihris.json's instances and never the root; every term's
+    source lies in the owner, or (a code list) in a package the owner's list is extended by and that declares
+    the same form; no scheme IRI is minted twice; and the SKOS the site published sits in the owner's namespace."""
+    sys.path.insert(0, os.path.join(ROOT, "src", "tools"))
+    import build_glossary as bg
+    out, iris = [], {}
+    decl = J("ihris.json")
+    instances = {i["name"] for i in decl.get("instances") or []}
+    defs = bg.form_definers()
+    for rel, g in _glossaries(C):
+        try:
+            owner = bg.scheme_owner(g, defs)
+        except SystemExit as e:
+            out.append(f"{rel}: {e}")
+            continue
+        if owner not in instances:
+            out.append(f"{rel}: owner {owner} is not an instance ihris.json declares (the root never owns a scheme's IRIs)")
+            continue
+        ns = f"https://litlfred.github.io/ihris/{owner}/ns#"
+        iri = f"{ns}glossary/{g['id']}"
+        if iri in iris:
+            out.append(f"{rel}: scheme IRI {iri} is also minted by {iris[iri]}")
+        iris[iri] = rel
+        form = g["id"][len("code-list-"):] if g["id"].startswith("code-list-") else None
+        for t in g.get("terms") or []:
+            src = (t.get("source") or "").split("#")[0]
+            parts = src.split("/")
+            if len(parts) < 3 or parts[0] not in ("src", "library"):
+                continue
+            pkg = parts[1]
+            if pkg == owner:
+                continue
+            if form and bg._rank(pkg) > bg._rank(owner):  # a later package adding records to the owner's list
+                continue
+            out.append(f"{rel}: {t['id']} comes from {pkg}, which neither is {owner} nor extends its {form or 'scheme'}")
+        site = os.path.join(ROOT, ".build", "site", bg.skos_asset(g))
+        if os.path.isfile(site):
+            ids = [n.get("@id", "") for n in json.load(open(site, encoding="utf-8")).get("@graph") or []]
+            stray = [i for i in ids if not i.startswith(ns)]
+            if stray:
+                out.append(f"{rel}: its published SKOS mints {stray[0]} outside {ns}")
+    return out
+
+
 def c_glossary_matches(C):
     """Every SKOS match is one the repository verified or the owner accepted: recomputed from the ConceptMaps in
     src/ihris-data-dictionary/terminology (equal/equivalent -> exactMatch, wider/subsumes -> broadMatch,
@@ -1393,6 +1440,7 @@ QA = {
     "FHIR R4 terminology": [("fhir-terminology", "every value set named in value-sets.json is generated", c_fhir)],
     "folio-glossary/v1": [("glossary-schemes", "in a declared glossary directory, named for its id; states hold; sources exist; current with build_glossary.py", c_glossary_schemes),
                           ("glossary-ids", "no scheme or term id twice; ids in core's local-id grammar", c_glossary_ids),
+                          ("glossary-namespaces", "every scheme's IRIs are in the namespace of the sub-instance that owns its source; no scheme IRI twice", c_glossary_namespaces),
                           ("glossary-matches", "every SKOS match is a mapping a verified ConceptMap records, or ISCO-08 ValueSet identity (owner-accepted), to a referenced external scheme, and none is missing", c_glossary_matches),
                           ("glossary-counts", "terms per source match the toolkit's technical terms, the reports' glossaries, each code list's default records", c_glossary_counts),
                           ("glossary-verbatim", "every authored definition is verbatim in its source (and the toolkit's in the captured page)", c_glossary_verbatim),

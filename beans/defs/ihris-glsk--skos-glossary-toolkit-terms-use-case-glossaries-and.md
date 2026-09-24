@@ -17,7 +17,7 @@ The owner, 2026-09-23: *"everything extracted to glosasay / skos? accesible in i
 
 ## What was built
 
-- `glossary/`, declared in `ihris.json` (`graphKinds: ["glossary"]`, read-only, generated): 35 schemes, 1725 terms. Term IRIs are in the instance namespace, `https://litlfred.github.io/ihris/ihris/ns#glossary/<scheme>/<term>`.
+- `glossary/`, declared in `ihris.json` (`graphKinds: ["glossary"]`, read-only, generated): 35 schemes, 1725 terms. Term IRIs are in the namespace of the sub-instance that owns the source (owner, 2026-09-24), `https://litlfred.github.io/ihris/<sub-instance>/ns#glossary/<scheme>/<term>`: 24 schemes in ihris-common, 5 in ihris-manage, 3 in ihris-qualify, and 1 each in i2ce (`role`), ihris-toolkit and ihris-use-cases. QA `glossary-namespaces` enforces it.
   - `toolkit-technical-terms`: 33 terms, authored, verbatim from the stage pages, with the toolkit's attribution and the owner's permission (bean `ihris-kngr`).
   - `use-cases-2009`: no terms. Each report's document summary says "Use cases, actor goal list, glossary and packages", but none of the four reports holds a glossary section. `ingest_use_cases.py` now records that (`glossary` in `ihris-use-cases/v1`) and stops if a report's text ever names one. None was invented.
   - 33 `code-list-<form>` schemes: 1692 terms from the iHRIS 4.3.3 default records. 541 ISCO-88 groups are authored with the definition the release ships (`description`), and 1151 are candidates. Sample records are left out.
@@ -36,5 +36,5 @@ The owner, 2026-09-23: *"everything extracted to glosasay / skos? accesible in i
 ## Open: the owner's call
 
 - **ISCO-08 to ESCO: decided.** No ConceptMap records a mapping from iHRIS's `isco_08_*` lists to ISCO-08; `build_dak.py` binds them to the ILO system as a ValueSet. The owner accepted that binding as identity on 2026-09-24 (*"Accept ValueSet identity"*), so every ISCO-08 code has `exactMatch` to ESCO, the scheme descriptions name the basis, and `glossary-matches` recomputes it from the ValueSets. ISCO-88 definitions stay verbatim (*"Keep verbatim"*). Conventions (instance namespace; one ConceptScheme per code list) follow folio-assistant and are written in the skill.
-- **The instance namespace** `https://litlfred.github.io/ihris/ihris/ns#` applies core's `instanceNs` rule (`<publication root><instance>/ns#`) to this repository's own site. Confirm it, or name another (compare bean `ihris-gj3u`, the DAK canonical).
+- **The namespace, decided 2026-09-24.** Owner: *"make sure all glossary terms properly localed to ihris so [no] collision w/ other subgraphs. general rule/skill"*. Each scheme is in its owning sub-instance's namespace (core's `instanceNs` under this site's root), not the root instance's.
 - **ISCO-88 definitions** are the ILO's text as iHRIS 4.3.3 ships it, and some carry the release's own concatenation errors. They are published verbatim as `authored` under the release's GPL.

@@ -146,8 +146,14 @@ fa = os.environ.get("FOLIO_ASSISTANT", os.path.join(ROOT, "..", "litlfred", "fol
 
 if os.path.isdir(os.path.join(fa, "folio-assistant-core")):
     sys.path.insert(0, os.path.join(ROOT, "src", "tools"))
-    import build_glossary  # the instance namespace, one answer: validate-folio.ts compares its SKOS with core's toSkos
-    r = subprocess.run(["bun", "run", os.path.join(ROOT, "src/tools/validate-folio.ts"), ROOT, build_glossary.NS], cwd=fa,
+    import build_glossary  # each scheme's owning-instance namespace, one answer: validate-folio.ts compares its SKOS with core's toSkos
+    ns_map = os.path.join(ROOT, ".build", "glossary-ns.json")
+    os.makedirs(os.path.dirname(ns_map), exist_ok=True)
+    with open(ns_map, "w", encoding="utf-8") as f:
+        defs = build_glossary.form_definers()
+        json.dump({g["id"]: {"owner": build_glossary.scheme_owner(g, defs), "ns": build_glossary.scheme_ns(g, defs)}
+                   for _, g in build_glossary.load()}, f, indent=1, sort_keys=True)
+    r = subprocess.run(["bun", "run", os.path.join(ROOT, "src/tools/validate-folio.ts"), ROOT, ns_map], cwd=fa,
                        capture_output=True, text=True)
     sys.stdout.write(r.stdout)
     if r.returncode != 0:
