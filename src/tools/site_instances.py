@@ -499,33 +499,37 @@ def _uc_link(href):
 
 def roles_page(prods, theme, crumbs):
     """The use-case roles (scenarios/roles.json) and opaque actors (scenarios/actors/), each with an anchor
-    the product pages link to, and where each is used."""
+    the product pages link to, and where each is used. A role's use cases are its stories
+    (scenarios/stories.json): the use cases the reports list it as primary actor on (owner, 2026-09-24)."""
     path = "library/use-cases/roles.html"
     g = J(f"{USE_CASES}/scenarios/roles.json")
+    stories = J(f"{USE_CASES}/scenarios/stories.json")["stories"]
     actors = [J(os.path.relpath(f, ROOT)) for f in sorted(glob.glob(os.path.join(ROOT, USE_CASES, "scenarios", "actors", "*.json")))]
-    src, plays, refs = {}, collections.defaultdict(list), collections.defaultdict(list)
+    src, plays, refs = collections.defaultdict(list), collections.defaultdict(list), collections.defaultdict(list)
+    product_of = {}
     for d in prods:
         for a in d["actors"]:
-            src[a["role"]] = (d, a["id"])
+            src[a["role"]].append((d, a["id"]))
         stack = [d["root"]]
         while stack:
             p = stack.pop(0)
             stack += p["packages"]
             for u in p["useCases"]:
-                for r in (u.get("primaryActors") or []) + (u.get("supportingActors") or []):
-                    if (d["product"], u["id"]) not in plays[r]:
-                        plays[r].append((d["product"], u["id"]))
+                product_of[u["id"]] = d["product"]
                 if u.get("assignedTo"):
                     refs[u["assignedTo"]["actor"]].append((d["product"], u["id"], "Assigned To"))
             for r in p["requirements"]:
                 if r.get("source"):
                     refs[r["source"]["actor"]].append((d["product"], r["id"], "Source"))
+    for s in stories:
+        u = s["id"][len(s["role"]["role"]) + 1:].upper()
+        plays[s["role"]["role"]].append((product_of[u], u))
     rrows = []
     for r in g["roles"]:
-        d, aid = src[r["id"]]
         uses = ", ".join(f'<a href="{E(p)}.html">{E(u)}</a>' for p, u in plays[r["id"]]) or '<span class="mute">none</span>'
         rrows.append([f'<span id="{E(r["id"])}"><b>{E(r["title"])}</b></span><br><code>{E(r["id"])}</code>',
-                      f'{E(aid)}<br><span class="mute">{E(d["title"])}</span>', E(r["description"]), uses])
+                      "<br>".join(f'{E(aid)} <span class="mute">{E(d["title"])}</span>' for d, aid in src[r["id"]]),
+                      E(r["description"]), uses])
     arows = []
     for a in actors:
         used = ", ".join(f'<a href="{E(p)}.html">{E(x)}</a> <span class="mute">({E(f)})</span>' for p, x, f in refs[a["id"]])
@@ -533,9 +537,10 @@ def roles_page(prods, theme, crumbs):
                       E(a["description"]), used])
     inner = ('<p>Each actor a 2009 report describes is a <b>role</b> in the iHRIS domain, declared in folio-assistant&#39;s '
              '<code>scenarios</code> graph kind (<code>library/ihris-use-cases/scenarios/roles.json</code>). Title and description '
-             'are the report&#39;s own. A-ICE4 (Common) and A-PS6 (Qualify) are both &ldquo;Any User&rdquo;: two roles, and whether '
-             'they are the same is undecided.</p>'
-             + rows_table(["Role", "Actor in the report", "Description", "Plays in"], rrows, "Use-case roles")
+             'are the report&#39;s own. A-ICE4 (Common) and A-PS6 (Qualify) are both &ldquo;Any User&rdquo;, and they are one role '
+             '(owner, 2026-09-24). &ldquo;Primary actor on&rdquo; lists the use cases whose &ldquo;Primary Actors&rdquo; field names '
+             'the role (<code>scenarios/stories.json</code>).</p>'
+             + rows_table(["Role", "Actor in the report", "Description", "Primary actor on"], rrows, "Use-case roles")
              + '<h2 id="opaque-actors">Opaque actors</h2><p>People the reports name in &ldquo;Assigned To&rdquo; (staff initials) or in a '
                'requirement&#39;s &ldquo;Source&rdquo;. Each distinct person is one actor, numbered in order of first appearance, and '
                'who they are is withheld: the mapping lives in the data store only, never in this repository.</p>'
