@@ -1,0 +1,32 @@
+{
+ "$schema": "folio-glossary/v1",
+ "id": "code-list-exam_result",
+ "title": "iHRIS 4.3.3 code list: exam_result",
+ "description": "The `exam_result` code list as iHRIS 4.3.3 ships it by default: 3 codes from ihris-qualify/module/ihris-qualify. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+ "hasVersion": "4.3.3",
+ "source": "src/ihris-qualify/data-lists/4.3.3/exam_result.json (iHRIS 4.3.3, MD5-verified release)",
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "terms": [
+  {
+   "id": "pass",
+   "prefLabel": "Pass",
+   "notation": "pass",
+   "source": "src/ihris-qualify/data-lists/4.3.3/exam_result.json#/records/0",
+   "status": "candidate"
+  },
+  {
+   "id": "fail",
+   "prefLabel": "Fail",
+   "notation": "fail",
+   "source": "src/ihris-qualify/data-lists/4.3.3/exam_result.json#/records/1",
+   "status": "candidate"
+  },
+  {
+   "id": "notake",
+   "prefLabel": "Did not sit for exam",
+   "notation": "notake",
+   "source": "src/ihris-qualify/data-lists/4.3.3/exam_result.json#/records/2",
+   "status": "candidate"
+  }
+ ]
+}

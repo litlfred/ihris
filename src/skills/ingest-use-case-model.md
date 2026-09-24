@@ -22,6 +22,7 @@ CaseComplete's complete report, extracted with `antiword -w 0`, has a fixed shap
 1. Put the `.doc` files in `uploads/<slug>/` with a `manifest.json` pinning md5 and sha256 (git-ignored). Record the licence decision. A report that states no licence needs the owner's permission before its text is published.
 2. Run `python3 src/tools/ingest_use_cases.py` (Tool `ihris-ingest-use-cases`). It stops on any line it does not understand, rather than skip it. Fix the parser, never the output.
 3. Check the counts against the report's own table of contents, and check `dangling` (ids the report cites but never describes).
+   Check `glossary`: the report's document summary (Subject, read with olefile) may name a glossary. A line of the text naming one stops the tool until the parser reads its entries verbatim; none found is recorded as `found: false`, `terms: []`, with what was checked. Never invent one. `build_glossary.py` (skill `build-skos-glossary`) reads this record.
 4. Check the tool's last line: `leak check: N withheld strings, none found ...`. If it stops with `LEAK`, a withheld name or initials reached `library/ihris-use-cases/` or the site. Fix the tool that let it through; never edit the output to hide it.
 5. Run AGENTS.md §3.
 

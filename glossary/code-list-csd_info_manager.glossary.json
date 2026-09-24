@@ -1,0 +1,39 @@
+{
+ "$schema": "folio-glossary/v1",
+ "id": "code-list-csd_info_manager",
+ "title": "iHRIS 4.3.3 code list: csd_info_manager",
+ "description": "The `csd_info_manager` code list as iHRIS 4.3.3 ships it by default: 4 codes from ihris-common/module/csd-infoman-storage. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+ "hasVersion": "4.3.3",
+ "source": "src/ihris-common/data-lists/4.3.3/csd_info_manager.json (iHRIS 4.3.3, MD5-verified release)",
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "terms": [
+  {
+   "id": "organization_connectathon",
+   "prefLabel": "localhost connect-a-thon organizations",
+   "notation": "organization_connectathon",
+   "source": "src/ihris-common/data-lists/4.3.3/csd_info_manager.json#/records/0",
+   "status": "candidate"
+  },
+  {
+   "id": "facility_connectathon",
+   "prefLabel": "localhost connect-a-thon facilities",
+   "notation": "facility_connectathon",
+   "source": "src/ihris-common/data-lists/4.3.3/csd_info_manager.json#/records/1",
+   "status": "candidate"
+  },
+  {
+   "id": "service_connectathon",
+   "prefLabel": "localhost connect-a-thon services",
+   "notation": "service_connectathon",
+   "source": "src/ihris-common/data-lists/4.3.3/csd_info_manager.json#/records/2",
+   "status": "candidate"
+  },
+  {
+   "id": "provider_connectathon",
+   "prefLabel": "localhost connect-a-thon providers",
+   "notation": "provider_connectathon",
+   "source": "src/ihris-common/data-lists/4.3.3/csd_info_manager.json#/records/3",
+   "status": "candidate"
+  }
+ ]
+}

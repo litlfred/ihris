@@ -15,6 +15,12 @@
 //   methodologies/*/*.md front matter             MethodologyFrontMatterSchema (folio-methodology/v1)
 //   <scenarios dir>/roles.json                    RoleGraphSchema (every directory declaring graphKinds ["scenarios"])
 //   <scenarios dir>/actors/*.json                 ActorDefSchema, strict: an actor carries nothing else (no login)
+//   <glossary dir>/*.glossary.json                GlossarySchema (folio-glossary/v1; every directory declaring
+//                                                 graphKinds ["glossary"]), and core's own toSkos() of each scheme
+//                                                 must equal the SKOS JSON-LD the site published (build_glossary.py
+//                                                 mirrors toSkos in Python; this holds the mirror to it). The site
+//                                                 is <this-repo>/.build/site (validate.py builds it first) and the
+//                                                 instance namespace is argv[3] (build_glossary.NS).
 //
 // zod drops keys a schema does not declare. So a declaration passing here says
 // nothing about ihris's own fields (`source`, `materialization`, ...). validate.py
@@ -39,9 +45,15 @@ const { PdfStructureSchema } = await S("cat-harness/schemas/pdf-structure.ts").c
 const { ImagesSidecarSchema } = await S("cat-harness/schemas/document-image.ts");
 const { MethodologyFrontMatterSchema } = await S("cat-harness/schemas/methodology.ts");
 const { RoleGraphSchema, ActorDefSchema } = await S("cat-harness/schemas/role-graph.ts");
+// folio-glossary/v1 is core's, from litlfred/folio-assistant#1218 (issue #1217). Say so on an older checkout.
+const { GlossarySchema, toSkos } = await S("folio-assistant-core/schemas/glossary.ts").catch(() => {
+  console.log("folio-assistant checkout predates folio-assistant-core/schemas/glossary.ts (#1218): update it");
+  process.exit(1);
+});
 const { parse: parseYaml } = await import(resolve(process.cwd(), "node_modules/yaml/dist/index.js"));
 
 const root = process.argv[2];
+const glossaryNs = process.argv[3];
 let bad = 0;
 const counts: Record<string, number> = {};
 const read = (rel: string) => JSON.parse(readFileSync(resolve(root, rel), "utf8"));
@@ -111,6 +123,39 @@ for (const [rel, d] of decls) {
     }
     check(`${at}/roles.json`, "role-graph", RoleGraphSchema, roles);
     for (const a of new Glob(`${at}/actors/*.json`).scanSync(root)) check(a, "actor", ActorDefSchema.strict(), read(a));
+  }
+}
+// The `glossary` graph kind: every *.glossary.json in a declared glossary directory, and its SKOS as core emits it.
+for (const [rel, d] of decls) {
+  const base = rel.includes("/") ? rel.slice(0, rel.lastIndexOf("/")) : ".";
+  for (const dir of d.directories ?? []) {
+    if (!(dir.graphKinds ?? []).includes("glossary")) continue;
+    const at = resolve(root, base, dir.path).slice(resolve(root).length + 1);
+    for (const g of new Glob(`${at}/*.glossary.json`).scanSync(root)) {
+      const doc = read(g);
+      check(g, "folio-glossary/v1", GlossarySchema, doc);
+      const r = GlossarySchema.safeParse(doc);
+      if (!r.success) continue;
+      if (!glossaryNs) {
+        bad++;
+        console.log(`${g}: no instance namespace given (argv[3]), so its SKOS was not compared with core's toSkos`);
+        continue;
+      }
+      const published = resolve(root, ".build/site/assets/glossary", `${d.name}--${r.data.id}.skos.jsonld`);
+      let site: unknown;
+      try {
+        site = JSON.parse(readFileSync(published, "utf8"));
+      } catch {
+        bad++;
+        console.log(`${g}: the site published no SKOS at ${published.slice(resolve(root).length + 1)} (build the site first)`);
+        continue;
+      }
+      counts["glossary SKOS = core toSkos"] = (counts["glossary SKOS = core toSkos"] ?? 0) + 1;
+      if (JSON.stringify(toSkos(r.data, glossaryNs)) !== JSON.stringify(site)) {
+        bad++;
+        console.log(`${g}: the site's SKOS differs from core's toSkos() (src/tools/build_glossary.py to_skos drifted)`);
+      }
+    }
   }
 }
 check("ihris.config.json", "harness-config", HarnessConfigSchema, read("ihris.config.json"));

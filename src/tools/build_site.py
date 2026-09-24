@@ -12,6 +12,8 @@ Everything here is GENERATED from committed data, never transcribed:
                                               laid out as the accepted wireframe H2
                                               (docs/design/wireframes/data-model-site/acceptance.json)
   src/site/theme/ihris-classic.json           the theme (src/tools/extract_theme.py)
+  glossary/*.glossary.json                    glossary/ (A-Z, filter, SKOS JSON-LD per scheme) and the
+                                              glossary half of data-model/search.html (site_instances.py)
 
 Output goes to _site/ (git-ignored). The Pages workflow builds it and commits it to the gh-pages branch. Links are all
 relative, so the site works under /ihris/ and from a local file.
@@ -128,7 +130,24 @@ main {{ min-width:0; }}
 .hood {{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px; align-items:start; }}
 svg {{ width:100%; height:auto; border:1px solid var(--rule); background:#fff; }}
 .rels {{ display:none; }}
+.gsearch label {{ display:block; font-size:13px; color:var(--mute); margin-bottom:2px; }}
+.gsearch input {{ width:100%; max-width:520px; min-height:44px; padding:8px; font:inherit; border:1px solid #767676; }}
+nav.az {{ display:flex; flex-wrap:wrap; gap:4px; margin:10px 0 4px; }}
+nav.az a {{ display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; padding:0 8px; border:1px solid var(--rule);
+  font-weight:700; text-decoration:none; }}
+dl.gloss dt {{ margin-top:12px; font-size:15px; overflow-wrap:anywhere; }}
+dl.gloss dd {{ margin:2px 0 0 18px; overflow-wrap:break-word; }}
+dl.gloss dd p {{ margin:2px 0; }}
+dl.gloss .badge.st {{ border-style:dashed; color:var(--mute); }}
+ul.matches {{ margin:2px 0; padding-left:18px; }}
+ul.schemes {{ padding-left:18px; }} ul.schemes li {{ margin-bottom:10px; overflow-wrap:break-word; }}
+ul.schemes a.tgt {{ display:inline-flex; align-items:center; min-height:44px; }}
+.gloss .src code, .matches a {{ overflow-wrap:anywhere; }}
+.gloss a.tgt, .matches a, main table a.tgt {{ display:inline-flex; align-items:center; min-height:44px; }}
+dl.gloss details > summary {{ min-height:44px; padding:10px 0; }}
 @media (max-width:700px) {{
+  dl.gloss dd {{ margin-left:8px; }}
+  .crumbs a, .card a.go, .badges a {{ display:inline-flex; align-items:center; min-height:44px; }}
   header.site {{ padding:10px 16px; }} header.site img {{ height:40px; }} .brand {{ font-size:20px; }}
   main {{ padding:16px; }} h1 {{ font-size:22px; }}
   .layout {{ grid-template-columns:1fr; }}
@@ -162,7 +181,7 @@ def shell(path, title, body, theme, current=None, scripts=""):
     r = lambda p: rel(path, p)  # noqa: E731
     items = [("index.html", "Home"), ("data-model/index.html", "Data model"), ("data-dictionary/index.html", "Data dictionary"),
              ("sources/index.html", "Sources"), ("library/index.html", "Library"), ("schemas/index.html", "Schemas"),
-             ("data-model/search.html", "Search"), (None, "GitHub")]
+             ("glossary/index.html", "Glossary"), ("data-model/search.html", "Search"), (None, "GitHub")]
     nav = "".join(
         f'<li><a href="{E(r(p) if p else REPO)}"{AC if p == current else ""}>{E(n)}</a></li>'
         for p, n in items)
@@ -239,6 +258,9 @@ def landing(theme, recs):
   <a class="go" href="{E(href)}">{label}<span class="mute"> · {E(inst['name'])}</span></a>
 </article>""")
     classes = len({r["class"] for r in recs})
+    import build_glossary
+    gl = [g for _, g in build_glossary.load()]
+    n_terms, n_schemes = sum(len(g.get("terms") or []) for g in gl), len(gl)
     body = f"""<main id="main" tabindex="-1">
 <h1>{E(decl['title'])}</h1>
 <p>{E(decl['description'].split('. ')[0])}.</p>
@@ -253,6 +275,13 @@ def landing(theme, recs):
   <p>Every form class with its fields, the lists it draws from, and its neighbourhood: what it extends and what extends it.</p>
   <span class="stats">{len(recs)} records, {classes} classes</span>
   <a class="go" href="data-model/index.html">Open the data model</a>
+</article>
+<article class="card">
+  <span class="kind">glossary</span>
+  <h3>Glossary</h3>
+  <p>Every term extracted, as W3C SKOS: the toolkit&#39;s technical terms and the iHRIS code lists, linked to the external concepts they match.</p>
+  <span class="stats">{n_terms} terms in {n_schemes} schemes</span>
+  <a class="go" href="glossary/index.html">Open the glossary</a>
 </article>
 {''.join(cards)}
 </div>
@@ -287,7 +316,7 @@ def sidebar(path, pkg_of_page, cls, recs, by_pkg):
     return f"""<aside class="side" aria-label="Data model navigation">
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="dm-nav"><span aria-hidden="true">&#9776;</span> Menu</button>
   <form class="search" role="search" action="{r('data-model/search.html')}">
-    <label for="q">Search classes, fields, lists</label>
+    <label for="q">Search classes, fields, lists, terms</label>
     <input id="q" name="q" type="search" autocomplete="off">
   </form>
   <nav id="dm-nav" aria-label="Packages"><ul>{''.join(items)}{note}</ul></nav>
@@ -469,24 +498,39 @@ extracted by <code>src/tools/build_kg.py</code>. Pick a package, search, or open
 
 
 def search_page(recs, theme):
+    """One search over the data model AND the glossary, at the data model's URL (data-model/search.html?q=...),
+    so links and bookmarks to it keep working."""
+    import site_instances
     path = "data-model/search.html"
     idx = [{"c": x["class"], "p": x["_pkg"], "f": [f["field"] for f in x["fields"]],
             "l": sorted({l for f in x["fields"] for l in (f.get("references") or [])})} for x in recs]
     rows = "".join(f'<li data-k="{E(" ".join([x["class"].lower()] + [f.lower() for f in i["f"]] + i["l"]))}">'
                    f'<a href="{x["_pkg"]}/{E(x["class"])}.html">{E(x["class"])}</a> <span class="mute">{x["_pkg"]} · '
                    f'{len(x["fields"])} fields</span></li>' for x, i in zip(recs, idx))
+    grows = site_instances.glossary_rows()
+    gl = "".join(f'<li data-k="{E(" ".join([label, t.get("notation") or "", g["id"]]).lower())}">'
+                 f'<a href="{E(rel(path, site_instances.GLOSSARY))}#{E(site_instances.term_anchor(g, t))}">{E(label)}</a> '
+                 f'<span class="mute">{E(t["notation"]) + " · " if t.get("notation") and t["notation"] != label else ""}{E(g["title"])}'
+                 f'{"" if t["status"] == "authored" else " · " + E(t["status"])}</span></li>' for g, t, label in grows)
     js = """<script>
 (function(){var q=new URLSearchParams(location.search).get('q')||'';var box=document.getElementById('sq');box.value=q;
-function run(){var v=box.value.trim().toLowerCase();var n=0;document.querySelectorAll('#hits li').forEach(function(li){
-var ok=!v||li.dataset.k.indexOf(v)>=0;li.hidden=!ok;if(ok)n++;});document.getElementById('n').textContent=n;}
+function count(sel,out,v){var n=0;document.querySelectorAll(sel).forEach(function(li){
+var ok=!v||li.dataset.k.indexOf(v)>=0;li.hidden=!ok;if(ok)n++;});document.getElementById(out).textContent=n;return n;}
+function run(){var v=box.value.trim().toLowerCase();var a=count('#hits li','n',v),b=count('#ghits li','gn',v);
+document.getElementById('tn').textContent=a+b;}
 box.addEventListener('input',run);run();})();
 </script>"""
     body = f"""<main id="main" tabindex="-1">
-<h1>Search the data model</h1>
-<form role="search" onsubmit="return false"><label for="sq">Class, field or list name</label><br>
+<h1>Search</h1>
+<p class="mute">The iHRIS {RELEASE} data model (classes, fields and the lists they draw from) and the <a href="{E(rel(path, site_instances.GLOSSARY))}">glossary</a>.</p>
+<form role="search" onsubmit="return false"><label for="sq">Class, field, list or glossary term</label><br>
 <input id="sq" type="search" style="width:100%;max-width:520px;padding:8px;font:inherit;min-height:44px;border:1px solid #767676"></form>
-<p class="mute" aria-live="polite"><span id="n">{len(recs)}</span> matching records</p>
+<p class="mute" aria-live="polite"><span id="tn">{len(recs) + len(grows)}</span> matches: <span id="n">{len(recs)}</span> data-model records,
+<span id="gn">{len(grows)}</span> glossary terms</p>
+<h2>Data model</h2>
 <ul id="hits">{rows}</ul>
+<h2>Glossary</h2>
+<ul id="ghits">{gl}</ul>
 </main>"""
     return path, shell(path, "Search", body, theme, current="data-model/search.html", scripts=js)
 

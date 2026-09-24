@@ -1,0 +1,25 @@
+{
+ "$schema": "folio-glossary/v1",
+ "id": "code-list-step_type",
+ "title": "iHRIS 4.3.3 code list: step_type",
+ "description": "The `step_type` code list as iHRIS 4.3.3 ships it by default: 2 codes from ihris-common/module/mHero-base. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+ "hasVersion": "4.3.3",
+ "source": "src/ihris-common/data-lists/4.3.3/step_type.json (iHRIS 4.3.3, MD5-verified release)",
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "terms": [
+  {
+   "id": "a",
+   "prefLabel": "Request",
+   "notation": "A",
+   "source": "src/ihris-common/data-lists/4.3.3/step_type.json#/records/0",
+   "status": "candidate"
+  },
+  {
+   "id": "r",
+   "prefLabel": "Response",
+   "notation": "R",
+   "source": "src/ihris-common/data-lists/4.3.3/step_type.json#/records/1",
+   "status": "candidate"
+  }
+ ]
+}

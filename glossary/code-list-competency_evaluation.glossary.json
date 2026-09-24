@@ -1,0 +1,32 @@
+{
+ "$schema": "folio-glossary/v1",
+ "id": "code-list-competency_evaluation",
+ "title": "iHRIS 4.3.3 code list: competency_evaluation",
+ "description": "The `competency_evaluation` code list as iHRIS 4.3.3 ships it by default: 3 codes from ihris-common/module/person-simple-competency. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+ "hasVersion": "4.3.3",
+ "source": "src/ihris-common/data-lists/4.3.3/competency_evaluation.json (iHRIS 4.3.3, MD5-verified release)",
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "terms": [
+  {
+   "id": "not_evaluated",
+   "prefLabel": "Not Evaluated",
+   "notation": "not_evaluated",
+   "source": "src/ihris-common/data-lists/4.3.3/competency_evaluation.json#/records/0",
+   "status": "candidate"
+  },
+  {
+   "id": "competent",
+   "prefLabel": "Competent",
+   "notation": "competent",
+   "source": "src/ihris-common/data-lists/4.3.3/competency_evaluation.json#/records/1",
+   "status": "candidate"
+  },
+  {
+   "id": "not_competent",
+   "prefLabel": "Not Competent",
+   "notation": "not_competent",
+   "source": "src/ihris-common/data-lists/4.3.3/competency_evaluation.json#/records/2",
+   "status": "candidate"
+  }
+ ]
+}

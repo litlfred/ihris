@@ -4,7 +4,7 @@
   "title": "ihris-use-cases/v1",
   "description": "One iHRIS product's 2009 use-case model (Serlio CaseComplete report), parsed: packages holding use cases (Details fields, main success scenario, extensions, notes) and requirements, the actors, and the references the report cites but never describes (library/ihris-use-cases/<product>.json, src/tools/ingest_use_cases.py). Actors are referenced as ROLES (library/ihris-use-cases/scenarios/roles.json, folio-assistant's RoleGraphSchema); a person the report names (Assigned To, a requirement's Source) is referenced as an opaque actor (scenarios/actors/ihris-2009-staff-NN.json), identity withheld.",
   "type": "object",
-  "required": ["$schema", "product", "title", "report", "source", "attribution", "counts", "withheld", "actors", "root", "dangling"],
+  "required": ["$schema", "product", "title", "report", "source", "attribution", "counts", "withheld", "actors", "root", "dangling", "glossary"],
   "additionalProperties": false,
   "properties": {
     "$schema": {"const": "ihris-use-cases/v1"},
@@ -14,7 +14,8 @@
       "type": "object",
       "required": ["title", "generator", "generatedAt", "author"],
       "additionalProperties": false,
-      "properties": {"title": {"type": "string"}, "generator": {"type": "string"}, "generatedAt": {"type": "string"}, "author": {"type": "string"}}
+      "properties": {"title": {"type": "string"}, "generator": {"type": "string"}, "generatedAt": {"type": "string"}, "author": {"type": "string"},
+        "subject": {"type": "string", "description": "The Subject of the document summary (OLE SummaryInformation), as the .doc carries it."}}
     },
     "source": {
       "type": "object",
@@ -49,7 +50,20 @@
     },
     "actors": {"type": "array", "items": {"$ref": "#/$defs/actor"}},
     "root": {"$ref": "#/$defs/package"},
-    "dangling": {"type": "array", "items": {"$ref": "#/$defs/dangling"}}
+    "dangling": {"type": "array", "items": {"$ref": "#/$defs/dangling"}},
+    "glossary": {
+      "type": "object",
+      "description": "The report's glossary. CaseComplete's report subject names one; `found` says whether the report text holds a glossary section, and `terms` are its entries, verbatim. No term is invented: when none is found, `terms` is empty and `note` says what was checked (src/tools/build_glossary.py reads this).",
+      "required": ["claimedBy", "found", "terms", "note"],
+      "additionalProperties": false,
+      "properties": {
+        "claimedBy": {"type": ["string", "null"], "description": "Where the report says it holds a glossary (its document summary's Subject), or null when it does not say so."},
+        "found": {"type": "boolean"},
+        "terms": {"type": "array", "items": {"type": "object", "required": ["term", "definition"], "additionalProperties": false,
+                                              "properties": {"term": {"type": "string", "minLength": 1}, "definition": {"type": "string", "minLength": 1}}}},
+        "note": {"type": "string", "minLength": 1}
+      }
+    }
   },
   "$defs": {
     "text": {"type": ["string", "null"]},

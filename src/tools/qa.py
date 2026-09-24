@@ -996,6 +996,259 @@ def c_bpmn(C):
     return out
 
 
+# ------------------------------------------------------------------ glossary (folio-glossary/v1, core's SKOS schema)
+# Recomputed here from the inputs, independently of src/tools/build_glossary.py, so a bug there is caught
+# rather than copied. Shape is folio-assistant's zod (validate-folio.ts); these are the facts it cannot see.
+GLOSSARY_EXTERNAL = {  # verified ConceptMap target system -> the publisher's IRI for a code (see build_glossary.py)
+    "urn:iso:std:iso:3166": lambda c: "http://publications.europa.eu/resource/authority/country/" + _alpha3(c),
+    "urn:iso:std:iso:4217": lambda c: "http://publications.europa.eu/resource/authority/currency/" + c,
+    "http://www.ilo.org/public/english/bureau/stat/isco/isco08/": lambda c: "http://data.europa.eu/esco/isco/C" + c,
+}
+GLOSSARY_EQUIV = {"equal": "exactMatch", "equivalent": "exactMatch", "wider": "broadMatch", "subsumes": "broadMatch",
+                  "narrower": "narrowMatch", "specializes": "narrowMatch"}
+GLOSSARY_MATCHES = ("exactMatch", "closeMatch", "broadMatch", "narrowMatch")
+LOCAL_ID = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
+
+
+def _alpha3(a2):
+    import pycountry
+    c = pycountry.countries.get(alpha_2=a2)
+    return c.alpha_3 if c else f"?{a2}"
+
+
+def _glossaries(C):
+    return C["tagged"].get("folio-glossary/v1", [])
+
+
+def _glossary_dirs(C):
+    out = []
+    for rel, d in C["declarations"]:
+        base = os.path.dirname(rel)
+        for x in d.get("directories") or []:
+            if "glossary" in (x.get("graphKinds") or []):
+                out.append(os.path.normpath(os.path.join(base, x["path"])))
+    return out
+
+
+def _pointer(doc, ptr):
+    for part in [p for p in ptr.split("/") if p]:
+        part = part.replace("~1", "/").replace("~0", "~")
+        doc = doc[int(part)] if isinstance(doc, list) else doc[part]
+    return doc
+
+
+def _strings(v):
+    if isinstance(v, str):
+        yield v
+    elif isinstance(v, dict):
+        for x in v.values():
+            yield from _strings(x)
+    elif isinstance(v, list):
+        for x in v:
+            yield from _strings(x)
+
+
+def c_glossary_schemes(C):
+    """Each scheme sits in a declared glossary directory as <id>.glossary.json; the three states hold (authored has a
+    definition, could-not-extract a reason); every source names a file that exists; and the committed schemes are
+    exactly what src/tools/build_glossary.py generates from today's inputs."""
+    out, dirs = [], _glossary_dirs(C)
+    if not dirs:
+        out.append("no declaration has a glossary directory (graphKinds [\"glossary\"])")
+    for rel, g in _glossaries(C):
+        if os.path.dirname(rel) not in dirs:
+            out.append(f"{rel}: not in a declared glossary directory ({', '.join(dirs)})")
+        if os.path.basename(rel) != f"{g.get('id')}.glossary.json":
+            out.append(f"{rel}: holds scheme {g.get('id')!r}, so it should be named {g.get('id')}.glossary.json")
+        for t in g.get("terms") or []:
+            if t.get("status") == "authored" and not t.get("definition"):
+                out.append(f"{rel}: {t.get('id')} is authored with no definition (it is a candidate)")
+            if t.get("status") == "could-not-extract" and not t.get("reason"):
+                out.append(f"{rel}: {t.get('id')} could not be extracted and says not why")
+            if t.get("source") and not IRI_RX.match(t["source"]) and not exists(t["source"].split("#")[0]):
+                out.append(f"{rel}: {t.get('id')} source {t['source']} does not exist")
+    spec = importlib.util.spec_from_file_location("build_glossary", os.path.join(ROOT, "src/tools/build_glossary.py"))
+    bg = importlib.util.module_from_spec(spec)
+    sys.path.insert(0, os.path.join(ROOT, "src", "tools"))
+    spec.loader.exec_module(bg)
+    want = bg.outputs()
+    have = {rel: json.dumps(g, indent=1, ensure_ascii=False) + "\n" for rel, g in _glossaries(C)}
+    for rel in sorted(set(want) | set(have)):
+        if rel not in have:
+            out.append(f"{rel}: build_glossary.py generates it, and it is not committed")
+        elif rel not in want:
+            out.append(f"{rel}: committed, and build_glossary.py does not generate it")
+        elif have[rel] != want[rel]:
+            out.append(f"{rel}: differs from what build_glossary.py generates (stale or hand-edited)")
+    return out
+
+
+IRI_RX = re.compile(r"^[a-z][a-z0-9+.-]*://", re.I)
+
+
+def c_glossary_ids(C):
+    """No scheme id twice; no term id twice in a scheme; every id in core's local-id grammar; so no IRI twice."""
+    out, schemes = [], {}
+    for rel, g in _glossaries(C):
+        if g.get("id") in schemes:
+            out.append(f"{rel}: scheme id {g.get('id')} is also {schemes[g['id']]}")
+        schemes[g.get("id")] = rel
+        if not LOCAL_ID.match(g.get("id") or ""):
+            out.append(f"{rel}: scheme id {g.get('id')!r} is not a local id")
+        seen = set()
+        for t in g.get("terms") or []:
+            if t.get("id") in seen:
+                out.append(f"{rel}: term id {t.get('id')} appears twice")
+            seen.add(t.get("id"))
+            if not LOCAL_ID.match(t.get("id") or ""):
+                out.append(f"{rel}: term id {t.get('id')!r} is not a local id")
+    return out
+
+
+def c_glossary_matches(C):
+    """Every SKOS match is one the repository verified or the owner accepted: recomputed from the ConceptMaps in
+    src/ihris-data-dictionary/terminology (equal/equivalent -> exactMatch, wider/subsumes -> broadMatch,
+    narrower/specializes -> narrowMatch, nothing else), for targets that are external schemes ihris.json
+    references, plus exactMatch from a code list's ValueSet bound to ISCO-08 (ValueSet identity, owner 2026-09-24).
+    A match with no such basis, or a basis with no match, is a finding."""
+    out, expected = [], {}
+    remote = [g["url"].rstrip("/") + "/" for g in J("ihris.json").get("remoteGraphs") or [] if "glossary" in g["graphKinds"]]
+    remote.append("http://data.europa.eu/esco/isco/")  # ESCO's ISCO concepts sit beside its concept-scheme IRI
+    for rel in G("src/ihris-data-dictionary/terminology/ConceptMap-*.json"):
+        for grp in J(rel).get("group") or []:
+            iri = GLOSSARY_EXTERNAL.get(grp.get("target"))
+            if not iri:
+                continue
+            form = grp["source"].rsplit("/", 1)[-1]
+            for el in grp.get("element") or []:
+                for tg in el.get("target") or []:
+                    m = GLOSSARY_EQUIV.get(tg.get("equivalence"))
+                    if m and tg.get("code"):
+                        expected.setdefault((form, el["code"]), {}).setdefault(m, set()).add(iri(tg["code"]))
+    # The owner-accepted second basis (2026-09-24): a code list's own ValueSet bound to the ILO ISCO-08
+    # system is identity, so each of its concepts has exactMatch to ESCO. No other system is accepted so.
+    identity = {"http://www.ilo.org/public/english/bureau/stat/isco/isco08/"}
+    for rel in G("src/ihris-data-dictionary/terminology/ValueSet-*.json"):
+        vs = J(rel)
+        form = vs.get("url", "").rsplit("/", 1)[-1]
+        for inc in (vs.get("compose") or {}).get("include") or []:
+            if inc.get("system") in identity:
+                for c in inc.get("concept") or []:
+                    expected.setdefault((form, c["code"]), {}).setdefault("exactMatch", set()).add(GLOSSARY_EXTERNAL[inc["system"]](c["code"]))
+    seen = set()
+    for rel, g in _glossaries(C):
+        for t in g.get("terms") or []:
+            src = (t.get("source") or "").split("#")[0]
+            form = os.path.basename(src)[:-5] if "/data-lists/" in src else None
+            key = (form, t.get("notation"))
+            want = expected.get(key, {}) if form else {}
+            seen.add(key)
+            for m in GLOSSARY_MATCHES:
+                have = set(t.get(m) or [])
+                for x in sorted(have - want.get(m, set())):
+                    out.append(f"{rel}: {t['id']} {m} {x} is no mapping the repository verified")
+                for x in sorted(want.get(m, set()) - have):
+                    out.append(f"{rel}: {t['id']} lacks {m} {x}, which a verified ConceptMap or the ISCO-08 ValueSet identity records")
+                for x in have:
+                    if not any(x.startswith(r) for r in remote):
+                        out.append(f"{rel}: {t['id']} {m} {x} is in no external scheme ihris.json references (remoteGraphs)")
+    for key in sorted(k for k in expected if k not in seen):
+        out.append(f"ConceptMap mapping {key[0]}|{key[1]} has no glossary term to carry it")
+    return out
+
+
+def c_glossary_counts(C):
+    """Term counts per source match their inputs: the toolkit's technical terms, the use-case reports' recorded
+    glossaries, and each code list's unique DEFAULT records (one scheme per list that has any, no other)."""
+    out = []
+    by_id = {g.get("id"): (rel, g) for rel, g in _glossaries(C)}
+
+    def n(sid):
+        return len((by_id.get(sid, (None, {}))[1]).get("terms") or []) if sid in by_id else None
+    want = sum(len(J(r).get("technicalTerms") or []) for r in G("library/ihris-toolkit/stages/*.json"))
+    if n("toolkit-technical-terms") != want:
+        out.append(f"toolkit-technical-terms: {n('toolkit-technical-terms')} terms, and the stages hold {want} technical terms")
+    ucs = [(r, J(r)) for r in G("library/ihris-use-cases/*.json") if J(r).get("$schema") == "ihris-use-cases/v1"]
+    for r, d in ucs:
+        gl = d.get("glossary")
+        if gl is None:
+            out.append(f"{r}: records no glossary (claimed or not)")
+        elif gl["found"] != bool(gl["terms"]):
+            out.append(f"{r}: glossary found={gl['found']} but holds {len(gl['terms'])} terms")
+    want = sum(len((d.get("glossary") or {}).get("terms") or []) for _, d in ucs)
+    if n("use-cases-2009") != want:
+        out.append(f"use-cases-2009: {n('use-cases-2009')} terms, and the reports record {want} glossary terms")
+    ids = {}
+    for rel in G(f"src/*/data-lists/{REL}/*.json"):
+        d = J(rel)
+        ids.setdefault(d["form"], set()).update(r["id"] for r in d["records"] if r.get("provenance") == "default")
+    lists = {f: v for f, v in ids.items() if v}
+    for f, v in sorted(lists.items()):
+        if n(f"code-list-{f}") != len(v):
+            out.append(f"code-list-{f}: {n(f'code-list-{f}')} terms, and the list ships {len(v)} unique default records")
+    for sid in sorted(by_id):
+        if sid.startswith("code-list-") and sid[len("code-list-"):] not in lists:
+            out.append(f"{by_id[sid][0]}: {sid} names no code list with default records")
+    extra = sorted(set(by_id) - {"toolkit-technical-terms", "use-cases-2009"} - {f"code-list-{f}" for f in lists})
+    for sid in extra:
+        if not sid.startswith("code-list-"):
+            out.append(f"{by_id[sid][0]}: scheme {sid} is from no known source")
+    return out
+
+
+def c_glossary_verbatim(C):
+    """Every authored term's definition is in its source verbatim: the JSON its `source` points at holds the exact
+    string, and a toolkit definition also appears in the captured page (uploads/toolkit/*.html) it was ingested from."""
+    import html as H
+    out, pages = [], {}
+
+    def norm(s):
+        return " ".join(s.replace("\u00a0", " ").split())
+    for rel, g in _glossaries(C):
+        for t in g.get("terms") or []:
+            if t.get("status") != "authored":
+                continue
+            d = t.get("definition")
+            texts = [d] if isinstance(d, str) else list((d or {}).values())
+            f, _, ptr = (t.get("source") or "").partition("#")
+            try:
+                node = _pointer(J(f), ptr)
+            except (OSError, ValueError, KeyError, IndexError):
+                out.append(f"{rel}: {t['id']} source {t.get('source')} does not resolve")
+                continue
+            have = set(_strings(node))
+            for x in texts:
+                if x not in have:
+                    out.append(f"{rel}: {t['id']} definition is not verbatim in {t['source']}")
+            if f.startswith("library/ihris-toolkit/stages/"):
+                cap = J(f).get("capturedFrom")
+                cap = cap if isinstance(cap, str) else (cap or [None])[0]
+                if cap and exists(cap):
+                    if cap not in pages:
+                        raw = open(os.path.join(ROOT, cap), encoding="utf-8").read()
+                        pages[cap] = (norm(H.unescape(re.sub(r"<[^>]+>", " ", raw))), norm(H.unescape(re.sub(r"<[^>]+>", "", raw))))
+                    for x in texts:
+                        if norm(x) not in pages[cap][0] and norm(x) not in pages[cap][1]:
+                            out.append(f"{rel}: {t['id']} definition is not in the captured page {cap}")
+    return out
+
+
+def c_glossary_page(C):
+    """The glossary page lists every term of every scheme exactly once (one <dt> per term, anchored), and nothing else."""
+    import collections
+    import tempfile
+    sys.path.insert(0, os.path.join(ROOT, "src", "tools"))
+    import site_instances
+    theme = J("src/site/theme/ihris-classic.json")
+    with tempfile.TemporaryDirectory() as tmp:
+        _, page = site_instances.glossary_page(theme, tmp)
+    got = collections.Counter(re.findall(r'<dt id="([^"]+)"', page))
+    want = collections.Counter(f"{g['id']}--{t['id']}" for _, g in _glossaries(C) for t in g.get("terms") or [])
+    out = [f"glossary page: term {a} is listed {got[a]} times" for a in sorted(want) if got[a] != 1]
+    out += [f"glossary page: lists {a}, which is no term" for a in sorted(set(got) - set(want))]
+    return out
+
+
 # The registry: schema -> [(check id, what it establishes, fn)]. Coverage is read from here.
 QA = {
     "folio-catalogue-node/v1": [("catalogue-parents", "every parent and metadataRef resolves", c_catalogue_parents)],
@@ -1044,6 +1297,12 @@ QA = {
     "pdf-structure/v1": [("pdf-structure", "doc id matches its entry; unique sections", c_pdf_structure)],
     "folio-document-images/v1": [("document-images", "every figure's file exists and its id names its page; no unlisted image files", c_document_images)],
     "FHIR R4 terminology": [("fhir-terminology", "every value set named in value-sets.json is generated", c_fhir)],
+    "folio-glossary/v1": [("glossary-schemes", "in a declared glossary directory, named for its id; states hold; sources exist; current with build_glossary.py", c_glossary_schemes),
+                          ("glossary-ids", "no scheme or term id twice; ids in core's local-id grammar", c_glossary_ids),
+                          ("glossary-matches", "every SKOS match is a mapping a verified ConceptMap records, or ISCO-08 ValueSet identity (owner-accepted), to a referenced external scheme, and none is missing", c_glossary_matches),
+                          ("glossary-counts", "terms per source match the toolkit's technical terms, the reports' glossaries, each code list's default records", c_glossary_counts),
+                          ("glossary-verbatim", "every authored definition is verbatim in its source (and the toolkit's in the captured page)", c_glossary_verbatim),
+                          ("glossary-page", "the glossary page lists every term exactly once", c_glossary_page)],
     # node types that are not JSON documents
     "bean (beans/defs/*.md)": [("beans", "front matter parses; status/type in vocabulary; parents are epics; links resolve", c_beans)],
     "skill (src/skills/*.md)": [("skills", "front matter parses; name matches file; each skill has a Tool or names one", c_skills)],
@@ -1053,7 +1312,7 @@ QA = {
 }
 REUSED = ["cat-harness declaration (zod)", "harness-config (zod)", "bean-graph (zod)", "skill-package (zod)", "tool (zod)",
           "role graph (zod RoleGraphSchema)", "actor (zod ActorDef)",
-          "pdf-structure/v1", "folio-document-images/v1", "FHIR R4 terminology", "folio-catalogue/v1", "folio-catalogue-node/v1",
+          "pdf-structure/v1", "folio-document-images/v1", "folio-glossary/v1", "FHIR R4 terminology", "folio-catalogue/v1", "folio-catalogue-node/v1",
           "bean (beans/defs/*.md)", "skill (src/skills/*.md)", "folio-methodology/v1", "library manifest (manifest.jsonld)",
           "BPMN process (processes/*.bpmn)"]
 

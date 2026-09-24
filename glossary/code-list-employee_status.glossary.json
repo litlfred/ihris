@@ -1,0 +1,39 @@
+{
+ "$schema": "folio-glossary/v1",
+ "id": "code-list-employee_status",
+ "title": "iHRIS 4.3.3 code list: employee_status",
+ "description": "The `employee_status` code list as iHRIS 4.3.3 ships it by default: 4 codes from ihris-manage/module/ihris-manage-CustomReports-search-people. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+ "hasVersion": "4.3.3",
+ "source": "src/ihris-manage/data-lists/4.3.3/employee_status.json (iHRIS 4.3.3, MD5-verified release)",
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "terms": [
+  {
+   "id": "employee",
+   "prefLabel": "Employee",
+   "notation": "employee",
+   "source": "src/ihris-manage/data-lists/4.3.3/employee_status.json#/records/0",
+   "status": "candidate"
+  },
+  {
+   "id": "old_employee",
+   "prefLabel": "Old Employee",
+   "notation": "old_employee",
+   "source": "src/ihris-manage/data-lists/4.3.3/employee_status.json#/records/1",
+   "status": "candidate"
+  },
+  {
+   "id": "applicant",
+   "prefLabel": "Applicant",
+   "notation": "applicant",
+   "source": "src/ihris-manage/data-lists/4.3.3/employee_status.json#/records/2",
+   "status": "candidate"
+  },
+  {
+   "id": "old_applicant",
+   "prefLabel": "Old Applicant",
+   "notation": "old_applicant",
+   "source": "src/ihris-manage/data-lists/4.3.3/employee_status.json#/records/3",
+   "status": "candidate"
+  }
+ ]
+}

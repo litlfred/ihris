@@ -1,0 +1,55 @@
+{
+  "id": "ihris-build-glossary",
+  "title": "Build the SKOS glossary",
+  "description": "Writes glossary/*.glossary.json (folio-assistant core's folio-glossary/v1): one SKOS concept scheme per source. The toolkit's technical terms, verbatim and authored while the toolkit's licence record stands; the 2009 use-case reports' glossaries as the ingester recorded them (none: the reports' summary names a glossary, the text holds none); and one scheme per iHRIS 4.3.3 code list with default records (notation = record id, prefLabel = name; candidate unless the record carries a definition). SKOS matches come only from the verified ConceptMaps (equal/equivalent to exactMatch), with IRIs built by each publisher's pattern (EU Publications Office country and currency tables, ESCO for ISCO-08) and never dereferenced. Deterministic, from committed inputs; --check fails on stale output. Also emits SKOS JSON-LD (a Python mirror of core's toSkos, held to it by validate-folio.ts) for the site.",
+  "install": {
+    "cli": "pip install pycountry==24.6.1"
+  },
+  "invoke": {
+    "shell": "python3 src/tools/build_glossary.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "toolkit-stages",
+        "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-toolkit-stage.schema.json",
+        "required": true,
+        "description": "library/ihris-toolkit/stages/*.json, and the licence record in library/ihris-toolkit/ihris-toolkit.json"
+      },
+      {
+        "name": "use-cases",
+        "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-use-cases.schema.json",
+        "required": true,
+        "description": "library/ihris-use-cases/<product>.json, their `glossary` records"
+      },
+      {
+        "name": "data-lists",
+        "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-data-list.schema.json",
+        "required": true,
+        "description": "src/*/data-lists/4.3.3/*.json"
+      },
+      {
+        "name": "concept-maps",
+        "schema": "http://hl7.org/fhir/R4/fhir.schema.json",
+        "required": true,
+        "description": "src/ihris-data-dictionary/terminology/ConceptMap-*.json (verified by build_dak.py)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "glossary",
+        "schema": "https://github.com/litlfred/folio-assistant/blob/main/folio-assistant-core/schemas/glossary.ts",
+        "description": "glossary/*.glossary.json (folio-glossary/v1)"
+      }
+    ]
+  },
+  "satisfies": [
+    "build-skos-glossary"
+  ],
+  "requires": {
+    "runtime": [
+      "python3"
+    ],
+    "network": false
+  }
+}

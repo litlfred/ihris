@@ -2,7 +2,7 @@
 """Validate every generated node against its declared schema.
 
 - ihris-* records: against the JSON Schemas in src/schemas/ (jsonschema, pip).
-- folio-catalogue-node/v1 and folio-catalogue/v1: against folio-assistant's own
+- folio-catalogue-node/v1, folio-catalogue/v1 and folio-glossary/v1: against folio-assistant's own
   zod schemas, by running src/tools/validate-folio.ts with bun, when a
   folio-assistant checkout is available (FOLIO_ASSISTANT=<path>, default
   ../litlfred/folio-assistant). Skipped with a warning otherwise, never passed.
@@ -62,7 +62,7 @@ for f, d in docs.items():
 # and every JSON file in the repository must be covered by SOMETHING.
 import fnmatch
 BIND = json.load(open(os.path.join(ROOT, "src/schemas/bindings.json")))
-FOLIO_TAGS = {"folio-catalogue/v1", "folio-catalogue-node/v1", "folio-document-images/v1"}  # zod: validate-folio.ts
+FOLIO_TAGS = {"folio-catalogue/v1", "folio-catalogue-node/v1", "folio-document-images/v1", "folio-glossary/v1"}  # zod: validate-folio.ts
 
 
 def _match(rel, pattern):
@@ -124,6 +124,12 @@ if r.returncode != 0:
     errors.append("processes: " + (r.stdout + r.stderr).strip())
 counts["bpmn process"] = len(glob.glob(os.path.join(ROOT, "processes", "*.bpmn")))
 
+# The glossary is generated from committed inputs (src/tools/build_glossary.py) and must be current.
+r = subprocess.run([sys.executable, os.path.join(ROOT, "src/tools/build_glossary.py"), "--check"], capture_output=True, text=True)
+if r.returncode != 0:
+    errors.append("glossary: " + (r.stdout + r.stderr).strip()[-2000:])
+counts["glossary scheme"] = len(glob.glob(os.path.join(ROOT, "glossary", "*.glossary.json")))
+
 # The site theme is derived from the verified release (src/tools/extract_theme.py), and the
 # site must build with every internal link resolving (src/tools/build_site.py).
 r = subprocess.run([sys.executable, os.path.join(ROOT, "src/tools/extract_theme.py"), "--check"], capture_output=True, text=True)
@@ -139,7 +145,10 @@ counts["site page"] = sum(1 for _, _, fs in os.walk(os.path.join(ROOT, ".build",
 fa = os.environ.get("FOLIO_ASSISTANT", os.path.join(ROOT, "..", "litlfred", "folio-assistant"))
 
 if os.path.isdir(os.path.join(fa, "folio-assistant-core")):
-    r = subprocess.run(["bun", "run", os.path.join(ROOT, "src/tools/validate-folio.ts"), ROOT], cwd=fa, capture_output=True, text=True)
+    sys.path.insert(0, os.path.join(ROOT, "src", "tools"))
+    import build_glossary  # the instance namespace, one answer: validate-folio.ts compares its SKOS with core's toSkos
+    r = subprocess.run(["bun", "run", os.path.join(ROOT, "src/tools/validate-folio.ts"), ROOT, build_glossary.NS], cwd=fa,
+                       capture_output=True, text=True)
     sys.stdout.write(r.stdout)
     if r.returncode != 0:
         errors.append("folio-assistant zod validation failed:\n" + (r.stdout + r.stderr)[-3000:])
