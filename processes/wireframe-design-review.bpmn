@@ -3,7 +3,7 @@
                   xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
                   xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
                   xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
-                  xmlns:folio="https://litlfred.github.io/folio-assistant/bpmn"
+                  xmlns:bootstrap.processes="https://litlfred.github.io/folio-assistant/bootstrap/processes/ns#"
                   id="Definitions_Process_WireframeDesignReview" targetNamespace="https://litlfred.github.io/ihris/workflows"
                   exporter="ihris gen_bpmn.py" exporterVersion="1">
   <bpmn:collaboration id="Collaboration_Process_WireframeDesignReview">
@@ -14,7 +14,7 @@
     <bpmn:laneSet id="LaneSet_Process_WireframeDesignReview">
       <bpmn:lane id="Lane_Designer" name="Designer">
         <bpmn:documentation>Writes the intent, produces candidates with real content, and runs the mechanical checks. Does not review its own candidates.</bpmn:documentation>
-        <bpmn:extensionElements><folio:role ref="authoring-agent"/></bpmn:extensionElements>
+        <bpmn:extensionElements><bootstrap.processes:role ref="authoring-agent"/></bpmn:extensionElements>
         <bpmn:flowNodeRef>Start_WDR</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>D_Intent</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>D_Candidates</bpmn:flowNodeRef>
@@ -23,13 +23,13 @@
       </bpmn:lane>
       <bpmn:lane id="Lane_Reviewers" name="Feedback providers">
         <bpmn:documentation>One or more reviewers (agent and human) who see candidates shuffled, without their author, and record pass, warn or fail per criterion with a reason. There are no scores and no averages.</bpmn:documentation>
-        <bpmn:extensionElements><folio:role ref="feedback-provider"/></bpmn:extensionElements>
+        <bpmn:extensionElements><bootstrap.processes:role ref="feedback-provider"/></bpmn:extensionElements>
         <bpmn:flowNodeRef>R_Review</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>GW_Agree</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_Adjudicator" name="Adjudicator">
         <bpmn:documentation>Reached only when entries for one criterion disagree. Settles the disagreement with a reason, and decides between surviving candidates through options analysis.</bpmn:documentation>
-        <bpmn:extensionElements><folio:role ref="adjudicator"/></bpmn:extensionElements>
+        <bpmn:extensionElements><bootstrap.processes:role ref="adjudicator"/></bpmn:extensionElements>
         <bpmn:flowNodeRef>Call_Adjudicate</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Call_Choose</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>GW_Iterate</bpmn:flowNodeRef>
@@ -39,20 +39,20 @@
     <bpmn:startEvent id="Start_WDR" name="A UI needs designing"/>
     <bpmn:task id="D_Intent" name="Write the design intent">
       <bpmn:documentation>A short statement of who the screen is for, what they need to do, and what it must show. It is the criterion every candidate is judged against.</bpmn:documentation>
-      <bpmn:extensionElements><folio:skill ref="wireframe-design-review"/></bpmn:extensionElements>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="wireframe-design-review"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="D_Candidates" name="Produce &gt;= 2 candidates, web + mobile">
       <bpmn:documentation>Mid-fidelity HTML: monochrome, real folio content, semantic icons, no placeholder text. Each candidate has both a web layout and a mobile layout.</bpmn:documentation>
-      <bpmn:extensionElements><folio:skill ref="wireframe-design-review"/></bpmn:extensionElements>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="wireframe-design-review"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="D_Check" name="Mechanical checks, both viewports">
       <bpmn:documentation>Tool ihris-wireframe-check renders every candidate at a web and a mobile viewport. It fails on horizontal overflow at mobile width, on placeholder text, and on a missing viewport, and writes screenshots and a script entry per criterion.</bpmn:documentation>
-      <bpmn:extensionElements><folio:skill ref="wireframe-design-review"/></bpmn:extensionElements>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="wireframe-design-review"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:exclusiveGateway id="GW_Checks" name="Checks pass?"/>
     <bpmn:task id="R_Review" name="Blind review per criterion">
       <bpmn:documentation>Criteria: intent-fit, web usability, mobile usability, accessibility, and alternatives considered. A review at one viewport only is incomplete.</bpmn:documentation>
-      <bpmn:extensionElements><folio:skill ref="wireframe-design-review"/></bpmn:extensionElements>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="wireframe-design-review"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:exclusiveGateway id="GW_Agree" name="Entries agree?"/>
     <bpmn:callActivity id="Call_Adjudicate" name="Adjudication" calledElement="Process_Adjudication">
