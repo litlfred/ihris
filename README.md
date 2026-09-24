@@ -21,7 +21,7 @@ A [folio-assistant](https://github.com/litlfred/folio-assistant) folio that **in
 | [`ihris-data-dictionary`](src/ihris-data-dictionary/) | **derived:** WHO SMART DAK (L2) data dictionary for health workforce data | 247 data elements, 51 logical models, 47 value sets as FHIR R4 terminology (12 with shipped codes); descriptions to author |
 | [`ihris-wiki`](library/ihris-wiki/) | the old iHRIS wiki | 44 user-manual pages restored from 4.3.3 help exports |
 | [`ihris-admin-handbook`](library/ihris-admin-handbook/) | the iHRIS Administrator Handbook, a 2010 export of the wiki (GFDL-1.2) | 79 articles and 11 images ingested, with attribution |
-| [`ihris-use-cases`](library/ihris-use-cases/) | the 2009 use-case model of Common, Manage, Qualify and Plan | 138 use cases, 36 requirements; 15 actors declared as roles, 2 named people as opaque actors; crosswalk to 4.3.3 forms |
+| [`ihris-use-cases`](library/ihris-use-cases/) | the 2009 use-case model of Common, Manage, Qualify and Plan | 138 use cases, 36 requirements; 15 actors declared as 14 roles (the two "Any User" actors are one), each linked to the use cases it is primary actor on, 2 named people as opaque actors; crosswalk to 4.3.3 forms |
 
 The other Launchpad projects (country customizations such as ihris-kenya and ihris-manage-ghana, and side tools) are catalogued in [`src/catalogue/`](src/catalogue/); see [the inventory](docs/generated/launchpad-inventory.md).
 

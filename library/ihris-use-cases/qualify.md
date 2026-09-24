@@ -105,7 +105,7 @@ This person runs reports in order to view and analyze data, and make health work
 
 ### A-PS6 Any User
 
-Role: [Any User](roles.md#ihris-a-ps6) (`ihris-a-ps6`)
+Role: [Any User](roles.md#ihris-a-ice4) (`ihris-a-ice4`)
 
 A generic user (applies to all users of the system).
 

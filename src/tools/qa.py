@@ -801,14 +801,22 @@ def c_staff_actors(C):
     return out
 
 
+# Owner decision, 2026-09-24 (the open questions of ihris PR #17): "Any User" in A-ICE4 (Common) and A-PS6
+# (Qualify) is one role. A role standing for more than one report actor must be a merge listed here.
+OWNER_SAME_ROLE = [{("common", "A-ICE4"), ("qualify", "A-PS6")}]
+
+
 def c_role_graph(C):
-    """The use-case role graph: one Role per actor the reports describe and no other; the id is `ihris-` and
-    the A-id in lower case (instance-name grammar); title and description are the report's own, verbatim;
-    a person's role with no skills; ids unique."""
-    out, want = [], {}
+    """The use-case role graph: one Role per actor the reports describe, except the owner's merges, and no
+    other. Each role cites in `_sources` the report actors it stands for, and every described actor is cited by
+    exactly the role its record names. The id is `ihris-` and the first cited A-id in lower case (instance-name
+    grammar); title and description are each cited actor's own, verbatim; a person's role with no skills. No two
+    roles share an id, and no two roles share a title within a product."""
+    out, actors = [], {}
     for rel, d in C["tagged"].get("ihris-use-cases/v1", []):
         for a in d["actors"]:
-            want["ihris-" + a["id"].lower()] = (rel, a)
+            actors[(d["product"], a["id"])] = (rel, a)
+    cited = {}
     for sd in _scenario_dirs(C):
         rel = f"{sd}/roles.json"
         if not exists(rel):
@@ -816,24 +824,108 @@ def c_role_graph(C):
             continue
         g = J(rel)
         ids = [r.get("id") for r in g.get("roles") or []]
-        if len(ids) != len(set(ids)):
-            out.append(f"{rel}: role ids are not unique")
+        for rid in sorted({i for i in ids if ids.count(i) > 1}):
+            out.append(f"{rel}: role id {rid!r} is declared more than once")
+        titles = {}
         for r in g.get("roles") or []:
             rid = r.get("id") or ""
             if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", rid):
                 out.append(f"{rel}: role id {rid!r} is not in instance-name grammar")
-            if rid not in want:
-                out.append(f"{rel}: role {rid!r} is no actor the use-case reports describe")
+            srcs = [(x.get("product"), x.get("actor")) for x in r.get("_sources") or []]
+            if not srcs:
+                out.append(f"{rel}: {rid} cites no report actor in `_sources`")
                 continue
-            arel, a = want[rid]
-            if r.get("title") != a["name"]:
-                out.append(f"{rel}: {rid} title {r.get('title')!r} is not the report's {a['name']!r} ({arel})")
-            if r.get("description") != a["description"]:
-                out.append(f"{rel}: {rid} description is not the report's, verbatim ({arel})")
+            if len(srcs) > 1 and set(srcs) not in OWNER_SAME_ROLE:
+                out.append(f"{rel}: {rid} stands for {srcs}, a merge the owner has not decided")
+            if rid != "ihris-" + (srcs[0][1] or "").lower():
+                out.append(f"{rel}: {rid} is not named for its first cited actor {srcs[0][1]}")
+            for key in srcs:
+                if key in cited:
+                    out.append(f"{rel}: {key[1]} ({key[0]}) is cited by {cited[key]} and {rid}")
+                cited[key] = rid
+                titles.setdefault((key[0], r.get("title")), set()).add(rid)
+                if key not in actors:
+                    out.append(f"{rel}: {rid} cites {key[1]} ({key[0]}), which no use-case report describes")
+                    continue
+                arel, a = actors[key]
+                if a.get("role") != rid:
+                    out.append(f"{arel}: actor {a['id']} names role {a.get('role')!r}, but {rid} cites it")
+                if r.get("title") != a["name"]:
+                    out.append(f"{rel}: {rid} title {r.get('title')!r} is not the report's {a['name']!r} ({arel} {a['id']})")
+                if r.get("description") != a["description"]:
+                    out.append(f"{rel}: {rid} description is not the report's, verbatim ({arel} {a['id']})")
+                file = next((d["source"]["file"] for x, d in C["tagged"].get("ihris-use-cases/v1", []) if x == arel), None)
+                if next(x for x in r["_sources"] if (x.get("product"), x.get("actor")) == key).get("report") != file:
+                    out.append(f"{rel}: {rid} cites {a['id']} in a report other than {file}")
             if r.get("actorKinds") != ["person"] or r.get("skills") != []:
                 out.append(f"{rel}: {rid} should be actorKinds [person] with no skills")
-        for rid in sorted(set(want) - set(ids)):
-            out.append(f"{rel}: actor {want[rid][1]['id']} ({want[rid][0]}) has no role")
+        for (prod, title), rids in sorted(titles.items(), key=str):
+            if len(rids) > 1:
+                out.append(f"{rel}: roles {sorted(rids)} share the title {title!r} within {prod}")
+    for key in sorted(set(actors) - set(cited)):
+        out.append(f"{actors[key][0]}: actor {key[1]} is cited by no role")
+    for merge in OWNER_SAME_ROLE:
+        if len({cited.get(k) for k in merge}) != 1 or None in {cited.get(k) for k in merge}:
+            out.append(f"owner's merge {sorted(merge)} is not one role citing both: {sorted(str(cited.get(k)) for k in merge)}")
+    return out
+
+
+def _stories(C):
+    """[(rel, story)] across every scenarios directory's stories.json."""
+    return [(f"{d}/stories.json", s) for d in _scenario_dirs(C) if exists(f"{d}/stories.json")
+            for s in J(f"{d}/stories.json").get("stories") or []]
+
+
+def _story_use_case(C, s):
+    """The use-case id a story's id names (`<role id>-<use-case id>`, lower case), or None."""
+    rid = (s.get("role") or {}).get("role") or ""
+    sid = s.get("id") or ""
+    return sid[len(rid) + 1:].upper() if sid.startswith(rid + "-") and re.fullmatch(r"uc-[a-z]+\d+", sid[len(rid) + 1:]) else None
+
+
+def c_role_use_cases(C):
+    """Owner, 2026-09-24: each role's use cases (its stories). Every story names a declared role and a use
+    case a report describes, by id `<role id>-<use-case id>`; `want` is that use case's title, verbatim; no
+    story twice."""
+    out, roles = [], _roles(C)
+    ucs = {u["id"]: u for _, d in C["tagged"].get("ihris-use-cases/v1", []) for p in _uc_walk(d["root"]) for u in p["useCases"]}
+    seen = set()
+    for sd in _scenario_dirs(C):
+        if not exists(f"{sd}/stories.json"):
+            out.append(f"{sd}: a scenarios directory with no stories.json")
+    for rel, s in _stories(C):
+        rid, uid = (s.get("role") or {}).get("role"), _story_use_case(C, s)
+        if s.get("id") in seen:
+            out.append(f"{rel}: story {s.get('id')!r} is declared more than once")
+        seen.add(s.get("id"))
+        if rid not in roles:
+            out.append(f"{rel}: story {s.get('id')!r} is told as {rid!r}, which is no declared role")
+        if uid is None or uid not in ucs:
+            out.append(f"{rel}: story {s.get('id')!r} names no use case a report describes")
+            continue
+        if s.get("want") != ucs[uid]["title"]:
+            out.append(f"{rel}: story {s['id']} want {s.get('want')!r} is not {uid}'s title {ucs[uid]['title']!r}, verbatim")
+    return out
+
+
+def c_role_use_cases_primary(C):
+    """Owner, 2026-09-24: a role is linked to exactly the use cases the reports list it as primary actor on.
+    Every story is backed by its use case's `primaryActors`, and every (use case, primary actor) pair has its
+    story."""
+    out = []
+    have = {((s.get("role") or {}).get("role"), _story_use_case(C, s)): rel for rel, s in _stories(C)}
+    want = {}
+    for rel, d in C["tagged"].get("ihris-use-cases/v1", []):
+        for p in _uc_walk(d["root"]):
+            for u in p["useCases"]:
+                for r in u.get("primaryActors") or []:
+                    want[(r, u["id"])] = rel
+    for (r, u), rel in sorted(have.items(), key=str):
+        if (r, u) not in want:
+            out.append(f"{rel}: {r} is linked to {u}, whose Primary Actors do not name it")
+    for (r, u), rel in sorted(want.items(), key=str):
+        if (r, u) not in have:
+            out.append(f"{rel}: {u} names {r} as primary actor, and no story links them")
     return out
 
 
@@ -1292,7 +1384,9 @@ QA = {
     "bean-graph (zod)": [("bean-graph", "declared bean directories exist", c_bean_graph)],
     "skill-package (zod)": [("skill-package", "listed skills and skill files agree", c_skill_package)],
     "tool (zod)": [("tools", "invoked scripts exist; satisfied skills exist", c_tools)],
-    "role graph (zod RoleGraphSchema)": [("role-graph", "one Role per described actor, no other; ids in instance-name grammar; title and description verbatim", c_role_graph)],
+    "role graph (zod RoleGraphSchema)": [("role-graph", "one Role per described actor or owner's merge, each citing its actors; no id twice, no title twice in a product; title and description verbatim", c_role_graph)],
+    "user stories (zod UserStoryGraphSchema)": [("role-use-cases", "every story names a declared role and a described use case; want is its title verbatim", c_role_use_cases),
+                                                ("role-use-cases-primary", "every link is backed by the use case's Primary Actors, and none is missing", c_role_use_cases_primary)],
     "actor (zod ActorDef)": [("staff-actors", "named for its id; numbered 01..N without a gap; id, title, kind, description only; each referenced", c_staff_actors)],
     "pdf-structure/v1": [("pdf-structure", "doc id matches its entry; unique sections", c_pdf_structure)],
     "folio-document-images/v1": [("document-images", "every figure's file exists and its id names its page; no unlisted image files", c_document_images)],
@@ -1311,7 +1405,7 @@ QA = {
     "BPMN process (processes/*.bpmn)": [("bpmn", "every process is generated from a spec and carries its diagram", c_bpmn)],
 }
 REUSED = ["cat-harness declaration (zod)", "harness-config (zod)", "bean-graph (zod)", "skill-package (zod)", "tool (zod)",
-          "role graph (zod RoleGraphSchema)", "actor (zod ActorDef)",
+          "role graph (zod RoleGraphSchema)", "user stories (zod UserStoryGraphSchema)", "actor (zod ActorDef)",
           "pdf-structure/v1", "folio-document-images/v1", "folio-glossary/v1", "FHIR R4 terminology", "folio-catalogue/v1", "folio-catalogue-node/v1",
           "bean (beans/defs/*.md)", "skill (src/skills/*.md)", "folio-methodology/v1", "library manifest (manifest.jsonld)",
           "BPMN process (processes/*.bpmn)"]

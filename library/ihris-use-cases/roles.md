@@ -8,7 +8,7 @@ title: "Roles and actors in the iHRIS use-case model (2009)"
 
 ## Roles
 
-Each actor a report describes is a **role** in the iHRIS domain. Title and description are the report's own. A-ICE4 (Common) and A-PS6 (Qualify) are both “Any User”: they are kept as two roles, and whether they are the same is undecided.
+Each actor a report describes is a **role** in the iHRIS domain. Title and description are the report's own. A-ICE4 (Common) and A-PS6 (Qualify) are both “Any User”, and they are one role (owner, 2026-09-24). “Primary actor on” lists the use cases whose “Primary Actors” field names the role ([`scenarios/stories.json`](scenarios/stories.json)).
 
 <a id="ihris-a-ice1"></a>
 
@@ -18,7 +18,7 @@ Each actor a report describes is a **role** in the iHRIS domain. Title and descr
 
 The System Administrator has complete access and control over the HRIS and supporting hardware and software systems; installs, supports and troubleshoots the software; and creates and manages access accounts for all users.
 
-Plays in: UC-ICE1, UC-ICE7, UC-ICE8, UC-ICE14, UC-ICE19, UC-ICE20
+Primary actor on: UC-ICE1, UC-ICE7, UC-ICE8, UC-ICE14, UC-ICE19, UC-ICE20
 
 <a id="ihris-a-ice2"></a>
 
@@ -28,7 +28,7 @@ Plays in: UC-ICE1, UC-ICE7, UC-ICE8, UC-ICE14, UC-ICE19, UC-ICE20
 
 This person manages the database, creates standard data lists and oversees data entry.
 
-Plays in: UC-ICE15, UC-ICE16, UC-ICE6
+Primary actor on: UC-ICE15, UC-ICE16, UC-ICE6
 
 <a id="ihris-a-ice3"></a>
 
@@ -38,17 +38,17 @@ Plays in: UC-ICE15, UC-ICE16, UC-ICE6
 
 This person generates reports in the system for the purposes of analyzing data.
 
-Plays in: UC-ICE17
+Primary actor on: UC-ICE17
 
 <a id="ihris-a-ice4"></a>
 
 ### Any User
 
-`ihris-a-ice4`: A-ICE4 in iHRIS Common.
+`ihris-a-ice4`: A-ICE4 in iHRIS Common; A-PS6 in iHRIS Qualify.
 
 A generic user (applies to all users of the system).
 
-Plays in: UC-ICE2, UC-ICE3, UC-ICE4, UC-ICE5, UC-ICE9, UC-ICE10, UC-ICE11, UC-ICE12, UC-ICE13, UC-ICE18, UC-ICE25
+Primary actor on: UC-ICE2, UC-ICE3, UC-ICE4, UC-ICE5, UC-ICE9, UC-ICE10, UC-ICE11, UC-ICE12, UC-ICE13, UC-ICE18, UC-ICE25
 
 <a id="ihris-a-pt1"></a>
 
@@ -58,7 +58,7 @@ Plays in: UC-ICE2, UC-ICE3, UC-ICE4, UC-ICE5, UC-ICE9, UC-ICE10, UC-ICE11, UC-IC
 
 This person is a manager of HR personnel and is responsible for ensuring that data in the system are complete, correct and up to date. This person will also run reports and analyze data in order to make organizational or individual HR decisions. This person has permission to view any record in the system.
 
-Plays in: UC-PT1, UC-PT2, UC-PT3, UC-PT70, UC-PT4, UC-PT5, UC-PT6, UC-PT7, UC-PT8, UC-PT9, UC-PT10, UC-PT11, UC-PT12, UC-PT13, UC-PT14, UC-PT15, UC-PT17, UC-PT18, UC-PT19, UC-PT20, UC-PT21, UC-PT22, UC-PT35, UC-PT49, UC-PT69
+Primary actor on: UC-PT1, UC-PT2, UC-PT3, UC-PT70, UC-PT4, UC-PT5, UC-PT6, UC-PT7, UC-PT8, UC-PT9, UC-PT10, UC-PT11, UC-PT12, UC-PT13, UC-PT14, UC-PT15, UC-PT17, UC-PT18, UC-PT19, UC-PT20, UC-PT21, UC-PT22, UC-PT35, UC-PT49, UC-PT69
 
 <a id="ihris-a-pt2"></a>
 
@@ -68,7 +68,7 @@ Plays in: UC-PT1, UC-PT2, UC-PT3, UC-PT70, UC-PT4, UC-PT5, UC-PT6, UC-PT7, UC-PT
 
 This person is responsible for entering and updating data in the system. This person can update and view any record in the system.
 
-Plays in: UC-PT23, UC-PT24, UC-PT25, UC-PT27, UC-PT28, UC-PT29, UC-PT30, UC-PT31, UC-PT32, UC-PT33, UC-PT34, UC-PT35, UC-PT71, UC-PT36, UC-PT43, UC-PT44, UC-PT37, UC-PT40, UC-PT41, UC-PT42, UC-PT45, UC-PT46, UC-PT50
+Primary actor on: UC-PT23, UC-PT24, UC-PT25, UC-PT27, UC-PT28, UC-PT29, UC-PT30, UC-PT31, UC-PT32, UC-PT33, UC-PT34, UC-PT35, UC-PT71, UC-PT36, UC-PT43, UC-PT44, UC-PT37, UC-PT40, UC-PT41, UC-PT42, UC-PT45, UC-PT46, UC-PT50
 
 <a id="ihris-a-pt3"></a>
 
@@ -78,7 +78,7 @@ Plays in: UC-PT23, UC-PT24, UC-PT25, UC-PT27, UC-PT28, UC-PT29, UC-PT30, UC-PT31
 
 This person will run reports and analyze data in order to make organizational HR decisions.
 
-Plays in: UC-PT45
+Primary actor on: UC-PT45
 
 <a id="ihris-a-pt8"></a>
 
@@ -88,7 +88,7 @@ Plays in: UC-PT45
 
 This person is responsible for managing training programs taken by employees and updating employee competencies.
 
-Plays in: UC-PT49, UC-PT68, UC-PT50, UC-PT53, UC-PT54, UC-PT65, UC-PT66, UC-PT67, UC-PT55, UC-PT56, UC-PT57, UC-PT59, UC-PT60
+Primary actor on: UC-PT49, UC-PT68, UC-PT50, UC-PT53, UC-PT54, UC-PT65, UC-PT66, UC-PT67, UC-PT55, UC-PT56, UC-PT57, UC-PT59, UC-PT60
 
 <a id="ihris-a-ps1"></a>
 
@@ -98,7 +98,7 @@ Plays in: UC-PT49, UC-PT68, UC-PT50, UC-PT53, UC-PT54, UC-PT65, UC-PT66, UC-PT67
 
 This person is responsible for managing data entry and data entry roles, including verifying and correcting data and updating standard lists in the system.
 
-Plays in: UC-PS1, UC-PS2, UC-PS3, UC-PS4, UC-PS5, UC-PS6, UC-PS7, UC-PS8, UC-PS9, UC-PS10, UC-PS11, UC-PS12, UC-PS13, UC-PS14, UC-PS15, UC-PS16, UC-PS17, UC-PS18, UC-PS19, UC-PS20, UC-PS21, UC-PS22, UC-PS23, UC-PS24, UC-PS25, UC-PS51
+Primary actor on: UC-PS1, UC-PS2, UC-PS3, UC-PS4, UC-PS5, UC-PS6, UC-PS7, UC-PS8, UC-PS9, UC-PS10, UC-PS11, UC-PS12, UC-PS13, UC-PS14, UC-PS15, UC-PS16, UC-PS17, UC-PS18, UC-PS19, UC-PS20, UC-PS21, UC-PS22, UC-PS23, UC-PS24, UC-PS25, UC-PS51
 
 <a id="ihris-a-ps2"></a>
 
@@ -108,7 +108,7 @@ Plays in: UC-PS1, UC-PS2, UC-PS3, UC-PS4, UC-PS5, UC-PS6, UC-PS7, UC-PS8, UC-PS9
 
 This person is responsible for basic data entry, including initial indexing and upgrades of health professional students entering training programs, tracking out migration verifications and demographic data entry.
 
-Plays in: UC-PS27, UC-PS28, UC-PS29, UC-PS30, UC-PS31, UC-PS32, UC-PS50, UC-PS35, UC-PS36, UC-PS37, UC-PS38, UC-PS39, UC-PS47, UC-PS48
+Primary actor on: UC-PS27, UC-PS28, UC-PS29, UC-PS30, UC-PS31, UC-PS32, UC-PS50, UC-PS35, UC-PS36, UC-PS37, UC-PS38, UC-PS39, UC-PS47, UC-PS48
 
 <a id="ihris-a-ps3"></a>
 
@@ -118,7 +118,7 @@ Plays in: UC-PS27, UC-PS28, UC-PS29, UC-PS30, UC-PS31, UC-PS32, UC-PS50, UC-PS35
 
 This person is responsible for data entry related to licensing updates, including entering initial registration, issuing new licenses and license renewals, issuing and renewing private practice licenses, and registering and licensing foreign-trained health care professionals applying to work in the country.
 
-Plays in: UC-PS32, UC-PS40, UC-PS41, UC-PS42, UC-PS43, UC-PS44, UC-PS45, UC-PS46, UC-PS47
+Primary actor on: UC-PS32, UC-PS40, UC-PS41, UC-PS42, UC-PS43, UC-PS44, UC-PS45, UC-PS46, UC-PS47
 
 <a id="ihris-a-ps4"></a>
 
@@ -128,7 +128,7 @@ Plays in: UC-PS32, UC-PS40, UC-PS41, UC-PS42, UC-PS43, UC-PS44, UC-PS45, UC-PS46
 
 This person is responsible for data entry related to national exams, including verifying applications to take exams and recording results. This is an optional role, used only when entering examination results is required for the system.
 
-Plays in: UC-PS39
+Primary actor on: UC-PS39
 
 <a id="ihris-a-ps5"></a>
 
@@ -138,13 +138,7 @@ Plays in: UC-PS39
 
 This person runs reports in order to view and analyze data, and make health workforce policy and planning decisions. This person does not perform any data entry tasks.
 
-<a id="ihris-a-ps6"></a>
-
-### Any User
-
-`ihris-a-ps6`: A-PS6 in iHRIS Qualify.
-
-A generic user (applies to all users of the system).
+Primary actor on: none in the reports
 
 <a id="ihris-a-pp1"></a>
 
@@ -154,7 +148,7 @@ A generic user (applies to all users of the system).
 
 The Health Workforce Planner enters workforce data into the software, creates projections, runs scenarios, and analyzes and reports on the results. This is the primary user of the software. This person has some knowledge of workforce planning methods and access to necessary data for creating projections.
 
-Plays in: UC-PP1, UC-PP2, UC-PP3, UC-PP5, UC-PP24, UC-PP6, UC-PP8, UC-PP9, UC-PP10, UC-PP12, UC-PP19, UC-PP21
+Primary actor on: UC-PP1, UC-PP2, UC-PP3, UC-PP5, UC-PP24, UC-PP6, UC-PP8, UC-PP9, UC-PP10, UC-PP12, UC-PP19, UC-PP21
 
 ## Opaque actors
 

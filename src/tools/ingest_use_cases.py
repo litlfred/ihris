@@ -27,6 +27,9 @@ Deterministic, in order:
    (RoleGraphSchema, cat-harness/schemas/role-graph.ts). Each use case's primary and
    supporting actors become role ids, resolved by name within the product and then in
    Common. A name that resolves to nothing stops the build.
+   Owner, 2026-09-24: A-ICE4 and A-PS6 ("Any User") are one role, citing both; and
+   each role is linked to the use cases whose "Primary Actors" field names it, as
+   user stories in scenarios/stories.json (UserStorySchema; the role itself names none).
 7. The glossary. Each report's document summary (OLE SummaryInformation, read with
    olefile) has the Subject "Use cases, actor goal list, glossary and packages". Record
    that claim, and whether the report TEXT holds a glossary: any line naming a glossary
@@ -78,6 +81,10 @@ WHY = {k: f"{v}: referenced by an opaque actor (scenarios/actors/ihris-2009-staf
 FIELD_LABEL = {"assignedTo": "Assigned To", "source": "Source"}
 STAFF = "ihris-2009-staff-{:02d}"
 SCEN = os.path.join(OUT, "scenarios")
+# Owner decision, 2026-09-24 (the open questions of ihris PR #17): "Any User" in A-ICE4 (Common) and A-PS6
+# (Qualify) is the same role. The later actor joins the earlier actor's role, which cites both reports. The
+# build stops unless the two reports give the same title and description: a merged text is never written.
+SAME_ROLE = {"A-PS6": "A-ICE4"}
 # Forms left out of matching: the csd_* forms are the OpenHIE Care Services Discovery model added to
 # ihris-common long after these 2009 use cases, and their generic display names ("Service",
 # "Organization", "Facility") would match titles that mean something else.
@@ -522,20 +529,68 @@ def role_id(aid):
 
 
 def build_roles(docs):
-    """One Role per actor the reports describe, in PRODUCTS order then document order. Title and
-    description are the document's own; an actor with no description cannot be a Role (a Role needs
-    one), and none is invented."""
-    roles = []
+    """One Role per actor the reports describe, in PRODUCTS order then document order, except the actors
+    SAME_ROLE joins to an earlier one (owner, 2026-09-24). Title and description are the document's own; an
+    actor with no description cannot be a Role (a Role needs one), and none is invented. Each role cites the
+    report actors it stands for in `_sources` (a `_` key is documentation to folio-assistant's readRoleGraph)."""
+    roles, by_id = [], {}
     for product in PRODUCTS:
         for a in docs[product]["actors"]:
             if not a.get("description"):
                 raise ParseError(f"{product}: actor {a['id']} has no description, and a Role needs one: ask the owner")
+            cite = {"product": product, "actor": a["id"], "report": docs[product]["source"]["file"]}
+            if a["id"] in SAME_ROLE:
+                rid = role_id(SAME_ROLE[a["id"]])
+                r = by_id.get(rid)
+                if r is None:
+                    raise ParseError(f"{product}: {a['id']} is to join role {rid}, which no earlier report declares")
+                if (r["title"], r["description"]) != (a["name"], a["description"]):
+                    raise ParseError(f"{product}: {a['id']} and {rid} differ in title or description, so they cannot be merged "
+                                     "without writing a text the reports do not hold: ask the owner")
+                a["role"] = rid
+                r["_sources"].append(cite)
+                continue
             a["role"] = role_id(a["id"])
-            roles.append({"id": a["role"], "title": a["name"], "description": a["description"],
-                          "actorKinds": ["person"], "skills": []})
-    if len({r["id"] for r in roles}) != len(roles):
-        raise ParseError("two actors share an id across the reports")
+            if a["role"] in by_id:
+                raise ParseError("two actors share an id across the reports")
+            by_id[a["role"]] = {"id": a["role"], "title": a["name"], "description": a["description"],
+                                "actorKinds": ["person"], "skills": [], "_sources": [cite]}
+            roles.append(by_id[a["role"]])
+    absent = sorted(set(SAME_ROLE) - {a["id"] for p in PRODUCTS for a in docs[p]["actors"]})
+    if absent:
+        raise ParseError(f"SAME_ROLE names actors no report describes: {absent}")
     return roles
+
+
+def build_stories(roles, docs):
+    """Owner decision, 2026-09-24 (the open questions of ihris PR #17): link each role to the use cases the
+    reports list it as primary actor on. folio-assistant's RoleDefSchema is strict and has no `useCases`: a
+    story points at its role and the role names none (folio-assistant #1168). So each (role, use case) pair is
+    one user story in scenarios/stories.json (UserStorySchema): the id is the role id and the use-case id in
+    lower case, and `want` is the use case's title, verbatim. The link comes from the use case's "Primary
+    Actors" field only; each actor's own list ("Use cases that this actor plays a role in") must agree with it
+    for every use case the reports describe, or the build stops."""
+    per = {r["id"]: [] for r in roles}
+    for p in PRODUCTS:
+        for pkg in walk(docs[p]["root"]):
+            for uc in pkg["useCases"]:
+                for rid in dict.fromkeys(uc.get("primaryActors") or []):
+                    per[rid].append(uc)
+    described = {uc["id"] for p in PRODUCTS for pkg in walk(docs[p]["root"]) for uc in pkg["useCases"]}
+    bad = []
+    for p in PRODUCTS:
+        for a in docs[p]["actors"]:
+            listed = {u["id"] for u in a["useCases"]} & described
+            linked = {uc["id"] for uc in per[a["role"]]}
+            if listed - linked:
+                bad.append(f"{p} {a['id']}: listed on {sorted(listed - linked)}, not its primary actor there")
+    if bad:
+        raise ParseError("an actor's own use-case list disagrees with the use cases' Primary Actors:\n  " + "\n  ".join(bad))
+    stories = [{"id": f"{r['id']}-{uc['id'].lower()}", "role": {"role": r["id"]}, "want": uc["title"]}
+               for r in roles for uc in per[r["id"]]]
+    if len({s["id"] for s in stories}) != len(stories):
+        raise ParseError("two stories share an id")
+    return stories
 
 
 def resolve_actors(docs):
@@ -567,15 +622,25 @@ def resolve_actors(docs):
     return n
 
 
-def write_scenarios(roles, actors):
+def write_scenarios(roles, actors, stories):
     os.makedirs(os.path.join(SCEN, "actors"), exist_ok=True)
     graph = {"_comment": ("GENERATED by src/tools/ingest_use_cases.py; do not edit. The actors the 2009 iHRIS use-case reports describe, "
                           "declared as Roles in the iHRIS domain (folio-assistant's scenarios graph kind, RoleGraphSchema; "
                           "cat-harness/docs/proposals/odrl-prov-actor-model.md section 5 step 6). Title and description are the "
-                          "report's own words. A-ICE4 and A-PS6 are both 'Any User': two roles, their equivalence undecided."),
+                          "report's own words; `_sources` cites the report actors each role stands for. Owner, 2026-09-24: A-ICE4 "
+                          "(Common) and A-PS6 (Qualify), both 'Any User', are one role. The use cases each role is primary "
+                          "actor on are the user stories in stories.json."),
              "name": "ihris-use-cases", "roles": roles}
     with open(os.path.join(SCEN, "roles.json"), "w", encoding="utf-8") as f:
         json.dump(graph, f, indent=1, ensure_ascii=False)
+        f.write("\n")
+    sg = {"_comment": ("GENERATED by src/tools/ingest_use_cases.py; do not edit. Owner, 2026-09-24: each role is linked to the "
+                       "use cases the 2009 reports list it as primary actor on (the use case's 'Primary Actors' field). One "
+                       "story per role and use case (folio-assistant's UserStorySchema; the role names no story, #1168): the "
+                       "id is '<role id>-<use-case id>' in lower case and `want` is the use case's title, verbatim."),
+          "name": "ihris-use-cases", "stories": stories}
+    with open(os.path.join(SCEN, "stories.json"), "w", encoding="utf-8") as f:
+        json.dump(sg, f, indent=1, ensure_ascii=False)
         f.write("\n")
     keep = set()
     for a in actors:
@@ -589,20 +654,22 @@ def write_scenarios(roles, actors):
             os.remove(os.path.join(SCEN, "actors", fn))
 
 
-def write_roles_md(roles, actors, docs):
+def write_roles_md(roles, actors, docs, stories):
     plays, refs = {}, {}
+    for s in stories:
+        plays.setdefault(s["role"]["role"], []).append(s["id"][len(s["role"]["role"]) + 1:].upper())
     for p in PRODUCTS:
         for pkg in walk(docs[p]["root"]):
             for uc in pkg["useCases"]:
-                for k in ("primaryActors", "supportingActors"):
-                    for r in uc.get(k) or []:
-                        plays.setdefault(r, []).append(uc["id"])
                 if uc.get("assignedTo"):
                     refs.setdefault(uc["assignedTo"]["actor"], []).append(f"{uc['id']} (Assigned To)")
             for r in pkg["requirements"]:
                 if r.get("source"):
                     refs.setdefault(r["source"]["actor"], []).append(f"{r['id']} (Source)")
-    src = {a["role"]: (p, a["id"]) for p in PRODUCTS for a in docs[p]["actors"]}
+    src = {}
+    for p in PRODUCTS:
+        for a in docs[p]["actors"]:
+            src.setdefault(a["role"], []).append(f"{a['id']} in {PRODUCTS[p]}")
     L = ["---", 'title: "Roles and actors in the iHRIS use-case model (2009)"', "---", "",
          "# Roles and actors (2009 use cases)", "",
          "*Generated by `src/tools/ingest_use_cases.py` from the same reports; do not edit by hand. The data is "
@@ -610,14 +677,13 @@ def write_roles_md(roles, actors, docs):
          "[`scenarios/actors/`](scenarios/actors/).*", "",
          "## Roles", "",
          "Each actor a report describes is a **role** in the iHRIS domain. Title and description are the report's own. "
-         "A-ICE4 (Common) and A-PS6 (Qualify) are both “Any User”: they are kept as two roles, and whether they are "
-         "the same is undecided.", ""]
+         "A-ICE4 (Common) and A-PS6 (Qualify) are both “Any User”, and they are one role (owner, 2026-09-24). "
+         "“Primary actor on” lists the use cases whose “Primary Actors” field names the role "
+         "([`scenarios/stories.json`](scenarios/stories.json)).", ""]
     for r in esc_all(roles):
-        p, aid = src[r["id"]]
         L += [f'<a id="{r["id"]}"></a>', "", f"### {r['title']}", "",
-              f"`{r['id']}`: {aid} in {PRODUCTS[p]}.", "", r["description"], ""]
-        if plays.get(r["id"]):
-            L += ["Plays in: " + ", ".join(sorted(set(plays[r["id"]]), key=lambda x: plays[r["id"]].index(x))), ""]
+              f"`{r['id']}`: {'; '.join(src[r['id']])}.", "", r["description"], "",
+              "Primary actor on: " + (", ".join(plays[r["id"]]) if plays.get(r["id"]) else "none in the reports"), ""]
     L += ["## Opaque actors", "",
           "People the reports name in “Assigned To” (staff initials) or in a requirement’s “Source”. "
           "Each distinct person is one actor, and who they are is withheld: the mapping lives in the data store only.", ""]
@@ -808,6 +874,7 @@ def main():
     # Roles from the described actors; use-case actors resolved to them; withheld people to opaque actors.
     roles = build_roles(docs)
     n_actor_refs = resolve_actors(docs)
+    stories = build_stories(roles, docs)
     staff_actors, secrets = assign_staff({p: extras[p][1] for p in PRODUCTS})
     labels = {r["id"]: r["title"] for r in roles} | {a["id"]: a["title"] for a in staff_actors}
 
@@ -864,9 +931,11 @@ def main():
             f.write("\n")
         write_md(product, d, heads[product], xw_by, dangling, labels)
         print(f"{product}: {rec['counts']}, withheld {rec['withheld']}, {stats}")
-    write_scenarios(roles, staff_actors)
-    write_roles_md(roles, staff_actors, docs)
-    print(f"roles: {len(roles)}; use-case actor references resolved: {n_actor_refs}; opaque actors: {len(staff_actors)}, "
+    write_scenarios(roles, staff_actors, stories)
+    write_roles_md(roles, staff_actors, docs, stories)
+    per = {r["id"]: sum(1 for s in stories if s["role"]["role"] == r["id"]) for r in roles}
+    print(f"roles: {len(roles)}; primary-actor use-case links (stories): {len(stories)} {per}")
+    print(f"use-case actor references resolved: {n_actor_refs}; opaque actors: {len(staff_actors)}, "
           f"referenced {sum(len(extras[p][1]) for p in PRODUCTS)} times")
     with open(os.path.join(OUT, "crosswalk.json"), "w", encoding="utf-8") as f:
         json.dump(xw, f, indent=1, ensure_ascii=False)
@@ -878,7 +947,8 @@ def main():
                    "meta": {"source_files": [fe["file"] for fe in man["files"]], "document_class": "use-case-model",
                             "licence": "owner permission, 2026-09-23",
                             "disposition": ("ingested: parsed to ihris-use-cases/v1 and Markdown, with the actors declared as roles "
-                                            "(scenarios/roles.json) and the people named as opaque actors (scenarios/actors/); "
+                                            "(scenarios/roles.json), each linked to the use cases it is primary actor on "
+                                            "(scenarios/stories.json), and the people named as opaque actors (scenarios/actors/); "
                                             "the .doc files are held in uploads/ (git-ignored)")}},
                   f, indent=2, ensure_ascii=False)
         f.write("\n")

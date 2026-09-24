@@ -13,7 +13,8 @@
 //   library/*/structure.json (pdf-structure/v1)   PdfStructureSchema
 //   library/*/images.json (folio-document-images/v1) ImagesSidecarSchema
 //   methodologies/*/*.md front matter             MethodologyFrontMatterSchema (folio-methodology/v1)
-//   <scenarios dir>/roles.json                    RoleGraphSchema (every directory declaring graphKinds ["scenarios"])
+//   <scenarios dir>/roles.json                    RoleGraphSchema via readRoleGraph (every directory declaring graphKinds ["scenarios"])
+//   <scenarios dir>/stories.json                  UserStoryGraphSchema via readUserStories; every story's role declared
 //   <scenarios dir>/actors/*.json                 ActorDefSchema, strict: an actor carries nothing else (no login)
 //   <glossary dir>/*.glossary.json                GlossarySchema (folio-glossary/v1; every directory declaring
 //                                                 graphKinds ["glossary"]), and core's own toSkos() of each scheme
@@ -44,7 +45,8 @@ const { PdfStructureSchema } = await S("cat-harness/schemas/pdf-structure.ts").c
 
 const { ImagesSidecarSchema } = await S("cat-harness/schemas/document-image.ts");
 const { MethodologyFrontMatterSchema } = await S("cat-harness/schemas/methodology.ts");
-const { RoleGraphSchema, ActorDefSchema } = await S("cat-harness/schemas/role-graph.ts");
+const { ActorDefSchema, readRoleGraph } = await S("cat-harness/schemas/role-graph.ts");
+const { readUserStories, danglingStoryRoles } = await S("cat-harness/schemas/user-story.ts");
 // folio-glossary/v1 is core's, from litlfred/folio-assistant#1218 (issue #1217). Say so on an older checkout.
 const { GlossarySchema, toSkos } = await S("folio-assistant-core/schemas/glossary.ts").catch(() => {
   console.log("folio-assistant checkout predates folio-assistant-core/schemas/glossary.ts (#1218): update it");
@@ -113,15 +115,32 @@ for (const [rel, d] of decls) {
   for (const dir of d.directories ?? []) {
     if (!(dir.graphKinds ?? []).includes("scenarios")) continue;
     const at = resolve(root, base, dir.path).slice(resolve(root).length + 1);
-    let roles: any;
+    // folio-assistant's own readers, so this repository accepts exactly what the platform does: `_` keys
+    // (such as a role's `_sources`) are documentation, and everything else is RoleGraphSchema, strict.
+    let graph: any;
+    counts["role-graph"] = (counts["role-graph"] ?? 0) + 1;
     try {
-      roles = read(`${at}/roles.json`);
-    } catch {
+      graph = readRoleGraph(resolve(root, at));
+      if (!graph) throw new Error("no roles.json");
+    } catch (e) {
       bad++;
-      console.log(`${rel}: scenarios directory ${dir.path} has no readable roles.json`);
+      console.log(`${rel}: scenarios directory ${dir.path}: ${(e as Error).message}`);
       continue;
     }
-    check(`${at}/roles.json`, "role-graph", RoleGraphSchema, roles);
+    // A role's use cases are user stories that point at it (folio-assistant #1168): UserStoryGraphSchema,
+    // and every story's role is declared.
+    counts["user-stories"] = (counts["user-stories"] ?? 0) + 1;
+    try {
+      const stories = readUserStories(resolve(root, at));
+      if (!stories) throw new Error("no stories.json");
+      for (const s of danglingStoryRoles(stories, graph)) {
+        bad++;
+        console.log(`${at}/stories.json: story ${s.id} is told as role ${s.role.role}, which roles.json does not declare`);
+      }
+    } catch (e) {
+      bad++;
+      console.log(`${rel}: scenarios directory ${dir.path}: ${(e as Error).message}`);
+    }
     for (const a of new Glob(`${at}/actors/*.json`).scanSync(root)) check(a, "actor", ActorDefSchema.strict(), read(a));
   }
 }
