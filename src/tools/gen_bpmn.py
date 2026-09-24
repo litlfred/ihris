@@ -6,8 +6,9 @@
 
 The spec is the source; the .bpmn is generated (AGENTS.md: generated means
 generated). It follows folio-assistant's BPMN conventions: one pool, one lane
-per role (`<folio:role ref>`), every task names its skill (`<folio:skill ref>`)
-or says why it has none (`<folio:no-skill reason>`), and a call activity
+per role (`<bootstrap.processes:role ref>`), every task names its skill
+(`<bootstrap.processes:skill ref>`) or says why it has none
+(`<cat-harness.processes:no-skill reason>`), and a call activity
 descends into another process by id (`calledElement`), so an existing
 process is called rather than copied.
 
@@ -49,7 +50,13 @@ def generate(spec):
            '                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"',
            '                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"',
            '                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"',
-           '                  xmlns:folio="https://litlfred.github.io/folio-assistant/bpmn"',
+           # Each element's prefix names the Subgraph that DECLARES it, bound to
+           # that Subgraph's own address (folio-assistant bean 12s9): skill and
+           # role are bootstrap's, no-skill is cat-harness's. Readers match the
+           # address, never the prefix text.
+           '                  xmlns:bootstrap.processes="https://litlfred.github.io/folio-assistant/bootstrap/processes/ns#"',
+           *(['                  xmlns:cat-harness.processes="https://litlfred.github.io/folio-assistant/cat-harness/processes/ns#"']
+             if any(n.get("noSkill") and not n.get("skill") for n in spec["nodes"] if n["type"] in ("task", "callActivity")) else []),
            f'                  id="Definitions_{pid}" targetNamespace="https://litlfred.github.io/ihris/workflows"',
            '                  exporter="ihris gen_bpmn.py" exporterVersion="1">',
            f'  <bpmn:collaboration id="Collaboration_{pid}">',
@@ -61,7 +68,7 @@ def generate(spec):
     for l in spec["lanes"]:
         out.append(f'      <bpmn:lane id="{l["id"]}" name={q(l["name"])}>')
         out.append(f'        <bpmn:documentation>{escape(l["documentation"])}</bpmn:documentation>')
-        out.append(f'        <bpmn:extensionElements><folio:role ref="{l["role"]}"/></bpmn:extensionElements>')
+        out.append(f'        <bpmn:extensionElements><bootstrap.processes:role ref="{l["role"]}"/></bpmn:extensionElements>')
         for n in spec["nodes"]:
             if n["lane"] == l["id"]:
                 out.append(f'        <bpmn:flowNodeRef>{n["id"]}</bpmn:flowNodeRef>')
@@ -75,9 +82,9 @@ def generate(spec):
             inner.append(f'      <bpmn:documentation>{escape(n["documentation"])}</bpmn:documentation>')
         if n["type"] in ("task", "callActivity"):
             if n.get("skill"):
-                inner.append(f'      <bpmn:extensionElements><folio:skill ref="{n["skill"]}"/></bpmn:extensionElements>')
+                inner.append(f'      <bpmn:extensionElements><bootstrap.processes:skill ref="{n["skill"]}"/></bpmn:extensionElements>')
             elif n.get("noSkill"):
-                inner.append(f'      <bpmn:extensionElements><folio:no-skill reason={q(n["noSkill"])}/></bpmn:extensionElements>')
+                inner.append(f'      <bpmn:extensionElements><cat-harness.processes:no-skill reason={q(n["noSkill"])}/></bpmn:extensionElements>')
         out += [head + ">", *inner, f'    </bpmn:{n["type"]}>'] if inner else [head + "/>"]
     for i, f in enumerate(spec["flows"], 1):
         name = f' name={q(f["name"])}' if f.get("name") else ""

@@ -3,7 +3,8 @@
                   xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
                   xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
                   xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
-                  xmlns:folio="https://litlfred.github.io/folio-assistant/bpmn"
+                  xmlns:bootstrap.processes="https://litlfred.github.io/folio-assistant/bootstrap/processes/ns#"
+                  xmlns:cat-harness.processes="https://litlfred.github.io/folio-assistant/cat-harness/processes/ns#"
                   id="Definitions_Process_Ihris4OnFhir" targetNamespace="https://litlfred.github.io/ihris/workflows"
                   exporter="ihris gen_bpmn.py" exporterVersion="1">
   <bpmn:collaboration id="Collaboration_Process_Ihris4OnFhir">
@@ -14,7 +15,7 @@
     <bpmn:laneSet id="LaneSet_Process_Ihris4OnFhir">
       <bpmn:lane id="Lane_Agent" name="Agent">
         <bpmn:documentation>Generates FSH. It never edits generated FSH or SUSHI output; it changes the inputs or the generator.</bpmn:documentation>
-        <bpmn:extensionElements><folio:role ref="fhir-modeller"/></bpmn:extensionElements>
+        <bpmn:extensionElements><bootstrap.processes:role ref="fhir-modeller"/></bpmn:extensionElements>
         <bpmn:flowNodeRef>Start_F</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>A_GenTerm</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>GW_LM</bpmn:flowNodeRef>
@@ -23,13 +24,13 @@
       </bpmn:lane>
       <bpmn:lane id="Lane_Pipeline" name="Build pipeline">
         <bpmn:documentation>Runs SUSHI and the validators. A dirty SUSHI run blocks the commit.</bpmn:documentation>
-        <bpmn:extensionElements><folio:role ref="build-pipeline"/></bpmn:extensionElements>
+        <bpmn:extensionElements><bootstrap.processes:role ref="build-pipeline"/></bpmn:extensionElements>
         <bpmn:flowNodeRef>P_Sushi</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>P_Validate</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_Owner" name="Owner">
         <bpmn:documentation>Unblocks phases and accepts the mapping. Uncertain mappings arrive as proposals, which only the owner moves.</bpmn:documentation>
-        <bpmn:extensionElements><folio:role ref="user"/></bpmn:extensionElements>
+        <bpmn:extensionElements><bootstrap.processes:role ref="user"/></bpmn:extensionElements>
         <bpmn:flowNodeRef>O_Accept</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>End_F</bpmn:flowNodeRef>
       </bpmn:lane>
@@ -37,27 +38,27 @@
     <bpmn:startEvent id="Start_F" name="Data model or terminology changed"/>
     <bpmn:task id="A_GenTerm" name="Generate terminology FSH">
       <bpmn:documentation>F2. CodeSystems, ValueSets and ConceptMaps from src/ihris-data-dictionary/terminology inputs.</bpmn:documentation>
-      <bpmn:extensionElements><folio:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:exclusiveGateway id="GW_LM" name="cz17 settled?"/>
     <bpmn:task id="A_GenLM" name="Generate logical models">
       <bpmn:documentation>F3. One logical model per form class, in the form smart-base's DAK model settles on.</bpmn:documentation>
-      <bpmn:extensionElements><folio:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="A_GenMap" name="Generate StructureMaps to iHRIS 5">
       <bpmn:documentation>F4. Maps to all three iHRIS 5 IGs, pinned to a commit. Uncertain matches become proposals.</bpmn:documentation>
-      <bpmn:extensionElements><folio:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="P_Sushi" name="SUSHI build (must be clean)">
       <bpmn:documentation>Tool ihris-sushi. Zero errors are required, and warnings are reported.</bpmn:documentation>
-      <bpmn:extensionElements><folio:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="P_Validate" name="Validate">
       <bpmn:documentation>Tool ihris-validate-kg: FHIR structure, content-equality with the retired JSON (D8), and codes that resolve.</bpmn:documentation>
-      <bpmn:extensionElements><folio:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="O_Accept" name="Accept mappings and phase">
-      <bpmn:extensionElements><folio:no-skill reason="The owner's decision on proposals and on unblocking the next phase."/></bpmn:extensionElements>
+      <bpmn:extensionElements><cat-harness.processes:no-skill reason="The owner's decision on proposals and on unblocking the next phase."/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:endEvent id="End_F" name="Built; render waits for the pipeline"/>
     <bpmn:sequenceFlow id="SF_Process_Ihris4OnFhir_1" sourceRef="Start_F" targetRef="A_GenTerm"/>
