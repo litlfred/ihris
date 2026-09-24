@@ -29,9 +29,18 @@ A term gets a SKOS match **only** from a ConceptMap the repository already verif
 
 - EU Publications Office country table: `http://publications.europa.eu/resource/authority/country/` + ISO 3166-1 alpha-3 (from pycountry, the data the map was verified with);
 - EU Publications Office currency table: `.../authority/currency/` + ISO 4217;
-- ESCO for ISCO-08: `http://data.europa.eu/esco/isco/C` + the code. No verified ConceptMap targets ISCO-08 yet, so no term links there.
+- ESCO for ISCO-08: `http://data.europa.eu/esco/isco/C` + the code.
+
+**One second basis, owner-accepted: ValueSet identity.** No ConceptMap targets ISCO-08. `build_dak.py` binds each `isco_08_*` list, as a ValueSet (`<canonical>/ValueSet/isco_08_<level>`), to the ILO's ISCO-08 system itself, so an iHRIS record id *is* the ISCO-08 code. The owner ruled on 2026-09-24 (ihris PR #19, *"Accept ValueSet identity"*) that this is enough for `exactMatch`. So the 4 ISCO-08 schemes link every code to ESCO, and each scheme's description names the ValueSet and the ruling. The accepted systems are `VALUESET_IDENTITY` in `build_glossary.py`, only the ILO ISCO-08 system; adding one is the owner's call, never a builder's. ISCO-88 has no such binding and no ESCO scheme, so it links nowhere; its definitions stay verbatim (owner, 2026-09-24).
 
 **The IRIs are built by each publisher's published pattern and were not dereferenced**: a Claude Code cloud session cannot reach those hosts (AGENTS.md §6). Never copy an external concept's definition.
+
+## Conventions: folio-assistant's, followed
+
+Owner, 2026-09-24: *"What does folio-assistant do? B should follow. Update skills so known."* Both are folio-assistant's rules, stated in its skill `glossary-terms`:
+
+- **IRIs are in the instance namespace**, `<publication root><instance stub>/ns#glossary/<scheme>/<term>` (core's `instanceNs` and `termIri`). For this folio: `https://litlfred.github.io/ihris/ihris/ns#glossary/<scheme>/<term>`. Never the path of the file that first defined the term: moving an asset must not move a term.
+- **One ConceptScheme per code list**, as folio-assistant's `schemas/code-list.ts` (`codeListToSkos`) does: a code is addressable in its own list, and two lists may share a code without sharing a concept. So `isco_08_unit`'s `1111` and any other list's `1111` are different concepts; a relation between them is a SKOS match, never a merge.
 
 ## Steps
 
@@ -41,4 +50,4 @@ A term gets a SKOS match **only** from a ConceptMap the repository already verif
 
 ## QA
 
-`src/tools/qa.py`, schema `folio-glossary/v1`: `glossary-schemes`, `glossary-ids`, `glossary-matches` (recomputed from the ConceptMaps), `glossary-counts`, `glossary-verbatim` (the source JSON, and the captured toolkit page), `glossary-page` (every term once). Each was shown to fail on a mutation (bean `ihris-glsk`).
+`src/tools/qa.py`, schema `folio-glossary/v1`: `glossary-schemes`, `glossary-ids`, `glossary-matches` (recomputed from the ConceptMaps and the ISCO-08 ValueSets), `glossary-counts`, `glossary-verbatim` (the source JSON, and the captured toolkit page), `glossary-page` (every term once). Each was shown to fail on a mutation (bean `ihris-glsk`).

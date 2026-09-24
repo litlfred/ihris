@@ -1106,10 +1106,11 @@ def c_glossary_ids(C):
 
 
 def c_glossary_matches(C):
-    """Every SKOS match is one the repository verified: recomputed from the ConceptMaps in
+    """Every SKOS match is one the repository verified or the owner accepted: recomputed from the ConceptMaps in
     src/ihris-data-dictionary/terminology (equal/equivalent -> exactMatch, wider/subsumes -> broadMatch,
     narrower/specializes -> narrowMatch, nothing else), for targets that are external schemes ihris.json
-    references. A match with no such mapping, or a verified mapping with no match, is a finding."""
+    references, plus exactMatch from a code list's ValueSet bound to ISCO-08 (ValueSet identity, owner 2026-09-24).
+    A match with no such basis, or a basis with no match, is a finding."""
     out, expected = [], {}
     remote = [g["url"].rstrip("/") + "/" for g in J("ihris.json").get("remoteGraphs") or [] if "glossary" in g["graphKinds"]]
     remote.append("http://data.europa.eu/esco/isco/")  # ESCO's ISCO concepts sit beside its concept-scheme IRI
@@ -1124,6 +1125,16 @@ def c_glossary_matches(C):
                     m = GLOSSARY_EQUIV.get(tg.get("equivalence"))
                     if m and tg.get("code"):
                         expected.setdefault((form, el["code"]), {}).setdefault(m, set()).add(iri(tg["code"]))
+    # The owner-accepted second basis (2026-09-24): a code list's own ValueSet bound to the ILO ISCO-08
+    # system is identity, so each of its concepts has exactMatch to ESCO. No other system is accepted so.
+    identity = {"http://www.ilo.org/public/english/bureau/stat/isco/isco08/"}
+    for rel in G("src/ihris-data-dictionary/terminology/ValueSet-*.json"):
+        vs = J(rel)
+        form = vs.get("url", "").rsplit("/", 1)[-1]
+        for inc in (vs.get("compose") or {}).get("include") or []:
+            if inc.get("system") in identity:
+                for c in inc.get("concept") or []:
+                    expected.setdefault((form, c["code"]), {}).setdefault("exactMatch", set()).add(GLOSSARY_EXTERNAL[inc["system"]](c["code"]))
     seen = set()
     for rel, g in _glossaries(C):
         for t in g.get("terms") or []:
@@ -1137,7 +1148,7 @@ def c_glossary_matches(C):
                 for x in sorted(have - want.get(m, set())):
                     out.append(f"{rel}: {t['id']} {m} {x} is no mapping the repository verified")
                 for x in sorted(want.get(m, set()) - have):
-                    out.append(f"{rel}: {t['id']} lacks {m} {x}, which a verified ConceptMap records")
+                    out.append(f"{rel}: {t['id']} lacks {m} {x}, which a verified ConceptMap or the ISCO-08 ValueSet identity records")
                 for x in have:
                     if not any(x.startswith(r) for r in remote):
                         out.append(f"{rel}: {t['id']} {m} {x} is in no external scheme ihris.json references (remoteGraphs)")
@@ -1288,7 +1299,7 @@ QA = {
     "FHIR R4 terminology": [("fhir-terminology", "every value set named in value-sets.json is generated", c_fhir)],
     "folio-glossary/v1": [("glossary-schemes", "in a declared glossary directory, named for its id; states hold; sources exist; current with build_glossary.py", c_glossary_schemes),
                           ("glossary-ids", "no scheme or term id twice; ids in core's local-id grammar", c_glossary_ids),
-                          ("glossary-matches", "every SKOS match is a mapping a verified ConceptMap records, to a referenced external scheme, and none is missing", c_glossary_matches),
+                          ("glossary-matches", "every SKOS match is a mapping a verified ConceptMap records, or ISCO-08 ValueSet identity (owner-accepted), to a referenced external scheme, and none is missing", c_glossary_matches),
                           ("glossary-counts", "terms per source match the toolkit's technical terms, the reports' glossaries, each code list's default records", c_glossary_counts),
                           ("glossary-verbatim", "every authored definition is verbatim in its source (and the toolkit's in the captured page)", c_glossary_verbatim),
                           ("glossary-page", "the glossary page lists every term exactly once", c_glossary_page)],

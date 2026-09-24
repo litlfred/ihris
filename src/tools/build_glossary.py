@@ -41,9 +41,16 @@ publisher's own pattern: the EU Publications Office authority tables
 (`.../authority/country/` + ISO 3166-1 alpha-3, from pycountry, the same data the map was
 verified with; `.../authority/currency/` + ISO 4217) and ESCO for ISCO-08
 (`http://data.europa.eu/esco/isco/C` + code). The IRIs are BUILT BY PATTERN: the building
-session cannot reach those hosts, so none was dereferenced. Today no ConceptMap targets
-ISCO-08 (build_dak.py binds iHRIS's ISCO-08 lists to the ILO system as a ValueSet and
-records no mapping), so no term has an ESCO match.
+session cannot reach those hosts, so none was dereferenced.
+
+One second basis, and only the one the owner accepted: VALUESET IDENTITY. No ConceptMap
+targets ISCO-08; build_dak.py instead binds iHRIS's `isco_08_*` lists, as a ValueSet, to the
+ILO's ISCO-08 system itself, so an iHRIS record id IS the ISCO-08 code. The owner ruled on
+2026-09-24 (ihris PR #19, "Accept ValueSet identity") that this is enough for exactMatch. So a
+code-list term gets exactMatch to ESCO for each concept of a ValueSet that is this
+repository's ValueSet for that code list (`<CANONICAL>/ValueSet/<form>`) and whose include
+system is in VALUESET_IDENTITY. No other system is accepted this way until the owner says so,
+and the scheme's description names the basis.
 
 IRIs are in the INSTANCE namespace (bean lqo9, folio-assistant): `<NS>glossary/<scheme>/<term>`,
 with NS = `<publication root><instance>/ns#`, core's `instanceNs` rule applied to this
@@ -89,6 +96,8 @@ ESCO_ISCO = "http://data.europa.eu/esco/isco/C"
 EQUIVALENCE = {"equal": "exactMatch", "equivalent": "exactMatch", "wider": "broadMatch", "subsumes": "broadMatch",
                "narrower": "narrowMatch", "specializes": "narrowMatch"}
 MATCHES = ("exactMatch", "closeMatch", "broadMatch", "narrowMatch")
+# Systems whose ValueSet binding the owner accepted as identity (exactMatch). Owner, 2026-09-24.
+VALUESET_IDENTITY = {build_dak.ILO_ISCO08: "the owner's ruling of 2026-09-24 (ihris PR #19)"}
 
 
 def J(rel):
@@ -251,6 +260,29 @@ def verified_matches():
     return out, used
 
 
+def valueset_identity_matches():
+    """{form: {code: [iri]}} and {form: ValueSet id}: exactMatch from a code list's own ValueSet,
+    bound to a system in VALUESET_IDENTITY (the owner-accepted basis; see the module docstring)."""
+    out, used = collections.defaultdict(dict), {}
+    remote = remote_glossaries()
+    prefix = f"{build_dak.CANONICAL}/ValueSet/"
+    for f in sorted(glob.glob(os.path.join(ROOT, "src/ihris-data-dictionary/terminology/ValueSet-*.json"))):
+        vs = J(os.path.relpath(f, ROOT))
+        if not vs.get("url", "").startswith(prefix):
+            continue
+        form = vs["url"][len(prefix):]
+        for inc in (vs.get("compose") or {}).get("include") or []:
+            if inc.get("system") not in VALUESET_IDENTITY:
+                continue
+            rid, iri = EXTERNAL[inc["system"]]
+            if rid not in remote:
+                sys.exit(f"ValueSet {vs['id']} binds {inc['system']}, but ihris.json references no remote glossary {rid}")
+            used[form] = vs["id"]
+            for c in inc.get("concept") or []:
+                out[form][c["code"]] = [iri(c["code"])]
+    return out, used
+
+
 def package_licence():
     lic = {tuple(J(f"src/catalogue/records/project--{p}.json")["project"].get("licences") or []) for p in PACKAGES}
     if lic != {("GNU GPL v3",)}:
@@ -261,6 +293,7 @@ def package_licence():
 def code_list_schemes():
     recs = code_list_records()
     matches, used = verified_matches()
+    identity, vs_used = valueset_identity_matches()
     licence = package_licence()
     remote = remote_glossaries()
     sample = collections.Counter()
@@ -284,8 +317,11 @@ def code_list_schemes():
             if term["prefLabel"] == r["id"] and not (isinstance(name, str) and name.strip()):
                 term["scopeNote"] = "The record has no `name`, so its code stands as its label."
             for m in MATCHES:
-                if matches.get(form, {}).get(r["id"], {}).get(m):
-                    term[m] = sorted(set(matches[form][r["id"]][m]))
+                got = set(matches.get(form, {}).get(r["id"], {}).get(m) or [])
+                if m == "exactMatch":
+                    got |= set(identity.get(form, {}).get(r["id"]) or [])
+                if got:
+                    term[m] = sorted(got)
             term["source"] = f"{rel}#/records/{i}"
             term["status"] = "authored" if "definition" in term else "candidate"
             terms.append(term)
@@ -304,6 +340,14 @@ def code_list_schemes():
                              for g in J(f"src/ihris-data-dictionary/terminology/ConceptMap-{f}.json")["group"] if g["target"] in EXTERNAL})
             desc += (f" {n} term(s) link to {', '.join(titles)}, from the verified ConceptMap {', '.join(sorted(used[form]))} "
                      "(equal only); the IRIs follow the publisher's pattern and were not dereferenced.")
+        if form in vs_used:
+            n = sum(1 for t in terms if identity[form].get(t["notation"]))
+            system = next(i["system"] for i in J(f"src/ihris-data-dictionary/terminology/ValueSet-{form}.json")["compose"]["include"]
+                          if i.get("system") in VALUESET_IDENTITY)
+            desc += (f" {n} term(s) have exactMatch to {remote[EXTERNAL[system][0]]['title']} by ValueSet identity: "
+                     f"the ValueSet {vs_used[form]} binds this list to {system}, so each code is that system's code. "
+                     f"No ConceptMap records it; the basis was accepted by {VALUESET_IDENTITY[system]}. "
+                     "The IRIs follow the publisher's pattern and were not dereferenced.")
         out.append({"$schema": SCHEMA, "id": f"code-list-{slug(form)}", "title": f"iHRIS {RELEASE} code list: {form}",
                     "description": desc, "hasVersion": RELEASE,
                     "source": ", ".join(f"src/{p}/data-lists/{RELEASE}/{form}.json" for p in pk) + f" (iHRIS {RELEASE}, MD5-verified release)",
