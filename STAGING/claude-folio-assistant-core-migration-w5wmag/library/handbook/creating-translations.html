@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creating Translations · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Creating Translations</div>
+<h1>Creating Translations</h1>
+<div class="wiki">
+<p>If you update an .xml for .html file that needs to be translated, you need to update the .pot file for the module that contains that file. You may do so by running:</p>
+<pre><code>&lt;PATH_TO_I2CE&gt;/tools/translate_create_templates.php
+</code></pre>
+<p>from the top-level directory of the package. This should be done before commit to bzr. Supposedly, launchpad will watch the .pot files and update the translations available on launchpad.</p>
+<h2>Creating the POT Files For Launchpad Upload</h2>
+<p>There are two scripts. The first creates all the .pot files and any necessary localized module configuration files. The .pot files are stored under translations/templates and the module confguration file is stored under &lt;MODULE_DIR&gt;/configs/en_US.</p>
+<p>Once you are satisfied with the results you create the tarball to upload to launchpad. Hopefully, you don't need to do this step any more as the translation setting for i2ce, ihris-common, ihris-manage, ihris-qualify have been updated to pull in .pot files from the trunk branches.</p>
+<h3>translate_create_templates.php</h3>
+<p>There is a utility to create .POT [1] translation template files to upload to launchpad. The utility creates a .pot file for each module in a package (such as I2CE, ihris-common, ihris-manage, etc) and is found in the I2CE package under:</p>
+<pre><code>i2ce/tools/translate_create_templates.php
+</code></pre>
+<p>It should be the run in the top-level directory &lt;DIR&gt; of a package. The usage as of version 4.0.0:</p>
+<pre><code>cd &lt;DIR&gt;
+</code></pre>
+<p>&lt;I2CE_DIRECTORY&gt;/tools/translate_create_templates.php --help</p>
+<pre><code>Usage: translate_create_templates.php
+  [--template_dir=$template_dir]: The directory to store .pot template files in
+    If not set, we use ./translations/templates
+  [--remove-strings=T/F] set to true to always remove the string from a module's .pot
+    which are no longer present in the module
+  [--modules=$module1,$module2..$moduleN]: The module(s) for which we wish  to operate on
+    If not specified, it uses  every valid module
+  [--search_dirs=$dir1,$dir2]: Set the search directories for modules
+    If not specified, we search &lt;DIR&gt;,&lt;DIR&gt;/sites/*
+  [--limit_search=T/F]: Limit the module search results of found sub-modules of a top-level
+    Defaults to T.
+  [--categories=$cat1,$cat2]: The categories to search
+    If not specificed we search TEMPLATES
+  [--create-configs=T/F]  set to true to always create ./configs
+    directory and add to to config.xml if there are translatable strings.
+  [--overwrite-configs=T/F] set to true to always overwrite the translated
+    config.xml
+</code></pre>
+<h3>create_launchpad_upload.php</h3>
+<p>This should no longer be needed for ihris-XXX and i2ce as Launchpad is now configured to watch for .pot files. I'll leave it around in case someone else wants to use it.</p>
+<p>Creates the tarball needed to upload into launchpad.</p>
+<p>It should be the run in the top-level directory &lt;DIR&gt; of a package.</p>
+<p>Looks for .pot files in translations/templates/</p>
+<p>Creates the file translations/templates/lauchpad/templates-&lt;PACKAGE&gt;.tgz</p>
+<p>It tells you where to upload the file in lauchpad.</p>
+<p>Usage as of 4.0.0</p>
+<pre><code>Usage: translate_create_templates.php
+  [--modules=$module1,$module2..$moduleN]: The module(s) for which we wish  to operate on
+    If not specified, it uses  every valid module
+  [--search_dirs=$dir1,$dir2]: Set the search directories for modules
+    If not specified, we search &lt;DIR&gt;,&lt;DIR&gt;/sites/*
+  [--limit_search=T/F]: Limit the module search results of found sub-modules of a top-level
+    Defaults to T.
+</code></pre>
+<h2>Downloading The Translations</h2>
+<p>You can download the translation at the following links:</p>
+<ul>
+<li>https://translations.launchpad.net/i2ce/trunk/+export</li>
+<li>https://translations.launchpad.net/ihris-common/trunk/+export</li>
+<li>https://translations.launchpad.net/ihris-manage/trunk/+export</li>
+<li>https://translations.launchpad.net/ihris-qualify/trunk/+export</li>
+</ul>
+<p>Select to download the .MO files (and not the .PO files).</p>
+<p>Wait a long time to get the e-mail. The emailed file should be saved under:</p>
+<pre><code>&lt;PACKAGE_DIR&gt;/translations/launchpad-export.tar.gz
+</code></pre>
+<h2>translate_templates.php</h2>
+<p>The utility translate_templates.php is found under i2ce/tools and should be run from the top-level directory &lt;PACKAGE_DIR&gt; of the package. It create the translated html template files and configuration files.</p>
+<p>Usage for Version 4.0.4</p>
+<pre><code> Usage: translate_templates.php
+  [--read_po_files=$read_po_files]: Tries to read .po files for the given locale rather than an export
+     Defaults to false
+  [--templates_dir=$read_po_files]: Where  to read .po files from
+     Defaults to $templates_dir
+  [--archive=$archive]: The archive consisting of all translationd
+     Defaults to ./translations/launchpad-export.tar.gz
+  [--locales=$locale1,$locale2..$localeN]: The locales we wish to translate for
+     If not specified, it uses  every valid subdirectory of in the translations archive file
+  [--only_changed=T/F]: produce tranlslated files only when something was translated from the source document.
+     Defaults to T=true
+  [--only_archive=T/F]: Only create the archive -- do not recreate template files.
+     Defaults to F
+  [--create_archive=T/F]: generate the tarball and debian packaging info.
+     If F, it output translated files within each e module as approriate.
+     If T (default), it outputs archive under ./translations/archive/ with a sub-directory for each locale
+  [--archive_dir=$archive_dir]: The directory to store  archive in.
+     Defaults to ./translations/archive/
+  [--categories=$cat1,$cat2]: The categories to search
+     If not specificed we search TEMPLATES
+  [--modules=$module1,$module2..$moduleN]: The module(s) for which we wish  to operate on
+     If not specified, it uses  every valid module
+  [--search_dirs=$dir1,$dir2]: Set the search directories for modules
+    If not specified, we search &lt;PACKAGE_DIR&gt;,&lt;PACKAGE_DIR&gt;/sites/*
+  [--limit_search=T/F]: Limit the module search results of found sub-modules of a
+    top-level module to those that are real subdirectories of top-level's given directory
+    Defaults to T.
+</code></pre>
+<h2>Translation from .po files</h2>
+<p>As languages become completely translated, we will maintain the .po files in the source code. In this case you do not need to download the launchpad exports. This is the case, for example, with French. Translation now is easier as you do not need to wait on downloading from launchpad:</p>
+<pre><code>translate_templates.php --create_archive=false --read_po_files=true --locales=fr
+</code></pre>
+<p>in &lt;PACKAGE_DIR&gt; will produce the French translations in the source tree for use</p>
+<p>Note: under version 4.0.6 the defaults for translate_templates.php have been changed, so you may simply do:</p>
+<pre><code>translate_templates.php  --locales=fr
+</code></pre>
+<h2>Packaging Translations</h2>
+<p>Download the launchpad translations as indicated above. Running</p>
+<pre><code>translate_templates.php  --create_archive=true
+</code></pre>
+<p>in &lt;PACKAGE_DIR&gt; will produce translation/archive directory</p>
+<h2>References</h2>
+<p>[1] http://en.wikipedia.org/wiki/GNU_gettext</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=32927">revision 32927</a>; contributors: Lduncan, Litlfred, MarkAHershberger. Pages 48&ndash;50 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

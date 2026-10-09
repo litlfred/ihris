@@ -1,0 +1,3225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I2CE Module List (4.0.6) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / I2CE Module List (4.0.6)</div>
+<h1>I2CE Module List (4.0.6)</h1>
+<div class="wiki">
+<p>This is a list of all modules available in version 4.0.6-release of the package I2CE [1]</p>
+<h2>BackgroundProcess</h2>
+<p>This describes version 4.0.0 of the module Background Processes (BackgroundProcess)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/BackgroundProcess [2]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_BackgroundProcess</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Page-&gt;launchBackgroundProcess() via launchBackgroundProcess()</p>
+</li>
+<li>Implements the method I2CE_Module-&gt;launchBackgroundProcess() via launchBackgroundProcess()</li>
+<li>Implements the method I2CE_Template-&gt;launchBackgroundProcess() via launchBackgroundProcess()</li>
+<li>Implements the method I2CE_Page-&gt;launchBackgroundPHPScript() via launchBackgroundPHPScript()</li>
+<li>Implements the method I2CE_Module-&gt;launchBackgroundPHPScript() via launchBackgroundPHPScript()</li>
+<li>Implements the method I2CE_Template-&gt;launchBackgroundPHPScript() via launchBackgroundPHPScript()</li>
+<li>Implements the method I2CE_Page-&gt;launchBackgroundPage() via launchBackgroundPage()</li>
+<li>Implements the method I2CE_Module-&gt;launchBackgroundPage() via launchBackgroundPage()</li>
+<li>Implements the method I2CE_Template-&gt;launchBackgroundPage() via launchBackgroundPage()</li>
+<li>Description: A convenience module to allow the running of process in the background</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/BackgroundProcess/configs [3]</p>
+</li>
+<li>
+<p>Templates: modules/BackgroundProcess/templates [4]</p>
+</li>
+<li>
+<p>background_process_menu.html</p>
+</li>
+<li>
+<p>Css: modules/BackgroundProcess/css [5]</p>
+</li>
+<li>
+<p>Classes: modules/BackgroundProcess/ [6]</p>
+</li>
+</ul>
+<p>I2CE_BackgroundProcess, I2CE_Page_BackgroundProcess, I2CE_Page_Run_SQL</p>
+<h2>BinField</h2>
+<p>This describes version 4.0.6.0 of the module Binary Fields (BinField)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/Binary_Files [7]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_BinaryFiles</p>
+</li>
+<li>Description: A module that allows binary files for form fields</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms at least 4.0 and less than 4.1</p>
+</li>
+<li>pages at least 4.0 and less than 4.1</li>
+<li>MimeTypes at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/Binary_Files/lib [8]</p>
+</li>
+<li>
+<p>I2CE_FormField_BINARY_FILE, I2CE_FormField_DB_BLOB, I2CE_FormField_DOCUMENT, I2CE_FormField_IMAGE, I2CE_Module_BinaryFiles, I2CE_Page_BinaryField</p>
+</li>
+<li>Sql: modules/Forms/modules/Binary_Files/sql [9]</li>
+</ul>
+<h2>CachedForms</h2>
+<p>This describes version 4.0.6.1 of the module Cached Forms (CachedForms)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/CachedForms [10]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_CachedForms</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField-&gt;cachedTableReference() via cachedTableReference()</p>
+</li>
+<li>
+<p>Command Line Inteterprecter (CLI) Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the CLI method I2CE_FormField-&gt;cachedTableReference() via cachedTableReference()</p>
+</li>
+<li>Description: A module that allow the creation of a cached table corresponding to a form</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage at least 4.0 and less than 4.1</p>
+</li>
+<li>BackgroundProcess at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Forms/modules/CachedForms/configs [11]</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/CachedForms/lib [12]</p>
+</li>
+<li>
+<p>I2CE_CachedForm, I2CE_Module_CachedForms, I2CE_Page_CachedForm</p>
+</li>
+<li>Templates: modules/Forms/modules/CachedForms/templates [13]</li>
+</ul>
+<p>cachedforms_menu_each.html, cachedforms_menu.html, cachedforms_menu_exportProfile.html, cachedforms_menu_exportProfile_each.html</p>
+<h2>ColorPicker</h2>
+<p>This describes version 4.0.0 of the module Color Picker (ColorPicker)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MooTools/modules/ColorPicker [14]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_ColorPicker</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_MagicDataTemplate-&gt;processValues_color_triple_hex_single() via processValues_color_triple_hex_single()</p>
+</li>
+<li>Implements the method I2CE_MagicDataTemplate-&gt;processValues_color_triple_hex_many() via processValues_color_triple_hex_many()</li>
+<li>Implements the method I2CE_MagicDataTemplate-&gt;processValues_color_triple_rgb_single() via processValues_color_triple_rgb_single()</li>
+<li>Implements the method I2CE_MagicDataTemplate-&gt;processValues_color_triple_rgb_many() via processValues_color_triple_rgb_many()</li>
+<li>Implements the method I2CE_MagicDataTemplate-&gt;processValues_color_hex_single() via processValues_color_hex_single()</li>
+<li>Implements the method I2CE_MagicDataTemplate-&gt;processValues_color_hex_many() via processValues_color_hex_many()</li>
+<li>Implements the method I2CE_Page-&gt;addColorPickerTriple() via addColorPickerTriple()</li>
+<li>Implements the method I2CE_Template-&gt;addColorPickerTriple() via addColorPickerTriple()</li>
+<li>Description: Uses the MooTools Color Picker written by Kelly Anderson at http://www.sweetvision.com/projects/javascript-color-picker/.Enable some additional functionality for configuration as well</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>MooTools at least 1.2 and less than 1.3</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Scripts: modules/MooTools/modules/ColorPicker/scripts [15]</p>
+</li>
+<li>
+<p>Templates: modules/MooTools/modules/ColorPicker/templates [16]</p>
+</li>
+<li>
+<p>configuration_color_triple_hex_single.html, configuration_color_triple_single.html, configuration_color_triple_rgb_single.html</p>
+</li>
+<li>
+<p>Css: modules/MooTools/modules/ColorPicker/css [17]</p>
+</li>
+<li>
+<p>Classes: modules/MooTools/modules/ColorPicker/ [18]</p>
+</li>
+</ul>
+<p>I2CE_Module_ColorPicker</p>
+<h2>CustomReports</h2>
+<p>This describes version 4.0.5 of the module Custom Reports (CustomReports)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/CustomReports [19]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_CustomReports</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Form-&gt;isNumeric() via isNumeric()</p>
+</li>
+<li>Implements the method I2CE_FormField-&gt;isNumeric() via isNumericField()</li>
+<li>Description: Custom Reports</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>formRelationships at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>magicDataExport at least 4.0 and less than 4.1</p>
+</li>
+<li>CachedForms at least 4.0 and less than 4.1</li>
+<li>jumper at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/CustomReports/configs [20]</p>
+</li>
+<li>
+<p>Classes: modules/CustomReports/lib [21]</p>
+</li>
+<li>
+<p>I2CE_CustomReport, I2CE_CustomReport_Display, I2CE_CustomReport_Display_Default, I2CE_CustomReport_Template, I2CE_Module_CustomReports, I2CE_Page_CustomReports, I2CE_Page_Report_MagicDataExport, I2CE_Swiss_CustomReports_Base, I2CE_Swiss_CustomReports_Report, I2CE_Swiss_CustomReports_ReportView, I2CE_Swiss_CustomReports_ReportView_Base, I2CE_Swiss_CustomReports_ReportView_Displays, I2CE_Swiss_CustomReports_ReportView_Field, I2CE_Swiss_CustomReports_ReportView_Fields, I2CE_Swiss_CustomReports_ReportViews, I2CE_Swiss_CustomReports_Report_Base, I2CE_Swiss_CustomReports_Report_Meta, I2CE_Swiss_CustomReports_Report_ReportingForm, I2CE_Swiss_CustomReports_Report_ReportingForm_Field, I2CE_Swiss_CustomReports_Report_ReportingForm_Field_Limit, I2CE_Swiss_CustomReports_Report_ReportingForm_Field_Limits, I2CE_Swiss_CustomReports_Report_ReportingForm_Fields, I2CE_Swiss_CustomReports_Report_ReportingForms, I2CE_Swiss_CustomReports_Report_ReportingFunction, I2CE_Swiss_CustomReports_Report_ReportingFunction_Limits, I2CE_Swiss_CustomReports_Report_ReportingFunctions, I2CE_Swiss_CustomReports_Reports</p>
+</li>
+<li>
+<p>Css: modules/CustomReports/css [22]</p>
+</li>
+<li>
+<p>Images: modules/CustomReports/images [23]</p>
+</li>
+<li>
+<p>Templates: modules/CustomReports/templates [24]</p>
+</li>
+</ul>
+<p>customReports_reportViews_existing_reportview.html, customReports_report_limits_each.html, customReports_report_form_field.html, customReports_reportViews_edit.html, customReports_menu.html, customReports_report_form_field_limit.html, customReports_report_forms_each.html, customReports_table_data_cell.html, customReports_reportViews_reports_view.html, customReports_report_form.html, customReports_display_Default_base.html, customReports_reportView_displays_each.html, customReports_reportView_field_numeric.html, customReports_reportView_displays.html, customReports_reports_no_new.html, customReports_table_data_row.html, customReports_table.html, customReports_reportView_edit.html, customReports_reports_category.html, customReports_table_link_cell.html, customReports_report_form_fields.html, customReports_reportView_fields.html, customReports_report_functions_each.html, customReports_reportViews_views_each_view.html, customReports_reportView_view.html, customReports_report_forms_form.html, customReports_report_meta.html, customReports_table_head_cell.html, customReports_report_limits.html, customreports_options.html, customReports_report_function.html, customReports_reportViews_reports_edit.html, customReports_nav_menu.html, customReports_report_functions.html, customReports_reportViews_views_each_edit.html, customReports_notfound.html, customReports_reportView_field.html, customReports_reports_new.html, customReports_reportView_fields_each.html, customReports_report_forms.html, customReports_reportViews_views_view.html, customReports_report_form_fields_each.html, customReports_reports_categories.html, customReports_reports_category_report.html, customReports_report.html, customReports_reportViews_views_edit.html, customReports_reports.html, customReports_reportViews_view.html, customReports_display_control_Default.html</p>
+<ul>
+<li>
+<p>Xml: modules/CustomReports/xml [25]</p>
+</li>
+<li>
+<p>Modules: modules/CustomReports/modules [26]</p>
+</li>
+</ul>
+<p>CustomReports_Export, CustomReports_PDF, CustomReports_PieChart, ReportArchiver</p>
+<h2>CustomReports_Export</h2>
+<p>This describes version 4.0.6.1 of the module Export Reports (CustomReports_Export)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/CustomReports/modules/Export [27]</p>
+</li>
+<li>
+<p>Description: Configuration options for exported reports</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>CustomReports at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Templates: modules/CustomReports/modules/Export/templates [28]</p>
+</li>
+<li>
+<p>swiss_xslt.html, swiss_xslts.html, swiss_xslts_each.html, customReports_display_control_Export.html, swiss_exporteditor.html</p>
+</li>
+<li>Classes: modules/CustomReports/modules/Export/lib [29]</li>
+</ul>
+<p>I2CE_CustomReport_Display_Export, I2CE_Swiss_CustomReport_ReportView_ExportEditor, I2CE_Swiss_XSLT, I2CE_Swiss_XSLTS</p>
+<h2>CustomReports_PDF</h2>
+<p>This describes version 4.0.0 of the module PDF Reports (CustomReports_PDF)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/CustomReports/modules/PDF [30]</p>
+</li>
+<li>
+<p>Description: Configuration options for reports that use PDF</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>CustomReports at least 4.0 and less than 4.1</p>
+</li>
+<li>textlayout at least 4.0 and less than 4.1</li>
+<li>ColorPicker at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Templates: modules/CustomReports/modules/PDF/templates [31]</p>
+</li>
+<li>
+<p>customReports_display_control_PDF.html</p>
+</li>
+<li>Classes: modules/CustomReports/modules/PDF/lib [32]</li>
+</ul>
+<p>I2CE_CustomReport_Display_PDF</p>
+<h2>CustomReports_PieChart</h2>
+<p>This describes version 4.0.5.0 of the module Pie and Chart (CustomReports_PieChart)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/CustomReports/modules/PieChart [33]</p>
+</li>
+<li>
+<p>Description: Configuration options for reports that use Pie and Charts</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>CustomReports at least 4.0 and less than 4.1</p>
+</li>
+<li>ColorPicker at least 4.0 and less than 4.1</li>
+<li>maani-charts at least 4.7</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/CustomReports/modules/PieChart/configs [34]</p>
+</li>
+<li>
+<p>Templates: modules/CustomReports/modules/PieChart/templates [35]</p>
+</li>
+</ul>
+<p>customReports_display_control_PieChart.html, customReports_display_PieChart_base.html</p>
+<ul>
+<li>
+<p>Classes: modules/CustomReports/modules/PieChart/lib [36]</p>
+</li>
+<li>
+<p>I2CE_CustomReport_Display_PieChart</p>
+</li>
+<li>Css: modules/CustomReports/modules/PieChart/css [37]</li>
+</ul>
+<h2>DatePicker</h2>
+<p>This describes version 1.16 of the module Date Picker (DatePicker)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MooTools/modules/DatePicker [38]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_DatePicker</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Page-&gt;addDatePicker() via addDatePicker()</p>
+</li>
+<li>Implements the method I2CE_Template-&gt;addDatePicker() via addDatePicker()</li>
+<li>Description: Uses the MooTools Color Date http://www.monkeyphysics.com/mootools/script/2/datepicker</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>MooTools at least 1.2 and less than 1.3</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Scripts: modules/MooTools/modules/DatePicker/scripts [39]</p>
+</li>
+<li>
+<p>Css: modules/MooTools/modules/DatePicker/css [40]</p>
+</li>
+<li>
+<p>Classes: modules/MooTools/modules/DatePicker/ [41]</p>
+</li>
+</ul>
+<p>I2CE_Module_DatePicker</p>
+<h2>DisplayData</h2>
+<p>This describes version 4.0.0 of the module I2CE Display Data (DisplayData)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/TemplateData/modules/DisplayData [42]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_DisplayData</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Template-&gt;setDisplayData() via setDisplayData()</p>
+</li>
+<li>Implements the method I2CE_Template-&gt;setDisplayDataImmediate() via setDisplayDataImmediate()</li>
+<li>Implements the method I2CE_Template-&gt;selectOptionsImmediate() via selectOptionsImmediate()</li>
+<li>Implements the method I2CE_Page-&gt;selectOptionsImmediate() via selectOptionsImmediate()</li>
+<li>Implements the method I2CE_Page-&gt;setDisplayData() via setDisplayData()</li>
+<li>Implements the method I2CE_Page-&gt;setDisplayDataImmediate() via setDisplayDataImmediate()</li>
+<li>Description: Adds display data to the template</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>template-data at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/TemplateData/modules/DisplayData/ [43]</p>
+</li>
+</ul>
+<p>I2CE_DisplayData</p>
+<h2>Fields</h2>
+<p>This describes version 4.0.6 of the module I2CE Fields (Fields)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/Fields [44]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_Fields</p>
+</li>
+<li>Description: Adds a few basic forms to the system as well as some form functionality to the template</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>template-data at least 4.0 and less than 4.1</li>
+<li>DisplayData at least 4.0 and less than 4.1</li>
+<li>Optionally Enables: DatePicker</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Forms/modules/Fields/configs [45]</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/Fields/lib [46] ,modules/Forms/modules/Fields/lib/fields [47]</p>
+</li>
+<li>
+<p>I2CE_Entry, I2CE_FieldContainer, I2CE_FieldContainer_Factory, I2CE_FormField, I2CE_FormField_BOOL, I2CE_FormField_DATE_HMS, I2CE_FormField_DATE_MD, I2CE_FormField_DATE_TIME, I2CE_FormField_DATE_Y, I2CE_FormField_DATE_YMD, I2CE_FormField_DB_DATE, I2CE_FormField_DB_INT, I2CE_FormField_DB_STRING, I2CE_FormField_DB_TEXT, I2CE_FormField_INT, I2CE_FormField_INT_GENERATE, I2CE_FormField_INT_LIST, I2CE_FormField_STRING_LINE, I2CE_FormField_STRING_MLINE, I2CE_FormField_STRING_PASS, I2CE_FormField_STRING_TEXT, I2CE_FormField_YESNO, I2CE_Module_Fields</p>
+</li>
+<li>
+<p>Templates: modules/Forms/modules/Fields/templates [48]</p>
+</li>
+<li>
+<p>form_field.html, display_field.html, simple_display_field.html</p>
+</li>
+<li>
+<p>Scripts: modules/Forms/modules/Fields/scripts [49]</p>
+</li>
+<li>
+<p>Modules: modules/Forms/modules/Fields/modules [50]</p>
+</li>
+</ul>
+<h2>FileDump</h2>
+<p>This describes version 4.0.0 of the module File Dump (FileDump)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Pages/modules/FileDump [51]</p>
+</li>
+<li>
+<p>Description: File Download Utility</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>MimeTypes at least 4.0 and less than 4.1</p>
+</li>
+<li>pages at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Pages/modules/FileDump/configs [52]</p>
+</li>
+<li>
+<p>Classes: modules/Pages/modules/FileDump/ [53]</p>
+</li>
+</ul>
+<p>I2CE_FileDump</p>
+<h2>Float</h2>
+<p>This describes version 4.0.0 of the module Float (Float)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/Float [54]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_Float</p>
+</li>
+<li>Description: A module that allows the float formfield</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/Float/lib [55]</p>
+</li>
+</ul>
+<p>I2CE_FormField_DB_FLOAT, I2CE_FormField_FLOAT, I2CE_Module_Float</p>
+<h2>FormWorm</h2>
+<p>This describes version 4.0.0 of the module Form Worm (FormWorm)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MooTools/modules/FormWorm [56]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_FormWorm</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Page-&gt;addFormWorm() via addFormWorm()</p>
+</li>
+<li>Implements the method I2CE_Template-&gt;addFormWorm() via addFormWorm()</li>
+<li>Description: A collection of javascript utilities to handle form verification and submission of forms with multiple actions</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>MooTools-I2CE at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Scripts: modules/MooTools/modules/FormWorm/scripts [57]</p>
+</li>
+<li>
+<p>Css: modules/MooTools/modules/FormWorm/css [58]</p>
+</li>
+<li>
+<p>Classes: modules/MooTools/modules/FormWorm/ [59]</p>
+</li>
+</ul>
+<p>I2CE_Module_FormWorm</p>
+<h2>I2CE</h2>
+<p>This describes version 4.0.6.0 of the module I2CE Basic System (I2CE) It is the top module of this package</p>
+<ul>
+<li>
+<p>Source: i2ce/ [60]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_Core</p>
+</li>
+<li>Description: The I2CE Core System Configuration</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Misc: /I2CE_config.inc.php [61] ,/I2CE_structure.sql [62]</p>
+</li>
+<li>
+<p>Classes: /lib [63]</p>
+</li>
+</ul>
+<p>I2CE, I2CE_Configurator, I2CE_Date, I2CE_Dumper, I2CE_FileSearch, I2CE_FileSearch_Caching, I2CE_Fuzzy, I2CE_Locales, I2CE_MagicData, I2CE_MagicDataNode, I2CE_MagicDataStorage, I2CE_MagicDataStorageAPC, I2CE_MagicDataStorageDB, I2CE_MagicDataStorageDBAlt, I2CE_MagicDataStorageMem, I2CE_MagicDataStorageMemcached, I2CE_MagicDataStorageMongoDB, I2CE_MagicDataTemplate, I2CE_Module, I2CE_ModuleFactory, I2CE_Module_Core, I2CE_Process, I2CE_TemplateMeister, I2CE_Updater, I2CE_UserAccess_Mechanism, I2CE_Util, I2CE_Validate, I2CE_Error, I2CE_Error</p>
+<ul>
+<li>
+<p>Modules: /modules [64]</p>
+</li>
+<li>
+<p>BackgroundProcess, CustomReports, ImportExport, MimeTypes, MooTools, Timer, YAML_spyc, forms, jumper, maani-charts, magicDataExport, messageHandler, pages, swissfactory, template-data, user</p>
+</li>
+<li>
+<p>Scripts: /scripts [65]</p>
+</li>
+<li>
+<p>Sql: /sql [66]</p>
+</li>
+</ul>
+<h2>ImportExport</h2>
+<p>This describes version 0.9 of the module Import Export Support (ImportExport)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/ImportExport [67]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Import_Export</p>
+</li>
+<li>Description: Enables an XML Import and Export tool which allows offline access.</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Sql: modules/ImportExport/sql [68]</p>
+</li>
+<li>
+<p>Classes: modules/ImportExport/lib [69]</p>
+</li>
+</ul>
+<p>I2CE_Import_Export</p>
+<h2>Lists</h2>
+<p>This describes version 4.0.6.1 of the module Form Lists (Lists)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/Lists [70]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_Lists</p>
+</li>
+<li>Description: Database Lists</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms at least 4.0 and less than 4.1</p>
+</li>
+<li>forms-storage-magicdata at least 4.0 and less than 4.1</li>
+<li>TreeSelect at least 4.0 and less than 4.1</li>
+<li>jumper at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Forms/modules/Lists/configs [71]</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/Lists/lib [72]</p>
+</li>
+<li>
+<p>I2CE_FormField_MAP, I2CE_FormField_MAPPED, I2CE_FormField_MAP_MULT, I2CE_List, I2CE_Module_Lists, I2CE_PageFormLists, I2CE_PageViewList, I2CE_SimpleList</p>
+</li>
+<li>
+<p>Templates: modules/Forms/modules/Lists/templates [73]</p>
+</li>
+<li>
+<p>lists_type_header.html, lists_form_simple.html, button_confirm_admin.html, lists_type_list.html, lists_type_select.html, lists_type_dual_row.html, lists_type_row.html, view_list.html, lists_type_mapped.html, menu_view.html, lists_type_dual.html, lists_type_mapped_default.html, lists_form_base.html, view_list_simple.html</p>
+</li>
+<li>
+<p>Sql: modules/Forms/modules/Lists/sql [74]</p>
+</li>
+<li>
+<p>Modules: modules/Forms/modules/Lists/modules [75]</p>
+</li>
+</ul>
+<p>Lists-LinkTo</p>
+<h2>Lists-LinkTo</h2>
+<p>This describes version 4.0.5.0 of the module List Link to Data (Lists-LinkTo)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/Lists/modules/ListLink [76]</p>
+</li>
+<li>
+<p>Description: Lists that are linked to other data. This module is meant to be extended to defined what type of data this list links to. You can extend the I2CE_ListLink class to add new fields to link to. Alone this class doesn't do much.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Lists at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Forms/modules/Lists/modules/ListLink/configs [77]</p>
+</li>
+<li>
+<p>Modules: modules/Forms/modules/Lists/modules/ListLink/modules [78]</p>
+</li>
+<li>
+<p>Lists-LinkTo-List, Lists-LinkTo-String</p>
+</li>
+<li>Classes: modules/Forms/modules/Lists/modules/ListLink/ [79]</li>
+</ul>
+<h2>Lists-LinkTo-List</h2>
+<p>This describes version 4.0.5.0 of the module List Link to List (Lists-LinkTo-List)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/Lists/modules/ListLink/modules/ListLinkToList [80]</p>
+</li>
+<li>
+<p>Description: Lists that are linked to another list form. Multiple forms are defined here that can be used to link lists to other lists for different storage mechanisms. You must enable the required form storage module yourself to avoid extra modules being loaded. You should use the same form storage that is used for the List form you're linking. Certain storage mechanisms may need extra storage options defined.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage-CSV at least 4.0 and less than 4.1</p>
+</li>
+<li>forms-storage-flat at least 4.0 and less than 4.1</li>
+<li>forms-storage-magicdata at least 4.0 and less than 4.1</li>
+<li>Lists-LinkTo at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Forms/modules/Lists/modules/ListLink/modules/ListLinkToList/configs [81]</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/Lists/modules/ListLink/modules/ListLinkToList/ [82]</p>
+</li>
+</ul>
+<h2>Lists-LinkTo-String</h2>
+<p>This describes version 4.0.5.0 of the module List Link to String (Lists-LinkTo-String)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/Lists/modules/ListLink/modules/ListLinkToString [83]</p>
+</li>
+<li>
+<p>Description: Lists that are linked to a string (id). Multiple forms are defined here that can be used to link lists to strings for different storage mechanisms. You must enable the required form storage module yourself to avoid extra modules being loaded. You should use the same form storage that is used for the List form you're linking. Certain storage mechanisms may need extra storage options defined.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Lists-LinkTo at least 4.0 and less than 4.1</p>
+</li>
+<li>forms-storage-CSV at least 4.0 and less than 4.1</li>
+<li>forms-storage-flat at least 4.0 and less than 4.1</li>
+<li>
+<p>forms-storage-magicdata at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Forms/modules/Lists/modules/ListLink/modules/ListLinkToString/configs [84]</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/Lists/modules/ListLink/modules/ListLinkToString/ [85]</p>
+</li>
+</ul>
+<h2>LocaleForm</h2>
+<p>This describes version 4.0.3.7 of the module Locale Form (LocaleForm)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/LocaleForm [86]</p>
+</li>
+<li>
+<p>Description:</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms at least 4.0 and less than 4.1</p>
+</li>
+<li>forms-storage-eval at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Forms/modules/LocaleForm/configs [87]</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/LocaleForm/ [88]</p>
+</li>
+</ul>
+<h2>LoginPage</h2>
+<p>This describes version 4.0.0 of the module Login Page (LoginPage)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Pages/modules/Login [89]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_Login</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Wrangler-&gt;manipulateWrangler_I2CE_logout() via manipulateWrangler()</p>
+</li>
+<li>Description: The login Page</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Pages/modules/Login/configs [90]</p>
+</li>
+<li>
+<p>Css: modules/Pages/modules/Login/css [91]</p>
+</li>
+<li>
+<p>Classes: modules/Pages/modules/Login/lib [92]</p>
+</li>
+<li>
+<p>I2CE_Module_Login, I2CE_PageFeedback, I2CE_PageForgot, I2CE_PageLogin, I2CE_PageLogout, I2CE_PagePassword</p>
+</li>
+<li>Templates: modules/Pages/modules/Login/templates [93]</li>
+</ul>
+<p>password_wrong.html, login.html, password_cant_change.html, password.html, forgot.html, feedback.html, password_none.html, password_form.html, feedback_thanks.html, password_no_match.html, feedback_form.html, password_success.html</p>
+<h2>MimeTypes</h2>
+<p>This describes version 4.0.0.1 of the module Mime Types (MimeTypes)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MimeTypes [94]</p>
+</li>
+<li>
+<p>Description: Adds a in mime type capabilities</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/MimeTypes/configs [95]</p>
+</li>
+<li>
+<p>Classes: modules/MimeTypes/lib [96]</p>
+</li>
+<li>
+<p>I2CE_MimeTypes</p>
+</li>
+<li>Mime: modules/MimeTypes/mime [97]</li>
+</ul>
+<h2>MooTools</h2>
+<p>This describes version 1.2.4 of the module MooTools (MooTools)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MooTools [98]</p>
+</li>
+<li>
+<p>Description: MooTools javascript library</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Scripts: modules/MooTools/scripts [99]</p>
+</li>
+<li>
+<p>Modules: modules/MooTools/modules [100]</p>
+</li>
+<li>
+<p>ColorPicker, DatePicker, FormWorm, MooTools-I2CE, StretchPage, TreeSelect, fancyDebug, menu_select</p>
+</li>
+<li>Classes: modules/MooTools/ [101]</li>
+</ul>
+<p>I2CE_MootoolsCore, I2CE_Module_Debugging, I2CE_Module_MenuSelect, I2CE_Module_StretchPage, I2CE_Module_TreeSelect</p>
+<h2>MooTools-I2CE</h2>
+<p>This describes version 4.0.0 of the module I2CE Library (MooTools-I2CE)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MooTools/modules/Core [102]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_MootoolsCore</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Page-&gt;getClassValue() via getClassValue()</p>
+</li>
+<li>Implements the method I2CE_Template-&gt;getClassValue() via getClassValue()</li>
+<li>Implements the method I2CE_Page-&gt;loadClassValues() via loadClassValues()</li>
+<li>Implements the method I2CE_Template-&gt;loadClassValues() via loadClassValues()</li>
+<li>Implements the method I2CE_Page-&gt;setClassValue() via setClassValue()</li>
+<li>Implements the method I2CE_Template-&gt;setClassValue() via setClassValue()</li>
+<li>Implements the method I2CE_Page-&gt;setClassValues() via setClassValues()</li>
+<li>Implements the method I2CE_Template-&gt;setClassValues() via setClassValues()</li>
+<li>Description: I2CE MooTools core library</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>MooTools at least 1.2 and less than 1.3</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Scripts: modules/MooTools/modules/Core/scripts [103]</p>
+</li>
+<li>
+<p>Css: modules/MooTools/modules/Core/css [104]</p>
+</li>
+<li>
+<p>Classes: modules/MooTools/modules/Core/ [105]</p>
+</li>
+</ul>
+<h2>Options</h2>
+<p>This describes version 4.0.0 of the module I2CE Options Data (Options)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/TemplateData/modules/Options [106]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Template_Options</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Page-&gt;addOption() via addOption()</p>
+</li>
+<li>Implements the method I2CE_Template-&gt;addOption() via addOption()</li>
+<li>Implements the method I2CE_Page-&gt;addOptions() via addOptions()</li>
+<li>Implements the method I2CE_Template-&gt;addOptions() via addOptions()</li>
+<li>Description: Adds options data to the template</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>template-data at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/TemplateData/modules/Options/ [107]</p>
+</li>
+</ul>
+<p>I2CE_Template_Options</p>
+<h2>PrintedForms</h2>
+<p>This describes version 4.0.5.6 of the module Printed Forms (PrintedForms)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/PrintedForms [108]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_PrintedForms</p>
+</li>
+<li>Description: Engine used to generated standard printed forms from a form relationship</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>formRelationships at least 4.0 and less than 4.1</li>
+<li>textlayout at least 4.0 and less than 4.1</li>
+<li>Optionally Enables: BinField</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Forms/modules/PrintedForms/configs [109]</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/PrintedForms/lib [110]</p>
+</li>
+<li>
+<p>I2CE_Module_PrintedForms, I2CE_Page_PrintedForms, I2CE_PrintedForm_Render, I2CE_PrintedForm_Render_PDF</p>
+</li>
+<li>
+<p>Images: modules/Forms/modules/PrintedForms/images [111]</p>
+</li>
+<li>
+<p>Templates: modules/Forms/modules/PrintedForms/templates [112]</p>
+</li>
+</ul>
+<p>printed_forms_menu_archive_each.html, printed_forms_menu_each.html, printed_forms_menu.html</p>
+<h2>ReportArchiver</h2>
+<p>This describes version 4.0.6.5 of the module Custom Reports Archiver (ReportArchiver)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/CustomReports/modules/ReportArchiver [113]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_ReportArchiver</p>
+</li>
+<li>Description: Custom Reports</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>CustomReports at least 4.0 and less than 4.1</p>
+</li>
+<li>CustomReports_Export at least 4.0 and less than 4.1</li>
+<li>BinField at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/CustomReports/modules/ReportArchiver/configs [114]</p>
+</li>
+<li>
+<p>Classes: modules/CustomReports/modules/ReportArchiver/lib [115]</p>
+</li>
+<li>
+<p>I2CE_Module_ReportArchiver, I2CE_Page_ArchiveReport, I2CE_Page_CustomReport_ArchiveMenu</p>
+</li>
+<li>Templates: modules/CustomReports/modules/ReportArchiver/templates [116]</li>
+</ul>
+<p>reportArchive_menu.html, archiveReports_menu.html</p>
+<h2>StretchPage</h2>
+<p>This describes version 4.0.0 of the module Page Stretcher (StretchPage)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MooTools/modules/StretchPage [117]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_StretchPage</p>
+</li>
+<li>Description: Makes sure that the page is at least as high as the browser window. Use bad adding a div with id='StretchPage' to the containing element that you want stretched.</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>MooTools at least 1.2 and less than 1.3</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MooTools/modules/StretchPage/lib [118]</p>
+</li>
+<li>
+<p>Scripts: modules/MooTools/modules/StretchPage/scripts [119]</p>
+</li>
+<li>
+<p>Css: modules/MooTools/modules/StretchPage/css [120]</p>
+</li>
+</ul>
+<h2>Tags</h2>
+<p>This describes version 4.0.0 of the module Tags (Tags)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/TemplateData/modules/Tags [121]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_Tags</p>
+</li>
+<li>Description: Adds module and script tag processing to the template</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>template-data at least 4.0 and less than 4.1</li>
+<li>DisplayData at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/TemplateData/modules/Tags/ [122]</p>
+</li>
+</ul>
+<p>I2CE_Module_Tags, I2CE_PluralForms</p>
+<h2>Timer</h2>
+<p>This describes version 4.0.0 of the module I2CE Timer (Timer)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Timer [123]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Timer</p>
+</li>
+<li>Description: Adds a timer class</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Timer/configs [124]</p>
+</li>
+<li>
+<p>Classes: modules/Timer/ [125]</p>
+</li>
+</ul>
+<p>I2CE_Timer</p>
+<h2>TreeSelect</h2>
+<p>This describes version 4.0.0 of the module Tree Select (TreeSelect)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MooTools/modules/TreeSelect [126]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_TreeSelect</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Page-&gt;addAutoCompleteInputTreeById() via addAutoCompleteInputTreeById()</p>
+</li>
+<li>Implements the method I2CE_Template-&gt;addAutoCompleteInputTreeById() via addAutoCompleteInputTreeById()</li>
+<li>Implements the method I2CE_Page-&gt;addAutoCompleteInputTree() via addAutoCompleteInputTree()</li>
+<li>Implements the method I2CE_Template-&gt;addAutoCompleteInputTree() via addAutoCompleteInputTree()</li>
+<li>Description: Tree Select</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>MooTools-I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Scripts: modules/MooTools/modules/TreeSelect/scripts [127]</p>
+</li>
+<li>
+<p>Css: modules/MooTools/modules/TreeSelect/css [128]</p>
+</li>
+<li>
+<p>Classes: modules/MooTools/modules/TreeSelect/ [129]</p>
+</li>
+</ul>
+<h2>UserAccess</h2>
+<p>This describes version 4.0.0 of the module User (UserAccess)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/User/modules/UserAccess [130]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_UserAccess</p>
+</li>
+<li>Description: Provides Deafult User Access Mechansim</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>user at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/User/modules/UserAccess/lib [131]</p>
+</li>
+</ul>
+<p>I2CE_Module_UserAccess, I2CE_UserAccess</p>
+<ul>
+<li>
+<p>Sql: modules/User/modules/UserAccess/sql [132]</p>
+</li>
+<li>
+<p>Templates: modules/User/modules/UserAccess/templates [133]</p>
+</li>
+</ul>
+<p>user_form.html, user_form_edit.html</p>
+<h2>UserAccess_DHIS</h2>
+<p>This describes version 4.0.0 of the module User (UserAccess_DHIS)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/User/modules/UserAccess_DHIS [134]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_UserAccess_DHIS</p>
+</li>
+<li>Description: Provides DHIS User Access Mechansim</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/User/modules/UserAccess_DHIS/lib [135]</p>
+</li>
+<li>
+<p>I2CE_Module_UserAccess_DHIS, I2CE_UserAccess_DHIS</p>
+</li>
+<li>
+<p>Sql: modules/User/modules/UserAccess_DHIS/sql [136]</p>
+</li>
+<li>
+<p>Templates: modules/User/modules/UserAccess_DHIS/templates [137]</p>
+</li>
+</ul>
+<p>user_form_DHIS.html, user_form_edit_DHIS.html</p>
+<h2>UserAccess_LDAP</h2>
+<p>This describes version 4.0.0 of the module User (UserAccess_LDAP)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/User/modules/UserAccess_LDAP [138]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_UserAccess_LDAP</p>
+</li>
+<li>Description: Provides LDAP User Access Mechansim</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/User/modules/UserAccess_LDAP/lib [139]</p>
+</li>
+<li>
+<p>I2CE_Module_UserAccess_LDAP, I2CE_UserAccess_LDAP</p>
+</li>
+<li>Templates: modules/User/modules/UserAccess_LDAP/templates [140]</li>
+</ul>
+<p>user_form_LDAP.html, user_form_edit_LDAP.html</p>
+<h2>UserAccess_LDAP_Hybrid</h2>
+<p>This describes version 4.0.0 of the module User (UserAccess_LDAP_Hybrid)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/User/modules/UserAccess_LDAP_Hybrid [141]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_UserAccess_LDAP_Hybrid</p>
+</li>
+<li>Description: Provides a hybrid database and LDAP User Access Mechansim</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/User/modules/UserAccess_LDAP_Hybrid/lib [142]</p>
+</li>
+<li>
+<p>I2CE_Module_UserAccess_LDAP_Hybrid, I2CE_UserAccess_LDAP_DB</p>
+</li>
+<li>Templates: modules/User/modules/UserAccess_LDAP_Hybrid/templates [143]</li>
+</ul>
+<p>user_form_LDAP_DB.html, user_form_edit_LDAP_DB.html</p>
+<h2>UserForm</h2>
+<p>This describes version 4.0.7 of the module User Form (UserForm)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/UserForm [144]</p>
+</li>
+<li>
+<p>Description:</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>forms-storage at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>LocaleForm at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Forms/modules/UserForm/configs [145]</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/UserForm/lib [146]</p>
+</li>
+<li>
+<p>I2CE_FormStorage_userform, I2CE_PageFormUser, I2CE_User_Form</p>
+</li>
+<li>Templates: modules/Forms/modules/UserForm/templates [147]</li>
+</ul>
+<p>button_confirm_user.html, user_list.html</p>
+<h2>YAML_spyc</h2>
+<p>This describes version 0.3.0 of the module YAML (YAML_spyc)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/YAML [148]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_YAML</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Configurator-&gt;loadConfigFile_YAML() via loadConfigFile_YAML()</p>
+</li>
+<li>Description: YAML parser provided by spyc. Also enabled processing of .YAML config files</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/YAML/lib [149]</p>
+</li>
+<li>
+<p>I2CE_MagicDataTemplate_YAML, I2CE_Module_YAML, Spyc</p>
+</li>
+<li>Xml: modules/YAML/xml [150]</li>
+</ul>
+<h2>admin</h2>
+<p>This describes version 4.0.0 of the module Modules Administation (admin)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Pages/modules/Admin [151]</p>
+</li>
+<li>
+<p>Description: The I2CE module administration system</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>MooTools at least 1.2 and less than 1.3</li>
+<li>FormWorm at least 4.0 and less than 4.1</li>
+<li>Optionally Enables: swissConfig</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Pages/modules/Admin/configs [152]</p>
+</li>
+<li>
+<p>Classes: modules/Pages/modules/Admin/lib [153]</p>
+</li>
+<li>
+<p>I2CE_PageAdmin</p>
+</li>
+<li>
+<p>Templates: modules/Pages/modules/Admin/templates [154]</p>
+</li>
+<li>
+<p>module_module.html, module_menu.html, module_sub_module.html, module_category.html, no_configuration.html</p>
+</li>
+<li>
+<p>Modules: modules/Pages/modules/Admin/modules [155]</p>
+</li>
+<li>
+<p>modulePrompter</p>
+</li>
+<li>
+<p>Css: modules/Pages/modules/Admin/css [156]</p>
+</li>
+<li>
+<p>Scripts: modules/Pages/modules/Admin/scripts [157]</p>
+</li>
+<li>
+<p>Images: modules/Pages/modules/Admin/images [158]</p>
+</li>
+</ul>
+<h2>fancyDebug</h2>
+<p>This describes version 4.0.0 of the module Fancy Debugger (fancyDebug)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MooTools/modules/Debugger [159]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_Debugging</p>
+</li>
+<li>Description: A fancy error displaying system</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>MooTools at least 1.2 and less than 1.3</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Scripts: modules/MooTools/modules/Debugger/scripts [160]</p>
+</li>
+<li>
+<p>Images: modules/MooTools/modules/Debugger/images [161]</p>
+</li>
+<li>
+<p>Css: modules/MooTools/modules/Debugger/css [162]</p>
+</li>
+<li>
+<p>Classes: modules/MooTools/modules/Debugger/ [163]</p>
+</li>
+</ul>
+<h2>field-limits</h2>
+<p>This describes version 4.0.5 of the module Form Limits (field-limits)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FieldLimits [164]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_FieldLimits</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField-&gt;getLimitStyles() via getFieldLimitStyles()</p>
+</li>
+<li>Implements the method I2CE_FormField-&gt;generateLimit() via generateFieldLimit()</li>
+<li>Implements the method I2CE_FormField-&gt;generateLimit_null() via generateLimit_null()</li>
+<li>Implements the method I2CE_FormField-&gt;generateLimit_not_null() via generateLimit_not_null()</li>
+<li>Implements the method I2CE_FormField-&gt;generateLimit_null_not_null() via generateLimit_not_null()</li>
+<li>Implements the method I2CE_FormField-&gt;checkLimit_null() via checkLimit_null()</li>
+<li>Implements the method I2CE_FormField-&gt;checkLimit_not_null() via checkLimit_not_null()</li>
+<li>Implements the method I2CE_FormField-&gt;checkLimit_null_not_null() via checkLimit_not_null()</li>
+<li>Implements the method I2CE_FormField-&gt;checkLimitString_null() via checkLimitString_null()</li>
+<li>Implements the method I2CE_FormField-&gt;checkLimitString_not_null() via checkLimitString_not_null()</li>
+<li>Implements the method I2CE_FormField-&gt;checkLimitString_null_not_null() via checkLimitString_null_not_null()</li>
+<li>Implements the method I2CE_FormField-&gt;getLimitMenu_null() via I2CE_FormField_DISPLAYFIELDSTYLE_null()</li>
+<li>Implements the method I2CE_FormField-&gt;getLimitMenu_not_null() via I2CE_FormField_DISPLAYFIELDSTYLE_not_null()</li>
+<li>Implements the method I2CE_FormField-&gt;getLimitMenu_null_not_null() via I2CE_FormField_DISPLAYFIELDSTYLE_null_not_null()</li>
+<li>Implements the method I2CE_FormField-&gt;processLimitMenu_null() via I2CE_FormField_PROCESSFIELDSTYLE_null()</li>
+<li>Implements the method I2CE_FormField-&gt;processLimitMenu_not_null() via I2CE_FormField_PROCESSFIELDSTYLE_not_null()</li>
+<li>
+<p>Implements the method I2CE_FormField-&gt;processLimitMenu_null_not_null() via I2CE_FormField_PROCESSFIELDSTYLE_null_not_null()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_DATE-&gt;generateLimit_null() via generateLimit_DB_DATE_null()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_DATE-&gt;generateLimit_not_null() via generateLimit_DB_DATE_not_null()</p>
+</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;generateLimit_null_not_null() via generateLimit_DB_DATE_null_not_null()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimit_null() via checkLimit_DB_DATE_null()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimit_not_null() via checkLimit_DB_DATE_not_null()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimit_null_not_null() via checkLimit_DB_DATE_null_not_null()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimitString_null() via checkLimitString_DB_DATE_null()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimitString_not_null() via checkLimitString_DB_DATE_not_null()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimitString_null_not_null() via checkLimitString_DB_DATE_null_not_null()</li>
+<li>Implements the method I2CE_FormField-&gt;generateLimit_max_parent() via generateLimit_max_parent()</li>
+<li>Implements the method I2CE_FormField-&gt;generateLimit_min_parent() via generateLimit_min_parent()</li>
+<li>Implements the method I2CE_FormField-&gt;generateLimit_max_parent_form() via generateLimit_max_parent_form()</li>
+<li>Implements the method I2CE_FormField-&gt;generateLimit_min_parent_form() via generateLimit_min_parent_form()</li>
+<li>Implements the method I2CE_FormField-&gt;getLimitMenu_max_parent() via I2CE_FormField_DISPLAYFIELDSTYLE_max_parent()</li>
+<li>Implements the method I2CE_FormField-&gt;getLimitMenu_min_parent() via I2CE_FormField_DISPLAYFIELDSTYLE_min_parent()</li>
+<li>Implements the method I2CE_FormField-&gt;getLimitMenu_max_parent_form() via I2CE_FormField_DISPLAYFIELDSTYLE_max_parent_form()</li>
+<li>Implements the method I2CE_FormField-&gt;getLimitMenu_min_parent_form() via I2CE_FormField_DISPLAYFIELDSTYLE_min_parent_form()</li>
+<li>Implements the method I2CE_FormField-&gt;processLimitMenu_max_parent() via I2CE_FormField_PROCESSFIELDSTYLE_max_parent()</li>
+<li>Implements the method I2CE_FormField-&gt;processLimitMenu_min_parent() via I2CE_FormField_PROCESSFIELDSTYLE_min_parent()</li>
+<li>Implements the method I2CE_FormField-&gt;processLimitMenu_max_parent_form() via I2CE_FormField_PROCESSFIELDSTYLE_max_parent_form()</li>
+<li>Implements the method I2CE_FormField-&gt;processLimitMenu_min_parent_form() via I2CE_FormField_PROCESSFIELDSTYLE_min_parent_form()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;generateLimit_truefalse() via generateLimit_BOOL_truefalse()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;generateLimit_true() via generateLimit_BOOL_true()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;generateLimit_false() via generateLimit_BOOL_false()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;generateLimit_yesno() via generateLimit_YESNO_yesno()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;generateLimit_yes() via generateLimit_YESNO_yes()</li>
+<li>
+<p>Implements the method I2CE_FormField_YESNO-&gt;generateLimit_no() via generateLimit_YESNO_no()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_INT-&gt;generateLimit_in() via generateLimit_DB_INT_in()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_STRING-&gt;generateLimit_in() via generateLimit_DB_STRING_in()</p>
+</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;generateLimit_in() via generateLimit_DB_TEXT_in()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;generateLimit_in() via generateLimit_DB_DATE_in()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;generateLimit_equals() via generateLimit_DB_INT_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;generateLimit_equals() via generateLimit_DB_STRING_equals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;generateLimit_equals() via generateLimit_DB_TEXT_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;generateLimit_greaterthan() via generateLimit_DB_INT_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;generateLimit_greaterthan() via generateLimit_DB_STRING_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;generateLimit_greaterthan() via generateLimit_DB_TEXT_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;generateLimit_lessthan() via generateLimit_DB_INT_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;generateLimit_lessthan() via generateLimit_DB_STRING_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;generateLimit_lessthan() via generateLimit_DB_TEXT_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;generateLimit_greaterthan_equals() via generateLimit_DB_INT_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;generateLimit_greaterthan_equals() via generateLimit_DB_STRING_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;generateLimit_greaterthan_equals() via generateLimit_DB_TEXT_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;generateLimit_lessthan_equals() via generateLimit_DB_INT_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;generateLimit_lessthan_equals() via generateLimit_DB_STRING_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;generateLimit_lessthan_equals() via generateLimit_DB_TEXT_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;generateLimit_between() via generateLimit_DB_INT_between()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;generateLimit_between() via generateLimit_DB_STRING_between()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;generateLimit_between() via generateLimit_DB_TEXT_between()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;generateLimit_greaterthan_now() via generateLimit_greaterthan_now()</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_DATE-&gt;generateLimit_lessthan_now() via generateLimit_lessthan_now()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_STRING-&gt;generateLimit_like() via generateLimit_DB_STRING_like()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_TEXT-&gt;generateLimit_like() via generateLimit_DB_TEXT_like()</p>
+</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;generateLimit_lowerlike() via generateLimit_DB_STRING_lowerlike()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;generateLimit_lowerlike() via generateLimit_DB_TEXT_lowerlike()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;generateLimit_lowerequals() via generateLimit_DB_STRING_lowerequals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;generateLimit_lowerequals() via generateLimit_DB_TEXT_lowerequals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;generateLimit_contains() via generateLimit_DB_STRING_contains()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;generateLimit_contains() via generateLimit_DB_TEXT_contains()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;getLimitMenu_null() via I2CE_FormField_DB_DATE_DISPLAYFIELDSTYLE_null()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;processLimitMenu_null() via I2CE_FormField_DB_DATE_PROCESSFIELDSTYLE_null()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;getLimitMenu_not_null() via I2CE_FormField_DB_DATE_DISPLAYFIELDSTYLE_not_null()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;processLimitMenu_not_null() via I2CE_FormField_DB_DATE_PROCESSFIELDSTYLE_not_null()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;getLimitMenu_null_not_null() via I2CE_FormField_DB_DATE_DISPLAYFIELDSTYLE_null_not_null()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;processLimitMenu_null_not_null() via I2CE_FormField_DB_DATE_PROCESSFIELDSTYLE_null_not_null()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;checkLimit_truefalse() via checkLimit_BOOL_truefalse()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;checkLimitString_truefalse() via checkLimitString_BOOL_truefalse()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;getLimitMenu_truefalse() via I2CE_FormField_BOOL_DISPLAYFIELDSTYLE_truefalse()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;processLimitMenu_truefalse() via I2CE_FormField_BOOL_PROCESSFIELDSTYLE_truefalse()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;checkLimit_true() via checkLimit_BOOL_true()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;checkLimitString_true() via checkLimitString_BOOL_true()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;getLimitMenu_true() via I2CE_FormField_BOOL_DISPLAYFIELDSTYLE_true()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;processLimitMenu_true() via I2CE_FormField_BOOL_PROCESSFIELDSTYLE_true()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;checkLimit_false() via checkLimit_BOOL_false()</li>
+<li>Implements the method I2CE_FormField_BOOL-&gt;checkLimitString_false() via checkLimitString_BOOL_false()</li>
+<li>
+<p>Implements the method I2CE_FormField_BOOL-&gt;getLimitMenu_false() via I2CE_FormField_BOOL_DISPLAYFIELDSTYLE_false()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_BOOL-&gt;processLimitMenu_false() via I2CE_FormField_BOOL_PROCESSFIELDSTYLE_false()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_YESNO-&gt;checkLimit_yesno() via checkLimit_YESNO_yesno()</p>
+</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;checkLimitString_yesno() via checkLimitString_YESNO_yesno()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;getLimitMenu_yesno() via I2CE_FormField_YESNO_DISPLAYFIELDSTYLE_yesno()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;processLimitMenu_yesno() via I2CE_FormField_YESNO_PROCESSFIELDSTYLE_yesno()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;checkLimit_yes() via checkLimit_YESNO_yes()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;checkLimitString_yes() via checkLimitString_YESNO_yes()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;getLimitMenu_yes() via I2CE_FormField_YESNO_DISPLAYFIELDSTYLE_yes()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;processLimitMenu_yes() via I2CE_FormField_YESNO_PROCESSFIELDSTYLE_yes()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;checkLimit_no() via checkLimit_YESNO_no()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;checkLimitString_no() via checkLimitString_YESNO_no()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;getLimitMenu_no() via I2CE_FormField_YESNO_DISPLAYFIELDSTYLE_no()</li>
+<li>Implements the method I2CE_FormField_YESNO-&gt;processLimitMenu_no() via I2CE_FormField_YESNO_PROCESSFIELDSTYLE_no()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimit_in() via checkLimit_DB_INT_in()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimitString_in() via checkLimitString_DB_INT_in()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;getLimitMenu_in() via I2CE_FormField_DB_INT_DISPLAYFIELDSTYLE_in()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;processLimitMenu_in() via I2CE_FormField_DB_INT_PROCESSFIELDSTYLE_in()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimit_in() via checkLimit_DB_STRING_in()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimitString_in() via checkLimitString_DB_STRING_in()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;getLimitMenu_in() via I2CE_FormField_DB_STRING_DISPLAYFIELDSTYLE_in()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;processLimitMenu_in() via I2CE_FormField_DB_STRING_PROCESSFIELDSTYLE_in()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimit_in() via checkLimit_DB_TEXT_in()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimitString_in() via checkLimitString_DB_TEXT_in()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;getLimitMenu_in() via I2CE_FormField_DB_TEXT_DISPLAYFIELDSTYLE_in()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;processLimitMenu_in() via I2CE_FormField_DB_TEXT_PROCESSFIELDSTYLE_in()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimit_in() via checkLimit_DB_DATE_in()</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimitString_in() via checkLimitString_DB_DATE_in()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_DATE-&gt;getLimitMenu_in() via I2CE_FormField_DB_DATE_DISPLAYFIELDSTYLE_in()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_DATE-&gt;processLimitMenu_in() via I2CE_FormField_DB_DATE_PROCESSFIELDSTYLE_in()</p>
+</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimit_equals() via checkLimit_DB_INT_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimitString_equals() via checkLimitString_DB_INT_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;getLimitMenu_equals() via I2CE_FormField_DB_INT_DISPLAYFIELDSTYLE_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;processLimitMenu_equals() via I2CE_FormField_DB_INT_PROCESSFIELDSTYLE_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimit_equals() via checkLimit_DB_STRING_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimitString_equals() via checkLimitString_DB_STRING_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;getLimitMenu_equals() via I2CE_FormField_DB_STRING_DISPLAYFIELDSTYLE_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;processLimitMenu_equals() via I2CE_FormField_DB_STRING_PROCESSFIELDSTYLE_equals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimit_equals() via checkLimit_DB_TEXT_equals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimitString_equals() via checkLimitString_DB_TEXT_equals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;getLimitMenu_equals() via I2CE_FormField_DB_TEXT_DISPLAYFIELDSTYLE_equals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;processLimitMenu_equals() via I2CE_FormField_DB_TEXT_PROCESSFIELDSTYLE_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimit_greaterthan() via checkLimit_DB_INT_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimitString_greaterthan() via checkLimitString_DB_INT_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;getLimitMenu_greaterthan() via I2CE_FormField_DB_INT_DISPLAYFIELDSTYLE_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;processLimitMenu_greaterthan() via I2CE_FormField_DB_INT_PROCESSFIELDSTYLE_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimit_greaterthan() via checkLimit_DB_STRING_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimitString_greaterthan() via checkLimitString_DB_STRING_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;getLimitMenu_greaterthan() via I2CE_FormField_DB_STRING_DISPLAYFIELDSTYLE_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;processLimitMenu_greaterthan() via I2CE_FormField_DB_STRING_PROCESSFIELDSTYLE_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimit_greaterthan() via checkLimit_DB_TEXT_greaterthan()</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimitString_greaterthan() via checkLimitString_DB_TEXT_greaterthan()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_TEXT-&gt;getLimitMenu_greaterthan() via I2CE_FormField_DB_TEXT_DISPLAYFIELDSTYLE_greaterthan()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_TEXT-&gt;processLimitMenu_greaterthan() via I2CE_FormField_DB_TEXT_PROCESSFIELDSTYLE_greaterthan()</p>
+</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimit_lessthan() via checkLimit_DB_INT_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimitString_lessthan() via checkLimitString_DB_INT_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;getLimitMenu_lessthan() via I2CE_FormField_DB_INT_DISPLAYFIELDSTYLE_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;processLimitMenu_lessthan() via I2CE_FormField_DB_INT_PROCESSFIELDSTYLE_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimit_lessthan() via checkLimit_DB_STRING_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimitString_lessthan() via checkLimitString_DB_STRING_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;getLimitMenu_lessthan() via I2CE_FormField_DB_STRING_DISPLAYFIELDSTYLE_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;processLimitMenu_lessthan() via I2CE_FormField_DB_STRING_PROCESSFIELDSTYLE_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimit_lessthan() via checkLimit_DB_TEXT_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimitString_lessthan() via checkLimitString_DB_TEXT_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;getLimitMenu_lessthan() via I2CE_FormField_DB_TEXT_DISPLAYFIELDSTYLE_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;processLimitMenu_lessthan() via I2CE_FormField_DB_TEXT_PROCESSFIELDSTYLE_lessthan()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimit_greaterthan_equals() via checkLimit_DB_INT_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimitString_greaterthan_equals() via checkLimitString_DB_INT_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;getLimitMenu_greaterthan_equals() via I2CE_FormField_DB_INT_DISPLAYFIELDSTYLE_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;processLimitMenu_greaterthan_equals() via I2CE_FormField_DB_INT_PROCESSFIELDSTYLE_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimit_greaterthan_equals() via checkLimit_DB_STRING_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimitString_greaterthan_equals() via checkLimitString_DB_STRING_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;getLimitMenu_greaterthan_equals() via I2CE_FormField_DB_STRING_DISPLAYFIELDSTYLE_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;processLimitMenu_greaterthan_equals() via I2CE_FormField_DB_STRING_PROCESSFIELDSTYLE_greaterthan_equals()</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimit_greaterthan_equals() via checkLimit_DB_TEXT_greaterthan_equals()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimitString_greaterthan_equals() via checkLimitString_DB_TEXT_greaterthan_equals()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_TEXT-&gt;getLimitMenu_greaterthan_equals() via I2CE_FormField_DB_TEXT_DISPLAYFIELDSTYLE_greaterthan_equals()</p>
+</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;processLimitMenu_greaterthan_equals() via I2CE_FormField_DB_TEXT_PROCESSFIELDSTYLE_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimit_lessthan_equals() via checkLimit_DB_INT_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimitString_lessthan_equals() via checkLimitString_DB_INT_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;getLimitMenu_lessthan_equals() via I2CE_FormField_DB_INT_DISPLAYFIELDSTYLE_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;processLimitMenu_lessthan_equals() via I2CE_FormField_DB_INT_PROCESSFIELDSTYLE_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimit_lessthan_equals() via checkLimit_DB_STRING_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimitString_lessthan_equals() via checkLimitString_DB_STRING_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;getLimitMenu_lessthan_equals() via I2CE_FormField_DB_STRING_DISPLAYFIELDSTYLE_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;processLimitMenu_lessthan_equals() via I2CE_FormField_DB_STRING_PROCESSFIELDSTYLE_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimit_lessthan_equals() via checkLimit_DB_TEXT_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimitString_lessthan_equals() via checkLimitString_DB_TEXT_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;getLimitMenu_lessthan_equals() via I2CE_FormField_DB_TEXT_DISPLAYFIELDSTYLE_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;processLimitMenu_lessthan_equals() via I2CE_FormField_DB_TEXT_PROCESSFIELDSTYLE_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimit_between() via checkLimit_DB_INT_between()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;checkLimitString_between() via checkLimitString_DB_INT_between()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;getLimitMenu_between() via I2CE_FormField_DB_INT_DISPLAYFIELDSTYLE_between()</li>
+<li>Implements the method I2CE_FormField_DB_INT-&gt;processLimitMenu_between() via I2CE_FormField_DB_INT_PROCESSFIELDSTYLE_between()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimit_between() via checkLimit_DB_STRING_between()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimitString_between() via checkLimitString_DB_STRING_between()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;getLimitMenu_between() via I2CE_FormField_DB_STRING_DISPLAYFIELDSTYLE_between()</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_STRING-&gt;processLimitMenu_between() via I2CE_FormField_DB_STRING_PROCESSFIELDSTYLE_between()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimit_between() via checkLimit_DB_TEXT_between()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimitString_between() via checkLimitString_DB_TEXT_between()</p>
+</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;getLimitMenu_between() via I2CE_FormField_DB_TEXT_DISPLAYFIELDSTYLE_between()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;processLimitMenu_between() via I2CE_FormField_DB_TEXT_PROCESSFIELDSTYLE_between()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimit_greaterthan_now() via checkLimit_DB_DATE_greaterthan_now()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimitString_greaterthan_now() via checkLimitString_DB_DATE_greaterthan_now()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;getLimitMenu_greaterthan_now() via I2CE_FormField_DB_DATE_DISPLAYFIELDSTYLE_greaterthan_now()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;processLimitMenu_greaterthan_now() via I2CE_FormField_DB_DATE_PROCESSFIELDSTYLE_greaterthan_now()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimit_lessthan_now() via checkLimit_DB_DATE_lessthan_now()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;checkLimitString_lessthan_now() via checkLimitString_DB_DATE_lessthan_now()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;getLimitMenu_lessthan_now() via I2CE_FormField_DB_DATE_DISPLAYFIELDSTYLE_lessthan_now()</li>
+<li>Implements the method I2CE_FormField_DB_DATE-&gt;processLimitMenu_lessthan_now() via I2CE_FormField_DB_DATE_PROCESSFIELDSTYLE_lessthan_now()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimit_like() via checkLimit_DB_STRING_like()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimitString_like() via checkLimitString_DB_STRING_like()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;getLimitMenu_like() via I2CE_FormField_DB_STRING_DISPLAYFIELDSTYLE_like()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;processLimitMenu_like() via I2CE_FormField_DB_STRING_PROCESSFIELDSTYLE_like()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimit_like() via checkLimit_DB_TEXT_like()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimitString_like() via checkLimitString_DB_TEXT_like()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;getLimitMenu_like() via I2CE_FormField_DB_TEXT_DISPLAYFIELDSTYLE_like()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;processLimitMenu_like() via I2CE_FormField_DB_TEXT_PROCESSFIELDSTYLE_like()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimit_lowerlike() via checkLimit_DB_STRING_lowerlike()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimitString_lowerlike() via checkLimitString_DB_STRING_lowerlike()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;getLimitMenu_lowerlike() via I2CE_FormField_DB_STRING_DISPLAYFIELDSTYLE_lowerlike()</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_STRING-&gt;processLimitMenu_lowerlike() via I2CE_FormField_DB_STRING_PROCESSFIELDSTYLE_lowerlike()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimit_lowerlike() via checkLimit_DB_TEXT_lowerlike()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimitString_lowerlike() via checkLimitString_DB_TEXT_lowerlike()</p>
+</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;getLimitMenu_lowerlike() via I2CE_FormField_DB_TEXT_DISPLAYFIELDSTYLE_lowerlike()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;processLimitMenu_lowerlike() via I2CE_FormField_DB_TEXT_PROCESSFIELDSTYLE_lowerlike()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimit_lowerequals() via checkLimit_DB_STRING_lowerequals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimitString_lowerequals() via checkLimitString_DB_STRING_lowerequals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;getLimitMenu_lowerequals() via I2CE_FormField_DB_STRING_DISPLAYFIELDSTYLE_lowerequals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;processLimitMenu_lowerequals() via I2CE_FormField_DB_STRING_PROCESSFIELDSTYLE_lowerequals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimit_lowerequals() via checkLimit_DB_TEXT_lowerequals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimitString_lowerequals() via checkLimitString_DB_TEXT_lowerequals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;getLimitMenu_lowerequals() via I2CE_FormField_DB_TEXT_DISPLAYFIELDSTYLE_lowerequals()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;processLimitMenu_lowerequals() via I2CE_FormField_DB_TEXT_PROCESSFIELDSTYLE_lowerequals()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimit_contains() via checkLimit_DB_STRING_contains()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;checkLimitString_contains() via checkLimitString_DB_STRING_contains()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;getLimitMenu_contains() via I2CE_FormField_DB_STRING_DISPLAYFIELDSTYLE_contains()</li>
+<li>Implements the method I2CE_FormField_DB_STRING-&gt;processLimitMenu_contains() via I2CE_FormField_DB_STRING_PROCESSFIELDSTYLE_contains()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimit_contains() via checkLimit_DB_TEXT_contains()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;checkLimitString_contains() via checkLimitString_DB_TEXT_contains()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;getLimitMenu_contains() via I2CE_FormField_DB_TEXT_DISPLAYFIELDSTYLE_contains()</li>
+<li>Implements the method I2CE_FormField_DB_TEXT-&gt;processLimitMenu_contains() via I2CE_FormField_DB_TEXT_PROCESSFIELDSTYLE_contains()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;generateLimit_equals() via DATE_generateLimit_DATE_YMD_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimit_equals() via DATE_checkLimit_DATE_YMD_equals()</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimitString_equals() via DATE_checkLimit_DATE_YMD_equals()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_YMD-&gt;getLimitMenu_equals() via DATE_getLimitMenu_DATE_YMD_equals()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_YMD-&gt;processLimitMenu_equals() via DATE_processLimitMenu_DATE_YMD_equals()</p>
+</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;generateLimit_equals() via DATE_generateLimit_DATE_MD_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimit_equals() via DATE_checkLimit_DATE_MD_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimitString_equals() via DATE_checkLimit_DATE_MD_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;getLimitMenu_equals() via DATE_getLimitMenu_DATE_MD_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;processLimitMenu_equals() via DATE_processLimitMenu_DATE_MD_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;generateLimit_equals() via DATE_generateLimit_DATE_Y_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimit_equals() via DATE_checkLimit_DATE_Y_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimitString_equals() via DATE_checkLimit_DATE_Y_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;getLimitMenu_equals() via DATE_getLimitMenu_DATE_Y_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;processLimitMenu_equals() via DATE_processLimitMenu_DATE_Y_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;generateLimit_equals() via DATE_generateLimit_DATE_HMS_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimit_equals() via DATE_checkLimit_DATE_HMS_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimitString_equals() via DATE_checkLimit_DATE_HMS_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;getLimitMenu_equals() via DATE_getLimitMenu_DATE_HMS_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;processLimitMenu_equals() via DATE_processLimitMenu_DATE_HMS_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;generateLimit_equals() via DATE_generateLimit_DATE_TIME_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimit_equals() via DATE_checkLimit_DATE_TIME_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimitString_equals() via DATE_checkLimit_DATE_TIME_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;getLimitMenu_equals() via DATE_getLimitMenu_DATE_TIME_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;processLimitMenu_equals() via DATE_processLimitMenu_DATE_TIME_equals()</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_YMD-&gt;generateLimit_greaterthan() via DATE_generateLimit_DATE_YMD_greaterthan()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimit_greaterthan() via DATE_checkLimit_DATE_YMD_greaterthan()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimitString_greaterthan() via DATE_checkLimit_DATE_YMD_greaterthan()</p>
+</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;getLimitMenu_greaterthan() via DATE_getLimitMenu_DATE_YMD_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;processLimitMenu_greaterthan() via DATE_processLimitMenu_DATE_YMD_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;generateLimit_greaterthan() via DATE_generateLimit_DATE_MD_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimit_greaterthan() via DATE_checkLimit_DATE_MD_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimitString_greaterthan() via DATE_checkLimit_DATE_MD_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;getLimitMenu_greaterthan() via DATE_getLimitMenu_DATE_MD_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;processLimitMenu_greaterthan() via DATE_processLimitMenu_DATE_MD_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;generateLimit_greaterthan() via DATE_generateLimit_DATE_Y_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimit_greaterthan() via DATE_checkLimit_DATE_Y_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimitString_greaterthan() via DATE_checkLimit_DATE_Y_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;getLimitMenu_greaterthan() via DATE_getLimitMenu_DATE_Y_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;processLimitMenu_greaterthan() via DATE_processLimitMenu_DATE_Y_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;generateLimit_greaterthan() via DATE_generateLimit_DATE_HMS_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimit_greaterthan() via DATE_checkLimit_DATE_HMS_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimitString_greaterthan() via DATE_checkLimit_DATE_HMS_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;getLimitMenu_greaterthan() via DATE_getLimitMenu_DATE_HMS_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;processLimitMenu_greaterthan() via DATE_processLimitMenu_DATE_HMS_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;generateLimit_greaterthan() via DATE_generateLimit_DATE_TIME_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimit_greaterthan() via DATE_checkLimit_DATE_TIME_greaterthan()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimitString_greaterthan() via DATE_checkLimit_DATE_TIME_greaterthan()</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_TIME-&gt;getLimitMenu_greaterthan() via DATE_getLimitMenu_DATE_TIME_greaterthan()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_TIME-&gt;processLimitMenu_greaterthan() via DATE_processLimitMenu_DATE_TIME_greaterthan()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_YMD-&gt;generateLimit_lessthan() via DATE_generateLimit_DATE_YMD_lessthan()</p>
+</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimit_lessthan() via DATE_checkLimit_DATE_YMD_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimitString_lessthan() via DATE_checkLimit_DATE_YMD_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;getLimitMenu_lessthan() via DATE_getLimitMenu_DATE_YMD_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;processLimitMenu_lessthan() via DATE_processLimitMenu_DATE_YMD_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;generateLimit_lessthan() via DATE_generateLimit_DATE_MD_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimit_lessthan() via DATE_checkLimit_DATE_MD_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimitString_lessthan() via DATE_checkLimit_DATE_MD_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;getLimitMenu_lessthan() via DATE_getLimitMenu_DATE_MD_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;processLimitMenu_lessthan() via DATE_processLimitMenu_DATE_MD_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;generateLimit_lessthan() via DATE_generateLimit_DATE_Y_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimit_lessthan() via DATE_checkLimit_DATE_Y_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimitString_lessthan() via DATE_checkLimit_DATE_Y_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;getLimitMenu_lessthan() via DATE_getLimitMenu_DATE_Y_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;processLimitMenu_lessthan() via DATE_processLimitMenu_DATE_Y_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;generateLimit_lessthan() via DATE_generateLimit_DATE_HMS_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimit_lessthan() via DATE_checkLimit_DATE_HMS_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimitString_lessthan() via DATE_checkLimit_DATE_HMS_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;getLimitMenu_lessthan() via DATE_getLimitMenu_DATE_HMS_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;processLimitMenu_lessthan() via DATE_processLimitMenu_DATE_HMS_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;generateLimit_lessthan() via DATE_generateLimit_DATE_TIME_lessthan()</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimit_lessthan() via DATE_checkLimit_DATE_TIME_lessthan()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimitString_lessthan() via DATE_checkLimit_DATE_TIME_lessthan()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_TIME-&gt;getLimitMenu_lessthan() via DATE_getLimitMenu_DATE_TIME_lessthan()</p>
+</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;processLimitMenu_lessthan() via DATE_processLimitMenu_DATE_TIME_lessthan()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;generateLimit_greaterthan_equals() via DATE_generateLimit_DATE_YMD_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimit_greaterthan_equals() via DATE_checkLimit_DATE_YMD_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimitString_greaterthan_equals() via DATE_checkLimit_DATE_YMD_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;getLimitMenu_greaterthan_equals() via DATE_getLimitMenu_DATE_YMD_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;processLimitMenu_greaterthan_equals() via DATE_processLimitMenu_DATE_YMD_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;generateLimit_greaterthan_equals() via DATE_generateLimit_DATE_MD_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimit_greaterthan_equals() via DATE_checkLimit_DATE_MD_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimitString_greaterthan_equals() via DATE_checkLimit_DATE_MD_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;getLimitMenu_greaterthan_equals() via DATE_getLimitMenu_DATE_MD_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;processLimitMenu_greaterthan_equals() via DATE_processLimitMenu_DATE_MD_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;generateLimit_greaterthan_equals() via DATE_generateLimit_DATE_Y_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimit_greaterthan_equals() via DATE_checkLimit_DATE_Y_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimitString_greaterthan_equals() via DATE_checkLimit_DATE_Y_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;getLimitMenu_greaterthan_equals() via DATE_getLimitMenu_DATE_Y_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;processLimitMenu_greaterthan_equals() via DATE_processLimitMenu_DATE_Y_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;generateLimit_greaterthan_equals() via DATE_generateLimit_DATE_HMS_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimit_greaterthan_equals() via DATE_checkLimit_DATE_HMS_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimitString_greaterthan_equals() via DATE_checkLimit_DATE_HMS_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;getLimitMenu_greaterthan_equals() via DATE_getLimitMenu_DATE_HMS_greaterthan_equals()</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_HMS-&gt;processLimitMenu_greaterthan_equals() via DATE_processLimitMenu_DATE_HMS_greaterthan_equals()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_TIME-&gt;generateLimit_greaterthan_equals() via DATE_generateLimit_DATE_TIME_greaterthan_equals()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimit_greaterthan_equals() via DATE_checkLimit_DATE_TIME_greaterthan_equals()</p>
+</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimitString_greaterthan_equals() via DATE_checkLimit_DATE_TIME_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;getLimitMenu_greaterthan_equals() via DATE_getLimitMenu_DATE_TIME_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;processLimitMenu_greaterthan_equals() via DATE_processLimitMenu_DATE_TIME_greaterthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;generateLimit_lessthan_equals() via DATE_generateLimit_DATE_YMD_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimit_lessthan_equals() via DATE_checkLimit_DATE_YMD_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimitString_lessthan_equals() via DATE_checkLimit_DATE_YMD_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;getLimitMenu_lessthan_equals() via DATE_getLimitMenu_DATE_YMD_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;processLimitMenu_lessthan_equals() via DATE_processLimitMenu_DATE_YMD_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;generateLimit_lessthan_equals() via DATE_generateLimit_DATE_MD_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimit_lessthan_equals() via DATE_checkLimit_DATE_MD_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimitString_lessthan_equals() via DATE_checkLimit_DATE_MD_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;getLimitMenu_lessthan_equals() via DATE_getLimitMenu_DATE_MD_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;processLimitMenu_lessthan_equals() via DATE_processLimitMenu_DATE_MD_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;generateLimit_lessthan_equals() via DATE_generateLimit_DATE_Y_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimit_lessthan_equals() via DATE_checkLimit_DATE_Y_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimitString_lessthan_equals() via DATE_checkLimit_DATE_Y_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;getLimitMenu_lessthan_equals() via DATE_getLimitMenu_DATE_Y_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;processLimitMenu_lessthan_equals() via DATE_processLimitMenu_DATE_Y_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;generateLimit_lessthan_equals() via DATE_generateLimit_DATE_HMS_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimit_lessthan_equals() via DATE_checkLimit_DATE_HMS_lessthan_equals()</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimitString_lessthan_equals() via DATE_checkLimit_DATE_HMS_lessthan_equals()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_HMS-&gt;getLimitMenu_lessthan_equals() via DATE_getLimitMenu_DATE_HMS_lessthan_equals()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_HMS-&gt;processLimitMenu_lessthan_equals() via DATE_processLimitMenu_DATE_HMS_lessthan_equals()</p>
+</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;generateLimit_lessthan_equals() via DATE_generateLimit_DATE_TIME_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimit_lessthan_equals() via DATE_checkLimit_DATE_TIME_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimitString_lessthan_equals() via DATE_checkLimit_DATE_TIME_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;getLimitMenu_lessthan_equals() via DATE_getLimitMenu_DATE_TIME_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;processLimitMenu_lessthan_equals() via DATE_processLimitMenu_DATE_TIME_lessthan_equals()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;getLimitMenu_between() via DATE_getLimitMenu_DATE_YMD_between()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;generateLimit_between() via DATE_generateLimit_DATE_YMD_between()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimit_between() via DATE_checkLimit_DATE_YMD_between()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;checkLimitString_between() via DATE_checkLimitString_DATE_YMD_between()</li>
+<li>Implements the method I2CE_FormField_DATE_YMD-&gt;processLimitMenu_between() via DATE_processLimitMenu_DATE_YMD_between()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;getLimitMenu_between() via DATE_getLimitMenu_DATE_MD_between()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;generateLimit_between() via DATE_generateLimit_DATE_MD_between()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimit_between() via DATE_checkLimit_DATE_MD_between()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;checkLimitString_between() via DATE_checkLimitString_DATE_MD_between()</li>
+<li>Implements the method I2CE_FormField_DATE_MD-&gt;processLimitMenu_between() via DATE_processLimitMenu_DATE_MD_between()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;getLimitMenu_between() via DATE_getLimitMenu_DATE_Y_between()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;generateLimit_between() via DATE_generateLimit_DATE_Y_between()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimit_between() via DATE_checkLimit_DATE_Y_between()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;checkLimitString_between() via DATE_checkLimitString_DATE_Y_between()</li>
+<li>Implements the method I2CE_FormField_DATE_Y-&gt;processLimitMenu_between() via DATE_processLimitMenu_DATE_Y_between()</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_HMS-&gt;getLimitMenu_between() via DATE_getLimitMenu_DATE_HMS_between()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_HMS-&gt;generateLimit_between() via DATE_generateLimit_DATE_HMS_between()</p>
+</li>
+<li>
+<p>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimit_between() via DATE_checkLimit_DATE_HMS_between()</p>
+</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;checkLimitString_between() via DATE_checkLimitString_DATE_HMS_between()</li>
+<li>Implements the method I2CE_FormField_DATE_HMS-&gt;processLimitMenu_between() via DATE_processLimitMenu_DATE_HMS_between()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;getLimitMenu_between() via DATE_getLimitMenu_DATE_TIME_between()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;generateLimit_between() via DATE_generateLimit_DATE_TIME_between()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimit_between() via DATE_checkLimit_DATE_TIME_between()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;checkLimitString_between() via DATE_checkLimitString_DATE_TIME_between()</li>
+<li>Implements the method I2CE_FormField_DATE_TIME-&gt;processLimitMenu_between() via DATE_processLimitMenu_DATE_TIME_between()</li>
+<li>Description: A module that enables limits for fields.</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Fields at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FieldLimits/lib [165]</p>
+</li>
+<li>
+<p>I2CE_Module_FieldLimits</p>
+</li>
+<li>Templates: modules/Forms/modules/FieldLimits/templates [166]</li>
+</ul>
+<p>limit_mapped_choice_between.html, limit_choice_contains.html, limit_choice_yesno.html, limit_choice_greaterthan_now.html, limit_date_choice_between.html, limit_choice_not_null.html, limit_mapped_choice_lessthan_equals.html, limit_choice_lowerlike.html, limit_choice_truefalse.html, limit_mapped_choice_equals.html, limit_choice_min_parent.html, limit_choice_like.html, limit_choice_between.html, limit_date_choice.html, limit_choice_null_not_null.html, limit_choice_no.html, limit_choice_min_parent_form.html, limit_choice_greaterthan_equals.html, limit_choice_true.html, limit_choice_lowerequals.html, limit_mapped_choice_greaterthan_equals.html, limit_choice_max_parent.html, limit_choice_greaterthan.html, limit_choice_in.html, limit_mapped_choice_greaterthan.html, limit_choice_lessthan_now.html, limit_choice_max_parent_form.html, limit_choice_lessthan_equals.html, limit_choice_lessthan.html, limit_mapped_choice_in.html, limit_choice_yes.html, limit_choice_false.html, limit_choice_null.html, limit_mapped_choice_lessthan.html, limit_choice_equals.html</p>
+<h2>form-limits</h2>
+<p>This describes version 4.0.6 of the module Form Limits (form-limits)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormLimits [167]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_FormLimits</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Form-&gt;getLimitStyles() via getLimitStyles()</p>
+</li>
+<li>
+<p>Implements the method I2CE_Form-&gt;checkLimit() via checkLimit()</p>
+</li>
+<li>
+<p>Implements the method I2CE_Form-&gt;checkWhereClause() via checkWhereClause()</p>
+</li>
+<li>Implements the method I2CE_Form-&gt;createCheckFunction() via createCheckFunction()</li>
+<li>
+<p>Implements the method I2CE_Form-&gt;createCheckLimitString() via createCheckLimitString()</p>
+</li>
+<li>
+<p>Implements the method I2CE_Form-&gt;generateLimit() via generateLimit()</p>
+</li>
+<li>Implements the method I2CE_Form-&gt;generateWhereClause() via generateWhereClause()</li>
+<li>Description: A module that enables limits for forms.</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms at least 4.0 and less than 4.1</p>
+</li>
+<li>field-limits at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormLimits/lib [168]</p>
+</li>
+<li>
+<p>I2CE_Module_FormLimits</p>
+</li>
+<li>Templates: modules/Forms/modules/FormLimits/templates [169]</li>
+</ul>
+<h2>formBrowser</h2>
+<p>This describes version 4.0.0 of the module Form Browser (formBrowser)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormBrowser [170]</p>
+</li>
+<li>
+<p>Description: Enables Browsing of Forms</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Forms/modules/FormBrowser/configs [171]</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormBrowser/lib [172]</p>
+</li>
+<li>
+<p>I2CE_FormBrowser, I2CE_PageFormBrowser</p>
+</li>
+<li>
+<p>Templates: modules/Forms/modules/FormBrowser/templates [173]</p>
+</li>
+<li>
+<p>formBrowser_form_details_edit.html, formBrowser_form_details_record_edit.html, formBrowser_form_details_record_edit_link.html, formBrowser_form_details.html, formBrowser.html, formBrowser_form_details_no_record.html, formBrowse_menu.html, formBrowser_menu.html, formBrowser_menu_form.html, formBrowser_form_details_record.html, formBrowser_form_details_record_link.html</p>
+</li>
+<li>Css: modules/Forms/modules/FormBrowser/css [174]</li>
+</ul>
+<h2>formDocumentor</h2>
+<p>This describes version 4.0.3 of the module Form Documentor (formDocumentor)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormDocumentor [175]</p>
+</li>
+<li>
+<p>Description: Enables Documenting of existing forms and their relationship from the command line</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms at least 4.0 and less than 4.1</p>
+</li>
+<li>pages at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormDocumentor/lib [176]</p>
+</li>
+<li>
+<p>I2Ce_Page_FormDocumentor</p>
+</li>
+<li>Images: modules/Forms/modules/FormDocumentor/images [177]</li>
+</ul>
+<h2>formRelationships</h2>
+<p>This describes version 4.0.0 of the module Form Relationships (formRelationships)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormRelationship [178]</p>
+</li>
+<li>
+<p>Description: Provides Form Relationships for use by a Swiss Factory</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms at least 4.0 and less than 4.1</p>
+</li>
+<li>form-limits at least 4.0 and less than 4.1</li>
+<li>forms-storage at least 4.0 and less than 4.1</li>
+<li>swissfactory at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormRelationship/lib [179]</p>
+</li>
+<li>
+<p>I2CE_FormRelationship, I2CE_FormRelationship_Template, I2CE_Swiss_FormRelationship, I2CE_Swiss_FormRelationship_AncestralCondition, I2CE_Swiss_FormRelationship_AncestralConditions, I2CE_Swiss_FormRelationship_Base, I2CE_Swiss_FormRelationship_Join, I2CE_Swiss_FormRelationship_Joins, I2CE_Swiss_FormRelationship_ReportingFunctions, I2CE_Swiss_FormRelationship_Where, I2CE_Swiss_FormRelationship_Where_Operands, I2CE_Swiss_FormRelationships, I2CE_Swiss_SQLFunction</p>
+</li>
+<li>
+<p>Templates: modules/Forms/modules/FormRelationship/templates [180]</p>
+</li>
+<li>
+<p>swiss_sqlfunction_edit.html, formRelationship_existing_limit.html, formRelationship_join_container.html, formRelationship_new_limits.html, formRelationship_existing_operand_list_member_view.html, formRelationship_existing_function_view.html, formRelationship_join_drop_empty_view.html, formRelationship_existing_operand_list_member_edit.html, swiss_sqlfunction_view.html, formRelationship_condition.html, formrelationships_options.html, formRelationship_join_drop_empty_edit.html, formRelationship_view_relation.html, formRelationship_new_limit_style.html, formRelationship_reporting_functions_view.html, formRelationship_view.html, formRelationship_existing_function_edit.html, formRelationship_existing_condition.html, formRelationship_existing_conditions.html, formRelationship_menu_relation_copy.html, formRelationship_new_operand.html, formRelationship_relationship_each.html, formRelationship_join.html, formRelationship_conditions_container.html, formRelationship_new_limit_choice.html, formRelationship_edit.html, formRelationship_relationship.html, formRelationship_meta_edit.html, formRelationship_new_limit_styles.html, formRelationship_existing_operand.html, formRelationship_existing_joins.html, formRelationship_reporting_functions_edit.html, formRelationship_join_meta.html, formRelationship_where_container.html, formRelationship_menu_form.html, formRelationship_meta_view.html, formRelationship_new_condition.html, formRelationship_existing_operand_list.html, formRelationship_existing_join.html</p>
+</li>
+<li>Css: modules/Forms/modules/FormRelationship/css [181]</li>
+</ul>
+<h2>forms</h2>
+<p>This describes version 4.0.6 of the module I2CE Forms (forms)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms [182]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_Forms</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_PermissionParser-&gt;hasPermission_form() via hasPermission_form()</p>
+</li>
+<li>Implements the method I2CE_Template-&gt;setForm() via setForm()</li>
+<li>Implements the method I2CE_Template-&gt;getField() via getField()</li>
+<li>Implements the method I2CE_Template-&gt;setReview() via setReview()</li>
+<li>Implements the method I2CE_Template-&gt;isReview() via isReview()</li>
+<li>Implements the method I2CE_Template-&gt;setShowForm() via setShowForm()</li>
+<li>Implements the method I2CE_Template-&gt;showForm() via showForm()</li>
+<li>Implements the method I2CE_Page-&gt;setForm() via setForm()</li>
+<li>Implements the method I2CE_Page-&gt;getField() via getField()</li>
+<li>Implements the method I2CE_Page-&gt;setReview() via setReview()</li>
+<li>Implements the method I2CE_Page-&gt;isReview() via isReview()</li>
+<li>Implements the method I2CE_Page-&gt;setShowForm() via setShowForm()</li>
+<li>Implements the method I2CE_Page-&gt;showForm() via showForm()</li>
+<li>Description: Adds a few basic forms to the system as well as some form functionality to the template</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>Fields at least 4.0 and less than 4.1</li>
+<li>template-data at least 4.0 and less than 4.1</li>
+<li>DisplayData at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Forms/configs [183]</p>
+</li>
+<li>
+<p>Classes: modules/Forms/lib [184]</p>
+</li>
+<li>
+<p>I2CE_Form, I2CE_FormFactory, I2CE_Module_Forms, I2CE_PageForm</p>
+</li>
+<li>
+<p>Templates: modules/Forms/templates [185]</p>
+</li>
+<li>
+<p>button_save_only.html, button_confirm.html, form_error.html, button_save_return.html, button_save.html, button_confirm_notchild.html</p>
+</li>
+<li>
+<p>Scripts: modules/Forms/scripts [186]</p>
+</li>
+<li>
+<p>Modules: modules/Forms/modules [187]</p>
+</li>
+</ul>
+<p>BinField, CachedForms, Fields, Float, Lists, LocaleForm, PrintedForms, UserForm, field-limits, form-limits, formBrowser, formDocumentor, formRelationships, forms-storage</p>
+<h2>forms-storage</h2>
+<p>This describes version 4.0.6 of the module Form Storage (forms-storage)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormStorage [188]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_FormStorage</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Form-&gt;isComponentized() via isComponentizedForm()</p>
+</li>
+<li>Implements the method I2CE_Form-&gt;addChild() via addChild()</li>
+<li>Implements the method I2CE_Form-&gt;getChildIds() via getChildIds()</li>
+<li>Implements the method I2CE_Form-&gt;getStorage() via getStorage()</li>
+<li>Implements the method I2CE_Form-&gt;isWritable() via isWritable()</li>
+<li>Implements the method I2CE_Form-&gt;populate() via populate()</li>
+<li>Implements the method I2CE_Form-&gt;populateChild() via populateChild()</li>
+<li>Implements the method I2CE_Form-&gt;populateChildren() via populateChildren()</li>
+<li>Implements the method I2CE_Form-&gt;populateFirst() via populateFirst()</li>
+<li>Implements the method I2CE_Form-&gt;populateHistory() via populateHistory()</li>
+<li>Implements the method I2CE_Form-&gt;populateLast() via populateLast()</li>
+<li>Implements the method I2CE_Form-&gt;delete() via delete()</li>
+<li>Implements the method I2CE_Form-&gt;save() via save()</li>
+<li>Implements the method I2CE_Form-&gt;setChangeType() via setChangeType()</li>
+<li>Implements the method I2CE_FormField-&gt;save() via FF_save()</li>
+<li>Implements the method I2CE_FormField_INT_GENERATE-&gt;save() via FF_IG_save()</li>
+<li>Implements the method I2CE_FormField_STRING_PASS-&gt;save() via FF_SP_save()</li>
+<li>Implements the method I2CE_FormField-&gt;populateHistory() via FF_populateHistory()</li>
+<li>Implements the method I2CE_FormField_INT_GENERATE-&gt;setSequence() via FF_IG_setSequence()</li>
+<li>Implements the method I2CE_FormFactory-&gt;getRecords() via getRecords()</li>
+<li>Description: A module that enables storage of Forms. Sub modules will enable the specific storage and retrieval options.</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormStorage/lib [189]</p>
+</li>
+<li>
+<p>I2CE_FormStorage, I2CE_FormStorage_DB, I2CE_FormStorage_Mechanism</p>
+</li>
+<li>Modules: modules/Forms/modules/FormStorage/modules [190]</li>
+</ul>
+<p>forms-storage-CSV, forms-storage-SDMXHD, forms-storage-entry, forms-storage-eval, forms-storage-file, forms-storage-flat, forms-storage-magicdata, forms-storage-multiflat, forms-storage-xml</p>
+<h2>forms-storage-CSV</h2>
+<p>This describes version 4.0.0 of the module Form Storage - CSV (forms-storage-CSV)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormStorage/modules/FormStorageCSV [191]</p>
+</li>
+<li>
+<p>Description: A module that enables reading storage of Forms from a CSV file</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage-file at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormStorage/modules/FormStorageCSV/lib [192]</p>
+</li>
+</ul>
+<p>I2CE_FormStorage_CSV</p>
+<h2>forms-storage-SDMXHD</h2>
+<p>This describes version 4.0.5 of the module Form Storage - SDMX-HD (forms-storage-SDMXHD)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormStorage/modules/FormStorageSDMXHD [193]</p>
+</li>
+<li>
+<p>Description: A module that enables reading storage of Forms from a SDMX CodeList or CrossSectionalData</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage at least 4.0 and less than 4.1</p>
+</li>
+<li>forms-storage-xml at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormStorage/modules/FormStorageSDMXHD/lib [194]</p>
+</li>
+</ul>
+<p>I2CE_FormStorage_SDMXHD, I2CE_FormStorage_SDMX_CrossSectional</p>
+<h2>forms-storage-entry</h2>
+<p>This describes version 4.0.6 of the module Form Storage - Entry (forms-storage-entry)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormStorage/modules/FormStorageEntry [195]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_FormStorageEntry</p>
+</li>
+<li>Description: A module that enables storage of Forms to a entry database structure that enables historical tracking and automatic extension for new fields.</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormStorage/modules/FormStorageEntry/lib [196]</p>
+</li>
+<li>
+<p>I2CE_FormStorage_entry, I2CE_Module_FormStorageEntry</p>
+</li>
+<li>Sql: modules/Forms/modules/FormStorage/modules/FormStorageEntry/sql [197]</li>
+</ul>
+<h2>forms-storage-eval</h2>
+<p>This describes version 4.0.0 of the module Form Storage - Eval (forms-storage-eval)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormStorage/modules/FormStorageEval [198]</p>
+</li>
+<li>
+<p>Description: A module that enables storage of Forms based on evalualtion of php functions</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormStorage/modules/FormStorageEval/lib [199]</p>
+</li>
+</ul>
+<p>I2CE_FormStorage_eval</p>
+<h2>forms-storage-file</h2>
+<p>This describes version 4.0.6 of the module Form Storage - File (forms-storage-file)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormStorage/modules/FormStorageFile [200]</p>
+</li>
+<li>
+<p>Description: A module that for file based access form storage mechanisms</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormStorage/modules/FormStorageFile/lib [201]</p>
+</li>
+</ul>
+<p>I2CE_FormStorage_File_Base</p>
+<h2>forms-storage-flat</h2>
+<p>This describes version 4.0.6 of the module Form Storage - Flat (forms-storage-flat)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormStorage/modules/FormStorageFlat [202]</p>
+</li>
+<li>
+<p>Description: A module that enables storage of Forms to a flat fixed database structure.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormStorage/modules/FormStorageFlat/lib [203]</p>
+</li>
+</ul>
+<p>I2CE_FormStorage_Flat</p>
+<h2>forms-storage-magicdata</h2>
+<p>This describes version 4.0.6 of the module Form Storage - Magic Data (forms-storage-magicdata)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormStorage/modules/FormStorageMagicData [204]</p>
+</li>
+<li>
+<p>Description: A module that enables storage of Forms to MagicData Storage.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormStorage/modules/FormStorageMagicData/lib [205]</p>
+</li>
+</ul>
+<p>I2CE_FormStorage_magicdata, I2CE_FormStorage_magicdata, I2CE_FormStorage_magicdata</p>
+<h2>forms-storage-multiflat</h2>
+<p>This describes version 4.0.6 of the module Form Storage - Multi Flat (forms-storage-multiflat)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormStorage/modules/FormStorageMultiFlat [206]</p>
+</li>
+<li>
+<p>Description: A module that enables aggregated storage of Forms from a flat fixed database structure.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage at least 4.0 and less than 4.1</p>
+</li>
+<li>Lists at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormStorage/modules/FormStorageMultiFlat/lib [207]</p>
+</li>
+</ul>
+<p>I2CE_FormStorage_multi_flat</p>
+<h2>forms-storage-xml</h2>
+<p>This describes version 4.0.6 of the module Form Storage - XML (forms-storage-xml)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Forms/modules/FormStorage/modules/FormStorageXML [208]</p>
+</li>
+<li>
+<p>Description: A module that enables reading storage of Forms from a XML file</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage-file at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Forms/modules/FormStorage/modules/FormStorageXML/lib [209]</p>
+</li>
+</ul>
+<p>I2CE_FormStorage_XML, I2CE_FormStorage_XML_BASE</p>
+<h2>jumper</h2>
+<p>This describes version 4.0.0 of the module Page Jumper (jumper)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Jumper [210]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_Jumper</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Page-&gt;makeJumper() via makeJumper()</p>
+</li>
+<li>Implements the method I2CE_Template-&gt;makeJumper() via makeJumper()</li>
+<li>Description: Creates a page jumper for elements of a page.</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>Optionally Enables: stub</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Images: modules/Jumper/images [211]</p>
+</li>
+<li>
+<p>Css: modules/Jumper/css [212]</p>
+</li>
+<li>
+<p>Classes: modules/Jumper/ [213]</p>
+</li>
+</ul>
+<p>I2CE_Module_Jumper</p>
+<h2>localeSelector</h2>
+<p>This describes version 4.0.3.3 of the module Locale Selector (localeSelector)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Pages/modules/LocaleSelector [214]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_LocaleSelector</p>
+</li>
+<li>Description: Provides Locale Selector for a page as well information for locales</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>swissfactory at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Pages/modules/LocaleSelector/lib [215]</p>
+</li>
+<li>
+<p>I2CE_Module_LocaleSelector, I2CE_Page_LocaleAdmin, I2CE_Swiss_Locale, I2CE_Swiss_Locales</p>
+</li>
+<li>
+<p>Images: modules/Pages/modules/LocaleSelector/images [216]</p>
+</li>
+<li>
+<p>Misc: modules/Pages/modules/LocaleSelector/Flags.xml [217]</p>
+</li>
+<li>
+<p>Configs: modules/Pages/modules/LocaleSelector/configs [218]</p>
+</li>
+<li>
+<p>Templates: modules/Pages/modules/LocaleSelector/templates [219]</p>
+</li>
+</ul>
+<p>language_choice_icon.html, site_locale_add.html, language_choice.html, site_locale_base_edit.html, site_locale_each.html, site_locale_base.html, locale_view.html, locale_edit.html</p>
+<h2>maani-charts</h2>
+<p>This describes version 4.7 of the module Charted Reports (maani-charts)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/FlashCharts [220]</p>
+</li>
+<li>
+<p>Description: Configuration options for the Maani chart reporting software http://www.maani.us/charts</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>FileDump at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Maani_chart_files: modules/FlashCharts/maani_charts [221]</p>
+</li>
+<li>
+<p>Swf: modules/FlashCharts/maani_charts [221]</p>
+</li>
+<li>
+<p>Scripts: modules/FlashCharts/scripts [222]</p>
+</li>
+<li>
+<p>Classes: modules/FlashCharts/ [223]</p>
+</li>
+</ul>
+<h2>magicDataBrowser</h2>
+<p>This describes version 4.0.0 of the module Magic Data Browser (magicDataBrowser)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Pages/modules/MagicDataBrowser [224]</p>
+</li>
+<li>
+<p>Description: Browse Magic Data</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>FormWorm at least 4.0 and less than 4.1</li>
+<li>Optionally Enables: magicDataExport</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Pages/modules/MagicDataBrowser/configs [225]</p>
+</li>
+<li>
+<p>Scripts: modules/Pages/modules/MagicDataBrowser/scripts [226]</p>
+</li>
+<li>
+<p>Templates: modules/Pages/modules/MagicDataBrowser/templates [227]</p>
+</li>
+<li>
+<p>browser_value_node_notset_mini.html, browser_value_node_mini.html, browser_node.html, browser_value_node_notset.html, magicdata_export_controls.html, browser_value_node.html, browser.html, browser_node_mini.html, browser_add_node.html</p>
+</li>
+<li>
+<p>Css: modules/Pages/modules/MagicDataBrowser/css [228]</p>
+</li>
+<li>
+<p>Classes: modules/Pages/modules/MagicDataBrowser/ [229]</p>
+</li>
+</ul>
+<p>I2CE_Page_MagicDataBrowser</p>
+<h2>magicDataExport</h2>
+<p>This describes version 4.0.0 of the module Magic Data Export (magicDataExport)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MagicDataExport [230]</p>
+</li>
+<li>
+<p>Description: Export Magic Data</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Xml: modules/MagicDataExport/xml [231]</p>
+</li>
+<li>
+<p>Classes: modules/MagicDataExport/ [232]</p>
+</li>
+</ul>
+<p>I2CE_MagicDataExport_Template, I2CE_Page_MagicDataExport</p>
+<h2>menu_select</h2>
+<p>This describes version 4.0.0 of the module Menu Select (menu_select)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MooTools/modules/MenuSelect [233]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_MenuSelect</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Page-&gt;menuSelect() via menuSelect()</p>
+</li>
+<li>Implements the method I2CE_Template-&gt;menuSelect() via menuSelect()</li>
+<li>Implements the method I2CE_Page-&gt;addUpdateSelect() via addUpdateSelect()</li>
+<li>Implements the method I2CE_Template-&gt;addUpdateSelect() via addUpdateSelect()</li>
+<li>Description: Handles Nested Select Options</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>MooTools at least 1.2 and less than 1.3</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Scripts: modules/MooTools/modules/MenuSelect/scripts [234]</p>
+</li>
+<li>
+<p>Classes: modules/MooTools/modules/MenuSelect/ [235]</p>
+</li>
+</ul>
+<h2>messageBox</h2>
+<p>This describes version 4.0.0 of the module Message Box (messageBox)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MessageHandler/modules/MessageBox [236]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_MessageBox</p>
+</li>
+<li>Description: Displays the default message in a box</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>messageHandler at least 4.0 and less than 4.1</p>
+</li>
+<li>pages at least 4.0 and less than 4.1</li>
+<li>MooTools at least 1.2 and less than 1.3</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Scripts: modules/MessageHandler/modules/MessageBox/scripts [237]</p>
+</li>
+<li>
+<p>Css: modules/MessageHandler/modules/MessageBox/css [238]</p>
+</li>
+<li>
+<p>Classes: modules/MessageHandler/modules/MessageBox/ [239]</p>
+</li>
+</ul>
+<p>I2CE_MessageBox</p>
+<h2>messageHandler</h2>
+<p>This describes version 4.0.0 of the module Message Handler (messageHandler)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MessageHandler [240]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_MessageHandler</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Fuzzy-&gt;userMessage() via addUserMessage()</p>
+</li>
+<li>Description: A handler for user messages</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Modules: modules/MessageHandler/modules [241]</p>
+</li>
+<li>
+<p>messageBox, messageNotice</p>
+</li>
+<li>Classes: modules/MessageHandler/ [242]</li>
+</ul>
+<p>I2CE_MessageHandler, I2CE_MessageNotice</p>
+<h2>messageNotice</h2>
+<p>This describes version 4.0.0 of the module Message Notices (messageNotice)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/MessageHandler/modules/MessageNotice [243]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_MessageNotice</p>
+</li>
+<li>Description: Displays any messages taggged with 'notice' in a notice box box</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>messageHandler at least 4.0 and less than 4.1</li>
+<li>MooTools at least 1.2 and less than 1.3</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Scripts: modules/MessageHandler/modules/MessageNotice/scripts [244]</p>
+</li>
+<li>
+<p>Css: modules/MessageHandler/modules/MessageNotice/css [245]</p>
+</li>
+<li>
+<p>Images: modules/MessageHandler/modules/MessageNotice/images [246]</p>
+</li>
+<li>
+<p>Classes: modules/MessageHandler/modules/MessageNotice/ [247]</p>
+</li>
+</ul>
+<h2>modDocumentor</h2>
+<p>This describes version 4.0.3 of the module Mod Documentor (modDocumentor)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Pages/modules/ModDocumentor [248]</p>
+</li>
+<li>
+<p>Description: Enables Documenting of existing mods and their relationship from the command line</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Pages/modules/ModDocumentor/lib [249]</p>
+</li>
+</ul>
+<p>I2Ce_Page_ModDocumentor</p>
+<h2>modulePrompter</h2>
+<p>This describes version 4.0.0 of the module Module Prompter (modulePrompter)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Pages/modules/Admin/modules/ModulePrompter [250]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_ModulePrompter</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Wrangler-&gt;manipulateWrangler_I2CE_home() via changeHomePage()</p>
+</li>
+<li>Description: Module to prompt the enable/disable of specific modules upon login</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>admin at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Pages/modules/Admin/modules/ModulePrompter/lib [251]</p>
+</li>
+</ul>
+<p>I2CE_Module_ModulePrompter</p>
+<h2>pages</h2>
+<p>This describes version 4.0.0 of the module Pages (pages)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Pages [252]</p>
+</li>
+<li>
+<p>Description: Provides pages, Users, Permissions and Templates</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>user at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Pages/configs [253]</p>
+</li>
+<li>
+<p>Modules: modules/Pages/modules [254]</p>
+</li>
+<li>
+<p>FileDump, LoginPage, admin, localeSelector, magicDataBrowser, modDocumentor, stub, tasks-roles</p>
+</li>
+<li>
+<p>Templates: modules/Pages/templates [255]</p>
+</li>
+<li>
+<p>noaccess.html, main.html</p>
+</li>
+<li>Classes: modules/Pages/lib [256]</li>
+</ul>
+<p>I2CE_Page, I2CE_PermissionParser, I2CE_Template, I2CE_Wrangler</p>
+<h2>stub</h2>
+<p>This describes version 4.0.0 of the module Page Stubs (stub)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Pages/modules/Stub [257]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Stub</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Page-&gt;addAjaxUpdate() via addAjaxUpdate()</p>
+</li>
+<li>Implements the method I2CE_Template-&gt;addAjaxUpdate() via addAjaxUpdate()</li>
+<li>Implements the method I2CE_Page-&gt;addAjaxToggle() via addAjaxToggle()</li>
+<li>Implements the method I2CE_Template-&gt;addAjaxToggle() via addAjaxToggle()</li>
+<li>Implements the method I2CE_Page-&gt;addAjaxRequestFunction() via addAjaxRequestFunction()</li>
+<li>Implements the method I2CE_Template-&gt;addAjaxRequestFunction() via addAjaxRequestFunction()</li>
+<li>Implements the method I2CE_Page-&gt;addAjaxCompleteFunction() via addAjaxCompleteFunction()</li>
+<li>Implements the method I2CE_Template-&gt;addAjaxCompleteFunction() via addAjaxCompleteFunction()</li>
+<li>Implements the method I2CE_Page-&gt;addAjaxToggleOnFunction() via addAjaxToggleOnFunction()</li>
+<li>Implements the method I2CE_Template-&gt;addAjaxToggleOnFunction() via addAjaxToggleOnFunction()</li>
+<li>Implements the method I2CE_Page-&gt;addAjaxToggleOffFunction() via addAjaxToggleOffFunction()</li>
+<li>Implements the method I2CE_Template-&gt;addAjaxToggleOffFunction() via addAjaxToggleOffFunction()</li>
+<li>Implements the method I2CE_Page-&gt;hasAjax() via hasAjaxFuzzy()</li>
+<li>Implements the method I2CE_Template-&gt;hasAjax() via hasAjaxFuzzy()</li>
+<li>Description: Request only the stub of a page -- intended for ajax use.</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>pages at least 4.0 and less than 4.1</li>
+<li>MooTools at least 1.2 and less than 1.3</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Pages/modules/Stub/configs [258]</p>
+</li>
+<li>
+<p>Scripts: modules/Pages/modules/Stub/scripts [259]</p>
+</li>
+<li>
+<p>Images: modules/Pages/modules/Stub/images [260]</p>
+</li>
+<li>
+<p>Css: modules/Pages/modules/Stub/css [261]</p>
+</li>
+<li>
+<p>Classes: modules/Pages/modules/Stub/ [262]</p>
+</li>
+</ul>
+<p>I2CE_Page_Stub, I2CE_Page_Stub_Ajax_Test, I2CE_Stub</p>
+<h2>swissConfig</h2>
+<p>This describes version 4.0.0 of the module Swiss Config (swissConfig)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/SwissFactory/modules/SwissConfig [263]</p>
+</li>
+<li>
+<p>Description: The Swiss Factory Module to display configuration files</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>swissfactory at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/SwissFactory/modules/SwissConfig/configs [264]</p>
+</li>
+<li>
+<p>Classes: modules/SwissFactory/modules/SwissConfig/lib [265]</p>
+</li>
+</ul>
+<p>I2CE_Page_SwissConfig, I2CE_SwissConfigFactory</p>
+<h2>swissMagic</h2>
+<p>This describes version 4.0.0 of the module Swiss Magic (swissMagic)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/SwissFactory/modules/SwissMagic [266]</p>
+</li>
+<li>
+<p>Description: The Swiss Factory Module to display magic data directly</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>swissfactory at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/SwissFactory/modules/SwissMagic/configs [267]</p>
+</li>
+<li>
+<p>Classes: modules/SwissFactory/modules/SwissMagic/lib [268]</p>
+</li>
+</ul>
+<p>I2CE_Page_SwissMagic</p>
+<h2>swissfactory</h2>
+<p>This describes version 4.0.0 of the module Swiss Factory (swissfactory)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/SwissFactory [269]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_SwissFactory</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Swiss_Default_Leaf-&gt;editValue_string_single() via editValue_string_single()</p>
+</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;editValue_string_many() via editValue_string_many()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;editValue_delimited_single() via editValue_delimited_single()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;editValue_delimited_many() via editValue_delimited_many()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;editValue_boolean_single() via editValue_boolean_single()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;editValue_boolean_many() via editValue_boolean_many()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;editValue_list_single() via editValue_list_single()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;editValue_list_many() via editValue_list_many()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;viewValue_string_single() via viewValue_string_single()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;viewValue_string_many() via viewValue_string_many()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;viewValue_delimited_single() via viewValue_delimited_single()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;viewValue_delimited_many() via viewValue_delimited_many()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;viewValue_boolean_single() via viewValue_boolean_single()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;viewValue_boolean_many() via viewValue_boolean_many()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;viewValue_list_single() via viewValue_list_single()</li>
+<li>Implements the method I2CE_Swiss_Default_Leaf-&gt;viewValue_list_many() via viewValue_list_many()</li>
+<li>Description: The Swiss Factory Magic Data Editing System</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>FormWorm at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>menu_select at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/SwissFactory/lib [270]</p>
+</li>
+<li>
+<p>I2CE_Module_SwissFactory, I2CE_Swiss, I2CE_SwissFactory, I2CE_SwissMagicFactory, I2CE_Swiss_Default, I2CE_Swiss_Default_Base, I2CE_Swiss_Default_Leaf</p>
+</li>
+<li>
+<p>Templates: modules/SwissFactory/templates [271]</p>
+</li>
+<li>
+<p>configuration_list_single.html, configuration_list_many.html, configurations.html, configuration_string_single.html, configuration_string_many.html, configuration_delimited_individual_view.html, configuration_list_single_view.html, configuration_delimited_single_individual.html, configuration_delimited_single.html, configuration_delimited_many.html, configuration_delimited_individual.html, swiss_factory_view.html, configuration_string_many_individual.html, configuration_string_many_individual_view.html, configuration_string_single_view.html, configuration_list_many_view.html, configuration_noindex_string_many_individual.html, configuration_noindex_string_many_individual_view.html, configurationGroup_default.html, configuration_options.html, swiss_factory_edit.html, configuration_noindex_string_many.html, configurationGroups.html, configuration_boolean_single_view.html, configuration_boolean_single.html, configuration_main.html</p>
+</li>
+<li>
+<p>Modules: modules/SwissFactory/modules [272]</p>
+</li>
+<li>
+<p>swissConfig, swissMagic</p>
+</li>
+<li>Css: modules/SwissFactory/css [273]</li>
+</ul>
+<h2>tasks-roles</h2>
+<p>This describes version 4.0.0 of the module Tasks and Roles (tasks-roles)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/Pages/modules/TasksAndRoles [274]</p>
+</li>
+<li>
+<p>Description: Provides administator interface to define tasks and role</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>pages at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Pages/modules/TasksAndRoles/configs [275]</p>
+</li>
+<li>
+<p>Templates: modules/Pages/modules/TasksAndRoles/templates [276]</p>
+</li>
+<li>
+<p>roles_and_tasks_view_all_roles.html, roles_and_tasks_edit_role.html, roles_and_tasks_view_all_tasks.html, roles_and_tasks_view_all_tasks_each.html, roles_and_tasks_view_all_roles_no_edit.html, roles_and_tasks_menu.html, roles_and_tasks_view_all_roles_each.html, roles_and_tasks_view_all.html, roles_and_tasks_edit_task.html</p>
+</li>
+<li>Classes: modules/Pages/modules/TasksAndRoles/lib [277]</li>
+</ul>
+<p>I2CE_Page_TasksAndRoles</p>
+<h2>template-data</h2>
+<p>This describes version 4.0.0 of the module Template Data (template-data)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/TemplateData [278]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by I2CE_Module_TemplateData</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method I2CE_Page-&gt;setDataTypePriority() via setDataTypePriority()</p>
+</li>
+<li>Implements the method I2CE_Template-&gt;setDataTypePriority() via setDataTypePriority()</li>
+<li>Implements the method I2CE_Page-&gt;setData() via setData()</li>
+<li>Implements the method I2CE_Template-&gt;setData() via setData()</li>
+<li>Implements the method I2CE_Page-&gt;getData() via getData()</li>
+<li>Implements the method I2CE_Template-&gt;getData() via getData()</li>
+<li>Implements the method I2CE_Page-&gt;getDefaultData() via getDefaultData()</li>
+<li>Implements the method I2CE_Template-&gt;getDefaultData() via getDefaultData()</li>
+<li>Implements the method I2CE_Page-&gt;removeData() via removeData()</li>
+<li>Implements the method I2CE_Template-&gt;removeData() via removeData()</li>
+<li>Implements the method I2CE_Page-&gt;getDataNames() via getDataNames()</li>
+<li>Implements the method I2CE_Template-&gt;getDataNames() via getDataNames()</li>
+<li>Implements the method I2CE_Page-&gt;ensureNode() via ensureNode()</li>
+<li>Implements the method I2CE_Template-&gt;ensureNode() via ensureNode()</li>
+<li>Description: A module that allows you to associate arbitray types of data to any node of the template DOM</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Modules: modules/TemplateData/modules [279]</p>
+</li>
+<li>
+<p>DisplayData, Options, Tags</p>
+</li>
+<li>Classes: modules/TemplateData/ [280]</li>
+</ul>
+<p>I2CE_Module_TemplateData</p>
+<h2>user</h2>
+<p>This describes version 4.0.0 of the module User (user)</p>
+<ul>
+<li>
+<p>Source: i2ce/modules/User [281]</p>
+</li>
+<li>
+<p>Description: Provides Users</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0.3 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/User/lib [282]</p>
+</li>
+<li>
+<p>I2CE_User</p>
+</li>
+<li>Modules: modules/User/modules [283]</li>
+</ul>
+<p>UserAccess, UserAccess_DHIS, UserAccess_LDAP, UserAccess_LDAP_Hybrid</p>
+<h2>References</h2>
+<p>[1] https://launchpad.net/i2ce [2] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/BackgroundProcess [3] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/BackgroundProcess/configs [4] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/BackgroundProcess/templates [5] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/BackgroundProcess/css [6] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/BackgroundProcess/ [7] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Binary_Files [8] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Binary_Files/lib [9] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Binary_Files/sql [10] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/CachedForms [11] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/CachedForms/configs [12] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/CachedForms/lib [13] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/CachedForms/</p>
+<p>templates [14] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/ColorPicker [15] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/ColorPicker/</p>
+<p>scripts [16] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/ColorPicker/</p>
+<p>templates [17] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/ColorPicker/css [18] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/ColorPicker/ [19] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports [20] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/configs [21] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/lib [22] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/css [23] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/images [24] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/templates [25] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/xml [26] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules [27] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/Export [28] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/Export/</p>
+<p>templates [29] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/Export/lib [30] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/PDF [31] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/PDF/</p>
+<p>templates</p>
+<p>[32] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/PDF/lib [33] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/PieChart [34] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/PieChart/</p>
+<p>configs [35] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/PieChart/</p>
+<p>templates [36] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/PieChart/lib [37] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/PieChart/css [38] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/DatePicker [39] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/DatePicker/scripts [40] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/DatePicker/css [41] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/DatePicker/ [42] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/TemplateData/modules/DisplayData [43] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/TemplateData/modules/DisplayData/ [44] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Fields [45] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Fields/configs [46] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Fields/lib [47] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Fields/lib/fields</p>
+<p>[48] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Fields/templates [49] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Fields/scripts [50] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Fields/modules</p>
+<p>[51] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/FileDump [52] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/FileDump/configs [53] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/FileDump/ [54] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Float [55] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Float/lib [56] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/FormWorm [57] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/FormWorm/</p>
+<p>scripts [58] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/FormWorm/css [59] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/FormWorm/ [60] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/ [61] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head://I2CE_config.inc.php [62] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head://I2CE_structure.sql [63] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head://lib [64] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head://modules [65] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head://scripts [66] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head://sql [67] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/ImportExport [68] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/ImportExport/sql [69] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/ImportExport/lib [70] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists [71] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/configs [72] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/lib [73] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/templates [74] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/sql [75] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/modules [76] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/modules/</p>
+<p>ListLink [77] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/modules/</p>
+<p>ListLink/configs [78] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/modules/</p>
+<p>ListLink/modules [79] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/modules/</p>
+<p>ListLink/ [80] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/modules/</p>
+<p>ListLink/modules/ListLinkToList [81] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/modules/</p>
+<p>ListLink/modules/ListLinkToList/configs [82] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/modules/</p>
+<p>ListLink/modules/ListLinkToList/ [83] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/modules/</p>
+<p>ListLink/modules/ListLinkToString [84] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/modules/</p>
+<p>ListLink/modules/ListLinkToString/configs [85] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/Lists/modules/</p>
+<p>ListLink/modules/ListLinkToString/ [86] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/LocaleForm [87] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/LocaleForm/configs [88] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/LocaleForm/ [89] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Login [90] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Login/configs [91] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Login/css [92] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Login/lib [93] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Login/templates [94] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MimeTypes [95] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MimeTypes/configs</p>
+<p>[96] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MimeTypes/lib [97] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MimeTypes/mime [98] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools</p>
+<p>[99] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/scripts [100] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules [101] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/ [102] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/Core [103] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/Core/scripts [104] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/Core/css [105] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/Core/ [106] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/TemplateData/modules/Options [107] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/TemplateData/modules/Options/ [108] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/PrintedForms [109] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/PrintedForms/</p>
+<p>configs [110] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/PrintedForms/lib [111] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/PrintedForms/</p>
+<p>images [112] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/PrintedForms/</p>
+<p>templates [113] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/</p>
+<p>ReportArchiver [114] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/</p>
+<p>ReportArchiver/configs [115] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/</p>
+<p>ReportArchiver/lib [116] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/CustomReports/modules/</p>
+<p>ReportArchiver/templates [117] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/StretchPage [118] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/StretchPage/lib [119] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/StretchPage/</p>
+<p>scripts [120] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/StretchPage/css [121] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/TemplateData/modules/Tags [122] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/TemplateData/modules/Tags/ [123] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Timer [124] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Timer/configs [125] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Timer/ [126] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/TreeSelect [127] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/TreeSelect/</p>
+<p>scripts [128] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/TreeSelect/css [129] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/TreeSelect/ [130] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/UserAccess [131] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/UserAccess/lib [132] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/UserAccess/sql [133] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/UserAccess/templates [134] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/UserAccess_DHIS [135] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/UserAccess_DHIS/lib [136] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/UserAccess_DHIS/sql [137] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/UserAccess_DHIS/</p>
+<p>templates [138] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/UserAccess_LDAP [139] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/UserAccess_LDAP/</p>
+<p>lib [140] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/UserAccess_LDAP/</p>
+<p>templates [141] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/</p>
+<p>UserAccess_LDAP_Hybrid</p>
+<p>[142] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/</p>
+<p>UserAccess_LDAP_Hybrid/lib</p>
+<p>[143] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules/</p>
+<p>UserAccess_LDAP_Hybrid/templates [144] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/UserForm [145] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/UserForm/configs [146] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/UserForm/lib [147] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/UserForm/templates [148] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/YAML [149] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/YAML/lib [150] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/YAML/xml [151] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Admin [152] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Admin/configs [153] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Admin/lib [154] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Admin/templates [155] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Admin/modules [156] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Admin/css [157] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Admin/scripts [158] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Admin/images [159] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/Debugger [160] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/Debugger/scripts [161] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/Debugger/</p>
+<p>images [162] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/Debugger/css [163] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/Debugger/ [164] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FieldLimits [165] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FieldLimits/lib [166] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FieldLimits/</p>
+<p>templates [167] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormLimits [168] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormLimits/lib [169] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormLimits/</p>
+<p>templates [170] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormBrowser [171] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormBrowser/</p>
+<p>configs [172] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormBrowser/lib [173] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormBrowser/</p>
+<p>templates</p>
+<p>[174] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormBrowser/css [175] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormDocumentor [176] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormDocumentor/</p>
+<p>lib [177] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormDocumentor/</p>
+<p>images [178] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormRelationship [179] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormRelationship/</p>
+<p>lib [180] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormRelationship/</p>
+<p>templates [181] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormRelationship/</p>
+<p>css [182] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms [183] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/configs [184] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/lib [185] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/templates [186] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/scripts [187] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules</p>
+<p>[188] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage [189] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/lib</p>
+<p>[190] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules [191] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageCSV [192] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageCSV/lib [193] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageSDMXHD [194] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageSDMXHD/lib [195] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageEntry [196] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageEntry/lib [197] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageEntry/sql [198] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageEval [199] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageEval/lib [200] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageFile [201] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageFile/lib [202] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageFlat [203] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageFlat/lib [204] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageMagicData [205] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageMagicData/lib [206] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageMultiFlat [207] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageMultiFlat/lib [208] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageXML [209] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Forms/modules/FormStorage/</p>
+<p>modules/FormStorageXML/lib [210] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Jumper [211] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Jumper/images [212] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Jumper/css [213] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Jumper/ [214] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/LocaleSelector [215] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/LocaleSelector/lib [216] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/LocaleSelector/</p>
+<p>images [217] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/LocaleSelector/</p>
+<p>Flags.xml [218] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/LocaleSelector/</p>
+<p>configs [219] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/LocaleSelector/</p>
+<p>templates [220] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/FlashCharts [221] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/FlashCharts/maani_charts</p>
+<p>[222] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/FlashCharts/scripts [223] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/FlashCharts/ [224] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/MagicDataBrowser</p>
+<p>[225] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/MagicDataBrowser/</p>
+<p>configs [226] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/MagicDataBrowser/</p>
+<p>scripts [227] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/MagicDataBrowser/</p>
+<p>templates [228] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/MagicDataBrowser/</p>
+<p>css [229] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/MagicDataBrowser/ [230] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MagicDataExport [231] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MagicDataExport/xml [232] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MagicDataExport/ [233] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/MenuSelect [234] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/MenuSelect/</p>
+<p>scripts [235] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MooTools/modules/MenuSelect/ [236] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler/modules/</p>
+<p>MessageBox [237] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler/modules/</p>
+<p>MessageBox/scripts [238] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler/modules/</p>
+<p>MessageBox/css [239] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler/modules/</p>
+<p>MessageBox/ [240] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler [241] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler/modules [242] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler/ [243] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler/modules/</p>
+<p>MessageNotice [244] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler/modules/</p>
+<p>MessageNotice/scripts [245] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler/modules/</p>
+<p>MessageNotice/css [246] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler/modules/</p>
+<p>MessageNotice/images [247] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/MessageHandler/modules/</p>
+<p>MessageNotice/</p>
+<p>[248] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/ModDocumentor [249] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/ModDocumentor/lib [250] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Admin/modules/</p>
+<p>ModulePrompter [251] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Admin/modules/</p>
+<p>ModulePrompter/lib [252] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages [253] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/configs [254] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules [255] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/templates [256] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/lib [257] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Stub [258] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Stub/configs [259] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Stub/scripts [260] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Stub/images [261] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Stub/css [262] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/Stub/ [263] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/SwissFactory/modules/SwissConfig</p>
+<p>[264] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/SwissFactory/modules/SwissConfig/</p>
+<p>configs [265] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/SwissFactory/modules/SwissConfig/</p>
+<p>lib</p>
+<p>[266] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/SwissFactory/modules/SwissMagic [267] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/SwissFactory/modules/SwissMagic/</p>
+<p>configs [268] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/SwissFactory/modules/SwissMagic/</p>
+<p>lib [269] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/SwissFactory [270] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/SwissFactory/lib [271] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/SwissFactory/templates [272] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/SwissFactory/modules [273] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/SwissFactory/css [274] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/TasksAndRoles [275] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/TasksAndRoles/</p>
+<p>configs [276] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/TasksAndRoles/</p>
+<p>templates [277] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/Pages/modules/TasksAndRoles/lib [278] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/TemplateData [279] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/TemplateData/modules [280] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/TemplateData/ [281] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User [282] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/lib [283] http://bazaar.launchpad.net/~intrahealth+informatics/i2ce/4.0.6-release/files/head:/modules/User/modules</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=33765">revision 33765</a>; contributors: Litlfred. Pages 104&ndash;159 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>
