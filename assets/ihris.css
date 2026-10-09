@@ -60,7 +60,24 @@ main { min-width:0; }
 .hood { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px; align-items:start; }
 svg { width:100%; height:auto; border:1px solid var(--rule); background:#fff; }
 .rels { display:none; }
+.gsearch label { display:block; font-size:13px; color:var(--mute); margin-bottom:2px; }
+.gsearch input { width:100%; max-width:520px; min-height:44px; padding:8px; font:inherit; border:1px solid #767676; }
+nav.az { display:flex; flex-wrap:wrap; gap:4px; margin:10px 0 4px; }
+nav.az a { display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; padding:0 8px; border:1px solid var(--rule);
+  font-weight:700; text-decoration:none; }
+dl.gloss dt { margin-top:12px; font-size:15px; overflow-wrap:anywhere; }
+dl.gloss dd { margin:2px 0 0 18px; overflow-wrap:break-word; }
+dl.gloss dd p { margin:2px 0; }
+dl.gloss .badge.st { border-style:dashed; color:var(--mute); }
+ul.matches { margin:2px 0; padding-left:18px; }
+ul.schemes { padding-left:18px; } ul.schemes li { margin-bottom:10px; overflow-wrap:break-word; }
+ul.schemes a.tgt { display:inline-flex; align-items:center; min-height:44px; }
+.gloss .src code, .matches a { overflow-wrap:anywhere; }
+.gloss a.tgt, .matches a, main table a.tgt { display:inline-flex; align-items:center; min-height:44px; }
+dl.gloss details > summary { min-height:44px; padding:10px 0; }
 @media (max-width:700px) {
+  dl.gloss dd { margin-left:8px; }
+  .crumbs a, .card a.go, .badges a { display:inline-flex; align-items:center; min-height:44px; }
   header.site { padding:10px 16px; } header.site img { height:40px; } .brand { font-size:20px; }
   main { padding:16px; } h1 { font-size:22px; }
   .layout { grid-template-columns:1fr; }

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installing iHRIS on Ubuntu 10.4 (Lucid) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1ui4pc129a.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1ui4pc129a"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Installing iHRIS on Ubuntu 10.4 (Lucid)</div>
+<h1>Installing iHRIS on Ubuntu 10.4 (Lucid)</h1>
+<div class="wiki">
+<p>Ubuntu 10.4 comes with PHP 5.3 so there a few a few issues that need to be corrected.</p>
+<h2>APC</h2>
+<p>To compile pecl packages yourself you'll need these packages installed. They may already be installed.</p>
+<pre><code>sudo apt-get install php5-dev apache2-prefork-dev
+</code></pre>
+<p>The version of APC that ships with 10.4 causes problems. You'll need to downgrade it for it to work. When it asks if you want to use the spin locks type in yes. Run the following commands in a terminal:</p>
+<pre><code>sudo apt-get remove php-apc
+sudo pecl config-set preferred_state beta
+sudo pecl install APC-3.1.2
+sudo pecl config-set preferred_state stable
+</code></pre>
+<p>Now you need to set the configuration options for APC. Create or edit the ini file by typing:</p>
+<pre><code>sudo gedit /etc/php5/conf.d/apc.ini
+</code></pre>
+<p>The contents should be:</p>
+<pre><code>extension=apc.so
+apc.shm_size=100
+apc.write_lock=1
+apc.slam_defense=0
+</code></pre>
+<h2>Sessions</h2>
+<p>Now you need to set the session save path. The default is /tmp but that is causing problems and the script to clean up sessions doesn't look there. You'll need to edit the files for apache and cli and make the same change. To edit the apache php config type:</p>
+<pre><code>sudo gedit /etc/php5/apache2/php.ini
+</code></pre>
+<p>Find the line that looks like:</p>
+<pre><code>;session.save_path = &quot;/tmp&quot;
+</code></pre>
+<p>And change it to be (don't forget to remove the semi-colon):</p>
+<pre><code>session.save_path = &quot;/var/lib/php5&quot;
+</code></pre>
+<p>Now edit the cli config file and make the same change:</p>
+<pre><code>sudo gedit /etc/php5/cli/php.ini
+</code></pre>
+<h2>Restart</h2>
+<p>Now restart apache and memcached (if you're using it) and try to access your site again.</p>
+<pre><code>sudo /etc/init.d/apache2 restart
+sudo /etc/init.d/memcached restart
+</code></pre></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=33731">revision 33731</a>; contributors: Lduncan, Litlfred. Pages 446&ndash;447 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

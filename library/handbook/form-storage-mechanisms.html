@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Form Storage Mechanisms · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1ui4pc129a.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1ui4pc129a"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Form Storage Mechanisms</div>
+<h1>Form Storage Mechanisms</h1>
+<div class="wiki">
+<p>A storage mechanism is defined by subclass I2CE_FormStorage_Mechanism which provides the methods to read, and possibly write, the data for any form with the given mechanism. If the data is stored in a database, it can sub-class I2CE_FormStorage_DB and provide read access to the data as a form by only defining one method, getRequiredFieldsQuery(). To make a storage mechanism writable, you only need to write a method which defines how to store a data field.</p>
+<p>Once a storage mechanism is written, the data for that form can be queried via searches with limits.</p>
+<p>The currently (or soon-to-be) available storage mechanisms are:</p>
+<ul>
+<li>entry: A vertical database storage mechanism which keeps a history of when and by who individual fields (data elements) were changed. This is the default storage mechanism, and the storage mechanism that was used in version prior to 3.2.</li>
+<li>flat: A horizontal database storage mechanism, where a row of a table corresponds to an instance of a form. The columns, or any SQL function, of the table are used to define the fields.</li>
+<li>multi_flat: A horizontal database storage mechanism similar to the flat storage mechanism but combining several identically structured tables. It is primarily intended for data collation.</li>
+<li>magicdata: A locale aware storage mechanism primarily intended for centrally maintained lists of data.</li>
+<li>CSV: A storage mechanism to read data from a CSV file</li>
+<li>Eval: A storage mechanism to populate and get records based on php function calls</li>
+<li>XML: A storage mechanism to populate and get records based on an XML file.</li>
+<li>SDMX-HD: A storage mechanism to populate and get records based on SDMX-HD code lists.</li>
+<li>SDMX Cross Sectional: A storage mechanism to populate and get records based on SDMX Cross Sectional Data.</li>
+</ul>
+<h2>Aggregating Storage Mechansims</h2>
+<p>You may be in a situation in which you need to aggregate from several different instances of iHRIS Manage (or Qualify). You can mark a specific a storage mechanism, $storage_mechanism, as being aggregating by setting:</p>
+<pre><code>/modules/forms/storage_options/$storage_mechanism/componentized
+</code></pre>
+<p>to 1. Then each form $form that uses that storage mechanism, will be componetized.</p>
+<p>At the moment, only the Multi-Flat storage mechanism is an aggregating storage mechanism.</p>
+<p>Once the form-storage module is enabled, an instance of I2CE_Form has the method isComponentized() to check if a form is componentized. You can also check via I2CE_FormStorage::isComponentized($form)</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=33551">revision 33551</a>; contributors: Lduncan, Litlfred, MarkAHershberger. Pages 100&ndash;100 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

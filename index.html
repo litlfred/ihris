@@ -1,13 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Home · iHRIS Knowledge Base</title>
 <link rel="stylesheet" href="assets/ihris.css">
 <link rel="icon" href="assets/iHRIS_logo.png">
-</head>
-<body>
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="./assets/navbar/rail-28acgfthrn5.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root=".">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root=".">{"data":"rail-28acgfthrn5"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="./">iHRIS Knowledge Base</a></nav>
 <a class="skip" href="#main">Skip to content</a>
 <div class="wrap">
 <header class="site">
@@ -15,10 +17,10 @@
   <div><p class="brand"><a href="index.html">iHRIS Knowledge Base</a></p>
   <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
 </header>
-<nav class="top" aria-label="Site"><ul><li><a href="index.html" aria-current="page">Home</a></li><li><a href="data-model/index.html">Data model</a></li><li><a href="data-dictionary/index.html">Data dictionary</a></li><li><a href="sources/index.html">Sources</a></li><li><a href="library/index.html">Library</a></li><li><a href="schemas/index.html">Schemas</a></li><li><a href="data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<nav class="top" aria-label="Site"><ul><li><a href="index.html" aria-current="page">Home</a></li><li><a href="data-model/index.html">Data model</a></li><li><a href="data-dictionary/index.html">Data dictionary</a></li><li><a href="sources/index.html">Sources</a></li><li><a href="library/index.html">Library</a></li><li><a href="schemas/index.html">Schemas</a></li><li><a href="glossary/index.html">Glossary</a></li><li><a href="data-model/search.html">Search</a></li><li><a href="beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
 <main id="main" tabindex="-1">
 <h1>iHRIS Knowledge Base</h1>
-<p>A folio-assistant folio that ingests and DESCRIBES the knowledge assets of iHRIS, the open-source health workforce information system: Launchpad source (by `lp:` reference, never copied), iHRIS 5 on GitHub (pinned by commit), the Implementation Toolkit, the old wiki, and documents people share.</p>
+<p>A folio-assistant folio that ingests and DESCRIBES the knowledge assets of iHRIS, the open-source health workforce information system: Launchpad source (by `lp:` reference, never copied), iHRIS 5 on GitHub (pinned by commit), the Implementation Toolkit, the old wiki (and its 2010 handbook export), the 2009 use-case model, and documents people share.</p>
 <p class="mute">Release 4.3.3: 156 form-class records (153 distinct classes) and
 586 fields across the four core packages, from the checksum-verified
 <code>ihris-suite-4.3.3.tar.bz2</code>.</p>
@@ -30,6 +32,13 @@
   <p>Every form class with its fields, the lists it draws from, and its neighbourhood: what it extends and what extends it.</p>
   <span class="stats">156 records, 153 classes</span>
   <a class="go" href="data-model/index.html">Open the data model</a>
+</article>
+<article class="card">
+  <span class="kind">glossary</span>
+  <h3>Glossary</h3>
+  <p>Every term extracted, as W3C SKOS: the toolkit&#39;s technical terms and the iHRIS code lists, linked to the external concepts they match.</p>
+  <span class="stats">1725 terms in 35 schemes</span>
+  <a class="go" href="glossary/index.html">Open the glossary</a>
 </article>
 <article class="card">
   <span class="kind">launchpad source</span>
@@ -85,6 +94,18 @@
   <p>The iHRIS wiki (open.intrahealth.org &#x27;Osi&#x27;, later wiki.ihris.org), restored from whatever copies survive.</p>
   
   <a class="go" href="library/wiki/index.html">Open<span class="mute"> · ihris-wiki</span></a>
+</article><article class="card">
+  <span class="kind">knowledge source</span>
+  <h3>iHRIS Administrator Handbook (2010 wiki export)</h3>
+  <p>The &#x27;iHRIS Administator Handbook&#x27; (sic): 79 articles of the iHRIS wiki (open.intrahealth.org), exported to a 534-page PDF by mwlib/PediaPress on 2010-09-17.</p>
+  <span class="stats">79 wiki articles, 11 images (GFDL-1.2)</span>
+  <a class="go" href="library/handbook/index.html">Open<span class="mute"> · ihris-admin-handbook</span></a>
+</article><article class="card">
+  <span class="kind">knowledge source</span>
+  <h3>iHRIS use-case model (2009)</h3>
+  <p>The use cases, actors and requirements of iHRIS Common, Manage, Qualify and Plan, from four Serlio CaseComplete reports (2009, document author sturlington), parsed into structured records and Markdown, with a crosswalk from each use case to the iHRIS 4.3.3 forms it names.</p>
+  <span class="stats">138 use cases in 4 products; 88 linked to forms</span>
+  <a class="go" href="library/use-cases/index.html">Open<span class="mute"> · ihris-use-cases</span></a>
 </article><article class="card">
   <span class="kind">derived knowledge asset</span>
   <h3>iHRIS health workforce DAK (draft data dictionary)</h3>

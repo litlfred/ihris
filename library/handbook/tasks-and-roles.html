@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasks and Roles · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1ui4pc129a.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1ui4pc129a"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Tasks and Roles</div>
+<h1>Tasks and Roles</h1>
+<div class="wiki">
+<h2>Roles</h2>
+<p>A role is a collection of tasks that can be assigned to a user's account.</p>
+<ul>
+<li>role names are defined as the children of the magic data path /I2CE/roles/names</li>
+<li>a role $role has a display name defined at /I2CE/roles/names/$role/display_name</li>
+<li>
+<p>roles can inherit tasks from one another by adding it as a value of a child node of /I2CE/toles/names/$role/trickle_up For example, in iHRIS Manage at the /I2CE/roles/names/hr_staff we have:</p>
+</li>
+<li>
+<p>display_name =&gt; HR Staff</p>
+</li>
+<li>
+<p>trickle_up =&gt; Array</p>
+</li>
+<li>
+<p>0 =&gt; admin</p>
+</li>
+<li>1 =&gt; hr_manager</li>
+</ul>
+<p>says that the role hr_staff is displayed as 'HR Staff' and that an hr_manager or admin has all the tasks that a hr_staff has.</p>
+<h2>Tasks</h2>
+<p>A task can be both a collection of sub-tasks that this task has and description of some action that can be checked for permission. Task information is stored in magic data under /I2CE/tasks/. To create a task you create a scalar type child node of /I2CE/tasks/task_description. That name node of the node is the name used to reference the task. The value of the node is the description of the task displayed in the Task and Role Management page. For example, the magic data node /I2CE/tasks/task_description may look something like:</p>
+<ul>
+<li>custom_report_admin =&gt; Allows administration of the Custom Reporting System</li>
+<li>custom_reports_can_access =&gt; Allows minimal access to the Custom Reporting System</li>
+<li>custom_reports_delete =&gt; Allows deletion of data about custom reports</li>
+<li>custom_reports_can_access_relationships =&gt; Allows access to the Custom Report Relationships</li>
+</ul>
+<p>You can define the sub tasks of a task $task by specifying /I2CE/tasks/task_trickle_down_task. For example, the magic data node /I2CE/tasks/task_trickle_down/custom_reports_admin may look like:</p>
+<ul>
+<li>0 =&gt; custom_reports_can_access</li>
+<li>1 =&gt; custom_reports_delete_reports</li>
+</ul>
+<p>which says that the 'custom_report_admin' task has all the tasks and rights defined by 'custom_reports_can_access' and 'custom_reports_delete_reports.'</p>
+<p>The tasks that are assigned to a role $role are the values of the children under /I2CE/tasks/role_trickle_down/$role</p>
+<p>A user with the role 'admin' has all tasks.</p>
+<h2>Uses of Tasks and Roles</h2>
+<p>The tasks and roles are used in several places:</p>
+<ul>
+<li>The main I2CE_Page class checks for basic permission for the page.</li>
+<li>Several pages perform checks for specific roles and tasks in their action() method.</li>
+<li>Just before displaying the HTML the I2CE_Template, class verifies that all tasks, roles and permissions are satisfied on each node.</li>
+</ul>
+<h2>Task and Role Administration</h2>
+<p>For deployment across many computers, tasks and roles should be set up in an appropriate module configuration file.</p>
+<p>For setting tasks and roles dynamically, the module 'tasks-roles' provides the page named 'roles' and the page named 'tasks' that allows creating new roles and tasks as well as defining the permission inheritance.</p>
+<h2>Permissions and the Permission Parser</h2>
+<p>The permission parser allows logical expressions to combine severals types permissions, such as task, roles, into a permission string.</p>
+<p>We can assign tasks, roles and permissions to DOM nodes by:</p>
+<ul>
+<li>Setting the attribute role. If the values is X, this results in the permission string role(X) which is passed to the permission parser</li>
+<li>Setting the attribute task. If the values is X, this results in the permission string task(X) which is passed to the permission parser</li>
+<li>Setting the attribute permission.</li>
+</ul>
+<p>If the node fails any of the role, task or permission checks it will remove the node</p>
+<h2>Permission Types: task and role</h2>
+<p>The task and role type permissions are formed by surrounding a role name with role() or a task name with task(). For example, you can create the following permission string:</p>
+<pre><code>(task(can_edit_database_list_facility_type) &amp; task(can_edit_database_list_fav_color) || role(admin)
+</code></pre>
+<p>By default, tasks and roles are 'OR'ed together so the following are all the same:</p>
+<ul>
+<li>task(can_edit_database_list_facility_type) or task(can_edit_database_list_fav_color)</li>
+<li>task(can_edit_database_list_facility_type) | task(can_edit_database_list_fav_color)</li>
+<li>task(can_edit_database_list_facility_type) task(can_edit_database_list_fav_color)</li>
+<li>task(can_edit_database_list_facility_type,can_edit_database_list_fav_color)</li>
+<li>task(can_edit_database_list_facility_type can_edit_database_list_fav_color)</li>
+<li>task(can_edit_database_list_facility_type|can_edit_database_list_fav_color)</li>
+</ul>
+<h2>Permission Type: module</h2>
+<p>Any public function of a module class can be called by the permission parser. For example, suppose that the module 'my_module' has a method 'my_method()' then we can use as the permission string with arguments:</p>
+<pre><code>module('my_module','my_method', [arg1], ... , [argN])
+</code></pre>
+<p>which would results in the call:</p>
+<pre><code>$module-&gt;my_method($arg1,..,$argN)
+</code></pre>
+<p>where $module is the instance of the module class for the module 'my_module.'</p>
+<h2>Permission Type: form</h2>
+<p>The 'forms' module adds in the form type. The permission string with arguments:</p>
+<pre><code>form('form_name', 'form_method', [arg1] , .., [argN])
+</code></pre>
+<p>results in the call:</p>
+<pre><code>$form-&gt;form_method($arg1,..,$argN)
+</code></pre>
+<p>where $form is the result of getting the form by the name of 'form_name' via template data for node (if there was any) the permission string was assigned to.</p>
+<h2>Arguments</h2>
+<p>A permission type (such as role, task, form or module) in a permission string behaves essentially like a function. Suppose that we have the general shape for a piece of a permission string:</p>
+<pre><code>type([arg1],[arg2],...,[argN])
+</code></pre>
+<p>Then this results in the method call:</p>
+<pre><code>$permissionParsrer-&gt;hasPermission_$type($node,$args)
+</code></pre>
+<p>where $node is the DOMNode the permission string was called on and $args is the array($arg1,..$argN). The permission parser turns [argM] into $argM according to the following rules:</p>
+<ul>
+<li>
+<p>if [argM] starts with a $ then it refers to template data and the following rules apply:</p>
+</li>
+<li>
+<p>The string has the form $abcd. The value of $argM becomes the template display data with name 'abcd.'</p>
+</li>
+<li>The string has the form ${WXYZ}abcd. The value of $argM becomes the template data with category 'WXYZ' and with name 'abcd.'</li>
+<li>&lt;NODE&gt; becomes the instance of DOMNode (if any) that the permission string was called on</li>
+<li>&lt;TEMPLATE&gt; becomes the instance of I2CE_Template (if any) that the permission parser was called on</li>
+<li>&lt;USER&gt; becomes the instance of I2CE_User that is this session</li>
+<li>if [argM] starts with a single quote ' then it is a string until the next non-escaped ' is found</li>
+<li>
+<p>if [argM] starts with a double quote " then is is a string until the next non-escaped " is found. In addition the following substitution rules apply:</p>
+</li>
+<li>
+<p>any substring starting with $ and consisting of alpha-numeric characters, - or _ is interpreted as template display data to be substituted For example "my name is $name" becomes "my name is Joe" if the template data named 'name' and with type DISPLAY is "Joe"</p>
+</li>
+<li>
+<p>any substring starting with {$ is read until an enclosing } is found. The string between the ${ and } is the name of DISPLAY template data which is then substituted.</p>
+</li>
+<li>To prevent the above, { and $ may be escaped with a \</li>
+<li>any other string of alpha-numeric characters (and a few permitted punctuation marks) is interpreted as a string</li>
+</ul>
+<p>Arguments may be separated by a comma a space or a |.</p>
+<h2>New Types</h2>
+<p>A module can add in a fuzzy method of the form hasPermision_$type to the I2CE_PermissionParser class to enable a new permission type. For example the 'forms' module does this by adding in a new permission type 'form.'</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=4219">revision 4219</a>; contributors: Litlfred, MarkAHershberger. Pages 513&ndash;516 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

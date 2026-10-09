@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Defining Forms · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1ui4pc129a.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1ui4pc129a"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Defining Forms</div>
+<h1>Defining Forms</h1>
+<div class="wiki">
+<p>Please read the overview of forms and fields.</p>
+<p>The data defining a form is saved into magic data and the paths below are paths in magic data.</p>
+<h2>Forms</h2>
+<p>Forms are the basic way to group data. A form $form, such as 'person', is stored under:</p>
+<pre><code>/modules/forms/forms/$form
+</code></pre>
+<p>which contains the following children:</p>
+<ul>
+<li>class: Required. The class which implements the logic, such as validation, for the form. Example is 'iHRIS_Person'.</li>
+<li>displayName: Optional. An end-user name for this form. For example 'person' might have a display name 'Person'</li>
+<li>storage: Optional. Defaults to 'entry.' It is the storage mechanism that the form should use</li>
+<li>
+<p>meta: Optional. A node with lots of children where information about displaying this form are saved. The data here is used by the implementing form class</p>
+</li>
+<li>
+<p>description: A description of this form. It is displayed, for example, when creating a form relationship</p>
+</li>
+<li>child_forms: An list of any forms that are child forms of this form.</li>
+<li>child_form_data: Optional. Meta data that are associated with child forms. There is possibly a node for each of the child forms.</li>
+</ul>
+<p>The nodes in child forms data allow you to specify different groupings for child forms. For example the form 'training_course' has as a child form 'scheduled_training_course.' We may want to group the 'scheduled_training_courses' into open and closed. Then we can select to only display the open or closed scheduled training courses by specifying the limits as below. We can also chose to specify the order that the scheduled training courses are displayed in. For example:</p>
+<pre><code>'default'  =&gt; Array [
+ 'scheduled_training_course' =&gt; Array [
+  'order' =&gt; 'start_date,end_date'
+ ]
+]
+'open' =&gt; Array [
+ 'scheduled_training_course' =&gt; Array [
+  'limits' =&gt; Array [
+    'operator' =&gt; 'FIELD_LIMIT'
+    'field' =&gt; 'start_date'
+    'style' =&gt; 'greaterthan_now'
+  ]
+  'order' =&gt; 'start_date,end_date'
+ ]
+]
+'closed' =&gt; Array [
+  'scheduled_training_course' =&gt; Array [
+   'limits' =&gt; Array [
+     'operator' =&gt; 'FIELD_LIMIT'
+     'field' =&gt; 'start_date'
+     'style' =&gt; 'lessthan_now'
+   ]
+   'order' =&gt; 'start_date,end_date'
+ ]
+]
+</code></pre>
+<p>The limits are specified according to this structure. The 'order' is a list of the fields to sort by. In the above we sort first by 'start_date' and then by 'end_date.' If we wanted to sort by a field in descending order we would prefix a -.</p>
+<h3>Componentized Forms</h3>
+<p>If you are setting up an aggregating instance of iHRIS Manage (or Qualify) some of your forms will be componentized. This means that the data for each of these forms is being managed by distinct localities (e.g. regions or districts or even departments) and you wish to aggregate this de-centralized data. Whether or not a form is localized is determined the form storage mechanism being used. If a form is componentized, then any id's that reference that form are appended with an '@' and the name of the component.</p>
+<h2>Form Classes</h2>
+<p>A form class $formClass is defined under:</p>
+<pre><code>/modules/forms/formClasses/$formClass
+</code></pre>
+<p>It has sub-nodes:</p>
+<ul>
+<li>fields: Optional. Contains information about the fields provided by this class</li>
+<li>extends: Required. Which class this form class extends. This needs to be either I2CE_Form or a subclass of it.</li>
+</ul>
+<h3>Dynamic Creation</h3>
+<p>If there is no file $formClass.php then the class is created dynamically as:</p>
+<pre><code>class $formClass extends $extendClass {}
+</code></pre>
+<p>where $extendClass is the value under the 'extends' node.</p>
+<h3>Lists</h3>
+<p>The form class I2CE_List is a special form which allows you to deal easily with lists of data. Any mapped field should take values in a form whose implementing class is a subclass of I2CE_List.</p>
+<p>I2CE_List has a subclass I2CE_SimpleList whose only field is 'name'. Examples of simple lists are:</p>
+<ul>
+<li>gender</li>
+<li>marital_status</li>
+<li>language</li>
+</ul>
+<h2>Fields</h2>
+<p>Each form class $formClass contains a list of fields. A field $field in $formClass is defined at:</p>
+<pre><code>/modules/forms/formClasses/$formClass/fields/$field
+</code></pre>
+<p>which has the following sub-nodes</p>
+<ul>
+<li>formfield: Required. Needs should be on of the field type such as INT</li>
+<li>in_db: Optional. It should be either 0 or 1. If not set, defaults to 1. If 1, then this field should be saved into the database</li>
+<li>required: Optional. It should be either 0 or 1. If not set, defaults to 0. If 1, then this field needs to be set before it can be considered valid</li>
+<li>unique: Optional. It should be either 0 or 1. If not set, defaults to 0. If 1, then the value of this field needs to be unique among all instances of the form</li>
+<li>
+<p>headers: Optional. It is itself a parent node, each child node is a string value. You can choose a different header by specifying the header attribute in a template file.</p>
+</li>
+<li>
+<p>default: Optional. The default title/header displayed for the field.</p>
+</li>
+</ul>
+<h3>Map Fields</h3>
+<p>A MAP or MAP_MULT takes values in a list, which is any form whose implementing class subclasses I2CE_List.</p>
+<p>A field of type MAP or MAP_MULT can specify the following 'default' sub-node. This 'default' node can contain a sub-node for each of the displays that you wish to define for the field. The default display is specified by displaying the 'default' node. For example, iHRIS_Person has a mapped field, 'residence'. It's meta node contains the following sub-nodes:</p>
+<pre><code>'form' =&gt; Array [
+         0 =&gt; county
+         1 =&gt; district
+         ]
+ display =&gt; Array [
+     default =&gt; Array [
+       fields =&gt; county:district:[region]:country
+       ]
+   ]
+</code></pre>
+<p>] The optional 'forms' is an array of list that tell us which lists this field is allowed to take values in. In this case, any member of the county or district list may be chosen as the residence for a person.</p>
+<p>The 'display' node is optional. It's sub-node 'default' is optional. Its sub-node 'fields' is optional. The 'fields' entry is tells us how the field is mapped to other forms and should be displayed and selected. It has the general structure:</p>
+<pre><code>mapform1+mapfield1:mapform2+mapfield2:...:mapformN
+</code></pre>
+<p>If the +mapFieldX is not present, then we use mapFormX+1 for the value of mapFieldX. If the 'fields' entry is is not set, then it is the mapped form is the the name of field.</p>
+<p>When we select a value for the field, we start by displaying all the values for mapFormN. Under each one of these values, we display all values for mapFormN-1 whose field mapFieldN-1 is mapFormN is and continue down until we get to mapForm1.</p>
+<p>If mapFormXX+mapFieldXX is surrounded in square brackets, [ ], then we don't display the data for that mapped form.</p>
+<p>In the above example, when selecting a residence for a person, you first choose the country, then the region, then the district. You may further specify the county. When displaying a selected residence it will display either:</p>
+<pre><code>District, Country
+</code></pre>
+<p>or</p>
+<pre><code>County, Country District
+</code></pre>
+<p>depending if you have selected the district or county.</p>
+<p>Finally, you can put limits and orders, per display style (e.g. default), by specifying the nodes 'limits' and 'orders.'</p>
+<h2>Field Types</h2>
+<p>Each field has a type. The types define how they are displayed to the end user in both an edit and view only context. It also contains information about the type of column the data should be saved in a database. The available types are:</p>
+<ul>
+<li>BOOL is implemented by the class I2CE_FormField_BOOL is a choice between true and false</li>
+<li>DATE_HMS is implemented by the class I2CE_FormField_DATE_HMS is a time only</li>
+<li>DATE_MD is implemented by the class I2CE_FormField_DATE_MD is a month and day</li>
+<li>DATE_TIME is implemented by the class I2CE_FormField_DATE_TIME is a year, month, day and time</li>
+<li>DATE_YMD is implemented by the class I2CE_FormField_DATE_YMD and is a year, month and day</li>
+<li>DATE_Y is implemented by the class I2CE_FormField_DATE_Y and is a year</li>
+<li>INT_GENERATE is implemented by the class I2CE_FormField_INT_GENERATE and is integer sequence that will populate the next value in the sequence</li>
+<li>INT is implemented by the class I2CE_FormField_INT is an integer</li>
+<li>INT_LIST is implemented by the class I2CE_FormField_INT_LIST is an array of integers</li>
+<li>STRING_LINE is implemented by the class I2CE_FormField_STRING_LINE and is a string</li>
+<li>STRING_MLINE is implemented by the class I2CE_FormField_STRING_MLINE and is multi-line string</li>
+<li>STRING_PASS is implemented by the class I2CE_FormField_STRING_PASS is a password value</li>
+<li>STRING_TEXT is implemented by the class I2CE_FormField_STRING_TEXT is a large multi-line string</li>
+<li>YESNO is implemented by the class I2CE_FormField_YESNO and is a choice between Yes and No</li>
+<li>CURRENCY is implemented by the class iHRIS_FormField_CURRENCY and is a currency type and an amount</li>
+<li>MAP is implemented by the class I2CE_FormField_MAP and is the name and id of a list form</li>
+<li>MAP_MULT is implemented by the class I2CE_FormField_MAP_MULT and is an array of names and ids for list forms</li>
+</ul></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=9046">revision 9046</a>; contributors: Litlfred, MarkAHershberger. Pages 77&ndash;80 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

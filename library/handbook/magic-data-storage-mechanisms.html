@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magic Data Storage Mechanisms · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1ui4pc129a.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1ui4pc129a"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Magic Data Storage Mechanisms</div>
+<h1>Magic Data Storage Mechanisms</h1>
+<div class="wiki">
+<p>You can add database storage mechanisms to I2CE_MagicData. The last one that is added is the "permanent" storage mechanism methods. All others that are added are used to cache the data stored in the permanent storage mechansim.</p>
+<h2>Database</h2>
+<p>This magic data storage mechanism is intended to be used as the "permanent" storage mechanism. By default it is stored into the database table 'config'</p>
+<h2>APC</h2>
+<p>There is magic data storage mechanism based on the Pear APC module and implemented by the class I2CE_MagicDataStorageAPC. It caches data in the memory segment between reqeusts with a timeout of 5 minutes. Data cached by Apache is not cached on the command line.</p>
+<p>To clear the cache manually you can use php-apc web interface.</p>
+<h2>SysV</h2>
+<p>There is magic data storage mechanism based on SysV I2CE_MagicDataStorageSysV. It is not available in windows. It creates shared memory segments to cache the data between requests. It's advantage over APC is that the same shared segments can be accessed via the command line. There is no time-out for the data stored.</p>
+<p>To clear manually from the command line the shared memory segments</p>
+<pre><code>ipcs -m | grep www-data | awk '{print &quot;ipcrm -m &quot;$2}' | sudo bash
+</code></pre></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=4198">revision 4198</a>; contributors: Litlfred, MarkAHershberger. Pages 478&ndash;478 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

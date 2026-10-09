@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IHRIS Role List (4.0.6) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1ui4pc129a.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1ui4pc129a"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / IHRIS Role List (4.0.6)</div>
+<h1>IHRIS Role List (4.0.6)</h1>
+<div class="wiki">
+<p>This is a list of all the roles available in the iHRIS System</p>
+<h2>admin</h2>
+<p>The role Administrator is defined in the module pages of the package I2CE.</p>
+<ul>
+<li>Can perform the following tasks: cached_forms_can_administer, custom_reports_admin, printed_forms_admin, custom_reports_archiver_admin, tasks_and_roles_admin</li>
+</ul>
+<h2>exec_manager</h2>
+<p>The role Executive Manager is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Any of the tasks that a Executive Manager can perform can be performed by any the following roles: Administrator</li>
+<li>Can perform the following tasks: custom_reports_can_view_reportViews, can_change_own_password, person_can_view_child_forms, can_view_database_list_position, can_view_database_list_job</li>
+</ul>
+<h2>hr_manager</h2>
+<p>The role HR Manager is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Any of the tasks that a HR Manager can perform can be performed by any the following roles: Administrator</li>
+<li>Can perform the following tasks: custom_reports_can_access_reports, custom_reports_can_edit_reportViews, custom_reports_can_view_reportViews, can_edit_all_database_lists, person_can_edit, person_can_edit_child_forms, users_can_edit, person_can_change_child_form_salary, person_can_change_child_form_person_position, can_change_own_password, can_edit_all_planning_database_lists, establishment_can_edit</li>
+</ul>
+<h2>hr_staff</h2>
+<p>The role HR Staff is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>
+<p>Any of the tasks that a HR Staff can perform can be performed by any the following roles: Administrator,HR Manager</p>
+</li>
+<li>
+<p>Can perform the following tasks: can_view_all_database_lists, custom_reports_can_view_reportViews, person_can_edit_child_form_person_scheduled_training_course, person_can_view_child_form_person_scheduled_training_course, competency_can_view_history, person_can_view_child_forms, person_can_edit_child_form_application, person_can_edit_child_form_benefit, person_can_edit_child_form_dependent, person_can_edit_child_form_employment, person_can_edit_child_form_education, person_can_edit_child_form_person_id, person_can_edit_child_form_nextofkin, person_can_edit_child_form_notes, person_can_edit_child_form_person_competency, person_can_edit_child_form_person_contact_emergency, person_can_edit_child_form_person_contact_other, person_can_edit_child_form_person_contact_personal, person_can_edit_child_form_person_contact_work, person_can_edit_child_form_person_position, person_can_edit_child_form_position_decision, person_can_edit_child_form_position_interview, person_can_edit_child_form_salary, person_competency_can_view_evaluation_history, can_edit_database_list_department, can_edit_database_list_facility, can_edit_all_manage_positions_database_lists, can_configure_system, can_change_own_password, person_can_edit_child_form_accident, can_edit_database_list_accident_type,</p>
+</li>
+</ul>
+<p>person_can_edit_child_form_disciplinary_action, can_edit_database_list_disciplinary_action_type, can_view_recent_forms</p>
+<h2>training_manager</h2>
+<p>The role Training Manager is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Any of the tasks that a Training Manager can perform can be performed by any the following roles: Administrator,HR Manager</li>
+<li>Can perform the following tasks: custom_reports_can_view_reportViews, can_edit_database_lists_training, can_edit_scheduled_training_course, person_can_view_child_form_person_scheduled_training_course, person_can_edit_child_form_person_scheduled_training_course, person_can_view_child_forms, person_scheduled_training_course_can_edit_evaluation, can_change_own_password, can_configure_system</li>
+</ul></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=33753">revision 33753</a>; contributors: Litlfred. Pages 354&ndash;355 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

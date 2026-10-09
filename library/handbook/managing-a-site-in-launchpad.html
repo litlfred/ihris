@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Managing A Site In Launchpad · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1ui4pc129a.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1ui4pc129a"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Managing A Site In Launchpad</div>
+<h1>Managing A Site In Launchpad</h1>
+<div class="wiki">
+<p>This tutorial will take you through the steps of managing a site via bazaar on Launchpad based on some customizations that you have already made on your Ubuntu machine for the the version 4.0 of iHRIS Qualify for the Nursing and Midwives Council.</p>
+<p>We will assume that, for the purposes of this tutorial, that the existing customizations live under</p>
+<pre><code>/var/lib/iHRIS/sites/qualify
+</code></pre>
+<p>We need to make sure thae bazaar version control software is installed. Then we will setup a user account on launchpad and connect it to the account on your machine. We will also create a team to manage the customizations.</p>
+<h2>Setting up Bazaar</h2>
+<p>First we need to make sure the Bazaaar [3] (bzr) version control software is installed:</p>
+<pre><code> sudo apt-get install bzr bzrtools
+</code></pre>
+<p>You may wish to read the five minute tutorial [4] at this point. You should also let bzr know how you are:</p>
+<pre><code> bzr whoami &quot;Your Name &lt;your@email.add.ress&gt;&quot;
+</code></pre>
+<h2>Creating a Launchpad Account</h2>
+<p>First you should create an account on Launchpad [1]. If you not have already done so, you can find some help here [1].</p>
+<p>We will refer to this account as LAUNCHPAD_USER.</p>
+<h2>Creating a Launchpad Team</h2>
+<p>Presumably, you will want to have several people be able to update the customizations you are storing on Launchpad. This is done by creating a team. To do so:</p>
+<ul>
+<li>
+<p>Browse to the launchpad homepage [1]</p>
+</li>
+<li>
+<p>Select "Register a Team"</p>
+</li>
+<li>
+<p>For the Name I suggest something like ihris-COUNTRY_NAME or ihris-ORGANIZATION_NAME</p>
+</li>
+<li>For the Display Name you can use something like iHRIS in COUNTRY_NAME</li>
+<li>For the Subscription policy, I suggest making it "Open"</li>
+</ul>
+<p>Once the team is created, you can choose view its home page at</p>
+<pre><code> https://www.launchpad.net/~ihris-COUNTRY_NAME
+</code></pre>
+<p>To change some of it's details, browse to the team home page where you can:</p>
+<ul>
+<li>Add members to the team by the "Add Member" Link</li>
+<li>Change the owner of the team by "Change Details," scroll to the bottom, "Change Owner"</li>
+<li>Change the logo/icon for the team by "Change Details," scroll to the bottom, "Change Branding"</li>
+</ul>
+<h3>Adding Intrahealth Informatics</h3>
+<p>You may also wish to give the intrahealth-informatics team as a member of to the team you just created. This will enable the people in this team to edit the customizations</p>
+<h2>Linking your Launchpad Account to your Ubuntu Machine</h2>
+<p>Since we will want to contribute to the code, we need to let Launchpad know who are. To do this, we create a ssh public key [2] on your Ubuntu machine to add to Launchpad:</p>
+<pre><code>sudo apt-get install openssh-client
+ssh-keygen -t rsa
+</code></pre>
+<p>When prompted, press Enter to accept the default file name for your key. Next, enter then confirm a password to protect your SSH key.</p>
+<p>Your key pair is now stored in ~/.ssh/id_rsa.pub (public key) and ~/.ssh/id_rsa (private key). Now you need to upload the public portion of your SSH key to Launchpad. To do this, open in your web browser:</p>
+<pre><code>https://www.launchpad.net/~LAUNCHPAD_USER
+</code></pre>
+<p>You will see a place that says SSH Keys with an exclamation point (!) in a yellow circle next to it. Click on the (!) scroll down until you see Add an SSH Key and a text box. We will paste our public key into this text box. To do so type in a terminal:</p>
+<pre><code>gedit ~/.ssh/id_rsa.pub
+</code></pre>
+<p>you can now copy the contents of gedit (the public key) into the text box in the web browser. Now simply click on the button Import Public Key</p>
+<p>Note: For every computer/account that you use you will need to repeat these steps to create and import a public key.</p>
+<h2>Creating A Project</h2>
+<p>The team is used to manage who can access the code. Now we need to create a place, or project, to handle these and any future customizations for iHRIS Qualify for the Nursing Council. To do so:</p>
+<ul>
+<li>Browse to the Launchpad home page https://www.launchpad.net/</li>
+<li>
+<p>Select "Register a Project" with the details:</p>
+</li>
+<li>
+<p>Step 1</p>
+</li>
+<li>
+<p>Name is ihris+nmc+COUNTRY_NAME</p>
+</li>
+<li>Title is iHRIS Qualify for NMC in COUNTRY_NAME</li>
+<li>Summary is Implementation of iHRIS Qualify for the Nursing and Midwifery Council of COUNTRY_NAME</li>
+<li>
+<p>Step 2</p>
+</li>
+<li>
+<p>Click "No, this is a new Project"</p>
+</li>
+<li>For the License, check "GNU GPL V3"</li>
+<li>Click "Complete Registration"</li>
+</ul>
+<p>You project now has its home page at</p>
+<pre><code>https://edge.launchpad.net/ihris+nmc+COUNTRY_NAME
+</code></pre>
+<p>From the project home page you can:</p>
+<ul>
+<li>Change the Maintainer by clicking the exclamation point yellow circle next to "Maintainer". You should set it to be the team ihris-COUNTRY_NAME that you created above</li>
+<li>Change the branding (icon)</li>
+<li>Edit the project details and set it to be "Part of:" the 'ihris-suite' project</li>
+</ul>
+<h2>Creating a Branch</h2>
+<p>A "branch" is where the actual code is hosted in the project. You may want to have several branches to keep track of the different versions of the iHRIS Qualify software as it get's updated. The primary branch is the "trunk" which will be working with here. We will need to create this on Launchpad by clicking on the "Code" tab under the projects's home page. This should take you to:</p>
+<pre><code>https://code.launchpad.net/ihris+nmc+COUNTRY_NAME
+</code></pre>
+<p>We will create a branch to handle the customizations of version 4.0 of iHRIS Qualify for the Nursing and Midwives council by:</p>
+<ul>
+<li>
+<p>Select "Register A Branch" with the following details:</p>
+</li>
+<li>
+<p>For the owner, make sure it is the team we created above ihris-COUNTRY_NAME</p>
+</li>
+<li>For the "Name" use "NMC-4.0" is short for Nursing and Midwifery Council version 4.0</li>
+<li>Branch Type is "Hosted"</li>
+<li>Status is "Development"</li>
+</ul>
+<p>The branch's home page is now:</p>
+<pre><code>https://code.edge.launchpad.net/~ihris-COUNTRY_NAME/ihris+nmc+COUNTRY_NAME/NMC-4.0
+</code></pre>
+<p>We wish to set this branch to be the main place to commit code for our project. To do so:</p>
+<ul>
+<li>Go to the projects home page</li>
+<li>select the "Code" tab and</li>
+<li>
+<p>click "Set the Development Focus" and set:</p>
+</li>
+<li>
+<p>The branch to be: ~ihris-COUNTRY_NAME/ihris+nmc+COUNTRY_NAME/NMC-4.0</p>
+</li>
+</ul>
+<h2>Adding your Customizations</h2>
+<p>To actually put our code customizations on Launchpad we do:</p>
+<pre><code>cd /var/lib/iHRIS/sites/qualify
+bzr init
+bzr push lp:ihris+nmc+COUNTRY_NAME --use-existing-dir
+bzr bind lp:ihris+nmc+COUNTRY_NAME
+</code></pre>
+<p>which tells our computer that the customizations under /var/lib/iHRIS/site/qualify should be the same as the code on launchpad. To actually put the code on Launchpad, we will need to add in the files for our customization and make our first "commit:"</p>
+<pre><code>cd /var/lib/iHRIS/sites/qualify
+bzr add
+bzr commit -m  &quot;Initial Upload&quot;
+</code></pre>
+<p>Here the -m "Initial Upload" is a short message describing that this is first commit of the branch.</p>
+<h2>Making more Customizations</h2>
+<p>Suppose that we changed one of the .html template files we can commit them to Launchpad by:</p>
+<pre><code>cd /var/lib/iHRIS/sites/qualify
+bzr commit -m &quot;Changed the main page header&quot;
+</code></pre>
+<h2>Updating the Customizations</h2>
+<p>If you are working on multiple machines or with multiple people, you may want to get the committed changes to the customizations onto your computer. You can do this by:</p>
+<pre><code>cd /var/lib/iHRIS/sites/qualify
+</code></pre>
+<p>bzr update</p>
+<h2>References</h2>
+<p>[1] https://help.launchpad.net/YourAccount/NewAccount</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=33706">revision 33706</a>; contributors: Litlfred. Pages 479&ndash;482 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>
