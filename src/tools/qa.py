@@ -982,8 +982,12 @@ def c_moodle_course(C):
             f = f"{base}/{i['file']}"
             if exists(f) and sha256(f) != i["sha256"]:
                 out.append(f"{rel}: {i['file']} does not match its sha256")
-            if files.get(i["from"], {}).get("sha256") != i["sha256"] or files.get(i["from"], {}).get("publishedAs") != i["file"]:
+            # A redacted image is the inventory's file with parts painted over: it names the source's sha256, and differs.
+            src_sha = (i.get("redacted") or {}).get("sourceSha256") or i["sha256"]
+            if files.get(i["from"], {}).get("sha256") != src_sha or files.get(i["from"], {}).get("publishedAs") != i["file"]:
                 out.append(f"{rel}: {i['file']} is not the inventory's {i['from']}")
+            if i.get("redacted") and (i["sha256"] == src_sha or not i["redacted"].get("replaced")):
+                out.append(f"{rel}: {i['file']} is recorded as redacted, yet it is the source's bytes or names nothing replaced")
         withheld = {os.path.basename(w["from"]) for w in d["withheldImages"]}
         for w in withheld & {os.path.basename(i["file"]) for i in d["images"]}:
             out.append(f"{rel}: {w} is withheld, yet published")

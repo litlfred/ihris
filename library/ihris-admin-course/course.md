@@ -6,7 +6,7 @@ Moodle course **iHRIS Administrator - Level I** (shortname *iHRIS Admin 1*, topi
 
 Provides instructions on basic skills needed to administer and customize the iHRIS Manage or iHRIS Qualify systems.
 
-6 sections, 80 modules (1 certificate, 27 forum, 1 glossary, 27 lesson, 1 questionnaire, 2 quiz, 21 resource), 334 lesson pages, 26 quiz questions, 11 questionnaire questions, 0 glossary entries, 14 external links, 67 images, 6 transcripts, 124 files in the backup (21316677 bytes).
+6 sections, 80 modules (1 certificate, 27 forum, 1 glossary, 27 lesson, 1 questionnaire, 2 quiz, 21 resource), 334 lesson pages, 26 quiz questions, 11 questionnaire questions, 0 glossary entries, 14 external links, 76 images, 6 transcripts, 124 files in the backup (21316677 bytes).
 
 ## General
 
@@ -191,15 +191,15 @@ Tasks:
 | `course_files/Image_Files/install_ubuntu_vmware3.gif` | 58385 | image/gif | images/install_ubuntu_vmware3.gif | `1bf96526d2e06b24…` |
 | `course_files/Image_Files/install_ubuntu_vmware4.gif` | 35361 | image/gif | images/install_ubuntu_vmware4.gif | `994520206e8d4df6…` |
 | `course_files/Image_Files/install_ubuntu_vmware5.gif` | 90580 | image/gif | images/install_ubuntu_vmware5.gif | `88f22c3c5ca0c4e1…` |
-| `course_files/Image_Files/install_ubuntu_vmware6.gif` | 89253 | image/gif | - | `af7a2c120c1deff0…` |
+| `course_files/Image_Files/install_ubuntu_vmware6.gif` | 89253 | image/gif | images/install_ubuntu_vmware6.gif | `af7a2c120c1deff0…` |
 | `course_files/Image_Files/install_ubuntu_wubi1.gif` | 52904 | image/gif | images/install_ubuntu_wubi1.gif | `9e879e1c8a53ca41…` |
 | `course_files/Image_Files/install_ubuntu_wubi2.gif` | 66962 | image/gif | images/install_ubuntu_wubi2.gif | `517beef1c5a74272…` |
 | `course_files/Image_Files/install_ubuntu_wubi3.gif` | 53118 | image/gif | images/install_ubuntu_wubi3.gif | `14948dd7dee27a9d…` |
 | `course_files/Image_Files/install_ubuntu_wubi4.gif` | 40351 | image/gif | images/install_ubuntu_wubi4.gif | `c219e283f03f7a92…` |
 | `course_files/Image_Files/install_ubuntu_wubi5.gif` | 84132 | image/gif | images/install_ubuntu_wubi5.gif | `819eb7470cdeeada…` |
 | `course_files/Image_Files/installing_ihris1.gif` | 34972 | image/gif | images/installing_ihris1.gif | `6d1a5b1b5d883aed…` |
-| `course_files/Image_Files/installing_ubuntu_native10.gif` | 44469 | image/gif | - | `c3b05b3350f5d5d0…` |
-| `course_files/Image_Files/installing_ubuntu_native11.gif` | 89253 | image/gif | - | `af7a2c120c1deff0…` |
+| `course_files/Image_Files/installing_ubuntu_native10.gif` | 44469 | image/gif | images/installing_ubuntu_native10.gif | `c3b05b3350f5d5d0…` |
+| `course_files/Image_Files/installing_ubuntu_native11.gif` | 89253 | image/gif | images/installing_ubuntu_native11.gif | `af7a2c120c1deff0…` |
 | `course_files/Image_Files/installing_ubuntu_natively1.gif` | 21071 | image/gif | images/installing_ubuntu_natively1.gif | `82ee9181a12f4914…` |
 | `course_files/Image_Files/installing_ubuntu_natively2.gif` | 42742 | image/gif | images/installing_ubuntu_natively2.gif | `acd6189e54d90f9e…` |
 | `course_files/Image_Files/installing_ubuntu_natively3.gif` | 48758 | image/gif | images/installing_ubuntu_natively3.gif | `4c298ffcefe52795…` |
@@ -212,7 +212,7 @@ Tasks:
 | `course_files/Image_Files/interoperability_sdmxhd1.gif` | 66680 | image/gif | images/interoperability_sdmxhd1.gif | `e9f54015c13b4631…` |
 | `course_files/Image_Files/interoperability_sdmxhd2.gif` | 69622 | image/gif | images/interoperability_sdmxhd2.gif | `a0369bf4ff9afc8f…` |
 | `course_files/Image_Files/interoperability_sdmxhd3.gif` | 221334 | image/gif | images/interoperability_sdmxhd3.gif | `28154c4617180b7c…` |
-| `course_files/Image_Files/into_forms1.gif` | 11866 | image/gif | - | `ae988b0973692645…` |
+| `course_files/Image_Files/into_forms1.gif` | 11866 | image/gif | images/into_forms1.gif | `ae988b0973692645…` |
 | `course_files/Image_Files/into_forms2.gif` | 6289 | image/gif | images/into_forms2.gif | `d8230ec26f2bf93e…` |
 | `course_files/Image_Files/into_forms3.gif` | 37608 | image/gif | - | `c785ce2e30b67068…` |
 | `course_files/Image_Files/intro_key_sys_soft1.gif` | 7391 | image/gif | images/intro_key_sys_soft1.gif | `f95251a4207d2739…` |
@@ -224,16 +224,16 @@ Tasks:
 | `course_files/Image_Files/magic_data1.gif` | 11837 | image/gif | images/magic_data1.gif | `e28f89fffe11797f…` |
 | `course_files/Image_Files/magic_data2.gif` | 29538 | image/gif | images/magic_data2.gif | `328008b6faeda507…` |
 | `course_files/Image_Files/translating_ihris1.gif` | 48717 | image/gif | images/translating_ihris1.gif | `5153adc512666a2c…` |
-| `course_files/Image_Files/translating_ihris2.gif` | 54213 | image/gif | - | `672f7a0a3292c6ba…` |
-| `course_files/Image_Files/translating_ihris3.gif` | 55864 | image/gif | - | `10a6e1e229c79aad…` |
+| `course_files/Image_Files/translating_ihris2.gif` | 54213 | image/gif | images/translating_ihris2.gif | `672f7a0a3292c6ba…` |
+| `course_files/Image_Files/translating_ihris3.gif` | 55864 | image/gif | images/translating_ihris3.gif | `10a6e1e229c79aad…` |
 | `course_files/Image_Files/troubleshooting1.gif` | 238378 | image/gif | images/troubleshooting1.gif | `5e7269d0cf815eb5…` |
 | `course_files/Image_Files/troubleshooting2.gif` | 25710 | image/gif | images/troubleshooting2.gif | `bf1be5e8ecc90204…` |
-| `course_files/Image_Files/troubleshooting3.gif` | 93494 | image/gif | - | `92968e5463857043…` |
+| `course_files/Image_Files/troubleshooting3.gif` | 93494 | image/gif | images/troubleshooting3.gif | `92968e5463857043…` |
 | `course_files/Image_Files/user_roles1.gif` | 43685 | image/gif | images/user_roles1.gif | `602113ef666ce916…` |
 | `course_files/Image_Files/user_roles2.gif` | 36317 | image/gif | images/user_roles2.gif | `b7c44e1df031ef4f…` |
 | `course_files/Image_Files/user_roles3.gif` | 9882 | image/gif | images/user_roles3.gif | `7bfee536f20375c0…` |
-| `course_files/Image_Files/user_roles4.gif` | 21287 | image/gif | - | `69a0c48e26f08b5d…` |
-| `course_files/Image_Files/user_roles5.gif` | 16416 | image/gif | - | `e871362a0bbbf408…` |
+| `course_files/Image_Files/user_roles4.gif` | 21287 | image/gif | images/user_roles4.gif | `69a0c48e26f08b5d…` |
+| `course_files/Image_Files/user_roles5.gif` | 16416 | image/gif | images/user_roles5.gif | `e871362a0bbbf408…` |
 | `course_files/Intro_to_Forms/Slide_01_final.mp3` | 503432 | audio/mpeg | - | `b2d59e90bc05a993…` |
 | `course_files/Intro_to_Forms/Slide_02_final.mp3` | 466129 | audio/mpeg | - | `76807169d5f31b4d…` |
 | `course_files/Intro_to_Forms/Slide_03_final.mp3` | 695745 | audio/mpeg | - | `85b02be55e06c85e…` |

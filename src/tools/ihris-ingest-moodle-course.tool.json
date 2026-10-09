@@ -1,7 +1,7 @@
 {
   "id": "ihris-ingest-moodle-course",
   "title": "Ingest the iHRIS administrator Moodle course",
-  "description": "Verifies the uploaded Moodle 1.9 course backup (size, md5 and sha256 against uploads/ihris-admin-course/manifest.json), reads it in memory with zipfile (safe member paths, capped sizes and ratios) and parses moodle.xml with ElementTree (no DOCTYPE or ENTITY). Refuses a backup that holds users or user info. Records the course, the backup, the sections in order with their modules in course order, and an inventory of every file in the zip (course.json, ihris-moodle-course/v1; course.md). With a licence in the declaration (CC BY 4.0, stated by the author), also writes the content: the course and section summaries (sections/), one Markdown file per module (modules/: lesson pages, html resources, quiz questions with answers, survey questions with choices, introductions), from HTML sanitised with BeautifulSoup and converted with markdownify; the transcripts' text (transcripts/, antiword -w 0); and the images (images/), with the lesson links rewritten to them. Never the slide audio (size), the images listed as showing personal data, the development team's names, or any e-mail address. Without a licence, structure only. Deterministic; stops on totals that differ from the manifest's expect block, on an unknown module or question type, and on a reference it cannot place.",
+  "description": "Verifies the uploaded Moodle 1.9 course backup (size, md5 and sha256 against uploads/ihris-admin-course/manifest.json), reads it in memory with zipfile (safe member paths, capped sizes and ratios) and parses moodle.xml with ElementTree (no DOCTYPE or ENTITY). Refuses a backup that holds users or user info. Records the course, the backup, the sections in order with their modules in course order, and an inventory of every file in the zip (course.json, ihris-moodle-course/v1; course.md). With a licence in the declaration (CC BY 4.0, stated by the author), also writes the content: the course and section summaries (sections/), one Markdown file per module (modules/: lesson pages, html resources, quiz questions with answers, survey questions with choices, introductions), from HTML sanitised with BeautifulSoup and converted with markdownify; the transcripts' text (transcripts/, antiword -w 0); and the images (images/), with the lesson links rewritten to them. Never the slide audio (size), the image listed as showing personal data (a photograph of a child), the parts of five screenshots painted over (a third party's name, the owner's e-mail address; owner, 2026-10-09), the development team's names, or any e-mail address. Without a licence, structure only. Deterministic; stops on totals that differ from the manifest's expect block, on an unknown module or question type, and on a reference it cannot place.",
   "invoke": {
     "shell": "python3 -I src/tools/ingest_moodle_course.py"
   },
@@ -47,11 +47,12 @@
       "python3>=3.10",
       "antiword",
       "beautifulsoup4",
-      "markdownify==1.2.3"
+      "markdownify==1.2.3",
+      "pillow==12.3.0"
     ],
     "network": false
   },
   "install": {
-    "cli": "apt-get install antiword && pip install beautifulsoup4 markdownify==1.2.3"
+    "cli": "apt-get install antiword && pip install beautifulsoup4 markdownify==1.2.3 pillow==12.3.0"
   }
 }

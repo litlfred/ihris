@@ -89,18 +89,46 @@ WITHHOLD = [("course development team",
 # Images that show personal data, reviewed one by one (2026-10-09). They are inventoried, never copied, and the text
 # that shows one says it is withheld. A decision, not a heuristic: a new image is published unless it is listed here.
 THIRD_PARTY = "a third party's name"
+# Owner, 2026-10-09: "keep public user handles" (Launchpad translators, pastebin users), and the example data in
+# into_forms1 is "demo data, not sure": published. Still withheld: the photograph of a child.
 WITHHOLD_IMAGES = {
-    "installing_ubuntu_native10.gif": f"{THIRD_PARTY} (an Ubuntu installer's account form filled in by someone else; likely from a third-party tutorial)",
-    "installing_ubuntu_native11.gif": f"{THIRD_PARTY} (an Ubuntu login screen; likely from a third-party tutorial)",
-    "install_ubuntu_vmware6.gif": f"{THIRD_PARTY} (an Ubuntu login screen; likely from a third-party tutorial)",
-    "translating_ihris2.gif": f"{THIRD_PARTY} (a Launchpad translator's name)",
-    "translating_ihris3.gif": f"{THIRD_PARTY} (a Launchpad translator's user name)",
-    "troubleshooting3.gif": f"{THIRD_PARTY} (other pastebin users' handles)",
-    "user_roles4.gif": "an e-mail address (in a filled-in user form)",
-    "user_roles5.gif": "an e-mail address (in a filled-in user form)",
-    "into_forms1.gif": "a date of birth with a name (example data of real people)",
     "into_forms3.gif": "a photograph of a child",
 }
+# Images published with a part painted over, reviewed one by one. Owner, 2026-10-09: "change falko" (a third party's
+# name and machine in Ubuntu installer screenshots, likely from a third-party tutorial, becomes demo text) and
+# "remove my email" (the owner's address in an iHRIS user form becomes an example.org address). Each entry is
+# (box x0, y0, x1, y1; a pixel whose colour fills it, or an RGB; the text drawn in its place; the text colour; size).
+DEMO_NAME = ("Falko Timme", "the name of a person in an Ubuntu installer screenshot")
+REDACT_IMAGES = {
+    "installing_ubuntu_native10.gif": [((216, 90, 322, 106), (380, 98), "Demo User", (0, 0, 0), 12, DEMO_NAME),
+                                       ((217, 114, 327, 127), (255, 255, 255), "demo-virtual-machine", (0, 0, 0), 11, ("falko-virtual-machine", "that person's machine name")),
+                                       ((216, 152, 258, 166), (290, 159), "demo", (0, 0, 0), 12, ("falko", "that person's user name"))],
+    "installing_ubuntu_native11.gif": [((200, 163, 350, 180), (190, 170), "demo-virtual-machine", (60, 60, 60), 12, ("falko-virtual-machine", "that person's machine name")),
+                                       ((232, 198, 340, 215), (340, 206), "Demo User", (0, 0, 0), 12, DEMO_NAME)],
+    "install_ubuntu_vmware6.gif": [((200, 163, 350, 180), (190, 170), "demo-virtual-machine", (60, 60, 60), 12, ("falko-virtual-machine", "that person's machine name")),
+                                   ((232, 198, 340, 215), (340, 206), "Demo User", (0, 0, 0), 12, DEMO_NAME)],
+    "user_roles4.gif": [((18, 208, 238, 226), (200, 217), "user@example.org", (0, 0, 0), 12, ("the owner's e-mail address", "an e-mail address"))],
+    "user_roles5.gif": [((14, 164, 120, 178), (200, 171), "user@example.org", (0, 0, 0), 11, ("the owner's e-mail address", "an e-mail address"))],
+}
+
+
+def redact_image(blob, name):
+    """The image with each REDACT_IMAGES box painted over and its replacement drawn in, in the source's format.
+    Pillow's own default font, so the output depends only on the pinned Pillow."""
+    import io
+    from PIL import Image, ImageDraw, ImageFont
+    src = Image.open(io.BytesIO(blob))
+    fmt = src.format
+    im = src.convert("RGB")
+    d = ImageDraw.Draw(im)
+    for box, fill, txt, col, size, _ in REDACT_IMAGES[name]:
+        d.rectangle(box, fill=im.getpixel(fill) if len(fill) == 2 else fill)
+        d.text((box[0] + 1, (box[1] + box[3]) // 2), txt, fill=col, font=ImageFont.load_default(size=size), anchor="lm")
+    out = io.BytesIO()
+    im.save(out, format=fmt)
+    return out.getvalue()
+
+
 KEEP_TAGS = {"p", "br", "ul", "ol", "li", "strong", "b", "em", "i", "a", "img", "table", "thead", "tbody", "tr", "td", "th",
              "h1", "h2", "h3", "h4", "h5", "h6", "pre", "code", "blockquote", "hr", "sup", "sub"}
 DROP_TAGS = {"script", "style", "object", "embed", "form", "input", "button", "select", "textarea", "noscript"}
@@ -543,10 +571,16 @@ def main():
             f = files[path]
             if rel.startswith("images/"):
                 os.makedirs(os.path.join(OUT, "images"), exist_ok=True)
+                name = os.path.basename(path)
+                blob = redact_image(blobs[path], name) if name in REDACT_IMAGES else blobs[path]
                 with open(os.path.join(OUT, rel), "wb") as fh:
-                    fh.write(blobs[path])
-                images.append({"file": rel, "from": path, "bytes": f["bytes"], "sha256": f["sha256"], "mediaType": f["mediaType"],
-                               "usedBy": sorted(conv.images_used.get(rel, set()), key=lambda x: (x.split("-")[0], int(x.split("-")[1])))})
+                    fh.write(blob)
+                img = {"file": rel, "from": path, "bytes": len(blob), "sha256": hashlib.sha256(blob).hexdigest(), "mediaType": f["mediaType"],
+                       "usedBy": sorted(conv.images_used.get(rel, set()), key=lambda x: (x.split("-")[0], int(x.split("-")[1])))}
+                if name in REDACT_IMAGES:
+                    img["redacted"] = {"sourceSha256": f["sha256"],
+                                       "replaced": [{"what": what, "with": txt.replace("@", " at ")} for _, _, txt, _, _, (_, what) in REDACT_IMAGES[name]]}
+                images.append(img)
             else:
                 md, text_sha = transcript_md(blobs[path], path)
                 sha_md = write_md(rel, md.rstrip("\n").split("\n"))

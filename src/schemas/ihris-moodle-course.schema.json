@@ -503,6 +503,41 @@
             "items": {
               "type": "string"
             }
+          },
+          "redacted": {
+            "type": "object",
+            "description": "published with parts painted over (the owner's review, 2026-10-09): sha256 and bytes are the written file's; sourceSha256 is the backup's",
+            "required": [
+              "sourceSha256",
+              "replaced"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "sourceSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "replaced": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "what",
+                    "with"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "what": {
+                      "type": "string"
+                    },
+                    "with": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
