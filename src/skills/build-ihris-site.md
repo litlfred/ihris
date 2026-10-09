@@ -45,7 +45,21 @@ python3 src/tools/build_site.py --out .build/site --check-links
 
 Every page is checked for horizontal overflow at web 1280×800 and mobile 390×844. A page that overflows on either is a defect in the generator's CSS, not in the page. `validate.py` builds the site and fails on any broken link.
 
-## 4. Publish (the `gh-pages` branch)
+## 4. The folio chrome (Tool `ihris-rail-site`)
+
+Every page carries the platform's chrome: the C@T harness rail, its icon row, the Folio glass and the light/dark switch, the same on every folio a reader browses. It is added AFTER the build, never by `build_site.py`: cat-harness's `rail-standalone-pages.ts` in `--foreign-site` mode rails the finished `_site/`, which is what folio-assistant's `folio-staging.yml` does for a folio's own Pages site. The rail data is written beside the pages; `navbar.js/css` and `docs-ui.js/css` load from the platform's published site, so there is one chrome and no second copy to drift.
+
+```sh
+bash src/tools/mount_platform.sh
+python3 src/tools/build_site.py --out _site --check-links
+bun run cat-harness/scripts/rail-standalone-pages.ts --site _site --built cat-harness --foreign-site --home-label "iHRIS Knowledge Base"
+```
+
+Check it in a browser with folio-assistant-core's `folio-site-chrome-check.ts` (`--assets cat-harness/docs` serves the platform assets offline). The banner check applies to staging previews only.
+
+**Not yet: the dark scheme.** The switch sets `data-fa-scheme` on `<html>`, but the iHRIS theme has measured LIGHT colours only, so the page stays light. A dark palette is a design decision (bean `ihris-u3fg`): it is not invented here.
+
+## 5. Publish (the `gh-pages` branch)
 
 - The site is served from the **`gh-pages` branch**, which holds build output only.
 - `.github/workflows/pages.yml` rebuilds it on every push to `main` and commits the result on top of `gh-pages`. When nothing changed, it makes no commit.
