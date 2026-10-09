@@ -1,0 +1,51 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://ihris.org/fhir/CodeSystem/ihris-document-category> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ihris-document-category"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem ihris-document-category</b></p><a name=\"ihris-document-category\"> </a><a name=\"hcihris-document-category\"> </a><p>This  code system <code>http://ihris.org/fhir/CodeSystem/ihris-document-category</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">open<a name=\"ihris-document-category-open\"> </a></td><td>Open</td><td>Any one can access.</td></tr><tr><td style=\"white-space:nowrap\">restricted<a name=\"ihris-document-category-restricted\"> </a></td><td>Restricted</td><td>Only certain users can view.</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "http://ihris.org/fhir/CodeSystem/ihris-document-category"] ;
+  fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "IhrisDocumentCategoryCodeSystem"] ;
+  fhir:CodeSystem.title [ fhir:value "Code system for document categories."] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.date [ fhir:value "2026-10-09T12:24:25+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "Luke Duncan"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Luke Duncan" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "lduncan@intrahealth.org" ]
+     ]
+  ] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "2"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "open" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Open" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Any one can access." ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "restricted" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Restricted" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Only certain users can view." ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://ihris.org/fhir/CodeSystem/ihris-document-category.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="location-mode"/>
+  <meta>
+    <versionId value="1"/>
+    <lastUpdated value="2022-02-15T08:15:20.712+03:00"/>
+    <source value="#xpbEBuBlirqG49PD"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet location-mode</b></p><a name="location-mode"> </a><a name="hclocation-mode"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">version: 1; Last updated: 2022-02-15 08:15:20+0300; </p><p style="margin-bottom: 0px">Information Source: #xpbEBuBlirqG49PD</p><p style="margin-bottom: 0px">Profile: <a href="http://hl7.org/fhir/R4/shareablevalueset.html">Shareable ValueSet</a></p></div><ul><li>Include all codes defined in <a href="http://hl7.org/fhir/R4/codesystem-location-mode.html"><code>http://hl7.org/fhir/location-mode</code></a><span title="Version is explicitly stated to be 4.0.1"> version &#x1F4CD;4.0.1</span></li></ul></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://ihris.org/fhir/ValueSet/location-mode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.330"/>
+  </identifier>
+  <version value="0.1.0"/>
+  <name value="LocationMode"/>
+  <title value="LocationMode"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2019-11-01T09:29:23+11:00"/>
+  <publisher value="Luke Duncan"/>
+  <contact>
+    <name value="Luke Duncan"/>
+    <telecom>
+      <system value="email"/>
+      <value value="lduncan@intrahealth.org"/>
+    </telecom>
+  </contact>
+  <description value="Indicates whether a resource instance represents a specific location or a class of locations."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/location-mode"/>
+      <version value="4.0.1"/>
+    </include>
+  </compose>
+</ValueSet>

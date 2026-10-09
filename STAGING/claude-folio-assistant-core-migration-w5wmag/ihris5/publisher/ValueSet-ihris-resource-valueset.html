@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Value Set for iHRIS Basic Resources. - iHRIS Implementation Guide v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+<link rel="stylesheet" href="assets/css/ihris-ig.css"/>
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"2.98"}
+    h3,h4,h5,h6{--heading-prefix:"2.98"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+<div id="ihris-nav"><a name="l80">​</a> 
+    <a no-external="false" id="ihris-logo" href="ihrisig.html">
+        <img src="assets/images/ihris_logo_full.png" alt="iHRIS IG Implemenation" height="50"/>
+    </a>
+</div>
+<div id="family-nav">
+    <a no-external="false" id="family-logo" href="http://intrahealth.org"><img src="assets/images/IH_logo_horizontal_full_color.png" alt="Visit the Intrahealth website" height="50"/> </a>
+</div>
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">iHRIS Implementation Guide</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - CI Build
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul class="nav navbar-nav">
+  <li><a href="index.html">IG Home</a></li>
+  <li><a href="toc.html">Table of Contents</a></li>
+  <li><a href="artifacts.html">Artifacts Summary</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Other Resources<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="http://hl7.org/fhir/R4/index.html" target="_blank">FHIR Spec <img src="external.png" style="text-align: baseline"/></a></li>
+    </ul>
+  </li>
+</ul>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><a href="artifacts.html"><b>Artifacts Summary</b></a></li><li><b>Value Set for iHRIS Basic Resources.</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">iHRIS Implementation Guide - Local Development build (v0.1.0) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="http://ihris.org/fhir/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li class="active">
+    <a href="#">Narrative Content</a>
+  </li>
+
+
+
+  
+    <li>
+      <a href="ValueSet-ihris-resource-valueset.xml.html">XML</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="ValueSet-ihris-resource-valueset.json.html">JSON</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="ValueSet-ihris-resource-valueset.ttl.html">TTL</a>
+    </li>
+  
+
+
+
+</ul>
+
+  <a name="root"> </a>
+  <h2 id="root">ValueSet: Value Set for iHRIS Basic Resources.
+
+  </h2>
+  <table class="colsi">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://ihris.org/fhir/ValueSet/ihris-resource-valueset<button data-clipboard-text="http://ihris.org/fhir/ValueSet/ihris-resource-valueset" title="Click to copy URL" class="btn-copy"></button></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">0.1.0<button data-clipboard-text="http://ihris.org/fhir/ValueSet/ihris-resource-valueset|0.1.0" title="Click to copy versioned URL" class="btn-copy"></button></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="4">
+        
+          Active
+          
+            as of 2026-10-09
+          
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span style="font-family: monospace;">IhrisResourceValueSet</span></td>
+    </tr>
+
+
+
+
+  </table>
+
+
+  <p>
+    <b>References</b>
+  </p>
+  
+<p>This value set is not used here; it may be used elsewhere (e.g. specifications and/or implementations that use this content)</p>
+
+
+    <!-- insert intro if present -->
+  
+
+
+
+  <a name="definition"> </a>
+
+  <!-- Content Logical Definition heading in the fragment -->
+  <h3>Logical Definition (CLD)</h3>
+<div data-fhir="generated"><p class="res-header-id"></p><a name="ihris-resource-valueset"> </a><a name="hcihris-resource-valueset"> </a>
+<ul><li>Include all codes defined in <a href="CodeSystem-ihris-resource-codesystem.html"><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></a><span title="Version is not explicitly stated, which means it is fixed to the version provided in this specification"> version &#x1F4E6;0.1.0</span></li></ul></div>
+
+  <p>&nbsp;</p>
+  <a name="expansion"> </a>
+  <h3 id="expansion">Expansion</h3>
+
+  <div data-fhir="generated"><p class="res-header-id"></p><p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion performed internally based on <a href="CodeSystem-ihris-resource-codesystem.html">codesystem Code System for iHRIS Basic Resources. v0.1.0 (CodeSystem)</a><span class="copy-text-inline"><button data-clipboard-text="http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem|0.1.0" title="Click to Copy URL" class="btn-copy"> </button></span></p><p>This value set contains 9 concepts</p><table class="codes" data-fhir="generated"><tr><td><b>System</b></td><td style="white-space:nowrap"><b>Code</b></td><td><b>Display (en)</b></td><td><b>Definition</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name="x-http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem-role"> </a><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></td><td style="white-space:nowrap">&nbsp;&nbsp;<a href="CodeSystem-ihris-resource-codesystem.html#ihris-resource-codesystem-role">role</a></td><td>iHRIS Role</td><td>User roles that are available to be assigned to users.</td><td><span class="copy-text-inline"><button data-clipboard-text="{&quot;system&quot;: &quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;role&quot;, &quot;display&quot;: &quot;iHRIS Role&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button></span></td><td><span class="copy-text-inline"><button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;role&quot;&gt;&lt;display value=&quot;iHRIS Role&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button></span></td></tr><tr><td><a name="x-http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem-task"> </a><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></td><td style="white-space:nowrap">&nbsp;&nbsp;<a href="CodeSystem-ihris-resource-codesystem.html#ihris-resource-codesystem-task">task</a></td><td>iHRIS Task</td><td>Role tasks that are available to be assigned to roles</td><td><span class="copy-text-inline"><button data-clipboard-text="{&quot;system&quot;: &quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;task&quot;, &quot;display&quot;: &quot;iHRIS Task&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button></span></td><td><span class="copy-text-inline"><button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;task&quot;&gt;&lt;display value=&quot;iHRIS Task&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button></span></td></tr><tr><td><a name="x-http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem-page"> </a><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></td><td style="white-space:nowrap">&nbsp;&nbsp;<a href="CodeSystem-ihris-resource-codesystem.html#ihris-resource-codesystem-page">page</a></td><td>iHRIS Page</td><td>Page definitions for viewing and editing resources.</td><td><span class="copy-text-inline"><button data-clipboard-text="{&quot;system&quot;: &quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;page&quot;, &quot;display&quot;: &quot;iHRIS Page&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button></span></td><td><span class="copy-text-inline"><button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;page&quot;&gt;&lt;display value=&quot;iHRIS Page&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button></span></td></tr><tr><td><a name="x-http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem-practitioner-link"> </a><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></td><td style="white-space:nowrap">&nbsp;&nbsp;<a href="CodeSystem-ihris-resource-codesystem.html#ihris-resource-codesystem-practitioner-link">practitioner-link</a></td><td>iHRIS Practitioner Link</td><td>Basic resource for customization that links to a Practitioner.</td><td><span class="copy-text-inline"><button data-clipboard-text="{&quot;system&quot;: &quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;practitioner-link&quot;, &quot;display&quot;: &quot;iHRIS Practitioner Link&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button></span></td><td><span class="copy-text-inline"><button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;practitioner-link&quot;&gt;&lt;display value=&quot;iHRIS Practitioner Link&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button></span></td></tr><tr><td><a name="x-http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem-training-link"> </a><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></td><td style="white-space:nowrap">&nbsp;&nbsp;<a href="CodeSystem-ihris-resource-codesystem.html#ihris-resource-codesystem-training-link">training-link</a></td><td>iHRIS Training Link</td><td>Basic resource for customization that links to a Qualify training.</td><td><span class="copy-text-inline"><button data-clipboard-text="{&quot;system&quot;: &quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;training-link&quot;, &quot;display&quot;: &quot;iHRIS Training Link&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button></span></td><td><span class="copy-text-inline"><button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;training-link&quot;&gt;&lt;display value=&quot;iHRIS Training Link&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button></span></td></tr><tr><td><a name="x-http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem-visualization"> </a><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></td><td style="white-space:nowrap">&nbsp;&nbsp;<a href="CodeSystem-ihris-resource-codesystem.html#ihris-resource-codesystem-visualization">visualization</a></td><td>iHRIS Data Visualization</td><td>iHRIS Data Visualization</td><td><span class="copy-text-inline"><button data-clipboard-text="{&quot;system&quot;: &quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;visualization&quot;, &quot;display&quot;: &quot;iHRIS Data Visualization&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button></span></td><td><span class="copy-text-inline"><button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;visualization&quot;&gt;&lt;display value=&quot;iHRIS Data Visualization&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button></span></td></tr><tr><td><a name="x-http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem-dashboard"> </a><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></td><td style="white-space:nowrap">&nbsp;&nbsp;<a href="CodeSystem-ihris-resource-codesystem.html#ihris-resource-codesystem-dashboard">dashboard</a></td><td>iHRIS Dashboard</td><td>iHRIS Dashboard</td><td><span class="copy-text-inline"><button data-clipboard-text="{&quot;system&quot;: &quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;dashboard&quot;, &quot;display&quot;: &quot;iHRIS Dashboard&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button></span></td><td><span class="copy-text-inline"><button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;dashboard&quot;&gt;&lt;display value=&quot;iHRIS Dashboard&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button></span></td></tr><tr><td><a name="x-http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem-resourcedata"> </a><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></td><td style="white-space:nowrap">&nbsp;&nbsp;<a href="CodeSystem-ihris-resource-codesystem.html#ihris-resource-codesystem-resourcedata">resourcedata</a></td><td>Resource Data</td><td>Resource Data</td><td><span class="copy-text-inline"><button data-clipboard-text="{&quot;system&quot;: &quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;resourcedata&quot;, &quot;display&quot;: &quot;Resource Data&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button></span></td><td><span class="copy-text-inline"><button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;resourcedata&quot;&gt;&lt;display value=&quot;Resource Data&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button></span></td></tr><tr><td><a name="x-http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem-standard-list"> </a><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></td><td style="white-space:nowrap">&nbsp;&nbsp;<a href="CodeSystem-ihris-resource-codesystem.html#ihris-resource-codesystem-standard-list">standard-list</a></td><td>Standard List</td><td>Standard List</td><td><span class="copy-text-inline"><button data-clipboard-text="{&quot;system&quot;: &quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;standard-list&quot;, &quot;display&quot;: &quot;Standard List&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button></span></td><td><span class="copy-text-inline"><button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;standard-list&quot;&gt;&lt;display value=&quot;Standard List&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button></span></td></tr></table></div>
+
+  <hr/>
+  <p>
+    Explanation of the columns that may appear on this page:
+  </p>
+  <table class="grid">
+    <tr>
+      <td>Level</td>
+      <td>A few code lists that FHIR defines are hierarchical - each code is assigned a level.
+          In this scheme, some codes are under other codes, and imply that the code they are under also applies</td>
+    </tr>
+    <tr>
+      <td>System</td>
+      <td>The source of the definition of the code (when the value set draws in codes defined elsewhere)</td>
+    </tr>
+    <tr>
+      <td>Code</td>
+      <td>The code (used as the code in the resource instance)</td>
+    </tr>
+    <tr>
+      <td>Display</td>
+      <td>The display (used in the <i>display</i> element of a <a href="http://hl7.org/fhir/R4/datatypes.html#Coding">Coding</a>). If there is no display, implementers should not simply display the code, but map the concept into their application</td>
+    </tr>
+    <tr>
+      <td>Definition</td>
+      <td>An explanation of the meaning of the concept</td>
+    </tr>
+    <tr>
+      <td>Comments</td>
+      <td>Additional notes about how to use the code</td>
+    </tr>
+  </table>
+
+  
+
+    <!-- insert notes if present -->
+  
+
+
+
+  
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p><a name="l704">​</a>
+          IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="lduncan@intrahealth.org">Luke Duncan</a>.  Package ihris#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Oct 9, 2026 12:24+0000">2026-10-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

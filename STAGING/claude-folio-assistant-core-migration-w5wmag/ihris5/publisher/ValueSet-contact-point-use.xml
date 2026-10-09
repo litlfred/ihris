@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="contact-point-use"/>
+  <meta>
+    <versionId value="1"/>
+    <lastUpdated value="2022-02-15T08:16:01.476+03:00"/>
+    <source value="#2RubxHWVCzYRyOk4"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet contact-point-use</b></p><a name="contact-point-use"> </a><a name="hccontact-point-use"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">version: 1; Last updated: 2022-02-15 08:16:01+0300; </p><p style="margin-bottom: 0px">Information Source: #2RubxHWVCzYRyOk4</p><p style="margin-bottom: 0px">Profile: <a href="http://hl7.org/fhir/R4/shareablevalueset.html">Shareable ValueSet</a></p></div><ul><li>Include all codes defined in <a href="http://hl7.org/fhir/R4/codesystem-contact-point-use.html"><code>http://hl7.org/fhir/contact-point-use</code></a><span title="Version is explicitly stated to be 4.0.1"> version &#x1F4CD;4.0.1</span></li></ul></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <url value="http://ihris.org/fhir/ValueSet/contact-point-use"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.73"/>
+  </identifier>
+  <version value="0.1.0"/>
+  <name value="ContactPointUse"/>
+  <title value="ContactPointUse"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-11-01T09:29:23+11:00"/>
+  <publisher value="Luke Duncan"/>
+  <contact>
+    <name value="Luke Duncan"/>
+    <telecom>
+      <system value="email"/>
+      <value value="lduncan@intrahealth.org"/>
+    </telecom>
+  </contact>
+  <description value="Use of contact point."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/contact-point-use"/>
+      <version value="4.0.1"/>
+    </include>
+  </compose>
+</ValueSet>

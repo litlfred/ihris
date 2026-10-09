@@ -1,0 +1,71 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://ihris.org/fhir/CodeSystem/ihris-task-permission> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ihris-task-permission"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem ihris-task-permission</b></p><a name=\"ihris-task-permission\"> </a><a name=\"hcihris-task-permission\"> </a><p>This  code system <code>http://ihris.org/fhir/CodeSystem/ihris-task-permission</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">*<a name=\"ihris-task-permission-.42\"> </a></td><td>All</td><td>Can do any task.</td></tr><tr><td style=\"white-space:nowrap\">read<a name=\"ihris-task-permission-read\"> </a></td><td>Read</td><td>Can read the given resource.</td></tr><tr><td style=\"white-space:nowrap\">write<a name=\"ihris-task-permission-write\"> </a></td><td>Write</td><td>Can write the given resource.</td></tr><tr><td style=\"white-space:nowrap\">delete<a name=\"ihris-task-permission-delete\"> </a></td><td>Delete</td><td>Can delete the given resource.</td></tr><tr><td style=\"white-space:nowrap\">filter<a name=\"ihris-task-permission-filter\"> </a></td><td>Filter</td><td>Search filter constraints.</td></tr><tr><td style=\"white-space:nowrap\">special<a name=\"ihris-task-permission-special\"> </a></td><td>Special</td><td>Special non-resource permissions.</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "http://ihris.org/fhir/CodeSystem/ihris-task-permission"] ;
+  fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "IhrisTaskPermissionCodeSystem"] ;
+  fhir:CodeSystem.title [ fhir:value "Code system for task permissions."] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.date [ fhir:value "2021-03-26T09:25:04.362Z"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "Luke Duncan"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Luke Duncan" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "lduncan@intrahealth.org" ]
+     ]
+  ] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "6"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "*" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "All" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Can do any task." ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "read" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Read" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Can read the given resource." ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "write" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Write" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Can write the given resource." ]
+  ], [
+     fhir:index 3 ;
+     fhir:CodeSystem.concept.code [ fhir:value "delete" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Delete" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Can delete the given resource." ]
+  ], [
+     fhir:index 4 ;
+     fhir:CodeSystem.concept.code [ fhir:value "filter" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Filter" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Search filter constraints." ]
+  ], [
+     fhir:index 5 ;
+     fhir:CodeSystem.concept.code [ fhir:value "special" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Special" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Special non-resource permissions." ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://ihris.org/fhir/CodeSystem/ihris-task-permission.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

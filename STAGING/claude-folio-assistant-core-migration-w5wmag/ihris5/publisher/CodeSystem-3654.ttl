@@ -1,0 +1,751 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://ihris.org/fhir/CodeSystem/3654> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "3654"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem 3654</b></p><a name=\"3654\"> </a><a name=\"hc3654\"> </a><p><b>Properties</b></p><p><b>This code system defines the following properties for its concepts</b></p><table class=\"grid\"><tr><td><b>Name</b></td><td><b>Code</b></td><td><b>URI</b></td><td><b>Type</b></td><td><b>Description</b></td></tr><tr><td>status</td><td>status</td><td>http://terminology.hl7.org/CodeSystem/utg-concept-properties#status</td><td>code</td><td>Status of the concept</td></tr><tr><td>deprecated</td><td>deprecated</td><td>http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated</td><td>code</td><td>Version of HL7 in which the code was deprecated</td></tr></table><p><b>Concepts</b></p><p>This case-sensitive code system <code>http://terminology.hl7.org/CodeSystem/v2-0360</code> defines the following codes in a Is-A hierarchy:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td><td><b>status</b></td></tr><tr><td style=\"white-space:nowrap\">PN<a name=\"3654-PN\"> </a></td><td>Advanced Practice Nurse</td><td>Advanced Practice Nurse</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">AAS<a name=\"3654-AAS\"> </a></td><td>Associate of Applied Science</td><td>Associate of Applied Science</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">AA<a name=\"3654-AA\"> </a></td><td>Associate of Arts</td><td>Associate of Arts</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">ABA<a name=\"3654-ABA\"> </a></td><td>Associate of Business Administration</td><td>Associate of Business Administration</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">AE<a name=\"3654-AE\"> </a></td><td>Associate of Engineering</td><td>Associate of Engineering</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">AS<a name=\"3654-AS\"> </a></td><td>Associate of Science</td><td>Associate of Science</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">BA<a name=\"3654-BA\"> </a></td><td>Bachelor of Arts</td><td>Bachelor of Arts</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">BBA<a name=\"3654-BBA\"> </a></td><td>Bachelor of Business Administration</td><td>Bachelor of Business Administration</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">BE<a name=\"3654-BE\"> </a></td><td>Bachelor or Engineering</td><td>Bachelor or Engineering</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">BFA<a name=\"3654-BFA\"> </a></td><td>Bachelor of Fine Arts</td><td>Bachelor of Fine Arts</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">BN<a name=\"3654-BN\"> </a></td><td>Bachelor of Nursing</td><td>Bachelor of Nursing</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">BS<a name=\"3654-BS\"> </a></td><td>Bachelor of Science</td><td>Bachelor of Science</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">BSL<a name=\"3654-BSL\"> </a></td><td>Bachelor of Science - Law</td><td>Bachelor of Science - Law</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">BSN<a name=\"3654-BSN\"> </a></td><td>Bachelor on Science - Nursing</td><td>Bachelor on Science - Nursing</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">BT<a name=\"3654-BT\"> </a></td><td>Bachelor of Theology</td><td>Bachelor of Theology</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">CER<a name=\"3654-CER\"> </a></td><td>Certificate</td><td>Certificate</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">CANP<a name=\"3654-CANP\"> </a></td><td>Certified Adult Nurse Practitioner</td><td>Certified Adult Nurse Practitioner</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">CMA<a name=\"3654-CMA\"> </a></td><td>Certified Medical Assistant</td><td>Certified Medical Assistant</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">CNP<a name=\"3654-CNP\"> </a></td><td>Certified Nurse Practitioner</td><td>Certified Nurse Practitioner</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">CNM<a name=\"3654-CNM\"> </a></td><td>Certified Nurse Midwife</td><td>Certified Nurse Midwife</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">CRN<a name=\"3654-CRN\"> </a></td><td>Certified Registered Nurse</td><td>Certified Registered Nurse</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">CNS<a name=\"3654-CNS\"> </a></td><td>Certified Nurse Specialist</td><td>Certified Nurse Specialist</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">CPNP<a name=\"3654-CPNP\"> </a></td><td>Certified Pediatric Nurse Practitioner</td><td>Certified Pediatric Nurse Practitioner</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">CTR<a name=\"3654-CTR\"> </a></td><td>Certified Tumor Registrar</td><td>Certified Tumor Registrar</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">DIP<a name=\"3654-DIP\"> </a></td><td>Diploma</td><td>Diploma</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">DBA<a name=\"3654-DBA\"> </a></td><td>Doctor of Business Administration</td><td>Doctor of Business Administration</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">DED<a name=\"3654-DED\"> </a></td><td>Doctor of Education</td><td>Doctor of Education</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">PharmD<a name=\"3654-PharmD\"> </a></td><td>Doctor of Pharmacy</td><td>Doctor of Pharmacy</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">PHE<a name=\"3654-PHE\"> </a></td><td>Doctor of Engineering</td><td>Doctor of Engineering</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">PHD<a name=\"3654-PHD\"> </a></td><td>Doctor of Philosophy</td><td>Doctor of Philosophy</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">PHS<a name=\"3654-PHS\"> </a></td><td>Doctor of Science</td><td>Doctor of Science</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MD<a name=\"3654-MD\"> </a></td><td>Doctor of Medicine</td><td>Doctor of Medicine</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">DO<a name=\"3654-DO\"> </a></td><td>Doctor of Osteopathy</td><td>Doctor of Osteopathy</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">EMT<a name=\"3654-EMT\"> </a></td><td>Emergency Medical Technician</td><td>Emergency Medical Technician</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">EMTP<a name=\"3654-EMTP\"> </a></td><td>Emergency Medical Technician - Paramedic</td><td>Emergency Medical Technician - Paramedic</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">FPNP<a name=\"3654-FPNP\"> </a></td><td>Family Practice Nurse Practitioner</td><td>Family Practice Nurse Practitioner</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">HS<a name=\"3654-HS\"> </a></td><td>High School Graduate</td><td>High School Graduate</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">JD<a name=\"3654-JD\"> </a></td><td>Juris Doctor</td><td>Juris Doctor</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MA<a name=\"3654-MA\"> </a></td><td>Master of Arts</td><td>Master of Arts</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MBA<a name=\"3654-MBA\"> </a></td><td>Master of Business Administration</td><td>Master of Business Administration</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MCE<a name=\"3654-MCE\"> </a></td><td>Master of Civil Engineering</td><td>Master of Civil Engineering</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MDI<a name=\"3654-MDI\"> </a></td><td>Master of Divinity</td><td>Master of Divinity</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MED<a name=\"3654-MED\"> </a></td><td>Master of Education</td><td>Master of Education</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MEE<a name=\"3654-MEE\"> </a></td><td>Master of Electrical Engineering</td><td>Master of Electrical Engineering</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">ME<a name=\"3654-ME\"> </a></td><td>Master of Engineering</td><td>Master of Engineering</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MFA<a name=\"3654-MFA\"> </a></td><td>Master of Fine Arts</td><td>Master of Fine Arts</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MME<a name=\"3654-MME\"> </a></td><td>Master of Mechanical Engineering</td><td>Master of Mechanical Engineering</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MS<a name=\"3654-MS\"> </a></td><td>Master of Science</td><td>Master of Science</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MSL<a name=\"3654-MSL\"> </a></td><td>Master of Science - Law</td><td>Master of Science - Law</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MSN<a name=\"3654-MSN\"> </a></td><td>Master of Science - Nursing</td><td>Master of Science - Nursing</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MTH<a name=\"3654-MTH\"> </a></td><td>Master of Theology</td><td>Master of Theology</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MDA<a name=\"3654-MDA\"> </a></td><td>Medical Assistant</td><td>Medical Assistant</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">MT<a name=\"3654-MT\"> </a></td><td>Medical Technician</td><td>Medical Technician</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">NG<a name=\"3654-NG\"> </a></td><td>Non-Graduate</td><td>Non-Graduate</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">NP<a name=\"3654-NP\"> </a></td><td>Nurse Practitioner</td><td>Nurse Practitioner</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">PA<a name=\"3654-PA\"> </a></td><td>Physician Assistant</td><td>Physician Assistant</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">RMA<a name=\"3654-RMA\"> </a></td><td>Registered Medical Assistant</td><td>Registered Medical Assistant</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">RN<a name=\"3654-RN\"> </a></td><td>Registered Nurse</td><td>Registered Nurse</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">RPH<a name=\"3654-RPH\"> </a></td><td>Registered Pharmacist</td><td>Registered Pharmacist</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">SEC<a name=\"3654-SEC\"> </a></td><td>Secretarial Certificate</td><td>Secretarial Certificate</td><td>A</td></tr><tr><td style=\"white-space:nowrap\">TS<a name=\"3654-TS\"> </a></td><td>Trade School Graduate</td><td>Trade School Graduate</td><td>A</td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg" ] ;
+     fhir:Extension.valueCode [ fhir:value "inm" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg" ] ;
+     fhir:Extension.valueCode [ fhir:value "oo" ]
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0360"] ;
+  fhir:CodeSystem.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "urn:ietf:rfc:3986" ] ;
+     fhir:Identifier.value [ fhir:value "urn:oid:2.16.840.1.113883.18.220" ]
+  ] ;
+  fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "DegreeLicenseCertificate"] ;
+  fhir:CodeSystem.title [ fhir:value "degreeLicenseCertificate"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2019-12-01"^^xsd:date] ;
+  fhir:CodeSystem.publisher [ fhir:value "Luke Duncan"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Luke Duncan" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "lduncan@intrahealth.org" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "Code system of concepts specifying an educational degree (e.g., MD).  Used in the CNN datatype (names and identifiers of clinicians) in Version 2 messaging.  Used in HL7 Version 2.x messaging in the CNN segment; note that in releases of HL7 prior to 2.3.1, was also used in person names (XPN), but this use was deprecated, then withdrawn in 2.7."] ;
+  fhir:CodeSystem.purpose [ fhir:value "Underlying Master Code System for V2 table 0360 (Degree/License/Certificate)"] ;
+  fhir:CodeSystem.copyright [ fhir:value "Copyright HL7. Licensed under creative commons public domain"] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.valueSet [
+     fhir:value "http://terminology.hl7.org/ValueSet/v2-0360" ;
+     fhir:link <http://terminology.hl7.org/ValueSet/v2-0360>
+  ] ;
+  fhir:CodeSystem.hierarchyMeaning [ fhir:value "is-a"] ;
+  fhir:CodeSystem.compositional [ fhir:value "false"^^xsd:boolean] ;
+  fhir:CodeSystem.versionNeeded [ fhir:value "false"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "61"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.property [
+     fhir:index 0 ;
+     fhir:CodeSystem.property.code [ fhir:value "status" ] ;
+     fhir:CodeSystem.property.uri [ fhir:value "http://terminology.hl7.org/CodeSystem/utg-concept-properties#status" ] ;
+     fhir:CodeSystem.property.description [ fhir:value "Status of the concept" ] ;
+     fhir:CodeSystem.property.type [ fhir:value "code" ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.property.code [ fhir:value "deprecated" ] ;
+     fhir:CodeSystem.property.uri [ fhir:value "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated" ] ;
+     fhir:CodeSystem.property.description [ fhir:value "Version of HL7 in which the code was deprecated" ] ;
+     fhir:CodeSystem.property.type [ fhir:value "code" ]
+  ] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:Element.id [ fhir:value "3594" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "PN" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Advanced Practice Nurse" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Advanced Practice Nurse" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Element.id [ fhir:value "3595" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "AAS" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Associate of Applied Science" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Associate of Applied Science" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 2 ;
+     fhir:Element.id [ fhir:value "3596" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "AA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Associate of Arts" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Associate of Arts" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 3 ;
+     fhir:Element.id [ fhir:value "3597" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "ABA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Associate of Business Administration" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Associate of Business Administration" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 4 ;
+     fhir:Element.id [ fhir:value "3598" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "AE" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Associate of Engineering" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Associate of Engineering" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 5 ;
+     fhir:Element.id [ fhir:value "3599" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "AS" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Associate of Science" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Associate of Science" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 6 ;
+     fhir:Element.id [ fhir:value "3600" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "BA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bachelor of Arts" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bachelor of Arts" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 7 ;
+     fhir:Element.id [ fhir:value "3601" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "BBA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bachelor of Business Administration" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bachelor of Business Administration" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 8 ;
+     fhir:Element.id [ fhir:value "3602" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "BE" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bachelor or Engineering" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bachelor or Engineering" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 9 ;
+     fhir:Element.id [ fhir:value "3603" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "BFA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bachelor of Fine Arts" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bachelor of Fine Arts" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 10 ;
+     fhir:Element.id [ fhir:value "3604" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "BN" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bachelor of Nursing" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bachelor of Nursing" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 11 ;
+     fhir:Element.id [ fhir:value "3605" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "BS" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bachelor of Science" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bachelor of Science" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 12 ;
+     fhir:Element.id [ fhir:value "3606" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "BSL" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bachelor of Science - Law" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bachelor of Science - Law" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 13 ;
+     fhir:Element.id [ fhir:value "3607" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "BSN" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bachelor on Science - Nursing" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bachelor on Science - Nursing" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 14 ;
+     fhir:Element.id [ fhir:value "3608" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "BT" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bachelor of Theology" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bachelor of Theology" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 15 ;
+     fhir:Element.id [ fhir:value "3609" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "CER" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Certificate" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Certificate" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 16 ;
+     fhir:Element.id [ fhir:value "3610" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "CANP" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Certified Adult Nurse Practitioner" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Certified Adult Nurse Practitioner" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 17 ;
+     fhir:Element.id [ fhir:value "3611" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "CMA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Certified Medical Assistant" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Certified Medical Assistant" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 18 ;
+     fhir:Element.id [ fhir:value "3612" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "CNP" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Certified Nurse Practitioner" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Certified Nurse Practitioner" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 19 ;
+     fhir:Element.id [ fhir:value "3613" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "CNM" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Certified Nurse Midwife" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Certified Nurse Midwife" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 20 ;
+     fhir:Element.id [ fhir:value "3614" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "CRN" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Certified Registered Nurse" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Certified Registered Nurse" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 21 ;
+     fhir:Element.id [ fhir:value "3615" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "CNS" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Certified Nurse Specialist" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Certified Nurse Specialist" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 22 ;
+     fhir:Element.id [ fhir:value "3616" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "CPNP" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Certified Pediatric Nurse Practitioner" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Certified Pediatric Nurse Practitioner" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 23 ;
+     fhir:Element.id [ fhir:value "3617" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "CTR" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Certified Tumor Registrar" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Certified Tumor Registrar" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 24 ;
+     fhir:Element.id [ fhir:value "3618" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "DIP" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Diploma" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Diploma" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 25 ;
+     fhir:Element.id [ fhir:value "3619" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "DBA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Doctor of Business Administration" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Doctor of Business Administration" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 26 ;
+     fhir:Element.id [ fhir:value "3620" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "DED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Doctor of Education" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Doctor of Education" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 27 ;
+     fhir:Element.id [ fhir:value "3621" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "PharmD" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Doctor of Pharmacy" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Doctor of Pharmacy" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 28 ;
+     fhir:Element.id [ fhir:value "3622" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "PHE" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Doctor of Engineering" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Doctor of Engineering" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 29 ;
+     fhir:Element.id [ fhir:value "3623" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "PHD" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Doctor of Philosophy" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Doctor of Philosophy" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 30 ;
+     fhir:Element.id [ fhir:value "3624" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "PHS" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Doctor of Science" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Doctor of Science" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 31 ;
+     fhir:Element.id [ fhir:value "3625" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MD" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Doctor of Medicine" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Doctor of Medicine" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 32 ;
+     fhir:Element.id [ fhir:value "3626" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "DO" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Doctor of Osteopathy" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Doctor of Osteopathy" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 33 ;
+     fhir:Element.id [ fhir:value "3627" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "EMT" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Emergency Medical Technician" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Emergency Medical Technician" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 34 ;
+     fhir:Element.id [ fhir:value "3628" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "EMTP" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Emergency Medical Technician - Paramedic" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Emergency Medical Technician - Paramedic" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 35 ;
+     fhir:Element.id [ fhir:value "3629" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "FPNP" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Family Practice Nurse Practitioner" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Family Practice Nurse Practitioner" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 36 ;
+     fhir:Element.id [ fhir:value "3630" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "HS" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "High School Graduate" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "High School Graduate" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 37 ;
+     fhir:Element.id [ fhir:value "3631" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "JD" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Juris Doctor" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Juris Doctor" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 38 ;
+     fhir:Element.id [ fhir:value "3632" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Arts" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Arts" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 39 ;
+     fhir:Element.id [ fhir:value "3633" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MBA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Business Administration" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Business Administration" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 40 ;
+     fhir:Element.id [ fhir:value "3634" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MCE" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Civil Engineering" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Civil Engineering" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 41 ;
+     fhir:Element.id [ fhir:value "3635" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MDI" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Divinity" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Divinity" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 42 ;
+     fhir:Element.id [ fhir:value "3636" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Education" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Education" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 43 ;
+     fhir:Element.id [ fhir:value "3637" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MEE" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Electrical Engineering" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Electrical Engineering" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 44 ;
+     fhir:Element.id [ fhir:value "3638" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "ME" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Engineering" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Engineering" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 45 ;
+     fhir:Element.id [ fhir:value "3639" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MFA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Fine Arts" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Fine Arts" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 46 ;
+     fhir:Element.id [ fhir:value "3640" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MME" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Mechanical Engineering" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Mechanical Engineering" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 47 ;
+     fhir:Element.id [ fhir:value "3641" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MS" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Science" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Science" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 48 ;
+     fhir:Element.id [ fhir:value "3642" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MSL" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Science - Law" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Science - Law" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 49 ;
+     fhir:Element.id [ fhir:value "3643" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MSN" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Science - Nursing" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Science - Nursing" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 50 ;
+     fhir:Element.id [ fhir:value "3644" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MTH" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Master of Theology" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Master of Theology" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 51 ;
+     fhir:Element.id [ fhir:value "3645" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MDA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Medical Assistant" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Medical Assistant" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 52 ;
+     fhir:Element.id [ fhir:value "3646" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "MT" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Medical Technician" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Medical Technician" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 53 ;
+     fhir:Element.id [ fhir:value "3647" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "NG" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Non-Graduate" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Non-Graduate" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 54 ;
+     fhir:Element.id [ fhir:value "3648" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "NP" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Nurse Practitioner" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Nurse Practitioner" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 55 ;
+     fhir:Element.id [ fhir:value "3649" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "PA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Physician Assistant" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Physician Assistant" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 56 ;
+     fhir:Element.id [ fhir:value "3650" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "RMA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Registered Medical Assistant" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Registered Medical Assistant" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 57 ;
+     fhir:Element.id [ fhir:value "3651" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "RN" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Registered Nurse" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Registered Nurse" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 58 ;
+     fhir:Element.id [ fhir:value "3652" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "RPH" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Registered Pharmacist" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Registered Pharmacist" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 59 ;
+     fhir:Element.id [ fhir:value "3653" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "SEC" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Secretarial Certificate" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Secretarial Certificate" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ], [
+     fhir:index 60 ;
+     fhir:Element.id [ fhir:value "3654" ] ;
+     fhir:CodeSystem.concept.code [ fhir:value "TS" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Trade School Graduate" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Trade School Graduate" ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "status" ] ;
+       fhir:CodeSystem.concept.property.valueCode [ fhir:value "A" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://ihris.org/fhir/CodeSystem/3654.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
