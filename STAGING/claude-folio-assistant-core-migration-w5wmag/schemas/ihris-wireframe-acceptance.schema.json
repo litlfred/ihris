@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-wireframe-acceptance.schema.json",
+  "title": "ihris-wireframe-acceptance/v1",
+  "description": "The owner's acceptance of a wireframe (GW_Iterate = no, End_WDR).",
+  "type": "object",
+  "required": [
+    "process",
+    "accepted",
+    "states",
+    "acceptedBy",
+    "acceptedOn",
+    "covers",
+    "history"
+  ],
+  "properties": {
+    "process": {
+      "type": "string"
+    },
+    "accepted": {
+      "type": "string"
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "acceptedBy": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "human",
+            "agent"
+          ]
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "acceptedOn": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+    },
+    "covers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

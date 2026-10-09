@@ -1,0 +1,1553 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IHRIS Manage Module List (4.0.6) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1ui4pc129a.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1ui4pc129a"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / IHRIS Manage Module List (4.0.6)</div>
+<h1>IHRIS Manage Module List (4.0.6)</h1>
+<div class="wiki">
+<p>This is a list of all modules available in version 4.0.6-release of the package iHRIS Manage [1]</p>
+<h2>ManageRegistration</h2>
+<p>This describes version 4.0.0 of the module iHRIS Manage Registration (ManageRegistration)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageRegistration [2]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_ManageRegistration</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_registration() via action_registration()</p>
+</li>
+<li>Description: A Person's Registration Details</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-Person at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManageRegistration/configs [3]</p>
+</li>
+<li>
+<p>Templates: modules/ManageRegistration/templates [4]</p>
+</li>
+<li>
+<p>view_list_council.html, view_registration.html, form_registration.html</p>
+</li>
+<li>Classes: modules/ManageRegistration/lib [5]</li>
+</ul>
+<p>iHRIS_Module_ManageRegistration</p>
+<h2>SampleData-accident_type</h2>
+<p>This describes version 4.0.4.2 of the module Accident Type (SampleData-accident_type)</p>
+<ul>
+<li>
+<p>Source: manage/modules/BaseData/modules/SampleData-accident_type [6]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: accidentid_type</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>accident at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/BaseData/modules/SampleData-accident_type/ [7]</p>
+</li>
+</ul>
+<h2>SampleData-benefit_type</h2>
+<p>This describes version 4.0.0 of the module Benefit Type (SampleData-benefit_type)</p>
+<ul>
+<li>
+<p>Source: manage/modules/BaseData/modules/SampleData-benefit_type [8]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: benefit_type</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-Benefit at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/BaseData/modules/SampleData-benefit_type/ [9]</p>
+</li>
+</ul>
+<h2>SampleData-cadre</h2>
+<p>This describes version 4.0.0 of the module Cadre (SampleData-cadre)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-cadre [10]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: cadre</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-Job at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-cadre/ [11]</p>
+</li>
+</ul>
+<h2>SampleData-classification</h2>
+<p>This describes version 4.0.0 of the module Classification (SampleData-classification)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-classification [12]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: classification</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-Job at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-classification/ [13]</p>
+</li>
+</ul>
+<h2>SampleData-competency</h2>
+<p>This describes version 4.0.0 of the module Competency (SampleData-competency)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-competency [14]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: competency</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>SampleData-competency_type at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-competency/ [15]</p>
+</li>
+</ul>
+<h2>SampleData-competency_type</h2>
+<p>This describes version 4.0.0 of the module Competency Type (SampleData-competency_type)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-competency_type [16]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: competency_type</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>simple-competency at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-competency_type/ [17]</p>
+</li>
+</ul>
+<h2>SampleData-confirmation_type</h2>
+<p>This describes version 4.0.6 of the module Sample Data Confirmation Type (SampleData-confirmation_type)</p>
+<ul>
+<li>
+<p>Source: manage/modules/SampleData/modules/SampleData-confirmation_type [18]</p>
+</li>
+<li>
+<p>Description: Sample data for confirmation types.</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/SampleData/modules/SampleData-confirmation_type/ [19]</p>
+</li>
+</ul>
+<h2>SampleData-council</h2>
+<p>This describes version 4.0.0 of the module Registration Councils (SampleData-council)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-council [20]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: council</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ManageRegistration at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-council/ [21]</p>
+</li>
+</ul>
+<h2>SampleData-department</h2>
+<p>This describes version 4.0.0 of the module Department (SampleData-department)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-department [22]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: department</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-PersonPosition at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-department/ [23]</p>
+</li>
+</ul>
+<h2>SampleData-disciplinary_action_type</h2>
+<p>This describes version 4.0.4.1 of the module Disciplinary Action Type (SampleData-disciplinary_action_type)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-disciplinary_action_type [24]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: disciplinary_action_type</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>disciplinary_action at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-disciplinary_action_type/ [25]</p>
+</li>
+</ul>
+<h2>SampleData-establishment</h2>
+<p>This describes version 4.0.6.2010.08.03.01 of the module Establishment Sample Data (SampleData-establishment)</p>
+<ul>
+<li>
+<p>Source: manage/modules/SampleData/modules/SampleData-Establishment [26]</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-sample-data at least 4.0 and less than 4.1</p>
+</li>
+<li>establishment at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/SampleData/modules/SampleData-Establishment/configs [27]</p>
+</li>
+<li>
+<p>Classes: modules/SampleData/modules/SampleData-Establishment/ [28]</p>
+</li>
+</ul>
+<h2>SampleData-facility</h2>
+<p>This describes version 4.0.0 of the module Office/Facility (SampleData-facility)</p>
+<ul>
+<li>
+<p>Source: manage/modules/SampleData/modules/SampleData-facility [29]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: facility</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Facility at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/SampleData/modules/SampleData-facility/ [30]</p>
+</li>
+</ul>
+<h2>SampleData-facility_type</h2>
+<p>This describes version 4.0.0 of the module Facility Type (SampleData-facility_type)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-facility_type [31]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: facility_type</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Facility at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-facility_type/ [32]</p>
+</li>
+</ul>
+<h2>SampleData-id_type</h2>
+<p>This describes version 4.0.0 of the module Identification Type (SampleData-id_type)</p>
+<ul>
+<li>
+<p>Source: manage/modules/BaseData/modules/SampleData-id_type [33]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: id_type</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>PersonID at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/BaseData/modules/SampleData-id_type/ [34]</p>
+</li>
+</ul>
+<h2>SampleData-job</h2>
+<p>This describes version 4.0.0 of the module Job (SampleData-job)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-job [35]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: job</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>SampleData-cadre at least 4.0</p>
+</li>
+<li>SampleData-classification at least 4.0</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-job/ [36]</p>
+</li>
+</ul>
+<h2>SampleData-language</h2>
+<p>This describes version 4.0.0 of the module Language (SampleData-language)</p>
+<ul>
+<li>
+<p>Source: manage/modules/BaseData/modules/SampleData-language [37]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: language</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>PersonLanguage at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/BaseData/modules/SampleData-language/ [38]</p>
+</li>
+</ul>
+<h2>SampleData-marital_status</h2>
+<p>This describes version 4.0.0 of the module Marital Status (SampleData-marital_status)</p>
+<ul>
+<li>
+<p>Source: manage/modules/BaseData/modules/SampleData-marital_status [39]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: marital_status</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>PersonDemographic at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/BaseData/modules/SampleData-marital_status/ [40]</p>
+</li>
+</ul>
+<h2>SampleData-pos_change_reason</h2>
+<p>This describes version 4.0.0 of the module Reasons for Departure (SampleData-pos_change_reason)</p>
+<ul>
+<li>
+<p>Source: manage/modules/BaseData/modules/SampleData-pos_change_reason [41]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: pos_change_reason</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-PersonPosition at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/BaseData/modules/SampleData-pos_change_reason/ [42]</p>
+</li>
+</ul>
+<h2>SampleData-position_type</h2>
+<p>This describes version 4.0.0 of the module Position Type (SampleData-position_type)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-position_type [43]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: position_type</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-PersonPosition at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-position_type/ [44]</p>
+</li>
+</ul>
+<h2>SampleData-salary_grade</h2>
+<p>This describes version 4.0.0 of the module Salary Grade (SampleData-salary_grade)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-salary_grade [45]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: salary_grade</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-Job at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-salary_grade/ [46]</p>
+</li>
+</ul>
+<h2>SampleData-salary_source</h2>
+<p>This describes version 4.0.0 of the module Salary Source (SampleData-salary_source)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-salary_source [47]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: salary_source</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-Salary at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-salary_source/ [48]</p>
+</li>
+</ul>
+<h2>SampleData-training_course_category</h2>
+<p>This describes version 4.0.0 of the module Training Course Category (SampleData-training_course_category)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-training_course_category [49]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: training_course_category</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>training-course at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-training_course_category/ [50]</p>
+</li>
+</ul>
+<h2>SampleData-training_course_requestor</h2>
+<p>This describes version 4.0.0 of the module Training Requestor (SampleData-training_course_requestor)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData/modules/SampleData-training_course_requestor [51]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: training_course_requestor</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>training-course at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/MedicalData/modules/SampleData-training_course_requestor/ [52]</p>
+</li>
+</ul>
+<h2>accident</h2>
+<p>This describes version 4.0.6.0 of the module Workplace Accident (accident)</p>
+<ul>
+<li>
+<p>Source: manage/modules/Accident [53]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Accident</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_accident() via action_accident()</p>
+</li>
+<li>Description: A Workplace Accident Tracking Module</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Accident/configs [54]</p>
+</li>
+<li>
+<p>Classes: modules/Accident/lib [55]</p>
+</li>
+<li>
+<p>iHRIS_Module_Accident</p>
+</li>
+<li>Templates: modules/Accident/templates [56]</li>
+</ul>
+<p>view_list_accident_type.html, form_accident.html, view_accident.html</p>
+<h2>disciplinary_action</h2>
+<p>This describes version 4.0.6.1 of the module Disciplinary Action (disciplinary_action)</p>
+<ul>
+<li>
+<p>Source: manage/modules/Disciplinary [57]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_DisciplinaryAction</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_disciplinary_action() via action_disciplinary_action()</p>
+</li>
+<li>Description: A Disciplinary Action Tracking Module</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Disciplinary/configs [58]</p>
+</li>
+<li>
+<p>Classes: modules/Disciplinary/lib [59]</p>
+</li>
+<li>
+<p>iHRIS_Module_DisciplinaryAction</p>
+</li>
+<li>Templates: modules/Disciplinary/templates [60]</li>
+</ul>
+<p>form_disciplinary_action.html, view_list_disciplinary_action_type.html, view_disciplinary_action.html</p>
+<h2>ihris-manage</h2>
+<p>This describes version 4.0.6.0 of the module iHRIS Manage (ihris-manage) It is the top module of this package</p>
+<ul>
+<li>
+<p>Source: manage/ [61]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Manage</p>
+</li>
+<li>Description: The iHRIS Manage system.</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0 and less than 4.1</p>
+</li>
+<li>ihris-manage-Person at least 4.0 and less than 4.1</li>
+<li>ihris-manage-PersonPosition at least 4.0 and less than 4.1</li>
+<li>ihris-manage-Benefit at least 4.0 and less than 4.1</li>
+<li>Currency at least 4.0 and less than 4.1</li>
+<li>simple-competency at least 4.0 and less than 4.1</li>
+<li>ihris-common-Search at least 4.0 and less than 4.1</li>
+<li>ihris-common-RecentForm at least 4.0 and less than 4.1</li>
+<li>
+<p>Conflicts:</p>
+</li>
+<li>
+<p>ihris-qualify at least 2 and less than 5</p>
+</li>
+<li>ihris-plan at least 1 and less than 2</li>
+<li>Optionally Enables: ihris-manage-CustomReports ihris-manage-Application ihris-manage-help FacilityContact ManageRegistration</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: /configs [62]</p>
+</li>
+<li>
+<p>Classes: /lib [63]</p>
+</li>
+<li>
+<p>iHRIS_Module_Manage, iHRIS_PageManage</p>
+</li>
+<li>
+<p>Templates: /templates [64]</p>
+</li>
+<li>
+<p>view.html, lists.html, menu_manage.html, shell.html, manage.html, index.html, menu_view_person.html</p>
+</li>
+<li>
+<p>Css: /css [65]</p>
+</li>
+<li>
+<p>Scripts: /scripts [66]</p>
+</li>
+<li>
+<p>Images: /images [67]</p>
+</li>
+<li>
+<p>Modules: /modules [68]</p>
+</li>
+</ul>
+<p>ManageRegistration, accident, disciplinary_action, ihris-manage-Application, ihris-manage-Benefit, ihris-manage-CustomReports, ihris-manage-Job, ihris-manage-Person, ihris-manage-PersonDemographic, ihris-manage-PersonPosition, ihris-manage-Salary, ihris-manage-base-data, ihris-manage-confirmation, ihris-manage-help, ihris-manage-medical-data, ihris-manage-sample-data, manage-training-course</p>
+<h2>ihris-manage-Application</h2>
+<p>This describes version 4.0.0 of the module iHRIS Manage Application (ihris-manage-Application)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageApplication [69]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Application</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_application() via action_application()</p>
+</li>
+<li>Implements the method iHRIS_PageView-&gt;action_position_decision() via action_position_decision()</li>
+<li>Implements the method iHRIS_PageView-&gt;action_position_interview() via action_position_interview()</li>
+<li>
+<p>Description: The iHRIS Manage Application Module.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-PersonPosition at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Person at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManageApplication/configs [70]</p>
+</li>
+<li>
+<p>Classes: modules/ManageApplication/lib [71]</p>
+</li>
+<li>
+<p>iHRIS_Applicant, iHRIS_Module_Application</p>
+</li>
+<li>
+<p>Modules: modules/ManageApplication/modules [72]</p>
+</li>
+<li>
+<p>ihris-manage-ApplicationAttachment</p>
+</li>
+<li>Templates: modules/ManageApplication/templates [73]</li>
+</ul>
+<p>form_position_decision.html, form_position_interview.html, view_position_interview.html, applicant_review_results.html, applicant_review_row.html, applicant_review_list_entry.html, applicant_review_list.html, form_application.html, applicant_review_no_results.html, view_position_decision.html, applicant_review.html, view_application.html</p>
+<h2>ihris-manage-ApplicationAttachment</h2>
+<p>This describes version 4.0.7.2 of the module iHRIS Manage Application Attachments (ihris-manage-ApplicationAttachment)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageApplication/modules/ApplicationAttachments [74]</p>
+</li>
+<li>
+<p>Description: Allows attachments to Position Decisions and Position Interview forms</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-Application at least 4.0 and less than 4.1</p>
+</li>
+<li>BinField at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManageApplication/modules/ApplicationAttachments/configs [75]</p>
+</li>
+<li>
+<p>Classes: modules/ManageApplication/modules/ApplicationAttachments/ [76]</p>
+</li>
+</ul>
+<h2>ihris-manage-Benefit</h2>
+<p>This describes version 4.0.4 of the module iHRIS Manage Benefit (ihris-manage-Benefit)</p>
+<ul>
+<li>
+<p>Source: manage/modules/Benefit [77]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Benefit</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_benefit() via action_benefit()</p>
+</li>
+<li>Description: The iHRIS Manage Benefit module provides basic benfit related information</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>ihris-manage-Salary at least 4.0</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Benefit/configs [78]</p>
+</li>
+<li>
+<p>Classes: modules/Benefit/lib [79]</p>
+</li>
+<li>
+<p>iHRIS_Benefit, iHRIS_Module_Benefit</p>
+</li>
+<li>Templates: modules/Benefit/templates [80]</li>
+</ul>
+<p>form_benefit.html, view_benefit.html, view_list_benefit_type.html</p>
+<h2>ihris-manage-ConfirmationAttachment</h2>
+<p>This describes version 4.0.6.0 of the module iHRIS Manage Confirmation Attachments (ihris-manage-ConfirmationAttachment)</p>
+<ul>
+<li>
+<p>Source: manage/modules/Confirmation/modules/ConfirmationAttachments [81]</p>
+</li>
+<li>
+<p>Description: Allows attachments to Confirmation forms</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-confirmation at least 4.0 and less than 4.1</p>
+</li>
+<li>BinField at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Confirmation/modules/ConfirmationAttachments/configs [82]</p>
+</li>
+<li>
+<p>Classes: modules/Confirmation/modules/ConfirmationAttachments/ [83]</p>
+</li>
+</ul>
+<h2>ihris-manage-CustomReports</h2>
+<p>This describes version 4.0.0 of the module iHRIS Manage Custom Reports (ihris-manage-CustomReports)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageCustomReports [84]</p>
+</li>
+<li>
+<p>Description: The Manage Reporting System</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>CustomReports at least 4.0 and less than 4.1</p>
+</li>
+<li>Optionally Enables: CustomReports_PieChart CustomReports_Export CustomReports_PDF ihris-manage-CustomReports-position-reports ihris-manage-CustomReports-staff-reports ihris-manage-CustomReports-facility-reports ihris-manage-CustomReports-search-people</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManageCustomReports/configs [85]</p>
+</li>
+<li>
+<p>Pdf_images: modules/ManageCustomReports/pdf_images [86]</p>
+</li>
+<li>
+<p>Modules: modules/ManageCustomReports/Reports [87]</p>
+</li>
+<li>
+<p>ihris-manage-CustomReports-FilledPositions, ihris-manage-CustomReports-facility-reports, ihris-manage-CustomReports-position-reports, ihris-manage-CustomReports-search-people, ihris-manage-CustomReports-staff-reports</p>
+</li>
+<li>Classes: modules/ManageCustomReports/ [88]</li>
+</ul>
+<h2>ihris-manage-CustomReports-FilledPositions</h2>
+<p>This describes version 4.0.0 of the module iHRIS Manage Filled Positions Reports (ihris-manage-CustomReports-FilledPositions)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageCustomReports/Reports/FilledPositions [89]</p>
+</li>
+<li>
+<p>Description: The Manage Report for Filled Positions</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-CustomReports at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManageCustomReports/Reports/FilledPositions/configs [90]</p>
+</li>
+<li>
+<p>Classes: modules/ManageCustomReports/Reports/FilledPositions/ [91]</p>
+</li>
+</ul>
+<h2>ihris-manage-CustomReports-facility-reports</h2>
+<p>This describes version 4.0.0 of the module iHRIS Manage Facility Reports (ihris-manage-CustomReports-facility-reports)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageCustomReports/Reports/FacilityReports [92]</p>
+</li>
+<li>
+<p>Description: The Manage Reports based on the Facility relationship.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>CustomReports at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManageCustomReports/Reports/FacilityReports/configs [93]</p>
+</li>
+<li>
+<p>Classes: modules/ManageCustomReports/Reports/FacilityReports/ [94]</p>
+</li>
+</ul>
+<h2>ihris-manage-CustomReports-position-reports</h2>
+<p>This describes version 4.0.0.2 of the module iHRIS Manage Position Reports (ihris-manage-CustomReports-position-reports)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageCustomReports/Reports/PositionReports [95]</p>
+</li>
+<li>
+<p>Description: The Manage Reports based on the Position relationship</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>CustomReports at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManageCustomReports/Reports/PositionReports/configs [96]</p>
+</li>
+<li>
+<p>Classes: modules/ManageCustomReports/Reports/PositionReports/ [97]</p>
+</li>
+</ul>
+<h2>ihris-manage-CustomReports-search-people</h2>
+<p>This describes version 4.0.0 of the module Custom Reports - Search People (ihris-manage-CustomReports-search-people)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageCustomReports/Reports/SearchPeople [98]</p>
+</li>
+<li>
+<p>Description: The definition of the search people report for Manage.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>CustomReports at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManageCustomReports/Reports/SearchPeople/configs [99]</p>
+</li>
+<li>
+<p>Classes: modules/ManageCustomReports/Reports/SearchPeople/ [100]</p>
+</li>
+</ul>
+<h2>ihris-manage-CustomReports-staff-reports</h2>
+<p>This describes version 4.0.8.1 of the module iHRIS Manage Custom Staff Reports (ihris-manage-CustomReports-staff-reports)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageCustomReports/Reports/StaffReports [101]</p>
+</li>
+<li>
+<p>Description: The Manage Staff Reports</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>CustomReports at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManageCustomReports/Reports/StaffReports/configs [102]</p>
+</li>
+<li>
+<p>Classes: modules/ManageCustomReports/Reports/StaffReports/ [103]</p>
+</li>
+</ul>
+<h2>ihris-manage-Job</h2>
+<p>This describes version 4.0.6.3 of the module iHRIS Manage Job (ihris-manage-Job)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageJob [104]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_ManageJob</p>
+</li>
+<li>Description: The iHRIS Manage Job</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common-Job at least 4.0 and less than 4.1</p>
+</li>
+<li>form-limits at least 4.0 and less than 4.1</li>
+<li>forms-storage at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManageJob/configs [105]</p>
+</li>
+<li>
+<p>Classes: modules/ManageJob/lib [106]</p>
+</li>
+<li>
+<p>iHRIS_ManageJob, iHRIS_Module_ManageJob, iHRIS_PageViewJob</p>
+</li>
+<li>
+<p>Templates: modules/ManageJob/templates [107]</p>
+</li>
+<li>
+<p>view_list_job.html, lists_form_salary_grade.html, view_job.html, lists_form_job.html, view_list_salary_grade.html</p>
+</li>
+<li>Modules: modules/ManageJob/modules [108]</li>
+</ul>
+<h2>ihris-manage-Person</h2>
+<p>This describes version 4.0.3 of the module iHRIS Manage Person (ihris-manage-Person)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManagePerson [109]</p>
+</li>
+<li>
+<p>Description: The iHRIS Manage Person</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/ManagePerson/lib [110]</p>
+</li>
+</ul>
+<p>iHRIS_PageFormPersonManage</p>
+<h2>ihris-manage-PersonDemographic</h2>
+<p>This describes version 4.0.0 of the module iHRIS Manage Person Demographic (ihris-manage-PersonDemographic)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManagePersonDemographic [111]</p>
+</li>
+<li>
+<p>Description: The iHRIS Manage Person Demographic</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>PersonDemographic at least 4.0</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManagePersonDemographic/configs [112]</p>
+</li>
+<li>
+<p>Templates: modules/ManagePersonDemographic/templates [113]</p>
+</li>
+<li>
+<p>form_demographic.html, view_demographic.html</p>
+</li>
+<li>Classes: modules/ManagePersonDemographic/ [114]</li>
+</ul>
+<h2>ihris-manage-PersonPosition</h2>
+<p>This describes version 4.0.6.2 of the module iHRIS Manage Person Position (ihris-manage-PersonPosition)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManagePersonPosition [115]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_PersonPosition</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_person_position() via action_person_position()</p>
+</li>
+<li>Implements the method iHRIS_Person-&gt;getLastPosition() via getLastPosition()</li>
+<li>Implements the method iHRIS_Person-&gt;isActive() via isActive_Person()</li>
+<li>Implements the method iHRIS_PersonPosition-&gt;isActive() via isActive_PersonPosution()</li>
+<li>Description: The iHRIS Manage Position. Adds a position which is linked to a person and is defined by a job,</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-Job at least 4.0 and less than 4.1</p>
+</li>
+<li>Person at least 4.0 and less than 4.1</li>
+<li>Facility at least 4.0 and less than 4.1</li>
+<li>form-limits at least 4.0 and less than 4.1</li>
+<li>forms-storage at least 4.0 and less than 4.1</li>
+<li>ihris-manage-Benefit at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/ManagePersonPosition/configs [116]</p>
+</li>
+<li>
+<p>Classes: modules/ManagePersonPosition/lib [117]</p>
+</li>
+<li>
+<p>iHRIS_Module_PersonPosition, iHRIS_PageFormDeparture, iHRIS_PageFormMakeOffer, iHRIS_PageFormSalary, iHRIS_PageViewPosition, iHRIS_PersonPosition, iHRIS_Position, iHRIS_SalaryHistoryPage</p>
+</li>
+<li>Templates: modules/ManagePersonPosition/templates [118]</li>
+</ul>
+<p>salary_history.html, view_position_open_link.html, view_list_position_type.html, view_salary.html, lists_form_department.html, lists_type_mapped_position_status.html, salary_history_position.html, view_job_positions.html, button_confirm_position.html, view_position_discontinued_link.html, form_person_position.html, form_departure.html, form_salary.html, view_position_row.html, salary_history_add.html, salary_history_salary.html, lists_form_position.html, view_person_position.html, view_list_pos_change_reason.html, form_salary_change.html, form_make_offer.html, view_position_supervised.html, form_make_promotion.html, view_position.html, view_list_department.html, view_position_person.html</p>
+<h2>ihris-manage-Salary</h2>
+<p>This describes version 4.0.0 of the module iHRIS Manage Salary (ihris-manage-Salary)</p>
+<ul>
+<li>
+<p>Source: manage/modules/Salary [119]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_ManageSalary</p>
+</li>
+<li>Description: The iHRIS Manage Salary module provides salary and salary source forms</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-Person at least 4.0</p>
+</li>
+<li>Currency at least 4.0</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Salary/configs [120]</p>
+</li>
+<li>
+<p>Classes: modules/Salary/lib [121]</p>
+</li>
+</ul>
+<p>iHRIS_Module_ManageSalary</p>
+<ul>
+<li>Templates: modules/Salary/templates [122]</li>
+</ul>
+<p>view_list_salary_source.html</p>
+<h2>ihris-manage-base-data</h2>
+<p>This describes version 4.0.4 of the module iHRIS Manage Base Data (ihris-manage-base-data)</p>
+<ul>
+<li>
+<p>Source: manage/modules/BaseData [123]</p>
+</li>
+<li>
+<p>Description: iHRIS Manage Base Data</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>BackgroundProcess at least 4.0 and less than 4.1</p>
+</li>
+<li>ihris-manage at least 4.0 and less than 4.1</li>
+<li>SampleData-Common at least 4.0</li>
+<li>Optionally Enables: SampleData-benefit_type SampleData-language SampleData-marital_status SampleData-pos_change_reason SampleData-id_type SampleData-accident_type</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Modules: modules/BaseData/modules [124]</p>
+</li>
+<li>
+<p>SampleData-accident_type, SampleData-benefit_type, SampleData-id_type, SampleData-language, SampleData-marital_status, SampleData-pos_change_reason</p>
+</li>
+<li>Classes: modules/BaseData/ [125]</li>
+</ul>
+<h2>ihris-manage-confirmation</h2>
+<p>This describes version 4.0.6.2 of the module iHRIS Manage Confirmation (ihris-manage-confirmation)</p>
+<ul>
+<li>
+<p>Source: manage/modules/Confirmation [126]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Confirmation</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_confirmation() via action_confirmation()</p>
+</li>
+<li>Description: The iHRIS Manage Confirmation module provides confirmation tracking</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0 and less than 4.1</p>
+</li>
+<li>ihris-manage-PersonPosition at least 4.0 and less than 4.1</li>
+<li>ihris-common-Job at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Confirmation/configs [127]</p>
+</li>
+<li>
+<p>Classes: modules/Confirmation/lib [128]</p>
+</li>
+<li>
+<p>iHRIS_Module_Confirmation</p>
+</li>
+<li>
+<p>Modules: modules/Confirmation/modules [129]</p>
+</li>
+<li>
+<p>ihris-manage-ConfirmationAttachment</p>
+</li>
+<li>Templates: modules/Confirmation/templates [130]</li>
+</ul>
+<p>form_confirmation.html, view_list_confirmation_type.html, add_confirmation.html, view_confirmation.html, lists_form_confirmation_type.html</p>
+<h2>ihris-manage-help</h2>
+<p>This describes version 4.0.0 of the module iHRIS Manage Help (ihris-manage-help)</p>
+<ul>
+<li>
+<p>Source: manage/modules/manage-help [131]</p>
+</li>
+<li>
+<p>Description: The iHRIS Manage Help system.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Static: modules/manage-help/static [132]</p>
+</li>
+<li>
+<p>Images: modules/manage-help/images [133]</p>
+</li>
+<li>
+<p>Scripts: modules/manage-help/scripts [134]</p>
+</li>
+<li>
+<p>Css: modules/manage-help/css [135]</p>
+</li>
+<li>
+<p>Classes: modules/manage-help/ [136]</p>
+</li>
+</ul>
+<h2>ihris-manage-medical-data</h2>
+<p>This describes version 4.0.0 of the module iHRIS Manage Medical Base Data (ihris-manage-medical-data)</p>
+<ul>
+<li>
+<p>Source: manage/modules/MedicalData [137]</p>
+</li>
+<li>
+<p>Description: iHRIS Manage Medical Base Data</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-base-data at least 4.0 and less than 4.1</p>
+</li>
+<li>Optionally Enables: SampleData-cadre SampleData-department SampleData-salary_grade SampleData-classification SampleData-facility_type SampleData-salary_source SampleData-competency SampleData-job SampleData-training_course_category SampleData-competency_type SampleData-position_type SampleData-training_course_requestor SampleData-council SampleData-disciplinary_action_type</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Modules: modules/MedicalData/modules [138]</p>
+</li>
+<li>
+<p>SampleData-cadre, SampleData-classification, SampleData-competency, SampleData-competency_type, SampleData-council, SampleData-department, SampleData-disciplinary_action_type, SampleData-facility_type, SampleData-job, SampleData-position_type, SampleData-salary_grade, SampleData-salary_source, SampleData-training_course_category, SampleData-training_course_requestor</p>
+</li>
+<li>Classes: modules/MedicalData/ [139]</li>
+</ul>
+<h2>ihris-manage-sample-data</h2>
+<p>This describes version 4.0.0 of the module iHRIS Manage Sample Data (ihris-manage-sample-data)</p>
+<ul>
+<li>
+<p>Source: manage/modules/SampleData [140]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Manage_SampleData</p>
+</li>
+<li>Description: iHRIS Manage Sample Data</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage-medical-data at least 4.0 and less than 4.1</p>
+</li>
+<li>Optionally Enables: SampleData-facility SampleData-establishment SampleData-confirmation_type</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Sql: modules/SampleData/sql [141]</p>
+</li>
+<li>
+<p>Modules: modules/SampleData/modules [142]</p>
+</li>
+</ul>
+<p>SampleData-confirmation_type, SampleData-establishment, SampleData-facility</p>
+<ul>
+<li>Classes: modules/SampleData/ [143]</li>
+</ul>
+<p>iHRIS_Module_Manage_SampleData</p>
+<h2>manage-training-course</h2>
+<p>This describes version 4.0.0 of the module Manage Traning Course (manage-training-course)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageTrainingCourse [144]</p>
+</li>
+<li>
+<p>Description: Makes the training course module available to iHRIS Manage</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-manage at least 4.0 and less than 4.1</p>
+</li>
+<li>training-course at least 4.0 and less than 4.1</li>
+<li>Optionally Enables: manage-training-institution manage-training-simple-competency</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Modules: modules/ManageTrainingCourse/modules [145]</p>
+</li>
+<li>
+<p>manage-training-institution, manage-training-simple-competency</p>
+</li>
+<li>Classes: modules/ManageTrainingCourse/ [146]</li>
+</ul>
+<h2>manage-training-institution</h2>
+<p>This describes version 4.0.0 of the module Manage Training Institutions (manage-training-institution)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageTrainingCourse/modules/ManageTrainingInstitutions [147]</p>
+</li>
+<li>
+<p>Description: Makes training institution and funder information available to iHRIS Manage training course module</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>manage-training-course at least 4.0 and less than 4.1</p>
+</li>
+<li>training-institution at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/ManageTrainingCourse/modules/ManageTrainingInstitutions/ [148]</p>
+</li>
+</ul>
+<h2>manage-training-simple-competency</h2>
+<p>This describes version 4.0.0 of the module Manage Training Competency (Simple) (manage-training-simple-competency)</p>
+<ul>
+<li>
+<p>Source: manage/modules/ManageTrainingCourse/modules/ManageTrainingSimpleCompetency [149]</p>
+</li>
+<li>
+<p>Description: Makes the Simple Competency module available to iHRIS Manage training course module</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>manage-training-course at least 4.0 and less than 4.1</p>
+</li>
+<li>training-simple-competency at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/ManageTrainingCourse/modules/ManageTrainingSimpleCompetency/ [150]</p>
+</li>
+</ul>
+<h2>References</h2>
+<p>[1] https://launchpad.net/ihris-manage [2] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageRegistration [3] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageRegistration/configs [4] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageRegistration/templates [5] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageRegistration/lib [6] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-accident_type [7] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-accident_type/ [8] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-benefit_type [9] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-benefit_type/ [10] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-cadre [11] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-cadre/ [12] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-classification [13] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-classification/ [14] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-competency [15] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-competency/ [16] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-competency_type [17] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-competency_type/ [18] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/SampleData/modules/</p>
+<p>SampleData-confirmation_type [19] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/SampleData/modules/</p>
+<p>SampleData-confirmation_type/ [20] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-council [21] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-council/ [22] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-department [23] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-department/ [24] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-disciplinary_action_type [25] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-disciplinary_action_type/ [26] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/SampleData/modules/</p>
+<p>SampleData-Establishment [27] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/SampleData/modules/</p>
+<p>SampleData-Establishment/configs [28] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/SampleData/modules/</p>
+<p>SampleData-Establishment/ [29] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/SampleData/modules/</p>
+<p>SampleData-facility</p>
+<p>[30] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/SampleData/modules/</p>
+<p>SampleData-facility/ [31] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-facility_type</p>
+<p>[32] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-facility_type/ [33] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-id_type [34] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-id_type/ [35] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-job [36] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-job/ [37] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-language [38] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-language/ [39] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-marital_status [40] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-marital_status/ [41] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-pos_change_reason [42] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules/</p>
+<p>SampleData-pos_change_reason/ [43] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-position_type [44] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-position_type/ [45] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-salary_grade [46] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-salary_grade/ [47] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-salary_source [48] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-salary_source/ [49] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-training_course_category [50] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-training_course_category/ [51] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-training_course_requestor [52] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules/</p>
+<p>SampleData-training_course_requestor/ [53] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Accident [54] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Accident/configs [55] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Accident/lib [56] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Accident/templates [57] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Disciplinary [58] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Disciplinary/configs [59] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Disciplinary/lib [60] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Disciplinary/templates [61] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/ [62] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head://configs [63] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head://lib [64] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head://templates [65] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head://css [66] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head://scripts</p>
+<p>[67] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head://images [68] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head://modules [69] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageApplication</p>
+<p>[70] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageApplication/configs [71] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageApplication/lib [72] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageApplication/modules [73] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageApplication/templates [74] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageApplication/modules/</p>
+<p>ApplicationAttachments [75] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageApplication/modules/</p>
+<p>ApplicationAttachments/configs [76] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageApplication/modules/</p>
+<p>ApplicationAttachments/ [77] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Benefit [78] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Benefit/configs [79] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Benefit/lib [80] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Benefit/templates [81] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Confirmation/modules/</p>
+<p>ConfirmationAttachments [82] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Confirmation/modules/</p>
+<p>ConfirmationAttachments/configs [83] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Confirmation/modules/</p>
+<p>ConfirmationAttachments/ [84] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports [85] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>configs [86] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>pdf_images [87] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports [88] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/ [89] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/FilledPositions [90] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/FilledPositions/configs [91] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/FilledPositions/ [92] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/FacilityReports [93] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/FacilityReports/configs [94] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/FacilityReports/ [95] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/PositionReports [96] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/PositionReports/configs [97] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/PositionReports/ [98] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/SearchPeople [99] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/SearchPeople/configs [100] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/SearchPeople/ [101] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/StaffReports [102] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/StaffReports/configs</p>
+<p>[103] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageCustomReports/</p>
+<p>Reports/StaffReports/ [104] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageJob</p>
+<p>[105] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageJob/configs [106] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageJob/lib [107] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageJob/templates [108] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageJob/modules [109] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManagePerson [110] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManagePerson/lib [111] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManagePersonDemographic [112] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManagePersonDemographic/</p>
+<p>configs [113] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManagePersonDemographic/</p>
+<p>templates [114] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManagePersonDemographic/ [115] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManagePersonPosition [116] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManagePersonPosition/</p>
+<p>configs [117] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManagePersonPosition/lib [118] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManagePersonPosition/</p>
+<p>templates [119] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Salary [120] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Salary/configs [121] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Salary/lib [122] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Salary/templates [123] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData [124] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/modules [125] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/BaseData/ [126] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Confirmation [127] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Confirmation/configs [128] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Confirmation/lib [129] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Confirmation/modules [130] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/Confirmation/templates [131] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/manage-help [132] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/manage-help/static [133] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/manage-help/images [134] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/manage-help/scripts [135] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/manage-help/css [136] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/manage-help/ [137] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData</p>
+<p>[138] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/modules [139] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/MedicalData/ [140] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/SampleData [141] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/SampleData/sql [142] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/SampleData/modules [143] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/SampleData/ [144] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageTrainingCourse [145] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageTrainingCourse/</p>
+<p>modules [146] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageTrainingCourse/ [147] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageTrainingCourse/</p>
+<p>modules/ManageTrainingInstitutions [148] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageTrainingCourse/</p>
+<p>modules/ManageTrainingInstitutions/ [149] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageTrainingCourse/</p>
+<p>modules/ManageTrainingSimpleCompetency [150] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-manage/4.0.6-release/files/head:/modules/ManageTrainingCourse/</p>
+<p>modules/ManageTrainingSimpleCompetency/</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=33768">revision 33768</a>; contributors: Litlfred. Pages 273&ndash;292 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

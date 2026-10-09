@@ -1,0 +1,288 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role",
+      "@type": "skos:ConceptScheme",
+      "skos:prefLabel": "iHRIS 4.3.3 code list: role",
+      "skos:definition": "The `role` code list as iHRIS 4.3.3 ships it by default: 18 codes from i2ce/module/pages, ihris-common/module/mHero-base, ihris-manage/module/ManageAccessDepartment, ihris-manage/module/ManageAccessFacility, ihris-manage/module/ManageSelfService, ihris-manage/module/ihris-manage, ihris-qualify/module/QualifySelfService, ihris-qualify/module/ihris-qualify. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+      "dcterms:hasVersion": "4.3.3",
+      "dcterms:source": "src/i2ce/data-lists/4.3.3/role.json, src/ihris-common/data-lists/4.3.3/role.json, src/ihris-manage/data-lists/4.3.3/role.json, src/ihris-qualify/data-lists/4.3.3/role.json (iHRIS 4.3.3, MD5-verified release)",
+      "dcterms:license": "https://www.gnu.org/licenses/gpl-3.0.html"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/admin",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Administrator"
+        }
+      ],
+      "skos:notation": "admin",
+      "dcterms:source": "src/i2ce/data-lists/4.3.3/role.json#/records/0",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/any",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Any"
+        }
+      ],
+      "skos:notation": "any",
+      "dcterms:source": "src/i2ce/data-lists/4.3.3/role.json#/records/1",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/all",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "All"
+        }
+      ],
+      "skos:notation": "all",
+      "dcterms:source": "src/i2ce/data-lists/4.3.3/role.json#/records/2",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/mhero_technician",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "mHero Technician"
+        }
+      ],
+      "skos:notation": "mHero_technician",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/role.json#/records/0",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/hr_manager",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "HR Manager"
+        }
+      ],
+      "skos:notation": "hr_manager",
+      "dcterms:source": "src/ihris-manage/data-lists/4.3.3/role.json#/records/0",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/hr_staff",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "HR Staff"
+        }
+      ],
+      "skos:notation": "hr_staff",
+      "dcterms:source": "src/ihris-manage/data-lists/4.3.3/role.json#/records/1",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/exec_manager",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Executive Manager"
+        }
+      ],
+      "skos:notation": "exec_manager",
+      "dcterms:source": "src/ihris-manage/data-lists/4.3.3/role.json#/records/2",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/training_manager",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Training Manager"
+        }
+      ],
+      "skos:notation": "training_manager",
+      "dcterms:source": "src/ihris-manage/data-lists/4.3.3/role.json#/records/3",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/department_manager",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Department Manager"
+        }
+      ],
+      "skos:notation": "department_manager",
+      "dcterms:source": "src/ihris-manage/data-lists/4.3.3/role.json#/records/4",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/facility_staff",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Geographic/Facility Access - Staff"
+        }
+      ],
+      "skos:notation": "facility_staff",
+      "dcterms:source": "src/ihris-manage/data-lists/4.3.3/role.json#/records/5",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/facility_data_entrant",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Geographic/Facility Access - Data Entrant"
+        }
+      ],
+      "skos:notation": "facility_data_entrant",
+      "dcterms:source": "src/ihris-manage/data-lists/4.3.3/role.json#/records/6",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/facility_manager",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Geographic/Facility Access - Manager"
+        }
+      ],
+      "skos:notation": "facility_manager",
+      "dcterms:source": "src/ihris-manage/data-lists/4.3.3/role.json#/records/7",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/personnel",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Personnel"
+        }
+      ],
+      "skos:notation": "personnel",
+      "dcterms:source": "src/ihris-manage/data-lists/4.3.3/role.json#/records/8",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/manager",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Data Operations Manager"
+        }
+      ],
+      "skos:notation": "manager",
+      "dcterms:source": "src/ihris-qualify/data-lists/4.3.3/role.json#/records/0",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/registration",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Registration Supervisor"
+        }
+      ],
+      "skos:notation": "registration",
+      "dcterms:source": "src/ihris-qualify/data-lists/4.3.3/role.json#/records/1",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/records",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Records Officer"
+        }
+      ],
+      "skos:notation": "records",
+      "dcterms:source": "src/ihris-qualify/data-lists/4.3.3/role.json#/records/2",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/decision_maker",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Decision Maker"
+        }
+      ],
+      "skos:notation": "decision_maker",
+      "dcterms:source": "src/ihris-qualify/data-lists/4.3.3/role.json#/records/3",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role/professionals",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/i2ce/ns#glossary/code-list-role"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Professionals"
+        }
+      ],
+      "skos:notation": "professionals",
+      "dcterms:source": "src/ihris-qualify/data-lists/4.3.3/role.json#/records/4",
+      "skos:note": "candidate"
+    }
+  ]
+}
