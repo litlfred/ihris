@@ -3,10 +3,10 @@
   "title": "Ingest a PDF into library/ (folio-assistant rungs)",
   "description": "Runs folio-assistant's pdf-structure rung on an uploaded PDF. It records the embedded outline as sections with page ranges and the file's sha256 in structure.json. Use --no-sections when the source states no licence: then only headings and page ranges are kept (AGENTS.md §2.4). A PDF with no outline goes to the pdf-pages rung instead; an inferred chapter tree is never accepted.",
   "install": {
-    "cli": "python3 -m venv .build/pdfenv && .build/pdfenv/bin/pip install pypdf"
+    "cli": "src/tools/mount_platform.sh && python3 -m venv .build/pdfenv && .build/pdfenv/bin/pip install pypdf"
   },
   "invoke": {
-    "shell": ".build/pdfenv/bin/python ../litlfred/folio-assistant/cat-harness/scripts/pdf-structure.py"
+    "shell": ".build/pdfenv/bin/python cat-harness/scripts/pdf-structure.py"
   },
   "io": {
     "inputs": [

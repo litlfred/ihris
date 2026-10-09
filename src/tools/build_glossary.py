@@ -36,7 +36,7 @@ and only for an equivalence that implies one:
   narrower, specializes -> narrowMatch   anything else (inexact, relatedto, unmatched) -> none
 
 and only when the map's target system is an external scheme this folio references
-(`remoteGraphs` with graphKinds ["glossary"] in ihris.json). The IRI follows the
+(`remoteGraphs` with graphTypologies ["glossary"] in ihris.json). The IRI follows the
 publisher's own pattern: the EU Publications Office authority tables
 (`.../authority/country/` + ISO 3166-1 alpha-3, from pycountry, the same data the map was
 verified with; `.../authority/currency/` + ISO 4217) and ESCO for ISCO-08
@@ -69,7 +69,7 @@ and no ihris IRI can fall in another folio's namespace (a different publication 
 
 SKOS JSON-LD: `to_skos()` mirrors core's `toSkos()` in Python rather than calling it through
 bun. The Pages workflow (.github/workflows/pages.yml) builds the site with Python alone, and
-the site must carry the SKOS files; requiring bun and a folio-assistant checkout there would
+the site must carry the SKOS files; requiring bun and the mounted platform layers there would
 make publishing depend on the platform's checkout. The mirror is held to the original:
 src/tools/validate-folio.ts runs core's own `toSkos()` on every scheme and fails unless it is
 identical, key order included, to what the site published (.build/site).
@@ -95,6 +95,7 @@ NS = f"{PUBLICATION_ROOT}{INSTANCE}/ns#"  # the root instance's own namespace: o
 SCHEMA = "folio-glossary/v1"
 SKOS_NS = "http://www.w3.org/2004/02/skos/core#"
 DCTERMS_NS = "http://purl.org/dc/terms/"
+RDFS_NS = "http://www.w3.org/2000/01/rdf-schema#"
 LOCAL_ID = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
 IRI = re.compile(r"^[a-z][a-z0-9+.-]*://", re.I)
 TOOLKIT = "library/ihris-toolkit"
@@ -122,8 +123,8 @@ def slug(s):
 
 # ------------------------------------------------------------------ declaration
 def glossary_dir():
-    """The directory ihris.json declares with graphKinds ["glossary"], repository-relative."""
-    dirs = [d["path"].rstrip("/") for d in J("ihris.json").get("directories") or [] if "glossary" in (d.get("graphKinds") or [])]
+    """The directory ihris.json declares with graphTypologies ["glossary"], repository-relative."""
+    dirs = [d["path"].rstrip("/") for d in J("ihris.json").get("directories") or [] if "glossary" in (d.get("graphTypologies") or [])]
     if len(dirs) != 1:
         sys.exit(f"ihris.json must declare exactly one glossary directory, not {len(dirs)}")
     return dirs[0]
@@ -131,7 +132,7 @@ def glossary_dir():
 
 def remote_glossaries():
     """{id: remoteGraph} for every external SKOS scheme ihris.json references."""
-    return {g["id"]: g for g in J("ihris.json").get("remoteGraphs") or [] if "glossary" in g["graphKinds"]}
+    return {g["id"]: g for g in J("ihris.json").get("remoteGraphs") or [] if "glossary" in g["graphTypologies"]}
 
 
 def _alpha3(alpha2):
@@ -179,7 +180,7 @@ def toolkit_scheme():
          "description": ("The technical terms each stage of the iHRIS Implementation Toolkit defines, term and definition "
                          "verbatim from the stage pages captured in uploads/toolkit/ (ingested to library/ihris-toolkit/stages/)."
                          + ("" if full else " No licence is recorded for the toolkit, so only the terms are listed.")),
-         "source": f"{lic.get('attribution') or 'The iHRIS Implementation Toolkit.'} {decl['source']['web']}"}
+         "source": f"{lic.get('attribution') or 'The iHRIS Implementation Toolkit.'} {decl['upstream']['web']}"}
     if full:
         how = f"granted {lic['grantedOn']} by {lic['grantedBy']}" if lic["status"] == "permission" else lic.get("id", "")
         g["license"] = (f"LicenseRef-owner-permission: {how}; {TOOLKIT}/ihris-toolkit.json#/licence"
@@ -467,8 +468,13 @@ def to_skos(g, ns=None):
     ns = ns or scheme_ns(g)
     scheme = scheme_iri(ns, g)
 
+    own = {t["id"]: t["iri"] for t in g.get("terms") or [] if t.get("iri")}  # a term that names its own IRI is referred to by it
+
+    def id_of(term_id):
+        return own.get(term_id) or term_iri(ns, g, term_id)
+
     def ref(r):
-        return {"@id": r if IRI.match(r) else term_iri(ns, g, r)}
+        return {"@id": r if IRI.match(r) else id_of(r)}
     head = {"@id": scheme, "@type": "skos:ConceptScheme", "skos:prefLabel": g["title"]}
     for k, key in (("description", "skos:definition"), ("hasVersion", "dcterms:hasVersion"), ("modified", "dcterms:modified"),
                    ("source", "dcterms:source"), ("license", "dcterms:license")):
@@ -476,7 +482,7 @@ def to_skos(g, ns=None):
             head[key] = g[k]
     graph = [head]
     for t in g.get("terms") or []:
-        node = {"@id": term_iri(ns, g, t["id"]), "@type": "skos:Concept", "skos:inScheme": {"@id": scheme},
+        node = {"@id": id_of(t["id"]), "@type": "skos:Concept", "skos:inScheme": {"@id": scheme},
                 "skos:prefLabel": _lang_values(t["prefLabel"])}
         if t.get("altLabel"):
             node["skos:altLabel"] = t["altLabel"]
@@ -493,15 +499,22 @@ def to_skos(g, ns=None):
         for m in MATCHES:
             if t.get(m):
                 node[f"skos:{m}"] = [{"@id": x} for x in t[m]]
+        if t.get("requires"):
+            node["dcterms:requires"] = [ref(x) for x in t["requires"]]
+        if t.get("isDefinedBy"):
+            node["rdfs:isDefinedBy"] = {"@id": t["isDefinedBy"]}
         if t.get("source"):
             node["dcterms:source"] = t["source"]
         if t["status"] != "authored":
             node["skos:note"] = f"{t['status']}: {t['reason']}" if t.get("reason") else t["status"]
         graph.append(node)
+    if g.get("ordered") and g.get("terms"):
+        graph.append({"@id": f"{scheme}#order", "@type": "skos:OrderedCollection", "skos:prefLabel": f"{g['title']}, in order",
+                      "skos:memberList": {"@list": [{"@id": id_of(t["id"])} for t in g["terms"]]}})
     if g.get("members"):
         graph.append({"@id": f"{scheme}#members", "@type": "skos:Collection", "skos:prefLabel": f"{g['title']}: external terms",
                       "skos:member": [{"@id": m} for m in g["members"]]})
-    return {"@context": {"skos": SKOS_NS, "dcterms": DCTERMS_NS}, "@graph": graph}
+    return {"@context": {"skos": SKOS_NS, "dcterms": DCTERMS_NS, "rdfs": RDFS_NS}, "@graph": graph}
 
 
 def skos_asset(g):

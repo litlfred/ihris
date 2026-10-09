@@ -2,7 +2,7 @@
   "name": "ihris-qualify",
   "title": "iHRIS Qualify",
   "description": "iHRIS Qualify is a health worker training, licensing and certification tracking system. The system enables a licensing or certification authority for a health worker cadre, such as nurses or physicians, to track data on the complete cadre in a country from pre-service training through attrition.",
-  "source": {
+  "upstream": {
     "host": "launchpad",
     "vcs": "bzr",
     "lp": "lp:ihris-qualify",
@@ -24,7 +24,7 @@
       "id": "ihris-qualify-catalogue",
       "path": "catalogue/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "catalogue"
       ],
       "readOnly": true,
@@ -35,7 +35,7 @@
       "id": "ihris-qualify-modules",
       "path": "modules/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "library"
       ],
       "readOnly": true,
@@ -46,7 +46,7 @@
       "id": "ihris-qualify-data-model",
       "path": "data-model/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "library"
       ],
       "readOnly": true,

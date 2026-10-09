@@ -2,7 +2,7 @@
   "name": "ihris5",
   "title": "iHRIS 5",
   "description": "iHRIS 5, the FHIR-based rewrite, on GitHub: the application (backend, frontend, FHIR Implementation Guide in FSH) and its technical documentation, each pinned at a commit.",
-  "source": {
+  "upstream": {
     "host": "github",
     "vcs": "git",
     "repositories": [
@@ -31,7 +31,7 @@
       "id": "ihris5-catalogue",
       "path": "catalogue/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "catalogue"
       ],
       "readOnly": true,
@@ -42,7 +42,7 @@
       "id": "ihris5-inventory",
       "path": "inventory/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "library"
       ],
       "readOnly": true,

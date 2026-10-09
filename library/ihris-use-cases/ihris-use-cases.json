@@ -2,7 +2,7 @@
   "name": "ihris-use-cases",
   "title": "iHRIS use-case model (2009)",
   "description": "The use cases, actors and requirements of iHRIS Common, Manage, Qualify and Plan, from four Serlio CaseComplete reports (2009, document author sturlington), parsed into structured records and Markdown, with a crosswalk from each use case to the iHRIS 4.3.3 forms it names.",
-  "source": {
+  "upstream": {
     "web": "https://www.ihris.org/",
     "captures": "uploads/ihris-use-cases/",
     "status": "four .doc reports uploaded into the building session by the owner, 2026-09-23; no public copy is known"
@@ -35,7 +35,7 @@
       "id": "ihris-use-cases-library",
       "path": "./",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "library"
       ],
       "readOnly": true,
@@ -46,7 +46,7 @@
       "id": "ihris-use-cases-scenarios",
       "path": "scenarios/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "scenarios"
       ],
       "readOnly": true,

@@ -13,7 +13,7 @@ Owner, 2026-09-23: *"everything extracted to glosasay / skos? accesible in ihris
 
 ## Where terms go
 
-`glossary/` at the repository root, declared in `ihris.json` with `graphKinds: ["glossary"]`: one `<scheme>.glossary.json` per source. The files are generated (AGENTS.md §2.3): change the inputs or `src/tools/build_glossary.py` (Tool `ihris-build-glossary`), never a scheme.
+`glossary/` at the repository root, declared in `ihris.json` with `graphTypologies: ["glossary"]`: one `<scheme>.glossary.json` per source. The files are generated (AGENTS.md §2.3): change the inputs or `src/tools/build_glossary.py` (Tool `ihris-build-glossary`), never a scheme.
 
 | source | scheme | state |
 |---|---|---|
@@ -25,7 +25,7 @@ Sample records are left out: they illustrate one deployment and are never a stan
 
 ## Matches: never invented
 
-A term gets a SKOS match **only** from a ConceptMap the repository already verified (`src/ihris-data-dictionary/terminology/`, built by `build_dak.py`): `equal`/`equivalent` → `exactMatch`, `wider`/`subsumes` → `broadMatch`, `narrower`/`specializes` → `narrowMatch`, nothing else. The target must be an external scheme `ihris.json` references in `remoteGraphs` with `graphKinds: ["glossary"]`:
+A term gets a SKOS match **only** from a ConceptMap the repository already verified (`src/ihris-data-dictionary/terminology/`, built by `build_dak.py`): `equal`/`equivalent` → `exactMatch`, `wider`/`subsumes` → `broadMatch`, `narrower`/`specializes` → `narrowMatch`, nothing else. The target must be an external scheme `ihris.json` references in `remoteGraphs` with `graphTypologies: ["glossary"]`:
 
 - EU Publications Office country table: `http://publications.europa.eu/resource/authority/country/` + ISO 3166-1 alpha-3 (from pycountry, the data the map was verified with);
 - EU Publications Office currency table: `.../authority/currency/` + ISO 4217;

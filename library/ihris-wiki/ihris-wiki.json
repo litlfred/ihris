@@ -2,7 +2,7 @@
   "name": "ihris-wiki",
   "title": "iHRIS wiki",
   "description": "The iHRIS wiki (open.intrahealth.org 'Osi', later wiki.ihris.org), restored from whatever copies survive. First capture: the user-manual pages exported into the 4.3.3 help modules.",
-  "source": {
+  "upstream": {
     "web": [
       "http://open.intrahealth.org/wiki/index.php/Main_Page",
       "https://wiki.ihris.org/"
@@ -23,7 +23,7 @@
       "id": "ihris-wiki-osi-help",
       "path": "osi-help-4.3.3/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "library"
       ],
       "readOnly": true,

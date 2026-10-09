@@ -2,7 +2,7 @@
   "name": "i2ce",
   "title": "I2CE",
   "description": "IntraHealth Informatics Core Engine is a set of classes for handling database-driven HTML forms with templates and database abstraction. It is the core programming engine for the iHRIS Suite of software. The Informatics Core Engine is free and Open Source software distributed under the GPL.",
-  "source": {
+  "upstream": {
     "host": "launchpad",
     "vcs": "bzr",
     "lp": "lp:i2ce",
@@ -24,7 +24,7 @@
       "id": "i2ce-catalogue",
       "path": "catalogue/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "catalogue"
       ],
       "readOnly": true,
@@ -35,7 +35,7 @@
       "id": "i2ce-modules",
       "path": "modules/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "library"
       ],
       "readOnly": true,
@@ -46,7 +46,7 @@
       "id": "i2ce-data-model",
       "path": "data-model/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "library"
       ],
       "readOnly": true,

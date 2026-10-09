@@ -2,7 +2,7 @@
   "name": "ihris-common",
   "title": "iHRIS Common",
   "description": "iHRIS Common includes common page classes, template files and images for the iHRIS Suite of software: iHRIS Manage, iHRIS Qualify and iHRIS Plan. iHRIS Common is free and Open Source software distributed under the GPL.",
-  "source": {
+  "upstream": {
     "host": "launchpad",
     "vcs": "bzr",
     "lp": "lp:ihris-common",
@@ -24,7 +24,7 @@
       "id": "ihris-common-catalogue",
       "path": "catalogue/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "catalogue"
       ],
       "readOnly": true,
@@ -35,7 +35,7 @@
       "id": "ihris-common-modules",
       "path": "modules/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "library"
       ],
       "readOnly": true,
@@ -46,7 +46,7 @@
       "id": "ihris-common-data-model",
       "path": "data-model/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "library"
       ],
       "readOnly": true,
