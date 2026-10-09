@@ -134,6 +134,11 @@ main {{ min-width:0; }}
 .base {{ border-style:dashed; }}
 .hood {{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px; align-items:start; }}
 /* The neighbourhood graph only: a bare `svg` rule also boxed the folio chrome's rail icons and avatar. */
+/* The tone square behind the iHRIS logo in the folio chrome's rail. ihris.json declares `ground: none`, which
+   cat-harness honours since litlfred/cat-harness#49, but the rail is DRAWN by the platform's PUBLISHED navbar.js
+   (litlfred.github.io/folio-assistant), which predates it. Delete this when that deploy carries #49. Inline style,
+   so !important. */
+.fa-nav-glyph:has(> img[src$="iHRIS_logo-on-dark.svg"]) {{ background:none !important; }}
 .hood svg {{ width:100%; height:auto; border:1px solid var(--rule); background:var(--diagram-bg); }}
 /* The neighbourhood graph's literals, re-coloured by the scheme (CSS outranks SVG presentation attributes). */
 .hood svg [fill="#1b1b1b"] {{ fill:var(--diagram-ink); }} .hood svg [stroke="#1b1b1b"] {{ stroke:var(--diagram-ink); }}
@@ -147,6 +152,8 @@ nav.az a {{ display:inline-flex; align-items:center; justify-content:center; min
 dl.gloss dt {{ margin-top:12px; font-size:15px; overflow-wrap:anywhere; }}
 dl.gloss dd {{ margin:2px 0 0 18px; overflow-wrap:break-word; }}
 dl.gloss dd p {{ margin:2px 0; }}
+dl.gloss .sense {{ border-left:3px solid var(--rule); padding:2px 0 2px 10px; margin:6px 0; }}
+dl.gloss .sense .in {{ margin:0; }}
 dl.gloss .badge.st {{ border-style:dashed; color:var(--mute); }}
 ul.matches {{ margin:2px 0; padding-left:18px; }}
 ul.schemes {{ padding-left:18px; }} ul.schemes li {{ margin-bottom:10px; overflow-wrap:break-word; }}

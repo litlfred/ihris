@@ -1520,7 +1520,8 @@ def c_glossary_verbatim(C):
 
 
 def c_glossary_page(C):
-    """The glossary page lists every term of every scheme exactly once (one <dt> per term, anchored), and nothing else."""
+    """The glossary page lists every term of every scheme exactly once (anchored: a <dt> of its own, or a sense under the
+    one entry its label shares with other schemes), and nothing else."""
     import collections
     import tempfile
     sys.path.insert(0, os.path.join(ROOT, "src", "tools"))
@@ -1528,7 +1529,7 @@ def c_glossary_page(C):
     theme = J("src/site/theme/ihris-classic.json")
     with tempfile.TemporaryDirectory() as tmp:
         _, page = site_instances.glossary_page(theme, tmp)
-    got = collections.Counter(re.findall(r'<dt id="([^"]+)"', page))
+    got = collections.Counter(re.findall(r'<(?:dt|div class="sense") id="([^"]+)"', page))
     want = collections.Counter(f"{g['id']}--{t['id']}" for _, g in _glossaries(C) for t in g.get("terms") or [])
     out = [f"glossary page: term {a} is listed {got[a]} times" for a in sorted(want) if got[a] != 1]
     out += [f"glossary page: lists {a}, which is no term" for a in sorted(set(got) - set(want))]

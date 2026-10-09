@@ -741,10 +741,11 @@ def glossary_page(theme, out_dir):
             return f"{remote['esco-isco-08']['title']}: {iri[len(bg.ESCO_ISCO):]}"
         return iri
 
-    def term_html(g, t, label):
-        k = " ".join([label, t.get("notation") or "", " ".join(t.get("altLabel") or []), g["id"]]).lower()
-        badge = "" if t["status"] == "authored" else f' <span class="badge st">{E(t["status"])}</span>'
-        code = f' <code>{E(t["notation"])}</code>' if t.get("notation") and t["notation"] != label else ""
+    def key(g, t, label):
+        return " ".join([label, t.get("notation") or "", " ".join(t.get("altLabel") or []), g["id"]]).lower()
+
+    def sense_body(g, t, label):
+        """What one scheme says of a term: its definition, note, matches and source."""
         if t.get("definition"):
             d = _first(t["definition"])
             defn = (f"<details><summary>Definition ({len(d.split())} words)</summary><p>{E(d)}</p></details>"
@@ -757,13 +758,42 @@ def glossary_page(theme, out_dir):
         ms = "".join(f'<li>{MATCH_WORDS[m]}: <a class="tgt" href="{E(u)}">{E(match_label(u))}</a></li>'
                      for m in bg.MATCHES for u in t.get(m) or [])
         ms = f'<ul class="matches">{ms}</ul>' if ms else ""
-        return (f'<dt id="{E(term_anchor(g, t))}" data-k="{E(k)}"><b>{E(label)}</b>{code}{badge}</dt>\n'
-                f'<dd>{defn}{note}{ms}'
-                f'<p class="src">{E(g["title"])} &middot; source {_source_link(path, t, stage_of)}</p></dd>')
+        return f'{defn}{note}{ms}<p class="src">{E(g["title"])} &middot; source {_source_link(path, t, stage_of)}</p>'
+
+    def marks(t, label):
+        badge = "" if t["status"] == "authored" else f' <span class="badge st">{E(t["status"])}</span>'
+        code = f' <code>{E(t["notation"])}</code>' if t.get("notation") and t["notation"] != label else ""
+        return code, badge
+
+    def term_html(group):
+        """One entry per label. A label several schemes use (an ISCO-08 and an ISCO-88 group, a WHO cadre) is ONE
+        entry listing each scheme's sense: they are distinct concepts, so each keeps its own anchor, code and source."""
+        if len(group) == 1:
+            g, t, label = group[0]
+            code, badge = marks(t, label)
+            return (f'<dt id="{E(term_anchor(g, t))}" data-k="{E(key(g, t, label))}"><b>{E(label)}</b>{code}{badge}</dt>\n'
+                    f'<dd>{sense_body(g, t, label)}</dd>')
+        label = group[0][2]
+        senses = []
+        for g, t, lab in group:
+            code, badge = marks(t, lab)
+            senses.append(f'<div class="sense" id="{E(term_anchor(g, t))}"><p class="in"><b>{E(g["title"])}</b>{code}{badge}</p>'
+                          f'{sense_body(g, t, lab)}</div>')
+        k = " ".join(key(g, t, lab) for g, t, lab in group)
+        return (f'<dt data-k="{E(k)}"><b>{E(label)}</b> <span class="mute">({len(group)} schemes)</span></dt>\n'
+                f'<dd>{"".join(senses)}</dd>')
+
+    def entries(rs):
+        """Rows grouped by label (case-folded), in the A-Z order the rows already have."""
+        out = collections.OrderedDict()
+        for r in rs:
+            out.setdefault(_fold(r[2]).strip(), []).append(r)
+        return list(out.values())
 
     az = "".join(f'<a href="#letter-{"0" if L == "#" else L}">{E(L)}</a>' for L in by_letter) + '<a href="#sources">Sources</a>'
     body = "".join(f'<section class="letter"><h2 id="letter-{"0" if L == "#" else L}">{E(L)}</h2><dl class="gloss">'
-                   + "".join(term_html(*r) for r in rs) + "</dl></section>" for L, rs in by_letter.items())
+                   + "".join(term_html(grp) for grp in entries(rs)) + "</dl></section>" for L, rs in by_letter.items())
+    n_entries = sum(len(entries(rs)) for rs in by_letter.values())
     items = []
     for g in schemes:
         c = collections.Counter(t["status"] for t in g.get("terms") or [])
@@ -806,7 +836,7 @@ mapping. <b>authored</b>: the definition is the source&#39;s own, verbatim. <b>c
 <div class="badges">{"".join(f'<span class="badge">{v} {E(k)}</span>' for k, v in sorted(status.items()))}<span class="badge">{len(schemes)} schemes</span></div>
 <form class="gsearch" role="search" onsubmit="return false"><label for="gq">Filter terms (name, code or definition)</label>
 <input id="gq" type="search" autocomplete="off"></form>
-<p class="mute" aria-live="polite"><span id="gn">{len(rows)}</span> of {len(rows)} terms shown</p>
+<p class="mute" aria-live="polite"><span id="gn">{n_entries}</span> of {n_entries} entries shown ({len(rows)} terms: a label several schemes use is one entry, with each scheme&#39;s sense under it)</p>
 <nav class="az" aria-label="Terms by letter">{az}</nav>
 {body}
 <h2 id="sources">Sources</h2>
