@@ -65,7 +65,15 @@ jobs:
         with:
           distribution: temurin
           java-version: "21"
-          cache: maven
+      # Maven's repository and the FHIR package cache, keyed by what fills them: the pinned
+      # ast-export commit (build_ihris5_ig.sh FIGP_REF) and the IG pin.
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.m2/repository
+            ~/.fhir/packages
+          key: ihris5-ig-${{ hashFiles('src/tools/build_ihris5_ig.sh', 'src/ihris5/ihris5.json') }}
+          restore-keys: ihris5-ig-
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
