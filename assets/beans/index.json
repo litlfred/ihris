@@ -2,7 +2,7 @@
   "$schema": "folio-bean-index/v1",
   "tile": {
     "beans": {
-      "count": 11,
+      "count": 12,
       "unit": "open beans"
     }
   },
@@ -323,6 +323,20 @@
       "file": "beans/defs/ihris-msvi--theme-ui-reviewbpmn-require-web-and-mobile-layouts.md"
     },
     {
+      "id": "ihris-p1qg",
+      "title": "iHRIS 5 IG: file the five drafted upstream defects on iHRIS/iHRIS",
+      "status": "todo",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-g768",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-10-09T19:49:36Z",
+      "updatedAt": "2026-10-09T19:49:36Z",
+      "preview": "Drafts in `docs/upstream/ihris5-ig-defects.md`, found building the three iHRIS 5 IGs with SUSHI 3.20.1 at iHRIS/iHRIS@fa66e9b (master, 2026-10-09):\n1. IhrisRolePrimary sets ^context[1] with no context[0]; the IG Publisher cannot parse it (the one defect patched here: src/ihris5/ig-build-patches.json).\n2. qualify-ig references IhrisFacility (defined only in the manage IG) and IhrisJurisdiction (def",
+      "file": "beans/defs/ihris-p1qg--ihris-5-ig-file-the-five-drafted-upstream-defects.md"
+    },
+    {
       "id": "ihris-patc",
       "title": "ISO proposal P1: owner decision",
       "status": "todo",
@@ -523,8 +537,8 @@
   ],
   "plan": {
     "milestones": [],
-    "orphanOpen": 11,
-    "openTotal": 11,
+    "orphanOpen": 12,
+    "openTotal": 12,
     "coveredOpen": 0,
     "duplicateIds": 0
   }
