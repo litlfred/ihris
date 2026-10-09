@@ -1,0 +1,372 @@
+# iHRIS Parameters Local Config - iHRIS Implementation Guide v0.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **iHRIS Parameters Local Config**
+
+## Resource Profile: iHRIS Parameters Local Config 
+
+| | |
+| :--- | :--- |
+| *Official URL*:http://ihris.org/fhir/StructureDefinition/ihris-parameters-local-config | *Version*:0.1.0 |
+| Active as of 2026-10-09 | *Computable Name*:IhrisParametersLocalConfig |
+
+ 
+Configuration Parameters to be loaded from a local file for iHRIS. 
+
+**Usages:**
+
+* This Profile is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/ihris|current/StructureDefinition/StructureDefinition-ihris-parameters-local-config.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-ihris-parameters-local-config.csv), [Excel](StructureDefinition-ihris-parameters-local-config.xlsx), [Schematron](StructureDefinition-ihris-parameters-local-config.sch) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ihris-parameters-local-config",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-parameters-local-config",
+  "version" : "0.1.0",
+  "name" : "IhrisParametersLocalConfig",
+  "title" : "iHRIS Parameters Local Config",
+  "status" : "active",
+  "date" : "2026-10-09T12:24:20+00:00",
+  "publisher" : "Luke Duncan",
+  "contact" : [{
+    "name" : "Luke Duncan",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "lduncan@intrahealth.org"
+    }]
+  }],
+  "description" : "Configuration Parameters to be loaded from a local file for iHRIS.",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Parameters",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Parameters",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Parameters",
+      "path" : "Parameters"
+    },
+    {
+      "id" : "Parameters.parameter",
+      "path" : "Parameters.parameter",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "pattern",
+          "path" : "name"
+        }],
+        "rules" : "open"
+      },
+      "min" : 3,
+      "max" : "3"
+    },
+    {
+      "id" : "Parameters.parameter:FhirBase",
+      "path" : "Parameters.parameter",
+      "sliceName" : "FhirBase",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "Parameters.parameter:FhirBase.name",
+      "path" : "Parameters.parameter.name",
+      "patternString" : "fhir:base"
+    },
+    {
+      "id" : "Parameters.parameter:FhirBase.value[x]",
+      "path" : "Parameters.parameter.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Parameters.parameter:FhirBase.resource",
+      "path" : "Parameters.parameter.resource",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:FhirBase.part",
+      "path" : "Parameters.parameter.part",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:FhirUser",
+      "path" : "Parameters.parameter",
+      "sliceName" : "FhirUser",
+      "min" : 0,
+      "max" : "1"
+    },
+    {
+      "id" : "Parameters.parameter:FhirUser.name",
+      "path" : "Parameters.parameter.name",
+      "patternString" : "fhir:username"
+    },
+    {
+      "id" : "Parameters.parameter:FhirUser.value[x]",
+      "path" : "Parameters.parameter.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Parameters.parameter:FhirUser.resource",
+      "path" : "Parameters.parameter.resource",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:FhirUser.part",
+      "path" : "Parameters.parameter.part",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:FhirPass",
+      "path" : "Parameters.parameter",
+      "sliceName" : "FhirPass",
+      "min" : 0,
+      "max" : "1"
+    },
+    {
+      "id" : "Parameters.parameter:FhirPass.name",
+      "path" : "Parameters.parameter.name",
+      "patternString" : "fhir:password"
+    },
+    {
+      "id" : "Parameters.parameter:FhirPass.value[x]",
+      "path" : "Parameters.parameter.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Parameters.parameter:FhirPass.resource",
+      "path" : "Parameters.parameter.resource",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:FhirPass.part",
+      "path" : "Parameters.parameter.part",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Config",
+      "path" : "Parameters.parameter",
+      "sliceName" : "Config",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "Parameters.parameter:Config.name",
+      "path" : "Parameters.parameter.name",
+      "patternString" : "config"
+    },
+    {
+      "id" : "Parameters.parameter:Config.value[x]",
+      "path" : "Parameters.parameter.value[x]",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Config.resource",
+      "path" : "Parameters.parameter.resource",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Config.part",
+      "path" : "Parameters.parameter.part",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "pattern",
+          "path" : "name"
+        }],
+        "rules" : "open"
+      },
+      "min" : 1
+    },
+    {
+      "id" : "Parameters.parameter:Config.part:ConfigId",
+      "path" : "Parameters.parameter.part",
+      "sliceName" : "ConfigId",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "Parameters.parameter:Config.part:ConfigId.value[x]",
+      "path" : "Parameters.parameter.part.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Parameters.parameter:Config.part:ConfigId.resource",
+      "path" : "Parameters.parameter.part.resource",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Config.part:ConfigId.part",
+      "path" : "Parameters.parameter.part.part",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Keys",
+      "path" : "Parameters.parameter",
+      "sliceName" : "Keys",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "Parameters.parameter:Keys.name",
+      "path" : "Parameters.parameter.name",
+      "patternString" : "keys"
+    },
+    {
+      "id" : "Parameters.parameter:Keys.value[x]",
+      "path" : "Parameters.parameter.value[x]",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Keys.resource",
+      "path" : "Parameters.parameter.resource",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Keys.part",
+      "path" : "Parameters.parameter.part",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "pattern",
+          "path" : "name"
+        }],
+        "rules" : "open"
+      },
+      "min" : 1
+    },
+    {
+      "id" : "Parameters.parameter:Keys.part:KeyId",
+      "path" : "Parameters.parameter.part",
+      "sliceName" : "KeyId",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "Parameters.parameter:Keys.part:KeyId.value[x]",
+      "path" : "Parameters.parameter.part.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Parameters.parameter:Keys.part:KeyId.resource",
+      "path" : "Parameters.parameter.part.resource",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Keys.part:KeyId.part",
+      "path" : "Parameters.parameter.part.part",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Session",
+      "path" : "Parameters.parameter",
+      "sliceName" : "Session",
+      "min" : 0,
+      "max" : "1"
+    },
+    {
+      "id" : "Parameters.parameter:Session.name",
+      "path" : "Parameters.parameter.name",
+      "patternString" : "session"
+    },
+    {
+      "id" : "Parameters.parameter:Session.value[x]",
+      "path" : "Parameters.parameter.value[x]",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Session.resource",
+      "path" : "Parameters.parameter.resource",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Session.part",
+      "path" : "Parameters.parameter.part",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "pattern",
+          "path" : "name"
+        }],
+        "rules" : "open"
+      },
+      "min" : 1
+    },
+    {
+      "id" : "Parameters.parameter:Session.part:SessionConfig",
+      "path" : "Parameters.parameter.part",
+      "sliceName" : "SessionConfig",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "Parameters.parameter:Session.part:SessionConfig.value[x]",
+      "path" : "Parameters.parameter.part.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Parameters.parameter:Session.part:SessionConfig.resource",
+      "path" : "Parameters.parameter.part.resource",
+      "max" : "0"
+    },
+    {
+      "id" : "Parameters.parameter:Session.part:SessionConfig.part",
+      "path" : "Parameters.parameter.part.part",
+      "max" : "0"
+    }]
+  }
+}
+
+```

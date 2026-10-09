@@ -1,0 +1,27 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "ihris-resource-valueset",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet ihris-resource-valueset</b></p><a name=\"ihris-resource-valueset\"> </a><a name=\"hcihris-resource-valueset\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-ihris-resource-codesystem.html\"><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version &#x1F4E6;0.1.0</span></li></ul></div>"
+  },
+  "url" : "http://ihris.org/fhir/ValueSet/ihris-resource-valueset",
+  "version" : "0.1.0",
+  "name" : "IhrisResourceValueSet",
+  "title" : "Value Set for iHRIS Basic Resources.",
+  "status" : "active",
+  "date" : "2026-10-09T12:24:20+00:00",
+  "publisher" : "Luke Duncan",
+  "contact" : [{
+    "name" : "Luke Duncan",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "lduncan@intrahealth.org"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "system" : "http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem"
+    }]
+  }
+}

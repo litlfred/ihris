@@ -1,0 +1,44 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://ihris.org/fhir/ValueSet/ihris-resource-valueset> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ihris-resource-valueset"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet ihris-resource-valueset</b></p><a name=\"ihris-resource-valueset\"> </a><a name=\"hcihris-resource-valueset\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-ihris-resource-codesystem.html\"><code>http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version ?0.1.0</span></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "http://ihris.org/fhir/ValueSet/ihris-resource-valueset"] ;
+  fhir:ValueSet.version [ fhir:value "0.1.0"] ;
+  fhir:ValueSet.name [ fhir:value "IhrisResourceValueSet"] ;
+  fhir:ValueSet.title [ fhir:value "Value Set for iHRIS Basic Resources."] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.date [ fhir:value "2026-10-09T12:24:20+00:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Luke Duncan"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Luke Duncan" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "lduncan@intrahealth.org" ]
+     ]
+  ] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://ihris.org/fhir/ValueSet/ihris-resource-valueset.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
