@@ -255,6 +255,13 @@
       "default": "_ig/",
       "contentMediaType": "text/html",
       "x-published": "https://litlfred.github.io/ihris/ihris5/"
+    },
+    "subgraphLayout": {
+      "type": "string",
+      "title": "A KG subgraph's layout",
+      "description": "A subgraph of the knowledge graph as Graphviz DOT, in the i2ce Form Documentor's convention (record nodes, coloured by substring, fan-out splitters, firebrick child edges), laid out in the browser by Graphviz in WebAssembly with draggable nodes. Build output, written beside its page in the site.",
+      "default": "_site/data-model/graph/",
+      "contentMediaType": "text/vnd.graphviz"
     }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/kg-subgraph-layout/input.schema.json",
+  "title": "kg-subgraph-layout input",
+  "description": "What the skill `kg-subgraph-layout` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "dataModel",
+    "modules"
+  ],
+  "properties": {
+    "dataModel": {
+      "$ref": "../artefacts.schema.json#/$defs/dataModel"
+    },
+    "modules": {
+      "$ref": "../artefacts.schema.json#/$defs/modules"
+    }
+  }
+}

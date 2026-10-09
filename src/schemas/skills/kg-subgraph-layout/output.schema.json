@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/kg-subgraph-layout/output.schema.json",
+  "title": "kg-subgraph-layout output",
+  "description": "What the skill `kg-subgraph-layout` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "subgraphLayout"
+  ],
+  "properties": {
+    "subgraphLayout": {
+      "$ref": "../artefacts.schema.json#/$defs/subgraphLayout"
+    }
+  }
+}

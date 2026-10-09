@@ -879,6 +879,54 @@ WORKFLOW = "workflow/index.html"
 MERMAID = "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"
 
 
+FORM_GRAPH = "data-model/graph/{product}.html"
+KG_GRAPH_JS = "assets/kg-graph.js"
+
+
+def form_graph_pages(theme, cls_index, out_dir):
+    """data-model/graph/<product>.html: the i2ce Form Documentor's diagram of a product's forms, laid out in the browser
+    (src/tools/kg_layout.py writes the DOT, src/site/kg-graph.js lays it out and makes it movable), with a table of
+    the same forms as its text twin."""
+    import kg_layout as kl
+    pages = []
+    os.makedirs(os.path.join(out_dir, "data-model", "graph"), exist_ok=True)
+    for product, spec in kl.PRODUCTS.items():
+        proj = kl.forms_projection(product)
+        dot_rel = f"data-model/graph/{product}.dot"
+        with open(os.path.join(out_dir, dot_rel), "w", encoding="utf-8") as f:
+            f.write(kl.to_dot(proj))
+        path = FORM_GRAPH.format(product=product)
+        out_edges = collections.defaultdict(list)
+        for e in proj["edges"]:
+            out_edges[e["from"]] += [(t, e["kind"], e.get("label")) for t in (e["to"] if isinstance(e["to"], list) else [e["to"]])]
+
+        def cls_link(form):
+            cls = next(n["header"].split(" (")[1][:-1] for n in proj["nodes"] if n["id"] == form)
+            return f'<a href="{E(bs.rel(path, bs.page_of(cls_index[cls], cls)))}">{E(cls)}</a>' if cls in cls_index else E(cls)
+        rows = "".join(
+            f'<tr><td><code>{E(n["id"])}</code></td><td>{cls_link(n["id"])}</td><td>{len(n["rows"])}</td>'
+            f'<td>{E(", ".join(t + (" (" + l + ")" if l and l != t else "") for t, k, l in out_edges[n["id"]] if k == "ref")) or "&mdash;"}</td>'
+            f'<td>{E(", ".join(t for t, k, _ in out_edges[n["id"]] if k == "child")) or "&mdash;"}</td></tr>'
+            for n in sorted(proj["nodes"], key=lambda n: n["id"]))
+        other = " &middot; ".join(f'<a href="{E(bs.rel(path, FORM_GRAPH.format(product=p)))}">{E(s["title"])}</a>'
+                                  for p, s in kl.PRODUCTS.items() if p != product)
+        inner = (
+            f'<p>Every form of {E(spec["title"])} {RELEASE} ({len(proj["nodes"])} forms, from {", ".join(spec["packages"])}), drawn the way the '
+            'i2ce <b>Form Documentor</b> drew a site&#39;s forms (<code>I2CE_Page_FormDocumentor::dot</code>): each form with its fields, '
+            'a label under each field (<code>*</code> required, <code>!</code> unique), an arrow from a list field to the forms it selects from, '
+            'and a red arrow to each child form. Colours are the ones iHRIS configured for it. Laid out in your browser by Graphviz '
+            '(<code>unflatten</code> then <code>dot</code>). Drag the background to pan, the wheel to zoom, and a form to move it. '
+            f'Also: {other}. The DOT: <a href="{E(bs.rel(path, dot_rel))}"><code>{E(product)}.dot</code></a>.</p>\n'
+            f'<div class="kg-graph" id="g-{E(product)}" data-dot-src="{E(bs.rel(path, dot_rel))}" data-unflatten="2,1,2" '
+            f'data-label="{E(spec["title"])} forms; the table below lists the same forms and edges"></div>\n'
+            '<h2>The same forms, as a table</h2>\n<div class="tscroll"><table><thead><tr><th>Form</th><th>Class</th><th>Fields</th>'
+            f'<th>Lists it selects from</th><th>Child forms</th></tr></thead><tbody>{rows}</tbody></table></div>\n'
+            f'<script type="module" src="{E(bs.rel(path, KG_GRAPH_JS))}"></script>'
+        )
+        pages.append(page(path, f"{spec['title']} forms", [("index.html", "Home"), ("data-model/index.html", "Data model")], inner, theme, "data-model/index.html"))
+    return pages
+
+
 def workflow_page(theme):
     """workflow/: the data/ETL workflow, GENERATED from the skills' input/output contracts and the Tools that satisfy
     them (src/tools/gen_workflow.py), with a table of the same edges as its text twin."""
@@ -921,6 +969,7 @@ def all_pages(theme, cls_index, out_dir):
     pages.append(glossary_page(theme, out_dir))
     pages.append(work_plan_page(theme))
     pages.append(workflow_page(theme))
+    pages += form_graph_pages(theme, cls_index, out_dir)
     os.makedirs(os.path.join(out_dir, "assets"), exist_ok=True)
     for f in ("data-dictionary.xlsx", "data-dictionary.csv"):
         shutil.copy(os.path.join(ROOT, "src/ihris-data-dictionary", f), os.path.join(out_dir, "assets", f))

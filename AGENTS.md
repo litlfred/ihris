@@ -48,6 +48,7 @@ Use the skills in [`src/skills/`](src/skills/):
 | the site to (re)build or restyle | `build-ihris-site`: iHRIS theme measured from the release CSS, pages from the data, published on the `gh-pages` branch by `.github/workflows/pages.yml`, at litlfred.github.io/ihris/ |
 | terms to define, or external SKOS concepts to link (the glossary) | `build-skos-glossary` (Tool `ihris-build-glossary`): folio-assistant core's `folio-glossary/v1`, reference first; matches only from verified ConceptMaps |
 | FHIR work on the iHRIS 4 data model | `ihris-4-on-fhir` (documented; SUSHI later) |
+| a KG subgraph to draw as one diagram (forms, a declaration schema) | `kg-subgraph-layout` (Tool `ihris-kg-layout`): the i2ce Form Documentor's Graphviz convention over a projection, laid out in the browser by Graphviz in WebAssembly with draggable nodes |
 | the iHRIS 5 IG to build or re-pin | `build-ihris5-ig` (Tool `ihris-build-ihris5-ig`): fhir-harness, from the source `src/ihris5/ihris5.json` pins; published only on `gh-pages` at `/ihris5/` by `.github/workflows/ihris5-ig.yml` |
 
 ## 5. Processes and tools
