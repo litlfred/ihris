@@ -1,0 +1,3408 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://ihris.org/fhir/ImplementationGuide/ihris> a fhir:ImplementationGuide ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ihris"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ImplementationGuide ihris</b></p><a name=\"ihris\"> </a><a name=\"hcihris\"> </a><h2>iHRISImplementationGuide</h2><p>The official URL for this implementation guide is: </p><pre>http://ihris.org/fhir/ImplementationGuide/ihris</pre><div><p>Conformance resources that define the base installation of iHRIS 5</p>\n</div></div>"
+  ] ;
+  fhir:ImplementationGuide.url [ fhir:value "http://ihris.org/fhir/ImplementationGuide/ihris"] ;
+  fhir:ImplementationGuide.version [ fhir:value "0.1.0"] ;
+  fhir:ImplementationGuide.name [ fhir:value "iHRISImplementationGuide"] ;
+  fhir:ImplementationGuide.title [ fhir:value "iHRIS Implementation Guide"] ;
+  fhir:ImplementationGuide.status [ fhir:value "active"] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-10-09T11:48:54+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.publisher [ fhir:value "Luke Duncan"] ;
+  fhir:ImplementationGuide.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Luke Duncan" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "lduncan@intrahealth.org" ]
+     ]
+  ] ;
+  fhir:ImplementationGuide.description [ fhir:value "Conformance resources that define the base installation of iHRIS 5"] ;
+  fhir:ImplementationGuide.packageId [ fhir:value "ihris"] ;
+  fhir:ImplementationGuide.license [ fhir:value "CC0-1.0"] ;
+  fhir:ImplementationGuide.fhirVersion [
+     fhir:value "4.0.1" ;
+     fhir:index 0
+  ] ;
+  fhir:ImplementationGuide.dependsOn [
+     fhir:index 0 ;
+     fhir:Element.id [ fhir:value "hl7tx" ] ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment" ] ;
+       fhir:Extension.valueMarkdown [ fhir:value "Automatically added as a dependency - all IGs depend on HL7 Terminology" ]
+     ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "http://terminology.hl7.org/ImplementationGuide/hl7.terminology" ;
+       fhir:link <http://terminology.hl7.org/ImplementationGuide/hl7.terminology>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.terminology.r4" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "7.4.0" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Element.id [ fhir:value "hl7ext" ] ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment" ] ;
+       fhir:Extension.valueMarkdown [ fhir:value "Automatically added as a dependency - all IGs depend on the HL7 Extension Pack" ]
+     ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions" ;
+       fhir:link <http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.fhir.uv.extensions.r4" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "5.3.0" ]
+  ] ;
+  fhir:ImplementationGuide.definition [
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "copyrightyear" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "2020+" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 1 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "releaselabel" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "CI Build" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 2 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "show-inherited-invariants" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "false" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 3 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "autoload-resources" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 4 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "path-liquid" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template/liquid" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 5 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "path-liquid" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "input/liquid" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 6 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "path-qa" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "temp/qa" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 7 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "path-temp" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "temp/pages" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 8 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "path-output" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "output" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 9 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "path-suppressed-warnings" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "input/ignoreWarnings.txt" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 10 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "path-history" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "http://ihris.org/fhir/history.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 11 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "template-html" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template-page.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 12 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "template-md" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template-page-md.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 13 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "apply-contact" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 14 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "apply-context" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 15 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "apply-copyright" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 16 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "apply-jurisdiction" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 17 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "apply-license" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 18 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "apply-publisher" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 19 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "apply-version" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 20 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "apply-wg" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 21 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "active-tables" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 22 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "fmm-definition" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "http://hl7.org/fhir/versions.html#maturity" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 23 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "propagate-status" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 24 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "excludelogbinaryformat" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 25 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueString [ fhir:value "tabbed-snapshots" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 26 ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency" ] ;
+       fhir:Extension.valueCode [ fhir:value "hl7.fhir.uv.tools.r4#1.1.2" ]
+     ], [
+       fhir:index 27 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "copyrightyear" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "2020+" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 28 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "releaselabel" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "CI Build" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 29 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "show-inherited-invariants" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "false" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 30 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "autoload-resources" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 31 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-liquid" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template/liquid" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 32 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-liquid" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "input/liquid" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 33 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-qa" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "temp/qa" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 34 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-temp" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "temp/pages" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 35 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-output" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "output" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 36 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-suppressed-warnings" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "input/ignoreWarnings.txt" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 37 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-history" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "http://ihris.org/fhir/history.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 38 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "template-html" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template-page.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 39 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "template-md" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template-page-md.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 40 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-contact" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 41 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-context" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 42 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-copyright" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 43 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-jurisdiction" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 44 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-license" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 45 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-publisher" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 46 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-version" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 47 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-wg" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 48 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "active-tables" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 49 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "fmm-definition" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "http://hl7.org/fhir/versions.html#maturity" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 50 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "propagate-status" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 51 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "excludelogbinaryformat" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 52 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "tabbed-snapshots" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ] ;
+     fhir:ImplementationGuide.definition.resource [
+       fhir:index 0 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/active-user> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/active-user" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "active-user" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by active status for a Person resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 1 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/address-type> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/address-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "AddressType" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The type of an address (physical / postal)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 2 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/address-type> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/address-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "AddressType" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The type of an address (physical / postal)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 3 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/address-use> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/address-use" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "AddressUse" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The use of an address." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 4 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/address-use> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/address-use" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "AddressUse" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The use of an address." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 5 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/administrative-gender> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/administrative-gender" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "AdministrativeGender" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The gender of a person used for administrative purposes." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 6 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/administrative-gender> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/administrative-gender" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "AdministrativeGender" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The gender of a person used for administrative purposes." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 7 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-page-auditevent> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-page-auditevent" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "AuditEvent" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-page" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-page>
+       ]
+     ], [
+       fhir:index 8 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/basic-location-constraint> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/basic-location-constraint" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "basic-location-constraint" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by related location for a Basic resource Role." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 9 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/basic-name> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/basic-name" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "basic-name" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by name for a Basic resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 10 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/basic-practitioner> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/basic-practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "basic-practitioner" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by practitioner for a Basic resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 11 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/basic-related-location> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/basic-related-location" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "basic-related-location" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by related location for a Basic resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 12 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/basic-related-practitioner> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/basic-related-practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "basic-related-practitioner" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by related practitioner for a Basic resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 13 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/currencies> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/currencies" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Code System for Currencies." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 14 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/ihris-document-category> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/ihris-document-category" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Code system for document categories." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 15 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/ihris-document-category> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/ihris-document-category" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Code system for document categories." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 16 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/ihris-resource-codesystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Code System for iHRIS Basic Resources." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 17 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/ihris-task-permission> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/ihris-task-permission" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Code system for task permissions." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 18 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/ihris-task-resource> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/ihris-task-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Code system for task permissions." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 19 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/ihris-task-permission> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/ihris-task-permission" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Code system for task permissions." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 20 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/ihris-task-resource> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/ihris-task-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Code system for task permissions." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 21 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/languages> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/languages" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Common Languages" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This value set includes common codes from BCP-47 (http://tools.ietf.org/html/bcp47)" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 22 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/composite-task> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/composite-task" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Composite Task" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tasks Inheritance" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 23 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/contactentity-type> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/contactentity-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Contact entity type" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This example value set defines a set of codes that can be used to indicate the purpose for which you would contact a contact party." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 24 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/contactentity-type> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/contactentity-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Contact entity type" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This example value set defines a set of codes that can be used to indicate the purpose for which you would contact a contact party." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 25 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:complex-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ContactPoint> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ContactPoint" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ContactPoint" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Base StructureDefinition for ContactPoint Type: Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 26 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/contact-point-system> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/contact-point-system" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ContactPointSystem" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Telecommunications form for contact point." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 27 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/contact-point-system> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/contact-point-system" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ContactPointSystem" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Telecommunications form for contact point." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 28 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/contact-point-use> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/contact-point-use" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ContactPointUse" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Use of contact point." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 29 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/contact-point-use> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/contact-point-use" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ContactPointUse" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Use of contact point." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 30 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Bundle/Country> ;
+         fhir:Reference.reference [ fhir:value "Bundle/Country" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Country" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 31 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/currencies> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/currencies" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "CurrencyCode" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 32 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/days-of-week> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/days-of-week" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "DaysOfWeek" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The days of the week." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 33 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/days-of-week> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/days-of-week" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "DaysOfWeek" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The days of the week." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 34 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/3654> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/3654" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "degreeLicenseCertificate" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Code system of concepts specifying an educational degree (e.g., MD).  Used in the CNN datatype (names and identifiers of clinicians) in Version 2 messaging.  Used in HL7 Version 2.x messaging in the CNN segment; note that in releases of HL7 prior to 2.3.1, was also used in person names (XPN), but this use was deprecated, then withdrawn in 2.7." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 35 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/iHRISReportDetails> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/iHRISReportDetails" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Details of a report" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Defines the primary resource of the relationship" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 36 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/employment-status-search> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/employment-status-search" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "employment-status-search" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search for a practitionerRole employment-status." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 37 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/gofr-search-isbroadcast> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/gofr-search-isbroadcast" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "gofr-search-isbroadcast" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "search parameter for broadcasted messages" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 38 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/gofr-search-isflowstart> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/gofr-search-isflowstart" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "gofr-search-isflowstart" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "search parameter for flow starts" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 39 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/v2-0360> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/v2-0360" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "hl7VS-degreeLicenseCertificate" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Concepts specifying an educational degree (e.g., MD).  Used in the CNN datatype (names and identifiers of clinicians) in Version 2 messaging.  Used in Version 2 messaging; note that in releases of HL7 prior to 2.3.1, was also used in person names (XPN), but this use was deprecated, then withdrawn in 2.7." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 40 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/identifier-type> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/identifier-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "IdentifierType" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 41 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/2103> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/2103" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "identifierType" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "HL7-defined code system of concepts specifying type of identifier. Used in HL7 Version 2.x messaging data types CX, PLN, PPN, XCN and XON." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 42 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/identifier-use> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/identifier-use" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "IdentifierUse" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Identifies the purpose for this identifier, if known ." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 43 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/identifier-use> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/identifier-use" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "IdentifierUse" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Identifies the purpose for this identifier, if known ." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 44 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/IHE.mCSD.FacilityLocation> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/IHE.mCSD.FacilityLocation" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "IHEmCSDFacilityLocation" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 45 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/IHE.mCSD.Location> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/IHE.mCSD.Location" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "IHEmCSDLocation" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 46 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "DocumentReference" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/DocumentReference/page-about> ;
+         fhir:Reference.reference [ fhir:value "DocumentReference/page-about" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS About Page" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-document" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-document>
+       ]
+     ], [
+       fhir:index 47 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Questionnaire" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Questionnaire/ihris-task> ;
+         fhir:Reference.reference [ fhir:value "Questionnaire/ihris-task" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Add Task Workflow" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS workflow to record a Role" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 48 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Questionnaire" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Questionnaire/ihris-role> ;
+         fhir:Reference.reference [ fhir:value "Questionnaire/ihris-role" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS AddRole Workflow" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS workflow to record a Role" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 49 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-role-admin> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-role-admin" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Admin Role" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-role" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-role>
+       ]
+     ], [
+       fhir:index 50 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-assign-role> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-assign-role" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Assign Role" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Assign Role to a user or other role." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 51 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-assign-task> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-assign-task" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Assign Task" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Assign Task to a user or other task." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 52 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-auditevent> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-auditevent" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Audit Event" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS profile for AuditEvent" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 53 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-basic-name> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-basic-name" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Basic Name" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS name field for basic resources." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 54 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/ihris-cadre> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/ihris-cadre" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Cadre" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Sample iHRIS ValueSet for: IhrisCadre" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 55 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/ihris-cadre> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/ihris-cadre" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Cadre" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Sample iHRIS CodeSystem for: IhrisCadre" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 56 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/ihris-classification> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/ihris-classification" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Classification" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Sample iHRIS ValueSet for: IhrisClassification" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 57 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/ihris-classification> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/ihris-classification" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Classification" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Sample iHRIS CodeSystem for: IhrisClassification" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 58 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-dashboard> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-dashboard" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Dashboard" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Profile of the Basic resource to manage dashboards." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 59 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-dashboard-visualization> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-dashboard-visualization" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Dashboard Visualization" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Dashboard Visualization" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 60 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-data-visualization> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-data-visualization" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Data Visualizer" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Profile of the Basic resource to manage visualizations." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 61 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-document> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-document" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Document" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Profile of the DocumentReference resource to manage static documents." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 62 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/ihris-job> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/ihris-job" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Job" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Sample iHRIS ValueSet for: IhrisJob" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 63 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/ihris-job> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/ihris-job" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Job" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Sample iHRIS CodeSystem for: IhrisJob" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 64 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-module> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-module" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Module" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS profile of Library resource to manage modules." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 65 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Library" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Library/ihris-module-example> ;
+         fhir:Reference.reference [ fhir:value "Library/ihris-module-example" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Module Example" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-module" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-module>
+       ]
+     ], [
+       fhir:index 66 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-role-open> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-role-open" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Open Role" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-role" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-role>
+       ]
+     ], [
+       fhir:index 67 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-page> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-page" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Page" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Profile of the Basic resource to manage pages." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 68 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-page-display> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-page-display" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Page Display" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Page Display details." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 69 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-page-section> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-page-section" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Page Section" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Page Section information." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 70 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-page-task> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-page-task" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Page Task" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Page Task details." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 71 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-parameters-local-config> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-parameters-local-config" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Parameters Local Config" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Configuration Parameters to be loaded from a local file for iHRIS." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 72 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-parameters-remote-config> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-parameters-remote-config" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Parameters Remote Config" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Configuration Parameters to be loaded from a remote file for iHRIS." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 73 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-test-dependent> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-test-dependent" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Practitioner Dependent Detail" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Test extension for Practitioner Dependent Detail." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 74 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-test-residence> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-test-residence" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Practitioner Residence" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Test extension for Practitioner residence." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 75 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-questionnaire> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-questionnaire" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Questionnaire" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Profile of the Questionnaire resource for data entry and validation." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 76 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-es-report-mhero-send-message> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-es-report-mhero-send-message" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Relationship Example" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/iHRISRelationship" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/iHRISRelationship>
+       ]
+     ], [
+       fhir:index 77 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-report> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-report" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Report" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Profile of the Basic resource to manage reports." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 78 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/iHRISReportParameters> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/iHRISReportParameters" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ihRIS Report parameters" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Lists parameters" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 79 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-resource-relationships> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-resource-relationships" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Resource Relationships" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Resource Relationships" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 80 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/iHRISRelationship> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/iHRISRelationship" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Resources Relationship Profile" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Resources Relationship Profile" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 81 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-role> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-role" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Role" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Profile of the Basic resource to manage roles." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 82 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-role-primary> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-role-primary" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Role Primary" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS flag for roles to indicate a primary role for assignment to users." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 83 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/ihris-salary-grade> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/ihris-salary-grade" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Salary Grade" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Sample iHRIS ValueSet for: iHRISSalaryGrade" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 84 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/ihris-salary-grade> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/ihris-salary-grade" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Salary Grade" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Sample iHRIS CodeSystem for: iHRISSalaryGrade" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 85 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-role-self> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-role-self" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Self Service Role" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-role" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-role>
+       ]
+     ], [
+       fhir:index 86 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-task" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Profile of the Basic resource to manage tasks." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 87 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-navigation-evaluation> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-navigation-evaluation" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Navigate to evaluation" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 88 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-navigation-leave> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-navigation-leave" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Navigate to Leave" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 89 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-navigation-password> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-navigation-password" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Navigate to password" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 90 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-navigation-profile> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-navigation-profile" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Navigate to Profile" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 91 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-auditevent-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-auditevent-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read AuditEvent resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 92 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-basic-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-basic-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read Basic resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 93 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-code-system> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-code-system" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read CodeSystem resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 94 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-document-reference> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-document-reference" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read DocumentReference" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 95 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-location-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-location-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read Location resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 96 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-organization-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-organization-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read Organization resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 97 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-person-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-person-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read Person resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 98 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-ihris-page-practitioner> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-ihris-page-practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read Practitioner Page" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 99 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-practitioner-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-practitioner-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read Practitioner resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 100 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-ihris-page-practitioner-role> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-ihris-page-practitioner-role" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read PractitionerRole Page" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 101 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-practitioner-role-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-practitioner-role-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read PractitionerRole resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 102 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-questionnaire-leave> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-questionnaire-leave" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read Questionnaire ihris-leave" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 103 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-questionnaire-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-questionnaire-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read Questionnaire resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 104 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-questionnaire-response-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-questionnaire-response-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read Questionnaire Response resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 105 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-structure-definition> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-structure-definition" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read StructureDefinition Resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 106 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-value-set> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-value-set" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Read Valueset Resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 107 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-auditevent-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-auditevent-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write AuditEvent resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 108 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-basic-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-basic-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write Basic resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 109 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-code-system> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-code-system" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write CodeSystem resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 110 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-document-reference> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-document-reference" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write DocumentReference" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 111 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-location-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-location-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write Location resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 112 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-organization-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-organization-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write Organization resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 113 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-person-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-person-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write Person resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 114 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-practitioner-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-practitioner-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write Practitioner resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 115 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-practitioner-role-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-practitioner-role-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write PractitionerRole resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 116 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-questionnaire-leave> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-questionnaire-leave" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write Questionnaire ihris-leave" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 117 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-questionnaire-change-password> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-questionnaire-change-password" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write Questionnaire ihris-password" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 118 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-questionnaire-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-questionnaire-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write Questionnaire resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 119 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-questionnaire-response-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-questionnaire-response-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write Questionnaire Response resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 120 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-structure-definition> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-structure-definition" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write StructureDefinition Resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 121 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-value-set> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-value-set" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write Valueset Resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 122 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-write-valueset-resource> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-write-valueset-resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task To Write Valueset Resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 123 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-task-all-permissions-to-everything> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-task-all-permissions-to-everything" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Task With All Permissions To Everything" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-task" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-task>
+       ]
+     ], [
+       fhir:index 124 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-page-task> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-page-task" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Tasks" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-page" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-page>
+       ]
+     ], [
+       fhir:index 125 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/ihris-test-codesystem> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/ihris-test-codesystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Test CodeSystem" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 126 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-page-test-codesystem> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-page-test-codesystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Test CodeSystem Page" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-page" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-page>
+       ]
+     ], [
+       fhir:index 127 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-page-test-practitioner> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-page-test-practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Test Practitioner Page" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-page" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-page>
+       ]
+     ], [
+       fhir:index 128 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-test-practitioner-role> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-test-practitioner-role" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Test Practitioner Role" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Test profile of Practitioner Role." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 129 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Questionnaire" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Questionnaire/ihris-test> ;
+         fhir:Reference.reference [ fhir:value "Questionnaire/ihris-test" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Test Questionnaire" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Test initial data entry questionnaire." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 130 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-visualization-categories> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-visualization-categories" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Visualization Categories" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS visualization categories" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 131 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-visualization-dataset> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-visualization-dataset" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Visualization Dataset" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS visualization dataset" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 132 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-visualization-filters> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-visualization-filters" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Visualization Filters" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS visualization filters" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 133 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-visualization-permissions> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-visualization-permissions" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Visualization Permissions" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS Visualization Permissions" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 134 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-visualization-series> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-visualization-series" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Visualization Series" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS visualization series" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 135 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-visualization-settings> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-visualization-settings" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "iHRIS Visualization Settings" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS visualization settings for the data visualizer" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 136 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Parameters" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Parameters/ihris-dashboard> ;
+         fhir:Reference.reference [ fhir:value "Parameters/ihris-dashboard" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ihris-dashboard" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-parameters-remote-config" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-parameters-remote-config>
+       ]
+     ], [
+       fhir:index 137 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-es-report-staff-directorate> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-es-report-staff-directorate" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ihris-es-report-staff-directorate" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 138 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-test-practitioner> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ihris-test-practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "IhrisTestPractitioner" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "iHRIS profile of Practitioner for tests." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 139 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/iso3166-1-2> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/iso3166-1-2" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Iso 3166 Part 1: 2 Letter Codes" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This value set defines the ISO 3166 Part 1 2-letter codes" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 140 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/ISO3166Part1> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/ISO3166Part1" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ISO 3166-1 Codes for the representation of names of countries and their subdivisions — Part 1: Country code" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "ISO 3166-1 establishes codes that represent the current names of countries, dependencies, and other areas of particular geopolitical interest, on the basis of country names obtained from the United Nations." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 141 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/job-search> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/job-search" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "job-search" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search for a practitionerRole job." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 142 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/leaveperiod-search> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/leaveperiod-search" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "leaveperiod-search" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search for a practitioner's Leave Period" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 143 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/leavetype-search> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/leavetype-search" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "leavetype-search" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search for a practitioner's Leave Type." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 144 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/iHRISReportLink> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/iHRISReportLink" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Links to the primary resource" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Links to the primary resource" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 145 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/location-physical-type> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/location-physical-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Location type" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This example value set defines a set of codes that can be used to indicate the physical form of the Location." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 146 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/location-physical-type> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/location-physical-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Location type" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This example value set defines a set of codes that can be used to indicate the physical form of the Location." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 147 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/location-related-location> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/location-related-location" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "location-related-location" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by related location for a Location resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 148 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/location-mode> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/location-mode" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "LocationMode" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Indicates whether a resource instance represents a specific location or a class of locations." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 149 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/location-mode> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/location-mode" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "LocationMode" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Indicates whether a resource instance represents a specific location or a class of locations." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 150 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/location-status> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/location-status" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "LocationStatus" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Indicates whether the location is still in use." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 151 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/location-status> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/location-status" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "LocationStatus" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Indicates whether the location is still in use." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 152 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/name-use> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/name-use" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "NameUse" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The use of a human name." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 153 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/name-use> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/name-use" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "NameUse" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The use of a human name." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 154 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/organization-type> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/organization-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Organization type" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This example value set defines a set of codes that can be used to indicate a type of organization." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 155 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/organization-type> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/organization-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Organization type" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This example value set defines a set of codes that can be used to indicate a type of organization." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 156 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "DocumentReference" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/DocumentReference/page-home> ;
+         fhir:Reference.reference [ fhir:value "DocumentReference/page-home" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "page-home" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-document" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-document>
+       ]
+     ], [
+       fhir:index 157 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/performanceperiod-search> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/performanceperiod-search" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "performanceperiod-search" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search for a practitioner's Performance Period" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 158 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/position-status-search> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/position-status-search" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "position-status-search" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search for a practitionerRole position status." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 159 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/c80-practice-codes> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/c80-practice-codes" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Practice Setting Code Value Set" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This is the code representing the clinical specialty of the clinician or provider who interacted with, treated, or provided a service to/for the patient. The value set used for clinical specialty has been limited by HITSP to the value set reproduced from HITSP C80 Table 2-149 Clinical Specialty Value Set Definition." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 160 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/practitioner-birthdate> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/practitioner-birthdate" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "practitioner-birthdate" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by birthdate for a Practitioner resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 161 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/practitioner-employeeNumber> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/practitioner-employeeNumber" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "practitioner-employeeNumber" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by employee number for a practitioner resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 162 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/practitioner-phone> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/practitioner-phone" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "practitioner-phone" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by phone for a Practitioner resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 163 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/practitioner-related-location> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/practitioner-related-location" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "practitioner-related-location" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by related location for a Practitioner resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 164 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/practitioner-related-practitioner> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/practitioner-related-practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "practitioner-related-practitioner" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by related practitioner for a Practitioner resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 165 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/practitioner-renewrole> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/practitioner-renewrole" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "practitioner-renewrole" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by employee ID for a practitioner resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 166 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/practitionerrole-related-location> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/practitionerrole-related-location" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "practitionerrole-related-location" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by related location for a PractitionerRole resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 167 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/SearchParameter/practitionerrole-related-practitioner> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/practitionerrole-related-practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "practitionerrole-related-practitioner" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Search by related practitioner for a PractitionerRole resource." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 168 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/iHRISReportElement> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/iHRISReportElement" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Resource Fields" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Lists fields of a resource to be displayed/cached" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 169 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Basic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/Basic/ihris-page-role> ;
+         fhir:Reference.reference [ fhir:value "Basic/ihris-page-role" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Roles" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-page" ;
+         fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-page>
+       ]
+     ], [
+       fhir:index 170 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/service-category> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/service-category" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Service category" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This value set defines an example set of codes that can be used to classify groupings of service-types/specialties." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 171 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/service-category> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/service-category" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Service category" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This value set defines an example set of codes that can be used to classify groupings of service-types/specialties." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 172 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/service-type> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/service-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Service type" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This value set defines an example set of codes of service-types." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 173 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/service-type> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/service-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Service type" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "This value set defines an example set of codes of service-types." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 174 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/service-provision-conditions> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/service-provision-conditions" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ServiceProvisionConditions" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The code(s) that detail the conditions under which the healthcare service is available/offered." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 175 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/service-provision-conditions> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/service-provision-conditions" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "ServiceProvisionConditions" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "The code(s) that detail the conditions under which the healthcare service is available/offered." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 176 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/snomedct> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/snomedct" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "SNOMED CT (all versions)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "SNOMED CT is the most comprehensive and precise clinical health terminology product in the world, owned and distributed around the world by The International Health Terminology Standards Development Organisation (IHTSDO)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 177 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/StructureDefinition/task-attributes> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/task-attributes" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Task Attributes" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Task attributes." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 178 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/v3-RoleCode> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/v3-RoleCode" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "v3 Code System RoleCode" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value " A set of codes further specifying the kind of Role; specific classification codes for further qualifying RoleClass codes." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 179 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/v3-ServiceDeliveryLocationRoleType> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/v3-ServiceDeliveryLocationRoleType" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "V3 Value SetServiceDeliveryLocationRoleType" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value " A role of a place that further classifies the setting (e.g., accident site, road side, work site, community location) in which services are delivered." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 180 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <http://ihris.org/fhir/ValueSet/ihris-resource-valueset> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/ihris-resource-valueset" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Value Set for iHRIS Basic Resources." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ] ;
+     fhir:ImplementationGuide.definition.page [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+         fhir:Extension.valueUrl [ fhir:value "toc.html" ]
+       ] ;
+       fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "toc.html" ] ;
+       fhir:ImplementationGuide.definition.page.title [ fhir:value "Table of Contents" ] ;
+       fhir:ImplementationGuide.definition.page.generation [ fhir:value "html" ] ;
+       fhir:ImplementationGuide.definition.page.page [
+         fhir:index 0 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "index.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "index.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Home" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ]
+     ] ;
+     fhir:ImplementationGuide.definition.parameter [
+       fhir:index 0 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/capabilities" ]
+     ], [
+       fhir:index 1 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/examples" ]
+     ], [
+       fhir:index 2 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/extensions" ]
+     ], [
+       fhir:index 3 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/models" ]
+     ], [
+       fhir:index 4 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/operations" ]
+     ], [
+       fhir:index 5 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/profiles" ]
+     ], [
+       fhir:index 6 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/resources" ]
+     ], [
+       fhir:index 7 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/vocabulary" ]
+     ], [
+       fhir:index 8 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/maps" ]
+     ], [
+       fhir:index 9 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/testing" ]
+     ], [
+       fhir:index 10 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/history" ]
+     ], [
+       fhir:index 11 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "fsh-generated/resources" ]
+     ], [
+       fhir:index 12 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-pages" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "template/config" ]
+     ], [
+       fhir:index 13 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-pages" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/images" ]
+     ], [
+       fhir:index 14 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-tx-cache" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input-cache/txcache" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://ihris.org/fhir/ImplementationGuide/ihris.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
