@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introduction to HRIS (audio transcript) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../../assets/ihris.css">
+<link rel="icon" href="../../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../../assets/navbar/rail-5s09sexqev.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-5s09sexqev"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../../index.html"><img src="../../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../../data-model/index.html">Data model</a></li><li><a href="../../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../../sources/index.html">Sources</a></li><li><a href="../../index.html" aria-current="page">Library</a></li><li><a href="../../../schemas/index.html">Schemas</a></li><li><a href="../../../glossary/index.html">Glossary</a></li><li><a href="../../../data-model/search.html">Search</a></li><li><a href="../../../beans/index.html">Work plan</a></li><li><a href="../../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../../index.html">Home</a> / <a href="../../index.html">Library</a> / <a href="../index.html">Administrator course</a> / Introduction to HRIS (audio transcript)</div>
+<h1>Introduction to HRIS (audio transcript)</h1>
+<div class="credit" style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:12px 0 18px"><img src="../../../assets/intrahealth-logo.png" alt="IntraHealth International" width="170" style="background:#fff;border-radius:8px;padding:6px 10px;flex:none"><p style="margin:0;flex:1 1 260px"><b>iHRIS Administrator - Level I</b>, &copy; IntraHealth International, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Originally offered at <a href="http://www.hrhresourcecenter.org/elearning">hrhresourcecenter.org/elearning</a> (CapacityPlus). <span class="mute">Licence stated by its author, the folio owner, 2026-10-09.</span></p></div><div class="wiki">
+<h2>Slide 1</h2>
+<p>A human resources information system, or HRIS, is used to collect, manage, and analyze data about people in a workforce. In this course we will focus on HRIS for the health workforce, which can include health professionals that are employed in the health sector, those that are qualified but not employed in the health sector, and those that are in training.</p>
+<p>The goal of using an HRIS is to track various information related to health professionals, such as their competency and education history, position and salary history, and demographic information.</p>
+<p>An HRIS can also facilitate the management of health workers in several ways. For example, an HRIS can include features to create new open positions in the system. Managers can then produce a report showing a list of all open positions, which can then be used for advertising job postings. An HRIS can also track employee leave, as well as maintain records related to transfers, promotions, and salary changes.</p>
+<p>There are HRIS that are primarily designed for use by professional health councils or institutions. Rather than tracking employees, these types of HRIS may track health professionals’ training, registration, and licensure information, as well as information about where they are employed.</p>
+<h2>Slide 2</h2>
+<p>An HRIS may be designed in many ways. Some may only be used on a periodic basis and hold minimal information or aggregate data. Often these systems are used by planning and policy departments and may be of limited use for day-to-day management of health professionals.</p>
+<p>A second major design is that of a routine HRIS, which is intended to be used on a continual basis by HR managers, HR staff, registrars, and others who are involved with the daily management of health professionals. That means they are designed to help HR staff with their everyday tasks. Such tasks may include tracking employee leave and trainings, or updating a person’s dependents in order to determine benefit eligibility.</p>
+<p>By giving ownership of the data to HR staff, we can increase its quality and value. As a result, it helps to ensure there is evidence to answer planning and policy questions.</p>
+<p>In short, a routine HRIS helps to turn data into information or, in other words, data that has value and can be used.</p>
+<h2>Slide 3</h2>
+<p>As previously stated, the goal of a routine HRIS is higher quality data. Let us look at some of the areas where HRIS data can be used. In education and training, it can be used to make sound decisions about educational offerings and priorities. By tracking registration information, it helps to ensure a qualified workforce. Tracking the deployment of health workers helps to ensure facilities are staffed appropriately, based on established needs. Management ability is strengthened by tracking staff movement, so managers know staff availability and deployment and this can be useful for determining priority facilities for intervention. All of this fits together to support the overall planning process by ensuring that the right person with the right skills is in the right place at the right time.</p>
+<h2>Slide 4</h2>
+<p>Now that we have discussed the needs and uses of a routine HRIS, we will examine strategies for implementing one.</p>
+<p>An HRIS does not exist in isolation. One must make sure that it is integrated into a country’s overall national health information system.</p>
+<p>Any system that is put in place needs to be able to be readily adapted to meet country requirements and be customized and maintained in-country. The development of local technical capacity can be facilitated through a combination of wise allocation of financial resources, technical assistance, and relevant trainings.</p>
+<p>The value of information is measured by its usability. Interoperability between the HRIS and any other existing or planned components of the health information system increases the potential use of the data for decision making, and hence its value.</p>
+<p>Finally, to maximize staff use of the HRIS, the interface should be easy-to-use and steps should be taken to assess the system’s usability and address concerns.</p>
+<h2>Slide 5</h2>
+<p>To better understand how an HRIS may interact with other health information systems, let us examine closely the domains of a national health information system identified by the World Health Organization and the Health Metrics Network.</p>
+<p>• management and planning systems include projection and planning tools as well as health management information systems (or HMIS) used to track aggregate health data such as disease incidence.</p>
+<p>• knowledge and information service systems track the distribution of appropriate educational materials to health workers and facilitate research into new treatments and methodologies.</p>
+<p>• human resources for health systems collect information on health professionals. This where HRIS fits into the larger health information system.</p>
+<p>• financial resources systems help manage payment for services and treatments. These systems can also be the authoritative source for health worker salary information.</p>
+<p>• infrastructural resources systems can include facility management information such as scheduled maintenance, as well as statistics such as the number of beds in a hospital.</p>
+<p>• a robust supply chain (or logistics) information system ensures that the correct drugs and medical devices are present at a facility when needed and can help to avoid stockouts.</p>
+<p>• environmental services systems can be used to track water quality and sanitation services, which can be predictive of health care needs.</p>
+<p>• diagnostic services systems collect information pertaining to lab work, including management of samples, and distribution of test results.</p>
+<p>• at the facility level, medical record systems, also called electronic health records, have a potentially vital role in the delivery of high quality care.</p>
+<p>• the facility services are also often complemented with community-based services.</p>
+<h2>Slide 6</h2>
+<p>The two main examples of open source routine HRIS are OrangeHRM and iHRIS. Both of these systems are based on the same LAMP architecture which we will discuss further in the next module.</p>
+<p>Open source is a software development and licensing model that makes the source code available to everyone and helps avoid vendor lock-in. We will learn more about this in the next module also.</p>
+<p>iHRIS is a suite of software to supply health sector leaders with information they need to track, manage, and plan the health workforce. It is specifically designed for utilization in under-resourced settings. It allows for the aggregation of data across many organizations and institutions and reflects many of the needs and HR processes that are found in large national health care systems.</p>
+<h2>Slide 7</h2>
+<p>iHRIS was originally developed by the USAID-funded global Capacity Project. The global follow-on project, CapacityPlus, Capacity Project Associate Awards, and other IntraHealth International-led projects continue to develop, customize, and support the software.</p>
+<p>iHRIS is easily adaptable to country needs. It is installed in a number of countries–including Botswana, Ghana, India, Kenya, Lesotho, Mali, Nigeria, Pakistan, Rwanda, Tanzania, and Uganda–which means there is a growing international community of developers supporting the software.</p>
+<p>As iHRIS is open source, any customizations made in one country are rapidly made available to other countries. iHRIS has been fully translated into Italian, French, Portuguese, Swahili and Estonian. Translation to other languages, such as Spanish, is underway by a global team of volunteers. iHRIS is web-based which allows maximum utilization in a familiar environment.</p>
+<h2>Slide 8</h2>
+<p>The three main components of the iHRIS Suite are iHRIS Manage, iHRIS Qualify and iHRIS Plan.</p>
+<p>• iHRIS Manage is a routine human resources management system</p>
+<p>• iHRIS Qualify is designed for professional councils to track license, training, and registration information</p>
+<p>• iHRIS Plan is workforce modeling and planning software</p>
+<p>In this course, we will focus on the administration of iHRIS Manage and iHRIS Qualify.</p>
+<h2>Slide 9</h2>
+<p>There are several ways you can join the iHRIS community. Major news and releases are announced on our mailing list. Joining the mailing list is a good way to keep informed of iHRIS development. All of the source code, for both the core software and country customizations, is hosted on Launchpad. We have a wiki of technical information, tutorials, how-tos, the Application Programming Interface, and other reference materials. If you are interested in reading success stories on how iHRIS is being used in various countries, you should take a look at the blog. If you are interested in contributing to iHRIS development, you should check out our ideas list for things we think need to be done.</p></div><h2>Source</h2><p class="src">Text of <code>course_files/Transcripts/IntroToHRISTranscript_Final.doc</code>, extracted with <code>antiword -w 0</code>; <code>library/ihris-admin-course/transcripts/IntroToHRISTranscript_Final.md</code>.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>
