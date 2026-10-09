@@ -8,6 +8,7 @@
 #     package, Tool nodes, pdf-structure/v1, methodology front matter, and the platform
 #     dependency itself (index.config.json, index.lock.json)
 #   - FHIR R4 terminology (fhir.resources, in its own venv)
+#   - the generated FSH, built clean by a pinned SUSHI, and the terminology JSON equal to that build
 #   - semantic QA for every schema and node type (src/tools/qa.py), where a schema
 #     with no QA is itself a failure (qa-missing)
 #   - generated BPMN is current; the site theme is current; the site builds with no broken link
@@ -56,6 +57,16 @@ jobs:
         run: |
           python3 -m venv .build/fhir-venv
           .build/fhir-venv/bin/pip install "fhir.resources==6.5.0" "pydantic<2"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: SUSHI, pinned (src/tools/gen_fsh.py builds the FSH with it)
+        run: npm install -g fsh-sushi@3.20.1
+      - uses: actions/cache@v4
+        with:
+          path: ~/.fhir/packages
+          key: fhir-packages-${{ hashFiles('src/ihris-4-on-fhir/sushi-config.yaml') }}
+          restore-keys: fhir-packages-
       - name: Mount folio-assistant-core and its closure from index.lock.json, then bun install
         run: bash src/tools/mount_platform.sh
       - name: validate.py (schemas, zod, FHIR, QA coverage, BPMN, theme, site)

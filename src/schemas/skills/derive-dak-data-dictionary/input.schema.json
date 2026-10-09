@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/derive-dak-data-dictionary/input.schema.json",
+  "title": "derive-dak-data-dictionary input",
+  "description": "What the skill `derive-dak-data-dictionary` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "dataModel",
+    "dataLists",
+    "wikiHelp",
+    "authoredProposals"
+  ],
+  "properties": {
+    "dataModel": {
+      "$ref": "../artefacts.schema.json#/$defs/dataModel"
+    },
+    "dataLists": {
+      "$ref": "../artefacts.schema.json#/$defs/dataLists"
+    },
+    "wikiHelp": {
+      "$ref": "../artefacts.schema.json#/$defs/wikiHelp"
+    },
+    "authoredProposals": {
+      "$ref": "../artefacts.schema.json#/$defs/authoredProposals"
+    }
+  }
+}

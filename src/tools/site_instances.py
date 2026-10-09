@@ -875,6 +875,35 @@ def work_plan_page(theme):
     return page(WORK_PLAN, "Work plan", [("index.html", "Home")], inner, theme, WORK_PLAN)
 
 
+WORKFLOW = "workflow/index.html"
+MERMAID = "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"
+
+
+def workflow_page(theme):
+    """workflow/: the data/ETL workflow, GENERATED from the skills' input/output contracts and the Tools that satisfy
+    them (src/tools/gen_workflow.py), with a table of the same edges as its text twin."""
+    import gen_workflow as gw
+    g = gw.graph()
+    titles = {a["id"]: a for a in g["artefacts"]}
+
+    def arts(ids):
+        return ", ".join(f'<span title="{E(titles[a]["path"] or "")}">{E(titles[a]["title"])}</span>' for a in ids) or "&mdash;"
+    rows = "".join(f'<tr><td><code>{E(sk["name"])}</code></td><td>{E(", ".join(sk["tools"]) or "by hand")}</td>'
+                   f'<td>{arts(sk["inputs"])}</td><td>{arts(sk["outputs"])}</td></tr>' for sk in g["skills"])
+    inner = (
+        f'<p>How data moves through this folio: {len(g["skills"])} skills, {len(g["artefacts"])} kinds of data. It is drawn from what '
+        'the skills declare, not by hand: each skill names its input and output contracts, each kind of data is defined once '
+        '(<code>src/schemas/skills/artefacts.schema.json</code>), and QA checks that the Tools performing a skill cover its contract.</p>\n'
+        f'<div class="tscroll"><pre class="mermaid" aria-label="Workflow diagram; the table below lists the same edges">{E(gw.mermaid(g))}</pre></div>\n'
+        '<h2>Skills, their tools, and what they read and write</h2>\n'
+        '<div class="tscroll"><table><thead><tr><th>Skill</th><th>Tools</th><th>Reads</th><th>Writes</th></tr></thead>'
+        f'<tbody>{rows}</tbody></table></div>\n'
+        f'<script src="{MERMAID}"></script>\n'
+        '<script>mermaid.initialize({startOnLoad:true,securityLevel:"strict",flowchart:{htmlLabels:true}});</script>'
+    )
+    return page(WORKFLOW, "Workflow", [("index.html", "Home")], inner, theme, WORKFLOW)
+
+
 def all_pages(theme, cls_index, out_dir):
     pages = [sources_index(theme), ihris5_page(theme), library_index(theme), fhir_page(theme), schemas_page(theme, out_dir)]
     for inst in LP_INSTANCES:
@@ -891,6 +920,7 @@ def all_pages(theme, cls_index, out_dir):
     pages += use_case_pages(theme, cls_index)
     pages.append(glossary_page(theme, out_dir))
     pages.append(work_plan_page(theme))
+    pages.append(workflow_page(theme))
     os.makedirs(os.path.join(out_dir, "assets"), exist_ok=True)
     for f in ("data-dictionary.xlsx", "data-dictionary.csv"):
         shutil.copy(os.path.join(ROOT, "src/ihris-data-dictionary", f), os.path.join(out_dir, "assets", f))

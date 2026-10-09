@@ -5,6 +5,8 @@ description: >
   iHRIS Administator Handbook) into library/<slug>/: one Markdown section per
   wiki article, the images with their credit lines, and the export's own
   attribution and licence pages as data. Use when someone shares a wiki PDF export.
+input: src/schemas/skills/ingest-wiki-book-export/input.schema.json
+output: src/schemas/skills/ingest-wiki-book-export/output.schema.json
 ---
 
 # Ingest a wiki book export (mwlib PDF)

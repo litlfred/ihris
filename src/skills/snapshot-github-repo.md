@@ -4,6 +4,8 @@ description: >
   Describe a GitHub repository pinned at a commit (path-level inventory of FSH
   definitions, Markdown pages, packages) without copying its content. Use for
   iHRIS 5 and any other git-hosted iHRIS asset.
+input: src/schemas/skills/snapshot-github-repo/input.schema.json
+output: src/schemas/skills/snapshot-github-repo/output.schema.json
 ---
 
 # Snapshot a GitHub repository

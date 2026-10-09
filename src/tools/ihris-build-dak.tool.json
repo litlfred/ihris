@@ -1,7 +1,7 @@
 {
   "id": "ihris-build-dak",
   "title": "Derive the DAK data dictionary",
-  "description": "Derives a data dictionary from the iHRIS data model: data elements in the WHO DAK L2 column order (JSON, CSV, XLSX) and FHIR R4 terminology. Never fills description, conditionality or linkage columns.",
+  "description": "Derives a data dictionary from the iHRIS data model: data elements in the WHO DAK L2 column order (JSON, CSV, XLSX) and FHIR R4 terminology. Never fills description, conditionality or linkage columns. Since D8 the terminology is written as FSH (src/ihris-4-on-fhir/input/fsh/terminology/), and gen_fsh.py writes the JSON from SUSHI's build.",
   "install": {
     "cli": "pip install openpyxl pycountry==24.6.1"
   },
@@ -9,7 +9,32 @@
     "shell": "python3 src/tools/build_dak.py"
   },
   "io": {
-    "inputs": [],
+    "inputs": [
+      {
+        "name": "dataModel",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataModel",
+        "required": false,
+        "description": "Read from src/*/data-model/4.3.3/"
+      },
+      {
+        "name": "dataLists",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataLists",
+        "required": false,
+        "description": "Read from src/*/data-lists/4.3.3/"
+      },
+      {
+        "name": "wikiHelp",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/wikiHelp",
+        "required": false,
+        "description": "Read from library/ihris-wiki/"
+      },
+      {
+        "name": "authoredProposals",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/authoredProposals",
+        "required": false,
+        "description": "Read from src/ihris-data-dictionary/authored/"
+      }
+    ],
     "outputs": [
       {
         "name": "data-dictionary-sheet",
@@ -19,6 +44,21 @@
         "name": "fhir-terminology",
         "schema": "http://hl7.org/fhir/R4/fhir.schema.json",
         "description": "FHIR R4 CodeSystem and ValueSet resources"
+      },
+      {
+        "name": "dataDictionary",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataDictionary",
+        "description": "Written to src/ihris-data-dictionary/data-dictionary/"
+      },
+      {
+        "name": "terminology",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/terminology",
+        "description": "Written to src/ihris-data-dictionary/terminology/"
+      },
+      {
+        "name": "fsh",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/fsh",
+        "description": "The terminology as FSH, src/ihris-4-on-fhir/input/fsh/terminology/"
       }
     ]
   },

@@ -15,6 +15,7 @@ ids resolve. Exit status is non-zero on any failure.
 import glob
 import json
 import os
+import shutil
 import subprocess
 import sys
 
@@ -90,7 +91,7 @@ for rel in declarations:
 
 elsewhere = [g for k, gs in BIND["coveredElsewhere"].items() if not k.startswith("_") for g in gs]
 uncovered = []
-SKIP = ("node_modules/", "uploads/", ".build/", "_site/", ".git/", "src/schemas/") + folio_platform.mount_prefixes()  # mounts are the platform's files, not this folio's
+SKIP = ("node_modules/", "uploads/", ".build/", "_site/", ".git/", "src/schemas/", "src/ihris-4-on-fhir/fsh-generated/") + folio_platform.mount_prefixes()  # mounts are the platform's files, not this folio's
 for path in sorted(glob.glob(os.path.join(ROOT, "**/*.json"), recursive=True)):
     rel = os.path.relpath(path, ROOT)
     if rel.startswith(SKIP):
@@ -180,6 +181,18 @@ if glob.glob(os.path.join(ROOT, "src/ihris-data-dictionary/terminology/*.json"))
         print("WARNING: .build/fhir-venv missing; FHIR terminology NOT validated (see src/tools/validate_fhir.py)")
         if os.environ.get("CI"):
             errors.append("CI: .build/fhir-venv missing, so FHIR R4 validation did not run")
+
+# The FSH and its SUSHI build (src/tools/gen_fsh.py --check): the logical-model FSH is current, SUSHI is clean, and the
+# terminology JSON is exactly SUSHI's build of the FSH build_dak.py writes (fhir-strategy.md, F1-F3 and D8).
+if shutil.which("sushi"):
+    r = subprocess.run([sys.executable, os.path.join(ROOT, "src/tools/gen_fsh.py"), "--check"], capture_output=True, text=True)
+    sys.stdout.write(r.stdout)
+    if r.returncode != 0:
+        errors.append("FSH/SUSHI check failed:\n" + (r.stdout + r.stderr)[-3000:])
+else:
+    print("WARNING: sushi is not installed (npm install -g fsh-sushi@3.20.1); the FSH and its build NOT checked")
+    if os.environ.get("CI"):
+        errors.append("CI: sushi is not installed, so the FSH build did not run")
 
 print(json.dumps(counts, indent=1))
 if errors:

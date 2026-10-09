@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/snapshot-github-repo/output.schema.json",
+  "title": "snapshot-github-repo output",
+  "description": "What the skill `snapshot-github-repo` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "githubSnapshot",
+    "ihris5Inventory"
+  ],
+  "properties": {
+    "githubSnapshot": {
+      "$ref": "../artefacts.schema.json#/$defs/githubSnapshot"
+    },
+    "ihris5Inventory": {
+      "$ref": "../artefacts.schema.json#/$defs/ihris5Inventory"
+    }
+  }
+}

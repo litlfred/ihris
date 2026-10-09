@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/snapshot-github-repo/input.schema.json",
+  "title": "snapshot-github-repo input",
+  "description": "What the skill `snapshot-github-repo` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "githubClone"
+  ],
+  "properties": {
+    "githubClone": {
+      "$ref": "../artefacts.schema.json#/$defs/githubClone"
+    }
+  }
+}

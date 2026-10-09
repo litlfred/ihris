@@ -12,17 +12,23 @@
     "inputs": [
       {
         "name": "site",
-        "schema": "https://www.iana.org/assignments/media-types/inode/directory",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/site",
         "required": true,
         "arg": {
           "flag": "--site"
-        }
+        },
+        "description": "(records: https://www.iana.org/assignments/media-types/inode/directory)"
       }
     ],
     "outputs": [
       {
         "name": "railed site",
         "schema": "https://www.iana.org/assignments/media-types/text/html"
+      },
+      {
+        "name": "site",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/site",
+        "description": "Written to _site/"
       }
     ]
   },

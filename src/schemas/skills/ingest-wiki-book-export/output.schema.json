@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/ingest-wiki-book-export/output.schema.json",
+  "title": "ingest-wiki-book-export output",
+  "description": "What the skill `ingest-wiki-book-export` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "handbook"
+  ],
+  "properties": {
+    "handbook": {
+      "$ref": "../artefacts.schema.json#/$defs/handbook"
+    }
+  }
+}

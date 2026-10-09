@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/build-ihris-site/input.schema.json",
+  "title": "build-ihris-site input",
+  "description": "What the skill `build-ihris-site` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "releaseTarball",
+    "catalogue",
+    "modules",
+    "dataModel",
+    "dataLists",
+    "toolkit",
+    "wikiHelp",
+    "handbook",
+    "useCases",
+    "ihris5Inventory",
+    "dataDictionary",
+    "terminology",
+    "glossary",
+    "schemas",
+    "beans"
+  ],
+  "properties": {
+    "releaseTarball": {
+      "$ref": "../artefacts.schema.json#/$defs/releaseTarball"
+    },
+    "catalogue": {
+      "$ref": "../artefacts.schema.json#/$defs/catalogue"
+    },
+    "modules": {
+      "$ref": "../artefacts.schema.json#/$defs/modules"
+    },
+    "dataModel": {
+      "$ref": "../artefacts.schema.json#/$defs/dataModel"
+    },
+    "dataLists": {
+      "$ref": "../artefacts.schema.json#/$defs/dataLists"
+    },
+    "toolkit": {
+      "$ref": "../artefacts.schema.json#/$defs/toolkit"
+    },
+    "wikiHelp": {
+      "$ref": "../artefacts.schema.json#/$defs/wikiHelp"
+    },
+    "handbook": {
+      "$ref": "../artefacts.schema.json#/$defs/handbook"
+    },
+    "useCases": {
+      "$ref": "../artefacts.schema.json#/$defs/useCases"
+    },
+    "ihris5Inventory": {
+      "$ref": "../artefacts.schema.json#/$defs/ihris5Inventory"
+    },
+    "dataDictionary": {
+      "$ref": "../artefacts.schema.json#/$defs/dataDictionary"
+    },
+    "terminology": {
+      "$ref": "../artefacts.schema.json#/$defs/terminology"
+    },
+    "glossary": {
+      "$ref": "../artefacts.schema.json#/$defs/glossary"
+    },
+    "schemas": {
+      "$ref": "../artefacts.schema.json#/$defs/schemas"
+    },
+    "beans": {
+      "$ref": "../artefacts.schema.json#/$defs/beans"
+    }
+  }
+}

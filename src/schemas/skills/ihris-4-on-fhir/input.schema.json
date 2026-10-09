@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/ihris-4-on-fhir/input.schema.json",
+  "title": "ihris-4-on-fhir input",
+  "description": "What the skill `ihris-4-on-fhir` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "dataDictionary",
+    "terminology"
+  ],
+  "properties": {
+    "dataDictionary": {
+      "$ref": "../artefacts.schema.json#/$defs/dataDictionary"
+    },
+    "terminology": {
+      "$ref": "../artefacts.schema.json#/$defs/terminology"
+    }
+  }
+}

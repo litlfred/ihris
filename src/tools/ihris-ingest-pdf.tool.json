@@ -34,6 +34,12 @@
           "flag": "--no-sections"
         },
         "description": "headings only, for a source with no licence"
+      },
+      {
+        "name": "sourceDocument",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/sourceDocument",
+        "required": false,
+        "description": "Read from uploads/<slug>/"
       }
     ],
     "outputs": [
@@ -41,6 +47,11 @@
         "name": "structure",
         "schema": "https://www.iana.org/assignments/media-types/application/json",
         "description": "pdf-structure/v1"
+      },
+      {
+        "name": "libraryEntry",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/libraryEntry",
+        "description": "Written to library/<slug>/"
       }
     ]
   },

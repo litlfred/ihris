@@ -5,7 +5,8 @@ Input : src/<instance>/data-model/<release>/*.json   (ihris-form-class/v1, from 
         library/ihris-wiki/osi-help-<release>/sections/*.md (evidence only)
 Output: src/ihris-data-dictionary/data-dictionary/<group>.json   (ihris-dak-data-dictionary/v1)
         src/ihris-data-dictionary/data-dictionary.csv / .xlsx    (WHO column order)
-        src/ihris-data-dictionary/terminology/*.json             (FHIR R4 CodeSystem / ValueSet)
+        src/ihris-4-on-fhir/input/fsh/terminology/*.fsh         (FHIR R4 CodeSystem / ValueSet / ConceptMap, as FSH;
+                                                                  SUSHI builds terminology/*.json: src/tools/gen_fsh.py)
         docs/generated/dak-data-dictionary.md
 
 What this does NOT do, on purpose:
@@ -25,6 +26,7 @@ from __future__ import annotations
 
 import collections
 import csv
+import fnmatch
 import glob
 import json
 import os
@@ -75,6 +77,17 @@ SYSTEM_EXACT = {"class", "formClass", "dep_class", "user_request_class_data", "i
                 "iHRIS_UserAlert", "iHRIS_UserCronReport", "iHRIS_UserTrigger", "iHRIS_Workflows", "iHRIS_DataElement",
                 "iHRIS_DataSet", "iHRIS_DHIS_CodedList", "SVS_CodedList", "iHRIS_UserAccessDepartment", "iHRIS_UserAccessFacility",
                 "iHRIS_RapidproFlowRun", "iHRIS_RapidproFlowRunSteps", "iHRIS_RapidproFlowRunValues"}
+
+
+# D8 (docs/design/fhir-strategy.md): the terminology is written as FSH and built by SUSHI; the JSON under
+# terminology/ is SUSHI's output (src/tools/gen_fsh.py). Kept in memory here for the xlsx's Codes sheet.
+TERMINOLOGY = {}
+
+
+def write_terminology(path, obj):
+    import gen_fsh
+    TERMINOLOGY[os.path.basename(path)] = obj
+    gen_fsh.write_terminology(obj)
 
 
 def write_json(path, obj):
@@ -201,9 +214,9 @@ def build_terminology(forms, form_to_class, fdisp, merged):
         return None
 
     tdir = os.path.join(OUT, "terminology")
-    if os.path.isdir(tdir):
-        for f in glob.glob(os.path.join(tdir, "*.json")):
-            os.remove(f)
+    import gen_fsh
+    gen_fsh.clear_terminology()
+    TERMINOLOGY.clear()
     todo, done, summary = list(forms), set(), []
     while todo:
         form = todo.pop(0)
@@ -277,7 +290,7 @@ def build_terminology(forms, form_to_class, fdisp, merged):
             if props:
                 cs["property"] = props
             cs["concept"] = concepts
-            write_json(os.path.join(tdir, f"CodeSystem-{form}.json"), cs)
+            write_terminology(os.path.join(tdir, f"CodeSystem-{form}.json"), cs)
         by_mod = collections.defaultdict(list)
         for r in recs:
             if r["provenance"] == "sample":
@@ -296,7 +309,7 @@ def build_terminology(forms, form_to_class, fdisp, merged):
             if props:
                 cs["property"] = props
             cs["concept"] = concepts
-            write_json(os.path.join(tdir, f"CodeSystem-{form}-example-{mslug}.json"), cs)
+            write_terminology(os.path.join(tdir, f"CodeSystem-{form}-example-{mslug}.json"), cs)
         vs = {"resourceType": "ValueSet", "id": f"ihris-{form.replace('_', '-')}", "url": f"{CANONICAL}/ValueSet/{form}",
               "version": RELEASE, "name": f"IHRIS{_pascal(form)}VS", "title": f"iHRIS {title}", "status": "draft", "experimental": True}
         if form in ISO_SYSTEMS:
@@ -311,7 +324,7 @@ def build_terminology(forms, form_to_class, fdisp, merged):
         else:
             vs["description"] = (f"The iHRIS `{form}` list. iHRIS {RELEASE} ships no default records for it: its codes are defined "
                                  "by each deployment" + (f" (sample data exists: {', '.join(sorted(by_mod))})" if by_mod else "") + ".")
-        write_json(os.path.join(tdir, f"ValueSet-{form}.json"), vs)
+        write_terminology(os.path.join(tdir, f"ValueSet-{form}.json"), vs)
         entry["valueSet"] = vs["url"]
         entry["inDak"] = form in forms
         summary.append(entry)
@@ -356,7 +369,7 @@ def build_isco(fdisp):
               "description": f"The {len(rs)} ISCO-08 {lvl.replace('_', '-')} groups iHRIS {RELEASE} ships by default (`isco_08_{lvl}`), "
                              f"as codes of the ILO ISCO-08 system under the ILO's system URL ({ILO_ISCO08}).",
               "compose": {"include": [{"system": ILO_ISCO08, "concept": [{"code": r["id"], "display": r["fields"].get("name", r["id"])} for r in rs]}]}}
-        write_json(os.path.join(tdir, f"ValueSet-isco_08_{lvl}.json"), vs)
+        write_terminology(os.path.join(tdir, f"ValueSet-isco_08_{lvl}.json"), vs)
         report["isco08"][lvl] = len(rs)
     u88 = {r["id"]: r["fields"].get("name") for r in rec("isco_88_unit")}
     m88 = {r["id"]: r["fields"].get("name") for r in rec("isco_88_minor")}
@@ -369,7 +382,7 @@ def build_isco(fdisp):
               "name": _pascal(cid), "title": title, "status": "draft", "experimental": True, "description": desc,
               "sourceUri": f"{CANONICAL}/ValueSet/{src_form}", "targetUri": f"{CANONICAL}/ValueSet/{tgt_form}",
               "group": [{"source": src, "target": f"{CANONICAL}/CodeSystem/{tgt_form}", "element": elements + unmapped}]}
-        write_json(os.path.join(tdir, f"ConceptMap-{cid}.json"), cm)
+        write_terminology(os.path.join(tdir, f"ConceptMap-{cid}.json"), cm)
         report["maps"][cid] = {"mapped": len(elements), "unmapped": len(unmapped)}
 
     jobs = samples("job")
@@ -458,13 +471,13 @@ def build_iso():
                 el.append({"code": r["id"], "display": shipped, "target": [t]})
             else:
                 un.append({"code": r["id"], "display": shipped, "target": [{"equivalence": "unmatched", "comment": why(r["id"])}]})
-        write_json(os.path.join(tdir, f"ValueSet-{form}-shipped.json"), {
+        write_terminology(os.path.join(tdir, f"ValueSet-{form}-shipped.json"), {
             "resourceType": "ValueSet", "id": f"ihris-{form}-shipped", "url": f"{CANONICAL}/ValueSet/{form}-shipped", "version": RELEASE,
             "name": f"IHRIS{_pascal(form)}ShippedVS", "title": f"iHRIS {form} list as shipped", "status": "draft", "experimental": True,
             "description": f"Every code of the `{form}` list iHRIS {RELEASE} ships by default: the source side of ConceptMap `{form}-to-{iso['slug']}`.",
             "compose": {"include": [{"system": f"{CANONICAL}/CodeSystem/{form}"}]}})
         cid = f"{form}-to-{iso['slug']}"
-        write_json(os.path.join(tdir, f"ConceptMap-{cid}.json"), {
+        write_terminology(os.path.join(tdir, f"ConceptMap-{cid}.json"), {
             "resourceType": "ConceptMap", "id": cid, "url": f"{CANONICAL}/ConceptMap/{cid}", "version": RELEASE, "name": _pascal(cid),
             "title": f"iHRIS {form} list to {iso['name']}", "status": "draft", "experimental": True,
             "description": f"The `{form}` codes iHRIS {RELEASE} ships by default, mapped to {iso['name']}. Verified with {report['verifiedWith']}.",
@@ -652,9 +665,9 @@ def main():
         for c in cs_ws[1]:
             c.font = Font(bold=True)
         for f_ in sorted(term):
-            for path in sorted(glob.glob(os.path.join(OUT, "terminology", f"CodeSystem-{f_}.json")) +
-                               glob.glob(os.path.join(OUT, "terminology", f"CodeSystem-{f_}-example-*.json"))):
-                cs = json.load(open(path))
+            for path in sorted(n for n in TERMINOLOGY if n == f"CodeSystem-{f_}.json" or
+                               fnmatch.fnmatch(n, f"CodeSystem-{f_}-example-*.json")):
+                cs = TERMINOLOGY[path]
                 prov = "sample" if cs["content"] == "example" else "default"
                 for c in cs.get("concept", []):
                     cs_ws.append([f"{DAK_PREFIX}.VS.{f_}", c["code"], c["display"], prov, cs["title"]])

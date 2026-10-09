@@ -5,6 +5,8 @@ description: >
   project, release series with their lp: branches, and releases with every
   file's MD5, without copying any source. Use when adding a Launchpad project
   to this knowledge base or refreshing one.
+input: src/schemas/skills/describe-launchpad-source/input.schema.json
+output: src/schemas/skills/describe-launchpad-source/output.schema.json
 ---
 
 # Describe a Launchpad source

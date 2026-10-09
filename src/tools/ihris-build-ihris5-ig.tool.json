@@ -25,12 +25,29 @@
         "arg": {
           "flag": "--baseurl"
         }
+      },
+      {
+        "name": "ihris5Source",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/ihris5Source",
+        "required": false,
+        "description": "Read from ihris5-source/"
+      },
+      {
+        "name": "igPatches",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/igPatches",
+        "required": false,
+        "description": "Read from src/ihris5/ig-build-patches.json"
       }
     ],
     "outputs": [
       {
-        "name": "site",
-        "schema": "https://www.iana.org/assignments/media-types/text/html"
+        "name": "ihris5Ig",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/ihris5Ig"
+      },
+      {
+        "name": "ihris5Ig",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/ihris5Ig",
+        "description": "Written to _ig/"
       }
     ]
   },

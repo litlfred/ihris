@@ -33,13 +33,31 @@
         "schema": "http://hl7.org/fhir/R4/fhir.schema.json",
         "required": true,
         "description": "src/ihris-data-dictionary/terminology/ConceptMap-*.json (verified by build_dak.py)"
+      },
+      {
+        "name": "toolkit",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/toolkit",
+        "required": false,
+        "description": "Read from library/ihris-toolkit/"
+      },
+      {
+        "name": "useCases",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/useCases",
+        "required": false,
+        "description": "Read from library/ihris-use-cases/"
+      },
+      {
+        "name": "dataLists",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataLists",
+        "required": false,
+        "description": "Read from src/*/data-lists/4.3.3/"
       }
     ],
     "outputs": [
       {
         "name": "glossary",
-        "schema": "https://github.com/litlfred/folio-assistant-core/blob/main/schemas/glossary.ts",
-        "description": "glossary/*.glossary.json (folio-glossary/v1)"
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/glossary",
+        "description": "glossary/*.glossary.json (folio-glossary/v1) (records: https://github.com/litlfred/folio-assistant-core/blob/main/schemas/glossary.ts)"
       }
     ]
   },

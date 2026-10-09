@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/extract-i2ce-modules/input.schema.json",
+  "title": "extract-i2ce-modules input",
+  "description": "What the skill `extract-i2ce-modules` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "releaseTarball",
+    "launchpadCaptures"
+  ],
+  "properties": {
+    "releaseTarball": {
+      "$ref": "../artefacts.schema.json#/$defs/releaseTarball"
+    },
+    "launchpadCaptures": {
+      "$ref": "../artefacts.schema.json#/$defs/launchpadCaptures"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/ingest-toolkit-stage/input.schema.json",
+  "title": "ingest-toolkit-stage input",
+  "description": "What the skill `ingest-toolkit-stage` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "toolkitPages"
+  ],
+  "properties": {
+    "toolkitPages": {
+      "$ref": "../artefacts.schema.json#/$defs/toolkitPages"
+    }
+  }
+}

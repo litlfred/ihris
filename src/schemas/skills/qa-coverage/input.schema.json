@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/qa-coverage/input.schema.json",
+  "title": "qa-coverage input",
+  "description": "What the skill `qa-coverage` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "schemas",
+    "catalogue",
+    "dataModel",
+    "dataLists",
+    "toolkit",
+    "wikiHelp",
+    "handbook",
+    "useCases",
+    "dataDictionary",
+    "terminology",
+    "glossary",
+    "beans",
+    "processes"
+  ],
+  "properties": {
+    "schemas": {
+      "$ref": "../artefacts.schema.json#/$defs/schemas"
+    },
+    "catalogue": {
+      "$ref": "../artefacts.schema.json#/$defs/catalogue"
+    },
+    "dataModel": {
+      "$ref": "../artefacts.schema.json#/$defs/dataModel"
+    },
+    "dataLists": {
+      "$ref": "../artefacts.schema.json#/$defs/dataLists"
+    },
+    "toolkit": {
+      "$ref": "../artefacts.schema.json#/$defs/toolkit"
+    },
+    "wikiHelp": {
+      "$ref": "../artefacts.schema.json#/$defs/wikiHelp"
+    },
+    "handbook": {
+      "$ref": "../artefacts.schema.json#/$defs/handbook"
+    },
+    "useCases": {
+      "$ref": "../artefacts.schema.json#/$defs/useCases"
+    },
+    "dataDictionary": {
+      "$ref": "../artefacts.schema.json#/$defs/dataDictionary"
+    },
+    "terminology": {
+      "$ref": "../artefacts.schema.json#/$defs/terminology"
+    },
+    "glossary": {
+      "$ref": "../artefacts.schema.json#/$defs/glossary"
+    },
+    "beans": {
+      "$ref": "../artefacts.schema.json#/$defs/beans"
+    },
+    "processes": {
+      "$ref": "../artefacts.schema.json#/$defs/processes"
+    }
+  }
+}

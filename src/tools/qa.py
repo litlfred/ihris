@@ -1193,6 +1193,73 @@ def c_skills(C):
     return out
 
 
+ARTEFACTS = "src/schemas/skills/artefacts.schema.json"
+ARTEFACT_IRI = "https://github.com/litlfred/ihris/" + ARTEFACTS + "#/$defs/"
+
+
+def skill_contract(rel_skill, kind):
+    """A skill's `input:` or `output:` contract, as {property: artefact name}, or an error string."""
+    fm, err = _front(rel_skill)
+    if err:
+        return err
+    path = fm.get(kind)
+    if not path:
+        return f"names no {kind}: contract (front matter `{kind}:`)"
+    if not exists(path):
+        return f"{kind}: {path} does not exist"
+    c = J(path)
+    out = {}
+    for name, prop in (c.get("properties") or {}).items():
+        m = re.fullmatch(r"\.\./artefacts\.schema\.json#/\$defs/(\w+)", prop.get("$ref") or "")
+        if not m:
+            return f"{kind}: {path} property {name} is not a $ref to an artefact in {ARTEFACTS}"
+        out[name] = m.group(1)
+    return out, set(c.get("required") or [])
+
+
+def c_skill_contracts(C):
+    """The cat-harness skills-and-tools practice, applied here: a skill names its input and output contracts in its
+    front matter; each property is one artefact defined once (src/schemas/skills/artefacts.schema.json); and the
+    Tools that satisfy a skill TOGETHER read every required input and write every required output, by name, with
+    the same artefact IRI. A Tool port named after an artefact must reference that artefact."""
+    defs = J(ARTEFACTS)["$defs"]
+    tools = [(rel, J(rel)) for rel in G("src/tools/*.tool.json")]
+    out, used = [], set()
+    for rel, t in tools:
+        for side in ("inputs", "outputs"):
+            for port in (t.get("io") or {}).get(side) or []:
+                if port["name"] in defs and port["schema"] != ARTEFACT_IRI + port["name"]:
+                    out.append(f"{rel}: {side[:-1]} {port['name']} names an artefact but references {port['schema']}")
+                if port["schema"].startswith(ARTEFACT_IRI) and port["schema"][len(ARTEFACT_IRI):] not in defs:
+                    out.append(f"{rel}: {side[:-1]} {port['name']} references an undefined artefact")
+    for rel in G("src/skills/*.md"):
+        name = os.path.basename(rel)[:-3]
+        mine = [t for _, t in tools if name in (t.get("satisfies") or [])]
+        for kind, side in (("input", "inputs"), ("output", "outputs")):
+            got = skill_contract(rel, kind)
+            if isinstance(got, str):
+                out.append(f"{rel}: {got}")
+                continue
+            props, required = got
+            for prop, art in props.items():
+                used.add(art)
+                if art not in defs:
+                    out.append(f"{rel}: {kind} {prop} references undefined artefact {art}")
+            ports = {p["name"]: p["schema"] for t in mine for p in (t.get("io") or {}).get(side) or []}
+            for prop in sorted(required):
+                if prop not in ports:
+                    out.append(f"{rel}: requires {kind} {prop}, and no Tool satisfying {name} has that port")
+                elif ports[prop] != ARTEFACT_IRI + props.get(prop, prop):
+                    out.append(f"{rel}: {kind} {prop} is {props.get(prop)}, but a Tool's port of that name references {ports[prop]}")
+    for art in sorted(set(defs) - used):
+        out.append(f"{ARTEFACTS}: artefact {art} is in no skill's contract")
+    for art, d in defs.items():
+        p = d.get("default") or ""
+        if p.startswith(("src/", "library/", "glossary/", "beans/", "processes/", "docs/", "methodologies/")) and "<" not in p \
+                and "fsh-generated" not in p and not G(p.rstrip("/")):
+            out.append(f"{ARTEFACTS}: artefact {art} lives at {p}, which does not exist")
+    return out
+
 def c_methodologies(C):
     out = []
     for rel in G("methodologies/*/*.md"):
@@ -1600,7 +1667,8 @@ QA = {
                           ("glossary-page", "the glossary page lists every term exactly once", c_glossary_page)],
     # node types that are not JSON documents
     "bean (beans/defs/*.md)": [("beans", "front matter parses; status/type in vocabulary; parents are epics; links resolve", c_beans)],
-    "skill (src/skills/*.md)": [("skills", "front matter parses; name matches file; each skill has a Tool or names one", c_skills)],
+    "skill (src/skills/*.md)": [("skills", "front matter parses; name matches file; each skill has a Tool or names one", c_skills),
+                                ("skill-contracts", "each skill names its input/output contracts; its Tools together cover them, by artefact", c_skill_contracts)],
     "folio-methodology/v1": [("methodologies", "name matches its directory; local evidence exists", c_methodologies)],
     "library manifest (manifest.jsonld)": [("library-manifests", "every contained section exists; @id is under the entry", c_library_manifests)],
     "BPMN process (processes/*.bpmn)": [("bpmn", "every process is generated from a spec and carries its diagram", c_bpmn)],

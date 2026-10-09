@@ -4,6 +4,8 @@ description: >
   Restore iHRIS wiki pages from MediaWiki HTML exports found inside release
   tarballs (the manage-help / qualify-help modules) or elsewhere, into
   library/ihris-wiki as Markdown sections de-duplicated by title.
+input: src/schemas/skills/restore-wiki-from-help-export/input.schema.json
+output: src/schemas/skills/restore-wiki-from-help-export/output.schema.json
 ---
 
 # Restore wiki pages from an HTML export

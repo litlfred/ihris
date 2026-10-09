@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/adopt-methodology-from-source/output.schema.json",
+  "title": "adopt-methodology-from-source output",
+  "description": "What the skill `adopt-methodology-from-source` writes. Each property is one artefact, defined once in ../artefacts.schema.json. `methodology` and `processSpecs` are written by a person following the skill, so no Tool is required to write them.",
+  "type": "object",
+  "required": [
+    "libraryEntry",
+    "processes",
+    "beans"
+  ],
+  "properties": {
+    "libraryEntry": {
+      "$ref": "../artefacts.schema.json#/$defs/libraryEntry"
+    },
+    "methodology": {
+      "$ref": "../artefacts.schema.json#/$defs/methodology"
+    },
+    "processSpecs": {
+      "$ref": "../artefacts.schema.json#/$defs/processSpecs"
+    },
+    "processes": {
+      "$ref": "../artefacts.schema.json#/$defs/processes"
+    },
+    "beans": {
+      "$ref": "../artefacts.schema.json#/$defs/beans"
+    }
+  }
+}

@@ -17,12 +17,19 @@
         "arg": {
           "flag": "--check"
         }
+      },
+      {
+        "name": "releaseTarball",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/releaseTarball",
+        "required": false,
+        "description": "Read from uploads/ihris-suite-4.3.3/"
       }
     ],
     "outputs": [
       {
         "name": "theme",
-        "schema": "https://github.com/litlfred/ihris/src/schemas/ihris-site-theme.schema.json"
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/theme",
+        "description": "(records: https://github.com/litlfred/ihris/src/schemas/ihris-site-theme.schema.json)"
       }
     ]
   },

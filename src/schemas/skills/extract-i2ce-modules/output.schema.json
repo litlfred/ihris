@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/extract-i2ce-modules/output.schema.json",
+  "title": "extract-i2ce-modules output",
+  "description": "What the skill `extract-i2ce-modules` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "modules",
+    "dataModel",
+    "dataLists"
+  ],
+  "properties": {
+    "modules": {
+      "$ref": "../artefacts.schema.json#/$defs/modules"
+    },
+    "dataModel": {
+      "$ref": "../artefacts.schema.json#/$defs/dataModel"
+    },
+    "dataLists": {
+      "$ref": "../artefacts.schema.json#/$defs/dataLists"
+    }
+  }
+}

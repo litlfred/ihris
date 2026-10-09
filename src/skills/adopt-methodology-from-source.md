@@ -6,6 +6,8 @@ description: >
   beans and issues, a faithful rendering with adopted and refused parts,
   placement, integration into existing processes, Tool nodes, and owner review.
   Process: processes/methodology-from-source.bpmn.
+input: src/schemas/skills/adopt-methodology-from-source/input.schema.json
+output: src/schemas/skills/adopt-methodology-from-source/output.schema.json
 ---
 
 # Adopt a methodology from a source document

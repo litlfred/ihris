@@ -1,0 +1,62 @@
+{
+  "id": "ihris-gen-fsh",
+  "title": "Generate the FHIR Shorthand and build it with SUSHI",
+  "description": "Writes one FSH Logical per data-dictionary sheet (51; FHIR types from the I2CE field types, cardinality from optionality, an extensible binding to the field's ValueSet, and a Mapping back to each I2CE field name), runs the pinned SUSHI over src/ihris-4-on-fhir and fails unless it is clean, and writes the terminology JSON from SUSHI's build (D8: build_dak.py writes the terminology as FSH). --check: the logical-model FSH is current, SUSHI is clean, and the committed terminology JSON is exactly SUSHI's build.",
+  "install": {
+    "cli": "npm install -g fsh-sushi@3.20.1"
+  },
+  "invoke": {
+    "shell": "python3 src/tools/gen_fsh.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "check",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--check"
+        }
+      },
+      {
+        "name": "dataDictionary",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataDictionary",
+        "required": false,
+        "description": "Read from src/ihris-data-dictionary/data-dictionary/"
+      },
+      {
+        "name": "terminology",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/terminology",
+        "required": false,
+        "description": "Read from src/ihris-data-dictionary/terminology/ (and written there, from the SUSHI build)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "fsh",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/fsh",
+        "description": "Written to src/ihris-4-on-fhir/input/fsh/"
+      },
+      {
+        "name": "fhirResources",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/fhirResources",
+        "description": "SUSHI's build, src/ihris-4-on-fhir/fsh-generated/"
+      },
+      {
+        "name": "terminology",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/terminology",
+        "description": "Written to src/ihris-data-dictionary/terminology/ from the SUSHI build"
+      }
+    ]
+  },
+  "satisfies": [
+    "ihris-4-on-fhir"
+  ],
+  "requires": {
+    "runtime": [
+      "python3",
+      "node"
+    ],
+    "network": true
+  }
+}
