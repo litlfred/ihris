@@ -85,14 +85,11 @@ jobs:
         # The mounted cat-harness carries the PLATFORM's harness list (smart-base, smart-trust, ...).
         # sync-docs-harness.ts regenerates it from THIS checkout (index.config.json: ihris and what it
         # mounts), so --instance ihris lists ihris and the harnesses it needs, and nothing else.
-        # It rewrites cat-harness/docs/_data/harness.json in this throwaway CI mount only.
-        # own_site_links.py keeps ihris's own pages (the work plan at /beans/, the glossary) and the
-        # beans count on THIS site, around the rail (bean ihris-yvow names the platform gaps it bridges).
+        # It rewrites cat-harness/docs/_data/harness.json in this throwaway CI mount only. ihris is the
+        # root of its checkout, so the rail keeps its own pages, counts and mark on THIS site.
         run: |
           bun run cat-harness/scripts/sync-docs-harness.ts
-          python3 src/tools/own_site_links.py --harness cat-harness/docs/_data/harness.json
           bun run cat-harness/scripts/rail-standalone-pages.ts --site _site --built cat-harness --foreign-site --home-label "iHRIS Knowledge Base" --instance ihris
-          python3 src/tools/own_site_links.py --site _site
       - name: Staging banner (pull requests only)
         if: steps.target.outputs.slug != ''
         env:
