@@ -3,6 +3,17 @@
   "name": "ihris",
   "title": "iHRIS Knowledge Base",
   "description": "A folio-assistant folio that ingests and DESCRIBES the knowledge assets of iHRIS, the open-source health workforce information system: Launchpad source (by `lp:` reference, never copied), iHRIS 5 on GitHub (pinned by commit), the Implementation Toolkit, the old wiki (and its 2010 handbook export), the 2009 use-case model, and documents people share. It is the umbrella over one instance per core source repository and one per knowledge source.",
+  "avatar": {
+    "glyph": "M8 11a3 3 0 100-6 3 3 0 000 6zM16 11a3 3 0 100-6 3 3 0 000 6zM2 20a6 6 0 0112 0M10 20a6 6 0 0112 0",
+    "tone": 208,
+    "reads": "two people side by side: a health workforce, in iHRIS blue"
+  },
+  "_avatar_comment": "The mark the harness chrome draws for ihris (the rail's header, the harness rows). Without one the chrome drew a letter placeholder. 208 is MEASURED from the iHRIS site theme's h1 colour #1e5483 (src/site/theme/ihris-classic.json): rgb(30,84,131), max channel blue, so the hue is 4 + (30-84)/(131-30) sixths of a turn = 207.9 degrees, rounded. A glyph rather than the iHRIS logo image, because the logo is credited GPL content in the theme, not a declared asset of this instance.",
+  "navbarIcons": [
+    "close",
+    "launcher"
+  ],
+  "_navbarIcons_comment": "ihris's OWN icon row, rather than the cat-harness list it would inherit (todos, beans, fsh-guts, launcher). Those three are dashboards of state graphs this site does not publish: ihris declares no todos and no fsh-guts, and its work plan (beans/) has no dashboard on this site yet, so each drew an inert icon reading 'reason not recorded' (owner, 2026-10-09: 'missing icons on navbar top'). Bean ihris-mdzi: publish the work-plan dashboard, then add 'beans' back.",
   "repository": "litlfred/ihris",
   "needs": [
     "folio-assistant-core"
