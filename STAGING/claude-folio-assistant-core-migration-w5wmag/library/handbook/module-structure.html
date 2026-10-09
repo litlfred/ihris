@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module Structure · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1dfcoa976z5.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1dfcoa976z5"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Module Structure</div>
+<h1>Module Structure</h1>
+<div class="wiki">
+<h2>What is a Module?</h2>
+<p>The iHRIS Suite is based on the Intrahealth Informatics Core Engine (I2CE) which use a module structure to encapsulate and maintain "code" into manageable pieces organized by the functionality provided. By "code" we mean the entire collection of php, html, javascript, xml, image files, css, flash, etc that provide the functionality of a web-based application.</p>
+<p>A module may require other modules that it needs to run.</p>
+<p>A module is versioned to keep track of the changes to functionality and API that a module has.</p>
+<h2>Why Modules?</h2>
+<ul>
+<li>
+<p>The main reason to use a module system is to increase code manageability. The various components of the iHRIS Suite (Qualify, Manage, and Plan) are used in a variety of settings each requiring their own customizations.</p>
+</li>
+<li>
+<p>Each of the iHRIS Suite's components (Qualify, Manage, Plan) share some common functionality and the module system ensures proper code re-use.</p>
+</li>
+<li>
+<p>The module system lets many customizations to be encapsulated without having to change the underlying code base. This allow a local developer to make their changes without worrying about about having to redo those changes anytime the core system is updated.</p>
+</li>
+<li>
+<p>As modules are organized by the functionality that they provide to the system, a developer can quickly find the relevant code to change by looking at the relevant modules.</p>
+</li>
+<li>
+<p>Customizations to the software encapsulated in a module can be easily shared among developers.</p>
+</li>
+</ul>
+<h2>The I2CE Module</h2>
+<p>The is the "top"-most module. Every module implicitly has this a requirement. It is the core module which provides the minimal functionality including magic data, file search, the templating system, and the module factory. It has no requirements.</p>
+<p>I2CE provides many optional sub-modules. For example:</p>
+<ul>
+<li>Admin -- Provides a module management system.</li>
+<li>Background Process -- Provides a platform independent means to launch and monitor background processes</li>
+<li>Custom Reports -- Provides the Custom Reporting functionality</li>
+<li>Flash Charts -- provides a php interface to the maani flash charting system</li>
+<li>Forms -- provides the basic form and field structure used by our software</li>
+<li>MooTools -- provides a php interface to the MooTools javascript library</li>
+<li>Tasks and Roles -- provides a task based management system for user roles</li>
+</ul>
+<h2>The Site Module</h2>
+<p>The "bottom"-most module is the Site Module. This module is the one that is loaded by the index.php file and tells the system which modules we are used by your system. It is the appropriate place to perform basic customizations to the system, for example changing the image displayed on the login page or to display your organizations name. See for example Tutorial: Customizing iHRIS Manage</p>
+<h2>Module Configuration File</h2>
+<p>A module exists by defining its configuration files. There is one top-level node &lt;I2CEConfiguration&gt; under which there are two possible nodes:</p>
+<ul>
+<li>The &lt;metadata&gt; tag is required.</li>
+<li>The &lt;configurationGroup&gt; tag is optional.</li>
+</ul>
+<p>The &lt;I2CEConfiguration&gt; tag has a required attribute name whose values should be a unique short name to describe this module such as I2CE, ihris-manage or mercury_javascript_popup. The DTD which describes the format of the configuration file is located in I2CE/lib/I2CE_Configuration.DTD. As an example:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE I2CEConfiguration SYSTEM &quot;I2CE_Configuration.dtd&quot;&gt;
+&lt;I2CEConfiguration name='mercury_javascript_popup'&gt;
+  &lt;metadata&gt;
+    Some stuff defined below
+  &lt;/metadata&gt;
+  &lt;configurationGroup name='mercury_javascript_popup'&gt;
+    Some stuff defined below
+  &lt;/configurationGroup&gt;
+&lt;/I2CEConfiguration&gt;
+</code></pre>
+<h2>metadata</h2>
+<p>The DTD has for the &lt;metadata&gt; tag allows the following nodes:</p>
+<pre><code>&lt;!ELEMENT metadata (displayName,className?,category?,description?,creator?,email?,link?,
+  version,(enable|requirement|conflict|path)*,priority?)&gt;
+</code></pre>
+<p>For the most part, the orders of these tags matter due to limitations in the structure of DTDs. The exceptions is that the &lt;enabled&gt;, &lt;requirement&gt;, &lt;conflict&gt; and &lt;path&gt; tags can be listed in any order amongst themselves.</p>
+<h3>displayName</h3>
+<p>This tag is requireed it is human readable name of this module which is displayed, for example, in the Configure Modules pa</p>
+<pre><code>Example: &lt;displayName&gt;Popup Box&lt;/displayName&gt;
+</code></pre>
+<h3>className</h3>
+<p>The tag is optional and it associates a class for the module. See #The Module Class for specific information about the module's class</p>
+<pre><code>Example: &lt;className&gt;I2CE_Module_JavascriptPopup&lt;/className&gt;
+</code></pre>
+<h3>category</h3>
+<p>This is an optional tag that is used to group similar modules together by category in the Configure Modules page.</p>
+<pre><code>Example: &lt;category&gt;Javascript Library&lt;/category&gt;
+</code></pre>
+<h3>description</h3>
+<p>This is an optional tag which gives a description of this module which is displayed in the Configure Modules page.</p>
+<pre><code>Example: &lt;description&gt;Provides a javascript popup box&lt;/description&gt;
+</code></pre>
+<h3>creator</h3>
+<p>This is an optional tag which shows the creator in the Configure Modules page.</p>
+<pre><code>Example: &lt;creator&gt;Freddy Mercury&lt;/creator&gt;
+</code></pre>
+<h3>link</h3>
+<p>This is an optional tag which gives a URL for the module in the 'Configure Modules page.</p>
+<pre><code>Example: &lt;link&gt;http://en.wikipedia.org/wiki/Freddie_Mercury&lt;/link&gt;
+</code></pre>
+<h3>version</h3>
+<p>This is a required tag which you can use to version your module.</p>
+<pre><code>Example: &lt;version&gt;1.0.0&lt;/version&gt;
+</code></pre>
+<h3>requirement</h3>
+<p>This is an optional tag, of which you can have as many as you want. Each tag needs to have the attribute name whose the value is the name of a module required by this module. This tag can have up to four possible sub-tags:</p>
+<ul>
+<li>
+<p>atLeast</p>
+</li>
+<li>
+<p>atMost</p>
+</li>
+<li>lessThan</li>
+<li>greaterThan</li>
+</ul>
+<p>each of which need to have the attribute version with a value of a version of the module. As an example:</p>
+<pre><code>&lt;requirement name='I2CE'&gt;
+ &lt;atLeast version='3.1'/&gt;
+ &lt;lessThan version='3.2'/&gt;
+&lt;/requirement&gt;
+</code></pre>
+<p>says that our module requires that I2CE have version at least 3.1 and less than version 3.2.</p>
+<p>In order for a module to be loaded, it must successfully meet all of its requirements.</p>
+<h3>conflict</h3>
+<p>This is an optional tag of which you can have as many as you wish. This is opposite of the &lt;requirement&gt; tag and lists all the modules that this module conflicts with. As an example:</p>
+<pre><code>&lt;conflict name='plant_javascript_popup'&gt;
+&lt;/conflict&gt;
+&lt;conflict name='ringo_javascript_popup'&gt;
+  &lt;lessThan version=3.2/&gt;
+&lt;/conflict&gt;
+</code></pre>
+<p>Says that our module conflicts's with all versions of Robert Plant [1]'s javascript popup, but only conflicts with Starr [2]'s popup for versions less that 3.2.</p>
+<p>A module will fail to load if it conflicts with any other modules that are already loaded.</p>
+<h3>enable</h3>
+<p>This tag is optional of which you can have as many as you wish. This tag requires the attribute name with the value the short name of a module. This tag is weaker than the &lt;requirement&gt; tag in that it will try to enable the named module, but it will not cause the cause this module to fail to load if it can't. It also differs from the &lt;requirement&gt; and &lt;conflict&gt; tags as there is no version information (under the subtags atLeast,atMost, lessThan, greaterThan). As an example:</p>
+<pre><code>&lt;enable name='alex_patterson_javascript_paginator'/&gt;
+</code></pre>
+<p>Says that if the Alex Patterson [3]'s javascript paginator module is able to loaded, then load it. Otherwise don't worry about it.</p>
+<h3>path</h3>
+<p>This is an optional tag of which there can be as many as you wish. Each &lt;path&gt; tag requires the attribute name and can have as many sub-tags &lt;value&gt; as you wish. The &lt;path&gt; tag enables a module to specify directories to be added to the file search utility group by category. The categories are specified by the name attribute and some commonly used names are:</p>
+<ul>
+<li>templates These are the directories to search for html template files</li>
+<li>
+<p>images These are the directories to search for image files</p>
+</li>
+<li>
+<p>css These are the directories to search for CSS files</p>
+</li>
+<li>
+<p>scripts These are the directories to search for javascript files</p>
+</li>
+<li>
+<p>classes These are the directories to search for files containing php classes. The convention here is that MyClass is located in the file MyClass.php</p>
+</li>
+<li>modules These are the directories to look for (sub-)modules of the current module.</li>
+</ul>
+<p>For more information about the paths allowed, see Technical Overview: File Search Paths</p>
+<h3>priority</h3>
+<p>This tag is optional. If not set, the priority of a module is 50.</p>
+<pre><code>Example: &lt;priority&gt;50&lt;/priority&gt;
+</code></pre>
+<p>Here are some standard priorities:</p>
+<ul>
+<li>I2CE 0</li>
+<li>sub-modules of I2CE 50</li>
+<li>ihris-common 100</li>
+<li>sub-modules of ihris-common 150</li>
+<li>ihris-manage, ihris-qualify, ihris-plan 200</li>
+<li>sub-modules ihris-manage, ihris-qualify, ihris-plan 250</li>
+<li>a site module 400</li>
+</ul>
+<h2>Configuration (Magic) Data</h2>
+<p>The &lt;configurationGroup&gt; node is optional. If it is present it has to have the attribute name which has the same value as the attribute name in the containing &lt;I2CEConfiguration&gt; tag.</p>
+<p>All magic data is relative to the path defined by the this configurationGroup. There are three options:</p>
+<ul>
+<li>The attribute path is not present. In the following example, the magic data is stored under /modules/mercury_javascript_path.</li>
+</ul>
+<pre><code>Example:
+ &lt;configurationGroup name='mercury_javascript_popup'&gt;
+   SOME STUFF GOES HERE
+&lt;/configurationGroup&gt;
+</code></pre>
+<ul>
+<li>The attribute path is present. In the following example, the magic data is stored under /some/other/place.</li>
+</ul>
+<pre><code>Example:
+ &lt;configurationGroup name='mercury_javascript_popup' path='/some/other/place'&gt;
+   SOME STUFF GOES HERE
+ &lt;/configurationGroup&gt;
+</code></pre>
+<ul>
+<li>The module is 'I2CE'. The magic data is stored relative to /I2CE</li>
+</ul>
+<p>This &lt;configurationGroup&gt; node does double duty. It provides the configuration data that is stored into magic data. It also provides, via the Admin module, a treed menu system to edit the magic data set by this system. This allows for dynamic customizations of your site.</p>
+<p>See Technical Overview: Configuration (Magic) Data for more detailed information.</p>
+<h2>The Module Class</h2>
+<p>The module class is in intended to provide php functionality to the class. The module class is named by the optional &lt;className&gt; tag in the &lt;metadata&gt; section of the module configuration file. It needs to exist in the classes paths of the module and it needs to subclass I2CE_Module which is found in i2ce/lib/I2CE_Module.php.</p>
+<p>There are three basic types of functionality it provides. The first are methods to be called when a method is enabled, upgraded or disabled. The second is to provide hooks into the system. The third is to provide fuzzy methods.</p>
+<h3>Enabling/Disabling a Module</h3>
+<p>There are several methods used to initialize, enable, disable and upgrade a module which are called by the module factory. All of these methods expect that the module returns true to indicate success.</p>
+<ul>
+<li>When a module is enabled the method action_enable() is called.</li>
+<li>
+<p>Before a module is enabled for the first time action_initialize() is called. This is the appropriate place to do things like ensure that any tables in the database the module expects to have are created. For example, the module 'I2CE' has its own class 'I2CE_Module_Core' which does the following:</p>
+</li>
+<li>
+<p>Checks that the user database table is there, if not it creates it.</p>
+</li>
+<li>Makes sure that there is an administrative user for the system. If not, it creates it.</li>
+<li>Checks that the config table for magic data is present, if not it creates it.</li>
+<li>When a module is disabled the method action_disabled() is called.</li>
+<li>When the version in the configuration file changes upgrade($old_vers,$new_vers) is called.</li>
+</ul>
+<h3>Hooked Methods</h3>
+<p>There are certain specific places in the code that may naturally lend themselves to be hooked in for greater functionality. A module may hook into the sytem at various points. To add a hook at some point you add either the line:</p>
+<pre><code>         I2CE_ModuleFactory::callHooks('some_hook_name',$some_argument);
+</code></pre>
+<p>or the line:</p>
+<pre><code>         I2CE_ModuleFactory::callHooks('some_hook_name');
+</code></pre>
+<p>I2CE_ModuleFactory will take care of calling all modules that register hooks for that point,with either the one or no arguments as appropriate. All hooked methods are called (in order of priority). The result of each hooked methods appended to an array which is then returned back from the callHooks() method.</p>
+<p>A module registers the methods to call via its getHooks() method which returns an array with keys the hook name and value the method name in the module's class.</p>
+<h3>Fuzzy Methods</h3>
+<p>A fuzzy method is a method that a module provides to some other PHP class extended I2CE_Fuzzy via the __call() method. There are three reasons to use fuzzy methods:</p>
+<ul>
+<li>PHP cannot do multiple-inheritance for classes which makes it difficult to combine functionality of two classes into one. One can always do an interface, but then one has to rewrite a lot of code.</li>
+<li>The second is to provide modular functionality that can be turned on and off.</li>
+<li>The functionality of a class may need to change depending if the class is called from a webserver or from the command line.</li>
+</ul>
+<p>The later reason is why they are fuzzy: the methods may or not be present in the class depending on which modules you have turned on. The fuzzy methods that a module provides are defined by arrays returned from the methods getMethods() and getCLIMethods(). The results of these methods are processed every time the module is enabled or a change is detected to the module's class source file. When a module is disabled, the fuzzy methods it provides are removed from the class.</p>
+<p>For example the moduleFormWorm's getMethod() returns:</p>
+<pre><code>array('I2CE_Page-&gt;addFormWorm'=&gt;'addFormWorm',
+      'I2CE_Template-&gt;addFormWorm'=&gt;'addFormWorm'
+      )
+</code></pre>
+<p>when the module FormWorm is turned on, this provides the methods addFormWorm() to both the class I2CE_Page and I2CE_Template as well as any child classes of these. The general form for this array is:</p>
+<pre><code>  CLASS-&gt;CLASSMETHOD =&gt; MODULEMETHOD
+</code></pre>
+<p>where CLASSMETHOD is a fuzzy method provided to the class CLASS. This fuzzy method is implemented by calling MODULEMETHOD on the instance of the module's class. The first argument to MODULEMETHOD will be the class that the fuzzy method was called and the remaining arguments are the arguments that CLASSMETHOD was called with.</p>
+<p>For example, if $page is an instanceof I2CE_Page then the call:</p>
+<pre><code> $page-&gt;addFormWorm($arg1,$arg2)
+</code></pre>
+<p>results that the module factory will takes its instance, $module, of the I2CE_Module_FormWorm and call:</p>
+<pre><code> $module-&gt;addFormWorm($page, $arg1,$arg2);
+</code></pre>
+<p>Fuzzy method will only have access to the public methods and variables of the calling class (I2CE_Page in this example). Incidentally, this encourages the development of a good API for the calling class.</p>
+<p>Like the other components of a module (such as template files), fuzzy methods are prioritized and only the one of the lowest priority is called. You can see the documentation for the classes I2CE_Module and I2CE_ModuleFactory for more information.</p>
+<h2>References</h2>
+<p>[1] http://en.wikipedia.org/wiki/Robert_Plant [2] http://en.wikipedia.org/wiki/Ringo_starr|Ringo [3] http://en.wikipedia.org/wiki/Alex_Patterson</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=10918">revision 10918</a>; contributors: Lduncan, Litlfred, MarkAHershberger. Pages 485&ndash;491 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

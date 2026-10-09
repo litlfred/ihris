@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Migrating Forms from Entry to MagicData · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1dfcoa976z5.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1dfcoa976z5"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Migrating Forms from Entry to MagicData</div>
+<h1>Migrating Forms from Entry to MagicData</h1>
+<div class="wiki">
+<p>This tutorial will explain how to migrate forms from previous versions that were stored in the entry table and move them to magic data storage as well as update any mapped fields that referenced the values. For a more complicated example look at the Geography module in iHRIS Common or the Education sub-module in the Person module in iHRIS Common.</p>
+<h2>Step 1: Change a Form's Storage Mechanism</h2>
+<p>In iHRIS 4.0, storage mechanisms were added to forms. The default storage method is to use the entry tables as in previous versions of iHRIS. For distributed systems you may want to have some forms be stored in magic data so they can be managed centrally more easily and can be updated by module updates to keep consistent IDs across all the distributed systems.</p>
+<p>First we need to change the storage for the form to magic data in the module configuration file. For earlier versions this section needs to be added. If you're migrating a form that already has storage defined, you just need to change the storage to be magic data. These changes will be under the "forms" section of your configuration at the path: /modules/forms/forms/&lt;form_name&gt;. This just includes the new storage section. The class and display sections should already be there for this form. You'll also need to update the version for this module and include that same version number in the storage section.</p>
+<pre><code>&lt;configurationGroup name=&quot;forms&quot; path=&quot;/modules/forms&quot;&gt;
+  &lt;configurationGroup name=&quot;forms&quot;&gt;
+    &lt;configurationGroup name=&quot;form_XXXXX&quot;&gt;
+      &lt;configuration name=&quot;storage&quot; values=&quot;single&quot;&gt;
+        &lt;displayName&gt;Storage Mechanism&lt;/displayName&gt;
+        &lt;description&gt;The storage mechanism for this form.&lt;/description&gt;
+        &lt;version&gt;X.X.X&lt;/version&gt;
+        &lt;value&gt;magicdata&lt;/value&gt;
+      &lt;/configuration&gt;
+    &lt;/configurationGroup&gt;
+  &lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;
+</code></pre>
+<h2>Step 2: Save Data From The Previous Storage Mechanism</h2>
+<p>Now we need to make sure we save any old data before the storage mechanism is changed for the form. For example if the field person.nationality is mapped to the country form and the country form is moving from entry storage to magicdata then you'll need to save the old value so you can change it to the correct new value once the country form has been migrated. This is all done using the pre_upgrade() method for the module class for the given module. A helper method is in I2CE_FormStorage called storeMigrateData() to save this data for later reference.</p>
+<p>You'll need to know the version that is being upgraded to so you only save the data at the correct time for this module. In the example code "X.X.X" is used. You'll also need to determine a migrate path to use for everything you'll be upgrading. This is so that everything can be referred to later in one place if you need to access it. It can be any text or even the version number you're upgraded to. It should be under the magic data path of: /I2CE/formsData/migrate_date/XXXXXX.</p>
+<pre><code>public function pre_upgrade( $old_vers, $new_vers, $new_storage ) {
+    if ( I2CE_Validate::checkVersion( $old_vers, &quot;&lt;&quot;, &quot;X.X.X&quot; ) ) {
+        $migrate_path = &quot;/I2CE/formsData/migrate_data/MyUpgrade&quot;;
+        I2CE_FormStorage::storeMigrateData( array( &quot;FORM&quot; =&gt; array(
+&quot;FIELD1&quot;, &quot;FIELD2&quot; ) ), $migrate_path );
+    }
+    return parent::pre_upgrade( $old_vers, $new_vers, $new_storage );
+}
+</code></pre>
+<h2>Step 3: Move Forms To The New Storage Mechanism and Migrate Any Mapped Values</h2>
+<p>Now the forms need to be migrated to the new storage mechanism and any mapped fields that were stored in the previous step need to be migrated to its new ID. This can all be done in the upgrade() method for the module class. There are two helper methods in I2CE_FormStorage to assist with this: migrateForm() and migrateField().</p>
+<p>You'll use the same migrate path that was used in the pre_upgrade() method. You'll also need to create a user object to save the changes. Use the ID of an administrative user. You can repeat the function for every form that needs to be migrated.</p>
+<pre><code>public function upgrade( $old_vers, $new_vers ) {
+    if ( I2CE_Validate::checkVersion( $old_vers, &quot;&lt;&quot;, &quot;X.X.X&quot; ) ) {
+        $user = new I2CE_User( $user_id, false, false, false );
+        $migrate_path = &quot;/I2CE/formsData/migrate_data/MyUpgrade&quot;;
+        if ( !I2CE_FormStorage::migrateForm( &quot;FORM&quot;, &quot;entry&quot;, $user,
+$migrate_path ) ) {
+            return false;
+        }
+        if ( !I2CE_FormStorage::migrateField( &quot;FORM&quot;, array( &quot;FIELD1&quot; =&gt;
+ &quot;FIELD1_MAPPED_FORM&quot;, &quot;FIELD2&quot; =&gt; &quot;FIELD2_MAPPED_FORM&quot; ),
+                $migrate_path, $user ) ) {
+            return false;
+        }
+    }
+    return true;
+}
+</code></pre>
+<h2>Step 4: Check The Migration</h2>
+<p>When you next access the site it will run the upgrade methods for any modules you have upgraded. When it has finished you will see the old data under magic data at the path: /I2CE/formsData/migrate_data/MyUpgrade (or whatever path you used). You'll also find the forms that are now stored in magic data under /I2CE/formsData/forms/. You'll want to check to make sure any fields that were migrated successfully use the new ID for each mapped value.</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=4263">revision 4263</a>; contributors: Lduncan, MarkAHershberger. Pages 483&ndash;485 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

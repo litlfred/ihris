@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installing on Mini-Box · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1dfcoa976z5.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1dfcoa976z5"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Installing on Mini-Box</div>
+<h1>Installing on Mini-Box</h1>
+<div class="wiki">
+<p>These are installation notes for getting the mini-box [1] LCD appliance up and running with Ubuntu Server 32-bit 9.04 (Jaunty) wth an processor and making use of the menuing [2] system.</p>
+<p>This document covers installation of Ubuntu and the bits of software to control the LCD Panel on the iHRIS Appliance. For information on installing the iHRIS Suite itself (including a full LAMP stack) see Installing the Debian Packages</p>
+<figure style="margin:16px 0"><img src="images/img-p448-1.png" alt="Image:Mini-box-ihris-suite.jpg"><figcaption class="legend"><a href="http://open.intrahealth.org/w/index.php?title=File:Mini-box-ihris-suite.jpg">Image:Mini-box-ihris-suite.jpg</a>, by Litlfred. Licence stated in the export: unknown; published with the owner&#39;s permission.</figcaption></figure>
+<p>&lt;videoflash&gt;6h79JeTiSQg&lt;/videoflash&gt;</p>
+<h2>Ubuntu</h2>
+<p>Although we will intend to run this box without a monitor for the moment we will plug in the monitor to install Ubuntu from a USB-CDROM. Make sure the BIOS is configured to boot from the CD-ROM. Also, under Peripheral Devices you will need to enable all legacy support (or it will hang on installation).</p>
+<p>For a flash drive, apparently Josh [3] has had some success following these directions [4].</p>
+<p>We will do a Software Raid [5]. Warning: do not create the filesystem as ext4 as it will hurt mysql very badly [6]. Once it has been setup, we need to monitor [7] it using mdadm:</p>
+<p>To do this:</p>
+<pre><code>sudo dpkg-reconfigure mdadm
+</code></pre>
+<p>Please enter the following:</p>
+<pre><code> Yes: periodic, monthly checks of the array
+ Yes: MD monitoring daemon
+ someone@somwhere.org:  Email address for monitoring
+ Yes: Start with degraded array
+</code></pre>
+<h2>Mail Server</h2>
+<p>We don't want our box to be the general mail server for the network. There is a mail server, postfix, installed by default on Ubuntu We will want to set the mail server to relay email to some other place.</p>
+<p>First we need to do:</p>
+<pre><code>sudo apt-get install postfix
+</code></pre>
+<p>Then select</p>
+<pre><code> Satellite System     //the type of system
+ somewhere.org        //the name of your organization
+ smtp.somewhere.org   //your smtp server to relay mail to
+</code></pre>
+<p>The above assumes that smtp.somewhere.org is an open relay which is probably not the case.</p>
+<p>You will probably need to set Postfix up for SMTP Auth [8]</p>
+<p>As an alternative here are some instructions for forwarding to a gmail accout [9].</p>
+<h2>USBLCD Reader</h2>
+<p>First create a user 'lcdmenu' that can't login:</p>
+<pre><code> sudo adduser --disabled-login --gecos &quot;&quot; lcdmenu
+</code></pre>
+<p>Download and build the SDK [10] or at least just what it includes usblcd-src [11]. Install 'usbread' into the /home/lcdmenu/bin. To build it you will need to do this:</p>
+<pre><code>sudo apt-get install autoconf gcc-4.1-base gcc-4.1 gcc make \
+     automake binutils binutils-dev libtool libusb-dev \
+     libhid-dev bzr
+cd ~lcdmenu
+sudo -u lcdmenu bzr branch lp:lcdmenu bin
+cd ~/
+wget http://www.mini-itx.com/store/information/usblcd/usblcd-src-0.1.4.tgz
+tar -xzvf usblcd-src-0.1.4.tgz
+cd usblcd-0.1.4
+rm src/Makefile.am lib/usblcd.c
+ln -s ~lcdmenu/bin/usblcd.c lib/usblcd.c
+ln -s ~lcdmenu/bin/Makefile.am src/Makefile.am
+ln -s ~lcdmenu/bin/lcdmenu.c src/lcdmenu.c
+./autogen.sh
+./configure
+sudo make install
+sudo ldconfig
+</code></pre>
+<p>Now we want to change the splash the screen at boot-up</p>
+<pre><code>sudo usblcd splash ~lcdmenu/bin/splash.txt
+</code></pre>
+<h2>LCD Menu</h2>
+<p>This applies to LCD Menu 1.0 [12] which is not packaged yet. You have already downloaded it via bzr in the step above</p>
+<p>Now edit the "sudoers" file by running:</p>
+<pre><code>sudo visudo
+</code></pre>
+<p>and add this line to grant the lcdmenu user limited access to system functions</p>
+<pre><code>%lcdmenu ALL=NOPASSWD: /sbin/shutdown, /usr/sbin/service,
+/usr/bin/mysqldump, /usr/bin/apt-get, /usr/local/bin/usblcd,
+/usr/local/bin/lcdmenu, /usr/bin/killall
+</code></pre>
+<p>Create a "backup" user in mysql with localhost only access and no password which can lock and select all tables</p>
+<pre><code>  mysql -u root -p
+  mysql&gt; GRANT SELECT,LOCK TABLES on *.* TO backup@localhost IDENTIFIED BY PASSWORD \'\';
+  mysql&gt; quit;
+</code></pre>
+<p>(again no slashes)</p>
+<p>Now we want it to setup to run periodically:</p>
+<pre><code>echo '* * * * * /home/lcdmenu/bin/lcdmenu_check.sh &gt;/dev/null 2&gt;&amp;1'|\
+     sudo crontab -u lcdmenu -
+</code></pre>
+<p>We can get it up and running as fast as possible and put it a shutdown mesages by putting it in the local startup [13]:</p>
+<pre><code>sudo vi /etc/init.d/local
+</code></pre>
+<p>Add these contents:</p>
+<pre><code>#!/bin/sh
+case &quot;$1&quot; in
+ start)
+   sudo -u lcdmenu /home/lcdmenu/bin/lcdmenu_check.sh
+   ;;
+ stop)
+   run=`ps a -Ulcdmenu | grep /home/lcdmenu/bin/lcdmenu.php | grep -v grep | cut -c1-5 | paste -s -`
+   if [   &quot;$run&quot; ]; then
+        kill -15 $run
+   fi;
+   run=`ps a -Ulcdmenu | grep /home/lcdmenu/bin/lcdmenu.php | grep -v grep | cut -c1-5 | paste -s -`
+   if [   &quot;$run&quot; ]; then
+        sleep 0.3
+        kill -9 $run
+   fi;
+   killall lcdmenu
+   /usr/local/bin/usblcd clear backlight 1 text 0 0  &quot;   Shutting Down   &quot; text 1      0 &quot;    Please Wait  &quot;
+   ;;
+esac
+</code></pre>
+<p>Now do:</p>
+<pre><code>sudo chmod +x /etc/init.d/local
+sudo update-rc.d local defaults 99
+</code></pre>
+<h2>GDM</h2>
+<p>In case you have GDM installed, let us have it not boot on startup. Note, you can now turn gdm on/off via the LCD Menu.</p>
+<pre><code>sudo update-rc.d -f gdm remove
+</code></pre>
+<h2>Automount</h2>
+<p>The LCD Menuing system has a "backup MySQL database to a flash drive" feature. Since we will not be using GNOME, we will need a USB automounter:</p>
+<pre><code>  sudo apt-get install usbmount
+</code></pre>
+<p>Then edit the file /etc/usbmount/usbmount.conf and add "vfat" to the FILESYSTEMS e.g:</p>
+<pre><code>   FILESYSTEMS=&quot;ext2 ext3 vfat&quot;
+</code></pre>
+<p>then make sure the FS_MOUNTOPTIONS line has at least:</p>
+<pre><code>   FS_MOUNTOPTIONS=&quot;-fstype=vfat,gid=lcdmenu,dmask=0007,fmask=0117&quot;
+</code></pre>
+<h2>Power Button</h2>
+<p>Make sure acpid is installed and running and change /etc/acpi/powerbtn.sh to suit your needs. I suggest you just make it the following:</p>
+<pre><code>test -f /var/lock/acpisleep &amp;&amp; exit 0
+/sbin/shutdown -h now &quot;Power button pressed&quot;
+</code></pre>
+<h2>UPS</h2>
+<p>Install nut and follow these directions [14] as well as whatever is available on the home page [15] of the nut package. nut is built for network access to a UPS but seems to be the most up-to-date package available.</p>
+<h2>Network Status</h2>
+<p>The MAC Address, to configure your router, can be obtained from the LCD Menu:</p>
+<pre><code>&gt;F1:Server Status
+&gt;F2:Network Status
+&gt;F3:MAC Address
+</code></pre>
+<p>Similarly, if you have plugged the server into a network with DHCP, you can get the IP Address:</p>
+<pre><code>&gt;F1:Server Status
+&gt;F2:Network Status
+&gt;F3:MAC Address
+</code></pre>
+<h2>Webmin</h2>
+<p>See this webmin installation guide [16] or just cut and paste:</p>
+<pre><code>sudo aptitude install perl libnet-ssleay-perl openssl \
+     libauthen-pam-perl libpam-runtime libio-pty-perl libmd5-perl
+wget http://garr.dl.sourceforge.net/sourceforge/webadmin/webmin_1.500_all.deb
+sudo dpkg -i webmin_1.500_all.deb
+</code></pre>
+<p>Browse to:</p>
+<pre><code>https://your-server-ip:10000/
+</code></pre>
+<p>and login as the user you created on Ubuntu installation.</p>
+<h2>References</h2>
+<p>[1] http://www.mini-box.com/M200-LCD-Enclosure?sc=8&amp;category=87 [2] https://launchpad.net/lcdmenu [3] http://suereth.blogspot.com/2008/03/my-new-toy-installing-ubuntu.html [4] http://edoceo.com/liber/ubuntu-live-usb [5] http://advosys.ca/viewpoints/2007/04/setting-up-software-raid-in-ubuntu-server/ [6] http://ubuntuforums.org/showthread.php?t=1313834 [7] http://ubuntuforums.org/showthread.php?t=237582 [8] http://postfix.state-of-mind.de/patrick.koetter/smtpauth/smtp_auth_mailservers.html [9] http://ubuntu-tutorials.com/tag/relayhost/ [10] http://resources.mini-box.com/online/picoLCD%2020x2%20(OEM)/Software/Linux/SDKSource/picoLCD20x2-SDK-0.1.7.tgz [11] http://www.mini-itx.com/store/information/usblcd/usblcd-src-0.1.4.tgz [12] https://code.launchpad.net/~intrahealth+informatics/lcdmenu/dev-1.0 [13] https://help.ubuntu.com/community/RcLocalHowto [14] http://www.crn.com/white-box/199000818 [15] http://www.networkupstools.org/ [16] http://www.ubuntugeek.com/ubuntu-serverinstall-gui-and-webmin-in-ubuntu-810-intrepid-ibex-guide.html</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=11564">revision 11564</a>; contributors: Litlfred, MarkAHershberger. Pages 448&ndash;452 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

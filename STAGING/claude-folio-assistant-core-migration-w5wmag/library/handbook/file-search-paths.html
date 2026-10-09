@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>File Search Paths · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1dfcoa976z5.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1dfcoa976z5"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / File Search Paths</div>
+<h1>File Search Paths</h1>
+<div class="wiki">
+<p>The I2CE (Intrahealth Informatics Core Engine) uses a File Search utility to organize the files into categories and define priorties for searching the directories. As of version 3.2 it also provides localization of files.</p>
+<p>All files, with very few exceptions, are found using the I2CE_FileSearch class defined in I2CE/lib/I2CE_FileSearch.php. The exceptions are those files under I2CE/lib.</p>
+<h2>Path Categories</h2>
+<p>Commonly used pathed categories are:</p>
+<ul>
+<li>templates These are the directories to search for html template files</li>
+<li>images These are the directories to search for image files</li>
+<li>css These are the directories to search for CSS files</li>
+<li>scripts These are the directories to search for javascript files</li>
+<li>classes These are the directories to search for files containing php classes. The convention here is that MyClass is located in the file MyClass.php</li>
+<li>modules These are the directories to look for modules in</li>
+</ul>
+<p>You are free to create your own path categories.</p>
+<h2>Priorties</h2>
+<p>Directories in a given category are searched for a file in order of lowest priority to highest priority. If two directories have the same priority and the same file, there is no guarantee which file will be returned.</p>
+<p>The paths added by a module have the negative priority of that module. For example an template file in I2CE has priority 0, while a template file found in ihris-manage has priority -200 so that the template file in ihris-manage is found first. There are two exceptions: the paths added by a module in the 'classes' or 'modules' are added with the priority of the module so that a php class found in I2CE takes precedence over one in ihris-manage which has priority 200.</p>
+<h2>Adding Paths</h2>
+<p>The most common way to add a directory to a search path is to do so through a modules [[Techincal Overview: Module Structure#Module Configuration File|configuration file]. For example:</p>
+<pre><code>&lt;path name='classes'&gt;
+  &lt;value&gt;./lib&lt;/value&gt;
+&lt;/path&gt;
+</code></pre>
+<p>The &lt;value&gt; tags can be either absolute paths or relative paths. If they are relative paths, they are relative to the directory which contains this configuration file. Some Caveats:</p>
+<ul>
+<li>
+<p>If you add a '*' to the end of a path which ends in '/' (or '\' for windows), this says that all sub-directories of this directory should be added to path. For example, &lt;value&gt;./my_path/*&lt;/value&gt; adds in all sub-directories under ./my_path/</p>
+</li>
+<li>
+<p>If you add a '*' to the end of a path which does not end in a '/' (or '\' for windows) this says that we add all directories that match the file glob. For example, &lt;value&gt;./my_paths/go*&lt;/value&gt; adds in all sub-directories of my_paths which start with go.</p>
+</li>
+<li>If you add a '**' to the end of a path which ends in '/' (or '\' for windows) it will add in all sub-directories, sub-sub-directories, sub-sub-sub-directories etc of the given path.</li>
+<li>If a directory that you add has a sub-directory named 'local' it will first check realtive to this subdirectory for this file. This is useful for development purposes to prevent things from getting committed to bazaar.</li>
+<li>See localization</li>
+</ul>
+<h2>Localization</h2>
+<p>Beginning with version 3.2, we have added in the ability to localize a path. When a path is added to the file search utility, it first checks to see if there is the sub-directory en_US. If it does not exist, the this directory is not considered to be localized. If it does exist, the path is considered to be localized. In this case, we consider each sub-directory to correspond to a locale.</p>
+<p>The preferred locales are set per user. For example, if my preferred locales were fr_RW and then fr_FR and then en_US and I was looking for the file main.html in ./templates which has en_US as a sub-directory I would look for main.html in this order:</p>
+<ul>
+<li>./templates/fr_RW/main.html</li>
+<li>./templates/fr_FR/main.html</li>
+<li>./templates/en_US/main.html</li>
+</ul>
+<p>until I found the file I wanted. If it wasn't there, I would then check for main.html in a directory of higher priority.</p>
+<h2>Caching</h2>
+<p>Because of the high overhead of looking for files all the time, a successful file search will have its results cached in memory via apc [1]. In version 3.1, these results are stored globally. Starting in version 3.2, because the localization preference is defined per user, these results are cached per user.</p>
+<p>By default, a file is considered to be stale after 60 seconds. The cache can be turned off by modifying the magic data at /I2CE/fileSearch/stale_time (see I2CE/I2CE_Configuration.xml).</p>
+<p>Caution:If you are developing a new module and add in a template file, the system won't file that file immediately because the file search results are cached. You can either wait the 60 seconds or clear the results stored in the apc [1]</p>
+<p>memory cache.</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=4188">revision 4188</a>; contributors: Litlfred, MarkAHershberger. Pages 90&ndash;91 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

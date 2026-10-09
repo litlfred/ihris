@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exporting Standardized Data · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1dfcoa976z5.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1dfcoa976z5"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Exporting Standardized Data</div>
+<h1>Exporting Standardized Data</h1>
+<div class="wiki">
+<p>In this tutorial we show how to export standardized cadre data from a central site to be shared among regional and district installations.</p>
+<p>Note: This module assume that the cadre form is stored in magic data. This is the default for iHRIS Manage version 4.0.</p>
+<h2>Overview</h2>
+<p>We will create a module called standard-data-cadre that will contain all of the cadre's defined in the system. We will use the Magic Data Browser to automatically generate a configuration .xml file which we will save as standard-data-cadre.xml. Once we have created this module, we should make it available and required to each of the regional and district installations.</p>
+<h2>First Steps -- Enabling the Magic Data Browser</h2>
+<p>We will export the cadre list using the "Magic Data Browser" module. If it is not available under the "Configure System" menu, then follow these steps to enable it:</p>
+<ul>
+<li>Browse to "Configure System"</li>
+<li>Click the "Configure Modules" link</li>
+<li>Click the link "Sub-Modules" to the right of the "Pages" module</li>
+<li>Check the check box next to "Magic Data Browser"</li>
+<li>Click the "Enable" button at the bottom of the page</li>
+</ul>
+<h2>Creating the module</h2>
+<h3>Browsing in Magic Data</h3>
+<p>Creating the module is very easy. Go to:</p>
+<ul>
+<li>Browse to "Configure System"</li>
+<li>Click the "Browse Magic Data" link</li>
+<li>Click the "I2CE" link</li>
+<li>Click the "formsData" link</li>
+<li>Click the "forms" link</li>
+<li>Click the "cadre" link</li>
+</ul>
+<p>You should now see a page that looks like:</p>
+<figure style="margin:16px 0"><img src="images/img-p084-2.png" alt="image:export_cadre1.png"><figcaption class="legend"><a href="http://open.intrahealth.org/w/index.php?title=File:Export_cadre1.png">image:export_cadre1.png</a>, by Litlfred. Licence stated in the export: unknown; published with the owner&#39;s permission.</figcaption></figure>
+<p>Magic Data Browser</p>
+<h3>Setting Export Options</h3>
+<p>Now that we have browser in magic data to /I2CE/formsData/forms/cadre we are ready to export the module:</p>
+<ul>
+<li>Click on the "(options)" link under the "Export" button</li>
+<li>
+<p>Set the following data:</p>
+</li>
+<li>
+<p>Module Name: "standard-data-cadre"</p>
+</li>
+<li>Displayed Named: "Standardized Cadre List"</li>
+<li>Version: Change it from "1.0.2010.09.17" to "4.0.2010.09.17"</li>
+<li>Description: "The Standardized Cadre list set by the central office of the Ministry of Health"</li>
+</ul>
+<p>Your page should look like:</p>
+<figure style="margin:16px 0"><img src="images/img-p084-1.png" alt="image:export_cadre2.png"><figcaption class="legend"><a href="http://open.intrahealth.org/w/index.php?title=File:Export_cadre2.png">image:export_cadre2.png</a>, by Litlfred. Licence stated in the export: unknown; published with the owner&#39;s permission.</figcaption></figure>
+<p>Export Options</p>
+<p>Now click the "Export" button and your web-browser should ask you where to save the .xml file. We will save it as the file standard-data-cadre.xml. See the next section for some hints about where to save this file.</p>
+<p>Note: The module in general should have version 4.0.YYYY.MM.DD where we replace YYYY with the year, MM with the numeric month and DD with the numeric day. For example the version would be 4.0.2010.08.17 if the data was exported on August 17, 2010. If we update the cadre list, at a later date (August 20, 2010), then we can re-export the list into the same module standard-data-cadre but this time with version 4.0.2010.08.20.</p>
+<h2>Managing Decentralized iHRIS with Launchpad</h2>
+<p>First please see the article Decentralized iHRIS Data Policy for some background explanation.</p>
+<p>Please also read Managing A Site In Launchpad for some background information on creating teams and working with bazaar on Launchpad.</p>
+<p>Let us assume that we are working with a national site (National), and four regional sites (North,South,East and West) in the fictional country Taifeki</p>
+<p>For example create a launchpad team, called ihris+taifeki, which you and all members of your development team will join. You should also create a project ihris-manage-taifeki with the code hosted on Launchpad.</p>
+<h3>Code Layout</h3>
+<p>Here is a template for the directory layout for Taifeki's customizations which contains both the national and regional sites. Directories are indicated in blue.</p>
+<ul>
+<li>
+<p>modules: the main modules directory which will contain all of the modules required by each of the sites.</p>
+</li>
+<li>
+<p>ihris-taifeki: a sub-directory of the modules folder which will contain the ihris-taikeki module</p>
+</li>
+<li>
+<p>ihris-taikeki.xml: Defines the module ihris-taifeki that will contain all of the requirements, html templates, etc. which are common to the national and regional sites. In particular, it will require the module standard-data-cadre. See below.</p>
+</li>
+<li>
+<p>standard-data-cadre: a sub-directory of the modules directory which will hold our standard cadre list module</p>
+</li>
+<li>
+<p>standard-data-cadre.xml: the module we exported from the magic data browser</p>
+</li>
+<li>
+<p>sites: A directory which will contain the four sites as well as the data management policy.</p>
+</li>
+<li>
+<p>data-policy-national.xml: Contains the data storage policy for the national site (see below)</p>
+</li>
+<li>data-policy-regional.xml: Contains the data storage policy for each of the regional sites (see below)</li>
+<li>
+<p>national: contains the national site.</p>
+</li>
+<li>
+<p>national-site.xml: The site configuration file for the southern site. Xincludes the data-policy-national.xml and requires the module ihris-tafeki. See below.</p>
+</li>
+<li>
+<p>north: contains the northern region site.</p>
+</li>
+<li>
+<p>northern-site.xml: The site configuration file for the northern site. Xincludes the data-policy-regional.xml and requires the module ihris-tafeki See below.</p>
+</li>
+<li>
+<p>south: contains the southern region site.</p>
+</li>
+<li>
+<p>southern-site.xml: The site configuration file for the southern site. Xincludes the data-policy-regional.xml and requires the module ihris-tafeki</p>
+</li>
+<li>
+<p>east: contains the eastern region site.</p>
+</li>
+<li>
+<p>eastern-site.xml: The site configuration file for the eastern site. Xincludes the data-policy-regional.xml and requires the module ihris-tafeki</p>
+</li>
+<li>
+<p>west: contains the western region site.</p>
+</li>
+<li>
+<p>western-site.xml: The site configuration file for the western site. Xincludes the data-policy-regional.xml and requires the module ihris-tafeki</p>
+</li>
+</ul>
+<h2>Sample .XML Configuration Files</h2>
+<h3>ihris-taifeki.xml</h3>
+<p>The is the module that contains all of the requirements, html templates, etc. which are common to the national and regional sites. In particular, it requires the module standard-data-cadre:</p>
+<pre><code> &lt;?xml version=&quot;1.0&quot;?&gt;
+ &lt;!DOCTYPE I2CEConfiguration SYSTEM &quot;I2CE_Configuration.dtd&quot;&gt;
+ &lt;I2CEConfiguration name='ihris-taifeki'&gt;
+   &lt;metadata&gt;
+     &lt;displayName&gt;iHRIS Manage Taifeki&lt;/displayName&gt;
+     &lt;category&gt;Site&lt;/category&gt;
+     &lt;description&gt;the iHRIS Manage customizations for Taikeki that apply across
+regional and central offices&lt;/description&gt;
+     &lt;version&gt;4.0.5&lt;/version&gt;
+     &lt;requirement name='ihris-manage'&gt;
+       &lt;atLeast version='4.0'/&gt;
+       &lt;lessThan version='4.1'/&gt;
+     &lt;/requirement&gt;
+     &lt;requirement name='standard-data-cadre'&gt;
+       &lt;atLeast version='4.0'/&gt;
+       &lt;lessThan version='4.1'/&gt;
+     &lt;/requirement&gt;
+     &lt;!-- you should create a standard-data-XXXX module for each form XXXX that is being
+     &lt;path name='templates'&gt;
+       &lt;value&gt;./templates&lt;/value&gt;
+     &lt;/path&gt;
+     &lt;path name='images'&gt;
+       &lt;value&gt;./images&lt;/value&gt;
+     &lt;/path&gt;
+     &lt;priority&gt;400&lt;/priority&gt;
+   &lt;/metadata&gt;
+ &lt;/I2CEConfiguration&gt;
+</code></pre>
+<h3>national-site.xml</h3>
+<p>The is the site module for the nataional/central office site</p>
+<pre><code> &lt;?xml version=&quot;1.0&quot;?&gt;
+ &lt;!DOCTYPE I2CEConfiguration SYSTEM &quot;I2CE_Configuration.dtd&quot;&gt;
+ &lt;I2CEConfiguration name='taifeki-national-site'&gt;
+   &lt;metadata&gt;
+     &lt;displayName&gt;iHRIS Manage Taifeki National&lt;/displayName&gt;
+     &lt;category&gt;Site&lt;/category&gt;
+     &lt;description&gt;the iHRIS Manage customizations for National Region of  Taikeki&lt;/descri
+     &lt;version&gt;4.0.5&lt;/version&gt;
+     &lt;requirement name='ihris-taifeki'&gt;
+       &lt;atLeast version='4.0'/&gt;
+       &lt;lessThan version='4.1'/&gt;
+     &lt;/requirement&gt;
+     &lt;path name='modules'&gt;
+       &lt;value&gt;../../modules/value&gt;
+       &lt;value&gt;/var/lib/iHRIS/lib/4.0.5&lt;/value&gt;
+     &lt;/path&gt;
+     &lt;path name='templates'&gt;
+       &lt;value&gt;./templates&lt;/value&gt;
+     &lt;/path&gt;
+     &lt;path name='images'&gt;
+       &lt;value&gt;./images&lt;/value&gt;
+     &lt;/path&gt;
+     &lt;priority&gt;450&lt;/priority&gt;
+   &lt;/metadata&gt;
+  &lt;configurationGroup name='taifeki-national-site' path='/'&gt;
+    &lt;xi:include href=&quot;../data-policy-national.xml&quot; xmlns:xi=&quot;http://www.w3.org/2001/XIncl
+    &lt;configurationGroup name='template' path='/I2CE/template'&gt;
+      &lt;displayName&gt;Template Information&lt;/displayName&gt;
+      &lt;description&gt;Various Default Information About The Templating System&lt;/description&gt;
+      &lt;configuration name='prefix_title' values='single'&gt;
+        &lt;displayName&gt;Page title prefix&lt;/displayName&gt;
+        &lt;value&gt;iHRIS Manage Taifeki (Central Office)&lt;/value&gt;
+      &lt;/configuration&gt;
+    &lt;/configurationGroup&gt;
+    &lt;configurationGroup name='custom_report_pdf_options' path='/modules/CustomReports/dis
+      &lt;displayName&gt;PDF Options&lt;/displayName&gt;
+      &lt;configurationGroup name='header'&gt;
+        &lt;displayName&gt;Header Options&lt;/displayName&gt;
+        &lt;configuration name='text_prefix' &gt;
+          &lt;displayName&gt;Header Text&lt;/displayName&gt;
+          &lt;value&gt;iHRIS Manage Taifeki (Central Office)&lt;/value&gt;
+        &lt;/configuration&gt;
+      &lt;/configurationGroup&gt;
+    &lt;/configurationGroup&gt;
+  &lt;/configurationGroup&gt;
+ &lt;/I2CEConfiguration&gt;
+</code></pre>
+<h3>northern-site.xml</h3>
+<p>The is the site module for the northern site</p>
+<pre><code> &lt;?xml version=&quot;1.0&quot;?&gt;
+ &lt;!DOCTYPE I2CEConfiguration SYSTEM &quot;I2CE_Configuration.dtd&quot;&gt;
+ &lt;I2CEConfiguration name='taifeki-northern-site'&gt;
+   &lt;metadata&gt;
+     &lt;displayName&gt;iHRIS Manage Taifeki Northern&lt;/displayName&gt;
+     &lt;category&gt;Site&lt;/category&gt;
+     &lt;description&gt;the iHRIS Manage customizations for Northern Region of  Taikeki&lt;/descri
+     &lt;version&gt;4.0.5&lt;/version&gt;
+     &lt;requirement name='ihris-taifeki'&gt;
+       &lt;atLeast version='4.0'/&gt;
+       &lt;lessThan version='4.1'/&gt;
+     &lt;/requirement&gt;
+     &lt;path name='modules'&gt;
+       &lt;value&gt;../../modules/value&gt;
+       &lt;value&gt;/var/lib/iHRIS/lib/4.0.5&lt;/value&gt;
+     &lt;/path&gt;
+     &lt;path name='templates'&gt;
+       &lt;value&gt;./templates&lt;/value&gt;
+     &lt;/path&gt;
+     &lt;path name='images'&gt;
+       &lt;value&gt;./images&lt;/value&gt;
+     &lt;/path&gt;
+     &lt;priority&gt;450&lt;/priority&gt;
+   &lt;/metadata&gt;
+  &lt;configurationGroup name='taifeki-northern-site' path='/'&gt;
+    &lt;xi:include href=&quot;../data-policy-regional.xml&quot; xmlns:xi=&quot;http://www.w3.org/2001/XIncl
+    &lt;configurationGroup name='template' path='/I2CE/template'&gt;
+      &lt;displayName&gt;Template Information&lt;/displayName&gt;
+      &lt;description&gt;Various Default Information About The Templating System&lt;/description&gt;
+      &lt;configuration name='prefix_title' values='single'&gt;
+        &lt;displayName&gt;Page title prefix&lt;/displayName&gt;
+        &lt;value&gt;iHRIS Manage Taifeki (Northern Region)&lt;/value&gt;
+      &lt;/configuration&gt;
+    &lt;/configurationGroup&gt;
+    &lt;configurationGroup name='custom_report_pdf_options' path='/modules/CustomReports/dis
+      &lt;displayName&gt;PDF Options&lt;/displayName&gt;
+      &lt;configurationGroup name='header'&gt;
+        &lt;displayName&gt;Header Options&lt;/displayName&gt;
+        &lt;configuration name='text_prefix' &gt;
+          &lt;displayName&gt;Header Text&lt;/displayName&gt;
+          &lt;value&gt;iHRIS Manage Taifeki (Northern Region)&lt;/value&gt;
+        &lt;/configuration&gt;
+      &lt;/configurationGroup&gt;
+    &lt;/configurationGroup&gt;
+  &lt;/configurationGroup&gt;
+ &lt;/I2CEConfiguration&gt;
+</code></pre>
+<h3>data-policy-national.xml</h3>
+<p>In the data-policy-national.xml will be xincluded in our national site's configuration file. We want to set it so that the national site has the cadre list stored in magic data and is read-write.</p>
+<p>We will also need to specify that we are aggregating data from each of the regional sites. This is done via the multi-flat form storage mechanism.</p>
+<p>It should look like this:</p>
+<pre><code>  &lt;configurationGroup name='form_storage' path='/modules/forms/forms'&gt;
+    &lt;version&gt;4.0.5.0&lt;/version&gt;
+    &lt;configuration name='multi_flat_componentized'   path='/modules/forms/storage_options
+         &lt;value&gt;1&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configurationGroup name='multi_flat_components' path='/modules/forms/storage_options
+         &lt;configuration name='northern' values='many' type='delimited'&gt;
+              &lt;value&gt;database:manage_northern&lt;/value&gt;
+         &lt;/configuration&gt;
+         &lt;configuration name='southern' values='many' type='delimited'&gt;
+              &lt;value&gt;database:manage_southern&lt;/value&gt;
+         &lt;/configuration&gt;
+         &lt;configuration name='eastern' values='many' type='delimited'&gt;
+              &lt;value&gt;database:manage_eastern&lt;/value&gt;
+         &lt;/configuration&gt;
+         &lt;configuration name='western' values='many' type='delimited'&gt;
+              &lt;value&gt;database:manage_western&lt;/value&gt;
+         &lt;/configuration&gt;
+    &lt;/configurationGroup&gt;
+    &lt;configurationGroup name='cadre'&gt;
+        &lt;configuration name='read_only' &gt;
+              &lt;value&gt;0&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configuration name='storage'&gt;
+              &lt;value&gt;magicdata&lt;/value&gt;
+        &lt;/configuration&gt;
+    &lt;/configurationGroup&gt;
+    &lt;!-- You need to repeat the read-write magic data storage for each of the forms we ar
+    &lt;configurationGroup name='person'&gt;
+        &lt;configuration name='storage'&gt;
+              &lt;value&gt;multi_flat&lt;/value&gt;
+        &lt;/configuration&gt;
+    &lt;/configurationGroup&gt;
+    &lt;!-- You need to repeat the multi_flat storage for each of the forms we are aggregati
+  &lt;/configurationGroup&gt;
+</code></pre>
+<h3>data-policy-regional.xml</h3>
+<p>In the data-policy-regional.xml will be xincluded in our regional site's configuration files. We want to set it so that the regional sites have the cadre list stored in magic data and is read-only. It should look like this:</p>
+<pre><code>  &lt;configurationGroup name='form_storage' path='/modules/forms/forms'&gt;
+    &lt;version&gt;4.0.5.0&lt;/version&gt;
+    &lt;configurationGroup name='cadre'&gt;
+        &lt;configuration name='read_only' &gt;
+              &lt;value&gt;1&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configuration name='storage'&gt;
+              &lt;value&gt;magicdata&lt;/value&gt;
+        &lt;/configuration&gt;
+    &lt;/configurationGroup&gt;
+    &lt;!-- You need to repeat the read-only magic data storage for each of the forms we are
+  &lt;/configurationGroup&gt;
+</code></pre></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=33697">revision 33697</a>; contributors: Litlfred. Pages 83&ndash;90 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

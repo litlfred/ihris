@@ -1,0 +1,4335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iHRIS Manage use cases (2009) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1dfcoa976z5.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1dfcoa976z5"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Use cases</a> / iHRIS Manage use cases (2009)</div>
+<h1>iHRIS Manage use cases (2009)</h1>
+<p class="src">From the iHRIS use-case model by IntraHealth International / the Capacity Project iHRIS team (2009), published with permission. Published with the owner&#39;s permission (2026-09-23). Staff initials (&ldquo;Assigned To&rdquo;) and requirement sources naming a person are referenced by <a href="roles.html#opaque-actors">opaque actors</a>, with the identity withheld.</p><div class="wiki">
+<p><em>Serlio Software Case Complete, 7/13/2009 3:28 PM. From the iHRIS use-case model by IntraHealth International / the Capacity Project iHRIS team, published here with the owner's permission. Parsed by <code>src/tools/ingest_use_cases.py</code>; do not edit by hand.</em></p>
+<p>iHRIS Manage is a human resources management tool that enables an organization to design and manage a comprehensive human resources strategy.</p>
+<ul>
+<li>This documentation refers to the core version of the HR Management database (working title: PowerTrack). <em>(9/13/2006)</em></li>
+<li>The specifications were based on the requirements gathered for the Rwanda release Version 1.0. It also includes some specifications gathered for release to IntraHealth HR department. <em>(9/13/2006)</em></li>
+<li>An earlier version of the system was released in Rwanda as RW-MOH 0.9a <em>(9/13/2006)</em></li>
+<li>Core Version 2.0 released April 16, 2007. <em>(5/7/2007)</em></li>
+<li>Core Version 3.0 released March 18, 2008. <em>(7/24/2008)</em></li>
+<li>Core Version 3.1 released August 15, 2008. <em>(9/29/2008)</em></li>
+<li>Core Version 4.0 released July 13, 2009. <em>(7/13/2009)</em></li>
+</ul>
+<p>Related documents: https://launchpad.net/ihris-manage, http://www.capacityproject.org/hris/suite/ihris_manage.php</p>
+<h2>Actors</h2>
+<h3>A-PT1 HR Manager</h3>
+<p>Role: <a href="roles.html#ihris-a-pt1">HR Manager</a> (<code>ihris-a-pt1</code>)</p>
+<p>This person is a manager of HR personnel and is responsible for ensuring that data in the system are complete, correct and up to date. This person will also run reports and analyze data in order to make organizational or individual HR decisions. This person has permission to view any record in the system.</p>
+<p><strong>Goals</strong></p>
+<ul>
+<li>Create standard lists of data for selection in the system.</li>
+<li>Add geographical locations to the organizational structure.</li>
+<li>Add offices and facilities to the organizational structure.</li>
+<li>Create a job structure for the organization.</li>
+<li>Check for and correct data errors.</li>
+<li>Report on data quality.</li>
+<li>Create report views.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Can perform any use case that HR Staff, Training Manager or Executive Manager can perform.</li>
+</ul>
+<p><strong>Use cases:</strong> UC-PT8 Add or update a benefit type, UC-PT17 Add or update a cadre, UC-PT69 Add or update a continuing education course, UC-PT11 Add or update a country, UC-PT14 Add or update a county, UC-PT15 Add or update a currency, UC-PT5 Add or update a degree, UC-PT3 Add or update a department, UC-PT13 Add or update a district, UC-PT1 Add or update a facility type, UC-PT18 Add or update a job classification, UC-PT6 Add or update a language, UC-PT9 Add or update a marital status, UC-PT22 Add or update a position type, UC-PT10 Add or update a reason for departure, UC-PT12 Add or update a region, UC-PT70 Add or update a registration council, UC-PT21 Add or update a salary source, UC-PT4 Add or update an education type, UC-PT7 Add or update an identification type, UC-PT2 Add or update an office or facility, UC-PT49 Create a competency model, UC-PT20 Create a job, UC-PT19 Create a salary grade, UC-PT35 Record a salary change</p>
+<h3>A-PT2 HR Staff</h3>
+<p>Role: <a href="roles.html#ihris-a-pt2">HR Staff</a> (<code>ihris-a-pt2</code>)</p>
+<p>This person is responsible for entering and updating data in the system. This person can update and view any record in the system.</p>
+<p><strong>Goals</strong></p>
+<ul>
+<li>Create and update positions.</li>
+<li>Enter application information for a job applicant.</li>
+<li>Review applicants and make a job offer to an applicant.</li>
+<li>Add a new employee record.</li>
+<li>Enter information into or update information in an employee's record.</li>
+<li>Record position and salary changes in an employee's record.</li>
+<li>Generate standard position lists, organizational charts, staff lists and staff directories.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Can perform any use case that a Training Manager can perform.</li>
+<li>This person cannot create customized report views.</li>
+</ul>
+<p><strong>Use cases:</strong> UC-PT31 Add contact information, UC-PT30 Add demographic information, UC-PT29 Add identification information, UC-PT36 Add language proficiencies, UC-PT71 Add registrations, UC-PT40 Apply for a position, UC-PT50 Assess an employee's competencies, UC-PT23 Create a position, UC-PT25 Discontinue a position, UC-PT27 Enter a new record, UC-PT44 Enter educational history, UC-PT43 Enter employment history, UC-PT42 Log a hiring decision, UC-PT41 Log interview details, UC-PT46 Make a job offer, UC-PT34 Record a position change, UC-PT35 Record a salary change, UC-PT32 Record a special payment, UC-PT37 Record notes, UC-PT45 Review applicants, UC-PT28 Set a position for an employee, UC-PT33 Terminate an employee, UC-PT24 Update a position</p>
+<h3>A-PT3 Executive Manager</h3>
+<p>Role: <a href="roles.html#ihris-a-pt3">Executive Manager</a> (<code>ihris-a-pt3</code>)</p>
+<p>This person will run reports and analyze data in order to make organizational HR decisions.</p>
+<p><strong>Goals</strong></p>
+<ul>
+<li>Search for and view employee and position records.</li>
+<li>Run standard reports to analyze data entered in the system.</li>
+<li>Assess organizational competencies held by all employees and search for employee qualifications.</li>
+<li>Review applicants for a position.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This person has permission to view any record in the system but cannot update or change data in an employee record.</li>
+<li>This person cannot create customized report views.</li>
+</ul>
+<p><strong>Use cases:</strong> UC-PT45 Review applicants</p>
+<h3>A-PT8 Training Manager</h3>
+<p>Role: <a href="roles.html#ihris-a-pt8">Training Manager</a> (<code>ihris-a-pt8</code>)</p>
+<p>This person is responsible for managing training programs taken by employees and updating employee competencies.</p>
+<p><strong>Goals</strong></p>
+<ul>
+<li>Create a competency model for the organization.</li>
+<li>Assess an employee's competencies.</li>
+<li>Search for employees who hold particular competencies.</li>
+<li>Add training information and manage the list of available training programs.</li>
+<li>Schedule trainings for employees.</li>
+<li>Assess an employee's training results and update the employee's training history.</li>
+<li>Report on employees who have received trainings.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new actor who is focused on the training module functions. HR Staff may complete any use case that the HR Training Manager can.</li>
+</ul>
+<p><strong>Use cases:</strong> UC-PT68 Add or update a competency evaluation, UC-PT55 Add or update a training course category, UC-PT67 Add or update a training course evaluation, UC-PT66 Add or update a training course requestor, UC-PT65 Add or update a training course status, UC-PT53 Add or update a training funder, UC-PT54 Add or update a training organization, UC-PT56 Add or update an in-service training program, UC-PT50 Assess an employee's competencies, UC-PT60 Assess training results and update competencies, UC-PT49 Create a competency model, UC-PT57 Enter the schedule for a training program, UC-PT59 Schedule a training for an employee</p>
+<h2>1.1 Data Administration</h2>
+<p>Create and update standard lists of data for selection in system menus.</p>
+<ul>
+<li>Access is limited to HR Managers and System Administrators. <em>(5/7/2007)</em></li>
+<li>Locate these functions via the Configure System --&gt; Administer Database link on the main menu. <em>(9/28/2007)</em></li>
+</ul>
+<h3>UC-PT1 Add or update a facility type</h3>
+<p>The HR Manager adds a new facility type for selection in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The facility type is added to the system and is available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of facility types.</li>
+<li>The system displays all facility types entered in the system.</li>
+<li>The user adds a new facility type.</li>
+<li>The user enters a description or name for the facility type.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the facility type available for selection when adding facilities.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing facility type.<ol>
+<li>The system opens the facility type for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the facility type already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is identical for iHRIS Manage and Qualify. <em>(10/31/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>facility_type</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PT2 Add or update an office or facility</h3>
+<p>The HR Manager adds a new office or facility for selection within the system and ties it to an institution type.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The office/facility is saved to the system and is available for selection within various use cases and for reporting.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of offices/facilities.</li>
+<li>The system displays all offices/facilities entered in the system.</li>
+<li>The user adds a new office/facility.</li>
+<li>The user enters the name (description) of the office/facility.</li>
+<li>The user selects the facility type for the office/facility.</li>
+<li>The user adds the facility's contact information (UC-PT31).</li>
+<li>The user selects the country where the office/facility is located.</li>
+<li>The system displays all districts in that country.</li>
+<li>The user selects the district where the office/facility is located.</li>
+<li>The system displays all counties in that district.</li>
+<li>The user selects the county where the office/facility is located (optional).</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the office or facility's record.</li>
+<li>The system provides the option to update the office or facility information.</li>
+<li>The system makes the office or facility available for selection and reporting.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing office or facility.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The user adds a new facility type (UC-PT1).<ol>
+<li>The user returns to Step 1 to add the office/facility.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The user adds a new country (UC-PT11).<ol>
+<li>The user returns to Step 1 to add the office/facility.</li>
+</ol>
+</li>
+<li><strong>8.a</strong> The user adds a new district (UC-PT13).<ol>
+<li>The user returns to Step 1 to add the office/facility.</li>
+</ol>
+</li>
+<li><strong>10.a</strong> The user adds a new county (UC-PT14).<ol>
+<li>The user returns to Step 1 to add the office/facility.</li>
+</ol>
+</li>
+<li><strong>12.a</strong> The system determines that the office/facility name already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>facility</code> (iHRIS_Facility) in ihris-common</p>
+<h3>UC-PT3 Add or update a department</h3>
+<p>The HR Manager adds a new department to the list of departments available for selection in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The department is saved and is available for selection within various use cases and for reporting.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update the list of departments.</li>
+<li>The system displays all departments previously entered into the system.</li>
+<li>The user adds a new department.</li>
+<li>The user enters the name of the department.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the department available for selection when adding positions.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing department.<ol>
+<li>The system opens the department for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the department already exists in the databse.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality may be accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>department</code> (iHRIS_Department) in ihris-manage</p>
+<h3>UC-PT70 Add or update a registration council</h3>
+<p>The HR Manager adds a new registration council to the list of registration councils available for selection in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>4.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The registration council is saved and is available for selection within various use cases and for reporting.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update the list of registration councils.</li>
+<li>The system displays all registration councils previously entered into the system.</li>
+<li>The user adds a new registration council.</li>
+<li>The user enters the name of the registration council.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the registration council available for selection when adding a qualification to an employee record.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing registration council.<ol>
+<li>The system opens the registration council for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the registration council already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality may be accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>council</code> (I2CE_SimpleList) in ihris-common, <code>registration</code> (iHRIS_Registration) in ihris-common</p>
+<h3>UC-PT4 Add or update an education type</h3>
+<p>The HR Manager updates a list of education types that are available for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new education type is saved and available for selection when adding a degree.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of education types.</li>
+<li>The system displays all education types entered in the system..</li>
+<li>The user adds a new education type.</li>
+<li>The user enters the description or name of the education type.</li>
+<li>The user saves the record. (UC-ICE2)</li>
+<li>The system makes the education type available for selection when adding educational information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing education type.<ol>
+<li>The system opens the education type for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the education type already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>edu_type</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PT5 Add or update a degree</h3>
+<p>The HR Manager adds a type of educational institution to the system and associates it with degrees that it issues.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> A new degree is associated with its education type and made available for selection from various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of degrees.</li>
+<li>The system displays all education types entered in the system.</li>
+<li>The user selects an education type.</li>
+<li>The system displays a list of matching degrees for that education type.</li>
+<li>The user adds a new degree.</li>
+<li>The user enters the name (description) of the degree.</li>
+<li>The user selects the education type for the degree.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the degree available for selection when adding educational information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user does not select an education type.<ol>
+<li>The system provides the option to add a new degree only.</li>
+<li>Skip to Step 6.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The user selects an existing degree.<ol>
+<li>The system opens the degree for editing.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The user adds a new educational type.<ol>
+<li>The user returns to Step 1 to add the degree.</li>
+</ol>
+</li>
+<li><strong>7.b</strong> The user already selected the education type.<ol>
+<li>The system fills in the selected education type when the degree is added.</li>
+</ol>
+</li>
+<li><strong>8.a</strong> The system determines that the degree already exists in the database for the selected education type.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>degree</code> (iHRIS_Degree) in ihris-common</p>
+<h3>UC-PT6 Add or update a language</h3>
+<p>The HR Manager updates a list of languages that are available for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new language is saved and available for selection.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage languages.</li>
+<li>The system displays all languages entered in the system.</li>
+<li>The user adds a new language.</li>
+<li>The user enters the description or name of the item.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the language available for selection when adding language proficiency.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing language.<ol>
+<li>The system opens the language for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the language already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>language</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PT7 Add or update an identification type</h3>
+<p>The HR Manager updates a list of identification types that are available for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new identification type is saved and available for selection when adding an identification.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of identification types.</li>
+<li>The system displays all identification types entered in the system.</li>
+<li>The user adds a new identification type.</li>
+<li>The user enters the description or name of the item.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the identification type available for selection when adding identifications.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing identification type.<ol>
+<li>The system opens the identification type for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the identification type already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is identical for both iHRIS Manage and Qualify. <em>(10/31/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>id_type</code> (iHRIS_PersonID_Type) in ihris-common</p>
+<h3>UC-PT8 Add or update a benefit type</h3>
+<p>The HR Manager updates a list of benefit types that are available for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system</p>
+<p><strong>Success guarantee.</strong> The new benefit type is saved and available for selection when adding a benefit.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage benefit types.</li>
+<li>The system displays all benefit types entered in the system.</li>
+<li>The user adds a new benefit type.</li>
+<li>The user enters the description or name of the item.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the benefit type available for selection when adding benefits.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing benefit type.<ol>
+<li>The system opens the benefit type for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the benefit type already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>benefit_type</code> (I2CE_SimpleList) in ihris-manage</p>
+<h3>UC-PT9 Add or update a marital status</h3>
+<p>The HR Manager adds a new marital status to the system that is available in selection lists.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The marital status is added to the system and is available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of marital statuses.</li>
+<li>The system displays all marital statuses entered in the system.</li>
+<li>The user adds a new marital status.</li>
+<li>The user enters a description for the marital status.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the marital status available for selection when adding demographic information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing marital status.<ol>
+<li>The system opens the marital status for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the marital status already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is the same for both iHRIS Manage and Qualify. <em>(10/31/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>marital_status</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PT10 Add or update a reason for departure</h3>
+<p>The HR Manager updates a list of reasons for departure that are available for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new reason for departure is saved and available for selection.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list reasons for departure.</li>
+<li>The system displays all reasons entered in the system.</li>
+<li>The user adds a new reason for departure.</li>
+<li>The user enters the description or name of the item.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the reason available for selection when recording position changes.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing reason for departure.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the reason for departure already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>pos_change_reason</code> (I2CE_SimpleList) in ihris-manage</p>
+<h3>UC-PT11 Add or update a country</h3>
+<p>The HR Manager updates the list of countries available for selection in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new or changed country is defined within the system and available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage lists of countries.</li>
+<li>The system displays all countries entered in the system.</li>
+<li>The user adds a new country.</li>
+<li>The user enters the two-letter country code.</li>
+<li>The user enters the ISO numeric code for the country (optional).</li>
+<li>The user selects whether the country is the primary country for the system.</li>
+<li>The user selects whether the country is used for location selection.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the country available for selection whenever adding geographical locations or nationalities/citizenships.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing country.<ol>
+<li>The system opens the country for editing.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The user selects the country as the primary country.<ol>
+<li>The system displays the country first in all country selection menus.</li>
+</ol>
+</li>
+<li><strong>6.b</strong> The system determines that more than one country was selected as the primary country.<ol>
+<li>The system displays all primary countries at the top of selection menus in alphabetical order.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The user selects that the country is used for location selection.<ol>
+<li>The system makes the country available for selection when a location, such as an address, is being specified.</li>
+</ol>
+</li>
+<li><strong>8.a</strong> The system determines that the name and country code are the same as a country previously entered.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is the same for iHRIS Manage, iHRIS Plan and iHRIS Qualify. <em>(10/31/2007)</em></li>
+<li>Geographical locations are tied together from largest to smallest: country --&gt; region --&gt; district, state or province --&gt; county or sector. <em>(10/31/2007)</em></li>
+<li>The country list also displays nationalities for selection. Disabling the location selection limits the country to nationality selection only (new feature in version 3.0). <em>(10/31/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>country</code> (iHRIS_Country) in ihris-common</p>
+<h3>UC-PT12 Add or update a region</h3>
+<p>The HR Manager updates the list of regions available for selection in the system and establishes the region's parent country.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new or changed region is defined within the system and available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage lists of regions.</li>
+<li>The system displays all countries entered in the system.</li>
+<li>The user selects the country where the region is located.</li>
+<li>The system displays all regions entered for that country.</li>
+<li>The user adds a new region.</li>
+<li>The user selects the name of the country inside which the new region is located.</li>
+<li>The user enters the name of the region.</li>
+<li>The user enters the code for the region (optional).</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the region available for reporting.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The user does not select a country.<ol>
+<li>The system provides only the option to add a new region.</li>
+<li>Skip to Step 5.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The user selects an existing region.<ol>
+<li>The system opens the region for editing.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The user adds a new country.<ol>
+<li>The user returns to Step 1 to add the region.</li>
+</ol>
+</li>
+<li><strong>6.b</strong> The system determines that the country was previously selected.<ol>
+<li>The system fills in the selected country.</li>
+</ol>
+</li>
+<li><strong>9.a</strong> The system determines that the name and parent country are the same as a location previously entered.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is identical for iHRIS Manage and iHRIS Qualify. <em>(10/31/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>region</code> (iHRIS_Region) in ihris-common</p>
+<h3>UC-PT13 Add or update a district</h3>
+<p>The HR Manager updates the list of districts available for selection in the system and establishes the district's parent region.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new or changed district is defined within the system and available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage lists of districts.</li>
+<li>The system displays all countries entered in the system.</li>
+<li>The user selects the country where the district is located.</li>
+<li>The system displays all regions entered for that country.</li>
+<li>The user selects the region where the district is located.</li>
+<li>The system displays all districts entered for that region.</li>
+<li>The user adds a new district.</li>
+<li>The user selects the name of the country and region inside which the new district is located.</li>
+<li>The user enters the name of the district.</li>
+<li>The user enters the code for the district.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the district available for selection when adding geographical locations.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user does not select a country.<ol>
+<li>The system provides the option to add a new district only.</li>
+<li>Skip to Step 7.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The user selects an existing district.<ol>
+<li>The system opens the district for editing.</li>
+</ol>
+</li>
+<li><strong>8.a</strong> The system determines that the user previously selected the country and region.<ol>
+<li>The system fills in the selections for the district.</li>
+</ol>
+</li>
+<li><strong>11.a</strong> The system determines that the name and parent region and country are the same as a location previously entered.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is identical for iHRIS Manage and iHRIS Qualify. <em>(10/31/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>district</code> (iHRIS_District) in ihris-common</p>
+<h3>UC-PT14 Add or update a county</h3>
+<p>The HR Manager updates the list of counties available for selection in the system and establishes the county's parent district.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new or changed county is defined within the system and available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage lists of counties.</li>
+<li>The system displays all countries entered in the system.</li>
+<li>The user selects the country where the county is located.</li>
+<li>The system displays a list of regions for that country.</li>
+<li>The user selects the region inside which the county is located.</li>
+<li>The system displays all districts entered for that region.</li>
+<li>The user selects the district where the county is located.</li>
+<li>The system displays all districts entered for that county.</li>
+<li>The user adds a new county.</li>
+<li>The user selects the country, region and district where the county is located.</li>
+<li>The user enters the name of the county.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the county available for selection whenever geographical locations are added.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The user does not select a country.<ol>
+<li>The system provides the option to add a new county only.</li>
+<li>Skip to Step 9.</li>
+</ol>
+</li>
+<li><strong>9.a</strong> The user selects an existing county.<ol>
+<li>The system opens the county for editing.</li>
+</ol>
+</li>
+<li><strong>10.a</strong> The system determines that the country, region and district were previously selected.<ol>
+<li>The system fills in the previous selections for the county.</li>
+</ol>
+</li>
+<li><strong>12.a</strong> The system determines that the name and parent district are the same as a location previously entered.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The use case is the same for iHRIS Manage and iHRIS Qualify. <em>(10/31/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>county</code> (iHRIS_County) in ihris-common</p>
+<h3>UC-PT15 Add or update a currency</h3>
+<p>The HR Manager adds a currency for selection when setting salaries and other monetary amounts.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new currency is added to the system and can be selected whenever specifying monetary amounts.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update the list of currencies.</li>
+<li>The system displays all currencies entered in the system.</li>
+<li>The user adds a new currency.</li>
+<li>The user enters the currency code.</li>
+<li>The user enters the name of the currency.</li>
+<li>The user selects the country for the currency (optional).</li>
+<li>The user enters the symbol for the currency (optional).</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the currency available for selection by symbol and code.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing currency.<ol>
+<li>The system opens the currency for editing.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The user adds a new country.<ol>
+<li>The user returns to Step 1 to add the currency.</li>
+</ol>
+</li>
+<li><strong>8.a</strong> The system determines that the currency already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case requested during testing to support internationalization. Implemented in version 2.0. <em>(2/2/2007)</em></li>
+<li>This use case is identical for iHRIS Manage, iHRIS Qualify and iHRIS Plan. <em>(7/24/2008)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>cl_currency</code> (I2CE_SimpleList) in ihris-common, <code>currency</code> (iHRIS_Currency) in ihris-common</p>
+<h2>1.2 Position Management</h2>
+<p>Design and manage a job structure for the organization, add new positions that may be filled by employees or applicants, and manage existing positions.</p>
+<ul>
+<li>Access these functions via the Configure System --&gt; Administer Database link on the main menu. <em>(9/28/2007)</em></li>
+<li>Access is limited to HR Staff, HR Manager and System Administrator. HR Staff can only add new positions, position types and salary sources. <em>(10/2/2007)</em></li>
+</ul>
+<h3>UC-PT17 Add or update a cadre</h3>
+<p>The HR Manager enters or edits a cadre for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> Each cadre, as applied by the health professionals, is defined within the system and available for selection in various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update the list of cadres.</li>
+<li>The system displays all cadres entered in the system.</li>
+<li>The user adds a new cadre.</li>
+<li>The user enters the name of the cadre.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the new or edited cadre in selection lists of cadres.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing cadre.<ol>
+<li>The system opens the cadre for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the cadre already exists in the database.<ol>
+<li>The system displays an error and will not proceed.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case may be optional if new cadres are not allowed to be defined or if cadres are not used by the organization. <em>(10/30/2007)</em></li>
+<li>This use case is the same for iHRIS Plan and iHRIS Manage, but not the same as iHRIS Qualify. <em>(7/24/2008)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>cadre</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PT18 Add or update a job classification</h3>
+<p>The HR Manager adds a job classification to which jobs can be assigned.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Partially Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The job classification is saved and jobs can be assigned to it.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage job classifications.</li>
+<li>The system displays all job classifications entered in the system.</li>
+<li>The user adds a new job classification.</li>
+<li>The user enters the name of the job classification.</li>
+<li>The user enters the classification code (optional).</li>
+<li>The user enters a description of the classification (optional).</li>
+<li>The user selects an ISCO classification name and code to link to the job classification.</li>
+<li>The system maps the selected ISCO classification code to the job classification that the user has entered.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the job classification available for selection when adding jobs.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing job classification.<ol>
+<li>The system opens the job classification for editing.</li>
+</ol>
+</li>
+<li><strong>4.a</strong> The user selects an ISCO standard job classification name and code from the list without entering the name of a classification.<ol>
+<li>The system populates the job classification name, code and description with the ISCO standard name, code and description.</li>
+<li>Go to Step 9.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The ISCO classification is not selected.<ol>
+<li>Go on to Step 9.</li>
+</ol>
+</li>
+<li><strong>7.b</strong> The ISCO classification was already selected.<ol>
+<li>Skip this step.</li>
+</ol>
+</li>
+<li><strong>9.a</strong> The system determines that the job classification already exists in the database.<ol>
+<li>The system displays an error and will not proceed.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is optional if job categories cannot be changed or job classifications are not used in the system. <em>(9/28/2006)</em></li>
+<li>The use case has been updated to link standard ISCO classification codes to job classifications or to pre-populate the system with ISCO classifications. <em>(10/30/2008)</em></li>
+<li>This functionality can be accessed through Configure System --&gt; Administer Database. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>classification</code> (iHRIS_Classification) in ihris-common, <code>job</code> (iHRIS_Job) in ihris-common, <code>job</code> (iHRIS_ManageJob) in ihris-manage</p>
+<h3>UC-PT19 Create a salary grade</h3>
+<p>The HR Manager creates a new salary grade for the organization to organize jobs.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system. The currencies used for salary bands have been entered in the system.</p>
+<p><strong>Success guarantee.</strong> The salary grade is saved and jobs can be assigned to it.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user enters the option to manage the list of salary grades.</li>
+<li>The system displays all salary grades entered in the system.</li>
+<li>The user adds a new salary grade.</li>
+<li>The user enters the name or identifier of the grade (such as a letter).</li>
+<li>The user enters the currency for salary grades.</li>
+<li>The user enters the starting salary of the grade.</li>
+<li>The user enters the ending salary of the grade.</li>
+<li>The user enters the midpoint of the grade (optional).</li>
+<li>The user enters any notes about the grade (optional).</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the salary grade available for selection when adding jobs.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing salary grade.<ol>
+<li>The system opens the salary grade for editing.</li>
+</ol>
+</li>
+<li><strong>10.a</strong> The system determines that the salary grade already exists in the database.<ol>
+<li>The system displays an error message and will not proceed.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Referenced requirements:</strong> REQ-PT9 (Non-functional)</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is intended for an organization that has jobs organized into salary bands. It is optional and not necessary for functioning of the core system. <em>(9/25/2006)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>salary_grade</code> (iHRIS_SalaryGrade) in ihris-manage</p>
+<h3>UC-PT20 Create a job</h3>
+<p>The HR Manager creates a new job within the organization.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P5</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Partially Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system. A job classification or cadre for the job must be defined, if required. If a salary grade is to be assigned, it must be defined.</p>
+<p><strong>Success guarantee.</strong> The job is saved and available for selection from various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage jobs.</li>
+<li>The system displays all jobs entered in the system.</li>
+<li>The user creates a new job.</li>
+<li>The user enters the generic title of the job.</li>
+<li>The user enters the code for the job (optional).</li>
+<li>The user enters a job description (optional).</li>
+<li>The user selects the salary grade (optional).</li>
+<li>The user selects the cadre (optional).</li>
+<li>The user selects the classification (optional).</li>
+<li>The user selects the competencies required by the job (optional).</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system saves the job and makes it available for creating positions.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing job.<ol>
+<li>The system displays the job information for editing.</li>
+</ol>
+</li>
+<li><strong>11.a</strong> The system determines that the job title already exists in the database.<ol>
+<li>The system displays an error message and will not proceed.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Selection of cadres and job classifications is optional. For each job, the user may select a cadre, a job classification, both or neither. <em>(1/25/2007)</em></li>
+<li>Updated the use case to include required job competencies. <em>(2/11/2009)</em></li>
+<li>This functionality can be accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>job</code> (iHRIS_Job) in ihris-common, <code>job</code> (iHRIS_ManageJob) in ihris-manage</p>
+<h3>UC-PT21 Add or update a salary source</h3>
+<p>The HR Manager creates a new salary source for designating sources of salaries or special payments.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The salary source is saved and salaries and special payments can be linked to it.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of salary sources.</li>
+<li>The system displays all salary sources entered in the system.</li>
+<li>The user adds a new salary source.</li>
+<li>The user enters the name of the salary source</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the salary source available for selection when adding salary information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing salary source.<ol>
+<li>The system opens the salary source for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the salary source already exists in the database.<ol>
+<li>The system displays an error and will not proceed.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>salary_source</code> (I2CE_SimpleList) in ihris-manage</p>
+<h3>UC-PT22 Add or update a position type</h3>
+<p>The HR Manager creates a new position type for categorizing positions.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The position type is saved and positions can be assigned to it.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of position types.</li>
+<li>The system displays all position types entered in the system.</li>
+<li>The user adds a new position type.</li>
+<li>The user enters the name of the position type.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the position type available for selection when adding positions.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>1.a</strong> The user selects an existing position type.<ol>
+<li>The system opens the position type for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the position type already exists in the database.<ol>
+<li>The system displays an error and will not proceed.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>position_type</code> (I2CE_SimpleList) in ihris-manage</p>
+<h3>UC-PT23 Create a position</h3>
+<p>HR Staff creates a position within the organization to be filled by a hire, promotion or transfer; this may be either a new position or re-enabling a previously discontinued position.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system. The generic job for the position has been created. The office/facility where the position is located has been defined in the system. The department, position type and salary source have been defined in the system, if used. The currency for the proposed salary has been defined in the system, if used.</p>
+<p><strong>Success guarantee.</strong> The position has been created and marked open. The position is visible in the position hierarchy as well as available for filling by an employee or applicant.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage positions.</li>
+<li>The system displays all positions entered in the system by status.</li>
+<li>The user creates a new position.</li>
+<li>The user selects the job for the position.</li>
+<li>The system displays the job title as the position title.</li>
+<li>The user edits the job title as a specific position title, if different.</li>
+<li>The user enters a supplemental position description (optional).</li>
+<li>The user selects the currency for the salary.</li>
+<li>The user enters the proposed salary (optional).</li>
+<li>The user selects the salary sources (optional).</li>
+<li>Repeat for each salary source for the position.</li>
+<li>The user enters a code for the position.</li>
+<li>The system displays today's date for the position post date.</li>
+<li>The user changes the post date, if necessary.</li>
+<li>The user enters any comments or notes about the position (optional).</li>
+<li>The user enters any comments or notes about interviews for the position (optional).</li>
+<li>The user selects the office/facility where the position is located.</li>
+<li>The user selects the supervisor's position.</li>
+<li>The user selects a department (optional).</li>
+<li>The user selects the position type (optional).</li>
+<li>The user enters the proposed hiring date (optional).</li>
+<li>The user enters the proposed ending date (optional).</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system saves the position as an open position and makes it available for job applications or filling by an employee.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects the position from a list of discontinued positions.<ol>
+<li>The user changes the position status to open.</li>
+<li>The user selects the position to edit it.</li>
+</ol>
+</li>
+<li><strong>3.b</strong> The user selects an existing position.<ol>
+<li>The system displays all the position information for editing.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>A facility is always tied to a position. That is how the position's geographical location is determined. <em>(1/25/2007)</em></li>
+<li>For right now, only one position can be entered at a time. <em>(2/7/2008)</em></li>
+<li>Added the post date, comments and interview comments, implemented in version 3.0. <em>(2/7/2008)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>position</code> (iHRIS_MultiPosition) in ihris-manage</p>
+<h3>UC-PT24 Update a position</h3>
+<p>HR Staff changes any information pertaining to a position.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> All updates are made and displayed with the position's information.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the facility where the position is located or selects the position status: open, closed or discontinued.</li>
+<li>The system displays all positions in that facility or with that status.</li>
+<li>The user selects the position to update.</li>
+<li>The system displays the position information.</li>
+<li>The user makes updates to the position's information.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system saves and displays the new position information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The position is not found.<ol>
+<li>The system provides the option to add a new position.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Added the ability to locate positions by either status or facility in version 4.0. <em>(6/29/2009)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>position</code> (iHRIS_MultiPosition) in ihris-manage</p>
+<h3>UC-PT25 Discontinue a position</h3>
+<p>When a position is no longer needed and no employee is filling it, HR Staff removes it from the position hierarchy.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The employee has vacated the position, and the position is marked as open. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The position is no longer displayed in the position hierarchy or available for selection by may be re-enabled.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to display all open positions.</li>
+<li>The system displays all open positions.</li>
+<li>The user selects a position.</li>
+<li>The user marks the position as discontinued.</li>
+<li>The system removes the position from selection or reporting in the system.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The system finds no open positions.<ol>
+<li>The use case stops.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Closed positions cannot be discontinued because they are still filled by an employee. The employee must be removed from the position before the position can be discontinued. <em>(2/11/2008)</em></li>
+<li>This functionality is accessed via an open position record from the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>position</code> (iHRIS_MultiPosition) in ihris-manage</p>
+<h2>1.3 Employee Management</h2>
+<p>Add a new employee or applicant record to the system, and search for and update records that have been entered into the system.</p>
+<ul>
+<li>Access these functions via the Manage People link on the main menu. <em>(9/28/2007)</em></li>
+</ul>
+<h3>UC-PT27 Enter a new record</h3>
+<p>HR Staff creates a record for a new employee or applicant and enters all the pertinent information about that person.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Partially Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system. The personal title, nationality, country and district of residence have been entered in the system.</p>
+<p><strong>Success guarantee.</strong> All of the information is saved to the database and displayed with the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add a new record.</li>
+<li>The user selects the title for the person (optional).</li>
+<li>The user adds the person's name:<ul>
+<li>surname</li>
+<li>first name</li>
+<li>other names (optional)</li>
+<li>suffix</li>
+</ul>
+</li>
+<li>The user selects a nationality/citizenship.</li>
+<li>The user selects a country where the person resides.</li>
+<li>The system displays a list of matching districts for that selection.</li>
+<li>The user selects the district where the person resides.</li>
+<li>The system displays a list of matching counties/sectors for that district.</li>
+<li>The user selects the county/sector where the person resides.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the personal information in the record.</li>
+<li>The system provides the option to update the name or other personal information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The system determines that the surname and first name combination match a record that is already in the database.<ol>
+<li>The system prompts the user to compare the two records and determine whether they are the same.</li>
+<li>The user either selects the matching record and edits it, or tells the system to ignore the error and continues editing the new record, if it is different.</li>
+</ol>
+</li>
+<li><strong>12.a</strong> The user changes the name.<ol>
+<li>The system saves the former name to the person's name history.</li>
+<li>The system provides the option to view the name history.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Updated use case by adding a personal title (as distinguished from a job title) such as Mr., Mrs. or Dr.; this was a feature request from Uganda. <em>(2/28/2008)</em></li>
+<li>Updated use case by adding a suffix field for names (for Jr., III, etc.) <em>(7/24/2008)</em></li>
+<li>This functionality is accessible via the Manage People --&gt; Add Person screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PT28 Set a position for an employee</h3>
+<p>HR Staff sets a position for an employee of the organization.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system. The position has been created in the system. The employee record has been created. The employee is not currently assigned a position. The currency for the salary has been defined in the system.</p>
+<p><strong>Success guarantee.</strong> The employee is associated with a position and that position is marked as closed.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to set a position in an employee's record.</li>
+<li>The user selects the position for the employee from the list of open positions.</li>
+<li>The user enters the actual start date.</li>
+<li>The user selects the currency for the salary.</li>
+<li>The user enters the actual salary.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system links the position to the employee.</li>
+<li>The system marks the position as closed.</li>
+<li>The system displays the position in the employee's record.</li>
+<li>The system provides the option to correct the position information, change the position, record a departure or view the position history.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>If the job application module is disabled, this is the only way to set a position for a new or existing employee. <em>(11/3/2008)</em></li>
+<li>This functionality is accessible via a person's record if the person does not already have a position set. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>position</code> (iHRIS_MultiPosition) in ihris-manage</p>
+<h3>UC-PT29 Add identification information</h3>
+<p>HR Staff enters identifications into a person's record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The identification types have been added to the system. The person has a record in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> All of the information is saved to the database and displayed with the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add an identification to a person's record.</li>
+<li>The user selects a type of identification.</li>
+<li>The user enters the identification number.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the new identification information in the person's record.</li>
+<li>The system provides the option to update the identification information.</li>
+<li>The user repeats Steps 1-4 for each identification.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Identification checking will have to be implemented at time of customization because requirements change so much depending on where the system is located. <em>(10/31/2007)</em></li>
+<li>This use case is the same in both iHRIS Manage and iHRIS Qualify. <em>(10/31/2007)</em></li>
+<li>Identifications need to be hidden or obscured when a record is viewed by anyone other than HR Staff or an HR Manager. <em>(2/7/2008)</em></li>
+<li>This functionality can be accessed via the Individual Information section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PT30 Add demographic information</h3>
+<p>HR Staff adds demographic information about a person to his or her record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The person has a record in the system. The user must be logged in to the system. The marital status has been entered into the system for selection.</p>
+<p><strong>Success guarantee.</strong> The demographic information is saved and is displayed with the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add demographic information to a person's record.</li>
+<li>The user selects the date of birth.</li>
+<li>The user selects the gender.</li>
+<li>The user selects the marital status.</li>
+<li>The user enters the number of dependents.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the demographic information in the record.</li>
+<li>The system provides the option to update the demographic information.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is essentially the same for iHRIS Manage and iHRIS Qualify, although Qualify also captures the place of birth. <em>(10/31/2007)</em></li>
+<li>This functionality can be accessed via the Individual Information section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>demographic</code> (iHRIS_Demographic) in ihris-common, <code>demographic</code> (iHRIS_ManageDemographic) in ihris-manage</p>
+<h3>UC-PT31 Add contact information</h3>
+<p>HR Staff adds or updates any type of contact information for a person or institution.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>Subfunction</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The record exists in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The contact information is saved and displayed with the appropriate record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the type of contact to add to a record.</li>
+<li>The user enters the full mailing address.</li>
+<li>The user enters the telephone number.</li>
+<li>The user enters the alternate telephone number.</li>
+<li>The user enters the fax number.</li>
+<li>The user enters the email address.</li>
+<li>The user enters notes about the contact.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the contact information in the record.</li>
+<li>The system provides the option to update the contact information.</li>
+<li>The user repeats Steps 1-10 for each contact.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>1.a</strong> The system determines that a contact of that type already exists for the record.<ol>
+<li>The system disables the option to add another contact of that type.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is the same for iHRIS Manage and iHRIS Qualify, although the specific types of contacts for each are slightly different. <em>(10/31/2007)</em></li>
+<li>All fields are optional. <em>(10/31/2007)</em></li>
+<li>This subfunction is referenced wherever contact information additions or updates are required. <em>(10/31/2007)</em></li>
+<li>Institutions only have one contact type (as opposed to people records). The contact type does not need to be selected, as the contact information can be entered with the institution's other details. <em>(2/11/2008)</em></li>
+<li>This functionality is accessed via the Contact section of a person or organization record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>contact</code> (iHRIS_Contact) in ihris-common</p>
+<h3>UC-PT32 Record a special payment</h3>
+<p>HR Staff records a payment for an employee that is paid in addition to the salary.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The employee has a record in the system. The user must be logged in to the system. The special payment type and source have been entered into the system. The currency has been entered in the system.</p>
+<p><strong>Success guarantee.</strong> The special payment is saved with the employee's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the type of special payment (such as bonus, benefit or allowance) to add to the employee's record.</li>
+<li>The user selects the currency for the payment.</li>
+<li>The user enters the amount of the payment.</li>
+<li>The user selects the source of the special payment.</li>
+<li>The user selects whether the payment is recurring or one-time.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the special payment in the person's record.</li>
+<li>The system provides the option to update the benefit details.</li>
+<li>The user repeats Steps 1-8 for each special payment the employee receives.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>5.a</strong> The user indicates that the payment is recurring.<ol>
+<li>The user selects the frequency of the recurrence.</li>
+<li>The user selects the start and end dates of the recurrence period.</li>
+</ol>
+</li>
+<li><strong>5.b</strong> The user indicates that the payment is one-time.<ol>
+<li>The user enters the date the payment is distributed for the start date.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Referenced requirements:</strong> REQ-PT11 (Business Rule); REQ-PT9 (Non-functional)</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality is accessed via the Position Information section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PT33 Terminate an employee</h3>
+<p>HR staff records the departure of an employee from the organization.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The employee has a record in the system. The user must be logged in to the system. The reason for departure must be entered into the system.</p>
+<p><strong>Success guarantee.</strong> The old position is reopened or discontinued, the reason for the departure is recorded, and the employee is converted to old employee status.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to record a departure in the employee's record.</li>
+<li>The system displays today's date for the end date.</li>
+<li>The user changes the end date, if it is different.</li>
+<li>The user selects the reason for the departure.</li>
+<li>The user selects whether the employee's former position is open or discontinued.</li>
+<li>The system changes the status of the former position and displays it either in the open positions list or the list of discontinued positions.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system removes the option to change the position from the employee's record.</li>
+<li>The system saves the employee's last held position to the employee's position history.</li>
+<li>The system enters the end date for the position as the end date of the salary and saves this to the employee's salary history.</li>
+<li>The system removes the option to change the salary.</li>
+<li>The system converts the employee to an "old employee" and removes the employee from any active staff lists.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality is accessed via the Position Information section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PT34 Record a position change</h3>
+<p>HR Staff notes that an employee has been transferred or promoted to a new position and either reopens the position that the employee held or discontinues it.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The employee has a record in the system. The user must be logged in to the system. The reason for departure must be entered into the system. The currency for the new position must be entered in the system. The new position must be added as an open position.</p>
+<p><strong>Success guarantee.</strong> The old position is reopened or discontinued, the reason for the position change is recorded, and the new position is displayed in the employee's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to record a position change in an employee's record.</li>
+<li>The user selects the new position for an employee.</li>
+<li>The system displays today's date for the start date.</li>
+<li>The user changes the start date, if necessary.</li>
+<li>The system sets the start date as the end date of the old position.</li>
+<li>The user enters the salary for the new position.</li>
+<li>The system saves the employee's old salary to the salary history.</li>
+<li>The user selects the reason for the position change.</li>
+<li>The user selects whether the employee's former position is open or discontinued.</li>
+<li>The system changes the status of the former position and displays it either in the open positions list or the list of discontinued positions.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the new position in the employee's record.</li>
+<li>The system provides the option to correct the position information.</li>
+<li>The system saves the employee's last held position to the employee's position history and provides the option to view the position history.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality is accessed via the Position Information section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>position</code> (iHRIS_MultiPosition) in ihris-manage</p>
+<h3>UC-PT35 Record a salary change</h3>
+<p>HR Staff records a change in salary for an employee and updates the employee's salary history.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a>, <a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The employee has a record in the system. The user must be logged in to the system. The currency must be entered in the system.</p>
+<p><strong>Success guarantee.</strong> The new salary is saved with the employee's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update the salary in an employee's record.</li>
+<li>The user enters the new salary.</li>
+<li>The user selects a currency for the salary, if it has changed.</li>
+<li>The system displays today's date for the effective date for the salary change.</li>
+<li>The user changes the effective date, if it is different.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the new salary in the employee's record.</li>
+<li>The system provides the option to correct the salary.</li>
+<li>The system adds the previous salary to the employee's salary history with the salary starting and ending date and provides the option to view the salary history.</li>
+</ol>
+<p><strong>Referenced requirements:</strong> REQ-PT11 (Business Rule)</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case will typically be used when the employee has received a raise; if there is a position change, the salary change is recorded as part of that change. <em>(9/29/2006)</em></li>
+<li>This functionality is accessed via the Position Information section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>salary</code> (iHRIS_Salary) in ihris-manage</p>
+<h3>UC-PT71 Add registrations</h3>
+<p>HR Staff adds licenses or registrations to a person's record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>Subfunction</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>4.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The registration council must be added to the database. The person's record must have been created in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The registration information is recorded correctly in the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add a registration to an employee's record.</li>
+<li>The user selects the name of the registration council that issued the license or registration.</li>
+<li>The user enters the registration number or license number.</li>
+<li>The user enters the registration date or license expiration date.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the registration or license information in the person's record.</li>
+<li>The system provides the option to update the registration.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality can be accessed via the Qualifications section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>registration</code> (iHRIS_Registration) in ihris-common</p>
+<h3>UC-PT36 Add language proficiencies</h3>
+<p>HR Staff adds language skills to a person's record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>Subfunction</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The language must be added to the database. The person's record must have been created in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The language proficiency is recorded correctly in the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add a language to an employee's record.</li>
+<li>The user selects the name of the language.</li>
+<li>The user selects the speaking proficiency.</li>
+<li>The user selects the reading proficiency.</li>
+<li>The user selects the writing proficiency.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the language information in the person's record.</li>
+<li>The system provides the option to update the language proficiency.</li>
+<li>The user repeats Steps 1-8 for each language skill.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This functionality can be accessed via the Qualifications section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>language_proficiency</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PT43 Enter employment history</h3>
+<p>Enter a history of past employers of a person into the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user has a record in the system. The currency of former salaries has been defined in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The past employment history is saved and displayed with the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add employment history to a record.</li>
+<li>The user enters the company name.</li>
+<li>The user enters the company address.</li>
+<li>The user enters the company telephone number.</li>
+<li>The user selects the date started work.</li>
+<li>The user enters the starting wage and currency.</li>
+<li>The user enters the starting position.</li>
+<li>The user selects the date ended work.</li>
+<li>The user enters the ending wage and currency.</li>
+<li>The user enters the ending position.</li>
+<li>The user enters the name of the supervisor.</li>
+<li>The user selects yes or no as to whether the past employer can be contacted.</li>
+<li>The user enters the job responsibilities.</li>
+<li>The user enters the reason for leaving.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the employment history item in the person's record.</li>
+<li>The system provides the option to update the item.</li>
+<li>The user repeats Steps 1-17 for each past employer.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is intended as part of the job application process but can be used, for example, by employees to add an employment history, if needed. <em>(9/28/2006)</em></li>
+<li>This form appears even if the applicant module is disabled. Moved to the Employee Management module. <em>(11/3/2008)</em></li>
+<li>This functionality is accessed via the Employment History section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>employment</code> (iHRIS_Employment) in ihris-common</p>
+<h3>UC-PT44 Enter educational history</h3>
+<p>HR Staff enters educational history into the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user has a record in the system. At least one educational institution type and associated degree has been entered in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The educational history is saved and is displayed with the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add educational history to a person's record.</li>
+<li>The user enters the name of the educational institution.</li>
+<li>The user enters the location of the educational institution.</li>
+<li>The user enters the year of graduation.</li>
+<li>The user selects the type of educational institution.</li>
+<li>The system displays the degrees offered by that type of educational institution.</li>
+<li>The user selects the degree for that type of educational institution.</li>
+<li>The user enters the major.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the new item in the person's record.</li>
+<li>The system provides the option to update the item.</li>
+<li>The user repeats Steps 1-11 for each educational institution attended.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The educational history is intended to be part of the job application process but can be entered for any employee at any time. <em>(2/7/2008)</em></li>
+<li>This form appears even if the applicant module is disabled. Moved to the Employee Management module. <em>(11/3/2008)</em></li>
+<li>This functionality is accessed via the Educational History section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PT37 Record notes</h3>
+<p>HR Staff records notes about a particular person and saves them with the person's record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The person has a record in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The notes are entered and saved with the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user enters any notes about the person in the person's record.</li>
+<li>The system enters today's date for the note's date.</li>
+<li>The user changes the date of the note, if necessary.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system maintains and displays a log of all notes that were entered in reverse chronological order.</li>
+<li>The system provides the option to update each note.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The notes are an open field that can be used for any purpose. <em>(10/31/2007)</em></li>
+<li>This use case is the same for iHRIS Manage and Qualify. <em>(10/31/2007)</em></li>
+<li>This functionality is accessed via the Notes section of a record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>notes</code> (iHRIS_Notes) in ihris-common</p>
+<h2>1.4 Job Applicant Management</h2>
+<p>The module is for managing job applications for open positions, reviewing completed job applications, recording interview notes and assigning a position to the successful applicant.</p>
+<ul>
+<li>This module may be disabled if not used by the organization on the Configure Modules page for iHRIS Manage. <em>(1/25/2007)</em></li>
+<li>Access these functions via the Manage People link on the main menu. <em>(9/28/2007)</em></li>
+</ul>
+<h3>UC-PT40 Apply for a position</h3>
+<p>An HR staff person completes a job application form and records information about a job applicant in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Partially Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The position has been created and is listed as an open position. The application module is enabled.</p>
+<p><strong>Success guarantee.</strong> The application is successfully completed and submitted; the form data is recorded in the system and is available for review.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user logs in (UC-ICE5).</li>
+<li>The system checks the user's role.</li>
+<li>The system displays the new record form.</li>
+<li>The user enters a new record (UC-PT27).</li>
+<li>The user selects the option to add an application.</li>
+<li>The system displays the job application form.</li>
+<li>The user selects the open position to apply for.</li>
+<li>The user completes the applicant questions.</li>
+<li>The user adds language proficiencies (UC-PT36), if applicable.</li>
+<li>The user adds skills (UC-PT50), if applicable.</li>
+<li>The user uploads a resume.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the application in the person's record and makes it available for review with the open position.</li>
+<li>The system provides the option to update the application.</li>
+<li>The user creates a username and password.</li>
+<li>The system adds the user account with Applicant access to the application.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The system detects that an Employee has logged in.<ol>
+<li>The system displays the Employee's record.</li>
+<li>The system provides the option for the Employee to apply for an open position using the job application form.</li>
+</ol>
+</li>
+<li><strong>2.b</strong> The system detects that an HR Staff person has logged in.<ol>
+<li>The system provides the option to add an applicant (as for enter a new record (UC-PT27)) or to add an application to an existing record.</li>
+</ol>
+</li>
+<li><strong>15.a</strong> The user has logged in with a non-guest username and password.<ol>
+<li>Skip this step.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Referenced requirements:</strong> REQ-PT10 (Business Rule)</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case should be optional. If this information is not entered at this point, it can be entered when creating a new employee record. <em>(9/25/2006)</em></li>
+<li>In version 2.0, HR Staff can enter a job application for any record. <em>(2/7/2008)</em></li>
+<li>Use case was updated to include uploading a resume. <em>(7/10/2009)</em></li>
+<li>This functionality is accessible through the Application section of a person's record. In the current version, applicants/employees cannot fill out an application themselves. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>position</code> (iHRIS_MultiPosition) in ihris-manage</p>
+<h3>UC-PT41 Log interview details</h3>
+<p>HR Staff can enter details about an interview with a job applicant.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The application module is enabled. An application has been completed for the position. The user must be logged into the system. .</p>
+<p><strong>Success guarantee.</strong> The interview details are saved with the job application.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to log interview details in an applicant's record.</li>
+<li>The system enters today's date for the interview date.</li>
+<li>The user changes the date of the interview, if necessary.</li>
+<li>The user enters the names of people conducting the interview.</li>
+<li>The user enters any comments about the interview.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the interview details in the person's record.</li>
+<li>The system provides the option to update the interview details.</li>
+<li>The user repeats Steps 1-8 for each additional interview.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case was separated from the Review Applicants (UC-PT45) use case for clarity. <em>(2/7/2008)</em></li>
+<li>This functionality is accessed via the Application section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PT42 Log a hiring decision</h3>
+<p>HR Staff logs a decision whether or not to hire an applicant for a position for which the applicant has applied.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The application module is enabled. An application has been completed for the position. The user must be logged into the system.</p>
+<p><strong>Success guarantee.</strong> The hiring decision details are saved with the job application.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to log a hiring decision in the applicant's record.</li>
+<li>The user selects the decision whether to hire the applicant for the job.</li>
+<li>The system enters today's date for the date of the decision.</li>
+<li>The user changes the date of the decision, if applicable.</li>
+<li>The user records any comments.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the hiring decision in the person's record.</li>
+<li>The system provides the option to update the hiring decision.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case was separated from the Review Applicants (UC-PT45) use case for clarity. <em>(2/7/2008)</em></li>
+<li>Note that logging a hiring decision will not set the position for the applicant; that needs to be done in the "Make a job offer" step. <em>(2/7/2008)</em></li>
+<li>This functionality is accessed via the Application section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PT45 Review applicants</h3>
+<p>The Manager lists the names of Applicants for a particular position and reviews the applications.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt3">Executive Manager</a>, <a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The application module is enabled. An applicant has completed an application form for the position. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The applicant information for all people who applied for a position can be displayed.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user displays the list of open positions.</li>
+<li>The user selects the position to review.</li>
+<li>The system lists all applicants who applied for the position, including the date they completed the application form.</li>
+<li>The user selects an applicant's name.</li>
+<li>The system checks the user's role.</li>
+<li>The system displays the applicant's record with the completed application form and provides the option to update the information if the role is allowed to update.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Only HR Staff can update an application. <em>(2/7/2008)</em></li>
+<li>This functionality is accessible via the Manage People --&gt; Review Applicants screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>application</code> (iHRIS_Applicant) in ihris-manage</p>
+<h3>UC-PT46 Make a job offer</h3>
+<p>HR Staff moves a job applicant into an open position, fills out any information required for hiring the person and enters work contact information.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The application module is enabled. The applicant has applied for a position. The user must be logged in to the system. The currency must be defined in the system for the position salary.</p>
+<p><strong>Success guarantee.</strong> The applicant is linked with the position and entered as an employee in the system, if not already an employee; the position is closed.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user displays the list of open positions.</li>
+<li>The user selects the position to fill.</li>
+<li>The system displays the position information and all applicants who applied for the position.</li>
+<li>The user selects the applicant who will fill the position.</li>
+<li>The system determines whether the applicant already has an employee record in the system.</li>
+<li>The system displays today's date for the start date.</li>
+<li>The user changes the start date, if necessary.</li>
+<li>The user selects the currency for the salary.</li>
+<li>The user enters the starting salary for the position.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system saves the employee record and associates it with the new position.</li>
+<li>The system removes the person from the list of applicants.</li>
+<li>The system marks the position as closed as of the start date.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>5.a</strong> The system determines that an employee record exists for the applicant and the employee is assigned to another position.<ol>
+<li>The system prompts the user to select a status for the employee's former position: open or discontinued.</li>
+<li>The system prompts the user to select a reason for the position change.</li>
+<li>The system changes the status of the employee's former position as of the change date and makes it available in the open position list or list of discontinued positions.</li>
+<li>The system adds the employee's former position to the position history with the change date as the end date for that position.</li>
+</ol>
+</li>
+<li><strong>9.a</strong> The system determines that the applicant already held a position with a salary.<ol>
+<li>The system changes the salary to the new position's salary and adds the former salary to the employee's salary history.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case turns an applicant into an employee and associates a position with the new employee; it can also be used to change the position for an existing employee. <em>(9/25/2006)</em></li>
+<li>Assumes that the offer has been made to the applicant and the applicant has accepted the offer (trigger). <em>(11/28/2006)</em></li>
+<li>This functionality is accessed via the Manage People --&gt; Review Applicants screens; an open position must be selected. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>job</code> (iHRIS_Job) in ihris-common, <code>job</code> (iHRIS_ManageJob) in ihris-manage</p>
+<h2>1.5 Competency Model</h2>
+<p>Defines successful job performance in the organization and enables the organization to assess employee's competencies in various skills.</p>
+<ul>
+<li>This module is currently in development. Core functions have been released. <em>(10/16/2007)</em></li>
+<li>Also modified UC-PT20 (Create a job) to link a job to its required competencies. <em>(10/16/2007)</em></li>
+<li>The blueprint for the Competency Model module was written and posted to the wiki. <em>(10/18/2007)</em></li>
+</ul>
+<p>Related documents: http://open.intrahealth.org/wiki/index.php/Competency_Model</p>
+<h3>UC-PT49 Create a competency model</h3>
+<p>The Training Manager updates a list of competency categories or competencies.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P5</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a>, <a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Partially Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new competency is saved and linked to any selected parent category, and it is available for selection in various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update the competency model.</li>
+<li>The system displays a list of competencies organized by category.</li>
+<li>The user adds a new competency.</li>
+<li>The user selects whether the item is a parent category.</li>
+<li>The user enters the name of the item.</li>
+<li>The user enters a definition for the competency.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the competency available for selection when adding competencies to a record.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing competency.<ol>
+<li>The system opens the competency for editing.</li>
+</ol>
+</li>
+<li><strong>3.b</strong> The user selects an existing parent category.<ol>
+<li>The system provides the option to add competencies underneath the parent category.</li>
+</ol>
+</li>
+<li><strong>4.a</strong> The user designates the competency as a parent category.<ol>
+<li>The system enables competencies to be added beneath the parent category.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> A system determines that the competency with the same parent categories already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case was updated for the Competency Model module: it was expanded to add additional parent categories and to combine the competency type and competency addition into one step. Also, the primary actor was changed, and the use case was moved into a separate module that can be disabled in the system. <em>(10/16/2007)</em></li>
+<li>The system currently supports adding a competency type and several competencies under each type, which can be recorded in the qualifications section of a record; implemented in version 2.0. <em>(2/7/2008)</em></li>
+<li>This functionality can be accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>competency</code> (iHRIS_Competency) in ihris-common</p>
+<h3>UC-PT68 Add or update a competency evaluation</h3>
+<p>The Training Manager updates the competency evaluations for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new competency evaluation is saved and available for selection when evaluating a course completed by an employee.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of competency evaluations.</li>
+<li>The system displays all evaluations entered in the system.</li>
+<li>The user adds a new competency evaluation.</li>
+<li>The user enters the description or name of the item.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the competency evaluations available for selection when evaluating employees who have completed training courses.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing competency evaluation.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case to create dropdown menus of competency evaluations as part of the Competency Model module. <em>(10/16/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>competency_evaluation</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PT50 Assess an employee's competencies</h3>
+<p>The Training Manager adds to or updates the list of competencies obtained by an employee.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P5</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt2">HR Staff</a>, <a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Partially Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The person has a record in the system. The user must be logged in to the system. The competency and competency evaluation must be added to the system.</p>
+<p><strong>Success guarantee.</strong> The employee's competencies are saved and displayed with their record, the evaluation history for each competency is updated, and the competencies are available for searching.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add competencies to a person's record.</li>
+<li>The system displays the competency model.</li>
+<li>The user selects the competency to add.</li>
+<li>The user selects the competency evaluation (optional).</li>
+<li>The user selects the date of the evaluation.</li>
+<li>The user enters a date when the assessment expires or should be re-evaluated (optional).</li>
+<li>The system sets a flag to appear on the person's record when the date has passed that reminds the user that the person needs reassessment.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system saves the competency information and displays it in the record.</li>
+<li>The system provides the option to update the competency or view the evaluation history for any competency.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The system detects that the competency is a parent category.<ol>
+<li>The user checks the category to add all subcategories and competencies within that category to the record.</li>
+<li>The user expands the category to select subcategories or competencies within the category for addition to the record.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The user does not select an evaluation date.<ol>
+<li>The system enters today's date by default.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case was previously limited to adding a compentency to an employee's record, implemented in version 2.0. <em>(10/18/2007)</em></li>
+<li>Updated this use case to expand the competency model and assessment procedures as part of the Competency Model module. <em>(2/7/2008)</em></li>
+<li>This functionality can be accessed via the Qualifications section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>competency</code> (iHRIS_Competency) in ihris-common</p>
+<h2>1.6 Training Management</h2>
+<p>This module is to manage a training program offered to employees for trainings offered by the employer or external organizations. It tracks trainings that an employee has completed and assesses employee competencies achieved as a result. It also enables the organization to maintain lists of trainers and training funders.</p>
+<ul>
+<li>This module may be disabled if not used by the organization on the Configure Modules page for iHRIS Manage. <em>(1/25/2007)</em></li>
+<li>The blueprint for the Training Management module was written and posted to the wiki. <em>(10/18/2007)</em></li>
+<li>This module was developed and released in version 3.1. <em>(9/29/2008)</em></li>
+</ul>
+<p>Related documents: http://open.intrahealth.org/wiki/index.php/In-service_Training_Module_for_iHRIS_Manage</p>
+<h3>UC-PT53 Add or update a training funder</h3>
+<p>The Training Manager adds details about a training funder to the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training module is enabled. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The training funder is added to the system and is made available for selection in various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of training funders.</li>
+<li>The system displays all funders that have been entered in the system.</li>
+<li>The user adds a training funder.</li>
+<li>The user enters the name of the funder.</li>
+<li>The user adds contact information (UC-PT31).</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the training funder available for selection when adding training programs.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing funder.<ol>
+<li>The system displays the funder's record and provides the option to edit any of the information.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case to create funders of training programs as part of the Training Management module. <em>(10/16/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training_funder</code> (iHRIS_ListByCountry) in ihris-common</p>
+<h3>UC-PT54 Add or update a training organization</h3>
+<p>The Training Manager adds details about a training organization to the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training module is enabled. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The training organization is added to the system and is made available when adding training programs.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of training organizations.</li>
+<li>The system displays all organizations that have been entered in the system.</li>
+<li>The user adds a training organization.</li>
+<li>The user enters the name of the organization.</li>
+<li>The user adds contact information (UC-PT31).</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the training organization available for selection when adding training programs.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing organization.<ol>
+<li>The system displays the organization's record and provides the option to edit any of the information.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case to create organizations that provide training programs as part of the Training Management module. <em>(10/16/2007)</em></li>
+<li>This use case does not track locations of training organizations, trainers or other details that properly belong in a training administration system. <em>(11/16/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PT65 Add or update a training course status</h3>
+<p>The Training Manager updates the status of training courses for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training module is enabled. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new training program status is saved and available for selection when adding a training program.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the status of training courses.</li>
+<li>The system displays all training course statuses entered in the system.</li>
+<li>The user adds a new training course status.</li>
+<li>The user enters the description or name of the item.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the training course status available for selection when adding training courses.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing training program status.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case to create dropdown menus of training program statuses as part of the Training Management module. <em>(10/16/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training_course_status</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PT66 Add or update a training course requestor</h3>
+<p>The Training Manager updates the list of requestors of training courses for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training module is enabled. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new training program requestor is saved and available for selection when scheduling a training course for an employee.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the requestors of training courses.</li>
+<li>The system displays all training course requestors entered in the system.</li>
+<li>The user adds a new training course requestor.</li>
+<li>The user enters the description or name of the item.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the training course requestor available for selection when scheduling training courses for an employee.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing training program requestor.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case to create dropdown menus of training program requestors as part of the Training Management module. <em>(10/16/2007)</em></li>
+<li>A requestor is any person or organization who requests that an employee complete a training course (such as Employee, Supervisor, Human Resources, Donor, etc.). <em>(7/30/2008)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training_course_requestor</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PT67 Add or update a training course evaluation</h3>
+<p>The Training Manager updates the list of training course evaluations, or the grade or assessment an employee earned after taking a training course, for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training module is enabled. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new training program evaluation is saved and available for selection when scheduling a training course for an employee.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the evaluations of training courses.</li>
+<li>The system displays all training course evaluations entered in the system.</li>
+<li>The user adds a new training course evaluation.</li>
+<li>The user enters the description or name of the item.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the training course evaluation available for selection when scheduling training courses for an employee.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing training program evaluation.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case to create dropdown menus of training program evaluation as part of the Training Management module. <em>(10/16/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training_course_evaluation</code> (iHRIS_Training_Course_Evaluation) in ihris-common</p>
+<h3>UC-PT55 Add or update a training course category</h3>
+<p>The Training Manager updates the list of training course categories for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training module is enabled. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new training program category is saved and available for selection when adding a training program.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of training course categories.</li>
+<li>The system displays all training course categories entered in the system.</li>
+<li>The user adds a new training course category.</li>
+<li>The user enters the description or name of the item.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the training course category available for selection when adding training course.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing training program category.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case to create dropdown menus of training program categories as part of the Training Management module. <em>(10/16/2007)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training_course_category</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PT69 Add or update a continuing education course</h3>
+<p>The HR manager enters valid continuing education courses for selection when renewing a license.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt1">HR Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training module is enabled. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new continuing education course is saved and available for selection in appropriate use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update the list of continuing education courses.</li>
+<li>The system displays all continuing education courses added to the system.</li>
+<li>The user adds a new continuing education course.</li>
+<li>The user enters the name of the course.</li>
+<li>The user enters the number of credit hours that can be earned by completing the course.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the new course available for selection when adding training courses.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing continuing education course name.<ol>
+<li>The system opens the course's details and provides the option to update them.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case that is part of the training management module. <em>(7/30/2008)</em></li>
+<li>This use case is identical to the same use case for iHRIS Qualify. <em>(7/30/2008)</em></li>
+<li>This functionality is accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>continuing_education_course</code> (iHRIS_ContinuingEducationCourse) in ihris-common</p>
+<h3>UC-PT56 Add or update an in-service training program</h3>
+<p>The Training Manager adds a training offering to the system that can be requested for employees to complete.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training module is enabled. The competencies must be entered in the system. The training category, status, funder and organization must be entered in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The training program is added to the system and is made available for selection.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of training courses.</li>
+<li>The system displays all training courses entered in the system.</li>
+<li>The user adds a training program.</li>
+<li>The user enters the name of the training program.</li>
+<li>The user selects the category of the training (optional).</li>
+<li>The user enters a specific topic for the training.</li>
+<li>The user selects the program status.</li>
+<li>The user selects the name of the training funder (optional).</li>
+<li>Repeat for each additional training funder.</li>
+<li>The user selects the name of the training organization giving the training (optional).</li>
+<li>The user checks all competencies associated with the training (optional).</li>
+<li>The user selects any Continuing Education course credits earned in the training program (optional).</li>
+<li>The user enters any notes about the training (optional).</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the training course information.</li>
+<li>The user enters the schedule for a training program (UC-PT57).</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing program.<ol>
+<li>The system displays the training program record and provides the option to edit the training program information.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The user does not select a status.<ol>
+<li>The system sets the status to open.</li>
+</ol>
+</li>
+<li><strong>7.b</strong> The user selects the closed status.<ol>
+<li>The system removes the training from scheduling on an employee's record.</li>
+</ol>
+</li>
+<li><strong>10.a</strong> The user checks a parent competency category.<ol>
+<li>The system selects all subcategories and competencies within that category for the training.</li>
+</ol>
+</li>
+<li><strong>10.b</strong> The user expands a parent competency category.<ol>
+<li>The system makes any subcategory or competency within that category available for selection.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case has been significantly revised to capture more data about training programs as part of the Training Management module. <em>(10/16/2007)</em></li>
+<li>This functionality can be accessed via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+<li>The In-Service Training Management module must be enabled for the use case to function and is disabled by default. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PT57 Enter the schedule for a training program</h3>
+<p>The Training Manager enters the specific dates, duration and location of training program classes, either when entering the training program details or scheduling an employee to take a training.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>Subfunction</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training module is enabled. The training program has been entered in the system. The country, district and county where the training program is located must be entered in the system. The user is logged in.</p>
+<p><strong>Success guarantee.</strong> The training class details are saved with the training program and made available for later reference.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the training course to schedule.</li>
+<li>The user selects the option to schedule a training program.</li>
+<li>The user enters the maximum number of students.</li>
+<li>The user selects the date the training program begins.</li>
+<li>The user selects the date the training program ends.</li>
+<li>The user enters the name of the site where the training program is to be held.</li>
+<li>The user enters the trainers' name(s) (optional).</li>
+<li>The user selects the country where the training program takes place.</li>
+<li>The system displays all districts in that country.</li>
+<li>The user selects the district where the training program takes place.</li>
+<li>The system displays all counties in that district.</li>
+<li>The user selects the county where the training program takes place (optional).</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system saves the class details with the training program information and makes the class available for scheduling for employees.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>4.a</strong> The date is not entered.<ol>
+<li>The system selects the current date.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The end date is before the start date.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case was added to allow scheduling of specific instances of a training program. <em>(12/3/2007)</em></li>
+<li>This functionality is accessed from a training course's record via the Configure System --&gt; Administer Database screens. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PT59 Schedule a training for an employee</h3>
+<p>The Training Manager adds an employee to the schedule for a training class.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Assigned to</td>
+<td><a href="roles.html#ihris-2009-staff-01">2009 iHRIS staff member 01 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training module is enabled. The user must be logged in to the system. The employee must have a record in the system. The training program must have been added to the system and at least one class must have been added for it. The requestor and evaluation must have been added to the system.</p>
+<p><strong>Success guarantee.</strong> The training program is listed as scheduled in the employee's training history.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to schedule a training in an employee's record.</li>
+<li>The system lists all training programs.</li>
+<li>The user selects the training program.</li>
+<li>The system displays all scheduled classes for that program.</li>
+<li>The user selects the training class to schedule.</li>
+<li>The system displays today's date for the date of the request.</li>
+<li>The user changes the date of the request, if applicable.</li>
+<li>The user selects the person who requested or recommended the training (optional).</li>
+<li>The user selects whether this is a new training or a retraining for the employee.</li>
+<li>The user enters any notes about the training request.</li>
+<li>The user selects whether the course has been completed.</li>
+<li>The user selects an evaluation for the course.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system adds the training program to the list of the trainings in which the employee is scheduled to take to the employee's training history.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>11.a</strong> The user doesn't select an option.<ol>
+<li>The system records No by default.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case as part of the Training Management module. <em>(10/16/2007)</em></li>
+<li>This functionality is accessed via the Training section of a person's record. The In-Service Training Management Module must be enabled. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PT60 Assess training results and update competencies</h3>
+<p>After an employee has completed a training, the Training Manager assesses their performance and updates their qualifications accordingly.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pt8">Training Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Partially Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training module is enabled. A training with associated competencies has been scheduled for the employee. The competency evaluation has been entered in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The training is marked complete and the results are recorded in the Employee's training history.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user opens an employee's training history in the employee's record.</li>
+<li>The user selects the course competency evaluation for the training that the employee completed from the list of scheduled trainings.</li>
+<li>The system displays all competencies selected for the training, if any.</li>
+<li>For each competency associated with the training, the user selects the evaluation (optional).</li>
+<li>The user enters the date of the evaluation.</li>
+<li>The user enters a date when the assessment expires or should be re-evaluated (optional).</li>
+<li>The system sets a flag to appear on the person's record when the date has passed that reminds the user that the person needs reassessment.</li>
+<li>The user enters any notes about the evaluation.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system saves the completed training in the employee's training history as completed (rather than scheduled) and records the performance.</li>
+<li>The system adds the assessed competencies to the employee's record.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>5.a</strong> No date is entered.<ol>
+<li>The system records today's date by default.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case as part of the Training Management module. <em>(10/16/2007)</em></li>
+<li>The In-Service Training Management Module must be enabled to access this functionality. It is disabled by default. <em>(7/10/2009)</em></li>
+<li>This functionality is accessed via the Training section of a person's record. <em>(7/10/2009)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>competency</code> (iHRIS_Competency) in ihris-common</p>
+<h2>1.7 Requirements</h2>
+<p>Requirements for iHRIS Manage.</p>
+<h3>REQ-PT9 Localization</h3>
+<p>The system must support different international currencies.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P10</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PT19, UC-PT32</p>
+<h3>REQ-PT10 Job applicant questions</h3>
+<p>Specifies all questions that the organization requires be asked of a job applicant, such as to satisfy a law or the organization's need.</p>
+<p>Example job applicant questions: If you are not a citizen, are you authorized to work in the country? Have you ever been convicted of a felony? If yes, describe the circumstances. How did you hear of this opening? When can you start work? What is your desired wage? Are you looking for full-time employment? What hours are you available?</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PT40</p>
+<h3>REQ-PT11 Privacy</h3>
+<p>Some data cannot be viewed except by specified roles in HR and management. These may change depending on laws and organizational policies, but will probably always include salary and identification numbers.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PT29, UC-PT35, UC-PT32</p>
+<h2>Cited but not described</h2>
+<p>The report cites these, but describes none of them:</p>
+<ul>
+<li>A-PT9 <em>Any User</em> (cited by table of contents)</li>
+</ul></div>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

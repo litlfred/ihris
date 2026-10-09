@@ -1,0 +1,4077 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IHRIS Manage Form Fields - 4.0.7 · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1dfcoa976z5.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1dfcoa976z5"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / IHRIS Manage Form Fields - 4.0.7</div>
+<h1>IHRIS Manage Form Fields - 4.0.7</h1>
+<div class="wiki">
+<p>These are the forms and fields in iHRIS Manage version 4.0.7</p>
+<p>There is also a graphical visualization [1] of this data. Warning: this is a very large file and you may wish to save it to your desktop instead of viewing it in your browser.</p>
+<p>Here is a description of the Field types.</p>
+<h2>accident</h2>
+<p>The form accident is implemented by the class: iHRIS_Accident It has the following fields:</p>
+<ul>
+<li>
+<p>accident_type:</p>
+</li>
+<li>
+<p>Header: Accident Type</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: accident_type</li>
+<li>
+<p>end_date:</p>
+</li>
+<li>
+<p>Header: End of Applicability</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>followup:</p>
+</li>
+<li>
+<p>Header: Follow-up Required</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>occurence_date:</p>
+</li>
+<li>
+<p>Header: Date of Occurence</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>persons_involved:</p>
+</li>
+<li>
+<p>Header: People Involved</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>start_date:</p>
+</li>
+<li>
+<p>Header: Start of Applicability</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>accident_type</h2>
+<p>The form accident_type is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>application</h2>
+<p>The form application is implemented by the class: iHRIS_Applicant It has the following fields:</p>
+<ul>
+<li>
+<p>desired_wage:</p>
+</li>
+<li>
+<p>Header: Desired Wage</p>
+</li>
+<li>Type: CURRENCY</li>
+<li>Maps To Forms: currency</li>
+<li>
+<p>felony:</p>
+</li>
+<li>
+<p>Header: Have you ever been convicted of a felony?</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>felony_circumstance:</p>
+</li>
+<li>
+<p>Header: If yes, give the circumstances.</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>full_time:</p>
+</li>
+<li>
+<p>Header: Are you looking for full-time employment?</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>hear:</p>
+</li>
+<li>
+<p>Header: How did you hear of this opening?</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>hours:</p>
+</li>
+<li>
+<p>Header: If no, what hours are you available?</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>other_info:</p>
+</li>
+<li>
+<p>Header: In addition to your work history, are there other skills, qualifications or experience we should consider?</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>position:</p>
+</li>
+<li>
+<p>Header: Position(s)</p>
+</li>
+<li>Type: MAP_MULT</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: position</li>
+<li>
+<p>start_date:</p>
+</li>
+<li>
+<p>Header: When can you start?</p>
+</li>
+<li>Type: DATE_YMD</li>
+</ul>
+<h2>archived_report</h2>
+<p>The form archived_report is implemented by the class: I2CE_ArchivedReport It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>date:</p>
+</li>
+<li>
+<p>Header: Generation Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Title</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+<li>
+<p>report:</p>
+</li>
+<li>
+<p>Header: Report</p>
+</li>
+<li>Type: DOCUMENT</li>
+<li>
+<p>report_view:</p>
+</li>
+<li>
+<p>Header: Report View</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Unique in {date}</li>
+</ul>
+<h2>benefit</h2>
+<p>The form benefit is implemented by the class: iHRIS_Benefit It has the following fields:</p>
+<ul>
+<li>
+<p>amount:</p>
+</li>
+<li>
+<p>Header: Amount</p>
+</li>
+<li>Type: CURRENCY</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: currency</li>
+<li>
+<p>end_date:</p>
+</li>
+<li>
+<p>Header: End Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>recurrence:</p>
+</li>
+<li>
+<p>Header: Recurrence Frequency</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: benefit_recurrence</li>
+<li>
+<p>source:</p>
+</li>
+<li>
+<p>Header: Source</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: salary_source</li>
+<li>
+<p>start_date:</p>
+</li>
+<li>
+<p>Header: Start Date</p>
+</li>
+<li>
+<p>Type: DATE_YMD</p>
+</li>
+<li>
+<p>Restrictions: Required</p>
+</li>
+<li>
+<p>type:</p>
+</li>
+<li>
+<p>Header: Benefit Type</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: benefit_type</li>
+</ul>
+<h2>benefit_recurrence</h2>
+<p>The form benefit_recurrence is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>benefit_type</h2>
+<p>The form benefit_type is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cadre</h2>
+<p>The form cadre is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_asource</h2>
+<p>The form cl_asource is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_cstype</h2>
+<p>The form cl_cstype is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_currency</h2>
+<p>The form cl_currency is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_day</h2>
+<p>The form cl_day is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_disagg</h2>
+<p>The form cl_disagg is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_disease</h2>
+<p>The form cl_disease is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_disstat</h2>
+<p>The form cl_disstat is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_dsource</h2>
+<p>The form cl_dsource is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_dstype</h2>
+<p>The form cl_dstype is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_dtype</h2>
+<p>The form cl_dtype is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_fperiod</h2>
+<p>The form cl_fperiod is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_gboundary_type</h2>
+<p>The form cl_gboundary_type is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_gcode_country</h2>
+<p>The form cl_gcode_country is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_gender</h2>
+<p>The form cl_gender is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_glevel</h2>
+<p>The form cl_glevel is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_glocation</h2>
+<p>The form cl_glocation is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_hif1</h2>
+<p>The form cl_hif1 is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_hif2</h2>
+<p>The form cl_hif2 is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_income</h2>
+<p>The form cl_income is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_logical</h2>
+<p>The form cl_logical is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_metype</h2>
+<p>The form cl_metype is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_month</h2>
+<p>The form cl_month is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_mult</h2>
+<p>The form cl_mult is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_operand</h2>
+<p>The form cl_operand is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_orphan</h2>
+<p>The form cl_orphan is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_otype</h2>
+<p>The form cl_otype is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_periodicity</h2>
+<p>The form cl_periodicity is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_preg</h2>
+<p>The form cl_preg is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_pstatus</h2>
+<p>The form cl_pstatus is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_ptype</h2>
+<p>The form cl_ptype is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_quarter</h2>
+<p>The form cl_quarter is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_race</h2>
+<p>The form cl_race is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_sector</h2>
+<p>The form cl_sector is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_sex</h2>
+<p>The form cl_sex is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_special_value</h2>
+<p>The form cl_special_value is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_stype</h2>
+<p>The form cl_stype is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_tpop</h2>
+<p>The form cl_tpop is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_unit</h2>
+<p>The form cl_unit is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_value_type</h2>
+<p>The form cl_value_type is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_vstatus</h2>
+<p>The form cl_vstatus is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_vulnstat</h2>
+<p>The form cl_vulnstat is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_week</h2>
+<p>The form cl_week is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>cl_year</h2>
+<p>The form cl_year is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>classification</h2>
+<p>The form classification is implemented by the class: iHRIS_Classification It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>code:</p>
+</li>
+<li>
+<p>Header: Code</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>description:</p>
+</li>
+<li>
+<p>Header: Description</p>
+</li>
+<li>
+<p>Type: STRING_LINE</p>
+</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>competency</h2>
+<p>The form competency is implemented by the class: iHRIS_Competency It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>competency_type:</p>
+</li>
+<li>
+<p>Header: Competency Type</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: competency_type</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique in {competency_type}</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+</ul>
+<h2>competency_evaluation</h2>
+<p>The form competency_evaluation is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>competency_type</h2>
+<p>The form competency_type is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>confirmation</h2>
+<p>The form confirmation is implemented by the class: iHRIS_Confirmation It has the following fields:</p>
+<ul>
+<li>
+<p>confirmation_type:</p>
+</li>
+<li>
+<p>Header: Confirmation Type</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required, Unique in {parent}</li>
+<li>Maps To Forms: confirmation_type</li>
+<li>
+<p>date:</p>
+</li>
+<li>
+<p>Header: Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>record:</p>
+</li>
+<li>
+<p>Header: Record</p>
+</li>
+<li>Type: DOCUMENT</li>
+<li>
+<p>valid:</p>
+</li>
+<li>
+<p>Header: Valid</p>
+</li>
+<li>Type: YESNO</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>confirmation_type</h2>
+<p>The form confirmation_type is implemented by the class: iHRIS_ConfirmationType It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>job:</p>
+</li>
+<li>
+<p>Header: Associated Job</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: job</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique in {job}</li>
+<li>
+<p>probation_period:</p>
+</li>
+<li>
+<p>Header: Probationary Period (Months)</p>
+</li>
+<li>Type: INT</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>continuing_education</h2>
+<p>The form continuing_education is implemented by the class: iHRIS_ContinuingEducation It has the following fields:</p>
+<ul>
+<li>
+<p>continuing_education_course:</p>
+</li>
+<li>
+<p>Header: Continuing Education Course</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: continuing_education_course</li>
+<li>
+<p>credit_hours:</p>
+</li>
+<li>
+<p>Header: Credit Hours</p>
+</li>
+<li>Type: INT</li>
+<li>Restrictions: Required</li>
+<li>
+<p>end_date:</p>
+</li>
+<li>
+<p>Header: End Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>start_date:</p>
+</li>
+<li>
+<p>Header: Start Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>continuing_education_course</h2>
+<p>The form continuing_education_course is implemented by the class: iHRIS_ContinuingEducationCourse It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>credit_hours:</p>
+</li>
+<li>
+<p>Header: Credit Hours</p>
+</li>
+<li>Type: INT</li>
+<li>Restrictions: Required</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>council</h2>
+<p>The form council is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>country</h2>
+<p>The form country is implemented by the class: iHRIS_Country It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>alpha_two:</p>
+</li>
+<li>
+<p>Header: 2 Character Alpha Code</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+<li>
+<p>code:</p>
+</li>
+<li>
+<p>Header: ISO Numeric Code</p>
+</li>
+<li>Type: INT</li>
+<li>
+<p>location:</p>
+</li>
+<li>
+<p>Header: Use for Location Selection</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+<li>
+<p>primary:</p>
+</li>
+<li>
+<p>Header: Primary Country</p>
+</li>
+<li>Type: YESNO</li>
+</ul>
+<h2>county</h2>
+<p>The form county is implemented by the class: iHRIS_County It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>district:</p>
+</li>
+<li>
+<p>Header: District</p>
+</li>
+<li>
+<p>Type: MAP</p>
+</li>
+<li>
+<p>Restrictions: Required</p>
+</li>
+<li>
+<p>Maps To Forms: district</p>
+</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique in {district}</li>
+</ul>
+<h2>currency</h2>
+<p>The form currency is implemented by the class: iHRIS_Currency It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>code:</p>
+</li>
+<li>
+<p>Header: Currency Code</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+<li>
+<p>country:</p>
+</li>
+<li>
+<p>Header: Country</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: country</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>symbol:</p>
+</li>
+<li>
+<p>Header: Symbol</p>
+</li>
+<li>Type: STRING_LINE</li>
+</ul>
+<h2>degree</h2>
+<p>The form degree is implemented by the class: iHRIS_Degree It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>edu_type:</p>
+</li>
+<li>
+<p>Header: Education Type</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: edu_type</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique in {edu_type}</li>
+</ul>
+<h2>demographic</h2>
+<p>The form demographic is implemented by the class: iHRIS_ManageDemographic It has the following fields:</p>
+<ul>
+<li>
+<p>birth_date:</p>
+</li>
+<li>
+<p>Header: Date of Birth</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>gender:</p>
+</li>
+<li>
+<p>Header: Gender</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: gender</li>
+<li>
+<p>marital_status:</p>
+</li>
+<li>
+<p>Header: Marital Status</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: marital_status</li>
+<li>
+<p>dependents:</p>
+</li>
+<li>
+<p>Header: Number of Dependents</p>
+</li>
+<li>Type: INT</li>
+</ul>
+<h2>department</h2>
+<p>The form department is implemented by the class: iHRIS_Department It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>dependent</h2>
+<p>The form dependent is implemented by the class: iHRIS_Dependent It has the following fields:</p>
+<ul>
+<li>
+<p>date_of_birth:</p>
+</li>
+<li>
+<p>Header: Date of Birth</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>gender:</p>
+</li>
+<li>
+<p>Header: Gender</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: gender</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>disciplinary_action</h2>
+<p>The form disciplinary_action is implemented by the class: iHRIS_DisciplinaryAction It has the following fields:</p>
+<ul>
+<li>
+<p>action_date:</p>
+</li>
+<li>
+<p>Header: Date of Discussion</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>disciplinary_action_type:</p>
+</li>
+<li>
+<p>Header: Action Taken</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: disciplinary_action_type</li>
+<li>
+<p>end_date:</p>
+</li>
+<li>
+<p>Header: End of Applicability</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>persons_present:</p>
+</li>
+<li>
+<p>Header: People Present</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>start_date:</p>
+</li>
+<li>
+<p>Header: Start of Applicability</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>disciplinary_action_type</h2>
+<p>The form disciplinary_action_type is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>district</h2>
+<p>The form district is implemented by the class: iHRIS_District It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>code:</p>
+</li>
+<li>
+<p>Header: Code</p>
+</li>
+<li>
+<p>Type: STRING_LINE</p>
+</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique in {region:country}</li>
+<li>
+<p>region:</p>
+</li>
+<li>
+<p>Header: Region</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: region</li>
+</ul>
+<h2>edu_type</h2>
+<p>The form edu_type is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>education</h2>
+<p>The form education is implemented by the class: iHRIS_Education It has the following fields:</p>
+<ul>
+<li>
+<p>degree:</p>
+</li>
+<li>
+<p>Header: Degree</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: degree</li>
+<li>
+<p>institution:</p>
+</li>
+<li>
+<p>Header: Institution Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+<li>
+<p>location:</p>
+</li>
+<li>
+<p>Header: Institution Location</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>major:</p>
+</li>
+<li>
+<p>Header: Major</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>year:</p>
+</li>
+<li>
+<p>Header: Year of Graduation (leave blank if In Progress)</p>
+</li>
+<li>Type: DATE_Y</li>
+</ul>
+<h2>employment</h2>
+<p>The form employment is implemented by the class: iHRIS_Employment It has the following fields:</p>
+<ul>
+<li>
+<p>company_address:</p>
+</li>
+<li>
+<p>Header: Company Address</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>company_name:</p>
+</li>
+<li>
+<p>Header: Company Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+<li>
+<p>company_phone:</p>
+</li>
+<li>
+<p>Header: Company Telephone</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>contact_ok:</p>
+</li>
+<li>
+<p>Header: Ok to Contact?</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>end_date:</p>
+</li>
+<li>
+<p>Header: Date Ended (leave blank if still employed)</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>end_position:</p>
+</li>
+<li>
+<p>Header: Ending Position</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>end_wage:</p>
+</li>
+<li>
+<p>Header: Ending Wage</p>
+</li>
+<li>Type: CURRENCY</li>
+<li>Maps To Forms: currency</li>
+<li>
+<p>reason_for_leaving:</p>
+</li>
+<li>
+<p>Header: Reason for Leaving</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>responsibilities:</p>
+</li>
+<li>
+<p>Header: Job Responsibilities</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>start_date:</p>
+</li>
+<li>
+<p>Header: Date Started</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>start_position:</p>
+</li>
+<li>
+<p>Header: Starting Position</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>start_wage:</p>
+</li>
+<li>
+<p>Header: Starting Wage</p>
+</li>
+<li>Type: CURRENCY</li>
+<li>
+<p>Maps To Forms: currency</p>
+</li>
+<li>
+<p>supervisor:</p>
+</li>
+<li>
+<p>Header: Supervisor</p>
+</li>
+<li>
+<p>Type: STRING_LINE</p>
+</li>
+</ul>
+<h2>establishment</h2>
+<p>The form establishment is implemented by the class: iHRIS_Establishment It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>amount:</p>
+</li>
+<li>
+<p>Header: Number of Health Workers</p>
+</li>
+<li>Type: INT</li>
+<li>Restrictions: Required</li>
+<li>
+<p>establishment_period:</p>
+</li>
+<li>
+<p>Header: Establishment Period</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required, Unique in {job_cadre,location}</li>
+<li>Maps To Forms: establishment_period</li>
+<li>
+<p>job_cadre:</p>
+</li>
+<li>
+<p>Header: Job or Cadre</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: cadre,job</li>
+<li>
+<p>location:</p>
+</li>
+<li>
+<p>Header: Facility or Faciltiy Type</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: facility,facility_type</li>
+</ul>
+<h2>establishment_period</h2>
+<p>The form establishment_period is implemented by the class: iHRIS_EstablishmentPeriod It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>establishment_type:</p>
+</li>
+<li>
+<p>Header: Establishment Type</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: establishment_type</li>
+<li>
+<p>year:</p>
+</li>
+<li>
+<p>Header: Year of Applicability</p>
+</li>
+<li>Type: DATE_Y</li>
+<li>Restrictions: Required, Unique in {establishment_type}</li>
+</ul>
+<h2>establishment_type</h2>
+<p>The form establishment_type is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>facility</h2>
+<p>The form facility is implemented by the class: iHRIS_Facility</p>
+<p>This form is used to descibe basic information about a facility</p>
+<p>It has the child forms:</p>
+<ul>
+<li>facility_contact</li>
+</ul>
+<p>It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>location:</p>
+</li>
+<li>
+<p>Header: Location</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: county,district</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+<li>
+<p>facility_type:</p>
+</li>
+<li>
+<p>Header: Facility Type</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: facility_type</li>
+</ul>
+<h2>facility_contact</h2>
+<p>The form facility_contact is implemented by the class: iHRIS_Contact It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>address:</p>
+</li>
+<li>
+<p>Header: Mailing Address</p>
+</li>
+<li>
+<p>Type: STRING_MLINE</p>
+</li>
+<li>
+<p>alt_telephone:</p>
+</li>
+<li>
+<p>Header: Alternate Telephone Number</p>
+</li>
+<li>
+<p>Type: STRING_LINE</p>
+</li>
+<li>
+<p>email:</p>
+</li>
+<li>
+<p>Header: Email Address</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>fax:</p>
+</li>
+<li>
+<p>Header: Fax Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>telephone:</p>
+</li>
+<li>
+<p>Header: Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+</ul>
+<h2>facility_type</h2>
+<p>The form facility_type is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>gender</h2>
+<p>The form gender is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>generated_doc</h2>
+<p>The form generated_doc is implemented by the class: I2CE_GeneratedDoc It has the following fields:</p>
+<ul>
+<li>
+<p>date:</p>
+</li>
+<li>
+<p>Header: Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>description:</p>
+</li>
+<li>
+<p>Header: Description</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>document:</p>
+</li>
+<li>
+<p>Header: Document</p>
+</li>
+<li>Type: DOCUMENT</li>
+<li>
+<p>primary_form:</p>
+</li>
+<li>
+<p>Header: Primary Form ID</p>
+</li>
+<li>Type: STRING_LINE</li>
+</ul>
+<h2>id_type</h2>
+<p>The form id_type is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>isco_88_major</h2>
+<p>The form isco_88_major is implemented by the class: iHRIS_ISCO_88_Major It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>description:</p>
+</li>
+<li>
+<p>Header: Description</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Major Group</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>isco_88_minor</h2>
+<p>The form isco_88_minor is implemented by the class: iHRIS_ISCO_88_Minor It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>description:</p>
+</li>
+<li>
+<p>Header: Description</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>isco_88_sub_major:</p>
+</li>
+<li>
+<p>Header: Sub-Major Group</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: isco_88_sub_major</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Minor Group</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>isco_88_sub_major</h2>
+<p>The form isco_88_sub_major is implemented by the class: iHRIS_ISCO_88_Sub_Major It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>description:</p>
+</li>
+<li>
+<p>Header: Description</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>isco_88_major:</p>
+</li>
+<li>
+<p>Header: Major Group</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: isco_88_major</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Sub-Major Group</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>isco_88_unit</h2>
+<p>The form isco_88_unit is implemented by the class: iHRIS_ISCO_88_Unit It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>description:</p>
+</li>
+<li>
+<p>Header: Description</p>
+</li>
+<li>
+<p>Type: STRING_LINE</p>
+</li>
+<li>
+<p>isco_88_minor:</p>
+</li>
+<li>
+<p>Header: Minor Group</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: isco_88_minor</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Unit</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>job</h2>
+<p>The form job is implemented by the class: iHRIS_ManageJob It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>cadre:</p>
+</li>
+<li>
+<p>Header: Cadre (Health Professionals Only)</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: cadre</li>
+<li>
+<p>classification:</p>
+</li>
+<li>
+<p>Header: Classification</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: classification</li>
+<li>
+<p>code:</p>
+</li>
+<li>
+<p>Header: Code</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>description:</p>
+</li>
+<li>
+<p>Header: Description</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>isco_88_unit:</p>
+</li>
+<li>
+<p>Header: ISCO 88 Code</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: isco_88_unit</li>
+<li>
+<p>title:</p>
+</li>
+<li>
+<p>Header: Title</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+<li>
+<p>salary_grade:</p>
+</li>
+<li>
+<p>Header: Salary Grade</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: salary_grade</li>
+</ul>
+<h2>language</h2>
+<p>The form language is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>language_proficiency</h2>
+<p>The form language_proficiency is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>marital_status</h2>
+<p>The form marital_status is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>nextofkin</h2>
+<p>The form nextofkin is implemented by the class: iHRIS_NextOfKin It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>address:</p>
+</li>
+<li>
+<p>Header: Mailing Address</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>alt_telephone:</p>
+</li>
+<li>
+<p>Header: Alternate Telephone Number</p>
+</li>
+<li>
+<p>Type: STRING_LINE</p>
+</li>
+<li>
+<p>email:</p>
+</li>
+<li>
+<p>Header: Email Address</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>fax:</p>
+</li>
+<li>
+<p>Header: Fax Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>telephone:</p>
+</li>
+<li>
+<p>Header: Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+<li>
+<p>relationship:</p>
+</li>
+<li>
+<p>Header: Relationship</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>notes</h2>
+<p>The form notes is implemented by the class: iHRIS_Notes It has the following fields:</p>
+<ul>
+<li>
+<p>date_added:</p>
+</li>
+<li>
+<p>Header: Date Added</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>note:</p>
+</li>
+<li>
+<p>Header: Note</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>person</h2>
+<p>The form person is implemented by the class: iHRIS_ManagePerson</p>
+<p>This form holds basic information about a person such as their names and residence</p>
+<p>It has the child forms:</p>
+<ul>
+<li>accident</li>
+<li>application</li>
+<li>benefit</li>
+<li>confirmation</li>
+<li>demographic</li>
+<li>dependent</li>
+<li>
+<p>disciplinary_action</p>
+</li>
+<li>
+<p>education</p>
+</li>
+<li>
+<p>employment</p>
+</li>
+<li>
+<p>nextofkin</p>
+</li>
+<li>notes</li>
+<li>person_archive_scan</li>
+<li>person_competency</li>
+<li>person_contact_emergency</li>
+<li>person_contact_other</li>
+<li>person_contact_personal</li>
+<li>person_contact_work</li>
+<li>person_id</li>
+<li>person_language</li>
+<li>person_photo_passport</li>
+<li>person_position</li>
+<li>person_resume</li>
+<li>person_scheduled_training_course</li>
+<li>position_decision</li>
+<li>position_interview</li>
+<li>registration</li>
+</ul>
+<p>It has the following fields:</p>
+<ul>
+<li>
+<p>firstname:</p>
+</li>
+<li>
+<p>Header: First Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+<li>
+<p>nationality:</p>
+</li>
+<li>
+<p>Header: Nationality</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: country</li>
+<li>
+<p>othername:</p>
+</li>
+<li>
+<p>Header: Other Names</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>residence:</p>
+</li>
+<li>
+<p>Header: Residence</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: county,district</li>
+<li>
+<p>surname:</p>
+</li>
+<li>
+<p>Header: Surname</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>person_archive_scan</h2>
+<p>The form person_archive_scan is implemented by the class: iHRIS_Photo It has the following fields:</p>
+<ul>
+<li>
+<p>date:</p>
+</li>
+<li>
+<p>Header: Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>description:</p>
+</li>
+<li>
+<p>Header: Description</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>image:</p>
+</li>
+<li>
+<p>Header: Image</p>
+</li>
+<li>Type: IMAGE</li>
+</ul>
+<h2>person_competency</h2>
+<p>The form person_competency is implemented by the class: iHRIS_PersonCompetency It has the following fields:</p>
+<ul>
+<li>
+<p>competency:</p>
+</li>
+<li>
+<p>Header: Competency</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required, Unique in {parent}</li>
+<li>Maps To Forms: competency</li>
+<li>
+<p>competency_evaluation:</p>
+</li>
+<li>
+<p>Header: Evaluation</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: competency_evaluation</li>
+<li>
+<p>evaluation_date:</p>
+</li>
+<li>
+<p>Header: Last Evaluated</p>
+</li>
+<li>Type: DATE_YMD</li>
+</ul>
+<h2>person_contact_emergency</h2>
+<p>The form person_contact_emergency is implemented by the class: iHRIS_Contact It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>address:</p>
+</li>
+<li>
+<p>Header: Mailing Address</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>alt_telephone:</p>
+</li>
+<li>
+<p>Header: Alternate Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>email:</p>
+</li>
+<li>
+<p>Header: Email Address</p>
+</li>
+<li>
+<p>Type: STRING_LINE</p>
+</li>
+<li>
+<p>fax:</p>
+</li>
+<li>
+<p>Header: Fax Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>telephone:</p>
+</li>
+<li>
+<p>Header: Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+</ul>
+<h2>person_contact_other</h2>
+<p>The form person_contact_other is implemented by the class: iHRIS_Contact It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>address:</p>
+</li>
+<li>
+<p>Header: Mailing Address</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>alt_telephone:</p>
+</li>
+<li>
+<p>Header: Alternate Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>email:</p>
+</li>
+<li>
+<p>Header: Email Address</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>fax:</p>
+</li>
+<li>
+<p>Header: Fax Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>telephone:</p>
+</li>
+<li>
+<p>Header: Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+</ul>
+<h2>person_contact_personal</h2>
+<p>The form person_contact_personal is implemented by the class: iHRIS_Contact It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>address:</p>
+</li>
+<li>
+<p>Header: Mailing Address</p>
+</li>
+<li>
+<p>Type: STRING_MLINE</p>
+</li>
+<li>
+<p>alt_telephone:</p>
+</li>
+<li>
+<p>Header: Alternate Telephone Number</p>
+</li>
+<li>
+<p>Type: STRING_LINE</p>
+</li>
+<li>
+<p>email:</p>
+</li>
+<li>
+<p>Header: Email Address</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>fax:</p>
+</li>
+<li>
+<p>Header: Fax Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>telephone:</p>
+</li>
+<li>
+<p>Header: Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+</ul>
+<h2>person_contact_work</h2>
+<p>The form person_contact_work is implemented by the class: iHRIS_Contact It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>address:</p>
+</li>
+<li>
+<p>Header: Mailing Address</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>alt_telephone:</p>
+</li>
+<li>
+<p>Header: Alternate Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>email:</p>
+</li>
+<li>
+<p>Header: Email Address</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>fax:</p>
+</li>
+<li>
+<p>Header: Fax Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>telephone:</p>
+</li>
+<li>
+<p>Header: Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+</ul>
+<h2>person_id</h2>
+<p>The form person_id is implemented by the class: iHRIS_PersonID</p>
+<p>This form holds basic information about an identification for a person</p>
+<p>It has the following fields:</p>
+<ul>
+<li>
+<p>id_num:</p>
+</li>
+<li>
+<p>Header: Identification Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+<li>
+<p>id_type:</p>
+</li>
+<li>
+<p>Header: Identification Type</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: id_type</li>
+</ul>
+<h2>person_language</h2>
+<p>The form person_language is implemented by the class: iHRIS_PersonLanguage It has the following fields:</p>
+<ul>
+<li>
+<p>language:</p>
+</li>
+<li>
+<p>Header: Language</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: language</li>
+<li>
+<p>reading:</p>
+</li>
+<li>
+<p>Header: Reading Proficiency</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: language_proficiency</li>
+<li>
+<p>speaking:</p>
+</li>
+<li>
+<p>Header: Speaking Proficiency</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: language_proficiency</li>
+<li>
+<p>writing:</p>
+</li>
+<li>
+<p>Header: Writing Proficiency</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: language_proficiency</li>
+</ul>
+<h2>person_photo_passport</h2>
+<p>The form person_photo_passport is implemented by the class: iHRIS_Photo It has the following fields:</p>
+<ul>
+<li>
+<p>date:</p>
+</li>
+<li>
+<p>Header: Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>description:</p>
+</li>
+<li>
+<p>Header: Description</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>image:</p>
+</li>
+<li>
+<p>Header: Image</p>
+</li>
+<li>Type: IMAGE</li>
+</ul>
+<h2>person_position</h2>
+<p>The form person_position is implemented by the class: iHRIS_PersonPosition</p>
+<p>This form is used to link a person to a pariticular position residence</p>
+<p>It has the child forms:</p>
+<ul>
+<li>salary</li>
+</ul>
+<p>It has the following fields:</p>
+<ul>
+<li>
+<p>end_date:</p>
+</li>
+<li>
+<p>Header: End Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>position:</p>
+</li>
+<li>
+<p>Header: Position</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: position</li>
+<li>
+<p>reason:</p>
+</li>
+<li>
+<p>Header: Reason for Departure</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: pos_change_reason</li>
+<li>
+<p>start_date:</p>
+</li>
+<li>
+<p>Header: Start Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>person_resume</h2>
+<p>The form person_resume is implemented by the class: iHRIS_Document It has the following fields:</p>
+<ul>
+<li>
+<p>date:</p>
+</li>
+<li>
+<p>Header: Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>description:</p>
+</li>
+<li>
+<p>Header: Description</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>document:</p>
+</li>
+<li>
+<p>Header: Document</p>
+</li>
+<li>Type: DOCUMENT</li>
+</ul>
+<h2>person_scheduled_training_course</h2>
+<p>The form person_scheduled_training_course is implemented by the class: iHRIS_Person_Scheduled_Training_Course It has the child forms:</p>
+<ul>
+<li>training_course_competency_evaluation</li>
+</ul>
+<p>It has the following fields:</p>
+<ul>
+<li>
+<p>completed:</p>
+</li>
+<li>
+<p>Header: Completed</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>is_retraining:</p>
+</li>
+<li>
+<p>Header: Retraining</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>request_date:</p>
+</li>
+<li>
+<p>Header: Request Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>scheduled_training_course:</p>
+</li>
+<li>
+<p>Header: Instance</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: scheduled_training_course</li>
+<li>
+<p>training_course_evaluation:</p>
+</li>
+<li>
+<p>Header: Evaluation</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>
+<p>Maps To Forms: training_course_evaluation</p>
+</li>
+<li>
+<p>training_course_requestor:</p>
+</li>
+<li>
+<p>Header: Requested By</p>
+</li>
+<li>
+<p>Type: MAP</p>
+</li>
+<li>Maps To Forms: training_course_requestor</li>
+</ul>
+<h2>pos_change_reason</h2>
+<p>The form pos_change_reason is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>position</h2>
+<p>The form position is implemented by the class: iHRIS_Position It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>code:</p>
+</li>
+<li>
+<p>Header: Position Code</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+<li>
+<p>comments:</p>
+</li>
+<li>
+<p>Header: Position Comments</p>
+</li>
+<li>Type: STRING_TEXT</li>
+<li>
+<p>department:</p>
+</li>
+<li>
+<p>Header: Department</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: department</li>
+<li>
+<p>description:</p>
+</li>
+<li>
+<p>Header: Position Description</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>facility:</p>
+</li>
+<li>
+<p>Header: Facility</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: facility</li>
+<li>
+<p>interview_comments:</p>
+</li>
+<li>
+<p>Header: Interview Comments</p>
+</li>
+<li>Type: STRING_TEXT</li>
+<li>
+<p>job:</p>
+</li>
+<li>
+<p>Header: Job</p>
+</li>
+<li>Type: MAP</li>
+<li>
+<p>Restrictions: Required</p>
+</li>
+<li>
+<p>Maps To Forms: job</p>
+</li>
+<li>
+<p>posted_date:</p>
+</li>
+<li>
+<p>Header: Date Posted</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>pos_type:</p>
+</li>
+<li>
+<p>Header: Position Type</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: position_type</li>
+<li>
+<p>proposed_end_date:</p>
+</li>
+<li>
+<p>Header: Proposed End Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>proposed_hiring_date:</p>
+</li>
+<li>
+<p>Header: Proposed Hiring Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>proposed_salary:</p>
+</li>
+<li>
+<p>Header: Proposed Salary</p>
+</li>
+<li>Type: CURRENCY</li>
+<li>Maps To Forms: currency</li>
+<li>
+<p>source:</p>
+</li>
+<li>
+<p>Header: Source</p>
+</li>
+<li>Type: MAP_MULT</li>
+<li>Maps To Forms: salary_source</li>
+<li>
+<p>status:</p>
+</li>
+<li>
+<p>Header: Status</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: position_status</li>
+<li>
+<p>supervisor:</p>
+</li>
+<li>
+<p>Header: Supervisor</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: position</li>
+<li>
+<p>title:</p>
+</li>
+<li>
+<p>Header: Position Title</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>position_decision</h2>
+<p>The form position_decision is implemented by the class: iHRIS_PositionDecision It has the following fields:</p>
+<ul>
+<li>
+<p>comments:</p>
+</li>
+<li>
+<p>Header: Comments</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>date:</p>
+</li>
+<li>
+<p>Header: Date of Decision</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>offer:</p>
+</li>
+<li>
+<p>Header: Make a Job Offer?</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>record:</p>
+</li>
+<li>
+<p>Header: Record of Decision</p>
+</li>
+<li>Type: DOCUMENT</li>
+</ul>
+<h2>position_interview</h2>
+<p>The form position_interview is implemented by the class: iHRIS_PositionInterview It has the following fields:</p>
+<ul>
+<li>
+<p>comments:</p>
+</li>
+<li>
+<p>Header: Comments</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>date:</p>
+</li>
+<li>
+<p>Header: Date of Interview</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>person:</p>
+</li>
+<li>
+<p>Header: People Attending</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+<li>
+<p>record:</p>
+</li>
+<li>
+<p>Header: Interview Record</p>
+</li>
+<li>Type: DOCUMENT</li>
+</ul>
+<h2>position_status</h2>
+<p>The form position_status is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>
+<p>Type: STRING_LINE</p>
+</li>
+<li>
+<p>Restrictions: Required, Unique</p>
+</li>
+</ul>
+<h2>position_type</h2>
+<p>The form position_type is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>region</h2>
+<p>The form region is implemented by the class: iHRIS_Region It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>code:</p>
+</li>
+<li>
+<p>Header: Code</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>country:</p>
+</li>
+<li>
+<p>Header: Country</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: country</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique in {country}</li>
+</ul>
+<h2>registration</h2>
+<p>The form registration is implemented by the class: iHRIS_Registration It has the following fields:</p>
+<ul>
+<li>
+<p>council:</p>
+</li>
+<li>
+<p>Header: Registration Council</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: council</li>
+<li>
+<p>license_expiration:</p>
+</li>
+<li>
+<p>Header: License Expiration Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>license_number:</p>
+</li>
+<li>
+<p>Header: License Number</p>
+</li>
+<li>
+<p>Type: STRING_LINE</p>
+</li>
+<li>
+<p>registration_date:</p>
+</li>
+<li>
+<p>Header: Registration Date</p>
+</li>
+<li>
+<p>Type: DATE_YMD</p>
+</li>
+<li>
+<p>registration_number:</p>
+</li>
+<li>
+<p>Header: Registration Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+</ul>
+<h2>salary</h2>
+<p>The form salary is implemented by the class: iHRIS_Salary It has the following fields:</p>
+<ul>
+<li>
+<p>end_date:</p>
+</li>
+<li>
+<p>Header: End Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>salary:</p>
+</li>
+<li>
+<p>Header: Salary</p>
+</li>
+<li>Type: CURRENCY</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: currency</li>
+<li>
+<p>start_date:</p>
+</li>
+<li>
+<p>Header: Start Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+</ul>
+<h2>salary_grade</h2>
+<p>The form salary_grade is implemented by the class: iHRIS_SalaryGrade It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>end:</p>
+</li>
+<li>
+<p>Header: End</p>
+</li>
+<li>Type: CURRENCY</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: currency</li>
+<li>
+<p>midpoint:</p>
+</li>
+<li>
+<p>Header: MidPoint</p>
+</li>
+<li>Type: CURRENCY</li>
+<li>Maps To Forms: currency</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>
+<p>Type: STRING_MLINE</p>
+</li>
+<li>
+<p>start:</p>
+</li>
+<li>
+<p>Header: Start</p>
+</li>
+<li>Type: CURRENCY</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: currency</li>
+</ul>
+<h2>salary_source</h2>
+<p>The form salary_source is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>scheduled_training_course</h2>
+<p>The form scheduled_training_course is implemented by the class: iHRIS_Scheduled_Training_Course It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>end_date:</p>
+</li>
+<li>
+<p>Header: End Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>instructors:</p>
+</li>
+<li>
+<p>Header: Instructors</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>location:</p>
+</li>
+<li>
+<p>Header: Location</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: county,district</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Site</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>num_students:</p>
+</li>
+<li>
+<p>Header: Maximum Number of Students</p>
+</li>
+<li>Type: INT</li>
+<li>
+<p>Restrictions: Required</p>
+</li>
+<li>
+<p>start_date:</p>
+</li>
+<li>
+<p>Header: Start Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>training_course:</p>
+</li>
+<li>
+<p>Header: Training Course</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: training_course</li>
+</ul>
+<h2>training_course</h2>
+<p>The form training_course is implemented by the class: iHRIS_Training_Course</p>
+<p>This form holds basic information about a training course</p>
+<p>It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>competency:</p>
+</li>
+<li>
+<p>Header: Competencies Provided</p>
+</li>
+<li>Type: MAP_MULT</li>
+<li>Maps To Forms: competency</li>
+<li>
+<p>continuing_education_course:</p>
+</li>
+<li>
+<p>Header: CEUs Provided</p>
+</li>
+<li>Type: MAP_MULT</li>
+<li>Maps To Forms: continuing_education_course</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>topic:</p>
+</li>
+<li>
+<p>Header: Topic</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required</li>
+<li>
+<p>training_course_category:</p>
+</li>
+<li>
+<p>Header: Category</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: training_course_category</li>
+<li>
+<p>training_course_status:</p>
+</li>
+<li>
+<p>Header: Status</p>
+</li>
+<li>
+<p>Type: MAP</p>
+</li>
+<li>
+<p>Restrictions: Required</p>
+</li>
+<li>
+<p>Maps To Forms: training_course_status</p>
+</li>
+<li>
+<p>training_funder:</p>
+</li>
+<li>
+<p>Header: Training Funders</p>
+</li>
+<li>Type: MAP_MULT</li>
+<li>Maps To Forms: training_funder</li>
+<li>
+<p>training_institution:</p>
+</li>
+<li>
+<p>Header: Training Institution</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: training_institution</li>
+</ul>
+<h2>training_course_category</h2>
+<p>The form training_course_category is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>training_course_competency_evaluation</h2>
+<p>The form training_course_competency_evaluation is implemented by the class: iHRIS_Training_Course_Competency_Evaluation It has the following fields:</p>
+<ul>
+<li>
+<p>competency:</p>
+</li>
+<li>
+<p>Header: Competency</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: competency</li>
+<li>
+<p>competency_evaluation:</p>
+</li>
+<li>
+<p>Header: Evaluation</p>
+</li>
+<li>Type: MAP</li>
+<li>Restrictions: Required</li>
+<li>Maps To Forms: competency_evaluation</li>
+<li>
+<p>evaluation_date:</p>
+</li>
+<li>
+<p>Header: Evaluation Date</p>
+</li>
+<li>Type: DATE_YMD</li>
+<li>Restrictions: Required</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+</ul>
+<h2>training_course_evaluation</h2>
+<p>The form training_course_evaluation is implemented by the class: iHRIS_Training_Course_Evaluation It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>competency_evaluation:</p>
+</li>
+<li>
+<p>Header: Competency Evaluation</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: competency_evaluation</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>training_course_requestor</h2>
+<p>The form training_course_requestor is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>training_course_status</h2>
+<p>The form training_course_status is implemented by the class: I2CE_SimpleList It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>training_funder</h2>
+<p>The form training_funder is implemented by the class: iHRIS_ListByCountry It has the child forms:</p>
+<ul>
+<li>training_funder_contact</li>
+</ul>
+<p>It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>location:</p>
+</li>
+<li>
+<p>Header: Location</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: county,district</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>training_funder_contact</h2>
+<p>The form training_funder_contact is implemented by the class: iHRIS_Contact It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>address:</p>
+</li>
+<li>
+<p>Header: Mailing Address</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>alt_telephone:</p>
+</li>
+<li>
+<p>Header: Alternate Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>email:</p>
+</li>
+<li>
+<p>Header: Email Address</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>fax:</p>
+</li>
+<li>
+<p>Header: Fax Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>telephone:</p>
+</li>
+<li>
+<p>Header: Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+</ul>
+<h2>training_institution</h2>
+<p>The form training_institution is implemented by the class: iHRIS_ListByCountry It has the child forms:</p>
+<ul>
+<li>training_institution_contact</li>
+</ul>
+<p>It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>location:</p>
+</li>
+<li>
+<p>Header: Location</p>
+</li>
+<li>Type: MAP</li>
+<li>Maps To Forms: county,district</li>
+<li>
+<p>name:</p>
+</li>
+<li>
+<p>Header: Name</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>Restrictions: Required, Unique</li>
+</ul>
+<h2>training_institution_contact</h2>
+<p>The form training_institution_contact is implemented by the class: iHRIS_Contact It has the following fields:</p>
+<ul>
+<li>
+<p>i2ce_hidden:</p>
+</li>
+<li>
+<p>Header: Hide</p>
+</li>
+<li>Type: YESNO</li>
+<li>
+<p>address:</p>
+</li>
+<li>
+<p>Header: Mailing Address</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>alt_telephone:</p>
+</li>
+<li>
+<p>Header: Alternate Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>email:</p>
+</li>
+<li>
+<p>Header: Email Address</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>fax:</p>
+</li>
+<li>
+<p>Header: Fax Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+<li>
+<p>notes:</p>
+</li>
+<li>
+<p>Header: Notes</p>
+</li>
+<li>Type: STRING_MLINE</li>
+<li>
+<p>telephone:</p>
+</li>
+<li>
+<p>Header: Telephone Number</p>
+</li>
+<li>Type: STRING_LINE</li>
+</ul>
+<h2>References</h2>
+<p>[1] http://open.intrahealth.org/visualizations/forms-ihris-manage-site-demo_4_0_7.gif</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=34902">revision 34902</a>; contributors: Litlfred. Pages 223&ndash;273 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

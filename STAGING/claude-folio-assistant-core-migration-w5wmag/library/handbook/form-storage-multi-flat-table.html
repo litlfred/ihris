@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Form Storage -- Multi-Flat Table · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1dfcoa976z5.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1dfcoa976z5"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Form Storage -- Multi-Flat Table</div>
+<h1>Form Storage -- Multi-Flat Table</h1>
+<div class="wiki">
+<p>Slated for release in version 4.0.1.</p>
+<p>The Multi-Flat form storage mechanism is similar to the flat form storage mechanism excepting that the data used to populate the form can come from multiple databases and tables. The Multi-Flat storage mechanism is intended for data aggregation purposes. It does so by considering each database/table to contain the data from one component. By a component, we mean a self-contained running instance of iHRIS Manage.</p>
+<p>For example, you may have several regions each running an instance of iHRIS Manage. You may wish to aggregate data maintained within each of the regions (e.g. people and positions, but not jobs or geographic locations) into a central instance of iHRIS Manage so that you can run reports on the entire country. When setting up the central instance of iHRIS Manage, you could choose to use the Multi-Flat storage mechanism for people and positions. Then on the central server, you could create a database for each region, (Region1, Region2, etc.) which would simply contain the cached tables for people and position for each of the respective regions.</p>
+<p>For the data such as jobs or geographic locations, which should be centrally maintained, we encourage you to use the magic data form storage mechanisms.</p>
+<h2>Specifying Multi-Flat Storage</h2>
+<p>To specify that the form $form has a Multi-Flat table storage mechanism set by setting</p>
+<pre><code>/modules/forms/forms/$form/storage
+</code></pre>
+<p>to have value 'multi_flat.</p>
+<h2>Form Options</h2>
+<p>The multi-flat storage mechanism is defined so that, by default, it can read in the cached "hippo_" tables of form data across several databases, with each database corresponding to one component (e.g. a region, district or facility). If you situation, is not exactly this, then you can take advantage of the options as described in this section.</p>
+<p>The options specifying a Multi-Flat table storage for $form are stored at:</p>
+<pre><code>/modules/forms/forms/$form/storage_options/multi_flat
+</code></pre>
+<p>It has the following structure (which is identical to those for flat storage):</p>
+<ul>
+<li>table: Optional scalar node. The table to use, e.g. hippo_person. You are responsible for back-tics if required. The same table name will be used across the multiple databases, with each database representing an individual component). If it is not set, it determines the table name from the table_prefix set in the global options.</li>
+<li>
+<p>id: Optional parent node. The data defining how to associate an id per row of this table. If it is not set, we use simply the column 'id'.</p>
+</li>
+<li>
+<p>col: Optional scalar node. Specifies a column of the table to be used as the id. You are responsible for back-tics.</p>
+</li>
+<li>function: Optional scalar node. Specifies a SQL function whose result will the id for the form. 'col' takes precedence.</li>
+<li>
+<p>form_prepended: Optional scalar node. Defaults to true. If true it means the form name has been prepended to the id. Otherwise, it assume that the column is just the id.</p>
+</li>
+<li>
+<p>fields: Optional parent node. Specifies how the data of the your form is associate to a row of your table. Each child of this node is the name of a field $field of your form. By default, all fields of a form are populated, and are all assumed to come from the column with that field name.</p>
+</li>
+<li>
+<p>$field: Parent node with the following child nodes.</p>
+</li>
+<li>
+<p>col: Optional scalar node. Specifies a column of the table to be used as the id. You are responsible for back-tics.</p>
+</li>
+<li>function: Optional scalar node. Optional scalar node. Specifies a SQL function whose result will as the value for the field. 'col' takes precedence.</li>
+<li>enabled: Optional scalar node. If present and evaluates to false, it means we should not populate this field.</li>
+<li>
+<p>parent: Optional parent node. If not present, we assume the parent is populated from the column 'parent'. It has the following child nodes:</p>
+</li>
+<li>
+<p>enabled: Optional scalar node. If present and evaluates to false, it means getParent() should return the trivial parent id, '0'.</p>
+</li>
+<li>col: Optional scalar node. Specifies a "column" of the table to be used as the id for the parent. You are responsible for back-tics.</li>
+<li>function: Optional scalar node. Optional scalar node. Optional scalar node. Specifies a SQL function whose result will as the value for the parent form's id. 'col' takes precedence.</li>
+<li>writable: Optional scalar node. Defines the write access to the table. If not present or its value cast to false, then the table is not consider to be writable. If its value casts to true, then it is considered writable and the save() method will actually do something. At the moment, the save() method is not implemented.</li>
+<li>
+<p>last_modified: Optional parent node. If not present, we assume the last modified time is populated from the column 'last_modified'. It has the following child nodes:</p>
+</li>
+<li>
+<p>enabled: Optional scalar node. If present and evaluates to false, it means the modified time is always taken to be NULL</p>
+</li>
+<li>col: Optional scalar node. Specifies a "column" of the table to be used as the modified time. Column should have type datetime. You are responsible for back-tics.</li>
+<li>function: Optional scalar node. Optional scalar node. Optional scalar node. Specifies a SQL function whose result (of type datetime) will as the value for the modified time. 'col' takes precedence.</li>
+</ul>
+<h3>Form Options Example</h3>
+<p>To read in the cached hippo_person tables for the person forms from the four different regions in the example below we would set:</p>
+<pre><code>/modules/forms/forms/person/storage =&gt; 'multi_flat'
+</code></pre>
+<p>This can be done in a configuration.xml file by:</p>
+<pre><code>&lt;configuration name='person_multi_flat' path='/modules/forms/forms/person/storage'&gt;
+ &lt;value&gt;multi_flat&lt;/value&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>In this case, if a person form had the id "person|12" and was in the Northern region, the id would become "person|12@north"</p>
+<h2>Global Options</h2>
+<p>There are global options for specifying a the mapping between components and databases</p>
+<pre><code>/modules/forms/storage_options/multi_flat
+</code></pre>
+<p>This has the structure:</p>
+<ul>
+<li>table_prefix: Optional scalar node. The value pre-pended to a form name to give the table name where the data is stored. If not set it is 'hippo_', the prefix used for the caching of form data to flat tables.</li>
+<li>
+<p>components: Required parent node. It's child nodes are the names of each of the components (e.g. Regions) you will be reading from.</p>
+</li>
+<li>
+<p>$component: Parent node.</p>
+</li>
+<li>
+<p>database: Required scalar node. It's value is the database where the tables for the $component are stored.</p>
+</li>
+<li>table_prefix: Optional scalar node. It's value is the prefix pre-pended to the form name to get the table. If it is not set, it uses the value stored at /modules/forms/storage_options/multi_flat/table_prefix (which defaults to 'hippo_')</li>
+</ul>
+<h3>Global Options Example</h3>
+<p>For example you might have the following:</p>
+<ul>
+<li>
+<p>components</p>
+</li>
+<li>
+<p>north =&gt;</p>
+</li>
+<li>
+<p>database =&gt; 'NorthernRegionDatabase'</p>
+</li>
+<li>
+<p>south =&gt;</p>
+</li>
+<li>
+<p>database =&gt; 'SouthernRegionDatabase'</p>
+</li>
+<li>
+<p>east =&gt;</p>
+</li>
+<li>
+<p>database =&gt; 'EasternRegionDatabase'</p>
+</li>
+<li>
+<p>west</p>
+</li>
+<li>
+<p>database =&gt; 'WesternRegionDatabase'</p>
+</li>
+</ul>
+<p>You can set this in a configuration.xml file by:</p>
+<pre><code>&lt;configurationGroup name='multi_flat_components' path='/modules/forms/storage_options/multi_flat/components'&gt;
+ &lt;configuration name='north' values='many' type='delimited'&gt;
+   &lt;value&gt;database:NorhternRegionDatabase&lt;/value&gt;
+ &lt;/configuration&gt;
+ &lt;configuration name='south' values='many' type='delimited'&gt;
+   &lt;value&gt;database:SouthernRegionDatabase&lt;/value&gt;
+ &lt;/configuration&gt;
+ &lt;configuration name='east' values='many' type='delimited'&gt;
+   &lt;value&gt;database:EasternRegionDatabase&lt;/value&gt;
+ &lt;/configuration&gt;
+ &lt;configuration name='west' values='many' type='delimited'&gt;
+   &lt;value&gt;database:WesternRegionDatabase&lt;/value&gt;
+ &lt;/configuration&gt;
+&lt;/configurationGroup&gt;
+</code></pre></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=31406">revision 31406</a>; contributors: Litlfred, MarkAHershberger. Pages 97&ndash;99 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

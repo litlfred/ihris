@@ -1,0 +1,2112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IHRIS Common Module List (4.0.6) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1dfcoa976z5.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1dfcoa976z5"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / IHRIS Common Module List (4.0.6)</div>
+<h1>IHRIS Common Module List (4.0.6)</h1>
+<div class="wiki">
+<p>This is a list of all modules available in version 4.0.6-release of the package iHRIS Common [1]</p>
+<h2>CEUs</h2>
+<p>This describes version 4.0.1.1 of the module CEUs (CEUs)</p>
+<ul>
+<li>
+<p>Source: common/modules/CEUs [2]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_CEUs</p>
+</li>
+<li>Description: Makes Continuing Education Unit (CEU) information available to the system</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0 and less than 4.1</p>
+</li>
+<li>forms-storage-magicdata at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/CEUs/configs [3]</p>
+</li>
+<li>
+<p>Classes: modules/CEUs/lib [4]</p>
+</li>
+<li>
+<p>iHRIS_Module_CEUs</p>
+</li>
+<li>Templates: modules/CEUs/templates [5]</li>
+</ul>
+<p>view_list_continuing_education_course.html, lists_form_continuing_education_course.html</p>
+<h2>Contact</h2>
+<p>This describes version 4.0.6.1 of the module Contact (Contact)</p>
+<ul>
+<li>
+<p>Source: common/modules/Contact [6]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Contact</p>
+</li>
+<li>Description: Makes Contact information available to the system</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Geography at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Contact/configs [7]</p>
+</li>
+<li>
+<p>Classes: modules/Contact/lib [8]</p>
+</li>
+<li>
+<p>iHRIS_Contact, iHRIS_Module_Contact</p>
+</li>
+<li>Templates: modules/Contact/templates [9]</li>
+</ul>
+<p>lists_form_contact.html, form_contact.html</p>
+<h2>Currency</h2>
+<p>This describes version 4.0.6.2 of the module Currency (Currency)</p>
+<ul>
+<li>
+<p>Source: common/modules/Currency [10]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Currency</p>
+</li>
+<li>Description: Makes Currency information available to the system</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Geography at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Currency/configs [11]</p>
+</li>
+<li>
+<p>Classes: modules/Currency/lib [12]</p>
+</li>
+<li>
+<p>iHRIS_FormField_CURRENCY, iHRIS_Module_Currency</p>
+</li>
+<li>Templates: modules/Currency/templates [13]</li>
+</ul>
+<p>view_list_currency.html, lists_form_currency.html</p>
+<h2>Document</h2>
+<p>This describes version 4.0.0 of the module Document (Document)</p>
+<ul>
+<li>
+<p>Source: common/modules/Document [14]</p>
+</li>
+<li>
+<p>Description: Makes Document information available to the system</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>BinField at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Document/configs [15]</p>
+</li>
+<li>
+<p>Classes: modules/Document/lib [16]</p>
+</li>
+</ul>
+<h2>Facility</h2>
+<p>This describes version 4.0.0 of the module Facility (Facility)</p>
+<ul>
+<li>
+<p>Source: common/modules/Facility [17]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Facility</p>
+</li>
+<li>Description: Makes Facility information available to the system</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Geography at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Facility/configs [18]</p>
+</li>
+<li>
+<p>Classes: modules/Facility/lib [19]</p>
+</li>
+<li>
+<p>iHRIS_Module_Facility</p>
+</li>
+<li>
+<p>Modules: modules/Facility/modules [20]</p>
+</li>
+<li>
+<p>FacilityContact</p>
+</li>
+<li>Templates: modules/Facility/templates [21]</li>
+</ul>
+<p>lists_form_facility.html, view_list_facility.html, view_list_facility_type.html</p>
+<h2>FacilityContact</h2>
+<p>This describes version 4.0.0 of the module Facility Contact (FacilityContact)</p>
+<ul>
+<li>
+<p>Source: common/modules/Facility/modules/FacilityContact [22]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_FacilityContact</p>
+</li>
+<li>Description: Adds contact information to a facility</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Facility at least 4.0 and less than 4.1</p>
+</li>
+<li>Contact at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Facility/modules/FacilityContact/configs [23]</p>
+</li>
+<li>
+<p>Templates: modules/Facility/modules/FacilityContact/templates [24]</p>
+</li>
+<li>
+<p>view_list_facility_contact.html, lists_form_facility_contact.html</p>
+</li>
+<li>Classes: modules/Facility/modules/FacilityContact/lib [25]</li>
+</ul>
+<p>iHRIS_Module_FacilityContact</p>
+<h2>Geography</h2>
+<p>This describes version 4.0.6.1 of the module Geography (Geography)</p>
+<ul>
+<li>
+<p>Source: common/modules/Geography [26]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Geography</p>
+</li>
+<li>Description: Makes Geography information available to the system</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0 and less than 4.1</p>
+</li>
+<li>forms-storage-magicdata at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Geography/configs [27]</p>
+</li>
+<li>
+<p>Classes: modules/Geography/lib [28]</p>
+</li>
+</ul>
+<p>iHRIS_Country, iHRIS_Module_Geography</p>
+<ul>
+<li>Templates: modules/Geography/templates [29]</li>
+</ul>
+<p>view_list_district.html, view_list_county.html, lists_form_district.html, lists_form_country.html, lists_form_county.html, view_list_country.html, lists_form_region.html, view_list_region.html</p>
+<h2>Person</h2>
+<p>This describes version 4.0.0 of the module Person (Person)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person [30]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Person</p>
+</li>
+<li>Description: Makes Person information available to the system</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Geography at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/configs [31]</p>
+</li>
+<li>
+<p>Classes: modules/Person/lib [32]</p>
+</li>
+<li>
+<p>iHRIS_Module_Person, iHRIS_PageFormParentPerson, iHRIS_PageFormPerson, iHRIS_PageView, iHRIS_Person</p>
+</li>
+<li>
+<p>Modules: modules/Person/modules [33]</p>
+</li>
+<li>
+<p>PersonArchivedScan, PersonContact, PersonDemographic, PersonEducation, PersonEmployment, PersonID, PersonLanguage, PersonNotes, PersonPassportPhoto, PersonResume, dependents, nextOfKin, person-simple-competency</p>
+</li>
+<li>Templates: modules/Person/templates [34]</li>
+</ul>
+<p>view.html, menu_view_link.html, form_person_base.html, menu_view_person.html, form_person.html</p>
+<h2>PersonArchivedScan</h2>
+<p>This describes version 4.0.6.2 of the module Archived Paper Records (PersonArchivedScan)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/ArchivalScans [35]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_ArchivedScan</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_person_archive_scan() via action_person_archive_scan()</p>
+</li>
+<li>Description: Provides place to archive scans of paper records</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>Photo at least 4.0</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/ArchivalScans/configs [36]</p>
+</li>
+<li>
+<p>Classes: modules/Person/modules/ArchivalScans/lib [37]</p>
+</li>
+<li>
+<p>iHRIS_Module_ArchivedScan</p>
+</li>
+<li>Templates: modules/Person/modules/ArchivalScans/templates [38]</li>
+</ul>
+<p>view_person_archive_scan.html, form_person_archive_scan.html</p>
+<h2>PersonContact</h2>
+<p>This describes version 4.0.0 of the module iHRIS Person Contact (PersonContact)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/Contact [39]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_PersonContact</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_person_contact_work() via action_person_contact_work()</p>
+</li>
+<li>Implements the method iHRIS_PageView-&gt;action_person_contact_personal() via action_person_contact_personal()</li>
+<li>Implements the method iHRIS_PageView-&gt;action_person_contact_other() via action_person_contact_other()</li>
+<li>Implements the method iHRIS_PageView-&gt;action_person_contact_emergency() via action_person_contact_emergency()</li>
+<li>Description: A Person's Contact</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>Contact at least 4.0</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/Contact/configs [40]</p>
+</li>
+<li>
+<p>Templates: modules/Person/modules/Contact/templates [41]</p>
+</li>
+<li>
+<p>add_person_contact_emergency.html, view_person_contact_personal.html, add_person_contact_personal.html, view_person_contact_work.html, form_person_contact_other.html, form_person_contact_emergency.html, view_person_contact_other.html, view_person_contact_emergency.html, add_person_contact_work.html, form_person_contact_personal.html, form_person_contact_work.html, add_person_contact_other.html</p>
+</li>
+<li>Classes: modules/Person/modules/Contact/lib [42]</li>
+</ul>
+<p>iHRIS_Module_PersonContact, iHRIS_PageFormContact</p>
+<h2>PersonDemographic</h2>
+<p>This describes version 4.0.0 of the module iHRIS Person Demographic (PersonDemographic)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/Demographic [43]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_PersonDemographic</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_demographic() via action_demographic()</p>
+</li>
+<li>Description: A Person's Demographic</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/Demographic/configs [44]</p>
+</li>
+<li>
+<p>Classes: modules/Person/modules/Demographic/lib [45]</p>
+</li>
+<li>
+<p>iHRIS_Module_PersonDemographic</p>
+</li>
+<li>Templates: modules/Person/modules/Demographic/templates [46]</li>
+</ul>
+<p>view_list_marital_status.html, form_demographic.html, view_demographic.html</p>
+<h2>PersonEducation</h2>
+<p>This describes version 4.0.0 of the module iHRIS Person Education (PersonEducation)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/Education [47]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_PersonEducation</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_education() via action_education()</p>
+</li>
+<li>Description: A Person's Education and Degree Details</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/Education/configs [48]</p>
+</li>
+<li>
+<p>Templates: modules/Person/modules/Education/templates [49]</p>
+</li>
+<li>
+<p>view_list_edu_type.html, form_education.html, view_education.html, lists_form_degree.html, view_list_degree.html</p>
+</li>
+<li>Classes: modules/Person/modules/Education/lib [50]</li>
+</ul>
+<p>iHRIS_Module_PersonEducation</p>
+<h2>PersonEmployment</h2>
+<p>This describes version 4.0.0 of the module iHRIS Person Employment (PersonEmployment)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/Employment [51]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_PersonEmployment</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_employment() via action_employment()</p>
+</li>
+<li>Description: A Person's Employment History Details</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>Currency at least 4.0</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/Employment/configs [52]</p>
+</li>
+<li>
+<p>Classes: modules/Person/modules/Employment/lib [53]</p>
+</li>
+<li>
+<p>iHRIS_Module_PersonEmployment</p>
+</li>
+<li>Templates: modules/Person/modules/Employment/templates [54]</li>
+</ul>
+<p>view_employment.html, form_employment.html</p>
+<h2>PersonID</h2>
+<p>This describes version 4.0.0 of the module iHRIS Person ID (PersonID)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/ID [55]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_PersonID</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_person_id() via action_person_id()</p>
+</li>
+<li>
+<p>Description: A Person's ID</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/ID/configs [56]</p>
+</li>
+<li>
+<p>Classes: modules/Person/modules/ID/lib [57]</p>
+</li>
+<li>
+<p>iHRIS_Module_PersonID</p>
+</li>
+<li>Templates: modules/Person/modules/ID/templates [58]</li>
+</ul>
+<p>view_person_id.html, view_list_id_type.html, form_person_id.html</p>
+<h2>PersonLanguage</h2>
+<p>This describes version 4.0.0 of the module iHRIS Person Language (PersonLanguage)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/Language [59]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_PersonLanguage</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_person_language() via action_person_language()</p>
+</li>
+<li>Description: Track a Person's Language Qualifications</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/Language/configs [60]</p>
+</li>
+<li>
+<p>Classes: modules/Person/modules/Language/lib [61]</p>
+</li>
+<li>
+<p>iHRIS_Module_PersonLanguage</p>
+</li>
+<li>Templates: modules/Person/modules/Language/templates [62]</li>
+</ul>
+<p>view_list_language.html, view_person_language.html, form_person_language.html</p>
+<h2>PersonNotes</h2>
+<p>This describes version 4.0.0 of the module Notes (PersonNotes)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/Notes [63]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_PersonNotes</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_notes() via action_notes()</p>
+</li>
+<li>Description: Makes Notes information available to the system</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0 and less than 4.1</p>
+</li>
+<li>Person at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/Notes/configs [64]</p>
+</li>
+<li>
+<p>Classes: modules/Person/modules/Notes/lib [65]</p>
+</li>
+<li>
+<p>iHRIS_Module_PersonNotes</p>
+</li>
+<li>Templates: modules/Person/modules/Notes/templates [66]</li>
+</ul>
+<p>view_notes.html, form_notes.html</p>
+<h2>PersonPassportPhoto</h2>
+<p>This describes version 4.0.6 of the module iHRIS Person Passport Photo (PersonPassportPhoto)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/PersonPhoto [67]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_PersonPassport</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_person_photo_passport() via action_person_photo_passport()</p>
+</li>
+<li>Description: A Person's Photo</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>Photo at least 4.0</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/PersonPhoto/configs [68]</p>
+</li>
+<li>
+<p>Classes: modules/Person/modules/PersonPhoto/lib [69]</p>
+</li>
+<li>
+<p>iHRIS_Module_PersonPassport</p>
+</li>
+<li>Templates: modules/Person/modules/PersonPhoto/templates [70]</li>
+</ul>
+<p>form_person_photo_passport.html, view_person_photo_passport.html</p>
+<h2>PersonResume</h2>
+<p>This describes version 4.0.6.0 of the module iHRIS Person Resume (PersonResume)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/Resume [71]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Resume</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_person_resume() via action_person_resume()</p>
+</li>
+<li>Description: A Person's Resume</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0</p>
+</li>
+<li>Document at least 4.0</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/Resume/configs [72]</p>
+</li>
+<li>
+<p>Classes: modules/Person/modules/Resume/lib [73]</p>
+</li>
+<li>
+<p>iHRIS_Module_Resume</p>
+</li>
+<li>Templates: modules/Person/modules/Resume/templates [74]</li>
+</ul>
+<p>form_person_resume.html, view_person_resume.html</p>
+<h2>Photo</h2>
+<p>This describes version 4.0.0 of the module Photo (Photo)</p>
+<ul>
+<li>
+<p>Source: common/modules/Photo [75]</p>
+</li>
+<li>
+<p>Description: Makes Photo information available to the system</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>BinField at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Photo/configs [76]</p>
+</li>
+<li>
+<p>Classes: modules/Photo/lib [77]</p>
+</li>
+</ul>
+<h2>SDMX-HD-CodeLists</h2>
+<p>This describes version 4.0.5.2 of the module SDMX-HD Code Lists (SDMX-HD-CodeLists)</p>
+<ul>
+<li>
+<p>Source: common/modules/SDMX-HD-CodeLists [78]</p>
+</li>
+<li>
+<p>Description: Information to load SDMX-HD Code Lists.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0</p>
+</li>
+<li>forms-storage-SDMXHD at least 4.0</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/SDMX-HD-CodeLists/configs [79]</p>
+</li>
+<li>
+<p>Sdmxhd: modules/SDMX-HD-CodeLists/SDMX-HD [80]</p>
+</li>
+<li>
+<p>Classes: modules/SDMX-HD-CodeLists/ [81]</p>
+</li>
+</ul>
+<h2>SampleData-Common</h2>
+<p>This describes version 4.0.0 of the module iHRIS Common Sample Data (SampleData-Common)</p>
+<ul>
+<li>
+<p>Source: common/modules/CommonSampleData [82]</p>
+</li>
+<li>
+<p>Description: Sample Data for iHRIS Common forms.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0</p>
+</li>
+<li>Optionally Enables: SampleData-Geography SampleData-currency SampleData-degree</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Modules: modules/CommonSampleData/modules [83]</p>
+</li>
+<li>
+<p>SampleData-Geography, SampleData-currency, SampleData-degree, SampleData-edu_type</p>
+</li>
+<li>Classes: modules/CommonSampleData/ [84]</li>
+</ul>
+<h2>SampleData-Geography</h2>
+<p>This describes version 4.0.0 of the module Geography Sample Data (SampleData-Geography)</p>
+<ul>
+<li>
+<p>Source: common/modules/CommonSampleData/modules/SampleData-Geography [85]</p>
+</li>
+<li>
+<p>Description: Sample Data for Geography forms.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Geography at least 4.0</p>
+</li>
+<li>Optionally Enables: SampleData-country SampleData-region SampleData-district SampleData-county</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Modules: modules/CommonSampleData/modules/SampleData-Geography/modules [86]</p>
+</li>
+<li>
+<p>SampleData-country, SampleData-county, SampleData-district, SampleData-region</p>
+</li>
+<li>Classes: modules/CommonSampleData/modules/SampleData-Geography/ [87]</li>
+</ul>
+<h2>SampleData-country</h2>
+<p>This describes version 4.0.0 of the module Country (SampleData-country)</p>
+<ul>
+<li>
+<p>Source: common/modules/CommonSampleData/modules/SampleData-Geography/modules/SampleData-country [88]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: country</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Geography at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/CommonSampleData/modules/SampleData-Geography/modules/SampleData-country/configs [89]</p>
+</li>
+<li>
+<p>Classes: modules/CommonSampleData/modules/SampleData-Geography/modules/SampleData-country/ [90]</p>
+</li>
+</ul>
+<h2>SampleData-county</h2>
+<p>This describes version 4.0.0 of the module County (SampleData-county)</p>
+<ul>
+<li>
+<p>Source: common/modules/CommonSampleData/modules/SampleData-Geography/modules/SampleData-county [91]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: county</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>SampleData-district at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/CommonSampleData/modules/SampleData-Geography/modules/SampleData-county/ [92]</p>
+</li>
+</ul>
+<h2>SampleData-currency</h2>
+<p>This describes version 4.0.0 of the module Currency (SampleData-currency)</p>
+<ul>
+<li>
+<p>Source: common/modules/CommonSampleData/modules/SampleData-currency [93]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: currency</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Currency at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/CommonSampleData/modules/SampleData-currency/configs [94]</p>
+</li>
+<li>
+<p>Classes: modules/CommonSampleData/modules/SampleData-currency/ [95]</p>
+</li>
+</ul>
+<h2>SampleData-degree</h2>
+<p>This describes version 4.0.0 of the module Degree (SampleData-degree)</p>
+<ul>
+<li>
+<p>Source: common/modules/CommonSampleData/modules/SampleData-degree [96]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: degree</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>SampleData-edu_type at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/CommonSampleData/modules/SampleData-degree/configs [97]</p>
+</li>
+<li>
+<p>Classes: modules/CommonSampleData/modules/SampleData-degree/ [98]</p>
+</li>
+</ul>
+<h2>SampleData-district</h2>
+<p>This describes version 4.0.0 of the module District (SampleData-district)</p>
+<ul>
+<li>
+<p>Source: common/modules/CommonSampleData/modules/SampleData-Geography/modules/SampleData-district [99]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: district</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>SampleData-region at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/CommonSampleData/modules/SampleData-Geography/modules/SampleData-district/ [100]</p>
+</li>
+</ul>
+<h2>SampleData-edu_type</h2>
+<p>This describes version 4.0.0 of the module Education Type (SampleData-edu_type)</p>
+<ul>
+<li>
+<p>Source: common/modules/CommonSampleData/modules/SampleData-edu_type [101]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: edu_type</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>PersonEducation at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/CommonSampleData/modules/SampleData-edu_type/configs [102]</p>
+</li>
+<li>
+<p>Classes: modules/CommonSampleData/modules/SampleData-edu_type/ [103]</p>
+</li>
+</ul>
+<h2>SampleData-region</h2>
+<p>This describes version 4.0.0 of the module Region (SampleData-region)</p>
+<ul>
+<li>
+<p>Source: common/modules/CommonSampleData/modules/SampleData-Geography/modules/SampleData-region [104]</p>
+</li>
+<li>
+<p>Description: Sample Data for form: region</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>SampleData-country at least 4.0</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/CommonSampleData/modules/SampleData-Geography/modules/SampleData-region/ [105]</p>
+</li>
+</ul>
+<h2>UUID_map</h2>
+<p>This describes version 4.0.6.1 of the module UUID Map (UUID_map)</p>
+<ul>
+<li>
+<p>Source: common/modules/UUID [106]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_UUID_Map</p>
+</li>
+<li>Description: Allows administrator to associate a UUID with any form id</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>forms-storage-flat at least 4.0 and less than 4.1</p>
+</li>
+<li>Lists at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/UUID/configs [107]</p>
+</li>
+<li>
+<p>Classes: modules/UUID/lib [108]</p>
+</li>
+<li>
+<p>iHRIS_UUID_Map, iHRIS_UUID_Map, iHRIS_Module_UUID_Map</p>
+</li>
+<li>Sql: modules/UUID/sql [109]</li>
+</ul>
+<h2>dependents</h2>
+<p>This describes version 4.0.6.1 of the module Person's Dependents (dependents)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/Dependents [110]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Dependents</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_dependent() via show_dependents()</p>
+</li>
+<li>Description: Adds Dependent Information to a Person</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/Dependents/configs [111]</p>
+</li>
+<li>
+<p>Templates: modules/Person/modules/Dependents/templates [112]</p>
+</li>
+<li>
+<p>form_dependent.html, view_dependent.html</p>
+</li>
+<li>Classes: modules/Person/modules/Dependents/lib [113]</li>
+</ul>
+<p>iHRIS_Module_Dependents</p>
+<h2>establishment</h2>
+<p>This describes version 4.0.6.20 of the module iHRIS Manage Establishment (establishment)</p>
+<ul>
+<li>
+<p>Source: common/modules/Establishment [114]</p>
+</li>
+<li>
+<p>Description: The iHRIS Manage Establishment provides establishment information by cadre</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common-Job at least 4.0</p>
+</li>
+<li>Facility at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Establishment/configs [115]</p>
+</li>
+<li>
+<p>Classes: modules/Establishment/lib [116]</p>
+</li>
+<li>
+<p>Templates: modules/Establishment/templates [117]</p>
+</li>
+</ul>
+<p>establishment_menu.html, lists_form_establishment_period.html, view_list_establishment.html, view_list_establishment_period.html, lists_form_establishment.html</p>
+<h2>ihris-common</h2>
+<p>This describes version 4.0.6 of the module iHRIS Common (ihris-common) It is the top module of this package</p>
+<ul>
+<li>
+<p>Source: common/ [118]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module</p>
+</li>
+<li>Description: Commmon elements used by the iHRIS Suite</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>I2CE at least 4.0 and less than 4.1</p>
+</li>
+<li>pages at least 4.0 and less than 4.1</li>
+<li>forms at least 4.0 and less than 4.1</li>
+<li>forms-storage-entry at least 4.0 and less than 4.1</li>
+<li>form-limits at least 4.0 and less than 4.1</li>
+<li>UserForm at least 4.0 and less than 4.1</li>
+<li>Lists at least 4.0 and less than 4.1</li>
+<li>Tags at least 4.0 and less than 4.1</li>
+<li>Options at least 4.0 and less than 4.1</li>
+<li>template-data at least 4.0 and less than 4.1</li>
+<li>DisplayData at least 4.0 and less than 4.1</li>
+<li>admin at least 4.0 and less than 4.1</li>
+<li>FileDump at least 4.0 and less than 4.1</li>
+<li>LoginPage at least 4.0 and less than 4.1</li>
+<li>Optionally Enables: UserAccess</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: /configs [119]</p>
+</li>
+<li>
+<p>Classes: /lib [120]</p>
+</li>
+</ul>
+<p>iHRIS_Module, iHRIS_PageConfigure, iHRIS_PageFieldHistory, iHRIS_PageFormLists, iHRIS_PageFormUser, iHRIS_PageHistory, iHRIS_PageIndex, iHRIS_PageViewList</p>
+<ul>
+<li>
+<p>Templates: /templates [121]</p>
+</li>
+<li>
+<p>history.html, field_history_fullname.html, button_confirm_only.html, hr.html, lists.html, intro.html, display_field_mline.html, shell.html, search_row.html, field_history_row_fullname.html, configure.html, menu_configure.html, user_names.html, field_history.html</p>
+</li>
+<li>
+<p>Css: /css [122]</p>
+</li>
+<li>
+<p>Scripts: /scripts [123]</p>
+</li>
+<li>
+<p>Images: /images [124]</p>
+</li>
+<li>
+<p>Modules: /modules [125]</p>
+</li>
+</ul>
+<p>CEUs, Contact, Currency, Document, Facility, Geography, Person, Photo, SDMX-HD-CodeLists, SampleData-Common, UUID_map, establishment, ihris-common-Cadre, ihris-common-Job, ihris-common-RecentForm, ihris-common-Search, simple-competency, training-course, training-institution</p>
+<h2>ihris-common-Cadre</h2>
+<p>This describes version 4.0.6.0 of the module iHRIS Commone Cadre (ihris-common-Cadre)</p>
+<ul>
+<li>
+<p>Source: common/modules/Cadre [126]</p>
+</li>
+<li>
+<p>Description: The iHRIS Manage Job</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>form-limits at least 4.0 and less than 4.1</p>
+</li>
+<li>forms-storage at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Cadre/configs [127]</p>
+</li>
+<li>
+<p>Classes: modules/Cadre/lib [128]</p>
+</li>
+<li>
+<p>Templates: modules/Cadre/templates [129]</p>
+</li>
+<li>
+<p>view_list_cadre.html</p>
+</li>
+<li>Modules: modules/Cadre/modules [130]</li>
+</ul>
+<h2>ihris-common-Job</h2>
+<p>This describes version 4.0.6.7 of the module iHRIS Common Job (ihris-common-Job)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job [131]</p>
+</li>
+<li>
+<p>Description: The iHRIS Common Job</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common-Cadre at least 4.0 and less than 4.1</p>
+</li>
+<li>form-limits at least 4.0 and less than 4.1</li>
+<li>forms-storage at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Job/configs [132]</p>
+</li>
+<li>
+<p>Classes: modules/Job/lib [133]</p>
+</li>
+<li>
+<p>Templates: modules/Job/templates [134]</p>
+</li>
+<li>
+<p>view_list_classification.html, view_list_job.html, lists_form_classification.html, lists_form_job.html</p>
+</li>
+<li>Modules: modules/Job/modules [135]</li>
+</ul>
+<p>isco-08, isco-88</p>
+<h2>ihris-common-RecentForm</h2>
+<p>This describes version 4.0.3.0 of the module Recent Form Page (ihris-common-RecentForm)</p>
+<ul>
+<li>
+<p>Source: common/modules/RecentForm [136]</p>
+</li>
+<li>
+<p>Description: The iHRIS Recent Form page.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0 and less than 4.1</p>
+</li>
+<li>forms-storage at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/RecentForm/configs [137]</p>
+</li>
+<li>
+<p>Classes: modules/RecentForm/lib [138]</p>
+</li>
+<li>
+<p>iHRIS_PageRecentForm</p>
+</li>
+<li>Templates: modules/RecentForm/templates [139]</li>
+</ul>
+<p>search_recent.html, recent_form.html, recent_desc.html, menu_search_recent.html, recent_display_form.html, recent.html, recent_display.html, menu_recent.html</p>
+<h2>ihris-common-Search</h2>
+<p>This describes version 4.0.3.0 of the module Search Page (ihris-common-Search)</p>
+<ul>
+<li>
+<p>Source: common/modules/Search [140]</p>
+</li>
+<li>
+<p>Description: The iHRIS Search page.</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0 and less than 4.1</p>
+</li>
+<li>CustomReports at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Search/configs [141]</p>
+</li>
+<li>
+<p>Classes: modules/Search/lib [142]</p>
+</li>
+<li>
+<p>iHRIS_PageSearch</p>
+</li>
+<li>Templates: modules/Search/templates [143]</li>
+</ul>
+<p>search.html, menu_search.html, search_report.html, menu_search_report.html</p>
+<h2>isco-08</h2>
+<p>This describes version 4.0.6 of the module ISCO 08 Job Codes (isco-08)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_08 [144]</p>
+</li>
+<li>
+<p>Description: The ISCO 08 Job Codes</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Modules: modules/Job/modules/isco_08/modules [145]</p>
+</li>
+<li>
+<p>isco-08-major-00, isco-08-major-01, isco-08-major-02, isco-08-major-03, isco-08-major-04, isco-08-major-05, isco-08-major-06, isco-08-major-07, isco-08-major-08, isco-08-major-09</p>
+</li>
+<li>Classes: modules/Job/modules/isco_08/ [146]</li>
+</ul>
+<h2>isco-08-major-00</h2>
+<p>This describes version 4.0.1 of the module ISCO 08 Job Codes (isco-08-major-00)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_08/modules/isco_08_major_0 [147]</p>
+</li>
+<li>
+<p>Description: The ISCO 08 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-08 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_08/modules/isco_08_major_0/ [148]</p>
+</li>
+</ul>
+<h2>isco-08-major-01</h2>
+<p>This describes version 4.0.1 of the module ISCO 08 Job Codes (isco-08-major-01)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_08/modules/isco_08_major_1 [149]</p>
+</li>
+<li>
+<p>Description: The ISCO 08 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-08 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_08/modules/isco_08_major_1/ [150]</p>
+</li>
+</ul>
+<h2>isco-08-major-02</h2>
+<p>This describes version 4.0.1 of the module ISCO 08 Job Codes (isco-08-major-02)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_08/modules/isco_08_major_2 [151]</p>
+</li>
+<li>
+<p>Description: The ISCO 08 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-08 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_08/modules/isco_08_major_2/ [152]</p>
+</li>
+</ul>
+<h2>isco-08-major-03</h2>
+<p>This describes version 4.0.1 of the module ISCO 08 Job Codes (isco-08-major-03)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_08/modules/isco_08_major_3 [153]</p>
+</li>
+<li>
+<p>Description: The ISCO 08 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-08 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_08/modules/isco_08_major_3/ [154]</p>
+</li>
+</ul>
+<h2>isco-08-major-04</h2>
+<p>This describes version 4.0.1 of the module ISCO 08 Job Codes (isco-08-major-04)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_08/modules/isco_08_major_4 [155]</p>
+</li>
+<li>
+<p>Description: The ISCO 08 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-08 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_08/modules/isco_08_major_4/ [156]</p>
+</li>
+</ul>
+<h2>isco-08-major-05</h2>
+<p>This describes version 4.0.1 of the module ISCO 08 Job Codes (isco-08-major-05)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_08/modules/isco_08_major_5 [157]</p>
+</li>
+<li>
+<p>Description: The ISCO 08 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-08 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_08/modules/isco_08_major_5/ [158]</p>
+</li>
+</ul>
+<h2>isco-08-major-06</h2>
+<p>This describes version 4.0.1 of the module ISCO 08 Job Codes (isco-08-major-06)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_08/modules/isco_08_major_6 [159]</p>
+</li>
+<li>
+<p>Description: The ISCO 08 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-08 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_08/modules/isco_08_major_6/ [160]</p>
+</li>
+</ul>
+<h2>isco-08-major-07</h2>
+<p>This describes version 4.0.1 of the module ISCO 08 Job Codes (isco-08-major-07)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_08/modules/isco_08_major_7 [161]</p>
+</li>
+<li>
+<p>Description: The ISCO 08 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-08 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_08/modules/isco_08_major_7/ [162]</p>
+</li>
+</ul>
+<h2>isco-08-major-08</h2>
+<p>This describes version 4.0.1 of the module ISCO 08 Job Codes (isco-08-major-08)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_08/modules/isco_08_major_8 [163]</p>
+</li>
+<li>
+<p>Description: The ISCO 08 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-08 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_08/modules/isco_08_major_8/ [164]</p>
+</li>
+</ul>
+<h2>isco-08-major-09</h2>
+<p>This describes version 4.0.1 of the module ISCO 08 Job Codes (isco-08-major-09)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_08/modules/isco_08_major_9 [165]</p>
+</li>
+<li>
+<p>Description: The ISCO 08 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-08 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_08/modules/isco_08_major_9/ [166]</p>
+</li>
+</ul>
+<h2>isco-88</h2>
+<p>This describes version 4.0.1 of the module ISCO 88 Job Codes (isco-88)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_88 [167]</p>
+</li>
+<li>
+<p>Description: The ISCO 88 Job Codes</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Modules: modules/Job/modules/isco_88/modules [168]</p>
+</li>
+<li>
+<p>isco-88-major-00, isco-88-major-01, isco-88-major-02, isco-88-major-03, isco-88-major-04, isco-88-major-05, isco-88-major-06, isco-88-major-07, isco-88-major-08, isco-88-major-09</p>
+</li>
+<li>Classes: modules/Job/modules/isco_88/ [169]</li>
+</ul>
+<h2>isco-88-major-00</h2>
+<p>This describes version 4.0.1 of the module ISCO 88 Job Codes (isco-88-major-00)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_88/modules/isco_88_major_0 [170]</p>
+</li>
+<li>
+<p>Description: The ISCO 88 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-88 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_88/modules/isco_88_major_0/ [171]</p>
+</li>
+</ul>
+<h2>isco-88-major-01</h2>
+<p>This describes version 4.0.1 of the module ISCO 88 Job Codes (isco-88-major-01)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_88/modules/isco_88_major_1 [172]</p>
+</li>
+<li>
+<p>Description: The ISCO 88 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-88 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_88/modules/isco_88_major_1/ [173]</p>
+</li>
+</ul>
+<h2>isco-88-major-02</h2>
+<p>This describes version 4.0.1 of the module ISCO 88 Job Codes (isco-88-major-02)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_88/modules/isco_88_major_2 [174]</p>
+</li>
+<li>
+<p>Description: The ISCO 88 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-88 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_88/modules/isco_88_major_2/ [175]</p>
+</li>
+</ul>
+<h2>isco-88-major-03</h2>
+<p>This describes version 4.0.1 of the module ISCO 88 Job Codes (isco-88-major-03)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_88/modules/isco_88_major_3 [176]</p>
+</li>
+<li>
+<p>Description: The ISCO 88 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-88 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_88/modules/isco_88_major_3/ [177]</p>
+</li>
+</ul>
+<h2>isco-88-major-04</h2>
+<p>This describes version 4.0.1 of the module ISCO 88 Job Codes (isco-88-major-04)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_88/modules/isco_88_major_4 [178]</p>
+</li>
+<li>
+<p>Description: The ISCO 88 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-88 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_88/modules/isco_88_major_4/ [179]</p>
+</li>
+</ul>
+<h2>isco-88-major-05</h2>
+<p>This describes version 4.0.1 of the module ISCO 88 Job Codes (isco-88-major-05)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_88/modules/isco_88_major_5 [180]</p>
+</li>
+<li>
+<p>Description: The ISCO 88 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-88 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_88/modules/isco_88_major_5/ [181]</p>
+</li>
+</ul>
+<h2>isco-88-major-06</h2>
+<p>This describes version 4.0.1 of the module ISCO 88 Job Codes (isco-88-major-06)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_88/modules/isco_88_major_6 [182]</p>
+</li>
+<li>
+<p>Description: The ISCO 88 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-88 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_88/modules/isco_88_major_6/ [183]</p>
+</li>
+</ul>
+<h2>isco-88-major-07</h2>
+<p>This describes version 4.0.1 of the module ISCO 88 Job Codes (isco-88-major-07)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_88/modules/isco_88_major_7 [184]</p>
+</li>
+<li>
+<p>Description: The ISCO 88 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-88 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_88/modules/isco_88_major_7/ [185]</p>
+</li>
+</ul>
+<h2>isco-88-major-08</h2>
+<p>This describes version 4.0.1 of the module ISCO 88 Job Codes (isco-88-major-08)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_88/modules/isco_88_major_8 [186]</p>
+</li>
+<li>
+<p>Description: The ISCO 88 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-88 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_88/modules/isco_88_major_8/ [187]</p>
+</li>
+</ul>
+<h2>isco-88-major-09</h2>
+<p>This describes version 4.0.1 of the module ISCO 88 Job Codes (isco-88-major-09)</p>
+<ul>
+<li>
+<p>Source: common/modules/Job/modules/isco_88/modules/isco_88_major_9 [188]</p>
+</li>
+<li>
+<p>Description: The ISCO 88 Job Codes</p>
+</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>isco-88 at least 4.0 and less than 4.1</p>
+</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Classes: modules/Job/modules/isco_88/modules/isco_88_major_9/ [189]</p>
+</li>
+</ul>
+<h2>nextOfKin</h2>
+<p>This describes version 4.0.6.1 of the module Person's Next of Kin (nextOfKin)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/NextOfKin [190]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_NextOfKin</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_nextofkin() via show_nextofkin()</p>
+</li>
+<li>Description: Adds Next of Kin Information to a Person</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>Person at least 4.0 and less than 4.1</p>
+</li>
+<li>Contact at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/NextOfKin/configs [191]</p>
+</li>
+<li>
+<p>Templates: modules/Person/modules/NextOfKin/templates [192]</p>
+</li>
+<li>
+<p>form_nextofkin.html, view_nextofkin.html</p>
+</li>
+<li>Classes: modules/Person/modules/NextOfKin/lib [193]</li>
+</ul>
+<p>iHRIS_Module_NextOfKin</p>
+<h2>person-simple-competency</h2>
+<p>This describes version 4.0.6 of the module Simple Competency (person-simple-competency)</p>
+<ul>
+<li>
+<p>Source: common/modules/Person/modules/SimpleCompetency [194]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_PersonSimpleCompetency</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_person_competency() via action_person_competency()</p>
+</li>
+<li>Description: A simple two-tiered compotency module enabled for a person</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0 and less than 4.1</p>
+</li>
+<li>Person at least 4.0 and less than 4.1</li>
+<li>simple-competency at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/Person/modules/SimpleCompetency/configs [195]</p>
+</li>
+<li>
+<p>Classes: modules/Person/modules/SimpleCompetency/lib [196]</p>
+</li>
+</ul>
+<p>iHRIS_Module_PersonSimpleCompetency, iHRIS_Page_Person_Competency_Evaluation_History</p>
+<ul>
+<li>Templates: modules/Person/modules/SimpleCompetency/templates [197] personal_competency_evaluation_history.html, form_person_competency.html, view_person_competency.html, personal_competency_evaluation_history_comp_each.html,</li>
+</ul>
+<p>personal_competency_evaluation_history_each.html</p>
+<h2>simple-competency</h2>
+<p>This describes version 4.0.0 of the module Simple Competency (simple-competency)</p>
+<ul>
+<li>
+<p>Source: common/modules/SimpleComptency [198]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_SimpleCompetency</p>
+</li>
+<li>Description: A simple two-tiered compotency module</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0 and less than 4.1</p>
+</li>
+<li>form-limits at least 4.0 and less than 4.1</li>
+<li>forms-storage-magicdata at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/SimpleComptency/configs [199]</p>
+</li>
+<li>
+<p>Classes: modules/SimpleComptency/lib [200]</p>
+</li>
+<li>
+<p>iHRIS_Module_SimpleCompetency</p>
+</li>
+<li>Templates: modules/SimpleComptency/templates [201]</li>
+</ul>
+<p>view_list_competency.html, view_list_competency_type.html, lists_form_competency.html, view_list_competency_evaluation.html</p>
+<h2>training-course</h2>
+<p>This describes version 4.0.46.2 of the module Training Course (training-course)</p>
+<ul>
+<li>
+<p>Source: common/modules/TrainingCourse [202]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_Training_Course</p>
+</li>
+<li>
+<p>Fuzzy Methods:</p>
+</li>
+<li>
+<p>Implements the method iHRIS_PageView-&gt;action_person_scheduled_training_course() via action_person_scheduled_training_course()</p>
+</li>
+<li>Description: Adds functionality to add training courses to the system</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0 and less than 4.1</p>
+</li>
+<li>form-limits at least 4.0 and less than 4.1</li>
+<li>forms-storage at least 4.0 and less than 4.1</li>
+<li>CEUs at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/TrainingCourse/configs [203]</p>
+</li>
+<li>
+<p>Classes: modules/TrainingCourse/lib [204]</p>
+</li>
+</ul>
+<p>iHRIS_Module_Training_Course, iHRIS_PageForm_Person_Scheduled_Training_Course, iHRIS_Scheduled_Training_Course, iHRIS_Training_Course</p>
+<ul>
+<li>Templates: modules/TrainingCourse/templates [205]</li>
+</ul>
+<p>enrolled_students.html, lists_form_training_course_evaluation.html, form_person_schedule_training_course.html, view_list_training_course_evaluation.html, lists_form_scheduled_training_course.html, view_person_scheduled_training_course.html, view_list_training_course_category.html, lists_form_training_course.html, view_list_scheduled_training_course.html, scheduled_course_list_person.html, view_list_training_course_status.html, form_schedule_training_course.html, view_list_training_course.html, view_list_training_course_requestor.html</p>
+<ul>
+<li>Modules: modules/TrainingCourse/modules [206]</li>
+</ul>
+<p>training-simple-competency</p>
+<h2>training-institution</h2>
+<p>This describes version 4.0.0 of the module Training Institution (training-institution)</p>
+<ul>
+<li>
+<p>Source: common/modules/TrainingInstitution [207]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_TrainingInstitution</p>
+</li>
+<li>Description: Adds basic training institution and funder functionality</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>ihris-common at least 4.0 and less than 4.1</p>
+</li>
+<li>Geography at least 4.0 and less than 4.1</li>
+<li>Contact at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/TrainingInstitution/configs [208]</p>
+</li>
+<li>
+<p>Classes: modules/TrainingInstitution/lib [209]</p>
+</li>
+<li>
+<p>iHRIS_Module_TrainingInstitution, iHRIS_PageFormParentTrainingInstitution</p>
+</li>
+<li>Templates: modules/TrainingInstitution/templates [210]</li>
+</ul>
+<p>lists_form_training_funder_contact.html, view_list_training_funder_contact.html, view_list_training_institution.html, view_list_training_funder.html, lists_form_training_funder.html, button_confirm_ti.html, lists_form_ti_base.html, lists_form_training_institution.html, menu_view_ti.html, lists_form_training_institution_contact.html, view_list_training_institution_contact.html</p>
+<h2>training-simple-competency</h2>
+<p>This describes version 4.0.12 of the module Training Competency (Simple) (training-simple-competency)</p>
+<ul>
+<li>
+<p>Source: common/modules/TrainingCourse/modules/TrainingSimpleCompetency [211]</p>
+</li>
+<li>
+<p>Module Class: The module class is implemented by iHRIS_Module_TrainingSimpleCompetency</p>
+</li>
+<li>Description: Makes the Simple Competency module available to training course module</li>
+<li>
+<p>Requirements:</p>
+</li>
+<li>
+<p>training-course at least 4.0 and less than 4.1</p>
+</li>
+<li>person-simple-competency at least 4.0 and less than 4.1</li>
+<li>
+<p>Paths:</p>
+</li>
+<li>
+<p>Configs: modules/TrainingCourse/modules/TrainingSimpleCompetency/configs [212]</p>
+</li>
+<li>
+<p>Classes: modules/TrainingCourse/modules/TrainingSimpleCompetency/lib [213]</p>
+</li>
+<li>
+<p>iHRIS_Module_TrainingSimpleCompetency, iHRIS_PageForm_Evaluate_Course_Competencies</p>
+</li>
+<li>Templates: modules/TrainingCourse/modules/TrainingSimpleCompetency/templates [214]</li>
+</ul>
+<p>training_course_evaluation_no_competency.html, form_training_course_competencies.html, training_course_evaluation_form.html</p>
+<h2>References</h2>
+<p>[1] https://launchpad.net/ihris-common [2] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CEUs [3] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CEUs/configs [4] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CEUs/lib [5] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CEUs/templates [6] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Contact [7] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Contact/configs [8] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Contact/lib [9] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Contact/templates [10] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Currency [11] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Currency/configs [12] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Currency/lib [13] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Currency/templates [14] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Document [15] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Document/configs [16] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Document/lib [17] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Facility [18] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Facility/configs [19] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Facility/lib [20] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Facility/modules [21] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Facility/templates [22] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Facility/modules/</p>
+<p>FacilityContact [23] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Facility/modules/</p>
+<p>FacilityContact/configs [24] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Facility/modules/</p>
+<p>FacilityContact/templates [25] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Facility/modules/</p>
+<p>FacilityContact/lib [26] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Geography [27] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Geography/configs [28] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Geography/lib [29] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Geography/templates [30] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person [31] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/configs [32] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/lib</p>
+<p>[33] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules [34] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/templates [35] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>ArchivalScans [36] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>ArchivalScans/configs [37] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>ArchivalScans/lib [38] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>ArchivalScans/templates [39] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Contact [40] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Contact/</p>
+<p>configs [41] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Contact/</p>
+<p>templates [42] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Contact/lib [43] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Demographic</p>
+<p>[44] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Demographic/configs</p>
+<p>[45] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Demographic/lib [46] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Demographic/templates [47] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Education [48] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Education/</p>
+<p>configs [49] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Education/</p>
+<p>templates [50] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Education/</p>
+<p>lib [51] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Employment [52] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Employment/configs [53] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Employment/lib [54] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Employment/templates [55] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/ID [56] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/ID/configs [57] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/ID/lib [58] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/ID/</p>
+<p>templates [59] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Language [60] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Language/</p>
+<p>configs [61] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Language/</p>
+<p>lib [62] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Language/</p>
+<p>templates [63] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Notes [64] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Notes/</p>
+<p>configs [65] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Notes/lib [66] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Notes/</p>
+<p>templates</p>
+<p>[67] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/PersonPhoto [68] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>PersonPhoto/configs [69] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>PersonPhoto/lib [70] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>PersonPhoto/templates [71] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Resume [72] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Resume/</p>
+<p>configs [73] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Resume/lib [74] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/Resume/</p>
+<p>templates [75] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Photo [76] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Photo/configs [77] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Photo/lib [78] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/SDMX-HD-CodeLists [79] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/SDMX-HD-CodeLists/</p>
+<p>configs</p>
+<p>[80] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/SDMX-HD-CodeLists/</p>
+<p>SDMX-HD [81] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/SDMX-HD-CodeLists/</p>
+<p>[82] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData [83] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules [84] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/ [85] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography [86] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography/modules [87] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography/ [88] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography/modules/SampleData-country [89] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography/modules/SampleData-country/configs [90] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography/modules/SampleData-country/ [91] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography/modules/SampleData-county [92] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography/modules/SampleData-county/ [93] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-currency [94] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-currency/configs [95] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-currency/ [96] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-degree [97] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-degree/configs [98] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-degree/ [99] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography/modules/SampleData-district [100] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography/modules/SampleData-district/ [101] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-edu_type [102] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-edu_type/configs [103] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-edu_type/ [104] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography/modules/SampleData-region [105] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/CommonSampleData/</p>
+<p>modules/SampleData-Geography/modules/SampleData-region/ [106] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/UUID [107] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/UUID/configs [108] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/UUID/lib [109] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/UUID/sql [110] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Dependents [111] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Dependents/configs [112] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Dependents/templates</p>
+<p>[113] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>Dependents/lib [114] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Establishment</p>
+<p>[115] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Establishment/configs [116] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Establishment/lib [117] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Establishment/templates [118] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/ [119] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head://configs [120] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head://lib [121] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head://templates [122] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head://css [123] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head://scripts [124] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head://images [125] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head://modules [126] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Cadre [127] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Cadre/configs [128] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Cadre/lib [129] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Cadre/templates [130] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Cadre/modules [131] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job [132] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/configs [133] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/lib [134] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/templates [135] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules [136] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/RecentForm [137] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/RecentForm/configs [138] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/RecentForm/lib [139] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/RecentForm/templates [140] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Search [141] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Search/configs [142] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Search/lib [143] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Search/templates [144] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08 [145] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules [146] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/ [147] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_0 [148] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_0/</p>
+<p>[149] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_1 [150] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_1/ [151] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_2 [152] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_2/ [153] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_3 [154] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_3/ [155] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_4 [156] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_4/ [157] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_5</p>
+<p>[158] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_5/ [159] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_6</p>
+<p>[160] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_6/ [161] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_7 [162] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_7/ [163] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_8 [164] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_8/ [165] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_9 [166] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_08/</p>
+<p>modules/isco_08_major_9/ [167] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88 [168] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules [169] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/ [170] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_0 [171] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_0/ [172] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_1 [173] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_1/ [174] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_2 [175] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_2/ [176] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_3 [177] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_3/ [178] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_4 [179] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_4/ [180] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_5 [181] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_5/ [182] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_6 [183] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_6/ [184] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_7 [185] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_7/ [186] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_8 [187] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_8/ [188] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_9</p>
+<p>[189] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Job/modules/isco_88/</p>
+<p>modules/isco_88_major_9/ [190] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/NextOfKin</p>
+<p>[191] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>NextOfKin/configs [192] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>NextOfKin/templates [193] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>NextOfKin/lib [194] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>SimpleCompetency [195] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>SimpleCompetency/configs [196] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>SimpleCompetency/lib [197] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/Person/modules/</p>
+<p>SimpleCompetency/templates [198] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/SimpleComptency [199] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/SimpleComptency/configs [200] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/SimpleComptency/lib [201] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/SimpleComptency/</p>
+<p>templates [202] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingCourse [203] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingCourse/configs [204] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingCourse/lib [205] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingCourse/templates [206] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingCourse/modules [207] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingInstitution [208] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingInstitution/configs [209] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingInstitution/lib [210] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingInstitution/</p>
+<p>templates [211] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingCourse/modules/</p>
+<p>TrainingSimpleCompetency [212] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingCourse/modules/</p>
+<p>TrainingSimpleCompetency/configs [213] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingCourse/modules/</p>
+<p>TrainingSimpleCompetency/lib [214] http://bazaar.launchpad.net/~intrahealth+informatics/ihris-common/4.0.6-release/files/head:/modules/TrainingCourse/modules/</p>
+<p>TrainingSimpleCompetency/templates</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=33771">revision 33771</a>; contributors: Litlfred. Pages 159&ndash;187 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

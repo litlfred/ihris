@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-qa-known.schema.json",
+  "title": "ihris-qa-known/v1",
+  "description": "Upstream facts a QA check would otherwise report, each with the reason it is accepted (src/tools/qa-known.json). qa.py fails on any finding not listed, and on an entry that no longer matches what it records.",
+  "type": "object",
+  "required": [
+    "data-list-within-module-duplicates"
+  ],
+  "properties": {
+    "_comment": {
+      "type": "string"
+    },
+    "data-list-within-module-duplicates": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "ids",
+          "reason"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 20
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
