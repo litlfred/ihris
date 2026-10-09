@@ -319,7 +319,14 @@ def suite_tree() -> str | None:
             raise SystemExit(f"{tb}: sha256 does not match manifest.json; refusing to derive nodes from it")
         os.makedirs(dest)
         with tarfile.open(tb, "r:bz2") as t:
-            t.extractall(dest, filter="data")
+            # The `data` filter (refuses absolute paths, device files, escaping links), minus the one thing in
+            # this tarball it refuses to extract at all: bzr checkout symlinks to absolute paths
+            # (ihris-manage/packaging-site-blank/.bazaar). They point outside the tree and no tool reads them.
+            def keep(member, path):
+                if (member.issym() or member.islnk()) and os.path.isabs(member.linkname):
+                    return None
+                return tarfile.data_filter(member, path)
+            t.extractall(dest, filter=keep)
     return dest
 
 
@@ -388,7 +395,20 @@ def build_modules():
             acc = []
             _walk(r, "", acc)
             forms, classes, pages, lists, records = [], [], [], collections.Counter(), []
+            child_forms = collections.defaultdict(list)
+            scheme = {}
             for path, g in acc:
+                # A form's CHILD forms (I2CE_Form::getChildFormsByForm: /modules/forms/forms/<form>/meta/child_forms),
+                # often declared by a module other than the one defining the form (Notes adds `notes` under `person`).
+                cf = re.fullmatch(r"/modules/forms/forms/([^/]+)/meta/child_forms", path)
+                if cf and g.tag == "configuration":
+                    child_forms[cf.group(1)] += [(x.text or "").strip() for x in g.findall("value") if (x.text or "").strip()]
+                # The i2ce Form Documentor's `dot` scheme (/modules/formDocumentor/schemes/dot): colours by form-name
+                # substring, and Graphviz graph options, as "key:value" values, in their declared order.
+                ds = re.fullmatch(r"(?:/modules)?/formDocumentor/schemes/dot/(colors|graph_options)", path)  # a module's own root group resolves under /modules
+                if ds and g.tag == "configuration":
+                    scheme.setdefault("colors" if ds.group(1) == "colors" else "graphOptions", []).extend(
+                        (x.text or "").strip() for x in g.findall("value") if (x.text or "").strip())
                 if g.tag != "configurationGroup":
                     continue
                 # The object is named by the LAST segment of its resolved path, not by
@@ -409,10 +429,15 @@ def build_modules():
                                        for x in fgp.iter("value") if (x.text or "").strip()} |
                                       {(x.text or "").strip() for mg in meta for c in mg.findall("configuration") if c.get("name") == "form"
                                        for x in c.findall("value") if (x.text or "").strip()})
+                        uf, in_db = _val(fd, "unique_field"), _val(fd, "in_db")
                         flds.append({"field": fd.get("name"), "type": _val(fd, "formfield"),
                                      "label": (hdr or "").replace("default:", "") or None,
                                      "required": _val(fd, "required") == "true", "unique": True if _val(fd, "unique") == "true" else None,
-                                     "references": refs or None})
+                                     "references": refs or None,
+                                     # What the i2ce Form Documentor also reads: the field a uniqueness is scoped to, and a
+                                     # field kept out of the database (in_db false), which it leaves off the diagram.
+                                     **({"uniqueField": uf} if isinstance(uf, str) and uf else {}),
+                                     **({"inDb": False} if in_db in ("false", "0") else {})})
                     classes.append({"class": leaf, "extends": _val(g, "extends"), "fields": flds})
                 elif re.fullmatch(r"/page/[^/]+", path):
                     pages.append({"page": leaf, "class": _val(g, "class"), "style": _val(g, "style")})
@@ -434,7 +459,9 @@ def build_modules():
                     records.append({"form": mm.group(1), "id": mm.group(2), "fields": vals,
                                     "lastModified": _val(g, "last_modified"), "parent": _val(g, "parent")})
             mods.append(dict(name=r.get("name") or os.path.splitext(os.path.basename(f))[0] + "(unnamed)", relpath=relpath, dir=os.path.dirname(relpath), site=site, md=md, t=t,
-                             forms=forms, classes=classes, pages=pages, lists=dict(lists), records=records, sha256=hashlib.sha256(raw).hexdigest()))
+                             forms=forms, classes=classes, pages=pages, lists=dict(lists), records=records, sha256=hashlib.sha256(raw).hexdigest(),
+                             childForms=[{"form": f, "children": sorted(set(c))} for f, c in sorted(child_forms.items())],
+                             formDocumentorScheme=scheme))
         # ids: module name, disambiguated by site when a site overrides a core module name
         # ids: the module name; where a name repeats (sites override core modules,
         # and one site may carry two same-named variants) qualify by site, then by
@@ -481,7 +508,9 @@ def build_modules():
                    "version": t("version"), "className": t("className"), "category": t("category"), "creator": t("creator"),
                    "link": t("link"), "requirements": _rels(m["md"], "requirement"), "enables": _rels(m["md"], "enable"),
                    "conflicts": _rels(m["md"], "conflict"), "optional": _rels(m["md"], "optional"),
-                   "forms": m["forms"], "formClasses": sorted(set(cls_ids)), "pages": m["pages"], "dataLists": m["lists"],
+                   "forms": m["forms"], **({"childForms": m["childForms"]} if m["childForms"] else {}),
+                   **({"formDocumentorScheme": m["formDocumentorScheme"]} if m["formDocumentorScheme"] else {}),
+                   "formClasses": sorted(set(cls_ids)), "pages": m["pages"], "dataLists": m["lists"],
                    "locales": sorted({lc for nm, d, lc, _ in overlays
                                       if nm == m["name"] and (d == m["dir"] or (d, nm) in loose and names[m["name"].lower()] == 1)})}
             write_json(os.path.join(mdir, fname(m["id"].split("/module/", 1)[1])), out)

@@ -147,6 +147,12 @@ def c_module_refs(C):
                 out.append(f"{rel}: reference {ref} does not resolve")
         if not exists(d["source"]["releaseFile"]):
             out.append(f"{rel}: source.releaseFile {d['source']['releaseFile']} does not resolve")
+    # Child forms (I2CE meta/child_forms): the parent and every child is a form some module of the release defines.
+    defined = {f["form"] for _, d in C["tagged"].get("ihris-i2ce-module/v1", []) for f in d.get("forms") or []}
+    for rel, d in C["tagged"].get("ihris-i2ce-module/v1", []):
+        missing = sorted({f for cf in d.get("childForms") or [] for f in [cf["form"]] + cf["children"] if f not in defined})
+        if missing and sorted(KNOWN.get("child-forms-undefined", {}).get(rel, {}).get("forms", [])) != missing:
+            out.append(f"{rel}: childForms name forms no module defines: {', '.join(missing)}")
     return out
 
 
@@ -202,7 +208,16 @@ def c_qa_known(C):
     """Every accepted upstream finding still matches the data exactly: a stale entry must not hide a new one."""
     from collections import Counter
     out = []
+    defined = {f["form"] for _, m in C["tagged"].get("ihris-i2ce-module/v1", []) for f in m.get("forms") or []}
     for rel, d in C["bound"].get("ihris-qa-known/v1", []):
+        for f, entry in (d.get("child-forms-undefined") or {}).items():
+            if not exists(f):
+                out.append(f"{rel}: {f} does not exist")
+                continue
+            m = J(f)
+            got = sorted({x for cf in m.get("childForms") or [] for x in [cf["form"]] + cf["children"] if x not in defined})
+            if got != sorted(entry["forms"]):
+                out.append(f"{rel}: {f} lists {entry['forms']} but the data names {got}")
         for f, entry in d["data-list-within-module-duplicates"].items():
             if not exists(f):
                 out.append(f"{rel}: {f} does not exist")

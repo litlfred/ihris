@@ -241,6 +241,75 @@
       "displayName": "Health Worker's Contact Point"
     }
   ],
+  "childForms": [
+    {
+      "form": "csd_facility",
+      "children": [
+        "csd_facility_address",
+        "csd_facility_contact",
+        "csd_facility_contact_point",
+        "csd_facility_operating_hours",
+        "csd_facility_organization",
+        "csd_facility_other_name",
+        "csd_facility_otherid"
+      ]
+    },
+    {
+      "form": "csd_facility_organization",
+      "children": [
+        "csd_facility_organization_service"
+      ]
+    },
+    {
+      "form": "csd_facility_organization_service",
+      "children": [
+        "csd_operating_hours"
+      ]
+    },
+    {
+      "form": "csd_organization",
+      "children": [
+        "csd_organization_address",
+        "csd_organization_contact",
+        "csd_organization_contact_point",
+        "csd_organization_credential",
+        "csd_organization_other_name",
+        "csd_organization_otherid"
+      ]
+    },
+    {
+      "form": "csd_provider",
+      "children": [
+        "csd_provider_address",
+        "csd_provider_contact_point",
+        "csd_provider_credential",
+        "csd_provider_facility",
+        "csd_provider_name",
+        "csd_provider_organization",
+        "csd_provider_otherid",
+        "rapidpro_flow_run"
+      ]
+    },
+    {
+      "form": "csd_provider_facility",
+      "children": [
+        "csd_provider_service"
+      ]
+    },
+    {
+      "form": "csd_provider_organization",
+      "children": [
+        "csd_provider_organization_address",
+        "csd_provider_organization_contact_point"
+      ]
+    },
+    {
+      "form": "csd_provider_service",
+      "children": [
+        "csd_operating_hours"
+      ]
+    }
+  ],
   "formClasses": [
     "ihris-common/form-class/CSD_Address",
     "ihris-common/form-class/CSD_ContactPoint",
