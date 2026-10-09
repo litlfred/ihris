@@ -9,11 +9,11 @@
     "oids" : ["1.2.840.10008.2.16.4"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType",
-    "http://hl7.org/fhir/R4/valueset-audit-event-sub-type.html" : "Audit Event Sub-Type",
     "http://hl7.org/fhir/R4/valueset-audit-event-type.html" : "Audit Event ID",
+    "http://hl7.org/fhir/R4/valueset-audit-event-sub-type.html" : "Audit Event Sub-Type",
     "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType",
-    "http://hl7.org/fhir/R4/valueset-dicm-405-mediatype.html" : "Media Type Code"
+    "http://hl7.org/fhir/R4/valueset-dicm-405-mediatype.html" : "Media Type Code",
+    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType"
   },
   {
     "url" : "http://hl7.org/fhir/address-type",
@@ -98,8 +98,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.72"],
     "uses" : {
     },
-    "ValueSet-contact-point-system.html" : "ContactPointSystem",
-    "http://hl7.org/fhir/R4/valueset-contact-point-system.html" : "ContactPointSystem"
+    "http://hl7.org/fhir/R4/valueset-contact-point-system.html" : "ContactPointSystem",
+    "ValueSet-contact-point-system.html" : "ContactPointSystem"
   },
   {
     "url" : "http://hl7.org/fhir/contact-point-use",
@@ -111,8 +111,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.74"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-contact-point-use.html" : "ContactPointUse",
-    "ValueSet-contact-point-use.html" : "ContactPointUse"
+    "ValueSet-contact-point-use.html" : "ContactPointUse",
+    "http://hl7.org/fhir/R4/valueset-contact-point-use.html" : "ContactPointUse"
   },
   {
     "url" : "http://hl7.org/fhir/days-of-week",
@@ -124,8 +124,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.513"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-days-of-week.html" : "DaysOfWeek",
-    "ValueSet-days-of-week.html" : "DaysOfWeek"
+    "ValueSet-days-of-week.html" : "DaysOfWeek",
+    "http://hl7.org/fhir/R4/valueset-days-of-week.html" : "DaysOfWeek"
   },
   {
     "url" : "http://hl7.org/fhir/document-reference-status",
@@ -161,8 +161,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.58"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-identifier-use.html" : "IdentifierUse",
-    "ValueSet-identifier-use.html" : "IdentifierUse"
+    "ValueSet-identifier-use.html" : "IdentifierUse",
+    "http://hl7.org/fhir/R4/valueset-identifier-use.html" : "IdentifierUse"
   },
   {
     "url" : "http://hl7.org/fhir/item-type",
@@ -186,8 +186,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.331"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-location-mode.html" : "LocationMode",
-    "ValueSet-location-mode.html" : "LocationMode"
+    "ValueSet-location-mode.html" : "LocationMode",
+    "http://hl7.org/fhir/R4/valueset-location-mode.html" : "LocationMode"
   },
   {
     "url" : "http://hl7.org/fhir/location-status",
@@ -199,8 +199,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.333"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-location-status.html" : "LocationStatus",
-    "ValueSet-location-status.html" : "LocationStatus"
+    "ValueSet-location-status.html" : "LocationStatus",
+    "http://hl7.org/fhir/R4/valueset-location-status.html" : "LocationStatus"
   },
   {
     "url" : "http://hl7.org/fhir/name-use",
@@ -212,8 +212,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.66"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-name-use.html" : "NameUse",
-    "ValueSet-name-use.html" : "NameUse"
+    "ValueSet-name-use.html" : "NameUse",
+    "http://hl7.org/fhir/R4/valueset-name-use.html" : "NameUse"
   },
   {
     "url" : "http://hl7.org/fhir/network-type",
@@ -272,9 +272,9 @@
     "description" : "One of the resource types defined as part of this version of FHIR.",
     "uses" : {
     },
+    "http://hl7.org/fhir/R4/valueset-resource-types.html" : "ResourceType",
     "http://hl7.org/fhir/R4/valueset-subject-type.html" : "Subject type",
-    "http://hl7.org/fhir/R4/valueset-audit-entity-type.html" : "Audit event entity type",
-    "http://hl7.org/fhir/R4/valueset-resource-types.html" : "ResourceType"
+    "http://hl7.org/fhir/R4/valueset-audit-entity-type.html" : "Audit event entity type"
   },
   {
     "url" : "http://hl7.org/fhir/restful-interaction",
@@ -386,8 +386,8 @@
     "uses" : {
     },
     "http://hl7.org/fhir/R4/valueset-questionnaire-answers.html" : "Questionnaire Answer Codes",
-    "http://hl7.org/fhir/R4/valueset-c80-facilitycodes.html" : "Facility Type Code Value Set",
     "ValueSet-c80-practice-codes.html" : "Practice Setting Code Value Set",
+    "http://hl7.org/fhir/R4/valueset-c80-facilitycodes.html" : "Facility Type Code Value Set",
     "http://hl7.org/fhir/R4/valueset-c80-practice-codes.html" : "Practice Setting Code Value Set"
   },
   {
@@ -460,8 +460,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.1201"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType",
-    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType"
+    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType",
+    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/definition-topic",
@@ -495,8 +495,8 @@
     "description" : "This CodeSystem contains Additional FHIR-defined Security Role types not defined elsewhere",
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType",
-    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType"
+    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType",
+    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle",
@@ -532,8 +532,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.1108"],
     "uses" : {
     },
-    "ValueSet-location-physical-type.html" : "Location type",
-    "http://hl7.org/fhir/R4/valueset-location-physical-type.html" : "Location type"
+    "http://hl7.org/fhir/R4/valueset-location-physical-type.html" : "Location type",
+    "ValueSet-location-physical-type.html" : "Location type"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/object-role",
@@ -629,8 +629,8 @@
     "oids" : ["2.16.840.1.113883.18.108"],
     "uses" : {
     },
-    "ValueSet-identifier-type.html" : "IdentifierType",
-    "http://hl7.org/fhir/R4/valueset-identifier-type.html" : "IdentifierType"
+    "http://hl7.org/fhir/R4/valueset-identifier-type.html" : "IdentifierType",
+    "ValueSet-identifier-type.html" : "IdentifierType"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/v2-0360",
@@ -678,8 +678,8 @@
     "oids" : ["2.16.840.1.113883.5.88"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType",
-    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType"
+    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType",
+    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
@@ -691,8 +691,8 @@
     "oids" : ["2.16.840.1.113883.5.90"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType",
-    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType"
+    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType",
+    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
@@ -704,8 +704,8 @@
     "oids" : ["2.16.840.1.113883.5.110"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType",
-    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType"
+    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType",
+    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
@@ -717,10 +717,10 @@
     "oids" : ["2.16.840.1.113883.5.111"],
     "uses" : {
     },
-    "http://terminology.hl7.org/7.4.0/ValueSet-v3-ServiceDeliveryLocationRoleType.html" : "ServiceDeliveryLocationRoleType",
     "ValueSet-v3-ServiceDeliveryLocationRoleType.html" : "V3 Value SetServiceDeliveryLocationRoleType",
-    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType",
-    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType"
+    "http://terminology.hl7.org/7.4.0/ValueSet-v3-ServiceDeliveryLocationRoleType.html" : "ServiceDeliveryLocationRoleType",
+    "http://hl7.org/fhir/R4/valueset-participation-role-type.html" : "ParticipationRoleType",
+    "http://hl7.org/fhir/R4/valueset-security-role-type.html" : "SecurityRoleType"
   },
   {
     "url" : "urn:iso-astm:E1762-95:2013",

@@ -55,7 +55,7 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
   "title" : "Iso 3166 Part 1: 2 Letter Codes",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-10-09T11:48:54+00:00",
+  "date" : "2026-10-09T11:54:20+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",
