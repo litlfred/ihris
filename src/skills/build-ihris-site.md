@@ -52,8 +52,11 @@ Every page carries the platform's chrome: the C@T harness rail, its icon row, th
 ```sh
 bash src/tools/mount_platform.sh
 python3 src/tools/build_site.py --out _site --check-links
-bun run cat-harness/scripts/rail-standalone-pages.ts --site _site --built cat-harness --foreign-site --home-label "iHRIS Knowledge Base"
+bun run cat-harness/scripts/sync-docs-harness.ts     # the harness list, from THIS checkout (writes into the cat-harness mount)
+bun run cat-harness/scripts/rail-standalone-pages.ts --site _site --built cat-harness --foreign-site --home-label "iHRIS Knowledge Base" --instance ihris
 ```
+
+`--instance ihris` scopes the rail to this folio: ihris first, then the harnesses it needs (owner, 2026-10-09: "does not need to depend on smart-base or smart-trust"). The mounted cat-harness carries the PLATFORM's list, so `sync-docs-harness.ts` regenerates it from `index.config.json` first. That rewrites a file inside the mount: fine in CI's throwaway checkout; locally, remount afterwards (`rm -rf cat-harness && bash src/tools/mount_platform.sh`).
 
 Check it in a browser with folio-assistant-core's `folio-site-chrome-check.ts` (`--assets cat-harness/docs` serves the platform assets offline). The banner check applies to staging previews only.
 

@@ -74,8 +74,14 @@ jobs:
         run: python3 src/tools/extract_theme.py --check
       - name: Build the site and check every internal link
         run: python3 src/tools/build_site.py --out _site --check-links
-      - name: Add the folio chrome to every page (cat-harness rail, foreign-site mode)
-        run: bun run cat-harness/scripts/rail-standalone-pages.ts --site _site --built cat-harness --foreign-site --home-label "iHRIS Knowledge Base"
+      - name: Add the folio chrome to every page (cat-harness rail, foreign-site mode, scoped to ihris)
+        # The mounted cat-harness carries the PLATFORM's harness list (smart-base, smart-trust, ...).
+        # sync-docs-harness.ts regenerates it from THIS checkout (index.config.json: ihris and what it
+        # mounts), so --instance ihris lists ihris and the harnesses it needs, and nothing else.
+        # It rewrites cat-harness/docs/_data/harness.json in this throwaway CI mount only.
+        run: |
+          bun run cat-harness/scripts/sync-docs-harness.ts
+          bun run cat-harness/scripts/rail-standalone-pages.ts --site _site --built cat-harness --foreign-site --home-label "iHRIS Knowledge Base" --instance ihris
       - name: Staging banner (pull requests only)
         if: steps.target.outputs.slug != ''
         env:
