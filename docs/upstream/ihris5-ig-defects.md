@@ -5,7 +5,7 @@ the iHRIS 4 logical models to them (F4, bean `ihris-7gl8`). The source is
 [iHRIS/iHRIS@fa66e9b](https://github.com/iHRIS/iHRIS/tree/fa66e9b375e38525236d28459ec5e5eb3875e2b2), which is `master`
 on 2026-10-09. The compiler is SUSHI 3.20.1 against `hl7.fhir.r4.core#4.0.1`.
 
-Each section below is one issue, ready to file. The first defect is the only one this folio works around
+Each section below is one issue, ready to file. **Not filed yet:** on 2026-10-09 GitHub refused to create issues on iHRIS/iHRIS for this account (`403 Resource not accessible by integration`). The five defects were re-checked on `master` and none is covered by an existing issue (all 41 open and closed issues read). Someone with issue rights on iHRIS/iHRIS files them, or the account gets access. The first defect is the only one this folio works around
 (`src/ihris5/ig-build-patches.json`). Delete that patch when the pin moves past the fix.
 
 ---
@@ -38,7 +38,7 @@ Id:             ihris-role-primary
 
 ---
 
-## 2. `qualify-ig` references `IhrisFacility` and `IhrisJurisdiction`, which only the manage IG defines
+## 2. `qualify-ig` references `IhrisFacility`, which only the manage IG defines, and `IhrisJurisdiction`, which nothing defines
 
 **Where:**
 - `ihris-backend/ihris-backend-site/qualify-ig/input/fsh/IhrisDeployment.fsh` line 25:
@@ -46,8 +46,10 @@ Id:             ihris-role-primary
 - `ihris-backend/ihris-backend-site/qualify-ig/input/fsh/IhrisPractitioner.fsh` line 138:
   `* valueReference only Reference(IhrisJurisdiction)`
 
-Both profiles are defined in `ihris-backend/ihris-backend-site/ig/input/fsh/IhrisLocation.fsh`, which is in the manage IG.
-`qualify-ig` does not include that file, and `ig/` (its `core` symlink) does not define them either.
+`IhrisFacility` is defined in `ihris-backend/ihris-backend-site/ig/input/fsh/IhrisLocation.fsh` (line 92), which is in the
+manage IG and not in `qualify-ig` or `ig/`. **`IhrisJurisdiction` is not defined anywhere in the repository**: that file
+has `IhrisCountry`, `IhrisRegion` and `IhrisDistrict` (and the `IhrisJurisdictionType` terminology), but no
+`IhrisJurisdiction`.
 
 **What happens:** `sushi build` in `qualify-ig` fails with 2 errors:
 
@@ -58,10 +60,14 @@ error No definition for the type "IhrisJurisdiction" could be found. (IhrisPract
 
 Both constraints are dropped from the output.
 
-**Fix, either:**
-- move `IhrisLocation.fsh` (`IhrisFacility`, `IhrisJurisdiction` and what they need) into `ig/input/fsh`, so both backend
-  IGs get it through `core`; or
-- add it to `qualify-ig` as well.
+**Fix:**
+- `IhrisFacility`: move `IhrisLocation.fsh` into `ig/input/fsh`, so both backend IGs get it through `core`, or add it to
+  `qualify-ig` as well.
+- `IhrisJurisdiction`: either define an `IhrisJurisdiction` profile, or point line 138 at the existing ones, for example
+  `Reference(IhrisCountry or IhrisRegion or IhrisDistrict)`, whichever the extension means.
+
+(Correction, 2026-10-09: an earlier version of this draft said both profiles are in `IhrisLocation.fsh`. Only
+`IhrisFacility` is; found by the filing session's re-check.)
 
 ---
 
