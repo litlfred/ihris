@@ -24,6 +24,7 @@ on:
       - "src/**"
       - "library/**"
       - "glossary/**"
+      - "beans/**"
       - "ihris.json"
       - "index.config.json"
       - "index.lock.json"
@@ -74,14 +75,20 @@ jobs:
         run: python3 src/tools/extract_theme.py --check
       - name: Build the site and check every internal link
         run: python3 src/tools/build_site.py --out _site --check-links
+      - name: The work plan's data (assets/beans/), from the bean store with the platform's own functions
+        run: bun run src/tools/gen_beans_data.ts --out _site
       - name: Add the folio chrome to every page (cat-harness rail, foreign-site mode, scoped to ihris)
         # The mounted cat-harness carries the PLATFORM's harness list (smart-base, smart-trust, ...).
         # sync-docs-harness.ts regenerates it from THIS checkout (index.config.json: ihris and what it
         # mounts), so --instance ihris lists ihris and the harnesses it needs, and nothing else.
         # It rewrites cat-harness/docs/_data/harness.json in this throwaway CI mount only.
+        # own_site_links.py keeps ihris's own pages (the work plan at /beans/, the glossary) and the
+        # beans count on THIS site, around the rail (bean ihris-yvow names the platform gaps it bridges).
         run: |
           bun run cat-harness/scripts/sync-docs-harness.ts
+          python3 src/tools/own_site_links.py --harness cat-harness/docs/_data/harness.json
           bun run cat-harness/scripts/rail-standalone-pages.ts --site _site --built cat-harness --foreign-site --home-label "iHRIS Knowledge Base" --instance ihris
+          python3 src/tools/own_site_links.py --site _site
       - name: Staging banner (pull requests only)
         if: steps.target.outputs.slug != ''
         env:

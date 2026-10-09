@@ -1,12 +1,13 @@
 ---
 # ihris-mdzi
 title: Publish ihris's work-plan (beans) dashboard on its own site, then restore the beans navbar icon
-status: todo
+status: completed
 type: task
+priority: normal
 tags:
     - site
 created_at: 2026-10-09T11:53:31Z
-updated_at: 2026-10-09T11:53:31Z
+updated_at: 2026-10-09T12:21:50Z
 ---
 
 Owner, 2026-10-09: 'missing icons on navbar top'. The folio rail's icon row inherited cat-harness's todos, beans and fsh-guts icons, which link to state-graph dashboards. ihris's site (built by src/tools/build_site.py into _site, not a Jekyll docs directory) publishes none of them, so each was inert with 'reason not recorded'. ihris.json now declares navbarIcons [close, launcher].

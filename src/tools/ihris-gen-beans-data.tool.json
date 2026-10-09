@@ -1,0 +1,38 @@
+{
+  "id": "ihris-gen-beans-data",
+  "title": "Write the work plan's data for the site",
+  "description": "Writes assets/beans/index.json (folio-bean-index/v1) and assets/beans/count.json into a built site from this folio's bean store, with cat-harness's own functions (the store, block edges both ways, findings, milestone rollup, open count and unit), so the platform's work-plan board and the navbar's beans badge read exactly the shape they read on the platform. A store that does not exist writes nothing and says so.",
+  "install": {
+    "cli": "bash src/tools/mount_platform.sh"
+  },
+  "invoke": {
+    "shell": "bun run src/tools/gen_beans_data.ts"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "out",
+        "schema": "https://www.iana.org/assignments/media-types/inode/directory",
+        "required": true,
+        "arg": {
+          "flag": "--out"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "bean index",
+        "schema": "https://www.iana.org/assignments/media-types/application/json"
+      }
+    ]
+  },
+  "satisfies": [
+    "build-ihris-site"
+  ],
+  "requires": {
+    "runtime": [
+      "bun"
+    ],
+    "network": false
+  }
+}

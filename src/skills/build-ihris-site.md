@@ -53,6 +53,8 @@ The rail is **scoped to this folio**: it lists ihris and the harnesses it needs,
 
 Check it in a browser, with the platform's own chrome check. The staging-banner check applies to previews only.
 
+**The work plan is a page of this site** (Tools `ihris-gen-beans-data`, `ihris-own-site-links`). The navbar's beans icon opens it and carries the number of open beans, both THIS folio's, never the platform's: the board is the platform's own work-plan board, drawn from this folio's bean store with the platform's own functions, so it reads as it does on every folio. Two gaps in the platform's rail for a folio that is the root of its own site are bridged around the rail and recorded upstream (bean `ihris-yvow`); the bridge goes when they close.
+
 **Not yet: the dark scheme.** The switch sets the scheme, but the iHRIS theme has measured LIGHT colours only, so the page stays light. A dark palette is a design decision (bean `ihris-u3fg`): it is not invented here.
 
 ## 5. Publish (the `gh-pages` branch)

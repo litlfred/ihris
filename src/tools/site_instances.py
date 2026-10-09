@@ -822,6 +822,29 @@ mapping. <b>authored</b>: the definition is the source&#39;s own, verbatim. <b>c
     return path, bs.shell(path, title, main, theme, current=GLOSSARY, scripts=js)
 
 
+WORK_PLAN = "beans/index.html"
+PLATFORM_SITE = "https://litlfred.github.io/folio-assistant"
+
+
+def work_plan_page(theme):
+    """The work plan (beans/), drawn by the PLATFORM's own board: an empty container that its
+    work-plan.js fills from assets/beans/index.json, which src/tools/gen_beans_data.ts writes with the
+    platform's own functions after this build. The navbar's beans icon links here. Bean ihris-mdzi."""
+    inner = (
+        '<p>The work items of this folio, from <code>beans/defs/</code> (prefix <code>ihris-</code>): what is open, '
+        'what blocks what, and the milestones. Drawn by folio-assistant\'s own work-plan board, so it reads as it does '
+        'on every folio. Each item links to its file in the repository.</p>\n'
+        '<meta name="fa-beans-src" content="../assets/beans/index.json">\n'
+        '<div class="fa-workplan" data-fa-workplan data-fa-workplan-only="beans">\n'
+        '  <p class="fa-workplan-fallback">This view needs JavaScript. The data is a plain JSON file at '
+        '<code>assets/beans/index.json</code> on this site.</p>\n</div>\n'
+        f'<link rel="stylesheet" href="{PLATFORM_SITE}/assets/css/work-plan.css">\n'
+        f'<script src="{PLATFORM_SITE}/assets/js/kg-render.js" defer></script>\n'
+        f'<script src="{PLATFORM_SITE}/assets/js/work-plan.js" defer></script>'
+    )
+    return page(WORK_PLAN, "Work plan", [("index.html", "Home")], inner, theme, WORK_PLAN)
+
+
 def all_pages(theme, cls_index, out_dir):
     pages = [sources_index(theme), ihris5_page(theme), library_index(theme), fhir_page(theme), schemas_page(theme, out_dir)]
     for inst in LP_INSTANCES:
@@ -837,6 +860,7 @@ def all_pages(theme, cls_index, out_dir):
     pages += handbook_pages(theme, out_dir)
     pages += use_case_pages(theme, cls_index)
     pages.append(glossary_page(theme, out_dir))
+    pages.append(work_plan_page(theme))
     os.makedirs(os.path.join(out_dir, "assets"), exist_ok=True)
     for f in ("data-dictionary.xlsx", "data-dictionary.csv"):
         shutil.copy(os.path.join(ROOT, "src/ihris-data-dictionary", f), os.path.join(out_dir, "assets", f))
