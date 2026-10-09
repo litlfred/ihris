@@ -19,6 +19,10 @@ node_modules/
 /uploads/ihris-use-cases/*
 !/uploads/ihris-use-cases/manifest.json
 
+# Sub-instances' declared git sources, mounted at <name>-source/ by src/tools/mount_sources.py: another
+# repository's bytes at a pin, never committed (the iHRIS 5 source: src/ihris5/ihris5.json `source`).
+/*-source/
+
 # BEGIN index mounts (generated from index.config.json — do not edit)
 /folio-assistant-core/
 /cat-harness/

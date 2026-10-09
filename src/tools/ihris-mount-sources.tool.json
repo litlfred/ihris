@@ -1,0 +1,39 @@
+{
+  "id": "ihris-mount-sources",
+  "title": "Mount sub-instances' declared git sources",
+  "description": "Lays down every sub-instance's declared git source (core's `source: {kind: \"git\", repository, ref, path}`) at <name>-source/, the way a remote layer is mounted: at the pinned 40-character commit, verified after checkout, with `origin` recorded for provenance, git-ignored and never committed, and never over a directory that is not that commit. Used for iHRIS/iHRIS (src/ihris5/ihris5.json), which cat-harness's mount:remote cannot take because it has no declaration of its own. --check needs no network; --print <name> prints the source's IG directory.",
+  "install": {
+    "none": true
+  },
+  "invoke": {
+    "shell": "python3 src/tools/mount_sources.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "check",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--check"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "report",
+        "schema": "https://www.iana.org/assignments/media-types/text/plain"
+      }
+    ]
+  },
+  "satisfies": [
+    "snapshot-github-repo"
+  ],
+  "requires": {
+    "runtime": [
+      "python3",
+      "git"
+    ],
+    "network": true
+  }
+}

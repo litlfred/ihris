@@ -21,7 +21,8 @@
 
 | # | ruling |
 |---|---|
-| subgraph | The FHIR content is **new derived content in its own subgraph, `src/ihris-4-on-fhir`**, and *that* subgraph depends on the **smart-base harness and IG**. The rest of iHRIS stays independent. This supersedes D5 ("R4 core only") **for this subgraph**, and it is consistent with D3 (wait for `cz17`). |
+| harness | **Superseded 2026-10-09:** the subgraph is built on **fhir-harness** (the bare FHIR IG pipeline, no WHO), not smart-base, and depends on R4 core only, as D5 says. Owner: "update ihris fhir ... to make use of fhir-harness". |
+| subgraph | The FHIR content is **new derived content in its own subgraph, `src/ihris-4-on-fhir`**, and *that* subgraph depended on the **smart-base harness and IG** until 2026-10-09 (row above). The rest of iHRIS stays independent. This supersedes D5 ("R4 core only") **for this subgraph**, and it is consistent with D3 (wait for `cz17`). |
 | timing | **SUSHI later.** Document the skills, processes and tools now: skill `ihris-4-on-fhir`, `processes/ihris-4-on-fhir.bpmn`, Tool `ihris-sushi`. |
 | rename | `ihris-dak` → **`ihris-data-dictionary`** (done 2026-09-23). The schema ids `ihris-dak-data-dictionary/v1` and `ihris-dak-proposal/v1`, the Tool `ihris-build-dak` and the canonical `…/ihris/dak` are unchanged: they are contracts, so renaming them is a separate decision. |
 | focus | Now: modelling the iHRIS 4 data model on just-the-docs, with a harness visualiser. |

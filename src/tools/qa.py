@@ -527,7 +527,7 @@ IGNORE_BEGIN = "# BEGIN index mounts (generated from index.config.json — do no
 IGNORE_END = "# END index mounts"
 
 
-def c_platform_dependency(C, idx=None, lock=None, gitignore=None, decl=None):
+def c_platform_dependency(C, idx=None, lock=None, gitignore=None, decl=None, subs=None):
     """ihris depends on folio-assistant-core as who-iris does: every need is a pinned remote mount,
     the lock records exactly those pins, and .gitignore keeps every mount out of the commit."""
     idx = idx if idx is not None else J("index.config.json")
@@ -546,6 +546,18 @@ def c_platform_dependency(C, idx=None, lock=None, gitignore=None, decl=None):
     for n in decl.get("needs") or []:
         if n not in remote:
             out.append(f"ihris.json needs `{n}`, which index.config.json does not mount")
+    for i in decl.get("instances") or []:
+        rel = f"{i['path']}/{i['name']}.json"
+        sub = J(rel) if subs is None else subs.get(rel, {})
+        for n in sub.get("needs") or []:
+            if n not in remote:
+                out.append(f"{rel} needs `{n}`, which index.config.json does not mount")
+        src = sub.get("source")
+        if isinstance(src, dict) and src.get("kind") == "git":
+            if not re.fullmatch(r"[0-9a-f]{40}", src.get("ref") or ""):
+                out.append(f"{rel}: source.ref {src.get('ref')!r} is not a 40-character commit; a mounted source is pinned, never a branch")
+            if "/*-source/" not in gitignore.splitlines():
+                out.append(f".gitignore: does not ignore /*-source/, so {i['name']}'s mounted source could be committed")
     pins = {m["harness"]: (m["repository"], m["ref"]) for m in lock.get("mounts") or []}
     shas = {i["instance"]: i["sha"] for i in lock.get("instances") or []}
     for n, r in remote.items():
@@ -1479,7 +1491,7 @@ QA = {
     # reused schemas (validated for shape by folio-assistant's zod or fhir.resources)
     "cat-harness declaration (zod)": [("declarations", "see ihris-instance-extension", c_declarations)],
     "harness-config (zod)": [("harness-config", "content type and root instances as AGENTS.md states", c_harness_config)],
-    "folio-index-config/v1": [("platform-dependency", "ihris is the local root; every need is a remote mount; the lock pins exactly those SHAs; .gitignore keeps every mount out", c_platform_dependency)],
+    "folio-index-config/v1": [("platform-dependency", "ihris is the local root; every need (root and sub-instance) is a remote mount; the lock pins exactly those SHAs; a declared git source is pinned to a commit; .gitignore keeps every mount out", c_platform_dependency)],
     "cat-harness-mount-lock/v1": [("platform-dependency", "see folio-index-config/v1", c_platform_dependency)],
     "bean-graph (zod)": [("bean-graph", "declared bean directories exist", c_bean_graph)],
     "skill-package (zod)": [("skill-package", "listed skills and skill files agree", c_skill_package)],

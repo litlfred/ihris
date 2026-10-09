@@ -2,7 +2,7 @@
 
 **New derived content** (owner, 2026-09-23): the iHRIS 4.3.3 data model expressed in FHIR, derived from `src/ihris-data-dictionary` (the data dictionary and terminology).
 
-**This is the one subgraph that depends on smart-base**: the smart-base harness and the `smart.who.int.base` IG. The ihris root and its other instances are independent of smart-base.
+**Built on [fhir-harness](https://github.com/litlfred/fhir-harness)**, the bare FHIR IG pipeline with no WHO in it (owner, 2026-10-09). It replaced the smart-base harness and IG this subgraph depended on from 2026-09-23, so nothing in this folio depends on smart-base. The IG depends on `hl7.fhir.r4.core#4.0.1` only (D5).
 
 | status | item |
 |---|---|

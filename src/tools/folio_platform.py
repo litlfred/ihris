@@ -30,9 +30,29 @@ def mounts():
     return out
 
 
+def declared_sources():
+    """{sub-instance name: its `source`} for every instance ihris.json lists whose declaration carries
+    core's git source (`{kind: "git", repository, ref, path}`): a source mounted like a remote layer,
+    pinned in OUR declaration because the upstream has no index of its own (src/tools/mount_sources.py)."""
+    with open(os.path.join(ROOT, "ihris.json"), encoding="utf-8") as f:
+        root = json.load(f)
+    out = {}
+    for i in root.get("instances") or []:
+        with open(os.path.join(ROOT, i["path"], f"{i['name']}.json"), encoding="utf-8") as f:
+            src = json.load(f).get("source")
+        if isinstance(src, dict) and src.get("kind") == "git":
+            out[i["name"]] = src
+    return out
+
+
+def source_mount_path(name):
+    """Where a sub-instance's declared source is mounted: `<name>-source/` at the root, git-ignored."""
+    return f"{name}-source"
+
+
 def mount_prefixes():
-    """Repository-relative prefixes ('cat-harness/', ...) a scan of THIS folio's files must skip."""
-    return tuple(p.rstrip("/") + "/" for p in mounts().values())
+    """Repository-relative prefixes ('cat-harness/', 'ihris5-source/', ...) a scan of THIS folio's files must skip."""
+    return tuple(p.rstrip("/") + "/" for p in list(mounts().values()) + [source_mount_path(n) for n in declared_sources()])
 
 
 def platform_root():
