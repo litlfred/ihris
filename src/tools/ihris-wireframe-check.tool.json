@@ -3,7 +3,7 @@
   "title": "Check wireframe candidates at web and mobile viewports",
   "description": "Renders each mid-fidelity wireframe candidate at a web viewport (1280x800) and a mobile viewport (390x844). Per viewport it records script entries, each pass or fail with a note and never a score: renders, no-overflow and no-placeholder. It writes a screenshot per viewport and a report.json, and exits 1 on any fail.",
   "install": {
-    "cli": "(cd ../litlfred/folio-assistant && bun install)"
+    "cli": "bun install (playwright, from this repository's package.json)"
   },
   "invoke": {
     "shell": "node src/tools/wireframe_check.mjs"

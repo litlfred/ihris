@@ -1,4 +1,4 @@
 {
-  "_comment": "How this instance is configured. `document`, not `paper`: there is no Lean and no TeX here, only structured prose and JSON nodes, so the paper adapter's LaTeX-shaped QA axes would fire on content that never reaches pdflatex. The platform is litlfred/folio-assistant, used from a separate checkout. It is NOT vendored here: `src/tools/validate.py` finds it via $FOLIO_ASSISTANT.",
+  "_comment": "How this instance is configured. `document`, not `paper`: there is no Lean and no TeX here, only structured prose and JSON nodes, so the paper adapter's LaTeX-shaped QA axes would fire on content that never reaches pdflatex. The platform is folio-assistant-core (and its closure), which this repository depends on as litlfred/who-iris does: pinned in index.config.json, locked in index.lock.json, and mounted at <name>/ (git-ignored) by src/tools/mount_platform.sh. It is NOT vendored here; src/tools/folio_platform.py is the one place that knows where it is.",
   "contentType": "document"
 }

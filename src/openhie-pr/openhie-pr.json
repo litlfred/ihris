@@ -2,7 +2,7 @@
   "name": "openhie-pr",
   "title": "OpenHIE Health Worker Registry",
   "description": "OpenHIE Health Worker Registry is a Care Services Discovery (CSD) compliant health worker registry based on the iHRIS/I2CE framework.",
-  "source": {
+  "upstream": {
     "host": "launchpad",
     "vcs": "bzr",
     "lp": "lp:openhie-pr",
@@ -24,7 +24,7 @@
       "id": "openhie-pr-catalogue",
       "path": "catalogue/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "catalogue"
       ],
       "readOnly": true,

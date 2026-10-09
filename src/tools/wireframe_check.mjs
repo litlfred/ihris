@@ -10,11 +10,12 @@
 //   no-overflow   - no horizontal scroll (the mobile failure that matters most)
 //   no-placeholder- no lorem ipsum / TODO / xxx text: mid-fidelity means real content
 // and writes a screenshot for the human and agent reviewers. Exit 1 on any fail.
-// Playwright is resolved from the folio-assistant checkout (FOLIO_ASSISTANT,
-// default ../litlfred/folio-assistant); Chromium from PLAYWRIGHT_BROWSERS_PATH.
+// Playwright is resolved from this repository's own node_modules (package.json,
+// `bun install`); Chromium from PLAYWRIGHT_BROWSERS_PATH.
 import { createRequire } from "node:module";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
-import { basename, resolve } from "node:path";
+import { basename, dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const VIEWPORTS = { web: { width: 1280, height: 800 }, mobile: { width: 390, height: 844 } };
 const PLACEHOLDER = /lorem ipsum|dolor sit amet|\bTODO\b|\bxxx+\b|placeholder text/i;
@@ -27,8 +28,8 @@ if (!files.length) {
   console.error("usage: wireframe_check.mjs <candidate.html>... [--out DIR]");
   process.exit(2);
 }
-const fa = resolve(process.env.FOLIO_ASSISTANT ?? "../litlfred/folio-assistant");
-const { chromium } = createRequire(resolve(fa, "package.json"))("playwright");
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
+const { chromium } = createRequire(resolve(root, "package.json"))("playwright");
 const exe = ["/opt/pw-browsers/chromium", process.env.CHROMIUM].find((p) => p && existsSync(p));
 const browser = await chromium.launch({ args: ["--no-sandbox"], ...(exe ? { executablePath: exe } : {}) });
 mkdirSync(out, { recursive: true });

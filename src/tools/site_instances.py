@@ -144,9 +144,9 @@ def lp_instance_page(inst, theme, have_modules):
     else:
         extra = f"<h2>Release {RELEASE}</h2><p class=\"mute\">No modules extracted yet: the release tarball is needed (its MD5 is recorded below).</p>"
     inner = f"""<p>{E(proj.get('summary') or decl.get('description') or '')}</p>
-<div class="badges"><span class="badge">{E(proj['classification'])}</span><span class="badge"><code>{E(decl['source']['lp'])}</code></span>
+<div class="badges"><span class="badge">{E(proj['classification'])}</span><span class="badge"><code>{E(decl['upstream']['lp'])}</code></span>
 <span class="badge">licence {E(', '.join(proj.get('licences') or []) or 'not stated')}</span><span class="badge">{E(decl.get('materialization', ''))}</span></div>
-<p><a href="{E(decl['source']['web'])}">launchpad.net/{E(inst)}</a>. Maintainer: {E((proj.get('maintainer') or {}).get('name') or 'not stated')}.</p>
+<p><a href="{E(decl['upstream']['web'])}">launchpad.net/{E(inst)}</a>. Maintainer: {E((proj.get('maintainer') or {}).get('name') or 'not stated')}.</p>
 {extra}
 <h2>Series ({len(srows)})</h2>{rows_table(['Series', 'Branches', 'Upstream'], srows, 'Series')}
 <h2>Releases and milestones ({len(rrows)})</h2>{rows_table(['Release', 'Series', 'Released', 'Notes', 'Files (MD5 from Launchpad)'], rrows, 'Releases')}"""

@@ -1,9 +1,9 @@
 {
   "id": "ihris-validate-kg",
   "title": "Validate the iHRIS knowledge graph",
-  "description": "Checks every ihris-* node against src/schemas/, every folio-catalogue(-node)/v1 file and Tool node against folio-assistant's own zod schemas, and that metadataRef, module parent/formClasses and releaseFile references resolve.",
+  "description": "Checks every ihris-* node against src/schemas/, every folio-catalogue(-node)/v1 file and Tool node against folio-assistant's own zod schemas (from the mounted folio-assistant-core and cat-harness), and that metadataRef, module parent/formClasses and releaseFile references resolve.",
   "install": {
-    "cli": "pip install jsonschema; a folio-assistant checkout with `bun install` (FOLIO_ASSISTANT=<path>)"
+    "cli": "pip install jsonschema; src/tools/mount_platform.sh (mounts folio-assistant-core and its closure from index.lock.json, then bun install)"
   },
   "invoke": {
     "shell": "python3 src/tools/validate.py"

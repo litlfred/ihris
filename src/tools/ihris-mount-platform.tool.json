@@ -1,0 +1,40 @@
+{
+  "id": "ihris-mount-platform",
+  "title": "Mount the folio-assistant platform layers",
+  "description": "Lays down folio-assistant-core and its closure (cat-harness, cat-harness-tools, bootstrap, bootstrap-tools) at <root>/<name>/ from the committed index.lock.json, verifying each against the lock's tree digest, then runs bun install. It reuses cat-harness's own mount-from-lock.ts, fetched alone at the locked cat-harness SHA on a fresh clone. The layers are git-ignored and never committed. --check needs no network: it reports whether every locked layer is on disk and intact.",
+  "install": {
+    "cli": "bun, git and curl on PATH"
+  },
+  "invoke": {
+    "shell": "bash src/tools/mount_platform.sh"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "check",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--check"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "report",
+        "schema": "https://www.iana.org/assignments/media-types/text/plain"
+      }
+    ]
+  },
+  "satisfies": [
+    "qa-coverage"
+  ],
+  "requires": {
+    "runtime": [
+      "bun",
+      "git",
+      "curl"
+    ],
+    "network": true
+  }
+}

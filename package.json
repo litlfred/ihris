@@ -1,0 +1,19 @@
+{
+  "name": "@litlfred/ihris",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The iHRIS knowledge base: a folio-assistant-core dependent folio. These are the npm packages ihris's own code and the mounted platform layers it imports need (src/tools/validate-folio.ts loads folio-assistant-core's and cat-harness's zod schemas; src/tools/wireframe_check.mjs drives Playwright). The layers themselves come from index.lock.json via src/tools/mount_platform.sh.",
+  "dependencies": {
+    "yaml": "^2.9.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  },
+  "scripts": {
+    "mount": "bash src/tools/mount_platform.sh",
+    "mount:check": "bash src/tools/mount_platform.sh --check",
+    "validate": "python3 src/tools/validate.py"
+  }
+}

@@ -43,8 +43,15 @@ def exists(rel):
     return os.path.exists(os.path.join(ROOT, rel))
 
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import folio_platform  # noqa: E402  where the mounted platform layers are
+MOUNTS = folio_platform.mount_prefixes()
+
+
 def G(pattern):
-    return sorted(os.path.relpath(p, ROOT) for p in glob.glob(os.path.join(ROOT, pattern), recursive=True))
+    """This folio's files matching `pattern`. The mounted platform layers are another repository's bytes, never scanned."""
+    return sorted(r for r in (os.path.relpath(p, ROOT) for p in glob.glob(os.path.join(ROOT, pattern), recursive=True))
+                  if not r.startswith(MOUNTS))
 
 
 def sha256(rel):
@@ -277,7 +284,7 @@ def c_wiki_structure(C):
 def c_github_inventory(C):
     out = []
     decl = J("src/ihris5/ihris5.json")
-    pinned = {r["url"]: r["commit"] for r in decl["source"]["repositories"]}
+    pinned = {r["url"]: r["commit"] for r in decl["upstream"]["repositories"]}
     for rel, d in C["bound"].get("ihris-github-inventory/v1", []):
         if pinned.get(d["url"]) != d["commit"]:
             out.append(f"{rel}: commit {d['commit'][:12]} is not the one ihris5.json pins for {d['url']}")
@@ -397,7 +404,7 @@ def c_process_spec(C):
     skills = {os.path.basename(p)[:-3] for p in G("src/skills/*.md")} | C["fa_skills"]
     out = []
     if not C["fa_skills"]:
-        out.append("process-spec: no folio-assistant checkout, so skills it defines cannot be resolved (set FOLIO_ASSISTANT)")
+        out.append("process-spec: cat-harness is not mounted, so skills it defines cannot be resolved (run src/tools/mount_platform.sh)")
     for rel, d in C["bound"].get("ihris-process-spec/v1", []):
         out += [f"{rel}: {e}" for e in gb.validate(d)]
         for n in d["nodes"]:
@@ -513,6 +520,50 @@ def c_harness_config(C):
         out.append("ihris.config.json: contentType is not `document`, which AGENTS.md §1 states")
     if not root.get("instances"):
         out.append("ihris.json: the root declares no instances")
+    return out
+
+
+IGNORE_BEGIN = "# BEGIN index mounts (generated from index.config.json — do not edit)"  # cat-harness/schemas/index-config.ts
+IGNORE_END = "# END index mounts"
+
+
+def c_platform_dependency(C, idx=None, lock=None, gitignore=None, decl=None):
+    """ihris depends on folio-assistant-core as who-iris does: every need is a pinned remote mount,
+    the lock records exactly those pins, and .gitignore keeps every mount out of the commit."""
+    idx = idx if idx is not None else J("index.config.json")
+    lock = lock if lock is not None else J("index.lock.json")
+    decl = decl if decl is not None else J("ihris.json")
+    if gitignore is None:
+        with open(os.path.join(ROOT, ".gitignore"), encoding="utf-8") as f:
+            gitignore = f.read()
+    out = []
+    local = [i for i in idx["instances"] if ((i.get("source") or {}).get("local") or {}).get("at") == "."]
+    if [i["name"] for i in local] != [decl["name"]]:
+        out.append(f"index.config.json: `{decl['name']}` is not the one local instance at `.`")
+    remote = {i["name"]: i["source"]["remote"] for i in idx["instances"] if (i.get("source") or {}).get("remote")}
+    if "folio-assistant-core" not in (decl.get("needs") or []):
+        out.append("ihris.json: does not `need` folio-assistant-core, which AGENTS.md §1 says this folio depends on")
+    for n in decl.get("needs") or []:
+        if n not in remote:
+            out.append(f"ihris.json needs `{n}`, which index.config.json does not mount")
+    pins = {m["harness"]: (m["repository"], m["ref"]) for m in lock.get("mounts") or []}
+    shas = {i["instance"]: i["sha"] for i in lock.get("instances") or []}
+    for n, r in remote.items():
+        if pins.get(n) != (r["repository"], r["ref"]):
+            out.append(f"index.lock.json: `{n}` is not locked at {r['repository']}@{r['ref'][:12]} as index.config.json pins it (re-run mount:remote)")
+        elif shas.get(n) != r["ref"]:
+            out.append(f"index.lock.json: `{n}` resolved to {str(shas.get(n))[:12]}, not its pin {r['ref'][:12]}")
+    for n in sorted(set(pins) - set(remote)):
+        out.append(f"index.lock.json: locks `{n}`, which index.config.json does not declare")
+    paths = [((r.get("overrides") or {}).get(n) or {}).get("path") or n for n, r in remote.items()]
+    paths += [i["path"] for i in lock.get("instances") or [] if i["path"] not in paths]
+    lines = gitignore.splitlines()
+    if IGNORE_BEGIN not in lines or IGNORE_END not in lines:
+        out.append(".gitignore: no generated `index mounts` block, so a mounted layer could be committed")
+    else:
+        block = lines[lines.index(IGNORE_BEGIN) + 1:lines.index(IGNORE_END)]
+        if sorted(block) != sorted(f"/{p.strip('/')}/" for p in paths):
+            out.append(f".gitignore: the index mounts block {block} disagrees with index.config.json and the lock")
     return out
 
 
@@ -711,7 +762,7 @@ def _scenario_dirs(C):
     out = []
     for rel, d in C["declarations"]:
         for x in d.get("directories") or []:
-            if "scenarios" in (x.get("graphKinds") or []):
+            if "scenarios" in (x.get("graphTypologies") or []):
                 out.append(os.path.normpath(os.path.join(os.path.dirname(rel) or ".", x["path"])))
     return out
 
@@ -1117,7 +1168,7 @@ def _glossary_dirs(C):
     for rel, d in C["declarations"]:
         base = os.path.dirname(rel)
         for x in d.get("directories") or []:
-            if "glossary" in (x.get("graphKinds") or []):
+            if "glossary" in (x.get("graphTypologies") or []):
                 out.append(os.path.normpath(os.path.join(base, x["path"])))
     return out
 
@@ -1146,7 +1197,7 @@ def c_glossary_schemes(C):
     exactly what src/tools/build_glossary.py generates from today's inputs."""
     out, dirs = [], _glossary_dirs(C)
     if not dirs:
-        out.append("no declaration has a glossary directory (graphKinds [\"glossary\"])")
+        out.append("no declaration has a glossary directory (graphTypologies [\"glossary\"])")
     for rel, g in _glossaries(C):
         if os.path.dirname(rel) not in dirs:
             out.append(f"{rel}: not in a declared glossary directory ({', '.join(dirs)})")
@@ -1251,7 +1302,7 @@ def c_glossary_matches(C):
     references, plus exactMatch from a code list's ValueSet bound to ISCO-08 (ValueSet identity, owner 2026-09-24).
     A match with no such basis, or a basis with no match, is a finding."""
     out, expected = [], {}
-    remote = [g["url"].rstrip("/") + "/" for g in J("ihris.json").get("remoteGraphs") or [] if "glossary" in g["graphKinds"]]
+    remote = [g["url"].rstrip("/") + "/" for g in J("ihris.json").get("remoteGraphs") or [] if "glossary" in g["graphTypologies"]]
     remote.append("http://data.europa.eu/esco/isco/")  # ESCO's ISCO concepts sit beside its concept-scheme IRI
     for rel in G("src/ihris-data-dictionary/terminology/ConceptMap-*.json"):
         for grp in J(rel).get("group") or []:
@@ -1428,6 +1479,8 @@ QA = {
     # reused schemas (validated for shape by folio-assistant's zod or fhir.resources)
     "cat-harness declaration (zod)": [("declarations", "see ihris-instance-extension", c_declarations)],
     "harness-config (zod)": [("harness-config", "content type and root instances as AGENTS.md states", c_harness_config)],
+    "folio-index-config/v1": [("platform-dependency", "ihris is the local root; every need is a remote mount; the lock pins exactly those SHAs; .gitignore keeps every mount out", c_platform_dependency)],
+    "cat-harness-mount-lock/v1": [("platform-dependency", "see folio-index-config/v1", c_platform_dependency)],
     "bean-graph (zod)": [("bean-graph", "declared bean directories exist", c_bean_graph)],
     "skill-package (zod)": [("skill-package", "listed skills and skill files agree", c_skill_package)],
     "tool (zod)": [("tools", "invoked scripts exist; satisfied skills exist", c_tools)],
@@ -1452,7 +1505,7 @@ QA = {
     "library manifest (manifest.jsonld)": [("library-manifests", "every contained section exists; @id is under the entry", c_library_manifests)],
     "BPMN process (processes/*.bpmn)": [("bpmn", "every process is generated from a spec and carries its diagram", c_bpmn)],
 }
-REUSED = ["cat-harness declaration (zod)", "harness-config (zod)", "bean-graph (zod)", "skill-package (zod)", "tool (zod)",
+REUSED = ["cat-harness declaration (zod)", "harness-config (zod)", "folio-index-config/v1", "cat-harness-mount-lock/v1", "bean-graph (zod)", "skill-package (zod)", "tool (zod)",
           "role graph (zod RoleGraphSchema)", "user stories (zod UserStoryGraphSchema)", "actor (zod ActorDef)",
           "pdf-structure/v1", "folio-document-images/v1", "folio-glossary/v1", "FHIR R4 terminology", "folio-catalogue/v1", "folio-catalogue-node/v1",
           "bean (beans/defs/*.md)", "skill (src/skills/*.md)", "folio-methodology/v1", "library manifest (manifest.jsonld)",
@@ -1460,8 +1513,9 @@ REUSED = ["cat-harness declaration (zod)", "harness-config (zod)", "bean-graph (
 
 
 def fa_skills():
-    fa = os.environ.get("FOLIO_ASSISTANT", os.path.join(ROOT, "..", "litlfred", "folio-assistant"))
-    return {os.path.basename(p)[:-3] for p in glob.glob(os.path.join(fa, "cat-harness", "skills", "**", "*.md"), recursive=True)}
+    """The skills the mounted cat-harness defines (empty when it is not mounted, which c_process_spec reports)."""
+    ch = folio_platform.layer("cat-harness")
+    return {os.path.basename(p)[:-3] for p in glob.glob(os.path.join(ch, "skills", "**", "*.md"), recursive=True)} if ch else set()
 
 
 KNOWN = json.load(open(os.path.join(ROOT, "src/tools/qa-known.json")))

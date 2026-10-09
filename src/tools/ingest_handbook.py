@@ -28,7 +28,7 @@ Steps, all deterministic:
    and the counts must agree or the script refuses.
 5. Write book.json (ihris-wiki-book/v1) and manifest.jsonld.
 
-  python3 src/tools/ingest_handbook.py        # needs pymupdf and a folio-assistant checkout
+  python3 src/tools/ingest_handbook.py        # needs pymupdf and the mounted cat-harness (src/tools/mount_platform.sh)
 """
 import hashlib
 import json
@@ -44,7 +44,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 UP = os.path.join(ROOT, "uploads", "ihris-admin-handbook")
 OUT = os.path.join(ROOT, "library", "ihris-admin-handbook")
 ENTRY = "library/ihris-admin-handbook"
-FA = os.environ.get("FOLIO_ASSISTANT", os.path.join(ROOT, "..", "litlfred", "folio-assistant"))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import folio_platform  # noqa: E402  where the mounted platform layers are
 MONO = ("FreeMono",)
 # Placeholder addresses in example configuration. Kept: they identify nobody.
 PLACEHOLDER_EMAILS = {"your@email.add.ress", "someone@somwhere.org", "my_email@somewhere.com"}
@@ -128,7 +129,10 @@ def run_rungs(pdf):
     scratch = os.path.join(ROOT, ".build", "handbook-rungs")
     shutil.rmtree(scratch, ignore_errors=True)
     os.makedirs(scratch)
-    scripts = os.path.join(FA, "cat-harness", "scripts")
+    ch = folio_platform.layer("cat-harness")
+    if not ch:
+        sys.exit("cat-harness is not mounted, and its pdf rungs are needed: run src/tools/mount_platform.sh")
+    scripts = os.path.join(ch, "scripts")
     for s, extra in (("pdf-structure.py", ["--no-sections"]), ("pdf-images.py", [])):
         r = subprocess.run([sys.executable, os.path.join(scripts, s), pdf, "-o", scratch] + extra, capture_output=True, text=True)
         if r.returncode != 0:

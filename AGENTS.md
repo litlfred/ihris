@@ -1,11 +1,11 @@
 # AGENTS.md: ihris
 
 What a cold agent does here, in order. The platform's rules are in
-[folio-assistant's AGENTS.md](https://github.com/litlfred/folio-assistant/blob/main/AGENTS.md); this file adds what is specific to this folio and does not restate them.
+[folio-assistant-core's AGENTS.md](https://github.com/litlfred/folio-assistant-core/blob/main/AGENTS.md) and the harness's in [cat-harness's](https://github.com/litlfred/cat-harness/blob/main/AGENTS.md); this file adds what is specific to this folio and does not restate them.
 
 ## 1. Know what this is
 
-A **folio** (content repository) on the `folio-assistant` platform, `contentType: document`. The root instance is `ihris` ([`ihris.json`](ihris.json)), and it lists thirteen sub-instances, each with its own `<name>.json`. Read the [README](README.md) for the map.
+A **folio** (content repository) that depends on **folio-assistant-core**, `contentType: document`, laid out as [who-iris](https://litlfred.github.io/who-iris/) is. `ihris.json` `needs` folio-assistant-core; [`index.config.json`](index.config.json) pins it and its closure (cat-harness, cat-harness-tools, bootstrap, bootstrap-tools) to commit SHAs, and [`index.lock.json`](index.lock.json) records what they resolved to. `bash src/tools/mount_platform.sh` mounts them at `<name>/`. They are git-ignored, never edited, and never committed. Tools find them through `src/tools/folio_platform.py` only. The root instance is `ihris` ([`ihris.json`](ihris.json)), and it lists thirteen sub-instances, each with its own `<name>.json`. Read the [README](README.md) for the map.
 
 ## 2. Rules that bind here
 
@@ -14,7 +14,7 @@ A **folio** (content repository) on the `folio-assistant` platform, `contentType
 3. **Generated means generated.** `src/*/catalogue`, `src/*/modules`, `src/*/data-model`, `src/ihris5/inventory`, `library/ihris-toolkit/{sections,stages,images}`, `library/ihris-wiki/osi-help-*`, `library/ihris-admin-handbook/{sections,images,images.json,book.json,structure.json,manifest.jsonld}` (from `ingest_handbook.py`), `library/ihris-use-cases/{common,manage,qualify,plan}.{json,md}` + `roles.md` + `scenarios/` + `crosswalk.json` + `manifest.jsonld` (from `ingest_use_cases.py`), `src/ihris-data-dictionary/{data-dictionary,core-data-elements}` + its csv/xlsx/json, `glossary/*.glossary.json` (from `build_glossary.py`), `docs/generated`, `src/site/theme` (from `extract_theme.py`) and the site `_site/` (from `build_site.py`, never committed) are build output. Change `uploads/` or the tool in `src/tools/`, never the output.
 4. **Licence decides what may be reproduced.** GPL/LGPL content may be ingested with attribution. Content with no licence (e.g. `iHRIS/ihris-documentation`) is listed by path and heading only, unless its declaration records a `licence`: either `stated` (with the licence id and where it is stated) or the owner's `permission` (who granted it, when, and the scope). Only the owner grants permission. The toolkit has one (2026-09-23, bean `ihris-kngr`), and so do the 2009 use cases and the handbook's images (bean `ihris-hbuc`). The handbook's text is GFDL-1.2, as stated in the export. Third parties' personal content, such as reader comments, is never published.
 5. **Core is the owner's call.** Core = i2ce, ihris-common, ihris-manage, ihris-qualify, ihris-plan, openhie-pr. Do not promote a country customization.
-6. **Reuse folio-assistant's schemas first.** Catalogue nodes are `folio-catalogue-node/v1`, validated with folio-assistant's own zod. New schemas in `src/schemas/` only for what it has no field for.
+6. **Reuse folio-assistant's schemas first.** Catalogue nodes are `folio-catalogue-node/v1`, validated with folio-assistant's own zod. New schemas in `src/schemas/` only for what it has no field for. In a declaration, ihris's own provenance key is `upstream` (core reserves `source` for `{kind: "git", repository, ref}`), and a directory's kinds are `graphTypologies`.
 
 ## 3. Before you commit
 
@@ -22,7 +22,7 @@ A **folio** (content repository) on the `folio-assistant` platform, `contentType
 python3 src/tools/build_kg.py && python3 src/tools/build_dak.py && python3 src/tools/validate.py   # must print OK
 ```
 
-`build_dak.py` needs `pip install openpyxl pycountry==24.6.1`, and the site build that `validate.py` runs needs `pip install -r src/tools/requirements-site.txt` (pycountry pins the ISO data the ISO ConceptMaps are verified against). `validate.py` needs a folio-assistant checkout with `bun install` done (`FOLIO_ASSISTANT=<path>`, default `../litlfred/folio-assistant`). Without one it warns and skips the zod checks. That is not a pass.
+`build_dak.py` needs `pip install openpyxl pycountry==24.6.1`, and the site build that `validate.py` runs needs `pip install -r src/tools/requirements-site.txt` (pycountry pins the ISO data the ISO ConceptMaps are verified against). `validate.py` needs the platform layers mounted: run `bash src/tools/mount_platform.sh` first (it also runs `bun install`). Set `FOLIO_PLATFORM=<dir>` only if you mounted them somewhere else. Without them it warns and skips the zod checks. That is not a pass.
 
 **CI runs this on every commit:** `.github/workflows/ci.yml` runs on every push to any branch and on every pull request. In CI (`CI` set), a skipped check is an error, not a warning.
 

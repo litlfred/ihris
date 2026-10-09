@@ -1,6 +1,7 @@
 // Validate this repository's platform-shaped files with folio-assistant's OWN zod
-// schemas, so "valid" means what the platform means by it. Run from a
-// folio-assistant checkout (validate.py does):
+// schemas, so "valid" means what the platform means by it. Run from the platform
+// root, the directory holding the mounted folio-assistant-core/ and cat-harness/
+// side by side (src/tools/folio_platform.py; validate.py does):
 //   bun run <this-repo>/src/tools/validate-folio.ts <this-repo>
 //
 // What it covers, by schema:
@@ -10,14 +11,15 @@
 //   ihris.config.json                             HarnessConfigSchema
 //   beans/beans.json                              BeanGraphSchema
 //   src/skills/package-manifest.json              SkillPackageManifestSchema
+//   index.config.json, index.lock.json            IndexConfigSchema, MountLockSchema (the platform dependency)
 //   library/*/structure.json (pdf-structure/v1)   PdfStructureSchema
 //   library/*/images.json (folio-document-images/v1) ImagesSidecarSchema
 //   methodologies/*/*.md front matter             MethodologyFrontMatterSchema (folio-methodology/v1)
-//   <scenarios dir>/roles.json                    RoleGraphSchema via readRoleGraph (every directory declaring graphKinds ["scenarios"])
+//   <scenarios dir>/roles.json                    RoleGraphSchema via readRoleGraph (every directory declaring graphTypologies ["scenarios"])
 //   <scenarios dir>/stories.json                  UserStoryGraphSchema via readUserStories; every story's role declared
 //   <scenarios dir>/actors/*.json                 ActorDefSchema, strict: an actor carries nothing else (no login)
 //   <glossary dir>/*.glossary.json                GlossarySchema (folio-glossary/v1; every directory declaring
-//                                                 graphKinds ["glossary"]), and core's own toSkos() of each scheme
+//                                                 graphTypologies ["glossary"]), and core's own toSkos() of each scheme
 //                                                 must equal the SKOS JSON-LD the site published (build_glossary.py
 //                                                 mirrors toSkos in Python; this holds the mirror to it). The site
 //                                                 is <this-repo>/.build/site (validate.py builds it first). argv[3]
@@ -39,10 +41,12 @@ const { CatHarnessDeclarationSchema } = await S("cat-harness/schemas/cat-harness
 const { HarnessConfigSchema } = await S("cat-harness/schemas/harness-config.ts");
 const { BeanGraphSchema } = await S("cat-harness/schemas/bean-graph.ts");
 const { SkillPackageManifestSchema } = await S("cat-harness/schemas/skill-package.ts");
+const { IndexConfigSchema } = await S("cat-harness/schemas/index-config.ts");
+const { MountLockSchema } = await S("cat-harness/schemas/remote-mount.ts");
 // pdf-structure/v1 was defined upstream in litlfred/folio-assistant#1113 (issue #1112).
 // An older checkout has no such module: say so, never pass silently.
 const { PdfStructureSchema } = await S("cat-harness/schemas/pdf-structure.ts").catch(() => {
-  console.log("folio-assistant checkout predates cat-harness/schemas/pdf-structure.ts (#1112): update it");
+  console.log("the mounted cat-harness predates schemas/pdf-structure.ts (#1112): bump its pin in index.config.json");
   process.exit(1);
 });
 
@@ -52,7 +56,7 @@ const { ActorDefSchema, readRoleGraph } = await S("cat-harness/schemas/role-grap
 const { readUserStories, danglingStoryRoles } = await S("cat-harness/schemas/user-story.ts");
 // folio-glossary/v1 is core's, from litlfred/folio-assistant#1218 (issue #1217). Say so on an older checkout.
 const { GlossarySchema, toSkos } = await S("folio-assistant-core/schemas/glossary.ts").catch(() => {
-  console.log("folio-assistant checkout predates folio-assistant-core/schemas/glossary.ts (#1218): update it");
+  console.log("the mounted folio-assistant-core predates schemas/glossary.ts (#1218): bump its pin in index.config.json");
   process.exit(1);
 });
 const { parse: parseYaml } = await import(resolve(process.cwd(), "node_modules/yaml/dist/index.js"));
@@ -118,7 +122,7 @@ const decls: [string, any][] = [["ihris.json", decl], ...(decl.instances ?? []).
 for (const [rel, d] of decls) {
   const base = rel.includes("/") ? rel.slice(0, rel.lastIndexOf("/")) : ".";
   for (const dir of d.directories ?? []) {
-    if (!(dir.graphKinds ?? []).includes("scenarios")) continue;
+    if (!(dir.graphTypologies ?? []).includes("scenarios")) continue;
     const at = resolve(root, base, dir.path).slice(resolve(root).length + 1);
     // folio-assistant's own readers, so this repository accepts exactly what the platform does: `_` keys
     // (such as a role's `_sources`) are documentation, and everything else is RoleGraphSchema, strict.
@@ -153,7 +157,7 @@ for (const [rel, d] of decls) {
 for (const [rel, d] of decls) {
   const base = rel.includes("/") ? rel.slice(0, rel.lastIndexOf("/")) : ".";
   for (const dir of d.directories ?? []) {
-    if (!(dir.graphKinds ?? []).includes("glossary")) continue;
+    if (!(dir.graphTypologies ?? []).includes("glossary")) continue;
     const at = resolve(root, base, dir.path).slice(resolve(root).length + 1);
     for (const g of new Glob(`${at}/*.glossary.json`).scanSync(root)) {
       const doc = read(g);
@@ -186,6 +190,9 @@ for (const [rel, d] of decls) {
 check("ihris.config.json", "harness-config", HarnessConfigSchema, read("ihris.config.json"));
 check("beans/beans.json", "bean-graph", BeanGraphSchema, read("beans/beans.json"));
 check("src/skills/package-manifest.json", "skill-package", SkillPackageManifestSchema, read("src/skills/package-manifest.json"));
+// The platform dependency: which layers this checkout mounts, at which SHAs, and what they resolved to.
+check("index.config.json", "folio-index-config/v1", IndexConfigSchema, read("index.config.json"));
+check("index.lock.json", "cat-harness-mount-lock/v1", MountLockSchema, read("index.lock.json"));
 
 console.log(`folio-assistant zod: ${JSON.stringify(counts)}; ${bad} invalid`);
 process.exit(bad ? 1 : 0);

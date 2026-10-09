@@ -1,6 +1,6 @@
 # iHRIS Knowledge Base
 
-A [folio-assistant](https://github.com/litlfred/folio-assistant) folio that **ingests and describes** the knowledge assets of [iHRIS](https://www.ihris.org/), the open-source health workforce information system: its source code, its documentation, its implementation toolkit and its wiki. It is the base for building new knowledge assets on top of them.
+A [folio-assistant-core](https://github.com/litlfred/folio-assistant-core) dependent folio (laid out as [who-iris](https://litlfred.github.io/who-iris/) is) that **ingests and describes** the knowledge assets of [iHRIS](https://www.ihris.org/), the open-source health workforce information system: its source code, its documentation, its implementation toolkit and its wiki. It is the base for building new knowledge assets on top of them.
 
 **Described, not copied.** Source code stays where it lives (Launchpad, GitHub). This repository holds catalogue nodes that point at it by `lp:` branch or git commit, with checksums, and descriptions *derived* from verified copies.
 
@@ -47,11 +47,16 @@ Every term extracted, as W3C SKOS (folio-assistant core's `folio-glossary/v1`), 
 
 ```sh
 pip install beautifulsoup4 markdownify jsonschema
+bash src/tools/mount_platform.sh   # folio-assistant-core and its closure, at the SHAs index.lock.json pins (git-ignored)
 python3 src/tools/build_kg.py      # regenerate everything derived from uploads/
 python3 src/tools/extract_theme.py  # the site theme, measured from the release CSS
 python3 src/tools/build_glossary.py  # the SKOS glossary, from the toolkit, the use cases and the code lists
 python3 src/tools/build_site.py --out .build/site --check-links   # the site (CI deploys it)
 python3 src/tools/validate.py      # schemas, references, and folio-assistant's own zod checks
 ```
+
+### The platform dependency
+
+ihris depends on [folio-assistant-core](https://github.com/litlfred/folio-assistant-core) (`needs` in [`ihris.json`](ihris.json)), and through it on cat-harness, cat-harness-tools, bootstrap and bootstrap-tools. [`index.config.json`](index.config.json) pins each to a commit SHA, [`index.lock.json`](index.lock.json) records what each resolved to, and `src/tools/mount_platform.sh` lays them down at `<name>/` with cat-harness's own `mount-from-lock.ts`. They are never committed. To bump a pin, edit `index.config.json` and re-run cat-harness's `mount:remote`, which rewrites the lock and the `.gitignore` block; `validate.py` fails while the three disagree.
 
 Tracking issue: [#1](https://github.com/litlfred/ihris/issues/1).

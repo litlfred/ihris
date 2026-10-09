@@ -2,10 +2,12 @@
 """Validate every generated node against its declared schema.
 
 - ihris-* records: against the JSON Schemas in src/schemas/ (jsonschema, pip).
-- folio-catalogue-node/v1, folio-catalogue/v1 and folio-glossary/v1: against folio-assistant's own
-  zod schemas, by running src/tools/validate-folio.ts with bun, when a
-  folio-assistant checkout is available (FOLIO_ASSISTANT=<path>, default
-  ../litlfred/folio-assistant). Skipped with a warning otherwise, never passed.
+- folio-catalogue-node/v1, folio-catalogue/v1, folio-glossary/v1, the declarations, and the
+  platform dependency (index.config.json, index.lock.json): against folio-assistant's own zod
+  schemas, by running src/tools/validate-folio.ts with bun, when the platform layers are
+  mounted (src/tools/mount_platform.sh lays them down from index.lock.json; see
+  src/tools/folio_platform.py). Skipped with a warning otherwise, never passed, and an
+  error in CI.
 
 Also checks every metadataRef resolves, and every module's parent/formClasses
 ids resolve. Exit status is non-zero on any failure.
@@ -62,7 +64,10 @@ for f, d in docs.items():
 # and every JSON file in the repository must be covered by SOMETHING.
 import fnmatch
 BIND = json.load(open(os.path.join(ROOT, "src/schemas/bindings.json")))
-FOLIO_TAGS = {"folio-catalogue/v1", "folio-catalogue-node/v1", "folio-document-images/v1", "folio-glossary/v1"}  # zod: validate-folio.ts
+FOLIO_TAGS = {"folio-catalogue/v1", "folio-catalogue-node/v1", "folio-document-images/v1", "folio-glossary/v1",
+              "folio-index-config/v1", "cat-harness-mount-lock/v1"}  # zod: validate-folio.ts
+sys.path.insert(0, os.path.join(ROOT, "src", "tools"))
+import folio_platform  # noqa: E402  where the mounted platform layers are
 
 
 def _match(rel, pattern):
@@ -85,7 +90,7 @@ for rel in declarations:
 
 elsewhere = [g for k, gs in BIND["coveredElsewhere"].items() if not k.startswith("_") for g in gs]
 uncovered = []
-SKIP = ("node_modules/", "uploads/", ".build/", "_site/", ".git/", "src/schemas/")
+SKIP = ("node_modules/", "uploads/", ".build/", "_site/", ".git/", "src/schemas/") + folio_platform.mount_prefixes()  # mounts are the platform's files, not this folio's
 for path in sorted(glob.glob(os.path.join(ROOT, "**/*.json"), recursive=True)):
     rel = os.path.relpath(path, ROOT)
     if rel.startswith(SKIP):
@@ -142,10 +147,9 @@ if r.returncode != 0:
     errors.append("site: " + (r.stdout + r.stderr).strip()[-2000:])
 counts["site page"] = sum(1 for _, _, fs in os.walk(os.path.join(ROOT, ".build", "site")) for f in fs if f.endswith(".html"))
 
-fa = os.environ.get("FOLIO_ASSISTANT", os.path.join(ROOT, "..", "litlfred", "folio-assistant"))
+fa = folio_platform.platform_root()
 
-if os.path.isdir(os.path.join(fa, "folio-assistant-core")):
-    sys.path.insert(0, os.path.join(ROOT, "src", "tools"))
+if fa:
     import build_glossary  # each scheme's owning-instance namespace, one answer: validate-folio.ts compares its SKOS with core's toSkos
     ns_map = os.path.join(ROOT, ".build", "glossary-ns.json")
     os.makedirs(os.path.dirname(ns_map), exist_ok=True)
@@ -159,9 +163,10 @@ if os.path.isdir(os.path.join(fa, "folio-assistant-core")):
     if r.returncode != 0:
         errors.append("folio-assistant zod validation failed:\n" + (r.stdout + r.stderr)[-3000:])
 else:
-    print(f"WARNING: no folio-assistant checkout at {fa}; folio-catalogue(-node)/v1 NOT validated")
+    where = os.environ.get("FOLIO_PLATFORM") or ROOT
+    print(f"WARNING: folio-assistant-core and cat-harness are not mounted under {where} (run src/tools/mount_platform.sh); zod checks NOT run")
     if os.environ.get("CI"):  # a skipped check is not a pass, and CI must not report one as such
-        errors.append(f"CI: no folio-assistant checkout at {fa}, so the zod checks did not run")
+        errors.append(f"CI: the platform layers are not mounted under {where}, so the zod checks did not run")
 
 # FHIR R4 structure of the generated terminology, with fhir.resources in its own venv (needs pydantic<2).
 venv_py = os.path.join(ROOT, ".build", "fhir-venv", "bin", "python")

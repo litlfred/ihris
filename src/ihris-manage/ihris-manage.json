@@ -2,7 +2,7 @@
   "name": "ihris-manage",
   "title": "iHRIS Manage",
   "description": "iHRIS Manage is a human resources management tool that enables an organization to design and manage a comprehensive human resources strategy.",
-  "source": {
+  "upstream": {
     "host": "launchpad",
     "vcs": "bzr",
     "lp": "lp:ihris-manage",
@@ -24,7 +24,7 @@
       "id": "ihris-manage-catalogue",
       "path": "catalogue/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "catalogue"
       ],
       "readOnly": true,
@@ -35,7 +35,7 @@
       "id": "ihris-manage-modules",
       "path": "modules/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "library"
       ],
       "readOnly": true,
@@ -46,7 +46,7 @@
       "id": "ihris-manage-data-model",
       "path": "data-model/",
       "dependents": "reproduce",
-      "graphKinds": [
+      "graphTypologies": [
         "library"
       ],
       "readOnly": true,

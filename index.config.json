@@ -1,0 +1,154 @@
+{
+  "$schema": "folio-index-config/v1",
+  "_comment": "What this checkout instantiates, and where the platform comes from. ihris is a folio-assistant-core DEPENDENT repository, laid out as litlfred/who-iris is: ihris is local at `.`, and the platform layers are remote mounts pinned to 40-char SHAs, landed at `<name>/` (git-ignored, generated block in .gitignore) by `python3 src/tools/mount_platform.py`, never committed. folio-assistant-core is the one instance ihris `needs`; cat-harness, cat-harness-tools, bootstrap and bootstrap-tools are its closure, pinned at the SHAs folio-assistant-core's and cat-harness's own index.config.json name, so the closure is the one core is tested against. Bump the pins together. Schema: cat-harness/schemas/index-config.ts; skill: cat-harness's `index-config`.",
+  "instances": [
+    {
+      "name": "ihris",
+      "source": {
+        "local": {
+          "at": "."
+        }
+      },
+      "contentType": "document"
+    },
+    {
+      "name": "folio-assistant-core",
+      "source": {
+        "remote": {
+          "repository": "litlfred/folio-assistant-core",
+          "ref": "175d2b019f7bb91d63ab09f3f93f60fd7ef9e9dd",
+          "overrides": {
+            "folio-assistant-core": {
+              "whole": true
+            },
+            "cat-harness": {
+              "skip": true
+            },
+            "cat-harness-tools": {
+              "skip": true
+            }
+          },
+          "note": "The content layer ihris needs: catalogue, glossary and materialization schemas (folio-catalogue(-node)/v1, folio-glossary/v1).",
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-09",
+              "ref": "175d2b019f7bb91d63ab09f3f93f60fd7ef9e9dd",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'migrrate to new folio-assistant-core dependent repo https://litlfred.github.io/who-iris'"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "cat-harness",
+      "source": {
+        "remote": {
+          "repository": "litlfred/cat-harness",
+          "ref": "f7efa39c9731b5f26bcec147cf7a49b9193dba0b",
+          "overrides": {
+            "cat-harness": {
+              "whole": true
+            },
+            "bootstrap": {
+              "skip": true
+            },
+            "bootstrap-tools": {
+              "skip": true
+            }
+          },
+          "note": "folio-assistant-core's need, at the pin core's own index.config.json names: declaration, tool, bean-graph, skill-package, pdf-structure and role-graph schemas, and the skills processes call.",
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-09",
+              "ref": "f7efa39c9731b5f26bcec147cf7a49b9193dba0b",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'migrrate to new folio-assistant-core dependent repo https://litlfred.github.io/who-iris'"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "cat-harness-tools",
+      "source": {
+        "remote": {
+          "repository": "litlfred/cat-harness-tools",
+          "ref": "64cc1c62541dca55e779091e9881d03d8166cd39",
+          "overrides": {
+            "cat-harness-tools": {
+              "whole": true
+            },
+            "cat-harness": {
+              "skip": true
+            },
+            "bootstrap-tools": {
+              "skip": true
+            }
+          },
+          "note": "folio-assistant-core's need, at the pin core's own index.config.json names.",
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-09",
+              "ref": "64cc1c62541dca55e779091e9881d03d8166cd39",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'migrrate to new folio-assistant-core dependent repo https://litlfred.github.io/who-iris'"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "bootstrap",
+      "source": {
+        "remote": {
+          "repository": "litlfred/bootstrap",
+          "ref": "12a5c9eadca337483d37ce8402b3cf9a63588d2a",
+          "overrides": {
+            "bootstrap": {
+              "whole": true
+            }
+          },
+          "note": "cat-harness's need, at the pin cat-harness's own index.config.json names.",
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-09",
+              "ref": "12a5c9eadca337483d37ce8402b3cf9a63588d2a",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'migrrate to new folio-assistant-core dependent repo https://litlfred.github.io/who-iris'"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "bootstrap-tools",
+      "source": {
+        "remote": {
+          "repository": "litlfred/bootstrap-tools",
+          "ref": "1947e0536a97a9ca447b76edc39de1cf18b1f29e",
+          "overrides": {
+            "bootstrap-tools": {
+              "whole": true
+            },
+            "bootstrap": {
+              "skip": true
+            }
+          },
+          "note": "cat-harness's need (its declaration schema imports bootstrap-tools/schemas/), at the pin cat-harness's own index.config.json names.",
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-09",
+              "ref": "1947e0536a97a9ca447b76edc39de1cf18b1f29e",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'migrrate to new folio-assistant-core dependent repo https://litlfred.github.io/who-iris'"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "site": {
+    "landing": "ihris"
+  }
+}
