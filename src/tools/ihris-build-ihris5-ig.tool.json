@@ -1,0 +1,52 @@
+{
+  "id": "ihris-build-ihris5-ig",
+  "title": "Build the iHRIS 5 IG with fhir-harness",
+  "description": "Builds the iHRIS 5 IG from the source src/ihris5/ihris5.json pins: mounts it, applies the declared patches to a workspace copy, runs one IG Publisher build through litlfred/fhir-ig-publisher's ast-export (pinned), derives the artefact index and menu (fhir-harness ast-to-artifact-index, ingest-ig-menu), writes the artefact pages (gen-ig-pages) and composes them with the IG's own narrative (stage-ig-sites) into the platform chrome scoped to ihris (compose-docs --shell, gen-navbar-include), built with just-the-docs. Writes one site directory with the Publisher's output at publisher/ and the AST's resources at ast-data/, for gh-pages only.",
+  "install": {
+    "cli": "bash src/tools/mount_platform.sh; java 17+, maven, npm install -g fsh-sushi@3.20.1, BUNDLE_GEMFILE=cat-harness/docs/Gemfile bundle install"
+  },
+  "invoke": {
+    "shell": "bash src/tools/build_ihris5_ig.sh"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "out",
+        "schema": "https://www.iana.org/assignments/media-types/inode/directory",
+        "required": false,
+        "arg": {
+          "flag": "--out"
+        }
+      },
+      {
+        "name": "baseurl",
+        "schema": "https://www.w3.org/2001/XMLSchema#string",
+        "required": false,
+        "arg": {
+          "flag": "--baseurl"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "site",
+        "schema": "https://www.iana.org/assignments/media-types/text/html"
+      }
+    ]
+  },
+  "satisfies": [
+    "build-ihris5-ig"
+  ],
+  "requires": {
+    "runtime": [
+      "bun",
+      "python3",
+      "java",
+      "maven",
+      "sushi",
+      "ruby",
+      "bundler"
+    ],
+    "network": true
+  }
+}

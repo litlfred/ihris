@@ -13,3 +13,7 @@ The documentation repository has **no licence file**, so its pages are listed by
 - [`inventory/`](inventory/): the path-level inventories
 
 Refresh: `git clone --depth 1` each repository, run `python3 src/tools/snapshot_github.py <clone> <owner/repo>`, then `python3 src/tools/build_kg.py`.
+
+## The IG, built with fhir-harness
+
+`ihris5.json` declares iHRIS/iHRIS's IG as its `source` (`path: ig`, at the commit above) and `needs` fhir-harness. Skill [`build-ihris5-ig`](../skills/build-ihris5-ig.md) builds it: the source mounted at `ihris5-source/` (never committed), declared fixes from [`ig-build-patches.json`](ig-build-patches.json) applied to a workspace copy, the AST fork of the IG Publisher, and just-the-docs pages inside the platform chrome. It is published **only on gh-pages**: <https://litlfred.github.io/ihris/ihris5/> (and the Publisher's own HTML at `/ihris5/publisher/`), by `.github/workflows/ihris5-ig.yml`.

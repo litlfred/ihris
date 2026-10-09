@@ -14,7 +14,7 @@
 # preview at https://litlfred.github.io/ihris/STAGING/<branch-slug>/, carrying
 # cat-harness's staging banner (staging-banner.ts) so it can never be mistaken for the
 # live site. Each push REPLACES that preview; closing the PR removes it. Publishing main
-# replaces everything at the root EXCEPT STAGING/, so open previews survive it.
+# replaces everything at the root EXCEPT STAGING/ and ihris5/ (the iHRIS 5 IG, from ihris5-ig.yml).
 name: pages
 
 on:
@@ -115,15 +115,17 @@ jobs:
             git worktree add --orphan -b gh-pages ghp
           fi
           if [ -n "$SLUG" ]; then
-            # REPLACE this branch's preview, never overlay it.
-            rm -rf "ghp/STAGING/$SLUG"
+            # REPLACE this branch's preview, never overlay it, except the iHRIS 5 IG that
+            # ihris5-ig.yml builds into it (ihris5/).
             mkdir -p "ghp/STAGING/$SLUG"
+            find "ghp/STAGING/$SLUG" -mindepth 1 -maxdepth 1 ! -name ihris5 -exec rm -rf {} +
             cp -r _site/. "ghp/STAGING/$SLUG/"
             MSG="Stage ${SLUG} (build_site.py @ ${SRC_SHA::7})"
             URL="https://litlfred.github.io/ihris/STAGING/$SLUG/"
           else
-            # The live site: everything at the root is replaced, except the open previews.
-            find ghp -mindepth 1 -maxdepth 1 ! -name .git ! -name STAGING -exec rm -rf {} +
+            # The live site: everything at the root is replaced, except the open previews and the
+            # iHRIS 5 IG, which ihris5-ig.yml builds and publishes (ihris5/).
+            find ghp -mindepth 1 -maxdepth 1 ! -name .git ! -name STAGING ! -name ihris5 -exec rm -rf {} +
             cp -r _site/. ghp/
             MSG="Publish the ihris site (build_site.py @ ${SRC_SHA::7})"
             URL="https://litlfred.github.io/ihris/"
