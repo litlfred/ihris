@@ -1,0 +1,173 @@
+<!doctype html>
+<html data-fa-scheme="dark" lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iHRIS_Position · iHRIS Knowledge Base</title>
+<style>
+:root { --page:#467495; --panel:#ffffff; --ink:#333333; --h1:#1e5483; --h2:#406002;
+  --h3:#003366; --h4:#336699; --link:#006699; --nav:#5d8108; --nav-ink:#ffffff; --nav-hover:#4b6f06;
+  --nav-accent:#7b9f0e; --brand:#09345f; --rule:#e0e0e0; --active:#406002;
+  --active-bg:#eaeadd; --mute:#5c5c5c; --side-bg:#fafaf6; --control:#767676;
+  --diagram-bg:#ffffff; --diagram-base:#f2f2f2; --diagram-ink:#1b1b1b; color-scheme:light; }
+* { box-sizing:border-box; }
+body { margin:0; font:15px/1.5 Arial, Helvetica, sans-serif; color:var(--ink); background:var(--page); }
+a { color:var(--link); } a:hover { text-decoration-thickness:2px; }
+code { font-size:13px; }
+.skip { position:absolute; left:-9999px; top:0; background:var(--panel); border:2px solid var(--ink); padding:8px 12px; }
+.skip:focus { left:8px; top:8px; z-index:10; }
+.wrap { max-width:1240px; margin:0 auto; background:var(--panel); min-height:100vh; }
+header.site { display:flex; align-items:center; gap:16px; padding:12px 20px; border-bottom:4px solid var(--nav-accent); }
+header.site img { height:56px; width:auto; }
+.brand { font:26px/1.1 "Trebuchet MS", Arial, Helvetica, sans-serif; color:var(--brand); margin:0; }
+.brand a { color:inherit; text-decoration:none; }
+.tag { margin:2px 0 0; color:var(--mute); font-size:13px; }
+nav.top { background:var(--nav); }
+nav.top ul { list-style:none; margin:0; padding:0 12px; display:flex; flex-wrap:wrap; }
+nav.top a { display:flex; align-items:center; min-height:44px; padding:0 14px; color:var(--nav-ink); text-decoration:none; font-weight:700; border-right:1px solid var(--nav-hover); }
+nav.top a:hover, nav.top a[aria-current] { background:var(--nav-hover); }
+main { padding:20px 28px 32px; }
+h1 { color:var(--h1); font-size:28px; margin:4px 0 6px; }
+h2 { color:var(--h2); font-size:19px; margin:24px 0 8px; }
+h3 { color:var(--h3); font-size:16px; margin:0 0 6px; }
+.mute, .crumbs, .legend, .src { color:var(--mute); font-size:13px; }
+footer { border-top:1px solid var(--rule); padding:14px 28px; color:var(--mute); font-size:12px; }
+table { width:100%; border-collapse:collapse; margin:8px 0 12px; }
+th, td { text-align:left; border-bottom:1px solid var(--rule); padding:6px 8px; vertical-align:top; }
+th { background:var(--active-bg); font-size:13px; }
+.req { font-weight:700; }
+td, th, h1, h2, code, .side a, .crumbs, .src a, main p, main li, .badge { overflow-wrap:break-word; }
+h1, .crumbs, .side a, .hood td, .hood code, .fields td, .fields code { overflow-wrap:anywhere; }
+.tscroll { overflow-x:auto; }
+.wiki img { max-width:100%; height:auto; }
+.wiki table { display:block; overflow-x:auto; }
+.wiki pre { overflow-x:auto; }
+details > summary { cursor:pointer; min-height:32px; padding:4px 0; font-weight:600; }
+main { min-width:0; }
+.board { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:14px; }
+.card { border:1px solid var(--rule); border-top:4px solid var(--nav-accent); padding:12px 14px; display:flex; flex-direction:column; gap:6px; }
+.card .kind { font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--h2); font-weight:700; }
+.card p { margin:0; font-size:14px; }
+.card .stats { color:var(--mute); font-size:13px; }
+.card a.go { margin-top:auto; font-weight:700; }
+.layout { display:grid; grid-template-columns:260px minmax(0,1fr); }
+.side { border-right:1px solid var(--rule); padding:16px; background:var(--side-bg); }
+.search label { display:block; font-size:12px; color:var(--mute); margin-bottom:2px; }
+.search input { width:100%; border:1px solid var(--control); background:var(--panel); color:var(--ink); padding:6px 8px; font:inherit; margin-bottom:14px; }
+.side ul { list-style:none; margin:0; padding:0 0 0 12px; }
+.side > nav > ul { padding:0; }
+.side li { padding:3px 0; }
+.side .count, .side .more { color:var(--mute); font-size:12px; }
+.side [aria-current] { font-weight:700; color:var(--active); border-left:3px solid var(--active); padding-left:6px; margin-left:-9px; display:inline-block; }
+.side .note { color:var(--mute); font-size:12px; padding-top:8px; }
+.menu-btn { display:none; }
+.badges { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 12px; }
+.badge { border:1px solid var(--h3); padding:1px 8px; font-size:12px; }
+.base { border-style:dashed; }
+.hood { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px; align-items:start; }
+svg { width:100%; height:auto; border:1px solid var(--rule); background:var(--diagram-bg); }
+/* The neighbourhood graph's literals, re-coloured by the scheme (CSS outranks SVG presentation attributes). */
+svg [fill="#1b1b1b"] { fill:var(--diagram-ink); } svg [stroke="#1b1b1b"] { stroke:var(--diagram-ink); }
+svg [fill="#fff"] { fill:var(--diagram-bg); } svg [fill="#f2f2f2"] { fill:var(--diagram-base); } svg [fill="#5c5c5c"] { fill:var(--mute); }
+.rels { display:none; }
+.gsearch label { display:block; font-size:13px; color:var(--mute); margin-bottom:2px; }
+.gsearch input { width:100%; max-width:520px; min-height:44px; padding:8px; font:inherit; border:1px solid var(--control); background:var(--panel); color:var(--ink); }
+nav.az { display:flex; flex-wrap:wrap; gap:4px; margin:10px 0 4px; }
+nav.az a { display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; padding:0 8px; border:1px solid var(--rule);
+  font-weight:700; text-decoration:none; }
+dl.gloss dt { margin-top:12px; font-size:15px; overflow-wrap:anywhere; }
+dl.gloss dd { margin:2px 0 0 18px; overflow-wrap:break-word; }
+dl.gloss dd p { margin:2px 0; }
+dl.gloss .badge.st { border-style:dashed; color:var(--mute); }
+ul.matches { margin:2px 0; padding-left:18px; }
+ul.schemes { padding-left:18px; } ul.schemes li { margin-bottom:10px; overflow-wrap:break-word; }
+ul.schemes a.tgt { display:inline-flex; align-items:center; min-height:44px; }
+.gloss .src code, .matches a { overflow-wrap:anywhere; }
+.gloss a.tgt, .matches a, main table a.tgt { display:inline-flex; align-items:center; min-height:44px; }
+dl.gloss details > summary { min-height:44px; padding:10px 0; }
+@media (max-width:700px) {
+  dl.gloss dd { margin-left:8px; }
+  .crumbs a, .card a.go, .badges a { display:inline-flex; align-items:center; min-height:44px; }
+  header.site { padding:10px 16px; } header.site img { height:40px; } .brand { font-size:20px; }
+  main { padding:16px; } h1 { font-size:22px; }
+  .layout { grid-template-columns:1fr; }
+  .side { border-right:0; border-bottom:1px solid var(--rule); padding:10px 16px; }
+  .side nav, .side .tile { display:none; }
+  .side.open nav { display:block; }
+  .menu-btn { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--ink); padding:6px 10px; background:var(--panel); color:var(--ink); min-height:44px; font:inherit; }
+  .search input { min-height:44px; margin:8px 0 0; }
+  .side a { display:inline-flex; align-items:center; min-height:44px; }
+  .fields, .fields thead, .fields tbody, .fields tr, .fields th, .fields td { display:block; }
+  .fields thead { display:none; }
+  .fields tr { border:1px solid var(--rule); margin-bottom:10px; padding:6px 10px; }
+  .fields td { border:0; padding:2px 0; }
+  .fields td::before { content:attr(data-h) ": "; color:var(--mute); font-size:12px; }
+  .hood { display:none; } .rels { display:block; }
+  .rels details { border:1px solid var(--rule); margin-bottom:8px; }
+  .rels summary { padding:10px; min-height:44px; font-weight:600; }
+  .rels ul { margin:0; padding:0 10px 10px 28px; }
+}
+
+:root { --page:#1a2b38; --panel:#1a1a1a; --ink:#b1b1b1; --h1:#4491d4; --h2:#679b03; --h3:#1a8dff; --h4:#5990c8; --link:#0094dd; --nav:#5d8108; --nav-ink:#ffffff; --nav-hover:#4b6f06; --nav-accent:#7b9f0e; --brand:#328fec; --rule:#474747; --active:#679b03; --active-bg:#262626; --mute:#8c8c8c; --side-bg:#262626; --control:#767676; --diagram-bg:#262626; --diagram-base:#474747; --diagram-ink:#e0e0e0; color-scheme:dark; }
+header.site img { background:#ffffff; border-radius:50%; padding:3px; }
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="data:image/png;base64,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" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../index.html" aria-current="page">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../../library/index.html">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<div class="layout">
+<aside class="side" aria-label="Data model navigation">
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="dm-nav"><span aria-hidden="true">&#9776;</span> Menu</button>
+  <form class="search" role="search" action="../search.html">
+    <label for="q">Search classes, fields, lists, terms</label>
+    <input id="q" name="q" type="search" autocomplete="off">
+  </form>
+  <nav id="dm-nav" aria-label="Packages"><ul><li><a href="../index.html">Overview</a></li><li><a href="../i2ce/index.html">i2ce</a> <span class="count">12</span></li><li><a href="../ihris-common/index.html">ihris-common</a> <span class="count">93</span></li><li><a href="index.html">ihris-manage</a> <span class="count">26</span><ul><li class="more">&hellip; 18 above</li><li><a href="iHRIS_PersonReference.html">iHRIS_PersonReference</a></li><li><a href="iHRIS_Position.html" aria-current="page">iHRIS_Position</a></li><li><a href="iHRIS_PositionDecision.html">iHRIS_PositionDecision</a></li><li><a href="iHRIS_PositionInterview.html">iHRIS_PositionInterview</a></li><li class="more">&hellip; 4 below &middot; <a href="index.html">all 26</a></li></ul></li><li><a href="../ihris-qualify/index.html">ihris-qualify</a> <span class="count">25</span></li><li class="note">156 package records, 153 distinct classes: iHRIS_DisciplinaryAction, iHRIS_Registration, iHRIS_SalaryGrade are each defined in two packages.</li></ul></nav>
+</aside>
+<main id="main" tabindex="-1">
+<div class="crumbs"><a href="../index.html">Data model</a> / <a href="index.html">ihris-manage</a> / iHRIS_Position</div>
+<h1>iHRIS_Position</h1>
+<div class="badges">
+<span class="badge"><span aria-hidden="true">&#8593;</span> extends I2CE_List</span>
+<span class="badge">form position</span><span class="badge">package ihris-manage</span><span class="badge">release 4.3.3</span>
+</div>
+<h2>Fields</h2>
+<table class="fields" role="table" aria-label="Fields of iHRIS_Position">
+<thead role="rowgroup"><tr role="row"><th role="columnheader">Field</th><th role="columnheader">Label</th><th role="columnheader">Type</th><th role="columnheader">Required</th><th role="columnheader">Draws from</th></tr></thead>
+<tbody role="rowgroup"><tr role="row"><td role="cell" data-h="Field"><code>code</code></td><td role="cell" data-h="Label">Position Code</td><td role="cell" data-h="Type">STRING_LINE</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>job</code></td><td role="cell" data-h="Label">Job</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required" class="req">yes</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>title</code></td><td role="cell" data-h="Label">Position Title</td><td role="cell" data-h="Type">STRING_LINE</td><td role="cell" data-h="Required" class="req">yes</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>description</code></td><td role="cell" data-h="Label">Position Description</td><td role="cell" data-h="Type">STRING_MLINE</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>supervisor</code></td><td role="cell" data-h="Label">Supervisor</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from"><a href="iHRIS_MultiPosition.html">position</a></td></tr><tr role="row"><td role="cell" data-h="Field"><code>facility</code></td><td role="cell" data-h="Label">Facility</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required" class="req">yes</td><td role="cell" data-h="Draws from"><a href="../ihris-common/iHRIS_Facility.html">facility</a></td></tr><tr role="row"><td role="cell" data-h="Field"><code>department</code></td><td role="cell" data-h="Label">Department</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>pos_type</code></td><td role="cell" data-h="Label">Position Type</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">position_type</td></tr><tr role="row"><td role="cell" data-h="Field"><code>proposed_end_date</code></td><td role="cell" data-h="Label">Proposed End Date</td><td role="cell" data-h="Type">DATE_YMD</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>proposed_hiring_date</code></td><td role="cell" data-h="Label">Proposed Hiring Date</td><td role="cell" data-h="Type">DATE_YMD</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>posted_date</code></td><td role="cell" data-h="Label">Date Posted</td><td role="cell" data-h="Type">DATE_YMD</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>status</code></td><td role="cell" data-h="Label">Status</td><td role="cell" data-h="Type">MAP</td><td role="cell" data-h="Required" class="req">yes</td><td role="cell" data-h="Draws from">position_status</td></tr><tr role="row"><td role="cell" data-h="Field"><code>comments</code></td><td role="cell" data-h="Label">Position Comments</td><td role="cell" data-h="Type">STRING_TEXT</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>interview_comments</code></td><td role="cell" data-h="Label">Interview Comments</td><td role="cell" data-h="Type">STRING_TEXT</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>proposed_salary</code></td><td role="cell" data-h="Label">Proposed Salary</td><td role="cell" data-h="Type">CURRENCY</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">&mdash;</td></tr><tr role="row"><td role="cell" data-h="Field"><code>source</code></td><td role="cell" data-h="Label">Source</td><td role="cell" data-h="Type">MAP_MULT</td><td role="cell" data-h="Required">no</td><td role="cell" data-h="Draws from">salary_source</td></tr></tbody></table>
+<h2><span aria-hidden="true">&#9711;&#8212;&#9711;</span> Neighbourhood</h2>
+<div class="hood">
+<figure style="margin:0"><svg viewBox="0 0 560 330" role="img" aria-label="iHRIS_Position extends I2CE_List. iHRIS_MultiPosition extends iHRIS_Position. iHRIS_Position draws from the lists position, facility, position_type, position_status, salary_source." aria-describedby="hood-cap"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#1b1b1b"/></marker></defs><g font-family="Arial, sans-serif" font-size="12" fill="#1b1b1b"><line x1="280" y1="147" x2="280" y2="76" stroke="#1b1b1b" marker-end="url(#ar)"/><line x1="280" y1="262" x2="280" y2="183" stroke="#1b1b1b" marker-end="url(#ar)"/><line x1="350" y1="165" x2="460" y2="121" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/><line x1="350" y1="165" x2="460" y2="165" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/><line x1="350" y1="165" x2="460" y2="209" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/><line x1="210" y1="165" x2="100" y2="143" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/><line x1="210" y1="165" x2="100" y2="187" stroke="#1b1b1b" stroke-dasharray="4 3" marker-end="url(#ar)"/><rect x="215" y="147" width="130" height="36" rx="0" fill="#fff" stroke="#1b1b1b" stroke-width="3"/><text x="280" y="169" text-anchor="middle" font-weight="700">iHRIS_Position</text><rect x="225" y="40" width="110" height="36" rx="0" fill="#f2f2f2" stroke="#1b1b1b" stroke-width="1"/><text x="280" y="62" text-anchor="middle">I2CE_List</text><rect x="212" y="262" width="137" height="36" rx="0" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="280" y="284" text-anchor="middle">iHRIS_MultiPosition</text><rect x="469" y="103" width="66" height="36" rx="18" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="502" y="125" text-anchor="middle">position</text><rect x="469" y="147" width="66" height="36" rx="18" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="502" y="169" text-anchor="middle">facility</text><rect x="450" y="191" width="104" height="36" rx="18" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="502" y="213" text-anchor="middle">position_type</text><rect x="-2" y="125" width="120" height="36" rx="18" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="58" y="147" text-anchor="middle">position_status</text><rect x="6" y="169" width="104" height="36" rx="18" fill="#fff" stroke="#1b1b1b" stroke-width="1"/><text x="58" y="191" text-anchor="middle">salary_source</text></g></svg>
+<figcaption id="hood-cap" class="legend">Box: form class (dashed: base class, no page) &middot; pill: list &middot; solid arrow: extends &middot;
+dashed arrow: a field draws from the list. The table lists every edge.</figcaption></figure>
+<table aria-label="Neighbourhood edges"><thead><tr><th>Edge</th><th>Other end</th><th>Via</th></tr></thead><tbody><tr><td>extends</td><td><a href="../i2ce/I2CE_List.html">I2CE_List</a></td><td>&mdash;</td></tr><tr><td>extended by</td><td><a href="iHRIS_MultiPosition.html">iHRIS_MultiPosition</a></td><td>adds <code>code_format</code>, <code>code_start</code>, <code>count</code></td></tr><tr><td>draws from</td><td><a href="iHRIS_MultiPosition.html">position</a> <code>iHRIS_MultiPosition</code></td><td><code>supervisor</code></td></tr><tr><td>draws from</td><td><a href="../ihris-common/iHRIS_Facility.html">facility</a> <code>iHRIS_Facility</code></td><td><code>facility</code></td></tr><tr><td>draws from</td><td>position_type</td><td><code>pos_type</code></td></tr><tr><td>draws from</td><td>position_status</td><td><code>status</code></td></tr><tr><td>draws from</td><td>salary_source</td><td><code>source</code></td></tr></tbody></table>
+</div>
+<section class="rels" aria-label="Relationships">
+<details open><summary><span aria-hidden="true">&#8593;</span> Extends (1)</summary><ul><li><a href="../i2ce/I2CE_List.html">I2CE_List</a></li></ul></details>
+<details><summary><span aria-hidden="true">&#8595;</span> Extended by (1)</summary><ul><li><a href="iHRIS_MultiPosition.html">iHRIS_MultiPosition</a></li></ul></details>
+<details><summary><span aria-hidden="true">&#128279;</span> Lists referenced (5)</summary><ul><li><a href="iHRIS_MultiPosition.html">position</a> (supervisor)</li><li><a href="../ihris-common/iHRIS_Facility.html">facility</a> (facility)</li><li>position_type (pos_type)</li><li>position_status (status)</li><li>salary_source (source)</li></ul></details>
+</section>
+<h2>Source</h2>
+<p class="src">Defined in module <code>ihris-manage-PersonPosition</code> (ihris-manage), <code>ihris-manage-Salary</code> (ihris-manage), ihris-suite-4.3.3 (MD5 verified against Launchpad).
+Record: <a href="https://github.com/litlfred/ihris/blob/main/src/ihris-manage/data-model/4.3.3/iHRIS_Position.json">src/ihris-manage/data-model/4.3.3/iHRIS_Position.json</a>.</p>
+</main>
+</div>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+<script>
+document.querySelectorAll('.menu-btn').forEach(function(b){b.addEventListener('click',function(){
+  var s=b.closest('.side');var o=s.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');
+  b.lastChild.textContent=o?' Close':' Menu';});});
+</script>
+</body>
+</html>

@@ -25,7 +25,11 @@ import html
 import json
 import os
 import shutil
+import subprocess
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from derive_dark_theme import SITE_LIGHT, flat_rules  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 RELEASE = "4.3.3"
@@ -67,12 +71,13 @@ def rel(frm, to):
 
 # ---------------------------------------------------------------- chrome
 def css(t):
-    a = t["applied"]
+    a, S = t["applied"], SITE_LIGHT
     return f"""
 :root {{ --page:{a['pageBackground']}; --panel:{a['contentBackground']}; --ink:{a['text']}; --h1:{a['h1']}; --h2:{a['h2']};
   --h3:{a['h3']}; --h4:{a['h4']}; --link:{a['link']}; --nav:{a['navBar']}; --nav-ink:{a['navBarText']}; --nav-hover:{a['navBarHover']};
   --nav-accent:{a['navBarAccent']}; --brand:{a['siteName']}; --rule:{a['sideNavRule']}; --active:{a['sideNavActive']};
-  --active-bg:{a['subNavActiveBackground']}; --mute:#5c5c5c; }}
+  --active-bg:{a['subNavActiveBackground']}; --mute:{S['mute']}; --side-bg:{S['sideBackground']}; --control:{S['control']};
+  --diagram-bg:{S['diagramBackground']}; --diagram-base:{S['diagramBase']}; --diagram-ink:{S['diagramInk']}; color-scheme:light; }}
 * {{ box-sizing:border-box; }}
 body {{ margin:0; font:15px/1.5 {a['font']}; color:var(--ink); background:var(--page); }}
 a {{ color:var(--link); }} a:hover {{ text-decoration-thickness:2px; }}
@@ -114,9 +119,9 @@ main {{ min-width:0; }}
 .card .stats {{ color:var(--mute); font-size:13px; }}
 .card a.go {{ margin-top:auto; font-weight:700; }}
 .layout {{ display:grid; grid-template-columns:260px minmax(0,1fr); }}
-.side {{ border-right:1px solid var(--rule); padding:16px; background:#fafaf6; }}
+.side {{ border-right:1px solid var(--rule); padding:16px; background:var(--side-bg); }}
 .search label {{ display:block; font-size:12px; color:var(--mute); margin-bottom:2px; }}
-.search input {{ width:100%; border:1px solid #767676; padding:6px 8px; font:inherit; margin-bottom:14px; }}
+.search input {{ width:100%; border:1px solid var(--control); background:var(--panel); color:var(--ink); padding:6px 8px; font:inherit; margin-bottom:14px; }}
 .side ul {{ list-style:none; margin:0; padding:0 0 0 12px; }}
 .side > nav > ul {{ padding:0; }}
 .side li {{ padding:3px 0; }}
@@ -128,10 +133,13 @@ main {{ min-width:0; }}
 .badge {{ border:1px solid var(--h3); padding:1px 8px; font-size:12px; }}
 .base {{ border-style:dashed; }}
 .hood {{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px; align-items:start; }}
-svg {{ width:100%; height:auto; border:1px solid var(--rule); background:#fff; }}
+svg {{ width:100%; height:auto; border:1px solid var(--rule); background:var(--diagram-bg); }}
+/* The neighbourhood graph's literals, re-coloured by the scheme (CSS outranks SVG presentation attributes). */
+svg [fill="#1b1b1b"] {{ fill:var(--diagram-ink); }} svg [stroke="#1b1b1b"] {{ stroke:var(--diagram-ink); }}
+svg [fill="#fff"] {{ fill:var(--diagram-bg); }} svg [fill="#f2f2f2"] {{ fill:var(--diagram-base); }} svg [fill="#5c5c5c"] {{ fill:var(--mute); }}
 .rels {{ display:none; }}
 .gsearch label {{ display:block; font-size:13px; color:var(--mute); margin-bottom:2px; }}
-.gsearch input {{ width:100%; max-width:520px; min-height:44px; padding:8px; font:inherit; border:1px solid #767676; }}
+.gsearch input {{ width:100%; max-width:520px; min-height:44px; padding:8px; font:inherit; border:1px solid var(--control); background:var(--panel); color:var(--ink); }}
 nav.az {{ display:flex; flex-wrap:wrap; gap:4px; margin:10px 0 4px; }}
 nav.az a {{ display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; padding:0 8px; border:1px solid var(--rule);
   font-weight:700; text-decoration:none; }}
@@ -154,7 +162,7 @@ dl.gloss details > summary {{ min-height:44px; padding:10px 0; }}
   .side {{ border-right:0; border-bottom:1px solid var(--rule); padding:10px 16px; }}
   .side nav, .side .tile {{ display:none; }}
   .side.open nav {{ display:block; }}
-  .menu-btn {{ display:inline-flex; align-items:center; gap:6px; border:1px solid var(--ink); padding:6px 10px; background:#fff; min-height:44px; font:inherit; }}
+  .menu-btn {{ display:inline-flex; align-items:center; gap:6px; border:1px solid var(--ink); padding:6px 10px; background:var(--panel); color:var(--ink); min-height:44px; font:inherit; }}
   .search input {{ min-height:44px; margin:8px 0 0; }}
   .side a {{ display:inline-flex; align-items:center; min-height:44px; }}
   .fields, .fields thead, .fields tbody, .fields tr, .fields th, .fields td {{ display:block; }}
@@ -524,7 +532,7 @@ box.addEventListener('input',run);run();})();
 <h1>Search</h1>
 <p class="mute">The iHRIS {RELEASE} data model (classes, fields and the lists they draw from) and the <a href="{E(rel(path, site_instances.GLOSSARY))}">glossary</a>.</p>
 <form role="search" onsubmit="return false"><label for="sq">Class, field, list or glossary term</label><br>
-<input id="sq" type="search" style="width:100%;max-width:520px;padding:8px;font:inherit;min-height:44px;border:1px solid #767676"></form>
+<input id="sq" type="search" style="width:100%;max-width:520px;padding:8px;font:inherit;min-height:44px;border:1px solid var(--control);background:var(--panel);color:var(--ink)"></form>
 <p class="mute" aria-live="polite"><span id="tn">{len(recs) + len(grows)}</span> matches: <span id="n">{len(recs)}</span> data-model records,
 <span id="gn">{len(grows)}</span> glossary terms</p>
 <h2>Data model</h2>
@@ -572,6 +580,13 @@ def main():
     with open(os.path.join(out, "assets", "ihris.css"), "w") as f:
         f.write(css(theme))
     shutil.copy(os.path.join(ROOT, "src/site/theme/iHRIS_logo.png"), os.path.join(out, "assets", "iHRIS_logo.png"))
+    # The dark scheme (src/site/theme/ihris-classic-dark.json), applied through cat-harness's darkRules so the
+    # rail's light/dark switch and the OS setting both decide (src/tools/scheme_css.ts). Needs the mounted platform.
+    rules = os.path.join(out, "assets", "ihris-dark.rules.css")
+    with open(rules, "w") as f:
+        f.write(flat_rules(load("src/site/theme/ihris-classic-dark.json")))
+    subprocess.run(["bun", "run", os.path.join(ROOT, "src/tools/scheme_css.ts"), "--site", out, "--rules", rules], check=True)
+    os.remove(rules)
     open(os.path.join(out, ".nojekyll"), "w").close()
     print(f"site: {len(pages)} pages -> {os.path.relpath(out, ROOT)}")
     if "--check-links" in sys.argv:
