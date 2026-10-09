@@ -22,6 +22,12 @@ python3 src/tools/extract_theme.py          # needs uploads/ihris-suite-4.3.3/*.
 - **Never hand-edit a colour.** Where a measured colour fails WCAG AA in its role, the tool picks another colour *measured from the same stylesheets* and records the reason in `adjustments`.
 - To change the look, change the rules in the tool.
 
+**The dark scheme (Tool `ihris-derive-dark-theme`).** The release has no dark stylesheet, so a dark palette cannot be measured. What a person decides is kept small and written down in `src/site/theme/ihris-classic-dark.grounds.json` (`ihris-site-theme-dark-grounds/v1`): how dark the grounds are, each on the hue of a measured colour, the WCAG targets, and how the logo is shown. The owner chose it through `wireframe-design-review` (`docs/design/wireframes/dark-scheme/`, 2026-10-09). Every other colour is derived into `src/site/theme/ihris-classic-dark.json`: it keeps its light role's hue and saturation and takes the lowest lightness that reaches its target on every ground. A new palette is a new round of that review, never a hand-edited colour.
+
+```sh
+python3 src/tools/derive_dark_theme.py            # after the light theme or the grounds change
+```
+
 ## 2. Site (Tool `ihris-build-site`)
 
 The generator is `src/tools/build_site.py`, with the data-model pages and chrome. `src/tools/site_instances.py` holds every other instance's pages. Licence decides what a page shows (AGENTS.md §2.4):
@@ -55,7 +61,7 @@ Check it in a browser, with the platform's own chrome check. The staging-banner 
 
 **The work plan is a page of this site** (Tools `ihris-gen-beans-data`, `ihris-own-site-links`). The navbar's beans icon opens it and carries the number of open beans, both THIS folio's, never the platform's: the board is the platform's own work-plan board, drawn from this folio's bean store with the platform's own functions, so it reads as it does on every folio. Two gaps in the platform's rail for a folio that is the root of its own site are bridged around the rail and recorded upstream (bean `ihris-yvow`); the bridge goes when they close.
 
-**Not yet: the dark scheme.** The switch sets the scheme, but the iHRIS theme has measured LIGHT colours only, so the page stays light. A dark palette is a design decision (bean `ihris-u3fg`): it is not invented here.
+**The light/dark switch decides the scheme** (Tool `ihris-scheme-css`). The dark colours are applied with the platform's own scheme functions, so the reader's choice wins and the OS decides only until they choose, and a page restores the reader's choice at first paint instead of flashing light first.
 
 ## 5. Publish (the `gh-pages` branch)
 

@@ -490,6 +490,59 @@ def c_site_theme(C):
     return out
 
 
+
+def _dark_module():
+    spec = importlib.util.spec_from_file_location("derive_dark_theme", os.path.join(ROOT, "src/tools/derive_dark_theme.py"))
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
+def c_site_theme_dark_grounds(C):
+    """Grounds take their hue from a MEASURED token; a candidate stays a candidate; a chosen set names its decision."""
+    light = J("src/site/theme/ihris-classic.json")
+    out = []
+    for rel, d in C["tagged"].get("ihris-site-theme-dark-grounds/v1", []):
+        for k, g in d["grounds"].items():
+            if g["hueOf"] not in light["measured"]:
+                out.append(f"{rel}: ground {k} takes its hue from {g['hueOf']}, which the light theme did not measure")
+        in_wireframes = rel.startswith("docs/design/wireframes/")
+        if in_wireframes and d["status"] != "candidate":
+            out.append(f"{rel}: a wireframe's grounds are a candidate, not {d['status']}")
+        if not in_wireframes:
+            if d["status"] == "candidate":
+                out.append(f"{rel}: the site's grounds are a choice (proposed or accepted), not a candidate")
+            if not d.get("chosenIn") or not exists(d["chosenIn"]):
+                out.append(f"{rel}: chosenIn {d.get('chosenIn')} does not exist (the site's grounds must name the decision that chose them)")
+    return out
+
+
+def c_site_theme_dark(C):
+    """The dark theme is what derive_dark_theme.py makes of the light theme and the grounds, and every
+    derived colour reaches its target on both grounds."""
+    m = _dark_module()
+    out = []
+    for rel, d in C["tagged"].get("ihris-site-theme-dark/v1", []):
+        grounds = J("src/site/theme/ihris-classic-dark.grounds.json")
+        if d["derivedFrom"]["grounds"] != grounds["id"]:
+            out.append(f"{rel}: derived from grounds {d['derivedFrom']['grounds']}, but the site's grounds are {grounds['id']}")
+        try:
+            fresh = m.derive(grounds, J(d["derivedFrom"]["theme"]))
+        except (KeyError, SystemExit) as e:
+            out.append(f"{rel}: cannot be derived from the site's grounds ({e!r}); fix the grounds, then run derive_dark_theme.py")
+            fresh = d
+        if fresh != d:
+            out.append(f"{rel}: stale; run python3 src/tools/derive_dark_theme.py")
+        for x in d["derivations"]:
+            for name in x["contrast"]:
+                c = m.exact(x["applied"], d["grounds"][name])
+                if c < x["target"]:
+                    out.append(f"{rel}: {x['role']} {x['applied']} is {c:.3f}:1 on the {name} ground, below its target {x['target']}:1")
+        a = d["applied"]
+        if m.contrast(a["navBarText"], a["navBar"]) < 4.5:
+            out.append(f"{rel}: navbar text fails WCAG 4.5:1")
+    return out
+
 def c_declarations(C):
     out = []
     for rel, d in C["declarations"]:
@@ -1510,6 +1563,8 @@ QA = {
     "ihris-wireframe-patch/v1": [("wf-decisions", "the review a patch follows exists", c_wf_decisions)],
     "ihris-wireframe-acceptance/v1": [("wf-decisions", "the accepted candidate, its states and what it covers exist", c_wf_decisions)],
     "ihris-site-theme/v1": [("site-theme", "applied colours pass WCAG AA; logo matches; adjustments start from measured colours", c_site_theme)],
+    "ihris-site-theme-dark-grounds/v1": [("site-theme-dark-grounds", "grounds take a measured hue; candidates stay candidates; the site's choice names its decision", c_site_theme_dark_grounds)],
+    "ihris-site-theme-dark/v1": [("site-theme-dark", "the dark theme is not stale and every derived colour reaches its target on both grounds", c_site_theme_dark)],
     "ihris-qa-known/v1": [("qa-known", "every accepted upstream finding still matches the data", c_qa_known)],
     "ihris-wiki-book/v1": [("wiki-book", "articles are the outline's level-1 entries at their sha256; every image credited once; no unredacted contact left", c_wiki_book)],
     "ihris-use-cases/v1": [("use-cases", "counts match; parents and extension anchors hold; links resolve or are dangling; source is the pinned file", c_use_cases),

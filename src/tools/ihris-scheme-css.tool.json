@@ -1,0 +1,46 @@
+{
+  "id": "ihris-scheme-css",
+  "title": "Make the built site follow the light/dark switch",
+  "description": "Appends cat-harness's darkRules (scripts/lib/scheme-css.ts) of the dark scheme's flat rules to the site's assets/ihris.css, so the dark colours apply when the OS is dark and the reader has not picked light, or whenever the reader picked dark; and adds cat-harness's withSavedScheme snippet to every page's head, so a reader's choice is restored at first paint. Run by build_site.py; it styles nothing itself.",
+  "install": {
+    "cli": "bun install (from this repository's package.json); the platform mounted by src/tools/mount_platform.sh"
+  },
+  "invoke": {
+    "shell": "bun run src/tools/scheme_css.ts"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "site",
+        "schema": "https://www.iana.org/assignments/media-types/inode/directory",
+        "required": true,
+        "arg": {
+          "flag": "--site"
+        }
+      },
+      {
+        "name": "rules",
+        "schema": "https://www.iana.org/assignments/media-types/text/css",
+        "required": true,
+        "arg": {
+          "flag": "--rules"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "site",
+        "schema": "https://www.iana.org/assignments/media-types/text/html"
+      }
+    ]
+  },
+  "satisfies": [
+    "build-ihris-site"
+  ],
+  "requires": {
+    "runtime": [
+      "bun"
+    ],
+    "network": false
+  }
+}

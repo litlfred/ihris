@@ -1,0 +1,193 @@
+{
+  "$schema": "ihris-site-theme-dark/v1",
+  "id": "ihris-classic-dark",
+  "title": "iHRIS Classic Manage, dark",
+  "derivedFrom": {
+    "theme": "src/site/theme/ihris-classic.json",
+    "grounds": "a",
+    "rule": "same hue and saturation as the light role; the lowest lightness at or above it that reaches the target on the panel and the raised ground"
+  },
+  "licence": {
+    "id": "GPL-3.0-or-later",
+    "basis": "iHRIS Suite (ihris-common, ihris-manage) is GPL; see i2ce/COPYING in the release",
+    "attribution": "Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL."
+  },
+  "wcag": {
+    "target": "AA",
+    "targets": {
+      "text": 7,
+      "default": 4.5,
+      "nonText": 3
+    }
+  },
+  "grounds": {
+    "page": "#0b1318",
+    "panel": "#15232d",
+    "raised": "#1d313e",
+    "rule": "#315168"
+  },
+  "logo": "invert",
+  "applied": {
+    "text": "#bbbbbb",
+    "sideNavText": "#bbbbbb",
+    "diagramInk": "#ebebeb",
+    "h1": "#549bd8",
+    "h2": "#6ea503",
+    "h3": "#3098ff",
+    "h4": "#679acc",
+    "siteName": "#4499ed",
+    "link": "#009dec",
+    "linkHover": "#009dec",
+    "sideNavActive": "#6ea503",
+    "mute": "#969696",
+    "control": "#777777",
+    "navBar": "#5d8108",
+    "navBarText": "#ffffff",
+    "navBarHover": "#4b6f06",
+    "navBarAccent": "#7b9f0e",
+    "font": "Arial, Helvetica, sans-serif",
+    "brandFont": "\"Trebuchet MS\", Arial, Helvetica, sans-serif",
+    "pageBackground": "#0b1318",
+    "contentBackground": "#15232d",
+    "sideBackground": "#1d313e",
+    "subNavActiveBackground": "#1d313e",
+    "sideNavRule": "#315168",
+    "navBarBorder": "#315168",
+    "diagramBackground": "#1d313e",
+    "diagramBase": "#315168",
+    "siteTag": "#969696"
+  },
+  "derivations": [
+    {
+      "role": "text",
+      "light": "#333333",
+      "applied": "#bbbbbb",
+      "target": 7,
+      "contrast": {
+        "panel": 8.35,
+        "raised": 7.01
+      }
+    },
+    {
+      "role": "sideNavText",
+      "light": "#333333",
+      "applied": "#bbbbbb",
+      "target": 7,
+      "contrast": {
+        "panel": 8.35,
+        "raised": 7.01
+      }
+    },
+    {
+      "role": "diagramInk",
+      "light": "#1b1b1b",
+      "applied": "#ebebeb",
+      "target": 7,
+      "contrast": {
+        "panel": 13.44,
+        "raised": 11.28,
+        "rule": 7.03
+      }
+    },
+    {
+      "role": "h1",
+      "light": "#1e5483",
+      "applied": "#549bd8",
+      "target": 4.5,
+      "contrast": {
+        "panel": 5.39,
+        "raised": 4.52
+      }
+    },
+    {
+      "role": "h2",
+      "light": "#406002",
+      "applied": "#6ea503",
+      "target": 4.5,
+      "contrast": {
+        "panel": 5.38,
+        "raised": 4.51
+      }
+    },
+    {
+      "role": "h3",
+      "light": "#003366",
+      "applied": "#3098ff",
+      "target": 4.5,
+      "contrast": {
+        "panel": 5.39,
+        "raised": 4.52
+      }
+    },
+    {
+      "role": "h4",
+      "light": "#336699",
+      "applied": "#679acc",
+      "target": 4.5,
+      "contrast": {
+        "panel": 5.4,
+        "raised": 4.53
+      }
+    },
+    {
+      "role": "siteName",
+      "light": "#09345f",
+      "applied": "#4499ed",
+      "target": 4.5,
+      "contrast": {
+        "panel": 5.36,
+        "raised": 4.5
+      }
+    },
+    {
+      "role": "link",
+      "light": "#006699",
+      "applied": "#009dec",
+      "target": 4.5,
+      "contrast": {
+        "panel": 5.37,
+        "raised": 4.51
+      }
+    },
+    {
+      "role": "linkHover",
+      "light": "#006699",
+      "applied": "#009dec",
+      "target": 4.5,
+      "contrast": {
+        "panel": 5.37,
+        "raised": 4.51
+      }
+    },
+    {
+      "role": "sideNavActive",
+      "light": "#406002",
+      "applied": "#6ea503",
+      "target": 4.5,
+      "contrast": {
+        "panel": 5.38,
+        "raised": 4.51
+      }
+    },
+    {
+      "role": "mute",
+      "light": "#5c5c5c",
+      "applied": "#969696",
+      "target": 4.5,
+      "contrast": {
+        "panel": 5.42,
+        "raised": 4.55
+      }
+    },
+    {
+      "role": "control",
+      "light": "#767676",
+      "applied": "#777777",
+      "target": 3,
+      "contrast": {
+        "panel": 3.58,
+        "raised": 3.0
+      }
+    }
+  ]
+}

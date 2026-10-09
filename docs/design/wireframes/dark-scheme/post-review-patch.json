@@ -1,0 +1,12 @@
+{
+  "round": 1,
+  "after": "reviews/agent-1.json",
+  "patchedOn": "2026-10-09",
+  "by": {"kind": "agent", "id": "author"},
+  "why": "agent-1's two below-target colours in the chosen candidate were concrete and came from the derivation, not the design: they were fixed in derive_dark_theme.py, so the grounds the owner chose are unchanged. Both candidates were re-rendered from the fixed tool.",
+  "patches": [
+    {"answers": "factual issue (minor): A's sidebar links, #009deb on the raised ground #1d313e, are 4.498:1, under 4.5", "change": "the derivation compared ROUNDED ratios (extract_theme.contrast rounds to 2 places, so 4.498 read as 4.50). It now compares exact ratios: the link is #009dec, 4.51:1 on the raised ground", "verified": "every derivation in src/site/theme/ihris-classic-dark.json reaches its target unrounded on every ground it lists; QA check site-theme-dark tests the exact ratio"},
+    {"answers": "factual issue (minor): the diagram's base-class label is 4.36:1 (A) on its box, below 4.5", "change": "the base-class box is drawn in the rule ground, so the diagram's ink is now derived against the rule ground too: #ebebeb, at least 7:1 on the panel, the raised ground and the box", "verified": "src/site/theme/ihris-classic-dark.json lists the diagram ink's ratio on all three grounds"}
+  ],
+  "checks": "checks/report.json was re-run after the patch: all pass at web and mobile for all four files"
+}

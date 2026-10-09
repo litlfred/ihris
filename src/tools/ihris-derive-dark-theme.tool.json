@@ -1,0 +1,89 @@
+{
+  "id": "ihris-derive-dark-theme",
+  "title": "Derive the site's dark scheme from the measured theme and the chosen grounds",
+  "description": "Reads the measured light theme (src/site/theme/ihris-classic.json) and the grounds the owner chose (src/site/theme/ihris-classic-dark.grounds.json, ihris-site-theme-dark-grounds/v1), and writes src/site/theme/ihris-classic-dark.json: each foreground keeps its light role's hue and saturation and takes the lowest lightness at or above it that reaches its WCAG target on the panel and the raised ground; no colour is invented. --check fails when the dark theme is stale. With --grounds and --page it renders a built page standalone in a candidate palette, for wireframe-design-review.",
+  "install": {
+    "none": true
+  },
+  "invoke": {
+    "shell": "python3 src/tools/derive_dark_theme.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "check",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--check"
+        }
+      },
+      {
+        "name": "grounds",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/ihris-site-theme-dark-grounds.schema.json",
+        "required": false,
+        "arg": {
+          "flag": "--grounds"
+        }
+      },
+      {
+        "name": "out",
+        "schema": "https://www.w3.org/2001/XMLSchema#string",
+        "required": false,
+        "arg": {
+          "flag": "--out"
+        }
+      },
+      {
+        "name": "page",
+        "schema": "https://www.iana.org/assignments/media-types/text/html",
+        "required": false,
+        "arg": {
+          "flag": "--page"
+        }
+      },
+      {
+        "name": "css",
+        "schema": "https://www.iana.org/assignments/media-types/text/css",
+        "required": false,
+        "arg": {
+          "flag": "--css"
+        }
+      },
+      {
+        "name": "to",
+        "schema": "https://www.w3.org/2001/XMLSchema#string",
+        "required": false,
+        "arg": {
+          "flag": "--to"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "theme",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/ihris-site-theme-dark.schema.json"
+      },
+      {
+        "name": "candidate",
+        "schema": "https://www.iana.org/assignments/media-types/text/html"
+      }
+    ]
+  },
+  "satisfies": [
+    "build-ihris-site"
+  ],
+  "requires": {
+    "runtime": [
+      "python3"
+    ],
+    "network": false
+  },
+  "maintains": [
+    {
+      "source": "src/site/theme/ihris-classic-dark.grounds.json",
+      "artefact": "src/site/theme/ihris-classic-dark.json",
+      "format": "json"
+    }
+  ]
+}
