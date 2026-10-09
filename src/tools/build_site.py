@@ -181,7 +181,7 @@ def shell(path, title, body, theme, current=None, scripts=""):
     r = lambda p: rel(path, p)  # noqa: E731
     items = [("index.html", "Home"), ("data-model/index.html", "Data model"), ("data-dictionary/index.html", "Data dictionary"),
              ("sources/index.html", "Sources"), ("library/index.html", "Library"), ("schemas/index.html", "Schemas"),
-             ("glossary/index.html", "Glossary"), ("data-model/search.html", "Search"), (None, "GitHub")]
+             ("glossary/index.html", "Glossary"), ("data-model/search.html", "Search"), ("beans/index.html", "Work plan"), (None, "GitHub")]
     nav = "".join(
         f'<li><a href="{E(r(p) if p else REPO)}"{AC if p == current else ""}>{E(n)}</a></li>'
         for p, n in items)

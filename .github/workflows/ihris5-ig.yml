@@ -32,9 +32,12 @@ on:
 permissions:
   contents: write
 
-# Shared with pages.yml: both push to gh-pages, one at a time.
+# One group per workflow AND ref. GitHub keeps one PENDING run per group and cancels the rest, so a
+# shared group let a pull request's events displace main's queued publish (measured 2026-10-09: the
+# merge of #26 published nothing). Concurrent pushes to gh-pages are safe: each touches its own
+# directory and the push step retries with a rebase.
 concurrency:
-  group: pages
+  group: ihris5-ig-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
