@@ -1,13 +1,13 @@
 ---
 # ihris-yvow
 title: 'cat-harness: a folio''s own generated site cannot declare its pages to the rail (foreign-site rail gaps)'
-status: todo
+status: completed
 type: task
 tags:
     - platform
     - upstream
 created_at: 2026-10-09T12:19:34Z
-updated_at: 2026-10-09T16:20:00Z
+updated_at: 2026-10-09T17:00:00Z
 ---
 
 Found 2026-10-09 publishing ihris's work plan (bean ihris-mdzi) on its own Pages site, railed by cat-harness's rail-standalone-pages.ts --foreign-site --instance ihris. Three platform gaps, bridged in ihris by src/tools/own_site_links.py until cat-harness reconciles them:
@@ -22,3 +22,7 @@ Found 2026-10-09 publishing ihris's work plan (bean ihris-mdzi) on its own Pages
 Upstream ask (litlfred/cat-harness): let a foreign-site rail take the folio's own site root for its own graphs' links and counts, and let a declaration name its published pages when its site is generated. Then delete src/tools/own_site_links.py.
 
 Filed upstream 2026-10-09: https://github.com/litlfred/cat-harness/issues/46 (all five gaps, checked against cat-harness main de514707, with the three asks). This bean closes when the fixes land in the cat-harness pin and own_site_links.py and the ihris.css tone rule are deleted.
+
+## Done (2026-10-09)
+
+Fixed upstream by litlfred/cat-harness#49 (merged as 1e4aaf9), which closed litlfred/cat-harness#46. ihris pins cat-harness at that merge, declares `ground: none` on its logo and visualisers for its schemas and library pages, and src/tools/own_site_links.py, its Tool node and the ihris.css tone rule are deleted.

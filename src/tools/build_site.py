@@ -134,9 +134,6 @@ main {{ min-width:0; }}
 .base {{ border-style:dashed; }}
 .hood {{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px; align-items:start; }}
 /* The neighbourhood graph only: a bare `svg` rule also boxed the folio chrome's rail icons and avatar. */
-/* The folio chrome draws its tone square behind every avatar; the iHRIS logo is transparent around the mark,
-   so on this site its own mark sits on the rail itself (bean ihris-yvow). Inline style, so !important. */
-.fa-nav-glyph:has(> img[src$="iHRIS_logo-on-dark.svg"]) {{ background:none !important; }}
 .hood svg {{ width:100%; height:auto; border:1px solid var(--rule); background:var(--diagram-bg); }}
 /* The neighbourhood graph's literals, re-coloured by the scheme (CSS outranks SVG presentation attributes). */
 .hood svg [fill="#1b1b1b"] {{ fill:var(--diagram-ink); }} .hood svg [stroke="#1b1b1b"] {{ stroke:var(--diagram-ink); }}
