@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exporting and Updating Form Caches Using Profiles - 4.0.6 · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1jf9zmme6s1.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="https://litlfred.github.io/folio-assistant">{"icons":["close","todos","beans","fsh-guts","launcher"],"hrefs":{"fsh-guts":"https://litlfred.github.io/folio-assistant/fsh-guts/"},"notes":{"todos":"this site declares no todos graph","beans":"this site declares no beans graph"},"folders":[{"kind":"attestations","label":"Attestations","note":"this site declares no attestations graph"},{"kind":"auto-docs","label":"Auto docs","within":"docs","note":"no viewer yet"},{"kind":"basic-cdn-site","label":"Basic CDN site","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"code-list","label":"Code lists","note":"no viewer yet"},{"kind":"doc-group","label":"Doc group","within":"docs","note":"no viewer yet"},{"kind":"docs","label":"Docs","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/docs/docs/"},{"kind":"external-schema","label":"External schemas","path":"https://litlfred.github.io/folio-assistant/external-schemas/"},{"kind":"folio","label":"Folio","path":"https://litlfred.github.io/folio-assistant/cat-harness/folio/"},{"kind":"health","label":"Health","note":"this site declares no health graph"},{"kind":"interaction","label":"Interaction","note":"no viewer yet"},{"kind":"library","label":"Library","path":"https://litlfred.github.io/folio-assistant/cat-harness/library/cat-harness/"},{"kind":"memory","label":"Memory","note":"no viewer yet"},{"kind":"methodology","label":"Methodologies","path":"https://litlfred.github.io/folio-assistant/methodologies/"},{"kind":"policies","label":"Policies","note":"no viewer yet"},{"kind":"processes","label":"Processes","path":"https://litlfred.github.io/folio-assistant/processes/"},{"kind":"proposals","label":"Proposals","within":"docs","path":"https://litlfred.github.io/folio-assistant/proposals/"},{"kind":"qa","label":"QA","note":"this site declares no qa graph"},{"kind":"requirements","label":"Requirements","within":"docs","path":"https://litlfred.github.io/folio-assistant/requirements/"},{"kind":"scenarios","label":"Scenarios","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"https://litlfred.github.io/folio-assistant/cat-harness/schemas/cat-harness/"},{"kind":"skills","label":"Skills","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/skills/skills/"},{"kind":"substrate-snapshot","label":"Substrate snapshots","note":"no viewer yet"},{"kind":"swimlane-glossary","label":"Swimlane glossary","note":"this site declares no swimlane-glossary graph"},{"kind":"tool-release","label":"Tool releases","note":"no viewer yet"},{"kind":"tools","label":"Tools","path":"https://litlfred.github.io/folio-assistant/tools/"},{"kind":"translation-sources","label":"Translation sources","path":"https://litlfred.github.io/folio-assistant/translation-status/"},{"kind":"typologies","label":"Graph typologies","note":"no viewer yet"},{"kind":"uml","label":"UML","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"this site declares no uploads graph"},{"kind":"validators","label":"Validators","note":"no viewer yet"},{"kind":"vocab-mapping","label":"Vocab mapping","note":"no viewer yet"},{"kind":"voice-vendors","label":"Voice vendors","within":"voices","note":"no viewer yet"},{"kind":"voices","label":"Voices","path":"https://litlfred.github.io/folio-assistant/cat-harness/voices/cat-harness/"},{"kind":"waiver","label":"Waivers","note":"no viewer yet"}],"whose":{"fsh-guts":"the platform's: this site declares no fsh-guts graph"}}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1jf9zmme6s1"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Exporting and Updating Form Caches Using Profiles - 4.0.6</div>
+<h1>Exporting and Updating Form Caches Using Profiles - 4.0.6</h1>
+<div class="wiki">
+<p>To see this tutorial for different versions of the software see the following:</p>
+<p>In version 4.0.6 we add the ability to create profiles of form caches. A profile is a simply a list of forms that you can use to rapidly:</p>
+<ul>
+<li>Update the cache for each of the forms in the profile</li>
+<li>Export the cache, via a mysqldump, for each of the forms in the profile. This is particularly useful for exporting data from a regional or district office to the national level.</li>
+</ul>
+<p>This functionality is part of the Cached Forms modules and can be accessed by clicking on the links for Configure System and then Cached Forms</p>
+<h2>Creating A Profile</h2>
+<p>The first step is to create a profile of the forms. A profile is a list of forms with a short name that you can use to help you identify the list.</p>
+<ol>
+<li>Look under Create/Edit Profile on the Cached Forms page. Here make sure "Create a new profile" is selected in the drop-down, and then click the "Edit" button. 2. Now type a name for the profile. It is best to keep it short with limited punctuation such as "nightly_update" 3. Now select each of the forms you wish to include in the profile 4. Finally, click the "Submit" button at the bottom of the page</li>
+</ol>
+<h2>Updating the Cache of a Profile</h2>
+<p>You can update all of the forms in a profile under Cache Forms on the Cached Forms page.</p>
+<ol>
+<li>Choose the profile for which you wish to cache forms 2. Click the "Cache" button</li>
+</ol>
+<h2>Exporting the Cache of a Profile</h2>
+<p>There are two main usages of exporting all of the forms in profile, you can either get all the data, or only the modifications to the data since the last date. Both can be accessed under Export Cached Forms on the Cached Forms page.</p>
+<ol>
+<li>
+<p>Choose the profile you wish to export 2. Choose to enable bzip2 compression or not 3. Optionally select the modification time.</p>
+</li>
+<li>
+<p>If you do not set the modification time, you will get all of the data for the forms. The mysqldump will include "DROP TABLE IF EXISTS" and "CREATE" statements for each of the hippo_XXXX tables. Data is populated via "INSERT" statements 2. If you do not set the modification time, you will get all of the data for the forms. The mysqldump will include neither the "DROP TABLE IF EXISTS" nor the "CREATE" statement for each of the hippo_XXXX tables. Data is populated via "REPLACE" statements. 4. click the "Export" button</p>
+</li>
+</ol>
+<p>Note: When you export the cache, it does not first update it. You will need to do this manually.</p>
+<h2>Crontab and Command Line Interaction</h2>
+<p>For example, you may wish to put an update of the profile "nightly_update" in your crontab:</p>
+<pre><code> 30     1     *     *     *         /usr/bin/php /var/www/ihris-manage/index.php --page=/CachedForms/cache --get=profile=nightly_update
+</code></pre>
+<p>will cause all forms in the 'nightly_update' profile to be update at 1:30am. Putting:</p>
+<pre><code> 10     *     *     *     *         /usr/bin/php /var/www/ihris-manage/index.php --page=/CachedForms/cache --get=profile=hourly_update
+</code></pre>
+<p>in your profile will update every form in the 'hourly_update' profile at ten minutes past the hour.</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=32923">revision 32923</a>; contributors: Litlfred. Pages 82&ndash;83 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

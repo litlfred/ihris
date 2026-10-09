@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom Reporting -- Creating Reports · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1jf9zmme6s1.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="https://litlfred.github.io/folio-assistant">{"icons":["close","todos","beans","fsh-guts","launcher"],"hrefs":{"fsh-guts":"https://litlfred.github.io/folio-assistant/fsh-guts/"},"notes":{"todos":"this site declares no todos graph","beans":"this site declares no beans graph"},"folders":[{"kind":"attestations","label":"Attestations","note":"this site declares no attestations graph"},{"kind":"auto-docs","label":"Auto docs","within":"docs","note":"no viewer yet"},{"kind":"basic-cdn-site","label":"Basic CDN site","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"code-list","label":"Code lists","note":"no viewer yet"},{"kind":"doc-group","label":"Doc group","within":"docs","note":"no viewer yet"},{"kind":"docs","label":"Docs","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/docs/docs/"},{"kind":"external-schema","label":"External schemas","path":"https://litlfred.github.io/folio-assistant/external-schemas/"},{"kind":"folio","label":"Folio","path":"https://litlfred.github.io/folio-assistant/cat-harness/folio/"},{"kind":"health","label":"Health","note":"this site declares no health graph"},{"kind":"interaction","label":"Interaction","note":"no viewer yet"},{"kind":"library","label":"Library","path":"https://litlfred.github.io/folio-assistant/cat-harness/library/cat-harness/"},{"kind":"memory","label":"Memory","note":"no viewer yet"},{"kind":"methodology","label":"Methodologies","path":"https://litlfred.github.io/folio-assistant/methodologies/"},{"kind":"policies","label":"Policies","note":"no viewer yet"},{"kind":"processes","label":"Processes","path":"https://litlfred.github.io/folio-assistant/processes/"},{"kind":"proposals","label":"Proposals","within":"docs","path":"https://litlfred.github.io/folio-assistant/proposals/"},{"kind":"qa","label":"QA","note":"this site declares no qa graph"},{"kind":"requirements","label":"Requirements","within":"docs","path":"https://litlfred.github.io/folio-assistant/requirements/"},{"kind":"scenarios","label":"Scenarios","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"https://litlfred.github.io/folio-assistant/cat-harness/schemas/cat-harness/"},{"kind":"skills","label":"Skills","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/skills/skills/"},{"kind":"substrate-snapshot","label":"Substrate snapshots","note":"no viewer yet"},{"kind":"swimlane-glossary","label":"Swimlane glossary","note":"this site declares no swimlane-glossary graph"},{"kind":"tool-release","label":"Tool releases","note":"no viewer yet"},{"kind":"tools","label":"Tools","path":"https://litlfred.github.io/folio-assistant/tools/"},{"kind":"translation-sources","label":"Translation sources","path":"https://litlfred.github.io/folio-assistant/translation-status/"},{"kind":"typologies","label":"Graph typologies","note":"no viewer yet"},{"kind":"uml","label":"UML","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"this site declares no uploads graph"},{"kind":"validators","label":"Validators","note":"no viewer yet"},{"kind":"vocab-mapping","label":"Vocab mapping","note":"no viewer yet"},{"kind":"voice-vendors","label":"Voice vendors","within":"voices","note":"no viewer yet"},{"kind":"voices","label":"Voices","path":"https://litlfred.github.io/folio-assistant/cat-harness/voices/cat-harness/"},{"kind":"waiver","label":"Waivers","note":"no viewer yet"}],"whose":{"fsh-guts":"the platform's: this site declares no fsh-guts graph"}}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1jf9zmme6s1"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Custom Reporting -- Creating Reports</div>
+<h1>Custom Reporting -- Creating Reports</h1>
+<div class="wiki">
+<p>This documentation applies specifically to iHRIS 4.0, although much of it applies to version 3.1.</p>
+<h2>Intended Use</h2>
+<p>This step is intended who has a moderate understanding of how the data are related in the system. It consists of little more than choosing a form relationship and selecting the data you want in the report with checkboxes.</p>
+<p>Once a report has been defined, you can create multiple views of the data in the report.</p>
+<h2>First Steps</h2>
+<p>To create a report, you first must first:</p>
+<ul>
+<li>chose a relationship</li>
+<li>select a "Display Name" for the report, the name of the report for the end user.</li>
+<li>select a "Short Name" for the report, which is a way to reference the report internally and can only contain alpha-numeric characters and some limited punctuation such as _ and -.</li>
+<li>A description of the report.</li>
+<li>A category for the report. This is used to group different report views together.</li>
+</ul>
+<h2>Report Tables Structure</h2>
+<p>Reports are based on a form relationship. Each set of forms which satisfy a relationship corresponds to one row of a report table. A report named XXXXX will cause a table named 'zebra_XXXXX' in the database to be created and populated.</p>
+<p>The columns in the report table are as follows:</p>
+<ul>
+<li>
+<p>`$reportFormName+id`: The id's of each of the forms satisfying the relationship.</p>
+</li>
+<li>
+<p>`$reportFormName+$fieldName`: Any of the selected fields from each of the forms in the relationship as well as any field used to limit the report.</p>
+</li>
+<li>`$function`: Any functions that are selected for the report</li>
+</ul>
+<h2>Selecting Fields</h2>
+<p>Any of the fields of any of the forms which satisfies the chosen form relationship can be included in the report.</p>
+<h2>Selecting Limits</h2>
+<p>Any of the fields of a form in the relationship can be selected to limit the report by. These limits will show up in the report views. There are various ways (styles) that a field can be limited, depending on the field, and are cataloged here.</p>
+<p>For each limit style for a field, you can set the header text under which the limit is displayed in the report view.</p>
+<h2>Selecting Functions</h2>
+<p>Any of the functions defined for a relationship can be selected to include in the report. They can also be chosen as limits.</p>
+<h2>Report Table Generation</h2>
+<p>The zerbra_XXXXX tables contain the data of the report and are built from the form caches. These tables are generated by a background process once a report is consider stale. The background process is spawned by default every 10 minutes. This can be specified by setting the value in magic data at:</p>
+<ul>
+<li>/modules/CustomReports/times/background</li>
+</ul>
+<p>The stale time for a report defaults to 10 minutes. This can be over-ridden by the following setting values in magic data:</p>
+<ul>
+<li>/modules/CustomReports/times/stale</li>
+<li>/modules/CustomReports/times/stale_by_report/XXXXX</li>
+</ul></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=4390">revision 4390</a>; contributors: Litlfred. Pages 63&ndash;64 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

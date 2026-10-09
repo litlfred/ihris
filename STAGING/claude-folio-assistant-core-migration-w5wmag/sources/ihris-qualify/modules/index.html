@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ihris-qualify modules (4.3.3) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../../assets/ihris.css">
+<link rel="icon" href="../../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../../assets/navbar/rail-1jf9zmme6s1.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="https://litlfred.github.io/folio-assistant">{"icons":["close","todos","beans","fsh-guts","launcher"],"hrefs":{"fsh-guts":"https://litlfred.github.io/folio-assistant/fsh-guts/"},"notes":{"todos":"this site declares no todos graph","beans":"this site declares no beans graph"},"folders":[{"kind":"attestations","label":"Attestations","note":"this site declares no attestations graph"},{"kind":"auto-docs","label":"Auto docs","within":"docs","note":"no viewer yet"},{"kind":"basic-cdn-site","label":"Basic CDN site","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"code-list","label":"Code lists","note":"no viewer yet"},{"kind":"doc-group","label":"Doc group","within":"docs","note":"no viewer yet"},{"kind":"docs","label":"Docs","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/docs/docs/"},{"kind":"external-schema","label":"External schemas","path":"https://litlfred.github.io/folio-assistant/external-schemas/"},{"kind":"folio","label":"Folio","path":"https://litlfred.github.io/folio-assistant/cat-harness/folio/"},{"kind":"health","label":"Health","note":"this site declares no health graph"},{"kind":"interaction","label":"Interaction","note":"no viewer yet"},{"kind":"library","label":"Library","path":"https://litlfred.github.io/folio-assistant/cat-harness/library/cat-harness/"},{"kind":"memory","label":"Memory","note":"no viewer yet"},{"kind":"methodology","label":"Methodologies","path":"https://litlfred.github.io/folio-assistant/methodologies/"},{"kind":"policies","label":"Policies","note":"no viewer yet"},{"kind":"processes","label":"Processes","path":"https://litlfred.github.io/folio-assistant/processes/"},{"kind":"proposals","label":"Proposals","within":"docs","path":"https://litlfred.github.io/folio-assistant/proposals/"},{"kind":"qa","label":"QA","note":"this site declares no qa graph"},{"kind":"requirements","label":"Requirements","within":"docs","path":"https://litlfred.github.io/folio-assistant/requirements/"},{"kind":"scenarios","label":"Scenarios","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"https://litlfred.github.io/folio-assistant/cat-harness/schemas/cat-harness/"},{"kind":"skills","label":"Skills","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/skills/skills/"},{"kind":"substrate-snapshot","label":"Substrate snapshots","note":"no viewer yet"},{"kind":"swimlane-glossary","label":"Swimlane glossary","note":"this site declares no swimlane-glossary graph"},{"kind":"tool-release","label":"Tool releases","note":"no viewer yet"},{"kind":"tools","label":"Tools","path":"https://litlfred.github.io/folio-assistant/tools/"},{"kind":"translation-sources","label":"Translation sources","path":"https://litlfred.github.io/folio-assistant/translation-status/"},{"kind":"typologies","label":"Graph typologies","note":"no viewer yet"},{"kind":"uml","label":"UML","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"this site declares no uploads graph"},{"kind":"validators","label":"Validators","note":"no viewer yet"},{"kind":"vocab-mapping","label":"Vocab mapping","note":"no viewer yet"},{"kind":"voice-vendors","label":"Voice vendors","within":"voices","note":"no viewer yet"},{"kind":"voices","label":"Voices","path":"https://litlfred.github.io/folio-assistant/cat-harness/voices/cat-harness/"},{"kind":"waiver","label":"Waivers","note":"no viewer yet"}],"whose":{"fsh-guts":"the platform's: this site declares no fsh-guts graph"}}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-1jf9zmme6s1"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../../index.html"><img src="../../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../../data-model/index.html">Data model</a></li><li><a href="../../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../index.html" aria-current="page">Sources</a></li><li><a href="../../../library/index.html">Library</a></li><li><a href="../../../schemas/index.html">Schemas</a></li><li><a href="../../../glossary/index.html">Glossary</a></li><li><a href="../../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../../index.html">Home</a> / <a href="../../index.html">Sources</a> / <a href="../index.html">ihris-qualify</a> / ihris-qualify modules (4.3.3)</div>
+<h1>ihris-qualify modules (4.3.3)</h1>
+<p>29 I2CE modules in ihris-qualify 4.3.3.</p><div class="tscroll"><table aria-label="Modules"><thead><tr><th>Module</th><th>Name</th><th>Description</th><th>Site</th></tr></thead><tbody><tr><td><a href="ihris-qualify.html">ihris-qualify</a></td><td>iHRIS Qualify</td><td>The iHRIS Qualify system.</td><td></td></tr><tr><td><a href="ihris-qualify-base-data.html">ihris-qualify-base-data</a></td><td>iHRIS Qualify Base Data</td><td>iHRIS Qualify Base Data</td><td></td></tr><tr><td><a href="ihris-qualify-csd-qus.html">ihris-qualify-csd-qus</a></td><td>CSD Query For Updated Services (iHRIS Qualify)</td><td>CSD Query For Updated Services (iHRIS Qualify)</td><td></td></tr><tr><td><a href="ihris-qualify-CustomReports.html">ihris-qualify-CustomReports</a></td><td>iHRIS Qualify Custom Reports</td><td>The Qualify Reporting System</td><td></td></tr><tr><td><a href="ihris-qualify-CustomReports-disruption.html">ihris-qualify-CustomReports-disruption</a></td><td>Disruption relationship and reports</td><td>The relationship and reports for training disruptions.</td><td></td></tr><tr><td><a href="ihris-qualify-CustomReports-exam.html">ihris-qualify-CustomReports-exam</a></td><td>Exam Report and Relationship</td><td>Relationship and reports for exams.</td><td></td></tr><tr><td><a href="ihris-qualify-CustomReports-institution.html">ihris-qualify-CustomReports-institution</a></td><td>Training Insitution Reports</td><td>Relationship and reports for training institutions.</td><td></td></tr><tr><td><a href="ihris-qualify-CustomReports-license.html">ihris-qualify-CustomReports-license</a></td><td>Qualify License Reports</td><td>License relationship and reports for Qualify.</td><td></td></tr><tr><td><a href="ihris-qualify-CustomReports-person.html">ihris-qualify-CustomReports-person</a></td><td>Person Relationship and Reports</td><td>The relationship and reports for person.</td><td></td></tr><tr><td><a href="ihris-qualify-CustomReports-registration.html">ihris-qualify-CustomReports-registration</a></td><td>Registration Reports</td><td>Relationship and reports dealing with registrations.</td><td></td></tr><tr><td><a href="ihris-qualify-CustomReports-search-people.html">ihris-qualify-CustomReports-search-people</a></td><td>Search People Report</td><td>The relationship and report for search people on the site.</td><td></td></tr><tr><td><a href="ihris-qualify-CustomReports-search-training.html">ihris-qualify-CustomReports-search-training</a></td><td>Search Training Report View</td><td>The report view for searching trainings.</td><td></td></tr><tr><td><a href="ihris-qualify-CustomReports-training.html">ihris-qualify-CustomReports-training</a></td><td>Qualify Training Reports</td><td>Reports based on trainings.</td><td></td></tr><tr><td><a href="ihris-qualify-help.html">ihris-qualify-help</a></td><td>iHRIS Qualify Help</td><td>The iHRIS Qualify Help system.</td><td></td></tr><tr><td><a href="ihris-qualify-PersonTraining.html">ihris-qualify-PersonTraining</a></td><td>PersonTraining</td><td>Makes a record verification form available to the system</td><td></td></tr><tr><td><a href="ihris-qualify-PersonTrainingUpload.html">ihris-qualify-PersonTrainingUpload</a></td><td>Person Training Upload</td><td>Creates a page for uploading training information for a person.</td><td></td></tr><tr><td><a href="ihris-qualify-PrintedForms.html">ihris-qualify-PrintedForms</a></td><td>iHRIS Qualify Printed Forms</td><td>The Qualify Printed Forms</td><td></td></tr><tr><td><a href="ihris-qualify-PrintedForms-license.html">ihris-qualify-PrintedForms-license</a></td><td>iHRIS Qualify Printed Forms: License</td><td>The Qualify Printed Forms: License</td><td></td></tr><tr><td><a href="ihris-qualify-PrintedForms-registration.html">ihris-qualify-PrintedForms-registration</a></td><td>iHRIS Qualify Printed Forms: Registration</td><td>The Qualify Printed Forms: Registration</td><td></td></tr><tr><td><a href="ihris-qualify-sample-data.html">ihris-qualify-sample-data</a></td><td>iHRIS Qualify Sample Data</td><td>iHRIS Qualify Sample Data</td><td></td></tr><tr><td><a href="ihris-qualify-site.html">ihris-qualify-site</a></td><td>iHRIS Qualify</td><td>the iHRIS Qualify Site</td><td>blank</td></tr><tr><td><a href="ihris-qualify-site-demo.html">ihris-qualify-site-demo</a></td><td>iHRIS Qualify Demo</td><td>the iHRIS Qualify Demo Site</td><td>Demo</td></tr><tr><td><a href="QualifySampleData-facility_type.html">QualifySampleData-facility_type</a></td><td>Facility Type</td><td>Sample data for form: facility_type.</td><td></td></tr><tr><td><a href="QualifySampleData-id_type.html">QualifySampleData-id_type</a></td><td>ID Type</td><td>Sample data for form: id_type.</td><td></td></tr><tr><td><a href="QualifySampleData-marital_status.html">QualifySampleData-marital_status</a></td><td>Marital Status</td><td>Sample data for form: marital_status.</td><td></td></tr><tr><td><a href="QualifySampleData-verify_change.html">QualifySampleData-verify_change</a></td><td>Record Verify Changes</td><td>Sample data for form: verify_change.</td><td></td></tr><tr><td><a href="QualifySelfService.html">QualifySelfService</a></td><td>iHRIS Qualify Self Service</td><td></td><td></td></tr><tr><td><a href="QualifySelfServiceRegister.html">QualifySelfServiceRegister</a></td><td>Self Service Application</td><td></td><td></td></tr><tr><td><a href="RecordVerify.html">RecordVerify</a></td><td>RecordVerify</td><td>Makes a record verification form available to the system</td><td></td></tr></tbody></table></div>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

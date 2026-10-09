@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customizing Form and Field Headers · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1jf9zmme6s1.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="https://litlfred.github.io/folio-assistant">{"icons":["close","todos","beans","fsh-guts","launcher"],"hrefs":{"fsh-guts":"https://litlfred.github.io/folio-assistant/fsh-guts/"},"notes":{"todos":"this site declares no todos graph","beans":"this site declares no beans graph"},"folders":[{"kind":"attestations","label":"Attestations","note":"this site declares no attestations graph"},{"kind":"auto-docs","label":"Auto docs","within":"docs","note":"no viewer yet"},{"kind":"basic-cdn-site","label":"Basic CDN site","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"code-list","label":"Code lists","note":"no viewer yet"},{"kind":"doc-group","label":"Doc group","within":"docs","note":"no viewer yet"},{"kind":"docs","label":"Docs","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/docs/docs/"},{"kind":"external-schema","label":"External schemas","path":"https://litlfred.github.io/folio-assistant/external-schemas/"},{"kind":"folio","label":"Folio","path":"https://litlfred.github.io/folio-assistant/cat-harness/folio/"},{"kind":"health","label":"Health","note":"this site declares no health graph"},{"kind":"interaction","label":"Interaction","note":"no viewer yet"},{"kind":"library","label":"Library","path":"https://litlfred.github.io/folio-assistant/cat-harness/library/cat-harness/"},{"kind":"memory","label":"Memory","note":"no viewer yet"},{"kind":"methodology","label":"Methodologies","path":"https://litlfred.github.io/folio-assistant/methodologies/"},{"kind":"policies","label":"Policies","note":"no viewer yet"},{"kind":"processes","label":"Processes","path":"https://litlfred.github.io/folio-assistant/processes/"},{"kind":"proposals","label":"Proposals","within":"docs","path":"https://litlfred.github.io/folio-assistant/proposals/"},{"kind":"qa","label":"QA","note":"this site declares no qa graph"},{"kind":"requirements","label":"Requirements","within":"docs","path":"https://litlfred.github.io/folio-assistant/requirements/"},{"kind":"scenarios","label":"Scenarios","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"https://litlfred.github.io/folio-assistant/cat-harness/schemas/cat-harness/"},{"kind":"skills","label":"Skills","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/skills/skills/"},{"kind":"substrate-snapshot","label":"Substrate snapshots","note":"no viewer yet"},{"kind":"swimlane-glossary","label":"Swimlane glossary","note":"this site declares no swimlane-glossary graph"},{"kind":"tool-release","label":"Tool releases","note":"no viewer yet"},{"kind":"tools","label":"Tools","path":"https://litlfred.github.io/folio-assistant/tools/"},{"kind":"translation-sources","label":"Translation sources","path":"https://litlfred.github.io/folio-assistant/translation-status/"},{"kind":"typologies","label":"Graph typologies","note":"no viewer yet"},{"kind":"uml","label":"UML","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"this site declares no uploads graph"},{"kind":"validators","label":"Validators","note":"no viewer yet"},{"kind":"vocab-mapping","label":"Vocab mapping","note":"no viewer yet"},{"kind":"voice-vendors","label":"Voice vendors","within":"voices","note":"no viewer yet"},{"kind":"voices","label":"Voices","path":"https://litlfred.github.io/folio-assistant/cat-harness/voices/cat-harness/"},{"kind":"waiver","label":"Waivers","note":"no viewer yet"}],"whose":{"fsh-guts":"the platform's: this site declares no fsh-guts graph"}}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1jf9zmme6s1"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Customizing Form and Field Headers</div>
+<h1>Customizing Form and Field Headers</h1>
+<div class="wiki">
+<h2>Field Headers</h2>
+<p>You can customize the headers for a form field by updating the magic data associated with the headers. You can do this through the magic data browser, but the best way is to make the change in a module for your site or in your site configuration file. Headers are at the magic data location: /modules/forms/formClasses/$formClass/fields/$field/headers/$headerType</p>
+<p>In your site or module configuration file, you can change the headers by adding the following lines:</p>
+<pre><code>&lt;configuration name=&quot;custom_headers&quot; path=&quot;/modules/forms/formClasses/$formClass/fields/$
+  &lt;value&gt;$newHeader&lt;/value&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>For example, to change the header of the region field in districts you can do this:</p>
+<pre><code>&lt;configuration name=&quot;region_header&quot; path=&quot;/modules/forms/formClasses/iHRIS_District/field
+  &lt;value&gt;State&lt;/value&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>In most cases you'll use the "default" as the $headerType. If you want to have multiple headers, then change the header type and in the template that is displaying your field set the $headerType as the value for the showhead attribute.</p>
+<pre><code>&lt;span type=&quot;form&quot; name=&quot;$form:$field&quot; showhead=&quot;$headerType&quot;&gt;&lt;/span&gt;
+</code></pre>
+<p>Replace $form, $field and $headerType with the appropriate values for your template. For example:</p>
+<pre><code>&lt;span type=&quot;form&quot; name=&quot;country:name&quot; showhead=&quot;my_header&quot;&gt;&lt;/span&gt;
+</code></pre>
+<h2>Form Display Names</h2>
+<p>You may also want to change the display name associated with a form. You can do this by changing the magic data at /modules/forms/forms/$form/display. You can make this change in your site or module configuration file.</p>
+<pre><code>&lt;configuration name=&quot;form_display&quot; path=&quot;/modules/forms/forms/$form/display&quot; locale=&quot;en_U
+  &lt;value&gt;$newHeader&lt;/value&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>For example, to change the display name for region to be State:</p>
+<pre><code>&lt;configuration name=&quot;region_display&quot; path=&quot;/modules/forms/forms/region/display&quot; locale=&quot;e
+  &lt;value&gt;State&lt;/value&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>Some templates (like lists.html) may refer to the name in the template directly. You'll also need to modify this template to use the name you wish when linking to editing the database list for that form.</p>
+<h2>Geography Example</h2>
+<p>Here's a complete example that you can add to your site's configuration .xml file. It will change the names of the levels of geography to be Country/State/Council/Town or City. Country will stay the same, region will become State, district will become Council and county will be come Town or City. You will need to change the &lt;version&gt;4.0.XXX&lt;/version&gt; as appropriate (see versions).</p>
+<pre><code>&lt;configurationGroup name=&quot;forms_module&quot; path=&quot;/modules/forms&quot;&gt;
+  &lt;!-- Update display names for forms --&gt;
+  &lt;version&gt;4.0.XXX&lt;/version&gt;
+  &lt;configurationGroup name=&quot;forms&quot;&gt;
+    &lt;configuration name=&quot;region_display&quot; path=&quot;region/display&quot; locale=&quot;en_US&quot;&gt;
+      &lt;value&gt;State&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configuration name=&quot;district_display&quot; path=&quot;district/display&quot; locale=&quot;en_US&quot;&gt;
+      &lt;value&gt;Council&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configuration name=&quot;region_display&quot; path=&quot;county/display&quot; locale=&quot;en_US&quot;&gt;
+      &lt;value&gt;Town or City&lt;/value&gt;
+    &lt;/configuration&gt;
+  &lt;/configurationGroup&gt;
+  &lt;!-- Update field headers for formClasses --&gt;
+  &lt;configurationGroup name=&quot;formClasses&quot;&gt;
+    &lt;configuration name=&quot;district_region_header&quot; path=&quot;iHRIS_District/fields/region/heade
+      &lt;value&gt;State&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configuration name=&quot;country_district_header&quot; path=&quot;iHRIS_County/fields/district/head
+      &lt;value&gt;Council&lt;/value&gt;
+    &lt;/configuration&gt;
+  &lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;
+</code></pre>
+<h2>Editing lists.html</h2>
+<p>As mentioned above, some .html template files refer to the form's name directly and will need to be edited. You will want to copy the existing lists.html from the iHRIS Manage (or iHRIS Qualify) module to the templates directory in your sites module. You will then edit this new copy. For example you may do:</p>
+<pre><code>sudo mkdir -p /var/lib/iHRIS/sites/my_site/templates/en_US
+sudo cp /var/lib/iHRIS/lib/4.0.4/ihris-manage/templates/en_US/lists.html /var/lib/iHRIS/sites/my_site/templates/en_US
+sudo gedit /var/lib/iHRIS/sites/my_site/templates/en_US
+</code></pre>
+<p>where you replace 4.0.4 with the appropriate version and my_site the name of the directory that your site is stored in.</p>
+<p>Once gedit appears, you will need to change the names of the forms. For example:</p>
+<pre><code>  &lt;li task=&quot;can_edit_database_list_county&quot;&gt;&lt;a href=&quot;lists?type=county&amp;amp;field=district&quot;
+</code></pre>
+<p>becomes:</p>
+<pre><code> &lt;li task=&quot;can_edit_database_list_county&quot;&gt;&lt;a href=&quot;lists?type=county&amp;amp;field=district&quot;&gt;
+</code></pre></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=31085">revision 31085</a>; contributors: Lduncan, Litlfred. Pages 65&ndash;66 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

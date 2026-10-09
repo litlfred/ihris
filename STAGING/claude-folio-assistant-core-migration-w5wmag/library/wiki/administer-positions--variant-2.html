@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administer Positions · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1jf9zmme6s1.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="https://litlfred.github.io/folio-assistant">{"icons":["close","todos","beans","fsh-guts","launcher"],"hrefs":{"fsh-guts":"https://litlfred.github.io/folio-assistant/fsh-guts/"},"notes":{"todos":"this site declares no todos graph","beans":"this site declares no beans graph"},"folders":[{"kind":"attestations","label":"Attestations","note":"this site declares no attestations graph"},{"kind":"auto-docs","label":"Auto docs","within":"docs","note":"no viewer yet"},{"kind":"basic-cdn-site","label":"Basic CDN site","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"code-list","label":"Code lists","note":"no viewer yet"},{"kind":"doc-group","label":"Doc group","within":"docs","note":"no viewer yet"},{"kind":"docs","label":"Docs","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/docs/docs/"},{"kind":"external-schema","label":"External schemas","path":"https://litlfred.github.io/folio-assistant/external-schemas/"},{"kind":"folio","label":"Folio","path":"https://litlfred.github.io/folio-assistant/cat-harness/folio/"},{"kind":"health","label":"Health","note":"this site declares no health graph"},{"kind":"interaction","label":"Interaction","note":"no viewer yet"},{"kind":"library","label":"Library","path":"https://litlfred.github.io/folio-assistant/cat-harness/library/cat-harness/"},{"kind":"memory","label":"Memory","note":"no viewer yet"},{"kind":"methodology","label":"Methodologies","path":"https://litlfred.github.io/folio-assistant/methodologies/"},{"kind":"policies","label":"Policies","note":"no viewer yet"},{"kind":"processes","label":"Processes","path":"https://litlfred.github.io/folio-assistant/processes/"},{"kind":"proposals","label":"Proposals","within":"docs","path":"https://litlfred.github.io/folio-assistant/proposals/"},{"kind":"qa","label":"QA","note":"this site declares no qa graph"},{"kind":"requirements","label":"Requirements","within":"docs","path":"https://litlfred.github.io/folio-assistant/requirements/"},{"kind":"scenarios","label":"Scenarios","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"https://litlfred.github.io/folio-assistant/cat-harness/schemas/cat-harness/"},{"kind":"skills","label":"Skills","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/skills/skills/"},{"kind":"substrate-snapshot","label":"Substrate snapshots","note":"no viewer yet"},{"kind":"swimlane-glossary","label":"Swimlane glossary","note":"this site declares no swimlane-glossary graph"},{"kind":"tool-release","label":"Tool releases","note":"no viewer yet"},{"kind":"tools","label":"Tools","path":"https://litlfred.github.io/folio-assistant/tools/"},{"kind":"translation-sources","label":"Translation sources","path":"https://litlfred.github.io/folio-assistant/translation-status/"},{"kind":"typologies","label":"Graph typologies","note":"no viewer yet"},{"kind":"uml","label":"UML","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"this site declares no uploads graph"},{"kind":"validators","label":"Validators","note":"no viewer yet"},{"kind":"vocab-mapping","label":"Vocab mapping","note":"no viewer yet"},{"kind":"voice-vendors","label":"Voice vendors","within":"voices","note":"no viewer yet"},{"kind":"voices","label":"Voices","path":"https://litlfred.github.io/folio-assistant/cat-harness/voices/cat-harness/"},{"kind":"waiver","label":"Waivers","note":"no viewer yet"}],"whose":{"fsh-guts":"the platform's: this site declares no fsh-guts graph"}}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1jf9zmme6s1"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Wiki</a> / Administer Positions</div>
+<h1>Administer Positions</h1>
+<div class="wiki">
+<p><strong><em>Return to the</em> <a href="ihris-manage-user-manual.html" title="iHRIS Manage User Manual">iHRIS Manage User Manual index page</a>.</strong></p>
+<h2>Add Salary Sources</h2>
+<p>If your organization tracks multiple monetary sources of salaries and/or special payments, add those to the system so the source can be linked to a salary or special payment. Only the HR Manager or System Administrator can add or edit salary sources.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From the home page or left menu, click Administer Database under Configure System.    Under the "Manage Positions" section, select Salary Sources.</td>
+<td>Image:Positions.png</td>
+</tr>
+<tr>
+<td>The Salary Source page opens. Either click Add New Salary Source or select an existing salary source and then click Update This Information to edit it.</td>
+<td>Image:SalarySource1.png</td>
+</tr>
+<tr>
+<td>The Salary Source form opens. Enter the <strong>Name</strong> of the salary source. Click <code>Confirm</code> and confirm that the name entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</td>
+<td>Image:SalarySource2.png</td>
+</tr>
+</tbody>
+</table>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when Confirm is clicked.</strong></p>
+<p>Make sure that the salary source has not already been entered. Change the name and try saving again. If you do not want to add the salary source after all, click <code>Return (do not save changes)</code>.</p>
+<h2>Add Position Types</h2>
+<p>To classify positions by a category or type, add those position types to the system. Examples of position types include Permanent, Temporary, Consultant, Part-time and the like. Only the HR Manager or System Administrator can add or edit position types.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From the home page or left menu, click Administer Database under Configure System.    Under the "Manage Positions" section, select Position Types.</td>
+<td>Image:Positions.png</td>
+</tr>
+<tr>
+<td>The Position Type page opens, showing all position types entered in the database. Either click Add New Position Type or select an existing position type and then click Update This Information to edit it.</td>
+<td>Image:PositionType1.png</td>
+</tr>
+<tr>
+<td>The Position Type form opens. Enter the <strong>Name</strong> of the position type. Click <code>Confirm</code> and confirm that the name entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</td>
+<td>Image:PositionType2.png</td>
+</tr>
+</tbody>
+</table>
+<h3>Troubleshooting</h3>
+<p><strong>An error message appears when Confirm is clicked.</strong></p>
+<p>Make sure that the position type has been already been entered. Change the name and try saving again. If you do not want to add the position type after all, click <code>Return (do not save changes)</code>.</p>
+<h2>Add Positions</h2>
+<p>Adding a position creates a new position in the organization that a single employee will fill. The position must be created before it can be assigned to an existing employee or applications can be accepted for the position. A position that is not linked to an employee but for which you intend to hire someone to fill it is called an <em>open position</em>. A position that is not linked to an employee and for which you are not intending to hire someone is called a <em>discontinued position</em>. A position that is filled by an employee is called a <em>closed position</em>. Either an HR Staff person or an HR Manager can add a new position or update an existing position.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From the home page or left menu, click Administer Database under Configure System.    Under the "Manage Positions" section, select Positions (by Facility).</td>
+<td>Image:Positions.png</td>
+</tr>
+<tr>
+<td>The Position page opens. Click Add New Position.</td>
+<td>Image:Position1.png</td>
+</tr>
+<tr>
+<td>The Position form opens.    Select the <strong>Job</strong> for the new position.    Enter the <strong>Position Title</strong> (this may be the same as the job title).    Enter a <strong>Position Description</strong> as an addendum to the job description (optional).    Select a <strong>Currency</strong> for the salary and enter the <strong>Proposed Salary</strong> amount for the position; this amount will be changed to the actual salary when the position is filled (optional).    If there are one or more salary sources to track for the position, select them in the <strong>Source</strong> box; to select more than one salary source, hold down the CTRL key while clicking the name of each salary source (optional).    Today's date displays for the <strong>Date Posted</strong>, the date the position was opened. If this is incorrect, change the date.    Enter any comments or notes about the position in the <strong>Position Comments</strong> box (optional).    Enter the <strong>Position Code</strong>.    Either type or select the code and title of the position that will supervise this position under <strong>Supervisor</strong> (optional).    Select the office or facility where the position is located in the <strong>Facility</strong> menu.    Select the <strong>Department</strong> where the position is located (optional).    Select the <strong>Position Type</strong> (optional).    Select the <strong>Proposed Hiring Date</strong> for the position (optional).    If the position is short-term, select the <strong>Proposed End Date</strong> for the position (optional).    Select the <strong>Status</strong> of the position: Open or Discontinued. Select <em>Open</em> if you want the position to be available for assignment to an employee.    If an interview has been held for the position, enter any comments or notes about it in the <strong>Interview Comments</strong> box (optional).    Click <code>Confirm</code> and confirm that the name entered is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</td>
+<td>Image:Position2.png</td>
+</tr>
+</tbody>
+</table>
+<h3>Troubleshooting</h3>
+<p><strong>Instead of creating a new position, you want to use a position that was previously created but was discontinued.</strong></p>
+<p>Under the "Manage Positions" section, select Positions (by Status). Select "Discontinued" from the <strong>Status</strong> menu and click the <code>View</code> button; all discontinued positions will display. Select the position to re-open and click Open This Position. Then click Update This Information to edit any of the position's fields.</p>
+<p><strong>An error message displays when Confirm is clicked.</strong></p>
+<p>Make certain that you have completed all required fields. Required fields are outlined in red. Fill in all missing information and try saving again. Also make certain that the position code is unique; the system will not save two positions with the same code. If you do not want to create the position after all, click <code>Return (do not save changes)</code>.</p>
+<p><strong>The correct job for the position is not available for selection.</strong></p>
+<p>The HR Manager must create the new job before the position can be added (see <a href="create-a-job-structure.html#Add_Jobs" title="Create a Job Structure">Add jobs</a>). Click Add New beside the <strong>Job</strong> selection menu to add the job and then follow the steps above to add the position (you will have to re-enter any position information that was previously entered).</p>
+<p><strong>The supervisor's position is not available for selection.</strong></p>
+<p>The supervisor's position must be added to the system before it can be selected. Repeat these steps to add the supervisor's position, then edit the current position to select the correct supervisor (see <a href="administer-positions.html#Edit_a_Position" title="Administer Positions">Edit a position</a>).</p>
+<p><strong>The correct currency is not available for selection.</strong></p>
+<p>The currency must be added to the system by an HR Manager (see <a href="add-geographical-areas.html#Add_a_Currency" title="Add Geographical Areas">Add a currency</a>).</p>
+<p><strong>The correct salary source is not available for selection.</strong></p>
+<p>The salary source must be added to the system by an HR Manager (see <a href="administer-positions.html#Add_Salary_Sources" title="Administer Positions">Add salary sources</a>).</p>
+<p><strong>The office or facility for the position is not available for selection.</strong></p>
+<p>The office or facility must be added to the system by an HR Manager (see <a href="administer-database-for-ihris-manage.html#Add_an_Office_or_Facility" title="Administer Database for iHRIS Manage">Add an office or facility</a>).</p>
+<p><strong>The department is not available for selection.</strong></p>
+<p>The department must be added to the system by an HR Manager (see <a href="administer-database-for-ihris-manage.html#Add_a_Department" title="Administer Database for iHRIS Manage">Add a department</a>).</p>
+<p><strong>The position type is not available for selection.</strong></p>
+<p>The position type must be added to the system by an HR Manager (see <a href="administer-positions.html#Add_Position_Types" title="Administer Positions">Add position types</a>).</p>
+<h2>Edit a Position</h2>
+<p>Once a position has been created in the system, an HR Staff person or an HR Manager can change any of the information for the position.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From the home page or left menu, click Administer Database under Configure System.    Under the "Manage Positions" section, select Positions (by Facility) add or edit a position based on the facility where it is located or select Positions (by Status) to add or edit a position based on its status as open, closed or discontinued.</td>
+<td>Image:Positions.png</td>
+</tr>
+<tr>
+<td>The Position page opens. If you chose Positions (by Facility), select the name of the facility where the position is located from the <strong>Facility</strong> menu. If you chose Positions (by Status), select the status of the position from the <strong>Status</strong> menu. Click the <code>View</code> button to display all the positions entered for that facility or status.</td>
+<td>Image:Position3.png</td>
+</tr>
+<tr>
+<td>A list of positions already entered in the database appears. Click the name of the position to edit.</td>
+<td>Image:Position4.png</td>
+</tr>
+<tr>
+<td>The position information displays. Click Update This Information.    The Position form opens, showing the position information that was previously entered. Change any field.    Click <code>Confirm</code> and confirm that the changed information is correct. If it is not correct, click <code>Edit</code> to change it. If it is, click <code>Save</code> to save it.</td>
+<td>Image:Position5.png</td>
+</tr>
+</tbody>
+</table>
+<h3>Troubleshooting</h3>
+<p><strong>An error message displays when Confirm is clicked.</strong></p>
+<p>Make certain that you have completed all required fields. Required fields are outlined in red. Fill in all missing information and try saving again. Also make certain that the position code is unique; the system will not save two positions with the same code. If you do not want to update the position after all, click <code>Return (do not save changes)</code>.</p>
+<h2>Discontinue a Position</h2>
+<p>If a position is no longer needed and is not filled by an employee, it can be discontinued. This will prevent the position from displaying in open position lists. The position can be re-opened at any time. Either an HR Staff person or an HR Manager can discontinue a position.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From the home page or left menu, click Administer Database under Configure System.    Under the "Manage Positions" section, select Positions (by Status).</td>
+<td>Image:Positions.png</td>
+</tr>
+<tr>
+<td>The Position page opens. Select Open from the <strong>Status</strong> menu and click the <code>View</code> button. All of the open positions will display. Click the name of the position to edit.</td>
+<td>Image:Position6.png</td>
+</tr>
+<tr>
+<td>The position information displays. Click Discontinue This Position to mark the position as discontinued.</td>
+<td>Image:Position7.png</td>
+</tr>
+</tbody>
+</table>
+<p>To re-open a discontinued position, repeat the steps above but select Discontinued from the <strong>Status</strong> menu. Then click Open This Position beside the position information.</p>
+<h3>Troubleshooting</h3>
+<p><strong>The position is not displayed in the selection menu.</strong></p>
+<p>Make certain the position has not been filled by an employee. To see all filled positions, select Closed in the <strong>Status</strong> menu; all closed positions will display underneath. You will need to remove the employee from the position before you can discontinue the position (see <a href="add-position-information.html#Record_a_Departure" title="Add Position Information">Record a departure</a> and <a href="add-position-information.html#Record_a_Position_Change" title="Add Position Information">Record a position change</a>).</p>
+<p><strong><em>Return to the</em> <a href="ihris-manage-user-manual.html" title="iHRIS Manage User Manual">iHRIS Manage User Manual index page</a>.</strong></p>
+<p>}</p></div><h2>Source</h2><p class="src">Help page shipped in ihris-suite-4.3.3 (GPL-3.0, &copy; IntraHealth International), sha256 <code>675c6ad1d79e3774676be00d1ca306e8a10f4cfacd95e62e933b3981397ccf95</code>, at:</p><ul class="src"><li><code>ihris-manage/modules/manage-help/static/help/ihris_administer_positions_4.0.html</code></li><li><code>ihris-qualify/modules/qualify-help/static/help/ihris_administer_positions_4.0.html</code></li></ul>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

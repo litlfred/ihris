@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-form-class.schema.json",
+  "title": "ihris-form-class/v1",
+  "description": "One I2CE form class (e.g. iHRIS_Person) in a release, with the fields EVERY module contributes to it merged in, and each field attributed to the module that declared it. This is the iHRIS data model: the analogue of a DAK core data element set, read from the source rather than from documentation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "id", "class", "release", "fields"],
+  "properties": {
+    "$schema": { "const": "ihris-form-class/v1" },
+    "id": { "type": "string" }, "class": { "type": "string" }, "release": { "type": "string" },
+    "extends": { "type": ["string", "null"] },
+    "forms": { "type": "array", "items": { "type": "string" }, "description": "forms registered with this class" },
+    "definedIn": { "type": "array", "items": { "type": "string" }, "description": "module ids that declare this class" },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["field", "definedIn"],
+        "properties": {
+          "field": { "type": "string" }, "type": { "type": ["string", "null", "array"] }, "label": { "type": ["string", "null"] },
+          "required": { "type": "boolean" }, "unique": { "type": ["boolean", "null"] },
+          "references": { "type": ["array", "null"], "items": { "type": "string" }, "description": "forms a MAP field draws its values from, read from its meta/form configuration" },
+          "definedIn": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

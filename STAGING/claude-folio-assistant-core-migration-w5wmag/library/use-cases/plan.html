@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iHRIS Plan use cases (2009) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1jf9zmme6s1.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="https://litlfred.github.io/folio-assistant">{"icons":["close","todos","beans","fsh-guts","launcher"],"hrefs":{"fsh-guts":"https://litlfred.github.io/folio-assistant/fsh-guts/"},"notes":{"todos":"this site declares no todos graph","beans":"this site declares no beans graph"},"folders":[{"kind":"attestations","label":"Attestations","note":"this site declares no attestations graph"},{"kind":"auto-docs","label":"Auto docs","within":"docs","note":"no viewer yet"},{"kind":"basic-cdn-site","label":"Basic CDN site","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"code-list","label":"Code lists","note":"no viewer yet"},{"kind":"doc-group","label":"Doc group","within":"docs","note":"no viewer yet"},{"kind":"docs","label":"Docs","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/docs/docs/"},{"kind":"external-schema","label":"External schemas","path":"https://litlfred.github.io/folio-assistant/external-schemas/"},{"kind":"folio","label":"Folio","path":"https://litlfred.github.io/folio-assistant/cat-harness/folio/"},{"kind":"health","label":"Health","note":"this site declares no health graph"},{"kind":"interaction","label":"Interaction","note":"no viewer yet"},{"kind":"library","label":"Library","path":"https://litlfred.github.io/folio-assistant/cat-harness/library/cat-harness/"},{"kind":"memory","label":"Memory","note":"no viewer yet"},{"kind":"methodology","label":"Methodologies","path":"https://litlfred.github.io/folio-assistant/methodologies/"},{"kind":"policies","label":"Policies","note":"no viewer yet"},{"kind":"processes","label":"Processes","path":"https://litlfred.github.io/folio-assistant/processes/"},{"kind":"proposals","label":"Proposals","within":"docs","path":"https://litlfred.github.io/folio-assistant/proposals/"},{"kind":"qa","label":"QA","note":"this site declares no qa graph"},{"kind":"requirements","label":"Requirements","within":"docs","path":"https://litlfred.github.io/folio-assistant/requirements/"},{"kind":"scenarios","label":"Scenarios","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"https://litlfred.github.io/folio-assistant/cat-harness/schemas/cat-harness/"},{"kind":"skills","label":"Skills","path":"https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/skills/skills/"},{"kind":"substrate-snapshot","label":"Substrate snapshots","note":"no viewer yet"},{"kind":"swimlane-glossary","label":"Swimlane glossary","note":"this site declares no swimlane-glossary graph"},{"kind":"tool-release","label":"Tool releases","note":"no viewer yet"},{"kind":"tools","label":"Tools","path":"https://litlfred.github.io/folio-assistant/tools/"},{"kind":"translation-sources","label":"Translation sources","path":"https://litlfred.github.io/folio-assistant/translation-status/"},{"kind":"typologies","label":"Graph typologies","note":"no viewer yet"},{"kind":"uml","label":"UML","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"this site declares no uploads graph"},{"kind":"validators","label":"Validators","note":"no viewer yet"},{"kind":"vocab-mapping","label":"Vocab mapping","note":"no viewer yet"},{"kind":"voice-vendors","label":"Voice vendors","within":"voices","note":"no viewer yet"},{"kind":"voices","label":"Voices","path":"https://litlfred.github.io/folio-assistant/cat-harness/voices/cat-harness/"},{"kind":"waiver","label":"Waivers","note":"no viewer yet"}],"whose":{"fsh-guts":"the platform's: this site declares no fsh-guts graph"}}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1jf9zmme6s1"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Use cases</a> / iHRIS Plan use cases (2009)</div>
+<h1>iHRIS Plan use cases (2009)</h1>
+<p class="src">From the iHRIS use-case model by IntraHealth International / the Capacity Project iHRIS team (2009), published with permission. Published with the owner&#39;s permission (2026-09-23). Staff initials (&ldquo;Assigned To&rdquo;) and requirement sources naming a person are referenced by <a href="roles.html#opaque-actors">opaque actors</a>, with the identity withheld.</p><div class="wiki">
+<p><em>Serlio Software Case Complete, 3/25/2009 4:13 PM. From the iHRIS use-case model by IntraHealth International / the Capacity Project iHRIS team, published here with the owner's permission. Parsed by <code>src/tools/ingest_use_cases.py</code>; do not edit by hand.</em></p>
+<p>iHRIS Plan is workforce planning and modeling software.</p>
+<ul>
+<li>This documentation refers to the core version of iHRIS Plan (working title: PowerPlan). <em>(2/22/2008)</em></li>
+<li>This documentation is based on the outputs of the Workforce Planning Model Workshop, held in December 2007, and the HRH Workforce Projection Model, specifically the simplified John Dewdney version of the model. <em>(2/22/2008)</em></li>
+<li>Core version 1.0 released August 8, 2008. <em>(9/29/2008)</em></li>
+</ul>
+<p>Related documents: http://www.capacityproject.org/suite/ihris_plan.php, http://launchpad.net/ihris-plan/</p>
+<h2>Actors</h2>
+<h3>A-PP1 Health Workforce Planner</h3>
+<p>Role: <a href="roles.html#ihris-a-pp1">Health Workforce Planner</a> (<code>ihris-a-pp1</code>)</p>
+<p>The Health Workforce Planner enters workforce data into the software, creates projections, runs scenarios, and analyzes and reports on the results. This is the primary user of the software. This person has some knowledge of workforce planning methods and access to necessary data for creating projections.</p>
+<p><strong>Goals</strong></p>
+<ul>
+<li>Enter workforce planning data and assumptions.</li>
+<li>Create a projection of health workforce supply, need and costs.</li>
+<li>Model the effects of interventions on the health workforce projection.</li>
+<li>Produce health workforce plans and supporting reports.</li>
+</ul>
+<p><strong>Use cases:</strong> UC-PP2 Add or update a cadre, UC-PP3 Add or update a country, UC-PP1 Add or update a currency, UC-PP20 Apply interventions to a base projection model, UC-PP21 Compare actual results to predicted results, UC-PP24 Copy a projection, UC-PP8 Create a cadre pool, UC-PP12 Create a pool change, UC-PP5 Create a projection, UC-PP14 Enter attrition assumptions, UC-PP6 Enter population, UC-PP15 Enter pre-service training assumptions, UC-PP11 Enter pre-service training data, UC-PP13 Enter retirement assumptions, UC-PP9 Enter supply, UC-PP10 Enter targets, UC-PP19 Generate a base projection, UC-PP23 Import supply data, UC-PP22 Produce a health workforce implementation plan</p>
+<h2>1.1 Data Administration</h2>
+<p>Create and update standard lists of data for selection in system menus.</p>
+<ul>
+<li>Access is limited to Health Workforce Planners and System Administrators. <em>(2/6/2008)</em></li>
+<li>Access these functions via the Configure System --&gt; Administer Database menu links. <em>(7/25/2008)</em></li>
+</ul>
+<h3>UC-PP1 Add or update a currency</h3>
+<p>The Health Workforce Planner adds a currency for selection when setting monetary amounts.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new currency is added to the system and can be selected whenever specifying monetary amounts.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>Select the option to update the list of currencies.</li>
+<li>The system displays all currencies entered in the system.</li>
+<li>Select the option to add a new currency or update an existing one.</li>
+<li>Enter the currency code.</li>
+<li>Enter the name of the currency.</li>
+<li>Enter the symbol for the currency.</li>
+<li>Save a record (UC-ICE2).</li>
+<li>The system makes the currency available for selection by symbol and code.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> An existing currency is selected.<ol>
+<li>The currency opens and its information can be edited.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is identical to the one used in iHRIS Manage. <em>(2/2/2007)</em></li>
+</ul>
+<h3>UC-PP2 Add or update a cadre</h3>
+<p>The Health Workforce Planner enters or edits a cadre for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P7</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> Each cadre, as applied by the health professionals, is defined within the system and available for selection in various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>Select the option to update the list of cadres.</li>
+<li>The system displays all cadres entered in the system.</li>
+<li>Select the option to add a new cadre or update an existing one.</li>
+<li>Enter the name of the cadre.</li>
+<li>Save a record (UC-ICE2).</li>
+<li>The system displays the new or edited cadre in selection lists of cadres.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> An existing item is selected.<ol>
+<li>The item form opens and the item can be edited.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is similar to the Add a Cadre use for iHRIS Qualify and Manage, but the qualification is not required. <em>(2/6/2008)</em></li>
+</ul>
+<h3>UC-PP3 Add or update a country</h3>
+<p>The Health Workforce Planner updates the list of countries available for selection in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new or changed country is defined within the system and available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage lists of countries.</li>
+<li>The system displays all countries entered in the system.</li>
+<li>The user adds a new country.</li>
+<li>The user enters the two-letter country code.</li>
+<li>The user enters the ISO numeric code for the country (optional).</li>
+<li>The user selects whether the country is the primary country for the system.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the country available for selection whenever adding geographical locations or nationalities/citizenships.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing country.<ol>
+<li>The system opens the country for editing.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The user selects the country as the primary country.<ol>
+<li>The system displays the country first in all country selection menus.</li>
+</ol>
+</li>
+<li><strong>6.b</strong> The system determines that more than one country was selected as the primary country.<ol>
+<li>The system displays all primary countries at the top of selection menus in alphabetical order.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The system determines that the name and country code are the same as a country previously entered.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is the same for iHRIS Manage, iHRIS Plan and iHRIS Qualify. <em>(10/31/2007)</em></li>
+<li>The option to use the country for location selection does not apply to Plan and is hidden. <em>(8/5/2008)</em></li>
+</ul>
+<h2>1.2 Projection</h2>
+<p>This package enables the user to create and save a new projection or update a saved projection. The user can enter a target and non-cadre specific demographic data for projections.</p>
+<ul>
+<li>This is the first step in the workforce projection process and should appear first on the model map. <em>(2/6/2008)</em></li>
+<li>The section will need to be completed before proceeding on to any other sections. <em>(2/6/2008)</em></li>
+<li>Access these functions and all projection-related actions via the Manage Projections menu link. <em>(7/25/2008)</em></li>
+</ul>
+<h3>UC-PP5 Create a projection</h3>
+<p>The Health Workforce Planner creates a new projection for modeling.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in.</p>
+<p><strong>Success guarantee.</strong> The projection is saved and additional data can be added.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>Select the option to create a projection.</li>
+<li>Enter a brief name by which to identify the projection.</li>
+<li>Enter the name of the category under which to group the projection.</li>
+<li>Type in a text description of the targeted goals for the projection.</li>
+<li>Select the country for the projection.</li>
+<li>Select the start year for the projection.</li>
+<li>Enter the projection duration in years.</li>
+<li>Save a record (UC-ICE2).</li>
+<li>The system saves the projection and displays the entered data.</li>
+<li>The system provides the options to enter additional information into the projection.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The first-release model does not take into account the difference between short-term and long-term projections. <em>(7/23/2008)</em></li>
+</ul>
+<h3>UC-PP24 Copy a projection</h3>
+<p>The Health Workforce Planner copies an existing projection.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The projection to copy has already been entered in the system. The user is logged in.</p>
+<p><strong>Success guarantee.</strong> The original projection is copied with a new name and all of its data. The copied data can be modified or updated.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>Select the option to find a projection.</li>
+<li>Enter the name of the projection to copy.</li>
+<li>The system displays all matching projections.</li>
+<li>Open the projection to copy.</li>
+<li>Copy the projection.</li>
+<li>The system copies all the projection data to the new projection.</li>
+<li>The system makes the projection available for modifications.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case based on a request from Namibia. The purpose is to allow users to easily reuse projection data. <em>(9/11/2008)</em></li>
+</ul>
+<h3>UC-PP6 Enter population</h3>
+<p>The Health Workforce Planner enters the starting population and population growth rate for the projection.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in. The projection must be created and saved.</p>
+<p><strong>Success guarantee.</strong> The population and population growth rate are saved and are used by the system to calculate workforce requirements.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>Open the projection to modify.</li>
+<li>Select the option to enter the population.</li>
+<li>Select the year for which the population is known.</li>
+<li>Enter the total population.</li>
+<li>Enter the population growth rate as a percentage.</li>
+<li>Enter the source of the population data.</li>
+<li>Save a record (UC-ICE2).</li>
+<li>The system calculates the population growth for each year in the projection.</li>
+<li>The system uses the population to determine requirements.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The population has already been entered.<ol>
+<li>The system provides the option to correct the data that has been entered or to add new population data for another year.</li>
+</ol>
+</li>
+<li><strong>3.a</strong> The year is before the start of the projection.<ol>
+<li>The system does not provide the option to select a year before the projection base year.</li>
+</ol>
+</li>
+</ul>
+<h2>1.3 Cadre Pools</h2>
+<p>This package enables a user to define the cadres that will be modeled in the projection, enter supply and requirements data for the cadre, and enter assumptions that will affect the size of the cadre over time.</p>
+<ul>
+<li>This is the second step in the workforce planning process and should appear second on the model map. <em>(2/6/2008)</em></li>
+<li>This step will need to be repeated for each cadre in the workforce projection. <em>(2/6/2008)</em></li>
+<li>Assumptions should include explanation of numbers used and any defaults that are pre-entered, as well as extensive help with reaching the assumptions. <em>(2/6/2008)</em></li>
+</ul>
+<h3>UC-PP8 Create a cadre pool</h3>
+<p>The Health Workforce Planner selects a cadre and saves it as a pool of health workers in the health workforce that is being modeled.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user is logged in. The target and demographics have been entered and saved. The cadre has been entered in the selection menu.</p>
+<p><strong>Success guarantee.</strong> The cadre is saved and a pool is created for that cadre that the user can add data to and update over time.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>Open the projection to modify.</li>
+<li>Enter a name for the cadre pool.</li>
+<li>Select the cadre from the dropdown menu.</li>
+<li>Save a record (UC-ICE2).</li>
+<li>The system saves the cadre pool name and cadre to identify the cadre pool.</li>
+<li>The system provides the option to enter data for that cadre or to create another cadre pool.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>All data entered after this point pertain solely to the selected cadre. <em>(2/6/2008)</em></li>
+</ul>
+<h3>UC-PP9 Enter supply</h3>
+<p>The Health Workforce Planner enters data to project the actual supply of health workers.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in. The projection must be started or updated and population data entered. The cadre pool has been created. The currency has been entered in the system.</p>
+<p><strong>Success guarantee.</strong> The system can project the workforce supply and salary costs in that cadre for each year in the projection range.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>Open the projection to modify.</li>
+<li>Select the cadre pool to update.</li>
+<li>Select the option to enter supply data.</li>
+<li>Select the year for which supply data are being entered.</li>
+<li>Enter the number of staff actually employed at the start of the year.</li>
+<li>Enter the data source.</li>
+<li>Select the currency of the salary.</li>
+<li>Enter the average salary for a worker in the cadre pool.</li>
+<li>Enter the average percentage by which salaries increase each year.</li>
+<li>Save a record (UC-ICE2).</li>
+<li>The system calculates the population per employee at the year start.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The supply data have already been entered.<ol>
+<li>The system provides the option to correct the previously entered data or to enter new supply data for a subsequent year.</li>
+</ol>
+</li>
+<li><strong>4.a</strong> The year is prior to the base year of the projection.<ol>
+<li>The system does not allow a year before the base year to be selected.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The population per employee can be compared to the population per position calculated in the requirements. <em>(2/6/2008)</em></li>
+<li>The total number of staff at year end can be compared to the required number of positions at the beginning of the next year to analyze the gap between actual and required staff. <em>(2/6/2008)</em></li>
+</ul>
+<h3>UC-PP10 Enter targets</h3>
+<p>The Health Workforce Planner enters the required number of positions for the cadre.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P2</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user is logged in. The user has started or is updating a projection and has entered population data for the projection. The cadre pool has been created.</p>
+<p><strong>Success guarantee.</strong> The requirements are correctly calculated and can be graphed in the results.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>Open the projection to modify.</li>
+<li>Select the cadre pool for which to enter target data.</li>
+<li>Select the option to enter target data.</li>
+<li>Select the year for which targets are known.</li>
+<li>Enter the target as either:<ul>
+<li>the number of positions to be filled in the year or</li>
+</ul>
+</li>
+<li>the health worker-to-population ratio target.</li>
+<li>Enter the data source.</li>
+<li>Save a record (UC-ICE2).</li>
+<li>The system calculates the required number of positions needed to maintain the initial position-to-population ratio for each year in the projection range.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The target data have already been entered.<ol>
+<li>The system provides the option to correct the previously entered data or to add new target data for a subsequent year.</li>
+</ol>
+</li>
+<li><strong>4.a</strong> The year is before the base year of the projection.<ol>
+<li>The system does not provide an option to select a year prior to the base year.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> Both a number and a ratio are entered.<ol>
+<li>The system generates an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The population per position remains the same for each year; requirements are calculated based on this figure. <em>(2/6/2008)</em></li>
+</ul>
+<h3>UC-PP12 Create a pool change</h3>
+<p>The Health Workforce Planner creates a change in the pool supply due to an increase or decrease in health workers to be applied to the projection.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The projection has been created and a cadre pool has been created for it. Supply data have been entered for the cadre pool. The currency has been entered in the system.</p>
+<p><strong>Success guarantee.</strong> The system calculates the changes to the supply of health workers and displays the results in the projection.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>Open the projection to modify.</li>
+<li>Select the cadre pool to update.</li>
+<li>Select the option to enter a pool change.</li>
+<li>Enter a name for the pool change.</li>
+<li>Enter a description of the assumption being made.</li>
+<li>Select whether to enable the pool change.</li>
+<li>Select whether the pool change is a:<ul>
+<li>intake, or increase in health workers</li>
+<li>exit, or decrease in health workers</li>
+</ul>
+</li>
+<li>Enter the data source.</li>
+<li>Enter the change amount as either the number or the percentage of health workers to increase or decrease the supply by.</li>
+<li>Enter a maximum amount for the change (optional).</li>
+<li>Select a currency for any costs associated with the change.</li>
+<li>Enter the average cost of the change per year per worker (optional).</li>
+<li>Enter the average percentage increase in the costs per year (optional).</li>
+<li>Select the initial year to apply the change.</li>
+<li>Enter the number of years to apply the change.</li>
+<li>Save the change (UC-ICE2).</li>
+<li>The system calculates the effects of the change on the projected workforce and the costs.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>6.a</strong> The pool change is disabled.<ol>
+<li>The change does not affect the projection and the data are not displayed in the projection.</li>
+</ol>
+</li>
+<li><strong>9.a</strong> A number of health workers is entered.<ol>
+<li>Enter the rate by which to increase the amount of workers added to or subtracted from the supply (optional).</li>
+</ol>
+</li>
+<li><strong>9.b</strong> Both an amount and a percentage are entered.<ol>
+<li>The system generates an error and will not continue.</li>
+</ol>
+</li>
+<li><strong>14.a</strong> A year is not selected.<ol>
+<li>The system selects the base year for the initial year.</li>
+</ol>
+</li>
+<li><strong>15.a</strong> The number of years is not entered.<ol>
+<li>The system calculates the change for the entire projection duration.</li>
+</ol>
+</li>
+<li><strong>17.a</strong> There is more than one change affecting the cadre pool.<ol>
+<li>Repeat all steps for each pool change.</li>
+</ol>
+</li>
+</ul>
+<h2>1.4 Data Modeling</h2>
+<p>This module enables a user to graph the actual and required human resources pools, showing changes over time as determined by the influences. The user may then define one or more interventions on actual human resources by adjusting variables from a menu of options. The graph will dynamically update, showing the results of the interventions as they are adjusted.</p>
+<h3>UC-PP19 Generate a base projection</h3>
+<p>Before the Health Workforce Planner can run any interventions, a base projection must be generated showing the gap between resources and requirements.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P3</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Partially Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user is logged in. The projection has been created and all requirements, supply and pool change data have been entered.</p>
+<p><strong>Success guarantee.</strong> The base projection and costs projection are generated, and all data for the projection are displayed.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>Select a projection model.</li>
+<li>Select the cadre pools within the projection to include in the model.</li>
+<li>The system generates the base projection graph of changes in total numbers for all health workers and all required workers over the date range of the projection.</li>
+<li>The system graphs the costs of all workers over the duration of the projection.</li>
+<li>The system displays the data for all selected cadre pools by year.</li>
+<li>The system provides the option to print the base projection as a graph or table.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> Supply and target data have been entered for more than one year in the projection.<ol>
+<li>The system displays separate graph lines for each year that data were entered.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The user disables a cadre pool change in the model.<ol>
+<li>The system hides the pool change data and does not include the data in calculating the results of the model.</li>
+<li>The system graphs the new supply and the original supply on the same model.</li>
+</ol>
+</li>
+</ul>
+<h3>UC-PP21 Compare actual results to predicted results</h3>
+<p>After proposed interventions have been implemented, the Health Workforce Planner regularly imports new actual human resources data to determine whether the interventions are having the desired effect and to make adjustments as needed.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P2</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-pp1">Health Workforce Planner</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Documented</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user is logged in. A projection has been completed created and saved.</p>
+<p><strong>Success guarantee.</strong> Interventions are producing results.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>Select a saved projection.</li>
+<li>Enter a new starting year subsequent to the initial data.</li>
+<li>The system creates a projection with the new starting year using all assumptions and requirements entered for the saved projection.</li>
+<li>Enter the training data for the new starting year (UC-PP11).</li>
+<li>Enter the workforce data for the new starting year (UC-PP9).</li>
+<li>Save the projection for comparison.</li>
+<li>The system generates a report comparing the projected results for the original projection to the actual results.</li>
+<li>The system provides the option to adjust the assumptions for the new projection.</li>
+<li>The system provides the option to adjust the requirements for the new projection.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Assumptions: Proposed interventions in the model have been implemented for at least one calendar year; human resources data have been collected for the preceding year. <em>(11/12/2007)</em></li>
+<li>Triggered when new human resources data are available; this use case will generally occur on an annual cycle. <em>(11/12/2007)</em></li>
+</ul>
+<h2>1.5 Requirements</h2>
+<p>This package holds miscellaneous requirements for the project.</p>
+<ul>
+<li>Requirements are still in the process of being defined. See the wiki for a full list of proposed requirements. <em>(2/6/2008)</em></li>
+</ul>
+<p>Related documents: http://open.intrahealth.org/wiki/index.php/Planned_Features_--_Software, http://open.intrahealth.org/wiki/index.php/Planned_Features_--_Workforce_Projection_Model</p>
+<h2>Cited but not described</h2>
+<p>The report cites these, but describes none of them:</p>
+<ul>
+<li>UC-PP11 <em>Enter pre-service training data</em> (cited by A-PP1, UC-PP21)</li>
+<li>UC-PP13 <em>Enter retirement assumptions</em> (cited by A-PP1)</li>
+<li>UC-PP14 <em>Enter attrition assumptions</em> (cited by A-PP1)</li>
+<li>UC-PP15 <em>Enter pre-service training assumptions</em> (cited by A-PP1)</li>
+<li>UC-PP20 <em>Apply interventions to a base projection model</em> (cited by A-PP1)</li>
+<li>UC-PP22 <em>Produce a health workforce implementation plan</em> (cited by A-PP1)</li>
+<li>UC-PP23 <em>Import supply data</em> (cited by A-PP1)</li>
+</ul></div>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>
