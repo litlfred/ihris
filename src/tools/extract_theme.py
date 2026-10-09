@@ -10,9 +10,16 @@ Nothing is transcribed by hand. This reads, from uploads/ihris-suite-4.3.3/*.tar
   ihris-common/css/globalStyles.css   the base layer
   ihris-manage/css/themeStyles.css    Manage's theme, which @imports after it and wins
   ihris-common/images/iHRIS_logo.png  the logo
+  ihris-manage/sites/TwitterBootstrap/images/intrahealth-logo.png
+                                      IntraHealth International's logo, for the credit block of
+                                      content attributed to IntraHealth (library/ihris-admin-course)
 
 and writes src/site/theme/ihris-classic.json (the tokens, each with the selector and
-file it was measured from) plus src/site/theme/iHRIS_logo.png.
+file it was measured from) plus src/site/theme/iHRIS_logo.png and
+src/site/theme/intrahealth-logo.png. Of the release's two IntraHealth logos, the
+TwitterBootstrap one is used: it is drawn on its own white ground (RGB, no alpha), so it
+reads on the light and the dark scheme alike; ihris-train's Intrahealth_Logo_RGB.png is
+transparent with grey lettering, which vanishes on a dark ground.
 
 MEASURED vs APPLIED. Every colour is kept as measured. Where a measured colour fails
 WCAG 2 AA (4.5:1) in the role the site uses it for, the applied token takes the first
@@ -37,6 +44,8 @@ OUT = os.path.join(ROOT, "src", "site", "theme")
 GLOBAL = "ihris-common/css/globalStyles.css"
 THEME = "ihris-manage/css/themeStyles.css"
 LOGO = "ihris-common/images/iHRIS_logo.png"
+IH_LOGO = "ihris-manage/sites/TwitterBootstrap/images/intrahealth-logo.png"
+IH_FILE = "intrahealth-logo.png"
 
 
 def _hex(c):
@@ -82,7 +91,7 @@ def _font_family(v):
 
 def build(tar_path):
     with tarfile.open(tar_path, "r:bz2") as t:
-        raw = {p: t.extractfile(p).read() for p in (GLOBAL, THEME, LOGO)}
+        raw = {p: t.extractfile(p).read() for p in (GLOBAL, THEME, LOGO, IH_LOGO)}
     g, th = parse_css(raw[GLOBAL].decode("latin-1")), parse_css(raw[THEME].decode("latin-1"))
 
     def m(file_rules, file, sel, prop, conv=_hex):
@@ -186,19 +195,24 @@ def build(tar_path):
         "adjustments": adjustments,
         "logo": {"file": "iHRIS_logo.png", "from": LOGO, "sha256": sha(raw[LOGO]),
                  "attribution": "iHRIS logo, (c) IntraHealth International, from the iHRIS 4.3.3 release (GPL)."},
+        "intrahealthLogo": {"file": IH_FILE, "from": IH_LOGO, "sha256": sha(raw[IH_LOGO]),
+                            "attribution": "IntraHealth International logo, (c) IntraHealth International, from the iHRIS 4.3.3 release (GPL).",
+                            "usedFor": "the credit block of content attributed to IntraHealth International (library/ihris-admin-course, CC BY 4.0)"},
     }
-    return theme, raw[LOGO]
+    return theme, raw[LOGO], raw[IH_LOGO]
 
 
 def main():
     check = "--check" in sys.argv
     tjson, tlogo = os.path.join(OUT, "ihris-classic.json"), os.path.join(OUT, "iHRIS_logo.png")
+    tih = os.path.join(OUT, IH_FILE)
     tars = [f for f in os.listdir(UP) if f.endswith(".tar.bz2")] if os.path.isdir(UP) else []
     if not tars:
         if not check:
             raise SystemExit(f"no tarball in {UP}; upload ihris-suite-4.3.3.tar.bz2 first")
         cur = json.load(open(tjson))
-        ok = hashlib.sha256(open(tlogo, "rb").read()).hexdigest() == cur["logo"]["sha256"]
+        ok = hashlib.sha256(open(tlogo, "rb").read()).hexdigest() == cur["logo"]["sha256"] \
+            and os.path.exists(tih) and hashlib.sha256(open(tih, "rb").read()).hexdigest() == cur["intrahealthLogo"]["sha256"]
         print(("WARN: tarball absent; logo sha256 verified only" if ok else "FAIL: logo sha256 mismatch"), file=sys.stderr)
         sys.exit(0 if ok else 1)
     tb = os.path.join(UP, tars[0])
@@ -209,16 +223,18 @@ def main():
             h.update(chunk)
     if h.hexdigest() != want:
         raise SystemExit(f"refusing: {tb} sha256 does not match uploads manifest")
-    theme, logo = build(tb)
+    theme, logo, ih = build(tb)
     text = json.dumps(theme, indent=2, ensure_ascii=False) + "\n"
     if check:
         stale = (not os.path.exists(tjson) or open(tjson).read() != text
-                 or not os.path.exists(tlogo) or open(tlogo, "rb").read() != logo)
+                 or not os.path.exists(tlogo) or open(tlogo, "rb").read() != logo
+                 or not os.path.exists(tih) or open(tih, "rb").read() != ih)
         print("theme: STALE" if stale else "theme: OK")
         sys.exit(1 if stale else 0)
     os.makedirs(OUT, exist_ok=True)
     open(tjson, "w").write(text)
     open(tlogo, "wb").write(logo)
+    open(tih, "wb").write(ih)
     print(json.dumps({"applied": theme["applied"], "adjustments": [(a["role"], a["measured"], a["applied"]) for a in theme["adjustments"]]}, indent=1))
 
 

@@ -1,0 +1,57 @@
+{
+  "id": "ihris-ingest-moodle-course",
+  "title": "Ingest the iHRIS administrator Moodle course",
+  "description": "Verifies the uploaded Moodle 1.9 course backup (size, md5 and sha256 against uploads/ihris-admin-course/manifest.json), reads it in memory with zipfile (safe member paths, capped sizes and ratios) and parses moodle.xml with ElementTree (no DOCTYPE or ENTITY). Refuses a backup that holds users or user info. Records the course, the backup, the sections in order with their modules in course order, and an inventory of every file in the zip (course.json, ihris-moodle-course/v1; course.md). With a licence in the declaration (CC BY 4.0, stated by the author), also writes the content: the course and section summaries (sections/), one Markdown file per module (modules/: lesson pages, html resources, quiz questions with answers, survey questions with choices, introductions), from HTML sanitised with BeautifulSoup and converted with markdownify; the transcripts' text (transcripts/, antiword -w 0); and the images (images/), with the lesson links rewritten to them. Never the slide audio (size), the images listed as showing personal data, the development team's names, or any e-mail address. Without a licence, structure only. Deterministic; stops on totals that differ from the manifest's expect block, on an unknown module or question type, and on a reference it cannot place.",
+  "invoke": {
+    "shell": "python3 -I src/tools/ingest_moodle_course.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "backup",
+        "schema": "https://www.iana.org/assignments/media-types/application/zip",
+        "required": true,
+        "description": "uploads/ihris-admin-course/moodle-ihris_admin.zip, pinned by uploads/ihris-admin-course/manifest.json"
+      },
+      {
+        "name": "declaration",
+        "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-instance-extension.schema.json",
+        "required": true,
+        "description": "library/ihris-admin-course/ihris-admin-course.json: its licence decides whether the content is written"
+      },
+      {
+        "name": "moodleBackup",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/moodleBackup",
+        "required": false,
+        "description": "Read from uploads/ihris-admin-course/"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "course",
+        "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-moodle-course.schema.json",
+        "description": "library/ihris-admin-course/course.json"
+      },
+      {
+        "name": "adminCourse",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/adminCourse",
+        "description": "Written to library/ihris-admin-course/"
+      }
+    ]
+  },
+  "satisfies": [
+    "ingest-moodle-course"
+  ],
+  "requires": {
+    "runtime": [
+      "python3>=3.10",
+      "antiword",
+      "beautifulsoup4",
+      "markdownify==1.2.3"
+    ],
+    "network": false
+  },
+  "install": {
+    "cli": "apt-get install antiword && pip install beautifulsoup4 markdownify==1.2.3"
+  }
+}

@@ -254,6 +254,9 @@ def instance_stats(inst, recs):
     if name == "ihris-use-cases" and os.path.exists(os.path.join(p, "crosswalk.json")):
         x = load(os.path.join(inst["path"], "crosswalk.json"))
         return f"{len(x['entries'])} use cases in 4 products; {x['counts']['matched']} linked to forms", None
+    if name == "ihris-admin-course" and os.path.exists(os.path.join(p, "course.json")):
+        c = load(os.path.join(inst["path"], "course.json"))["counts"]
+        return f"{c['modules']} modules in {c['sections']} sections, {c['lessonPages']} lesson pages, {c['transcripts']} transcripts (CC BY 4.0)", None
     if name == "ihris-data-dictionary":
         dd = os.path.join(p, "data-dictionary")
         n = len([f for f in os.listdir(dd) if f.endswith(".json")]) if os.path.isdir(dd) else 0

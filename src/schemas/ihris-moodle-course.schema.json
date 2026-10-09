@@ -1,0 +1,634 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-moodle-course.schema.json",
+  "title": "ihris-moodle-course/v1",
+  "description": "A Moodle 1.9 course backup (moodle.xml + course_files/), ingested as far as its licence allows (AGENTS.md rule 4): the course's title and shortname, the backup's origin and date, the sections in order with their modules in course order (type and name; a lesson's page titles; a resource's type and, for a reference, its URL or the course file it names; a quiz's or questionnaire's number of questions; a glossary's number of entries) and an inventory of the files in the backup (path, bytes, sha256, media type). With a licence recorded in the declaration, the content as well, each piece as a Markdown file this record points at by path and sha256 (section summaries, modules, transcripts) and the images it copies; never in this record itself, which holds no body text. (library/ihris-admin-course/course.json, src/tools/ingest_moodle_course.py).",
+  "type": "object",
+  "required": [
+    "$schema",
+    "title",
+    "shortname",
+    "backup",
+    "summaryFile",
+    "source",
+    "licence",
+    "licenceNote",
+    "counts",
+    "sections",
+    "modules",
+    "images",
+    "transcripts",
+    "withheldImages",
+    "missingImages",
+    "files",
+    "notRecorded",
+    "redactions",
+    "withheld"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "const": "ihris-moodle-course/v1"
+    },
+    "title": {
+      "type": "string",
+      "description": "the course's FULLNAME"
+    },
+    "shortname": {
+      "type": "string"
+    },
+    "format": {
+      "type": "string",
+      "description": "the course format (topics, weeks, ...)"
+    },
+    "category": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "backup": {
+      "type": "object",
+      "required": [
+        "name",
+        "date",
+        "moodleRelease",
+        "moodleVersion",
+        "backupRelease",
+        "originalWwwroot",
+        "users",
+        "userInfo"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "moodleRelease": {
+          "type": "string"
+        },
+        "moodleVersion": {
+          "type": "string"
+        },
+        "backupRelease": {
+          "type": "string"
+        },
+        "originalWwwroot": {
+          "type": "string",
+          "format": "uri"
+        },
+        "users": {
+          "const": "none",
+          "description": "the ingester refuses a backup that holds users"
+        },
+        "userInfo": {
+          "const": false,
+          "description": "no module's user data (posts, attempts, entries by users) is in the backup; the ingester refuses otherwise"
+        }
+      }
+    },
+    "summaryFile": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "file",
+            "sha256"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "file": {
+              "type": "string",
+              "pattern": "^sections/[A-Za-z0-9_.-]+\\.md$"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      ],
+      "description": "the course summary, as Markdown (only with a licence)"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "file",
+        "bytes",
+        "md5",
+        "sha256",
+        "manifest",
+        "moodleXmlSha256"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "type": "string",
+          "pattern": "\\.zip$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "md5": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "manifest": {
+          "type": "string"
+        },
+        "moodleXmlSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "licence": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "status",
+            "id",
+            "attribution",
+            "declaration"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "stated",
+                "permission"
+              ]
+            },
+            "id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "attribution": {
+              "type": "string"
+            },
+            "declaration": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "description": "null: no licence is recorded and the record is structure only. Otherwise the declaration's licence, which the content is published under."
+    },
+    "licenceNote": {
+      "type": "string"
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "sections",
+        "modules",
+        "modulesByType",
+        "lessonPages",
+        "quizQuestions",
+        "questionnaireQuestions",
+        "glossaryEntries",
+        "externalUrls",
+        "files",
+        "fileBytes",
+        "images",
+        "transcripts",
+        "contentFiles"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "sections": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "modules": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "modulesByType": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "lessonPages": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "quizQuestions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "questionnaireQuestions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "glossaryEntries": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "externalUrls": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fileBytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "images": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "transcripts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "contentFiles": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "number",
+          "visible",
+          "modules"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "number": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "0 is the course's general section; Moodle 1.9 sections have no title of their own"
+          },
+          "visible": {
+            "type": "boolean"
+          },
+          "modules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/moduleId"
+            },
+            "description": "the section's modules, in course order"
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^(sections|modules|transcripts)/[A-Za-z0-9_.-]+\\.md$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "name",
+          "section",
+          "indent",
+          "visible"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/moduleId"
+          },
+          "type": {
+            "type": "string",
+            "pattern": "^[a-z]+$",
+            "description": "the Moodle module type (MODTYPE)"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "section": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "indent": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "visible": {
+            "type": "boolean"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "description": "lesson: the page titles, in the lesson's order"
+          },
+          "resourceType": {
+            "type": "string",
+            "description": "resource: html, text, file, directory, ..."
+          },
+          "reference": {
+            "description": "resource of type file: what it points at. An http(s) URL, or a file in the backup's course_files/ (which the file inventory lists).",
+            "oneOf": [
+              {
+                "type": "object",
+                "required": [
+                  "url"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "pattern": "^https?://"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "required": [
+                  "courseFile"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "courseFile": {
+                    "type": "string",
+                    "pattern": "^course_files/"
+                  },
+                  "publishedAs": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          },
+          "questions": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "quiz: question instances; questionnaire: questions not deleted"
+          },
+          "entries": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "glossary: entries in the backup"
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^(sections|modules|transcripts)/[A-Za-z0-9_.-]+\\.md$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "bytes",
+          "sha256",
+          "mediaType",
+          "publishedAs"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "the member's path in the zip"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "mediaType": {
+            "type": "string",
+            "pattern": "^[a-z]+/[a-z0-9.+-]+$"
+          },
+          "publishedAs": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "what the file is published as in the entry (images/<file>, transcripts/<name>.md), or null"
+          }
+        }
+      }
+    },
+    "notRecorded": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "what the backup holds that is deliberately not recorded, and why"
+    },
+    "redactions": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "e-mail addresses removed from everything written"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "file",
+          "from",
+          "bytes",
+          "sha256",
+          "mediaType",
+          "usedBy"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "file": {
+            "type": "string",
+            "pattern": "^images/[^/]+$"
+          },
+          "from": {
+            "type": "string",
+            "pattern": "^course_files/"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "mediaType": {
+            "type": "string"
+          },
+          "usedBy": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "transcripts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "file",
+          "from",
+          "title",
+          "sha256",
+          "textSha256",
+          "extractedWith"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "file": {
+            "type": "string",
+            "pattern": "^transcripts/[^/]+\\.md$"
+          },
+          "from": {
+            "type": "string",
+            "pattern": "^course_files/"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "textSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "extractedWith": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "withheldImages": {
+      "type": "array",
+      "description": "images not published because they show personal data; the text that shows one says so",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "why",
+          "shownBy"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "type": "string",
+            "pattern": "^course_files/"
+          },
+          "why": {
+            "type": "string"
+          },
+          "shownBy": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "missingImages": {
+      "type": "array",
+      "description": "images the text shows that the backup does not hold",
+      "items": {
+        "type": "object",
+        "required": [
+          "src",
+          "shownBy"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "src": {
+            "type": "string"
+          },
+          "shownBy": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "withheld": {
+      "type": "array",
+      "description": "text withheld from the Markdown because it names third parties",
+      "items": {
+        "type": "object",
+        "required": [
+          "what",
+          "why",
+          "count"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "what": {
+            "type": "string"
+          },
+          "why": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "moduleId": {
+      "type": "string",
+      "pattern": "^cm-\\d+$",
+      "description": "cm- and the course-module id of the backup (unique within the course)"
+    }
+  }
+}

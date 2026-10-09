@@ -52,6 +52,13 @@
       "default": "uploads/ihris-use-cases/",
       "contentMediaType": "application/msword"
     },
+    "moodleBackup": {
+      "type": "string",
+      "title": "Moodle course backup (.zip)",
+      "description": "A Moodle 1.9 course backup (moodle.xml + course_files/), md5 and sha256 pinned, with the totals expected of it.",
+      "default": "uploads/ihris-admin-course/",
+      "contentMediaType": "application/zip"
+    },
     "sourceDocument": {
       "type": "string",
       "title": "A shared paper, book or standard",
@@ -120,6 +127,13 @@
       "description": "Use cases, actors and requirements, with a crosswalk to the data model.",
       "default": "library/ihris-use-cases/",
       "x-records": "ihris-use-cases/v1"
+    },
+    "adminCourse": {
+      "type": "string",
+      "title": "Administrator course",
+      "description": "The Moodle course's structure and file inventory, and, under the declaration's licence (CC BY 4.0, IntraHealth International), its section summaries, lesson pages, quizzes, transcripts and images.",
+      "default": "library/ihris-admin-course/",
+      "x-records": "ihris-moodle-course/v1"
     },
     "ihris5Inventory": {
       "type": "string",

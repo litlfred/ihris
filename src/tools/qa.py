@@ -499,6 +499,13 @@ def c_site_theme(C):
         logo = os.path.join(os.path.dirname(rel), d["logo"]["file"])
         if not exists(logo) or sha256(logo) != d["logo"]["sha256"]:
             out.append(f"{rel}: logo {d['logo']['file']} is missing or does not match its sha256")
+        ih = d.get("intrahealthLogo")
+        if ih:
+            f = os.path.join(os.path.dirname(rel), ih["file"])
+            if not exists(f) or sha256(f) != ih["sha256"]:
+                out.append(f"{rel}: intrahealthLogo {ih['file']} is missing or does not match its sha256")
+            if "IntraHealth International" not in ih.get("attribution", ""):
+                out.append(f"{rel}: intrahealthLogo carries no IntraHealth attribution")
         for adj in d["adjustments"]:
             if adj["measured"] not in {v["value"] for v in d["measured"].values()}:
                 out.append(f"{rel}: adjustment for {adj['role']} starts from {adj['measured']}, which was not measured")
@@ -865,6 +872,136 @@ def c_use_cases(C):
             out.append(f"{rel}: source {d['source']['file']} is not the file {man} pins")
         if not exists(f"{os.path.dirname(rel)}/{d['product']}.md"):
             out.append(f"{rel}: no {d['product']}.md beside it")
+    return out
+
+
+MOODLE_TEXT_KEYS = {"summary", "intro", "contents", "content", "alltext", "text", "body", "description", "questiontext",
+                    "answer", "answers", "choices", "definition", "transcript", "feedback", "message", "html"}
+
+
+def c_moodle_course(C):
+    """A Moodle course record: the counts are those of the records and of the totals the upload's manifest expects;
+    every section's modules resolve, each placed once, in a section that says so; every course file a resource names
+    is in the inventory; the inventory and the source are the pinned zip. The record itself never holds body text.
+    Its licence is the declaration's: with none, it is structure only (AGENTS.md rule 4) and no content file exists;
+    with one, every content file and image it points at exists at its sha256, nothing else is in those directories,
+    every image a module shows resolves, and no withheld image is published. No e-mail address anywhere in the entry."""
+    out = []
+    for rel, d in C["tagged"].get("ihris-moodle-course/v1", []):
+        base = os.path.dirname(rel)
+        mods = {m["id"]: m for m in d["modules"]}
+        if len(mods) != len(d["modules"]):
+            out.append(f"{rel}: a module id appears twice")
+        placed = [mid for s in d["sections"] for mid in s["modules"]]
+        for s in d["sections"]:
+            for mid in s["modules"]:
+                if mid not in mods:
+                    out.append(f"{rel}: section {s['number']} places {mid}, which is no module")
+                elif mods[mid]["section"] != s["number"]:
+                    out.append(f"{rel}: {mid} says section {mods[mid]['section']} but sits in {s['number']}")
+        if sorted(placed) != sorted(mods):
+            out.append(f"{rel}: the sections place {len(placed)} modules ({len(set(placed))} distinct), not each of the {len(mods)} once")
+        if [s["number"] for s in d["sections"]] != list(range(len(d["sections"]))):
+            out.append(f"{rel}: sections are not numbered 0..n-1 in order")
+        by_type = {}
+        for m in d["modules"]:
+            by_type[m["type"]] = by_type.get(m["type"], 0) + 1
+            want = {"lesson": "pages", "quiz": "questions", "questionnaire": "questions", "glossary": "entries", "resource": "resourceType"}.get(m["type"])
+            if want and want not in m:
+                out.append(f"{rel}: {m['type']} {m['id']} has no {want}")
+        files = {f["path"]: f for f in d["files"]}
+        refs = [m.get("reference") or {} for m in d["modules"]]
+        for m, r in zip(d["modules"], refs):
+            if "courseFile" in r and r["courseFile"] not in files:
+                out.append(f"{rel}: {m['id']} names {r['courseFile']}, which the inventory does not list")
+            if r.get("publishedAs") and r["publishedAs"] != files.get(r.get("courseFile"), {}).get("publishedAs"):
+                out.append(f"{rel}: {m['id']} says {r['courseFile']} is published as {r['publishedAs']}, and the inventory does not")
+        content = [x for x in d["sections"] + d["modules"] if x.get("file")] + d["transcripts"] + ([d["summaryFile"]] if d.get("summaryFile") else [])
+        want = {"sections": len(d["sections"]), "modules": len(d["modules"]), "modulesByType": dict(sorted(by_type.items())),
+                "lessonPages": sum(len(m.get("pages") or []) for m in d["modules"]),
+                "quizQuestions": sum(m.get("questions", 0) for m in d["modules"] if m["type"] == "quiz"),
+                "questionnaireQuestions": sum(m.get("questions", 0) for m in d["modules"] if m["type"] == "questionnaire"),
+                "glossaryEntries": sum(m.get("entries", 0) for m in d["modules"] if m["type"] == "glossary"),
+                "externalUrls": sum(1 for r in refs if "url" in r),
+                "files": len(d["files"]), "fileBytes": sum(f["bytes"] for f in d["files"]),
+                "images": len(d["images"]), "transcripts": len(d["transcripts"]), "contentFiles": len(content)}
+        if d["counts"] != want:
+            out.append(f"{rel}: counts {d['counts']} but the records hold {want}")
+        if len(files) != len(d["files"]):
+            out.append(f"{rel}: a file path appears twice in the inventory")
+        if d["source"]["moodleXmlSha256"] != (files.get("moodle.xml") or {}).get("sha256"):
+            out.append(f"{rel}: source.moodleXmlSha256 is not the inventory's moodle.xml")
+        man = d["source"]["manifest"]
+        if not exists(man):
+            out.append(f"{rel}: {man} does not exist")
+        else:
+            m = J(man)
+            if (m["file"], m["bytes"], m["md5"], m["sha256"]) != (d["source"]["file"], d["source"]["bytes"], d["source"]["md5"], d["source"]["sha256"]):
+                out.append(f"{rel}: source is not the file {man} pins")
+            e = m.get("expect") or {}
+            got = {"sections": want["sections"], "modules": want["modules"], "modulesByType": want["modulesByType"],
+                   "files": want["files"], "uncompressedBytes": want["fileBytes"]}
+            if got != e:
+                out.append(f"{rel}: the records hold {got}, and {man} expects {e}")
+
+        def walk(x, path):
+            if isinstance(x, dict):
+                for k, v in x.items():
+                    if k.lower() in MOODLE_TEXT_KEYS:
+                        out.append(f"{rel}: {path}/{k} is a body-text field; body text lives in the Markdown files, or nowhere")
+                    walk(v, f"{path}/{k}")
+            elif isinstance(x, list):
+                for i, v in enumerate(x):
+                    walk(v, f"{path}/{i}")
+            elif isinstance(x, str) and len(x) > 200 and not path.startswith(("/notRecorded", "/licence", "/withheld")):
+                out.append(f"{rel}: {path} holds {len(x)} characters; only names and titles are recorded here")
+        walk({k: v for k, v in d.items() if k != "$schema"}, "")
+
+        decl = f"{base}/{os.path.basename(base)}.json"
+        dl = J(decl).get("licence") if exists(decl) else None
+        if not exists(decl):
+            out.append(f"{rel}: no declaration {decl}")
+        licensed = bool(dl) and dl.get("status") in ("stated", "permission")
+        cl = d["licence"]
+        if licensed and (not cl or (cl["status"], cl["id"], cl["attribution"]) != (dl["status"], dl.get("id"), dl.get("attribution"))):
+            out.append(f"{rel}: its licence {cl} is not the one {decl} records; re-run the ingester")
+        if not licensed and cl:
+            out.append(f"{rel}: publishes content under {cl.get('id')}, but {decl} records no licence (AGENTS.md rule 4)")
+        dirs = ("sections", "modules", "transcripts", "images")
+        on_disk = {os.path.relpath(f, base) for x in dirs for f in G(f"{base}/{x}/*")}
+        listed = {x["file"] for x in content} | {i["file"] for i in d["images"]}
+        if not cl and (on_disk or listed):
+            out.append(f"{rel}: structure only, yet it lists or holds content files: {sorted(on_disk | listed)[:5]}")
+        if on_disk != listed:
+            out.append(f"{rel}: content on disk and in the record differ: {sorted(on_disk ^ listed)[:5]}")
+        for x in content:
+            f = f"{base}/{x['file']}"
+            if exists(f) and sha256(f) != x["sha256"]:
+                out.append(f"{rel}: {x['file']} does not match its sha256 (edited by hand? re-run src/tools/ingest_moodle_course.py)")
+        for i in d["images"]:
+            f = f"{base}/{i['file']}"
+            if exists(f) and sha256(f) != i["sha256"]:
+                out.append(f"{rel}: {i['file']} does not match its sha256")
+            if files.get(i["from"], {}).get("sha256") != i["sha256"] or files.get(i["from"], {}).get("publishedAs") != i["file"]:
+                out.append(f"{rel}: {i['file']} is not the inventory's {i['from']}")
+        withheld = {os.path.basename(w["from"]) for w in d["withheldImages"]}
+        for w in withheld & {os.path.basename(i["file"]) for i in d["images"]}:
+            out.append(f"{rel}: {w} is withheld, yet published")
+        for f in G(f"{base}/**/*.md"):
+            text = open(os.path.join(ROOT, f), encoding="utf-8").read()
+            hits = EMAIL_RE.findall(text)
+            if hits:
+                out.append(f"{f}: holds {len(hits)} e-mail address(es)")
+            for src in re.findall(r"!\[[^\]]*\]\(([^)\s]+)", text):
+                if not re.match(r"^[a-z]+:", src) and not exists(os.path.normpath(os.path.join(os.path.dirname(f), src))):
+                    out.append(f"{f}: shows image {src}, which does not exist")
+                if os.path.basename(src) in withheld:
+                    out.append(f"{f}: shows withheld image {src}")
+        for f in [rel] + G(f"{base}/*.jsonld"):
+            if EMAIL_RE.findall(open(os.path.join(ROOT, f), encoding="utf-8").read()):
+                out.append(f"{f}: holds an e-mail address")
+        if not exists(f"{base}/course.md"):
+            out.append(f"{rel}: no course.md beside it")
     return out
 
 
@@ -1655,6 +1792,7 @@ QA = {
     "ihris-use-cases/v1": [("use-cases", "counts match; parents and extension anchors hold; links resolve or are dangling; source is the pinned file", c_use_cases),
                            ("use-case-roles", "every use-case actor, and every actor's role, is a declared Role", c_uc_role_refs),
                            ("use-case-staff-refs", "every Assigned To / Source resolves to an actor file; references number what withheld records", c_uc_staff_refs)],
+    "ihris-moodle-course/v1": [("moodle-course", "counts match the records and the manifest; section modules resolve, each once; course files a resource names are inventoried; source is the pinned zip; licence is the declaration's (none: structure only); content files and images at their sha256, nothing unlisted, image links resolve, withheld images unpublished; no body text in the record; no e-mail address", c_moodle_course)],
     "ihris-use-case-crosswalk/v1": [("use-case-crosswalk", "one entry per use case; linked forms exist and are named in the title; counts match", c_use_case_crosswalk)],
     "ihris-ig-build-patches/v1": [("ig-build-patches", "names the source its sub-instance pins; each patch changes something and, with the source mounted, applies exactly once", c_ig_build_patches)],
     "ihris-instance-extension/v1": [("declarations", "instances, assets, directories and derivedFrom resolve; permissions name who", c_declarations)],

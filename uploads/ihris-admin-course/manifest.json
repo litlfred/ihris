@@ -1,0 +1,29 @@
+{
+  "file": "moodle-ihris_admin.zip",
+  "bytes": 19782987,
+  "md5": "07bd100b6e6a99cb7cb2baa032b68795",
+  "sha256": "5ee07dffc26304047eb9345434558697dca4e40a3ad82dacd85e8546bd970f08",
+  "source": "Uploaded by the owner to litlfred/ihris main, commit 2e24ff22fc2687b40e8cb7491beb32dc62e95bc7 (uploads/moodle-ihris_admin.zip), 2026-10-09",
+  "title": "iHRIS Administrator - Level I (Moodle course backup)",
+  "what": "A Moodle 1.9.9 course backup (moodle.xml + course_files/) of the e-learning course 'iHRIS Administrator - Level I' (shortname 'iHRIS Admin 1'), from http://www.hrhresourcecenter.org/elearning, backed up 2012-08-12. Users none, user info false: no people, no posts.",
+  "expect": {
+    "sections": 6,
+    "modules": 80,
+    "modulesByType": {
+      "certificate": 1,
+      "forum": 27,
+      "glossary": 1,
+      "lesson": 27,
+      "questionnaire": 1,
+      "quiz": 2,
+      "resource": 21
+    },
+    "files": 124,
+    "uncompressedBytes": 21316677
+  },
+  "_expect_comment": "Established by inspection before the ingester was written (sections, modules, modules by type), and by listing the zip (regular files, including moodle.xml, and their uncompressed bytes). src/tools/ingest_moodle_course.py refuses when what it parses disagrees, and QA (moodle-course) checks library/ihris-admin-course/course.json against these numbers.",
+  "licence": "CC-BY-4.0",
+  "licenceNote": "The backup itself states no licence: not in moodle.xml (course summary, course overview page, lesson pages, section summaries), not in the six transcripts, not in the audio or image file headers (checked 2026-10-09). Its author, the folio owner, stated on 2026-10-09 that it is under CC BY 4.0, attributed to IntraHealth International (see library/ihris-admin-course/ihris-admin-course.json). The slide audio is inventoried but not committed, for its size; the transcripts' text is extracted to Markdown and the .doc files stay here.",
+  "committed": false,
+  "why_not_committed": "Uploaded documents stay in uploads/, git-ignored (*.zip); this manifest pins the copy. src/tools/ingest_moodle_course.py re-checks md5, sha256 and size before deriving library/ihris-admin-course/ from it."
+}

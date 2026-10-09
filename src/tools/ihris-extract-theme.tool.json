@@ -1,7 +1,7 @@
 {
   "id": "ihris-extract-theme",
   "title": "Derive the iHRIS site theme from the verified release",
-  "description": "Measures the iHRIS Classic Manage colours and fonts from ihris-common/css/globalStyles.css and ihris-manage/css/themeStyles.css in the sha256-verified ihris-suite-4.3.3 tarball, in cascade order. Substitutes another measured colour, never an invented one, where a colour fails WCAG AA in its role, and records why. Copies the iHRIS logo with GPL attribution. --check fails when src/site/theme is stale; without the tarball it verifies the logo sha256 only.",
+  "description": "Measures the iHRIS Classic Manage colours and fonts from ihris-common/css/globalStyles.css and ihris-manage/css/themeStyles.css in the sha256-verified ihris-suite-4.3.3 tarball, in cascade order. Substitutes another measured colour, never an invented one, where a colour fails WCAG AA in its role, and records why. Copies the iHRIS logo, and IntraHealth International's logo (ihris-manage/sites/TwitterBootstrap/images/intrahealth-logo.png, for the credit block of IntraHealth content), each with GPL attribution. --check fails when src/site/theme is stale; without the tarball it verifies the logo sha256 only.",
   "install": {
     "none": true
   },

@@ -10,6 +10,9 @@ may reproduce (AGENTS.md §2.4):
                                            with each article's revision and contributors; only while both are recorded
   library/ihris-use-cases                  the owner's permission (2026-09-23): in full, attributed; only while recorded
                                            People the reports name only as opaque actors (roles page)
+  library/ihris-admin-course               CC BY 4.0, stated by its author (the owner, 2026-10-09), (c) IntraHealth International:
+                                           in full with the credit block, while recorded; otherwise structure only. Never the
+                                           slide audio (size) or the images withheld for personal data
   library/ihris-toolkit                    the text only while its declaration records a licence (the owner's
                                            permission, 2026-09-23, bean ihris-kngr); otherwise structure only.
                                            Reader comments never: third parties' words and names
@@ -42,10 +45,11 @@ INSTANCE_PAGE = {**{n: f"sources/{n}/index.html" for n in LP_INSTANCES},
                  "ihris5": "sources/ihris5/index.html", "ihris-toolkit": "library/toolkit/index.html",
                  "ihris-wiki": "library/wiki/index.html", "ihris-data-dictionary": "data-dictionary/index.html",
                  "ihris-4-on-fhir": "fhir/index.html", "ihris-admin-handbook": "library/handbook/index.html",
-                 "ihris-use-cases": "library/use-cases/index.html"}
+                 "ihris-use-cases": "library/use-cases/index.html", "ihris-admin-course": "library/course/index.html"}
 HANDBOOK = "library/ihris-admin-handbook"
 GLOSSARY = "glossary/index.html"
 USE_CASES = "library/ihris-use-cases"
+COURSE = "library/ihris-admin-course"
 
 
 def J(p):
@@ -372,6 +376,7 @@ def library_index(theme):
 <article class="card"><span class="kind">knowledge source</span><h3>iHRIS wiki</h3><p>The user manual as shipped in the {RELEASE} release.</p><a class="go" href="wiki/index.html">Open</a></article>
 <article class="card"><span class="kind">knowledge source</span><h3>iHRIS Administrator Handbook</h3><p>79 wiki articles for administrators and developers, exported 2010-09-17 (GFDL-1.2).</p><a class="go" href="handbook/index.html">Open</a></article>
 <article class="card"><span class="kind">knowledge source</span><h3>iHRIS use cases (2009)</h3><p>Use cases, actors and requirements of Common, Manage, Qualify and Plan, with a crosswalk to the data model.</p><a class="go" href="use-cases/index.html">Open</a></article>
+<article class="card"><span class="kind">knowledge source</span><h3>iHRIS Administrator - Level I (course)</h3><p>The 2011 e-learning course: 27 lessons, quizzes, transcripts and images. &copy; IntraHealth International, CC BY 4.0.</p><a class="go" href="course/index.html">Open</a></article>
 </div>"""
     return page(path, "Library", [("index.html", "Home")], inner, theme, "library/index.html")
 
@@ -431,6 +436,130 @@ def handbook_pages(theme, out_dir):
              + rows_table(["Article", "Pages", "Contributors (wiki usernames)"], rows, "Handbook articles")
              + (f"<h2>Image credits</h2><ul>{imgs}</ul>" if img_ok else ""))
     out.append(page(idx, "iHRIS Administrator Handbook (2010)", crumbs[:2], inner, theme, "library/index.html"))
+    return out
+
+
+# ------------------------------------------------------------------ the Moodle course (CC BY 4.0, IntraHealth International)
+CC_BY = "https://creativecommons.org/licenses/by/4.0/"
+
+
+def _course_credit(c, lic, r, theme):
+    """The credit block: IntraHealth International's logo (from the verified 4.3.3 release, src/tools/extract_theme.py),
+    the attribution line, the licence link and the original course. On a white rounded backing, so it reads in both schemes."""
+    ih = theme.get("intrahealthLogo") or {}
+    logo = (f'<img src="{E(r("assets/" + ih["file"]))}" alt="IntraHealth International" width="170" '
+            'style="background:#fff;border-radius:8px;padding:6px 10px;flex:none">') if ih else ""
+    return ('<div class="credit" style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:12px 0 18px">'
+            f'{logo}<p style="margin:0;flex:1 1 260px"><b>{E(c["title"])}</b>, &copy; IntraHealth International, '
+            f'<a href="{CC_BY}" rel="license">CC BY 4.0</a>. Originally offered at '
+            f'<a href="{E(c["backup"]["originalWwwroot"])}">hrhresourcecenter.org/elearning</a> (CapacityPlus). '
+            f'<span class="mute">Licence stated by its author, the folio owner, {E("2026-10-09")}.</span></p></div>') if lic else ""
+
+
+def course_pages(theme, out_dir):
+    """The 2011 Moodle course 'iHRIS Administrator - Level I'. With a licence recorded (CC BY 4.0, stated by its author
+    and attributed to IntraHealth International) the whole course is rendered: sections with their summaries, each
+    module's page (lesson pages, html resources, quiz and survey questions), the transcripts and the images. Without one,
+    the outline only (AGENTS.md rule 4). Images withheld for personal data are never copied."""
+    decl = J(f"{COURSE}/ihris-admin-course.json")
+    c = J(f"{COURSE}/course.json")
+    lic = c["licence"] if (decl.get("licence") or {}).get("status") in ("stated", "permission") else None
+    idx = "library/course/index.html"
+    crumbs = [("index.html", "Home"), ("library/index.html", "Library"), (idx, "Administrator course")]
+    by_id = {m["id"]: m for m in c["modules"]}
+    n, bk = c["counts"], c["backup"]
+    out = []
+    if lic:
+        os.makedirs(os.path.join(out_dir, "library/course/images"), exist_ok=True)
+        for i in c["images"]:
+            shutil.copy(os.path.join(ROOT, COURSE, i["file"]), os.path.join(out_dir, "library/course", i["file"]))
+        ih = theme.get("intrahealthLogo")
+        if ih:
+            os.makedirs(os.path.join(out_dir, "assets"), exist_ok=True)
+            shutil.copy(os.path.join(ROOT, "src/site/theme", ih["file"]), os.path.join(out_dir, "assets", ih["file"]))
+
+    def md(rel_file, page_path):
+        text = open(os.path.join(ROOT, COURSE, rel_file), encoding="utf-8").read()
+
+        def link(href):
+            if href.startswith("../transcripts/") and href.endswith(".md"):
+                return bs.rel(page_path, "library/course/transcripts/" + os.path.basename(href)[:-3] + ".html")
+            if re.fullmatch(r"cm-\d+\.md", href):
+                return href[:-3] + ".html"
+            return href
+        body = re.sub(r"\A\s*<h1>.*?</h1>", "", md_to_html(text, link), flags=re.S)
+        # HTML the course shows as text (&lt;span href="..."&gt;) keeps its quotes as entities, so no reader or checker takes it for markup
+        body = re.sub(r"&lt;.*?&gt;", lambda mm: mm.group(0).replace('"', "&quot;"), body, flags=re.S)
+        return re.sub(r'src="\.\./images/([^"]+)"', lambda mm: f'src="{bs.rel(page_path, "library/course/images/" + mm.group(1))}"', body)
+
+    secs = []
+    for s in c["sections"]:
+        items = []
+        for mid in s["modules"]:
+            m = by_id[mid]
+            extra = ""
+            if m["type"] == "lesson":
+                extra = f' <span class="mute">({len(m["pages"])} pages)</span>'
+                if not (lic and m.get("file")):
+                    untitled = '<span class="mute">(untitled page)</span>'
+                    extra += "<ol>" + "".join(f"<li>{E(t) if t else untitled}</li>" for t in m["pages"]) + "</ol>"
+            elif m["type"] in ("quiz", "questionnaire"):
+                extra = f' <span class="mute">({m["questions"]} questions)</span>'
+            elif m["type"] == "glossary":
+                extra = f' <span class="mute">({m["entries"]} entries)</span>'
+            ref = m.get("reference") or {}
+            name = E(m["name"])
+            if lic and m.get("file"):
+                name = f'<a href="{E(mid)}.html">{name}</a>'
+            if "url" in ref:
+                name = f'<a href="{E(ref["url"])}" rel="nofollow">{name}</a> <span class="mute">{E(ref["url"])}</span>'
+            elif lic and ref.get("publishedAs", "").startswith("transcripts/"):
+                name = f'<a href="transcripts/{E(os.path.basename(ref["publishedAs"])[:-3])}.html">{name}</a>'
+            elif "courseFile" in ref:
+                extra = f' <span class="mute">(<code>{E(ref["courseFile"])}</code>, not published)</span>'
+            style = f' style="margin-left:{1.5 * m["indent"]}em"' if m["indent"] else ""
+            items.append(f'<li{style}><code>{E(m["type"])}</code> {name}{extra}</li>')
+        head = "General" if s["number"] == 0 else f"Section {s['number']}"
+        summ = md(s["file"], idx) if (lic and s.get("file")) else ""
+        secs.append(f'<h2 id="section-{s["number"]}">{head}</h2>{summ}<ul>{"".join(items)}</ul>')
+    credit = _course_credit(c, lic, lambda p: bs.rel(idx, p), theme)
+    if lic:
+        note = (f'<p>The full course: {n["sections"]} sections, {n["modules"]} modules, {n["lessonPages"]} lesson pages, '
+                f'{n["quizQuestions"]} quiz questions with their answers, {n["images"]} images and {n["transcripts"]} transcripts. '
+                f'Not published: the slide audio ({sum(1 for f in c["files"] if f["mediaType"] == "audio/mpeg")} mp3 files, '
+                f'inventoried in <code>{E(COURSE)}/course.json</code>), {len(c["withheldImages"])} images that show personal data, '
+                'and the names of the course development team besides the instructor.</p>')
+        intro = md(c["summaryFile"]["file"], idx) if c.get("summaryFile") else ""
+    else:
+        note = ('<p><b>Structure only.</b> This course states no licence and none is recorded, so its content is not reproduced here '
+                '(AGENTS.md rule 4: &ldquo;listed by path and heading only&rdquo;). The repository owner may grant permission to publish '
+                f'more; it would be recorded in <code>{E(COURSE)}/ihris-admin-course.json</code>.</p>')
+        intro = ""
+    tr = "".join(f'<li><a href="transcripts/{E(os.path.basename(t["file"])[:-3])}.html">{E(t["title"])}</a></li>' for t in c["transcripts"]) if lic else ""
+    inner = (credit + f'<p>The Moodle course <i>{E(c["title"])}</i> (<code>{E(c["shortname"])}</code>), from <code>{E(bk["originalWwwroot"])}</code>, '
+             f'created {E(c["createdAt"][:10])}, backed up {E(bk["date"][:10])} with Moodle {E(bk["moodleRelease"])}.</p>'
+             + intro + note + "".join(secs)
+             + (f"<h2>Transcripts</h2><ul>{tr}</ul>" if tr else ""))
+    out.append(page(idx, "iHRIS Administrator - Level I", crumbs[:2], inner, theme, "library/index.html"))
+    if not lic:
+        return out
+    for m in c["modules"]:
+        if not m.get("file"):
+            continue
+        path = f"library/course/{m['id']}.html"
+        r = lambda p, path=path: bs.rel(path, p)  # noqa: E731
+        sec = "General" if m["section"] == 0 else f"Section {m['section']}"
+        body = md(m["file"], path)
+        foot = (f'<h2>Source</h2><p class="src">{E(m["type"].capitalize())} in {E(sec)} of <a href="index.html#section-{m["section"]}">{E(c["title"])}</a>, '
+                f'Moodle course module {E(m["id"])}; <code>{E(COURSE)}/{E(m["file"])}</code>.</p>')
+        out.append(page(path, m["name"], crumbs, _course_credit(c, lic, r, theme) + f'<div class="wiki">{body}</div>{foot}', theme, "library/index.html"))
+    for t in c["transcripts"]:
+        path = f"library/course/transcripts/{os.path.basename(t['file'])[:-3]}.html"
+        r = lambda p, path=path: bs.rel(path, p)  # noqa: E731
+        body = md(t["file"], path)
+        foot = (f'<h2>Source</h2><p class="src">Text of <code>{E(t["from"])}</code>, extracted with <code>{E(t["extractedWith"])}</code>; '
+                f'<code>{E(COURSE)}/{E(t["file"])}</code>.</p>')
+        out.append(page(path, t["title"], crumbs, _course_credit(c, lic, r, theme) + f'<div class="wiki">{body}</div>{foot}', theme, "library/index.html"))
     return out
 
 
@@ -966,6 +1095,7 @@ def all_pages(theme, cls_index, out_dir):
     pages += dd_pages(theme, cls_index, wiki_ids)
     pages += handbook_pages(theme, out_dir)
     pages += use_case_pages(theme, cls_index)
+    pages += course_pages(theme, out_dir)
     pages.append(glossary_page(theme, out_dir))
     pages.append(work_plan_page(theme))
     pages.append(workflow_page(theme))
