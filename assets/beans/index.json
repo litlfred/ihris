@@ -2,7 +2,7 @@
   "$schema": "folio-bean-index/v1",
   "tile": {
     "beans": {
-      "count": 15,
+      "count": 14,
       "unit": "open beans"
     }
   },
@@ -451,14 +451,14 @@
     {
       "id": "ihris-yvow",
       "title": "cat-harness: a folio's own generated site cannot declare its pages to the rail (foreign-site rail gaps)",
-      "status": "todo",
+      "status": "completed",
       "type": "task",
       "priority": "",
       "parent": "",
       "blocking": [],
       "blockedBy": [],
       "createdAt": "2026-10-09T12:19:34Z",
-      "updatedAt": "2026-10-09T16:20:00Z",
+      "updatedAt": "2026-10-09T17:00:00Z",
       "preview": "Found 2026-10-09 publishing ihris's work plan (bean ihris-mdzi) on its own Pages site, railed by cat-harness's rail-standalone-pages.ts --foreign-site --instance ihris. Three platform gaps, bridged in ihris by src/tools/own_site_links.py until cat-harness reconciles them:\n\n1. sync-docs-harness.ts writes the root instance's own pages root-relative (/beans/), while lib/foreign-site-scope.ts keeps a ",
       "file": "beans/defs/ihris-yvow--cat-harness-a-folios-own-generated-site-cannot-dec.md"
     }
@@ -517,8 +517,8 @@
   ],
   "plan": {
     "milestones": [],
-    "orphanOpen": 15,
-    "openTotal": 15,
+    "orphanOpen": 14,
+    "openTotal": 14,
     "coveredOpen": 0,
     "duplicateIds": 0
   }
