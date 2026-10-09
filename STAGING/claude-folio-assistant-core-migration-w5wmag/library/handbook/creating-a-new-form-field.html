@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creating a New Form Field · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Creating a New Form Field</div>
+<h1>Creating a New Form Field</h1>
+<div class="wiki">
+<p>This tutorial applies to version 4.0 of the iHRIS Suite.</p>
+<p>In this tutorial, we will create new form field data type. This form field will be a one line string which is capitalized. The capitalization will be enforced on the server-side as well as the client-side via java-script. We will wrap all of this into a module, CapField so that it can be shared easily.</p>
+<h2>Creating the Module</h2>
+<p>In one of your module directories (e.g. your site's modules directory) do the following:</p>
+<pre><code>mkdir CapField
+gedit CapField/CapField.xml
+</code></pre>
+<p>and add in the following lines:</p>
+<pre><code> &lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE I2CEConfiguration SYSTEM &quot;I2CE_Configuration.dtd&quot;&gt;
+&lt;I2CEConfiguration name='CapField'&gt;
+  &lt;metadata&gt;
+    &lt;displayName&gt;Capitalized Field&lt;/displayName&gt;
+    &lt;category&gt;System Component&lt;/category&gt;
+    &lt;description&gt;Provides an always capitalized field&lt;/description&gt;
+    &lt;creator&gt;Intrahealth Informatics&lt;/creator&gt;
+    &lt;email&gt;[e-mail redacted]&lt;/email&gt;
+    &lt;version&gt;4.0.0&lt;/version&gt;
+    &lt;requirement name='i2ce'&gt;
+      &lt;atleast version='4.0'/&gt;
+      &lt;lessThan version='4.1'/&gt;
+    &lt;/requirement&gt;
+    &lt;priority&gt;200&lt;/priority&gt;
+    &lt;path name='classes'&gt;
+      &lt;!-- we need to create a php class to handle creating and validating our field. it
+      &lt;value&gt;./lib&lt;/value&gt;
+    &lt;/path&gt;
+  &lt;/metadata&gt;
+  &lt;configurationGroup name='CapField' path='/'&gt;
+    &lt;configuration name='STRING_CAP' path='/modules/forms/FORMFIELD/STRING_CAP'&gt;
+      &lt;!-- This registers the form field class we create with the system as STRING_CAP--&gt;
+      &lt;value&gt;I2CE_FormField_STRING_CAP&lt;/value&gt;
+    &lt;/configuration&gt;
+  &lt;/configuratioGroup&gt;
+&lt;I2CEConfiguration&gt;
+</code></pre>
+<h2>I2CE_FormField_STRING_CAP</h2>
+<p>We need to create a PHP class to handle the client-side validation of our capitalized field. The field we want has input which is a one line string, so we will subclass the existing one. We do this as follows:</p>
+<pre><code>mkdir CapField/lib
+gedit CapField/lib/I2CE_FormField_STRING_CAP.php
+</code></pre>
+<p>and add in the following:</p>
+<pre><code> class I2CE_FormField_STRING_CAP extends I2CE_FormField_STRING_LINE  {
+    /**
+     * Checks to see if the current value for this is set and valid.
+     * This function is used to validate the input on the server-side.
+     * We first check to see if it is valid using the parent class'
+validation method.
+     * If this passes, we then check the the capitalized version of the
+ value we have is the same
+     * as the value we have (if so it is already capitalized and is
+thus valid)
+     * @return boolean
+     */
+    public function isValid() {
+        if (!parent::isValid()) {
+           return false;
+        }
+        $value = $this-&gt;getValue();
+        return ($value === ucwords($value));
+    }
+    /**
+     *This is the method to create the input element for the
+capitalized input string
+     * @param DOMNode $node  The node that we wish to add out input
+element to
+     * @param I2CE_Tempalte $template.  The page template object that
+we are working in
+     * @parma DOMNode $form_node  The node from the html template file
+that requested this form field be displayed
+     */
+    public function processDOMEditable($node,$template,$form_node) {
+        $ele_name = $this-&gt;getHTMLName();  //this gets the name of the
+input element which is used for the GET and POST variables
+        $template-&gt;addHeaderLink('mootools.js'); //makes sure that the
+mootools javascript library is avaiable to us
+        $element = $template-&gt;createElement(  //creates the input
+element that we will add
+              &quot;input&quot;,
+              array(
+                    &quot;name&quot; =&gt; $ele_name,
+                    &quot;id&quot; =&gt; $ele_name,
+                    &quot;type&quot; =&gt; &quot;text&quot;,
+                    &quot;onblur&quot;=&gt;
+&quot;this.setValue(this.getValue().capitalize());&quot;
+                    &quot;value&quot; =&gt; $this-&gt;getDBValue()
+                    ) );
+        $this-&gt;setElement($element);  //registers the input element that
+ we created
+        $node-&gt;appendChild( $element);  //add the input element node we
+just created to the node it needs to be under
+    }
+}
+</code></pre>
+<h3>Javascript</h3>
+<p>In the processDOMEditable() function we added some javascript for the onblur check. iHRIS uses version 1.2 of the mootools [1] javascript library. Mootools has a handy capitalization [2] function that we incorporated into our form field so that on a "blur" event the input element will capitalize.</p>
+<h2>Finishing Up</h2>
+<p>You are done, you just need to require the module you created where appropriate. You can now add a field to a form with type STRING_CAP.</p>
+<h2>References</h2>
+<p>[1] http://mootools.net/ [2] http://mootools.net/docs/core/Native/String#String:capitalize</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=4673">revision 4673</a>; contributors: Litlfred. Pages 45&ndash;48 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

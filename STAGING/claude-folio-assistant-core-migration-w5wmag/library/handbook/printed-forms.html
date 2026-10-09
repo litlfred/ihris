@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Printed Forms · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Printed Forms</div>
+<h1>Printed Forms</h1>
+<div class="wiki">
+<p>The printed forms module is used to print "standardized" or "official" forms based upon the data in the system. For example, it might be the registration number for a nurse. The output will be PDF.</p>
+<p>This module first appears in version 4.0.5 of the iHRIS Suite.</p>
+<h2>Source Data</h2>
+<p>The source data for the printed form will be based on a form relationship.</p>
+<h2>Page Interaction</h2>
+<h3>Print</h3>
+<p>At the first phase of this module, the only interaction is to produces the printed forms based on what is stored in magic data. There will be no "document design" component. The standard form will be accessed through a URL with the name of the standardized form and a GET/POST variable containing one or more of the id's for the primary form in the form relationship. For example:</p>
+<pre><code>http://'''&lt;SITE_URL&gt;/PrintedForms/print/registration?ids[]=person|12&amp;ids[]=person|14&amp;ids=[]person|22
+</code></pre>
+<p>Hitting this URL would cause the following to happen:</p>
+<ul>
+<li>verify that a standardized form called registration exists</li>
+<li>
+<p>verify that the user has the appropriate permission to view this standardized form:</p>
+</li>
+<li>
+<p>Check to see if the user has the task 'printed_forms_all_generate'</p>
+</li>
+<li>
+<p>If not, check to see if the task 'printed_forms_generate_registration' exists and the user has this task</p>
+</li>
+<li>
+<p>for each of the ids, person|12, person|14, person|22 fill out the details of the standardized report by using the corresponding row in the report table if it exists (see below).</p>
+</li>
+</ul>
+<h3>Menu</h3>
+<p>One should be able to see which forms can be generated for a given id. Calling</p>
+<pre><code>http://'''&lt;SITE_URL&gt;/PrintedForms/menu?id=person|12
+</code></pre>
+<p>will show all the printed forms whose primary form is person. Then for each of these you will have a link to the corresponding print page.</p>
+<p>You should also link to the corresponding archive page and show which PDF forms have already been archived for that person sorted by type and date.</p>
+<h3>Archive</h3>
+<p>You should also create a form, say generated_doc which contains the following fields:</p>
+<ul>
+<li>document: A binary field which will contain the PDF it</li>
+<li>date: the date it was generated by</li>
+<li>type: the print standard form (e.g. registration in the above example)</li>
+</ul>
+<p>When calling the archive page as:</p>
+<pre><code>http://'''&lt;SITE_URL&gt;/PrintedForms/archive/registration?ids[]=person|12&amp;ids[]=person|14&amp;ids=[]person|22
+</code></pre>
+<p>It will:</p>
+<ul>
+<li>check to see if 'generated_form' is a child form of person. If not execution stops.</li>
+<li>for each of the id's it will created the PDF form (only one on each page/document) and save it as a child generated_doc form</li>
+</ul>
+<h2>Magic Data Details</h2>
+<p>All standardized forms will be stored under the magic data node:</p>
+<pre><code>/modules/PrintedForms/forms
+</code></pre>
+<p>In the example above the details defining the registration form would stored under:</p>
+<pre><code>/modules/PrintedForms/forms/registration
+</code></pre>
+<p>The details for a specific form are as follows (all measurements are in mm):</p>
+<ul>
+<li>relationship: Required scalar node. the name of the form relationship that this form is based off of. It needs to be the name of a child node of /modules/CustomReports/relationships</li>
+<li>displayName: Optional scalar node. The name of the printed letter as displayed to the end user.</li>
+<li>archive: Optional scalar node. If set it should be a named form in the relationship. If it is a valid named form, then it will enable archiving of this printed letter as a child form of the corresponding named form. You should ensure that this form has generated_doc as a valid child form.</li>
+<li>
+<p>layout_details: Optional parent node describing the page layout details for the form. It contains the following child nodes.</p>
+</li>
+<li>
+<p>encoding: Optional scalar node. The encoding used by the renderer(PDF). Defaults to ASCII</p>
+</li>
+<li>hyphenation_file: Optional scalar node. File used for hyphenation. Defaults to hyph_en_US.dic'</li>
+<li>
+<p>orientation: Optional scalar node. Defaults to 'P' for portrait. The other option is 'L' for landscape</p>
+</li>
+<li>
+<p>size: Optional scalar node. Defaults to 'A4' to describe the paper to be used. Should be one of the ISO 216 standard paper sizes, e.g. 'A4', or one of the North American paper sizes, e.g. 'letter' or 'legal'</p>
+</li>
+<li>rows: Optional scalar node: Defaults to 1. The number of rows of forms to be printed on the page.</li>
+<li>
+<p>cols: Optional scalar node: Defaults to 1. The number of columns of forms to be printed on the page.</p>
+</li>
+<li>
+<p>border: Optional scalar node. Defaults to 0 if rows and columns are 1, otherwise it to defaults to 1. The width of the border drawn around the forms.</p>
+</li>
+<li>vert_pad: Optional scalar node. Defaults to 10. The vertical padding used on the page boundary</li>
+<li>horiz_pad: Optional scalar node. Defaults to 10. The horizontal padding used on the page boundary</li>
+<li>vert_pad_border: Defaults to 0. The vertical padding used between forms</li>
+<li>horiz_pad_border: Defaults to 0. The vertical padding used between forms</li>
+<li>
+<p>text_properties: An optional parent node defining the default text properties of the element types of the document. Child node names are the name of the element types (image or text). Possible values are:</p>
+</li>
+<li>
+<p>font: Optional scalar node. Defaults to helvetica. Should be limited to one of the standard pdf fonts: times,helvetica, courier</p>
+</li>
+<li>size: Optional positive integer node.Size in points of font. Defaults to 12.</li>
+<li>alignment: Optional scalar node. Defaults to 'L' for left. Can be 'R' or 'J', 'L' or 'C'</li>
+<li>color: Optional color foreground/text color. Use html style hex colors. Defaults to black #000000 ,</li>
+<li>bg_color: Optional background color. Use html style hex colors. Defaults to 'none' for transparent.</li>
+<li>style: Optional scalar node. Default to blank. Can contain any of the following characters, B for bold, U for underline, I for italic</li>
+<li>
+<p>elements: Parent node. Children should be numerically indexed. Elements are added to the standard document in increasing numeric order of the node name of the element. Each of the child nodes will contain the following:</p>
+</li>
+<li>
+<p>text_properties: An optional parent node defining the properties which applies to this node and all of its sub-elements of this. The definition is the same as above.</p>
+</li>
+<li>type: Required scalar node. Should be one of 'text' 'image' or 'value'</li>
+<li>definition: Depends on the type. See below.</li>
+</ul>
+<h3>Definition for type: Text</h3>
+<p>The text element is just certain text to be placed in the document. It should consist of the following nodes:</p>
+<ul>
+<li>printf: Optional scalar node. The a printf string to be placed here. Defaults to . Example: "%s, %s has registation number %s"</li>
+<li>
+<p>printf_args: Optional parent node. An array of arguments to subsititute into the printf as follows</p>
+</li>
+<li>
+<p>formname+field: a report form fields to substitute into the printf. E.g. "person+surname,person+fisrtname,registation+number":</p>
+</li>
+<li>+relationshipFunction: The evaluation of the named function in the the form relationship. Example +age65 which be the year the person turns 65 in the staff relationship</li>
+<li>++date(XYZ): The data formatted according to XYZ (unquoted) via strfrtime [1] functions. Example ++date(%Y) is the four digit year</li>
+<li>++date: The date. This is the same as ++date(%x).</li>
+<li>++user: The name of the user printing the form</li>
+<li>++eval(XYZ): Evaluate the php code XYZ. Example is ++eval(strftime("%Y")+60) would add 60 to the current year</li>
+<li>horiz_min: Required numeric scalar node. If the alignment is 'L' it is the left most coordinate to place this text. If the alignment is 'R' it is the right-most cooridnate of the text</li>
+<li>horiz_max: Optional numeric scalar node. If not set and the allignment is 'J' then the alignment reverts to 'L'. If set and allignment if 'L' is the right-most coordinate. If set and alignment is 'R' then it is the left-most coordinate. If set and alignment is 'J' then the this is the right-most coordinate and horiz-min is the left-most coodinate.</li>
+<li>
+<p>vert_max: Optional numeric scalar node. The bottom most coordinate to place this text.</p>
+</li>
+<li>
+<p>vert_min: Required numeric scalar value. The top most coordinate to place this text.</p>
+</li>
+</ul>
+<h3>Definition for Type: Image</h3>
+<ul>
+<li>
+<p>image: Required standard node. the name of the image file to place. It can either be:</p>
+</li>
+<li>
+<p>A file name, in which case the search path used is "PDF_IMAGES"</p>
+</li>
+<li>A string like "form://form+field" where form is a named form in the relationship and field is a field of time IMAGE (e.g. "form://passport+image")</li>
+<li>horiz_min: Required numeric scalar node. The left most coordinate to place the image.</li>
+<li>vert_min: Required numeric scalar node. The top most coordinate to place the image</li>
+<li>horiz_max: Optional numeric scalar node. The right most coordinate to place the image. If set, image is rescaled if needed.</li>
+<li>vert_max: Optional numeric scalar node. The bottom most coordinate to place the image. If set, image is rescaled if needed.</li>
+</ul>
+<h2>Example</h2>
+<p>For example, to produce a Staff Hire Letter in iHRIS Manage you could define it as:</p>
+<pre><code>  &lt;configurationGroup name=&quot;sample-hire-letter&quot; path=&quot;/modules/PrintedForms/forms/sample_
+    &lt;configuration name=&quot;relationship&quot;&gt;
+      &lt;value&gt;staff&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configuration name=&quot;archive&quot;&gt;
+      &lt;value&gt;person&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configuration name=&quot;displayName&quot;&gt;
+      &lt;value&gt;Staff Hire Letter&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configurationGroup name=&quot;elements&quot;&gt;
+      &lt;configurationGroup name=&quot;0&quot;&gt;
+        &lt;configuration name=&quot;type&quot;&gt;
+          &lt;value&gt;image&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configuration name=&quot;definition&quot; values='many' type='delimited'&gt;
+          &lt;value&gt;image:iHRISManage_logo_whiteBG.png&lt;/value&gt;
+          &lt;value&gt;horiz_min:5&lt;/value&gt;
+          &lt;value&gt;vert_min:1&lt;/value&gt;
+        &lt;/configuration&gt;
+      &lt;/configurationGroup&gt;
+      &lt;configurationGroup name=&quot;50&quot;&gt;
+        &lt;configuration name=&quot;type&quot;&gt;
+          &lt;value&gt;text&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configuration name=&quot;text_properties&quot; values='many' type='delimited'&gt;
+          &lt;value&gt;style:I&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configuration name=&quot;definition&quot; values='many' type='delimited'&gt;
+          &lt;value&gt;horiz_min:33&lt;/value&gt;
+          &lt;value&gt;vert_min:6&lt;/value&gt;
+          &lt;value&gt;printf:Certification of Employment&lt;/value&gt;
+        &lt;/configuration&gt;
+      &lt;/configurationGroup&gt;
+      &lt;configurationGroup name=&quot;51&quot;&gt;
+        &lt;configuration name=&quot;type&quot;&gt;
+          &lt;value&gt;text&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configuration name=&quot;text_properties&quot; values='many' type='delimited'&gt;
+          &lt;value&gt;style:BU&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configuration name=&quot;definition&quot; values='many' type='delimited'&gt;
+          &lt;value&gt;horiz_min:33&lt;/value&gt;
+          &lt;value&gt;vert_min:12&lt;/value&gt;
+          &lt;value&gt;printf:Ministry of Health&lt;/value&gt;
+        &lt;/configuration&gt;
+      &lt;/configurationGroup&gt;
+      &lt;configurationGroup name=&quot;52&quot;&gt;
+        &lt;configuration name=&quot;type&quot;&gt;
+          &lt;value&gt;text&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configuration name=&quot;definition&quot; values='many' type='delimited'&gt;
+          &lt;value&gt;horiz_min:160&lt;/value&gt;
+          &lt;value&gt;vert_min:6&lt;/value&gt;
+          &lt;value&gt;printf:%s&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configuration name=&quot;printf_args&quot; path='definition/printf_args' values='many' typ
+          &lt;value&gt;0:++date(%e %B %Y)&lt;/value&gt;
+      &lt;/configuration&gt;
+      &lt;/configurationGroup&gt;
+      &lt;configurationGroup name=&quot;100&quot;&gt;
+        &lt;configuration name=&quot;type&quot;&gt;
+          &lt;value&gt;text&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configuration name=&quot;definition&quot; values='many' type='delimited'&gt;
+          &lt;value&gt;horiz_min:3&lt;/value&gt;
+          &lt;value&gt;vert_min:50&lt;/value&gt;
+          &lt;value&gt;printf:Dir Sir/Madam,
+ Please accept this letter as certification of employment for %s %s.
+On %s, employment began as %s in the %s department of %s.
+Sincerely,
+%s&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configuration name=&quot;printf_args&quot; path='definition/printf_args' values='many' typ
+          &lt;value&gt;0:person+firstname&lt;/value&gt;
+          &lt;value&gt;1:person+surname&lt;/value&gt;
+          &lt;value&gt;2:staff+start_date&lt;/value&gt;
+          &lt;value&gt;3:position+title&lt;/value&gt;
+          &lt;value&gt;4:department+name&lt;/value&gt;
+          &lt;value&gt;5:facility+name&lt;/value&gt;
+          &lt;value&gt;6:++user&lt;/value&gt;
+        &lt;/configuration&gt;
+      &lt;/configurationGroup&gt;
+    &lt;/configurationGroup&gt;
+  &lt;/configurationGroup&gt;
+</code></pre>
+<h2>References</h2>
+<p>[1] http://us2.php.net/manual/en/function.strftime.php</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=31403">revision 31403</a>; contributors: Lduncan, Litlfred. Pages 497&ndash;502 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>
