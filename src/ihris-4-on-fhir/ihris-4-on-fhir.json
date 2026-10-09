@@ -1,19 +1,22 @@
 {
   "name": "ihris-4-on-fhir",
   "title": "iHRIS 4 on FHIR",
-  "description": "NEW DERIVED CONTENT: the iHRIS 4.3.3 data model expressed in FHIR. It covers generated FSH for the terminology, logical models (once folio-assistant cz17 settles), and StructureMaps to the three iHRIS 5 IGs, built with SUSHI. Unlike the rest of this folio, THIS subgraph depends on the smart-base harness and IG (owner, 2026-09-23). The ihris root and its other instances stay independent of smart-base. Nothing is generated here yet: the owner said 'do sushi later'.",
+  "description": "NEW DERIVED CONTENT: the iHRIS 4.3.3 data model expressed in FHIR. It covers generated FSH for the terminology, logical models (once folio-assistant cz17 settles), and StructureMaps to the three iHRIS 5 IGs, built with SUSHI. It is built on fhir-harness, the bare FHIR IG pipeline with no WHO in it (owner, 2026-10-09: 'update ihris fhir ... to make use of fhir-harness'), which replaces the smart-base harness and IG it depended on from 2026-09-23. So the whole folio, this subgraph included, is independent of smart-base, and the IG depends on hl7.fhir.r4.core only (D5). Nothing is generated here yet: the owner said 'do sushi later'.",
   "materialization": "referenced",
+  "needs": [
+    "fhir-harness"
+  ],
   "dependsOn": [
     {
-      "name": "smart-base",
+      "name": "fhir-harness",
       "kind": "harness",
-      "source": "litlfred/smart-base",
-      "note": "the smart-base harness"
+      "source": "litlfred/fhir-harness",
+      "note": "the bare FHIR IG pipeline: SUSHI, the IG Publisher and its AST fork, the just-the-docs render. Pinned and mounted by index.config.json."
     },
     {
-      "name": "smart.who.int.base",
+      "name": "hl7.fhir.r4.core",
       "kind": "fhir-ig",
-      "note": "the smart-base FHIR IG; version pinned at F1 (bean ihris-dipr)"
+      "note": "FHIR R4 core 4.0.1, the only IG dependency (D5); the same FHIR version as iHRIS 5"
     }
   ],
   "derivedFrom": [

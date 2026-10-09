@@ -1,7 +1,7 @@
 {
   "name": "ihris5",
   "title": "iHRIS 5",
-  "description": "iHRIS 5, the FHIR-based rewrite, on GitHub: the application (backend, frontend, FHIR Implementation Guide in FSH) and its technical documentation, each pinned at a commit.",
+  "description": "iHRIS 5, the FHIR-based rewrite, on GitHub: the application (backend, frontend, FHIR Implementation Guide in FSH) and its technical documentation, each pinned at a commit. Its IG (`ig/`) is built from that pinned source with fhir-harness and published only on gh-pages, at /ihris/ihris5/.",
   "upstream": {
     "host": "github",
     "vcs": "git",
@@ -16,6 +16,16 @@
       }
     ]
   },
+  "source": {
+    "kind": "git",
+    "repository": "iHRIS/iHRIS",
+    "ref": "fa66e9b375e38525236d28459ec5e5eb3875e2b2",
+    "path": "ig"
+  },
+  "_source_comment": "The iHRIS 5 IG this subgraph BUILDS, in core's own git-source shape (bean bamf): iHRIS/iHRIS at the commit `upstream` pins, the IG at `ig/`. Owner, 2026-10-09: 'treat more like a remote mount, except there is no remote index.config.json. rather i want litlfred/ihris to say that ihris-5 is a named subgraph using fhir-harness'. So it is mounted like one (pinned, verified, git-ignored at ihris5-source/, never committed) by src/tools/mount_ihris5.sh, which reads THIS field, and the IG is built by fhir-harness's AST pipeline (litlfred/fhir-ig-publisher's ast-export, then just-the-docs) and published only on gh-pages, at /ihris/ihris5/ (.github/workflows/ihris5-ig.yml). The two IGs under ihris-backend/ihris-backend-site/ are not built yet.",
+  "needs": [
+    "fhir-harness"
+  ],
   "materialization": "referenced",
   "assets": [
     {

@@ -1,6 +1,6 @@
 {
   "$schema": "folio-index-config/v1",
-  "_comment": "What this checkout instantiates, and where the platform comes from. ihris is a folio-assistant-core DEPENDENT repository, laid out as litlfred/who-iris is: ihris is local at `.`, and the platform layers are remote mounts pinned to 40-char SHAs, landed at `<name>/` (git-ignored, generated block in .gitignore) by `python3 src/tools/mount_platform.py`, never committed. folio-assistant-core is the one instance ihris `needs`; cat-harness, cat-harness-tools, bootstrap and bootstrap-tools are its closure, pinned at the SHAs folio-assistant-core's and cat-harness's own index.config.json name, so the closure is the one core is tested against. Bump the pins together. Schema: cat-harness/schemas/index-config.ts; skill: cat-harness's `index-config`.",
+  "_comment": "What this checkout instantiates, and where the platform comes from. ihris is a folio-assistant-core DEPENDENT repository, laid out as litlfred/who-iris is: ihris is local at `.`, and the platform layers are remote mounts pinned to 40-char SHAs, landed at `<name>/` (git-ignored, generated block in .gitignore) by `python3 src/tools/mount_platform.py`, never committed. folio-assistant-core is the one instance ihris `needs`; cat-harness, cat-harness-tools, bootstrap and bootstrap-tools are its closure, and fhir-harness is what the FHIR subgraphs (ihris5, ihris-4-on-fhir) need, pinned at the SHAs folio-assistant-core's and cat-harness's own index.config.json name, so the closure is the one core is tested against. Bump the pins together. Schema: cat-harness/schemas/index-config.ts; skill: cat-harness's `index-config`.",
   "instances": [
     {
       "name": "ihris",
@@ -142,6 +142,32 @@
               "on": "2026-10-09",
               "ref": "1947e0536a97a9ca447b76edc39de1cf18b1f29e",
               "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'migrrate to new folio-assistant-core dependent repo https://litlfred.github.io/who-iris'"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "fhir-harness",
+      "source": {
+        "remote": {
+          "repository": "litlfred/fhir-harness",
+          "ref": "63591af7a9892bfb343e3dbb859807985f1ecda3",
+          "overrides": {
+            "fhir-harness": {
+              "whole": true
+            },
+            "folio-assistant-core": {
+              "skip": true
+            }
+          },
+          "note": "The bare FHIR IG pipeline (SUSHI, the IG Publisher and its AST fork, the just-the-docs IG render), with no WHO in it. Needed by ihris5 (the iHRIS 5 IG, built from its pinned source) and ihris-4-on-fhir, not by the ihris root. Its own need, folio-assistant-core, is the mount above.",
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-09",
+              "ref": "63591af7a9892bfb343e3dbb859807985f1ecda3",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'update ihris fhir 5 to make use of fhir-harness'; 'i want litlfred/ihris to say that ihris-5 is a named subgraph using fhir-harness'"
             }
           }
         }

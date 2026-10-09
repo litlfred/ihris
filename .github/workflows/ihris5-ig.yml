@@ -1,0 +1,117 @@
+# Build the iHRIS 5 IG with fhir-harness and publish it ONLY on gh-pages, at
+# https://litlfred.github.io/ihris/ihris5/ (owner, 2026-10-09: "we only publish ihris 5 under gh-pages").
+#
+# The source is iHRIS/iHRIS at the commit src/ihris5/ihris5.json pins (`source`), mounted like a
+# remote layer and never committed. src/tools/build_ihris5_ig.sh runs fhir-harness's pipeline:
+# the AST fork of the IG Publisher (litlfred/fhir-ig-publisher ast-export), the artefact index
+# and pages from the AST, the IG's own narrative and menu, and just-the-docs inside the platform
+# chrome, scoped to ihris. The Publisher's own output is published beside it, at /ihris5/publisher/.
+#
+# When: by hand, and when what decides the build changes (the pin, the declared patches, the
+# build script, this file). On a pull request it builds into that PR's staging preview,
+# /ihris/STAGING/<branch-slug>/ihris5/, so a pin change is seen before it merges.
+name: ihris5-ig
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/ihris5/ihris5.json"
+      - "src/ihris5/ig-build-patches.json"
+      - "src/tools/build_ihris5_ig.sh"
+      - ".github/workflows/ihris5-ig.yml"
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "src/ihris5/ihris5.json"
+      - "src/ihris5/ig-build-patches.json"
+      - "src/tools/build_ihris5_ig.sh"
+      - ".github/workflows/ihris5-ig.yml"
+
+permissions:
+  contents: write
+
+# Shared with pages.yml: both push to gh-pages, one at a time.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    # A fork's PR has no write token; its preview is not built here.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Where this build goes (/ihris5/ for main, STAGING/<slug>/ihris5/ for a pull request)
+        id: target
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            SLUG=$(echo "$HEAD_REF" | sed 's|[^a-zA-Z0-9._-]|-|g' | sed 's|--*|-|g' | sed 's|^-||;s|-$||')
+            case "$SLUG" in ""|.|..) echo "::error::staging slug resolved to '$SLUG'. Refusing."; exit 1 ;; esac
+            echo "dir=STAGING/$SLUG/ihris5" >> "$GITHUB_OUTPUT"
+          else
+            echo "dir=ihris5" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      # Maven's repository and the FHIR package cache, keyed by what fills them: the pinned
+      # ast-export commit (build_ihris5_ig.sh FIGP_REF) and the IG pin.
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.m2/repository
+            ~/.fhir/packages
+          key: ihris5-ig-${{ hashFiles('src/tools/build_ihris5_ig.sh', 'src/ihris5/ihris5.json') }}
+          restore-keys: ihris5-ig-
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - name: Mount the platform (folio-assistant-core, cat-harness, fhir-harness, ...) from index.lock.json
+        run: bash src/tools/mount_platform.sh
+      - name: SUSHI, pinned
+        run: npm install -g fsh-sushi@3.20.1
+      - name: Jekyll and just-the-docs, as the platform's Gemfile.lock pins them
+        run: BUNDLE_GEMFILE="$PWD/cat-harness/docs/Gemfile" bundle install
+      - name: Build the IG (src/tools/build_ihris5_ig.sh)
+        run: bash src/tools/build_ihris5_ig.sh --out _ig --baseurl "/ihris/${{ steps.target.outputs.dir }}"
+      - name: Publish to gh-pages
+        env:
+          DIR: ${{ steps.target.outputs.dir }}
+          SRC_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          case "$DIR" in ihris5|STAGING/*/ihris5) ;; *) echo "::error::refusing to publish to '$DIR'"; exit 1 ;; esac
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch --depth 1 origin gh-pages; then
+            git worktree add ghp FETCH_HEAD
+            git -C ghp checkout -B gh-pages
+          else
+            git worktree add --orphan -b gh-pages ghp
+          fi
+          rm -rf "ghp/$DIR" && mkdir -p "ghp/$DIR"
+          cp -r _ig/. "ghp/$DIR/"
+          git -C ghp add -A "$DIR"
+          if git -C ghp diff --cached --quiet; then
+            echo "gh-pages already up to date"
+            exit 0
+          fi
+          git -C ghp commit -q -m "Publish the iHRIS 5 IG at $DIR (fhir-harness, build_ihris5_ig.sh @ ${SRC_SHA::7})"
+          for _ in 1 2 3; do
+            git -C ghp push origin gh-pages && break
+            git -C ghp pull --rebase origin gh-pages
+          done
+          echo "Published: https://litlfred.github.io/ihris/$DIR/" | tee -a "$GITHUB_STEP_SUMMARY"

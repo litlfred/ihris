@@ -1,0 +1,38 @@
+{
+  "id": "ihris-rail-site",
+  "title": "Add the folio chrome to the built site",
+  "description": "Runs cat-harness's own rail-standalone-pages.ts over the built site in --foreign-site mode, the step folio-assistant's folio-staging.yml runs for a folio's own Pages site. Every page gets the C@T harness rail, the icon row, the Folio glass and the light/dark switch. The rail data is written beside the pages (assets/navbar/rail-<hash>.js); navbar.js/css and docs-ui.js/css load from the platform's published site. Scoped to ihris: sync-docs-harness.ts first regenerates the harness list from this checkout's index.config.json, so the rail lists ihris and the harnesses it needs (no smart-base or smart-trust). It skips a page that already carries a navigation and is idempotent. Needs the platform mounted (src/tools/mount_platform.sh).",
+  "install": {
+    "cli": "bash src/tools/mount_platform.sh"
+  },
+  "invoke": {
+    "shell": "bun run cat-harness/scripts/sync-docs-harness.ts && bun run cat-harness/scripts/rail-standalone-pages.ts --built cat-harness --foreign-site --home-label \"iHRIS Knowledge Base\" --instance ihris"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "site",
+        "schema": "https://www.iana.org/assignments/media-types/inode/directory",
+        "required": true,
+        "arg": {
+          "flag": "--site"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "railed site",
+        "schema": "https://www.iana.org/assignments/media-types/text/html"
+      }
+    ]
+  },
+  "satisfies": [
+    "build-ihris-site"
+  ],
+  "requires": {
+    "runtime": [
+      "bun"
+    ],
+    "network": false
+  }
+}

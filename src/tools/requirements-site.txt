@@ -1,4 +1,6 @@
 # The site build (src/tools/build_site.py, site_instances.py). Pinned so the pages are reproducible.
 # pycountry: the Schemas page runs src/tools/qa.py, whose glossary-matches check recomputes ISO 3166 alpha-3 codes.
+# pyyaml: the same qa.py reads bean, skill and methodology front matter (without it pages.yml failed from 2026-09-24).
 markdown==3.8.1
 pycountry==24.6.1
+pyyaml==6.0.1

@@ -523,11 +523,35 @@ def c_harness_config(C):
     return out
 
 
+def c_ig_build_patches(C):
+    """A patch list names the very source its sub-instance declares, and changes something; when the
+    source is mounted, each patch's text occurs exactly once in it (so it still applies)."""
+    out = []
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    sources = folio_platform.declared_sources()
+    for rel, d in C["bound"].get("ihris-ig-build-patches/v1", []):
+        name = rel.split("/")[1]
+        src = sources.get(name)
+        if not src:
+            out.append(f"{rel}: {name} declares no git source to patch")
+            continue
+        if d["source"] != f"{src['repository']}@{src['ref']}":
+            out.append(f"{rel}: written against {d['source']}, but {name} now pins {src['repository']}@{src['ref']}; re-check every patch")
+        base = os.path.join(ROOT, folio_platform.source_mount_path(name), src.get("path") or "")
+        for p in d["patches"]:
+            if p["find"] == p["replace"]:
+                out.append(f"{rel}: the patch on {p['file']} changes nothing")
+            f = os.path.join(base, p["file"])
+            if os.path.isdir(base) and (not os.path.exists(f) or open(f, encoding="utf-8").read().count(p["find"]) != 1):
+                out.append(f"{rel}: the patch text for {p['file']} does not occur exactly once in the mounted source")
+    return out
+
+
 IGNORE_BEGIN = "# BEGIN index mounts (generated from index.config.json — do not edit)"  # cat-harness/schemas/index-config.ts
 IGNORE_END = "# END index mounts"
 
 
-def c_platform_dependency(C, idx=None, lock=None, gitignore=None, decl=None):
+def c_platform_dependency(C, idx=None, lock=None, gitignore=None, decl=None, subs=None):
     """ihris depends on folio-assistant-core as who-iris does: every need is a pinned remote mount,
     the lock records exactly those pins, and .gitignore keeps every mount out of the commit."""
     idx = idx if idx is not None else J("index.config.json")
@@ -546,6 +570,18 @@ def c_platform_dependency(C, idx=None, lock=None, gitignore=None, decl=None):
     for n in decl.get("needs") or []:
         if n not in remote:
             out.append(f"ihris.json needs `{n}`, which index.config.json does not mount")
+    for i in decl.get("instances") or []:
+        rel = f"{i['path']}/{i['name']}.json"
+        sub = J(rel) if subs is None else subs.get(rel, {})
+        for n in sub.get("needs") or []:
+            if n not in remote:
+                out.append(f"{rel} needs `{n}`, which index.config.json does not mount")
+        src = sub.get("source")
+        if isinstance(src, dict) and src.get("kind") == "git":
+            if not re.fullmatch(r"[0-9a-f]{40}", src.get("ref") or ""):
+                out.append(f"{rel}: source.ref {src.get('ref')!r} is not a 40-character commit; a mounted source is pinned, never a branch")
+            if "/*-source/" not in gitignore.splitlines():
+                out.append(f".gitignore: does not ignore /*-source/, so {i['name']}'s mounted source could be committed")
     pins = {m["harness"]: (m["repository"], m["ref"]) for m in lock.get("mounts") or []}
     shas = {i["instance"]: i["sha"] for i in lock.get("instances") or []}
     for n, r in remote.items():
@@ -584,7 +620,9 @@ def c_skill_package(C):
 
 
 def c_tools(C):
-    skills = {os.path.basename(p)[:-3] for p in G("src/skills/*.md")}
+    """A Tool's script exists, every skill it satisfies is defined here or by a mounted layer, and every
+    subprocess it names is a process this checkout generates (processes/<id>.bpmn, from processes/specs)."""
+    skills = {os.path.basename(p)[:-3] for p in G("src/skills/*.md")} | C["fa_skills"]
     out = []
     for rel in G("src/tools/*.tool.json"):
         t = J(rel)
@@ -593,7 +631,10 @@ def c_tools(C):
             out.append(f"{rel}: invokes {m.group(1)}, which does not exist")
         for s in t.get("satisfies") or []:
             if s not in skills:
-                out.append(f"{rel}: satisfies skill {s}, which src/skills does not define")
+                out.append(f"{rel}: satisfies skill {s}, which neither src/skills nor a mounted layer defines")
+        for sp in t.get("subprocesses") or []:
+            if not exists(f"processes/{sp}.bpmn") or not exists(f"processes/specs/{sp}.json"):
+                out.append(f"{rel}: subprocess {sp} is not a process generated here (processes/specs/{sp}.json)")
     return out
 
 
@@ -1475,15 +1516,16 @@ QA = {
                            ("use-case-roles", "every use-case actor, and every actor's role, is a declared Role", c_uc_role_refs),
                            ("use-case-staff-refs", "every Assigned To / Source resolves to an actor file; references number what withheld records", c_uc_staff_refs)],
     "ihris-use-case-crosswalk/v1": [("use-case-crosswalk", "one entry per use case; linked forms exist and are named in the title; counts match", c_use_case_crosswalk)],
+    "ihris-ig-build-patches/v1": [("ig-build-patches", "names the source its sub-instance pins; each patch changes something and, with the source mounted, applies exactly once", c_ig_build_patches)],
     "ihris-instance-extension/v1": [("declarations", "instances, assets, directories and derivedFrom resolve; permissions name who", c_declarations)],
     # reused schemas (validated for shape by folio-assistant's zod or fhir.resources)
     "cat-harness declaration (zod)": [("declarations", "see ihris-instance-extension", c_declarations)],
     "harness-config (zod)": [("harness-config", "content type and root instances as AGENTS.md states", c_harness_config)],
-    "folio-index-config/v1": [("platform-dependency", "ihris is the local root; every need is a remote mount; the lock pins exactly those SHAs; .gitignore keeps every mount out", c_platform_dependency)],
+    "folio-index-config/v1": [("platform-dependency", "ihris is the local root; every need (root and sub-instance) is a remote mount; the lock pins exactly those SHAs; a declared git source is pinned to a commit; .gitignore keeps every mount out", c_platform_dependency)],
     "cat-harness-mount-lock/v1": [("platform-dependency", "see folio-index-config/v1", c_platform_dependency)],
     "bean-graph (zod)": [("bean-graph", "declared bean directories exist", c_bean_graph)],
     "skill-package (zod)": [("skill-package", "listed skills and skill files agree", c_skill_package)],
-    "tool (zod)": [("tools", "invoked scripts exist; satisfied skills exist", c_tools)],
+    "tool (zod)": [("tools", "invoked scripts exist; satisfied skills exist here or in a mounted layer; subprocesses are generated processes", c_tools)],
     "role graph (zod RoleGraphSchema)": [("role-graph", "one Role per described actor or owner's merge, each citing its actors; no id twice, no title twice in a product; title and description verbatim", c_role_graph)],
     "user stories (zod UserStoryGraphSchema)": [("role-use-cases", "every story names a declared role and a described use case; want is its title verbatim", c_role_use_cases),
                                                 ("role-use-cases-primary", "every link is backed by the use case's Primary Actors, and none is missing", c_role_use_cases_primary)],
@@ -1513,9 +1555,18 @@ REUSED = ["cat-harness declaration (zod)", "harness-config (zod)", "folio-index-
 
 
 def fa_skills():
-    """The skills the mounted cat-harness defines (empty when it is not mounted, which c_process_spec reports)."""
-    ch = folio_platform.layer("cat-harness")
-    return {os.path.basename(p)[:-3] for p in glob.glob(os.path.join(ch, "skills", "**", "*.md"), recursive=True)} if ch else set()
+    """The skills every mounted platform layer defines (cat-harness, fhir-harness, ...): a Tool here may
+    satisfy one and a process step may name one. Empty when nothing is mounted, which c_process_spec reports."""
+    base = folio_platform.platform_root()
+    if not base:
+        return set()
+    out = set()
+    for path in folio_platform.mounts().values():
+        for p in glob.glob(os.path.join(base, path, "skills", "**", "*.md"), recursive=True):
+            name = re.search(r"^name:\s*(\S+)", open(p, encoding="utf-8").read(400), re.M)
+            if name:
+                out.add(name.group(1))
+    return out
 
 
 KNOWN = json.load(open(os.path.join(ROOT, "src/tools/qa-known.json")))

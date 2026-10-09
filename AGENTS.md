@@ -48,6 +48,7 @@ Use the skills in [`src/skills/`](src/skills/):
 | the site to (re)build or restyle | `build-ihris-site`: iHRIS theme measured from the release CSS, pages from the data, published on the `gh-pages` branch by `.github/workflows/pages.yml`, at litlfred.github.io/ihris/ |
 | terms to define, or external SKOS concepts to link (the glossary) | `build-skos-glossary` (Tool `ihris-build-glossary`): folio-assistant core's `folio-glossary/v1`, reference first; matches only from verified ConceptMaps |
 | FHIR work on the iHRIS 4 data model | `ihris-4-on-fhir` (documented; SUSHI later) |
+| the iHRIS 5 IG to build or re-pin | `build-ihris5-ig` (Tool `ihris-build-ihris5-ig`): fhir-harness, from the source `src/ihris5/ihris5.json` pins; published only on `gh-pages` at `/ihris5/` by `.github/workflows/ihris5-ig.yml` |
 
 ## 5. Processes and tools
 
@@ -63,7 +64,7 @@ A Claude Code cloud session reaches `launchpad.net` (project, series and milesto
 
 ## 8. FHIR: independent, and gated by design
 
-iHRIS is **independent**: it is not a SMART DAK and is not related to smart-base (owner ruling, 2026-09-23). Do not add smart-base dependencies or smart-base types, **except in `src/ihris-4-on-fhir/`**. That is new derived content, and it depends on the smart-base harness and IG (owner, 2026-09-23).
+iHRIS is **independent**: it is not a SMART DAK and is not related to smart-base (owner ruling, 2026-09-23). Do not add smart-base dependencies or smart-base types anywhere. FHIR work is built on **fhir-harness**, the bare FHIR IG pipeline with no WHO in it (owner, 2026-10-09), mounted by `index.config.json`: `src/ihris-4-on-fhir/` (new derived content) and `src/ihris5/` (the iHRIS 5 IG, built from its pinned source and published only on `gh-pages`) both `need` it.
 
 The design is [`docs/design/fhir-strategy.md`](docs/design/fhir-strategy.md), approved 2026-09-23 (bean `ihris-dmgf`). Its rules:
 - Python generates FSH, and sushi is the build. Sushi must run clean before any commit that contains FSH.

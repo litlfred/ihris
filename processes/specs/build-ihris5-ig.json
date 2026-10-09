@@ -1,0 +1,35 @@
+{
+  "id": "Process_BuildIhris5Ig",
+  "file": "build-ihris5-ig.bpmn",
+  "name": "Build the iHRIS 5 IG with fhir-harness",
+  "documentation": "The subprocess of Tool ihris-build-ihris5-ig: the iHRIS 5 IG built from the source its sub-instance pins, and published only on the pages branch. The general steps are fhir-harness's (ig-build-pipeline, ig-publisher-fork, ig-render-jekyll); this diagram is how this folio exercises them. The upstream is never edited: a defect becomes a declared patch the owner decides on.",
+  "lanes": [
+    {"id": "Lane_Pipeline", "name": "Build pipeline", "role": "build-pipeline", "documentation": "Runs every step unattended. A step that cannot run says why; it never reports a build it did not make."},
+    {"id": "Lane_Owner", "name": "Owner", "role": "user", "documentation": "Moves the pin, and decides each upstream defect: a declared patch, or wait for the upstream fix."}
+  ],
+  "nodes": [
+    {"id": "Start_Ig", "type": "startEvent", "lane": "Lane_Pipeline", "col": 0, "name": "Pin, patches or build changed, or started by hand"},
+    {"id": "A_Mount", "type": "task", "lane": "Lane_Pipeline", "col": 1, "name": "Mount the pinned source", "skill": "build-ihris5-ig", "documentation": "Tool ihris-mount-sources: the sub-instance's declared git source at its commit, verified, never committed."},
+    {"id": "A_Patch", "type": "task", "lane": "Lane_Pipeline", "col": 2, "name": "Apply declared patches to a workspace copy", "skill": "build-ihris5-ig", "documentation": "Tool ihris-apply-ig-patches. A patch whose text is absent or repeated stops the build: the upstream moved."},
+    {"id": "A_Packages", "type": "task", "lane": "Lane_Pipeline", "col": 3, "name": "Make the IG's packages available", "skill": "ig-build-pipeline", "documentation": "Where a package host is refused, seed the cache from trusted sources (fhir-harness Tool fhir-cache-seed-npm, with the owner's mirror). A version no source carries is MISSING, never substituted in a build that publishes."},
+    {"id": "A_Ast", "type": "task", "lane": "Lane_Pipeline", "col": 4, "name": "One Publisher build, writing the AST", "skill": "ig-publisher-fork", "documentation": "fhir-harness Tool ig-ast-export: SUSHI, then one ordinary IG Publisher build, then the AST beside output/."},
+    {"id": "GW_Built", "type": "exclusiveGateway", "lane": "Lane_Pipeline", "col": 5, "name": "Built?"},
+    {"id": "A_Render", "type": "task", "lane": "Lane_Pipeline", "col": 6, "name": "Index, artefact pages and the IG's own narrative, in just-the-docs", "skill": "ig-render-jekyll", "documentation": "The artefact index from the AST, the menu from sushi-config, the pages in IG-site mode, composed into the platform chrome scoped to this folio."},
+    {"id": "A_Publish", "type": "task", "lane": "Lane_Pipeline", "col": 7, "name": "Publish to the pages branch", "skill": "ig-build-pipeline", "documentation": "Only on the pages branch: the folio's IG route, or a change proposal's staging preview. Never committed to the source branch."},
+    {"id": "End_Published", "type": "endEvent", "lane": "Lane_Pipeline", "col": 8, "name": "IG published"},
+    {"id": "U_Defect", "type": "task", "lane": "Lane_Owner", "col": 6, "name": "Decide the upstream defect: declared patch or upstream fix", "skill": "build-ihris5-ig", "documentation": "A defect in the IG's own source is reported upstream; a declared patch, with its reason, is how the folio builds meanwhile. Only the owner decides."},
+    {"id": "End_Blocked", "type": "endEvent", "lane": "Lane_Owner", "col": 7, "name": "Not published; the blocker is stated"}
+  ],
+  "flows": [
+    {"from": "Start_Ig", "to": "A_Mount"},
+    {"from": "A_Mount", "to": "A_Patch"},
+    {"from": "A_Patch", "to": "A_Packages"},
+    {"from": "A_Packages", "to": "A_Ast"},
+    {"from": "A_Ast", "to": "GW_Built"},
+    {"from": "GW_Built", "to": "A_Render", "name": "yes"},
+    {"from": "GW_Built", "to": "U_Defect", "name": "no: a defect in the IG source"},
+    {"from": "U_Defect", "to": "End_Blocked"},
+    {"from": "A_Render", "to": "A_Publish"},
+    {"from": "A_Publish", "to": "End_Published"}
+  ]
+}
