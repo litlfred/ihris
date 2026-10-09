@@ -194,6 +194,13 @@ else:
     if os.environ.get("CI"):
         errors.append("CI: sushi is not installed, so the FSH build did not run")
 
+# F4, the iHRIS 5 mapping (src/tools/map_ihris5.py --check): the crosswalk, the gap report and the StructureMap FSH are
+# what the matcher makes of the committed iHRIS 5 index and the logical models. It needs no iHRIS 5 mount, so CI runs it.
+r = subprocess.run([sys.executable, os.path.join(ROOT, "src/tools/map_ihris5.py"), "--check"], capture_output=True, text=True)
+sys.stdout.write(r.stdout)
+if r.returncode != 0:
+    errors.append("iHRIS 5 mapping check failed:\n" + (r.stdout + r.stderr)[-3000:])
+
 print(json.dumps(counts, indent=1))
 if errors:
     print(f"{len(errors)} error(s):")

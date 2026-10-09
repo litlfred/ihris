@@ -126,6 +126,67 @@
               "type": "string"
             },
             "description": "Files or actions this item produced (drafts, issues, PRs)."
+          },
+          "candidates": {
+            "type": "array",
+            "description": "For a `mapping` item: the candidates the F4 matcher found (src/tools/map_ihris5.py), or a source names (the bean's examples, cited in `basis`). Nobody adds a candidate of their own.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "level",
+                "model",
+                "ig",
+                "target",
+                "basis",
+                "evidence"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "level": {
+                  "enum": [
+                    "model",
+                    "element"
+                  ]
+                },
+                "model": {
+                  "type": "string",
+                  "description": "The logical model (data-dictionary group)."
+                },
+                "element": {
+                  "type": "string",
+                  "description": "The logical-model element, for level element."
+                },
+                "ig": {
+                  "enum": [
+                    "ig",
+                    "manage",
+                    "qualify"
+                  ]
+                },
+                "target": {
+                  "type": "string",
+                  "description": "The iHRIS 5 profile canonical (model) or element path (element)."
+                },
+                "basis": {
+                  "type": "string",
+                  "description": "`matcher`, or the source that names this candidate (e.g. `bean ihris-7gl8`)."
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "selected": {
+            "type": "string",
+            "description": "The candidate id the owner chose when accepting. Only the owner sets it; an accepted mapping with `selected` drives the matcher's next run."
           }
         }
       }

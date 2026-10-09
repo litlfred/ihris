@@ -6,7 +6,8 @@
   "type": "object",
   "required": [
     "fsh",
-    "fhirResources"
+    "fhirResources",
+    "ihris5Mapping"
   ],
   "properties": {
     "fsh": {
@@ -14,6 +15,9 @@
     },
     "fhirResources": {
       "$ref": "../artefacts.schema.json#/$defs/fhirResources"
+    },
+    "ihris5Mapping": {
+      "$ref": "../artefacts.schema.json#/$defs/ihris5Mapping"
     }
   }
 }

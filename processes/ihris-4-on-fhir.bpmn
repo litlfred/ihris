@@ -46,7 +46,7 @@
       <bpmn:extensionElements><bootstrap.processes:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="A_GenMap" name="Generate StructureMaps to iHRIS 5">
-      <bpmn:documentation>F4. Maps to all three iHRIS 5 IGs, pinned to a commit. Uncertain matches become proposals.</bpmn:documentation>
+      <bpmn:documentation>F4, Tool ihris-map-ihris5. The three iHRIS 5 IGs at the pinned commit, compiled by SUSHI and indexed (names and labels only); logical models matched to profiles and elements by name and label equality; StructureMaps for the exact matches only; a two-way gap report. Ambiguous matches become proposals, which only the owner decides.</bpmn:documentation>
       <bpmn:extensionElements><bootstrap.processes:skill ref="ihris-4-on-fhir"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="P_Sushi" name="SUSHI build (must be clean)">

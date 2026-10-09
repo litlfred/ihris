@@ -1,0 +1,79 @@
+{
+  "id": "ihris-map-ihris5",
+  "title": "Map the iHRIS 4 logical models to the three iHRIS 5 IGs (F4)",
+  "description": "Compiles the three iHRIS 5 IGs (ig/, ihris-backend-site/ig, qualify-ig) from the pinned, mounted source with SUSHI 3.20.1 in .build/ihris5-sd/, and indexes what compiles (names, element paths, labels, types, bindings, Questionnaire item texts, each file's sha256) into src/ihris-4-on-fhir/mapping/ihris5-index.json. Then matches each logical model to a profile per IG and its elements to the profile's elements by name and label equality only (tiers exact, accepted, ambiguous, none; an owner-accepted proposal in authored/ decides a model or element, a rejected one removes its candidates), and writes crosswalk.json, the two-way gap report (gaps.json, gaps.md) and one StructureMap per mapped model and IG as FSH Instances in input/fsh/maps/, built by gen_fsh.py's SUSHI run. --check: the crosswalk, gap report and StructureMaps are current against the committed index (no iHRIS 5 mount needed, so CI runs it). --propose (by hand, never in a build): ADDS proposal items for ambiguous matches and the bean's examples to src/ihris-data-dictionary/authored/ihris5-mapping.json, never changing an existing item.",
+  "install": {
+    "cli": "npm install -g fsh-sushi@3.20.1"
+  },
+  "invoke": {
+    "shell": "python3 src/tools/map_ihris5.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "check",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--check"
+        }
+      },
+      {
+        "name": "index",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--index"
+        }
+      },
+      {
+        "name": "propose",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--propose"
+        }
+      },
+      {
+        "name": "dataDictionary",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataDictionary",
+        "required": false,
+        "description": "Read from src/ihris-data-dictionary/data-dictionary/ (labels, types, forms)"
+      },
+      {
+        "name": "ihris5Source",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/ihris5Source",
+        "required": false,
+        "description": "Read from ihris5-source/ when it is mounted at the pin; never written"
+      },
+      {
+        "name": "authoredProposals",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/authoredProposals",
+        "required": false,
+        "description": "The owner's accepted and rejected mapping decisions, read from src/ihris-data-dictionary/authored/"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "ihris5Mapping",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/ihris5Mapping",
+        "description": "Written to src/ihris-4-on-fhir/mapping/"
+      },
+      {
+        "name": "fsh",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/fsh",
+        "description": "The StructureMaps, written to src/ihris-4-on-fhir/input/fsh/maps/"
+      }
+    ]
+  },
+  "satisfies": [
+    "ihris-4-on-fhir"
+  ],
+  "requires": {
+    "runtime": [
+      "python3",
+      "node"
+    ],
+    "network": false
+  }
+}
