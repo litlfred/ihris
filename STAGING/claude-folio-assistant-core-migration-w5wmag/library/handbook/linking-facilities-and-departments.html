@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linking Facilities and Departments · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1ui4pc129a.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1ui4pc129a"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Linking Facilities and Departments</div>
+<h1>Linking Facilities and Departments</h1>
+<div class="wiki">
+<p>In iHRIS Manage, the module ihris-manage-PersonPosition defines the position form which contains the field department and the required field facilty which are both independent lists. In this tutorial, we will discuss how customize iHRIS Manage so that, when editing a position, the departments displayed are dependent on the facility chosen.</p>
+<p>This tutorial applies to iHRIS Manage 4.0, although the concepts involved can be applied to iHRIS Qualify as well. Please refer to these articles:</p>
+<ul>
+<li>Defining Forms</li>
+<li>Forms and Form Classes</li>
+</ul>
+<p>for background information on forms. You can see these changes in the Zanzibar-position [1] module.</p>
+<h2>Overview</h2>
+<p>Our goal is to have the departments for a position to depend on the facility chosen for the position. There are two ways that one could do this.</p>
+<h3>Option A</h3>
+<p>To the department form, we could add a required field facility which links to the facility form. In this, way we would now have every department associated to a facility.</p>
+<p>There are a few issues with this option:</p>
+<ul>
+<li>Suppose you have to hospitals, Central Hospital and Coastal Hospital. Each would presumably have a department such as Emergency. In this option, you would have to create an Emergency Department for each of the Hospitals. It would then make it difficult to run a report such as "list all employees in all facilities which work in the emergency department" because it really is "list all employees in all facilities which work in a department with the name Emergency." In particular, since we are entering "Emergency" multiple times, there is an increased potential for a spelling mistake which would affect data quality.</li>
+<li>At least for the moment, there is no built in way to first select a facility and then select a department within a form.</li>
+</ul>
+<p>Due to these weaknesses, we will not implement Option A in this tutorial.</p>
+<h3>Option B</h3>
+<p>We could create a new list form facility_department which contains two required fields, facility and department which map the for lists of the same name. Then in the position form, we no longer link to the list facility or department but to the list facility_department. This has the following advantages over Option A:</p>
+<ul>
+<li>We only have to enter the department Emergency once as we can associate it to many facilities via the facility_department form</li>
+<li>As facility_department is a tiered list (first select a facility, and the select a department) we can use in the built in display methods when selecting the department in the position.</li>
+</ul>
+<p>We will implement option B in this tutorial.</p>
+<h2>Creating the module</h2>
+<p>We will encapsulate all of our customizations into a module my-position in order to:</p>
+<ul>
+<li>encapsulate the customizations conceptually</li>
+<li>ease maintenance</li>
+<li>ease sharing of the code</li>
+</ul>
+<p>You may wish to review the Module Structure before continuing.</p>
+<p>In your site directory, create a sub-directory 'modules' if it does not already exist and make sure you have an appropriate:</p>
+<pre><code> &lt;path name='modules'&gt;
+   &lt;value&gt;./modules&lt;/value&gt;
+ &lt;/path&gt;
+</code></pre>
+<p>in your site configuration file.</p>
+<p>Within the modules directory, create a new directory called my_position. Within the my_position directory, and create the file my_position.xml and add the following:</p>
+<pre><code> &lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE I2CEConfiguration SYSTEM &quot;I2CE_Configuration.dtd&quot;&gt;
+&lt;I2CEConfiguration name='my-position'&gt;
+  &lt;metadata&gt;
+    &lt;displayName&gt;Customized iHRIS Position&lt;/displayName&gt;
+    &lt;category&gt;Site&lt;/category&gt;
+    &lt;description&gt;Customized version of the position form to list departments by
+facility&lt;/description&gt;
+    &lt;version&gt;4.0.0.1&lt;/version&gt;
+    &lt;requirement name='ihris-manage-Job'&gt;
+      &lt;atLeast version='4.0'/&gt;
+      &lt;lessThan version='4.1'/&gt;
+    &lt;/requirement&gt;
+    &lt;requirement name='ihris-manage-PersonPosition'&gt;
+      &lt;atLeast version='4.0'/&gt;
+      &lt;lessThan version='4.1'/&gt;
+    &lt;/requirement&gt;
+    &lt;path name='classes'&gt;
+      &lt;value&gt;./lib&lt;/value&gt;
+    &lt;/path&gt;
+    &lt;path name='templates'&gt;
+      &lt;value&gt;./templates&lt;/value&gt;
+    &lt;/path&gt;
+  &lt;/metadata&gt;
+  &lt;configurationGroup name='my-position' path='/'&gt;
+  &lt;/configurationGroup&gt;
+ &lt;/I2CEConfiguraiton&gt;
+</code></pre>
+<h2>Turning off the existing fields</h2>
+<p>Let us first look at the changes to "turn off" the facility and department fields in the position form.</p>
+<p>The position form is implemented by the class iHRIS_Position in the ihris-manage-PerosnPosition module. Instead of removing them from the existing iHRIS_Position form, we will specify them as not being required and not saved in the database. We also remove the reference to them in the html template files for position.</p>
+<h3>Magic Data/Configuration Changes</h3>
+<p>We will create a new form class My_Position which extends the iHRIS_Position form class and set the position form to use this class:</p>
+<pre><code> &lt;configurationGroup name='forms' path='/modules/forms/forms'&gt;
+   &lt;configurationGroup name='position'&gt;
+        &lt;!--Set the position form to use the My_Position class which we will define below
+        &lt;displayName&gt;Position&lt;/displayName&gt;
+        &lt;description&gt;The Position Form&lt;/description&gt;
+        &lt;configuration name='class' values='single'&gt;
+          &lt;displayName&gt;Class Name&lt;/displayName&gt;
+          &lt;description&gt;The name of the class providing the form&lt;/description&gt;
+          &lt;value&gt;My_Position&lt;/value&gt;
+        &lt;/configuration&gt;
+      &lt;/configurationGroup&gt;
+ &lt;/configurationGroup&gt;
+ &lt;configurationGroup name='forms' path='/modules/forms/formClasses'&gt;
+      &lt;configurationGroup name='My_Position'&gt;
+        &lt;!--&quot;turn off&quot; the facility and department fields for position --&gt;
+        &lt;configuration name=&quot;extends&quot;&gt;
+          &lt;displayName&gt;The class this form extends&lt;/displayName&gt;
+          &lt;value&gt;iHRIS_Position&lt;/value&gt;
+        &lt;/configuration&gt;
+        &lt;configurationGroup name=&quot;fields&quot;&gt;
+          &lt;configurationGroup name=&quot;department&quot;&gt;
+            &lt;displayName&gt;The field 'department'&lt;/displayName&gt;
+            &lt;configuration name='required' type='boolean'&gt;
+              &lt;value&gt;false&lt;/value&gt;
+            &lt;/configuration&gt;
+            &lt;configuration name='in_db' type='boolean'&gt;
+              &lt;value&gt;false&lt;/value&gt;
+            &lt;/configuration&gt;
+          &lt;/configurationGroup&gt;
+          &lt;configurationGroup name=&quot;facility&quot;&gt;
+            &lt;displayName&gt;The field 'department'&lt;/displayName&gt;
+            &lt;configuration name='required' type='boolean'&gt;
+              &lt;value&gt;false&lt;/value&gt;
+            &lt;/configuration&gt;
+            &lt;configuration name='in_db' type='boolean'&gt;
+              &lt;value&gt;false&lt;/value&gt;
+            &lt;/configuration&gt;
+          &lt;/configurationGroup&gt;
+      &lt;/configurationGroup&gt;
+ &lt;/configurationGroup&gt;
+</code></pre>
+<h3>Template File Changes</h3>
+<p>Create a directory called 'templates' in the 'my_position' directory and copy these files:</p>
+<ul>
+<li>templates/en_US/lists_form_position.html</li>
+<li>templates/en_US/view_position.html</li>
+</ul>
+<p>from the ihris-manage-PersonPosition module into the this directory. On the new copy lists_form_position.html remove the lines:</p>
+<pre><code>  &lt;span type=&quot;form&quot; name=&quot;facility&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+  &lt;span type=&quot;form&quot; name=&quot;department&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+</code></pre>
+<p>On the new copy of view_position.html remove the lines:</p>
+<pre><code>  &lt;span type=&quot;form&quot; name=&quot;position:facility&quot; showhead=&quot;default&quot; class=&quot;even&quot;&gt;&lt;/span&gt;
+  &lt;span type=&quot;form&quot; name=&quot;position:department&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+</code></pre>
+<p>and the line:</p>
+<pre><code>  &lt;li task='can_edit_database_list_position'&gt;
+     &lt;span type=&quot;form&quot; name=&quot;position:facility&quot;
+href=&quot;lists?type=position&amp;amp;field=facility&amp;amp;forms%3Aposition%3A0%3Afields%3Afacility
+     &gt;Select another Position&lt;/span&gt;
+  &lt;/li&gt;
+</code></pre>
+<h2>Creating the facility_department</h2>
+<p>We will create a new form facility_department which is implemented by the form class My_Facility_Department which contains the mapped fields facility and department.</p>
+<h3>Magic Data/Configuration Changes</h3>
+<p>All of these changes are in the my_position.xml file.</p>
+<p>First, we need to create the form class 'My_Facility_Department'. To do this, we add in the following under the configurationGroup named 'formClasses':</p>
+<pre><code> &lt;configurationGroup name='My_Facility_Department'&gt;
+ &lt;!-- pairs up facilities with a department list--&gt;
+  &lt;configuration name=&quot;extends&quot;&gt;
+   &lt;displayName&gt;The class this form extends&lt;/displayName&gt;
+   &lt;value&gt;I2CE_List&lt;/value&gt;
+  &lt;/configuration&gt;
+  &lt;configurationGroup name=&quot;fields&quot;&gt;
+   &lt;configurationGroup name='facility'&gt;
+    &lt;configuration name=&quot;formfield&quot;&gt;
+     &lt;displayName&gt;The form field type&lt;/displayName&gt;
+     &lt;value&gt;MAP&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configuration name=&quot;required&quot; type=&quot;boolean&quot;&gt;
+     &lt;displayName&gt;This field is required to be set&lt;/displayName&gt;
+     &lt;value&gt;true&lt;/value&gt;
+    &lt;/configuration&gt;
+   &lt;/configurationGroup&gt;
+   &lt;configurationGroup name='department'&gt;
+    &lt;configuration name=&quot;formfield&quot;&gt;
+     &lt;displayName&gt;The form field type&lt;/displayName&gt;
+     &lt;value&gt;MAP&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configuration name=&quot;unique&quot; type=&quot;boolean&quot;&gt;
+     &lt;displayName&gt;This field is requried to be unique&lt;/displayName&gt;
+     &lt;value&gt;true&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configuration name=&quot;unique_field&quot;&gt;
+     &lt;displayName&gt;This field is required to be unique for each facility&lt;/displayName&gt;
+     &lt;value&gt;facility&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configuration name=&quot;required&quot; type=&quot;boolean&quot;&gt;
+     &lt;displayName&gt;This field is required to be set&lt;/displayName&gt;
+     &lt;value&gt;true&lt;/value&gt;
+    &lt;/configuration&gt;
+   &lt;/configurationGroup&gt;
+ &lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;
+</code></pre>
+<p>Next, let us add in the 'facility_department' form. To do this, we add in the following under the configurationGroup named 'forms':</p>
+<pre><code> &lt;configurationGroup name='facility_department'&gt;
+  &lt;displayName&gt;Facility Department&lt;/displayName&gt;
+  &lt;description&gt;The Facility Department Form&lt;/description&gt;
+  &lt;configuration name='class' values='single'&gt;
+  &lt;displayName&gt;Class Name&lt;/displayName&gt;
+   &lt;description&gt;The name of the class providing the form&lt;/description&gt;
+   &lt;value&gt;My_Facility_Department&lt;/value&gt;
+  &lt;/configuration&gt;
+  &lt;configuration name='display' values='single'&gt;
+    &lt;displayName&gt;Display name&lt;/displayName&gt;
+    &lt;description&gt;The display name for this form&lt;/description&gt;
+     &lt;value&gt;Facilitiy/Department&lt;/value&gt;
+  &lt;/configuration&gt;
+  &lt;configuration name=&quot;storage&quot; values='single'&gt;
+    &lt;displayName&gt;Storage Details&lt;/displayName&gt;
+    &lt;description&gt;The storage mechanism for this form.&lt;/description&gt;
+    &lt;value&gt;magicdata&lt;/value&gt;
+  &lt;/configuration&gt;
+ &lt;/configurationGroup&gt;
+</code></pre>
+<p>Next, we need to add in the 'facility_department' as a mapped field to the 'My_Position' class. To do this, we add in the following:</p>
+<pre><code>          &lt;configurationGroup name=&quot;facility_department&quot;&gt;
+            &lt;configuration name=&quot;formfield&quot;&gt;
+              &lt;displayName&gt;The form field type&lt;/displayName&gt;
+              &lt;value&gt;MAP&lt;/value&gt;
+            &lt;/configuration&gt;
+            &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+              &lt;displayName&gt;The headers for this field.&lt;/displayName&gt;
+              &lt;value&gt;default:Department&lt;/value&gt;
+            &lt;/configuration&gt;
+            &lt;configuration name=&quot;required&quot; type=&quot;boolean&quot;&gt;
+              &lt;displayName&gt;This field is requried to be set&lt;/displayName&gt;
+              &lt;value&gt;true&lt;/value&gt;
+            &lt;/configuration&gt;
+              &lt;configurationGroup name=&quot;meta&quot;&gt;
+                &lt;configurationGroup name=&quot;display&quot;&gt;
+                  &lt;configurationGroup name=&quot;default&quot;&gt;
+                    &lt;configuration name=&quot;fields&quot;&gt;
+                      &lt;!-- the says that the default display is to first show/select the
+                      &lt;value&gt;facility_department:facility&lt;/value&gt;
+                    &lt;/configuration&gt;
+                  &lt;/configurationGroup&gt;
+                &lt;/configurationGroup&gt;
+              &lt;/configurationGroup&gt;
+          &lt;/configurationGroup&gt;
+</code></pre>
+<p>under the fields node for My_Position.</p>
+<p>Finally, we want to create a 'task' that deals with editing and viewing the 'facility_department' list. We will want to make sure that the edit task implies the view task. We will also want to add these tasks to the the edit/view organization list task. To do so, we add in the following:</p>
+<pre><code>    &lt;configurationGroup name='tasks' path='/I2CE/tasks/task_description'&gt;
+      &lt;configuration name='can_edit_database_list_facility_department'&gt;
+        &lt;value&gt;Edit the facility/department list&lt;/value&gt;
+      &lt;/configuration&gt;
+      &lt;configuration name='can_view_database_list_facility_department'&gt;
+        &lt;value&gt;View the facility/department list&lt;/value&gt;
+      &lt;/configuration&gt;
+    &lt;/configurationGroup&gt;
+    &lt;configurationGroup name='tasks_trickle_down' path='/I2CE/tasks/task_trickle_down/' &gt;
+      &lt;configuration name='can_edit_database_list_facility_department' values='many'&gt;
+        &lt;value&gt;can_edit_organization_database_lists&lt;/value&gt;
+        &lt;value&gt;can_view_database_list_facility_department&lt;/value&gt;
+      &lt;/configuration&gt;
+      &lt;configuration name='can_edit_all_organization_database_lists' values='many'&gt;
+        &lt;value&gt;can_edit_database_list_facility_department&lt;/value&gt;
+      &lt;/configuration&gt;
+      &lt;configuration name='can_view_all_organization_database_lists' values='many'&gt;
+        &lt;value&gt;can_view_database_list_facility_department&lt;/value&gt;
+      &lt;/configuration&gt;
+    &lt;/configurationGroup&gt;
+</code></pre>
+<h3>Template File Changes</h3>
+<p>In your copy of the view_postion.html file, add the following:</p>
+<pre><code>  &lt;!-- Show the facility_department with the default header --&gt;
+  &lt;span type=&quot;form&quot; name=&quot;position:facility_department&quot; showhead=&quot;default&quot; class=&quot;even&quot;&gt;&lt;
+</code></pre>
+<p>and:</p>
+<pre><code>  &lt;li task='can_edit_database_list_position'&gt;
+    &lt;span type=&quot;form&quot;
+          name=&quot;position:facility_department&quot;
+href=&quot;lists?type=position&amp;amp;field=facility_department&amp;amp;forms%3Aposition%3A0%3Afields
+      Select another Position
+    &lt;/span&gt;
+  &lt;/li&gt;
+</code></pre>
+<p>where you deleted the similar lines above.</p>
+<p>In your copy of the file list_form_position.html add in the the following line:</p>
+<pre><code> &lt;span type=&quot;form&quot; name=&quot;facility_department&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+</code></pre>
+<p>where you deleted the lines above.</p>
+<h3>Templates for facility_department</h3>
+<p>We need to create two templates to view and edit the facility_department form. We will put these in the 'my_postion/templates' directory. Create the file 'lists_form_facility_department.html' and add the following:</p>
+<pre><code>&lt;tbody id=&quot;list_fields&quot;&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;formdata&quot;&gt;
+      &lt;span type=&quot;form&quot; name=&quot;facility_department:facility&quot; showhead=&quot;default&quot; addlink=&quot;l
+    &lt;/td&gt;
+    &lt;td class=&quot;formdata&quot;&gt;
+      &lt;span type=&quot;form&quot; name=&quot;facility_department:department&quot; showhead=&quot;default&quot; addlink=
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+</code></pre>
+<p>Now create the file 'view_list_facility_department.html' and add the following:</p>
+<pre><code> &lt;div id=&quot;list_display&quot; task='can_view_database_list_facility_department'&gt;
+  &lt;div class=&quot;editRecord&quot;&gt;
+    &lt;p&gt;Edit This Information&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li task='can_edit_database_list_facility_department'&gt;&lt;span type=&quot;form&quot; name=&quot;facil
+      &lt;li&gt;&lt;a href=&quot;lists?type=facility_department&amp;amp;field=facility&quot; &gt;Select another Fac
+    &lt;/ul&gt;
+  &lt;/div&gt; &lt;!-- editRecord --&gt;
+  &lt;div class=&quot;dataTable&quot;&gt;
+    &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+      &lt;tr&gt;
+        &lt;th colspan=&quot;2&quot;&gt;Associate Departments to A Facility&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;span type=&quot;form&quot; name=&quot;facility_department:facility&quot; showhead=&quot;default&quot; addlink=&quot;l
+      &lt;span type=&quot;form&quot; name=&quot;facility_department:department&quot; showhead=&quot;default&quot; addlink=
+    &lt;/table&gt;
+  &lt;/div&gt; &lt;!-- dataTable --&gt;
+&lt;/div&gt; &lt;!-- list_display --&gt;
+</code></pre>
+<h3>The Facility Departments class</h3>
+<p>When a field maps to the facility_department form we want the display to be first the facility and then the department. In order to do this, we need to create the My_Facility_Department class as a file. To do so, first create the directory 'lib' in the 'my_position' directory. In this new directory, create a file 'My_Facility_Department.php' and add the contents:</p>
+<pre><code> class My_Facility_Department extends I2CE_List {
+     /**
+     * The main field name used for display a description of a record.
+     */
+    const MAIN_FIELD = &quot;facility&quot;;
+    /**
+     * The secondary field name used for displaying a description of a
+record in combination with the MAIN_FIELD.
+     */
+    const SEC_FIELD = &quot;department&quot;;
+    /**
+     * The sort field name to be used for sorting the display list.
+This can't be used with the SEC_FIELD option for display.
+     */
+ }
+</code></pre>
+<p>(In an upcoming step, we shall remove this step and allow you to specify it in magic data.)</p>
+<h3>Edit Database List Templates</h3>
+<p>We finally want to customize our Edit Database Lists page so that the new list, facility_department shows up. First, create the directory templates in your site directory, if it doesn't already exist, and ensure that your site configuration file has the line:</p>
+<pre><code> &lt;path name='templates'&gt;
+   &lt;value&gt;./templates&lt;/value&gt;
+ &lt;/path&gt;
+</code></pre>
+<p>Now, copy the files lists.html from the iHRIS Manage to this new directory. Edit the new copy and add the line:</p>
+<pre><code> &lt;li task='can_edit_database_list_facility_department'&gt;&lt;a href=&quot;lists?type=facility_depar
+</code></pre>
+<p>just after the similar line for Department.</p>
+<p>Next, change the line:</p>
+<pre><code> &lt;li task='can_edit_database_list_position'&gt;&lt;a href=&quot;lists?type=position&amp;amp;field=facili
+</code></pre>
+<p>to:</p>
+<pre><code> &lt;li task='can_edit_database_list_position'&gt;&lt;a href=&quot;lists?type=position&amp;amp;field=facili
+</code></pre>
+<h2>Enabling the Module</h2>
+<p>You can now enable your module by adding the following:</p>
+<pre><code> &lt;requirement name='my-position'&gt;
+   &lt;atLeast version='4.0'/&gt;
+   &lt;lessThan version='4.1'/&gt;
+ &lt;/requirement&gt;
+</code></pre>
+<p>to your site configuration file.</p>
+<h2>Reporting and Form Relationship</h2>
+<p>Because the form relationships have changed:</p>
+<ul>
+<li>Old: the position form links to the facility and department forms.</li>
+<li>New: the position form links to the facility_department form which in turn links to the facility and department forms.</li>
+</ul>
+<p>our form relationship used to define the staff reports need to be changed. Rather than detailing these changes in this tutorial you may look at them here [2]</p>
+<h2>References</h2>
+<p>[1] http://bazaar.launchpad.net/~ihris%2Bzanzibar/ihris-manage-zanzibar/central-4.0/files/head%3A/modules/ZNZPosition/ [2] http://bazaar.launchpad.net/~ihris%2Bzanzibar/ihris-manage-zanzibar/central-4.0/files/head%3A/modules/ZNZReports/Reports/</p>
+<p>StaffReports/</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=4383">revision 4383</a>; contributors: Litlfred. Pages 458&ndash;466 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

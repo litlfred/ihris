@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forms and Form Classes · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1ui4pc129a.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1ui4pc129a"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Forms and Form Classes</div>
+<h1>Forms and Form Classes</h1>
+<div class="wiki">
+<p>Records are stored in the Intrahealth Informatics Core Engine (I2CE) in forms which consist of a collection fields. You may roughly think of a form as table in a database and a field as a column of that table.</p>
+<p>The logic of a form is handled by a Form Class which extends I2CE_Form. The logic of a field is handled by a class extending I2CE_FormField.</p>
+<h2>Referencing in Templates</h2>
+<p>The templating system allows easy reference to data stored in a form in an html template. For example to reference a person's firstname you can use:</p>
+<pre><code>&lt;p  id='my_person'&gt;You are looking at &lt;span type='form' name='person:firstname'/&gt; &lt;span type='form' name='person:surname'/&gt;!&lt;/p&gt;
+</code></pre>
+<p>Would be turned into</p>
+<pre><code>&lt;p id='my_person'&gt;You are looking at Joe Smith!&lt;/p&gt;
+</code></pre>
+<p>if there was a 'person' form set at or above the node with id 'my_person'. The html is modified by the templating system. In version 3.1, this is done by the 'processForms()' method of the forms module class, I2CE_Module_Forms, by hooking into the hook 'process_templatedata_FORM' defined in I2CE_Module_TemplateData.</p>
+<p>It is the responsibility of the page to make sure the appropriate form is assigned to the appropriate node in the template.</p>
+<h2>Forms and Their Classes</h2>
+<p>A form $form is linked to a form classes by specifying the data at /modules/forms/forms/$form/class to be the name of the form class. For example:</p>
+<pre><code>I2CE::getConfig()-&gt;modules-&gt;forms-&gt;person-&gt;class = 'I2CE_ManagePerson';
+</code></pre>
+<p>The classes may or may not exist as files. If there is logic that a form needs to perform, for instance on its validate() and save() methods it will exist. Otherwise, they exist virtually. Starting in version 3.2 such a virtual class is generated 'on-the-fly' by making use of the __autoload() method.</p>
+<h2>Fields and Their Clases</h2>
+<p>All fields of a form have a name and a type. The name of the fields is how the field is referenced by the form as a public variable by using the __get() and __set() methods. For example:</p>
+<pre><code>if ($person instanceof I2CE_Person)  {
+ echo &quot;$person-&gt;firstname . &quot;\n&quot;;
+}
+</code></pre>
+<p>The types effect how the data is stored in the database and how the data is displayed and entered in the system. The following are a list of common types:</p>
+<ul>
+<li>BOOL A boolean True/False value</li>
+<li>CURRENCY A currency value</li>
+<li>
+<p>DATE_HMS A hour, minute, second time</p>
+</li>
+<li>
+<p>DATE_MD A month and date</p>
+</li>
+<li>
+<p>DATE_TIME A time</p>
+</li>
+<li>
+<p>DATE_Y A year</p>
+</li>
+<li>DATE_YMD A year, month and date</li>
+<li>INT An integer value</li>
+<li>INT_LIST A list of integers</li>
+<li>INT_GENEREATE An integer which automatically increments</li>
+<li>STRING_LINE A line of text</li>
+<li>STRING_MLINE Several lines of text</li>
+<li>STRING_PASS A password</li>
+<li>STRING_TEXT A lot of text</li>
+<li>YESNO A Yes/No value</li>
+</ul>
+<p>A $type is handled by the class I2CE_FormField_$type</p>
+<h2>Forms and Their Fields</h2>
+<p>The structure of forms, their classes and fields and where they are defined in can be easily browsed at:</p>
+<ul>
+<li>Form and Field Browser [1] Applies to development version 3.2</li>
+</ul>
+<h2>How the Data is Stored</h2>
+<p>Although you may loosely think of a form as being a table in the database, it is not quite so.</p>
+<h2>Version 3.1</h2>
+<p>In version 3.1 all data stored in forms is stored in the 'entry' and 'last_entry' tables. These tables keep a history of the changes made to the data based on the user that changed the data, the type of the change, and the time of the change. The 'entry' table has all of the history, while the 'last_entry' table only contains the most recent changes to a field.</p>
+<h2>Version 3.2</h2>
+<p>Starting in this version we are enabling multiple storage mechanisms for a form. The default storage mechanism will still be through the 'entry' and 'last_entry' table.</p>
+<p>In addition we will enable storage to specified database tables to allow the administrator to easily incorporate outside data sources into the Custom Reporting utility. This will be either read-only or read-write as the user specified.</p>
+<p>We also allow storage in Magic Data. This is primarily intended for list data that a administrator wishes to maintain centrally in a module and then ship out to regional offices. In addition, the lists stored in Magic Data will be localizable.</p>
+<h2>References</h2>
+<p>[1] http://open.intrahealth.org/ihris-docs/form_documentor/</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=4195">revision 4195</a>; contributors: Litlfred, MarkAHershberger. Pages 101&ndash;102 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

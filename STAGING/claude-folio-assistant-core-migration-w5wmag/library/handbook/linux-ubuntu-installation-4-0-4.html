@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linux (Ubuntu) Installation - 4.0.4 · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-1ui4pc129a.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","note":"no viewer yet"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","note":"no viewer yet"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-1ui4pc129a"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Linux (Ubuntu) Installation - 4.0.4</div>
+<h1>Linux (Ubuntu) Installation - 4.0.4</h1>
+<div class="wiki">
+<p>This page contains installation instructions on installing iHRIS version 4.0.4 manually.</p>
+<p>Warning: See Installing iHRIS on Ubuntu 10.4 (Lucid) after completing these instructions to get iHRIS working on the latest release of Ubuntu.</p>
+<p>Need help? Try our Project Communication</p>
+<h2>Getting Ready</h2>
+<p>Here are instructions for installing the iHRIS Suite on an Linux (Ubuntu) system. If you need help installing Ubuntu you may want to take a look at these directions for installing a Server [1] or a Desktop [2] system.</p>
+<p>Note: Unless specifically mentioned, all the commands below are run using a terminal. You can start this in Ubuntu by going to Applications -&gt; Accessories -&gt; Terminal. Any time a command begins with sudo it will prompt for your password because this will be run with administrative privileges. When you run sudo multiple times, only the first time will ask for your password.</p>
+<p>Note: Some installation commands will prompt for inputs in the terminal window, usually with a blue background. The mouse doesn't work to click on options here. You can use Tab to move between options and the space bar to check or uncheck selections.</p>
+<p>Note: Some commands will launch the gedit file editor. Look at the documentation [3] if you need additional help.</p>
+<p>We begin by install a Lamp [3] server (You can find more help here [4]):</p>
+<pre><code>sudo tasksel install lamp-server
+</code></pre>
+<p>If you have never used mysql on your system, you will be asked to set the 'root' password for mysql. We will refer to this password as XXXXX below.</p>
+<p>Important: Make sure your email system is correctly configured. Under a default Ubuntu installation, you can do this with one of two commands:</p>
+<pre><code>sudo apt-get install postfix
+sudo dpkg-reconfigure postfix
+</code></pre>
+<p>Follow the on-screen instructions to set up email on your system. For additional help with installing Postfix, look at these instructions [5]. On Debian systems, the same commands can be used, but exim4 is the default MTA instead of postfix</p>
+<p>If you are using another Linux distribution, make sure your system can send email properly before continuing.</p>
+<h2>Configuring MYSQL</h2>
+<p>Make sure you have in /etc/mysql/my.cnf the following values set:</p>
+<pre><code>sudo gedit /etc/mysql/my.cnf
+query_cache_limit       = 4M
+query_cache_size        = 64M
+</code></pre>
+<p>It appears that they were reduced with Karmic</p>
+<h2>Configuring PHP</h2>
+<p>Next, you'll need to increase the memory limit for PHP. You can do this by editing the /etc/php5/apache2/php.ini.</p>
+<pre><code>sudo gedit /etc/php5/apache2/php.ini
+</code></pre>
+<p>Change the following line:</p>
+<pre><code>memory_limit = 32M
+</code></pre>
+<p>to:</p>
+<pre><code>memory_limit = 128M
+</code></pre>
+<h2>Installing Pear and PECL Packages</h2>
+<p>We need to install a few Pear and PECL packages for PHP. For the Pear packages you can do:</p>
+<pre><code>sudo apt-get install php-pear php-apc  php-mdb2 php-mdb2-driver-mysql
+sudo pear install text_password console_getopt
+</code></pre>
+<p>During certain activities like installation and upgrades you may need more memory than APC uses by default. The php-apc package should have installed a file in /etc/php5/conf.d/apc.ini. Edit this file:</p>
+<pre><code>sudo gedit /etc/php5/conf.d/apc.ini
+</code></pre>
+<p>Then add the following lines:</p>
+<pre><code>apc.shm_size=100
+apc.slam_defense = Off
+</code></pre>
+<p>See slam defense [6] and this [7].</p>
+<p>You'll need to restart Apache after making this change.</p>
+<pre><code>sudo /etc/init.d/apache2 restart
+</code></pre>
+<p>There are two optional packages you may wish to install:</p>
+<pre><code>sudo apt-get install php5-gd php5-tidy
+</code></pre>
+<p>which are used to for inserting images into PDF output of reports and for exporting XML files in a nicely formatted manner</p>
+<h3>FileInfo</h3>
+<p>Note: If you're running Ubuntu 10.4 (Lucid Lynx) then you do not need to install Fileinfo.</p>
+<p>The pecl package FileInfo is used to verify the validity of file types used for uploading (e.g. for uploaded images or documents)</p>
+<pre><code>sudo apt-get install libmagic-dev php5-dev
+sudo pecl install Fileinfo
+</code></pre>
+<p>If this doesn't work, you can also try:</p>
+<pre><code>sudo pear install pecl/Fileinfo
+echo extension=fileinfo.so | sudo tee
+/etc/php5/apache2/conf.d/fileinfo.ini
+</code></pre>
+<h2>Configuring Apache Web Server</h2>
+<p>You will see later we are using the apache rewrite module. To enable the module:</p>
+<pre><code>sudo a2enmod rewrite
+</code></pre>
+<p>Now we need to make sure we can use the .htaccess file.</p>
+<pre><code>sudo gedit /etc/apache2/sites-available/default
+</code></pre>
+<p>Change:</p>
+<pre><code>&lt;Directory /var/www/&gt;
+      Options Indexes FollowSymLinks MultiViews
+      AllowOverride None
+      Order allow,deny
+      allow from all
+&lt;/Directory&gt;
+</code></pre>
+<p>to:</p>
+<pre><code>&lt;Directory /var/www/&gt;
+      Options Indexes FollowSymLinks MultiViews
+      AllowOverride All
+      Order allow,deny
+      allow from all
+&lt;/Directory&gt;
+</code></pre>
+<p>Save and quit.</p>
+<p>Let us restart the Apache webserver using:</p>
+<pre><code>sudo /etc/init.d/apache2 restart
+</code></pre>
+<h2>Downloading the Software</h2>
+<p>To download the software you enter these commands:</p>
+<pre><code>sudo mkdir -p /var/lib/iHRIS/lib/4.0.4
+cd /var/lib/iHRIS/lib
+sudo ln -s 4.0.4 4.0
+cd /var/lib/iHRIS/lib/4.0.4
+sudo wget
+http://launchpad.net/ihris-manage/4.0/4.0.4/+download/ihris-manage-full-4_0_4.tar.bz2
+sudo tar -xjf ihris-manage-full-4_0_4.tar.bz2
+</code></pre>
+<h2>Database Setup</h2>
+<p>To create the needed database you can do:</p>
+<pre><code>mysql -u root -p
+</code></pre>
+<p>Enter the password you set above (XXXXX) for MySQL. You will now be able to send commands to MySQL and the prompt should always begin with 'mysql&gt; '. Type these commands:</p>
+<pre><code>CREATE DATABASE ihris_manage;
+GRANT ALL PRIVILEGES ON ihris_manage.* TO ihris_manage@localhost
+identified by 'PASS';
+SET GLOBAL log_bin_trust_function_creators = 1;
+exit
+</code></pre>
+<p>Substitute PASS with something appropriate. We'll refer to this password as YYYYY.</p>
+<p>If you want to install iHRIS Qualify (or iHRIS Plan) just replace everywhere you see manage with qualify (or plan).</p>
+<p>In version 4.0.1 of iHRIS we create mysql functions. If you are having trouble creating routines see this [4].</p>
+<p>Alternatively, you may choose to install phpmyadmin to administer database through the web</p>
+<pre><code>sudo apt-get install phpmyadmin
+</code></pre>
+<p>A screen will come up asking if you want to install for apache2 or lighttpd. Highlight apache2 and press the spacebar to select it. It will ask for the root password (XXXXX) and you may also opt to create a phpmyadmin user to extra</p>
+<p>features. Select a password for this user as well.</p>
+<p>Now browse to:</p>
+<p>http://localhost/phpmyadmin</p>
+<p>login with the user 'root' and password XXXXX that you set above. Once logged in you will create a database and user called ihris_manage. To do this, click on the 'Privileges' link and select 'Add a new User'. Then fill out the form as follows:</p>
+<figure style="margin:16px 0"><img src="images/img-p475-1.png" alt="Image:Phpmyadmin_create_user.gif"><figcaption class="legend"><a href="http://open.intrahealth.org/w/index.php?title=File:Phpmyadmin_create_user.gif">Image:Phpmyadmin_create_user.gif</a>, by Litlfred. Licence stated in the export: unknown; published with the owner&#39;s permission.</figcaption></figure>
+<p>Creating iHRIS_Manage Database and User</p>
+<p>For security, make sure the password you choose is different than the root password for MySQL. Let us refer to this password as YYYYY.</p>
+<h2>Creating a Site Configuration File</h2>
+<p>We are going to start by modifying the BLANK site for iHRIS Manage. If you wish to install iHRIS Qualify or iHRIS Plan, you can follow the same instructions below but change manage to qualify or plan. To copy the BLANK site:</p>
+<pre><code>sudo mkdir -p /var/lib/iHRIS/sites
+sudo cp -R /var/lib/iHRIS/lib/4.0/ihris-manage/sites/blank
+/var/lib/iHRIS/sites/manage
+</code></pre>
+<p>We now need to edit the site configuration file:</p>
+<pre><code>sudo gedit /var/lib/iHRIS/sites/manage/iHRIS-Manage-BLANK.xml
+</code></pre>
+<p>by changing:</p>
+<pre><code>&lt;path name='modules'&gt;
+  &lt;value&gt;./modules&lt;/value&gt;
+  &lt;!-- If this site module is not installed under the iHRIS Manage
+       file structure, then remember to include a path to the rest of
+       the modules here. e.g.
+   --&gt;
+&lt;/path&gt;
+</code></pre>
+<p>to:</p>
+<pre><code>&lt;path name='modules'&gt;
+  &lt;value&gt;./modules&lt;/value&gt;
+  &lt;value&gt;/var/lib/iHRIS/lib/4.0&lt;/value&gt;
+&lt;/path&gt;
+</code></pre>
+<h3>Set Email Address</h3>
+<p>You may optionally choose to change the email address feedback is sent to by changing:</p>
+<pre><code>&lt;configuration name='email' path='to' values='single'&gt;
+  &lt;displayName&gt;Email Address&lt;/displayName&gt;
+  &lt;value&gt;BLANK&lt;/value&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>to:</p>
+<pre><code>&lt;configuration name='email' path='to' values='single'&gt;
+  &lt;displayName&gt;Email Address&lt;/displayName&gt;
+  &lt;value&gt;my_email@somewhere.com&lt;/value&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2>Making the Site Available</h2>
+<p>We will now edit the configuration to let the site know about the database user and options:</p>
+<pre><code>sudo gedit /var/lib/iHRIS/sites/manage/pages/config.values.php
+</code></pre>
+<p>We now need to uncomment and set the value of a few variables. Commented lines will begin with two slashes (//) that you'll need to remove.</p>
+<p>They are:</p>
+<p>Variable Name Value</p>
+<p>$i2ce_site_i2ce_path /var/lib/iHRIS/lib/4.0/I2CE</p>
+<p>$i2ce_site_dsn mysql://ihris_manage:YYYYY@localhost/ihris_manage</p>
+<p>$i2ce_site_module_config /var/lib/iHRIS/sites/manage/iHRIS-Manage-BLANK.xml</p>
+<p>In $i2ce_site_dsn, YYYYY is the password you set above.</p>
+<p>Save and quit.</p>
+<p>Finally, we make iHRIS Manage site we just created available via the webserver:</p>
+<pre><code>sudo ln -s /var/lib/iHRIS/sites/manage/pages /var/www/manage
+</code></pre>
+<h3>Pretty URLs</h3>
+<p>This is an optional step to make URLs cleaner by removing the index.php.</p>
+<pre><code>sudo cp /var/www/manage/htaccess.TEMPLATE /var/www/manage/.htaccess
+sudo gedit /var/www/manage/.htaccess
+</code></pre>
+<p>We need to look for the line RewriteBase and change it to the web directory we want to use we are using, /manage.</p>
+<p>Change the line that looks like:</p>
+<pre><code>    RewriteBase /iHRIS/manage-BLANK
+</code></pre>
+<p>to:</p>
+<pre><code>    RewriteBase /manage
+</code></pre>
+<p>You may now save and quit.</p>
+<h2>Finishing Up</h2>
+<p>Now we are ready to begin the site installation. Simply browse to:</p>
+<p>http://localhost/manage</p>
+<p>and wait for the site to initalize itself. Congratulations! You may log in as the i2ce_admin with the password you used to connect to the database (YYYYY that you set above).</p>
+<h2>Files</h2>
+<p>Here are samples of the files we edited above. WARNING THESE ARE OUT OF DATE AND REFER TO AN OLD VERSION OF THE SOFTWARE</p>
+<ul>
+<li>/etc/apache2/sites-available/default</li>
+<li>/var/lib/iHRIS/sites/manage/iHRIS-Manage-Site.xml</li>
+<li>/var/www/manage/.htaccess</li>
+<li>/var/www/manage/config.values.php</li>
+</ul>
+<h2>References</h2>
+<p>[1] http://www.howtoforge.com/perfect-server-ubuntu8.04-lts [2] http://www.howtoforge.com/the-perfect-desktop-ubuntu-8.04-lts-hardy-heron [3] https://help.ubuntu.com/community/gedit [4] https://help.ubuntu.com/community/ApacheMySQLPHP [5] https://help.ubuntu.com/community/PostfixBasicSetupHowto [6] http://pecl.php.net/bugs/bug.php?id=16843 [7] http://t3.dotgnu.info/blog/php/user-cache-timebomb</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=29082">revision 29082</a>; contributors: Lduncan. Pages 471&ndash;477 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>
