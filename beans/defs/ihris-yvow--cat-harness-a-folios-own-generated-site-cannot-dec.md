@@ -7,7 +7,7 @@ tags:
     - platform
     - upstream
 created_at: 2026-10-09T12:19:34Z
-updated_at: 2026-10-09T16:00:00Z
+updated_at: 2026-10-09T16:20:00Z
 ---
 
 Found 2026-10-09 publishing ihris's work plan (bean ihris-mdzi) on its own Pages site, railed by cat-harness's rail-standalone-pages.ts --foreign-site --instance ihris. Three platform gaps, bridged in ihris by src/tools/own_site_links.py until cat-harness reconciles them:
@@ -20,3 +20,5 @@ Found 2026-10-09 publishing ihris's work plan (bean ihris-mdzi) on its own Pages
 
 
 Upstream ask (litlfred/cat-harness): let a foreign-site rail take the folio's own site root for its own graphs' links and counts, and let a declaration name its published pages when its site is generated. Then delete src/tools/own_site_links.py.
+
+Filed upstream 2026-10-09: https://github.com/litlfred/cat-harness/issues/46 (all five gaps, checked against cat-harness main de514707, with the three asks). This bean closes when the fixes land in the cat-harness pin and own_site_links.py and the ihris.css tone rule are deleted.
