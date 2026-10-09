@@ -18,6 +18,9 @@ until cat-harness reconciles them (bean ihris-yvow):
   work plan and show its count. --site points `data-fa-root` at this page's own site root, relative
   to the page, so links and counts resolve on whichever deploy serves the page (live or staging).
   The chrome's code still loads from the platform: those are absolute URLs, untouched.
+- the rail writes ihris's OWN mark (ihris.json `images`, `icon`) as `@fa-rail-root@/<path>`, which the rail
+  fills with the platform's address, so the avatar would load from the platform and 404. --site points it
+  at this site: each rail data file serves pages of one depth, so the path is made relative to that depth.
 """
 import json
 import os
@@ -65,7 +68,44 @@ def harness(path):
     print(f"own_site_links: {len(nb['hrefs'])} icon link(s) and the folders re-rooted under /{INSTANCE}/")
 
 
+RAIL = re.compile(r'id="fa-rail"[^>]*>\{"data":"([^"]+)"')
+
+
+def own_marks():
+    """The site paths of the images ihris declares (`docs/x` -> `x`): its mark, published by build_site.py."""
+    root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
+    decl = json.load(open(os.path.join(root, "ihris.json"), encoding="utf-8"))
+    return [re.sub(r"^docs/", "", i["src"]) for i in decl.get("images") or []]
+
+
+def rail_marks(root):
+    """Point the rail's own-mark sources at this site, relative to the one depth each rail data file serves."""
+    depth = {}
+    for d, _, fs in os.walk(root):
+        for name in fs:
+            if name.endswith(".html"):
+                m = RAIL.search(open(os.path.join(d, name), encoding="utf-8").read())
+                if m:
+                    depth.setdefault(m.group(1), set()).add(os.path.relpath(root, d).replace(os.sep, "/"))
+    n = 0
+    for data, ups in depth.items():
+        if len(ups) != 1:
+            sys.exit(f"own_site_links: rail data {data} serves pages at {sorted(ups)}; one relative path cannot fit them all")
+        p = os.path.join(root, "assets", "navbar", f"{data}.js")
+        if not os.path.exists(p):
+            continue
+        text = new = open(p, encoding="utf-8").read()
+        for mark in own_marks():
+            if os.path.exists(os.path.join(root, mark)):
+                new = new.replace(f"@fa-rail-root@/{mark}", f"{next(iter(ups))}/{mark}")
+        if new != text:
+            open(p, "w", encoding="utf-8").write(new)
+            n += 1
+    print(f"own_site_links: {n} rail data file(s) draw ihris's own mark from this site")
+
+
 def site(root):
+    rail_marks(root)
     n = 0
     for d, _, fs in os.walk(root):
         for name in fs:

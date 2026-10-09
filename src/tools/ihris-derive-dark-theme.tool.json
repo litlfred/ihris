@@ -1,7 +1,7 @@
 {
   "id": "ihris-derive-dark-theme",
   "title": "Derive the site's dark scheme from the measured theme and the chosen grounds",
-  "description": "Reads the measured light theme (src/site/theme/ihris-classic.json) and the grounds the owner chose (src/site/theme/ihris-classic-dark.grounds.json, ihris-site-theme-dark-grounds/v1), and writes src/site/theme/ihris-classic-dark.json: each foreground keeps its light role's hue and saturation and takes the lowest lightness at or above it that reaches its WCAG target on the panel and the raised ground; no colour is invented. --check fails when the dark theme is stale. With --grounds and --page it renders a built page standalone in a candidate palette, for wireframe-design-review.",
+  "description": "Reads the measured light theme (src/site/theme/ihris-classic.json) and the grounds the owner chose (src/site/theme/ihris-classic-dark.grounds.json, ihris-site-theme-dark-grounds/v1), and writes src/site/theme/ihris-classic-dark.json: each foreground keeps its light role's hue and saturation and takes the lowest lightness at or above it that reaches its WCAG target on the panel and the raised ground; no colour is invented. --check fails when the dark theme is stale. With --grounds and --page it renders a built page standalone in a candidate palette, for wireframe-design-review. It also writes docs/assets/img/iHRIS_logo-on-dark.svg, the verified logo wrapped unaltered and drawn for a dark ground by the owner's logo choice: ihris's declared mark, which the folio chrome's always-dark rail shows as its avatar.",
   "install": {
     "none": true
   },
@@ -84,6 +84,11 @@
       "source": "src/site/theme/ihris-classic-dark.grounds.json",
       "artefact": "src/site/theme/ihris-classic-dark.json",
       "format": "json"
+    },
+    {
+      "source": "src/site/theme/iHRIS_logo.png",
+      "artefact": "docs/assets/img/iHRIS_logo-on-dark.svg",
+      "format": "svg"
     }
   ]
 }

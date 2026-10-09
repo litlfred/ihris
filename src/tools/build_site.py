@@ -133,10 +133,11 @@ main {{ min-width:0; }}
 .badge {{ border:1px solid var(--h3); padding:1px 8px; font-size:12px; }}
 .base {{ border-style:dashed; }}
 .hood {{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px; align-items:start; }}
-svg {{ width:100%; height:auto; border:1px solid var(--rule); background:var(--diagram-bg); }}
+/* The neighbourhood graph only: a bare `svg` rule also boxed the folio chrome's rail icons and avatar. */
+.hood svg {{ width:100%; height:auto; border:1px solid var(--rule); background:var(--diagram-bg); }}
 /* The neighbourhood graph's literals, re-coloured by the scheme (CSS outranks SVG presentation attributes). */
-svg [fill="#1b1b1b"] {{ fill:var(--diagram-ink); }} svg [stroke="#1b1b1b"] {{ stroke:var(--diagram-ink); }}
-svg [fill="#fff"] {{ fill:var(--diagram-bg); }} svg [fill="#f2f2f2"] {{ fill:var(--diagram-base); }} svg [fill="#5c5c5c"] {{ fill:var(--mute); }}
+.hood svg [fill="#1b1b1b"] {{ fill:var(--diagram-ink); }} .hood svg [stroke="#1b1b1b"] {{ stroke:var(--diagram-ink); }}
+.hood svg [fill="#fff"] {{ fill:var(--diagram-bg); }} .hood svg [fill="#f2f2f2"] {{ fill:var(--diagram-base); }} .hood svg [fill="#5c5c5c"] {{ fill:var(--mute); }}
 .rels {{ display:none; }}
 .gsearch label {{ display:block; font-size:13px; color:var(--mute); margin-bottom:2px; }}
 .gsearch input {{ width:100%; max-width:520px; min-height:44px; padding:8px; font:inherit; border:1px solid var(--control); background:var(--panel); color:var(--ink); }}
@@ -580,6 +581,9 @@ def main():
     with open(os.path.join(out, "assets", "ihris.css"), "w") as f:
         f.write(css(theme))
     shutil.copy(os.path.join(ROOT, "src/site/theme/iHRIS_logo.png"), os.path.join(out, "assets", "iHRIS_logo.png"))
+    # The mark the folio chrome draws for ihris (ihris.json `images`/`icon`), served where cat-harness resolves it.
+    os.makedirs(os.path.join(out, "assets", "img"), exist_ok=True)
+    shutil.copy(os.path.join(ROOT, "docs/assets/img/iHRIS_logo-on-dark.svg"), os.path.join(out, "assets", "img", "iHRIS_logo-on-dark.svg"))
     # The dark scheme (src/site/theme/ihris-classic-dark.json), applied through cat-harness's darkRules so the
     # rail's light/dark switch and the OS setting both decide (src/tools/scheme_css.ts). Needs the mounted platform.
     rules = os.path.join(out, "assets", "ihris-dark.rules.css")
