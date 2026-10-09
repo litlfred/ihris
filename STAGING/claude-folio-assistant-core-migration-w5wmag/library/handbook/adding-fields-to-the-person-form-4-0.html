@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adding Fields to the Person Form - 4.0 · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Adding Fields to the Person Form - 4.0</div>
+<h1>Adding Fields to the Person Form - 4.0</h1>
+<div class="wiki">
+<p>This tutorial applies to version 4.0 of iHRIS Manage. To see this tutorial for different versions of the software see the following:</p>
+<p>In this tutorial, we will look at adding a new fields to the person form to iHRIS Manage. We will add two fields, one called "Favorite Color" which will be a drop-down list of values, and one will be "Favorite Animal" which will be a free-text field. There are many ways to skin my favorite animal, a cat. Likewise, there are many ways to add a field to a form. In order to better maintain the code and the customizations we are making, we will do so by creating a sub-module Demo_ManagePerson of the Demo site-module which contain the all of our changes. To look at a similar customization, look at [CSSC [1]]'s customizations and in particular under modules/Person.</p>
+<p>Warning: In this tutorial we will be modifying the Demo site of ihris-manage directly. This is not the recommended method for doing this in a production environment. Please read Technical Overview: Creating a Site for details on creating a site.</p>
+<h2>Pre-Requisites</h2>
+<p>It is recommended to read over the following articles and to refer to them as you read through this tutorial:</p>
+<ul>
+<li>Technical Overview: Module Structure</li>
+<li>Technical Overview: Configuration (Magic) Data</li>
+<li>Technical Overview: Forms and Fields</li>
+</ul>
+<h2>Directories</h2>
+<p>You may wish to look at Customizing iHRIS Manage for an overview of some of the directories that are relevant for customizations. We will make our customizations to the iHRIS Manage Demo site. On unix you might be working under:</p>
+<p>&lt;Base Dir&gt;</p>
+<p>/var/lib/iHRIS</p>
+<p>&lt;Site Dir&gt;</p>
+<p>/var/lib/iHRIS/4.0/ihris-manages/sites/Demo</p>
+<p>If you have installed Windows iHRIS Manage you will be working under the directories:</p>
+<p>&lt;Base Dir&gt;</p>
+<p>C:\Program Files\ihris-suite</p>
+<p>&lt;Site Dir&gt;</p>
+<p>C:\Program Files\ihris-suite\sites\ihris-manage</p>
+<h2>Creating a New Module</h2>
+<p>The looking at:</p>
+<ul>
+<li>&lt;SITE DIR&gt;/iHRIS-Manage-Demo.xml for Linux</li>
+<li>&lt;SITE DIR&gt;/iHRIS-Manage-Demo.xml for Windows</li>
+</ul>
+<p>we see that we can put sub-modules into the subdirectory modules of the site directory, which already exists. So lets do (on unix):</p>
+<pre><code>mkdir &lt;SITE DIR&gt;/modules/DemoPerson
+</code></pre>
+<p>which will contains our DemoPerson sub-module. Then save to the file:</p>
+<pre><code>&lt;SITE DIR&gt;/modules/DemoPerson/DemoPerson.xml
+</code></pre>
+<p>the following contents:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE I2CEConfiguration SYSTEM &quot;I2CE_Configuration.dtd&quot;&gt;
+&lt;I2CEConfiguration name='DemoPerson'&gt;
+ &lt;metadata&gt;
+   &lt;displayName&gt;Demo Person&lt;/displayName&gt;
+   &lt;category&gt;Form&lt;/category&gt;
+   &lt;description&gt;Sets up the Demo Person form with extra fields for favorite animals and favorite color&lt;/description&gt;
+   &lt;version&gt;4.0.0&lt;/version&gt;
+   &lt;requirement name='Person'&gt;
+     &lt;atLeast version='4.0'/&gt;
+     &lt;lessThan version='4.1'/&gt;
+   &lt;/requirement&gt;
+   &lt;path name='templates'&gt;
+      &lt;value&gt;./templates&lt;/value&gt;
+   &lt;/path&gt;
+   &lt;priority&gt;300&lt;/priority&gt;
+ &lt;/metadata&gt;
+&lt;/I2CEConfiguration&gt;
+</code></pre>
+<p>This is (almost) the minimal amount of things we need to do create a new module. Right now, there is no functionality, but we have said that the module DemoPerson requires the module Person, which is incidentally a sub-module of ihris-common. We also set the priority for the module, so that we know that the template files we will create will take precedence over anything in the modules ihris-manage or ihris-common.</p>
+<h2>Forms and Form Classes and Inheritance</h2>
+<p>There are really two parts to defining a "form", a form and a form class. The forms are referenced by their shortname, for example person. The second is referenced by the name of a PHP class, for example, iHRIS_Person.</p>
+<p>All of the magic data for forms lives under /modules/forms. The magic data to define forms is under /modules/forms/forms and for form classes under /modules/forms/formClasses. For example, the configuration file &lt;BASE DIR&gt;/ihris-common/modules/Person/Person.xml defines the Person module. Here you will see two nodes:</p>
+<pre><code>&lt;configrationGroup name='person'&gt;
+&lt;/configurationGroup&gt;
+</code></pre>
+<p>and</p>
+<pre><code>&lt;configrationGroup name='iHRIS_Person'&gt;
+&lt;/configurationGroup&gt;
+</code></pre>
+<p>The later defines some of the fields associated with the class iHRIS_Person, and the former tells us the class that the person form uses is iHRIS_Person.</p>
+<p>Now if we look at the configuration file &lt;BASE DIR&gt;/ihris-manage/iHRIS-Manage-Configuration.xml we will see two things: that ihris-manage requires the module Person, and we will also see a similar &lt;configurationGroup name='person'&gt; node. This time the person form now uses the class iHRIS_ManagePerson. Since ihris-manage requires Person, the class associated to the form person is loaded from iHRIS-Manage-Configuration.xml and not from Person.xml</p>
+<p>If we look further in the this file, we will see the &lt;configurationGroup name='iHRIS_ManagePerson'&gt; node which defines the iHRIS_ManagePerson class. Here you will notice two things:</p>
+<ul>
+<li>iHRIS_ManagePerson extends iHRIS_Person, so it has all of the same fields of iHRIS_Person</li>
+<li>iHRIS_ManagePerson adds in the field named password with type 'STRING_PASS' but that this field is not saved to the database</li>
+</ul>
+<h2>Adding the Fields to Magic Data</h2>
+<p>We will add the two fields fav_color and fav_animal to the DemoPerson class. Since we wish for fav_color to be a drop-down list, we will also need to create a form called fav_color which will contain the colors we wish. To setup these forms and fields, we are going to have to add in configuration (magic) data. Add to:</p>
+<pre><code>&lt;SITE DIR&gt;/modules/DemoPerson/DemoPerson.xml
+</code></pre>
+<p>the following just after the &lt;/metadata&gt; tag:</p>
+<pre><code>&lt;configurationGroup name='DemoPerson' path='/'&gt;
+  &lt;status&gt;overwrite:true&lt;/status&gt;
+  &lt;configurationGroup name='forms' path='/modules/forms/forms'&gt;
+    &lt;configurationGroup name='fav_color'&gt;
+       &lt;!-- define the 'fav_color' form --&gt;
+       &lt;configuration name='class' values='single'&gt;
+         &lt;value&gt;I2CE_SimpleList&lt;/value&gt;
+         &lt;!-- fav_color uses the 'I2CE_SimpleList' form defined in i2ce/modules/Forms/modules/Lists--&gt;
+       &lt;/configuration&gt;
+       &lt;configuration name='display' values='single'&gt;
+         &lt;value&gt;Favorite Color&lt;/value&gt;
+         &lt;!-- the name of this form that is displayed to a user is 'Favorite Color'--&gt;
+       &lt;/configuration&gt;
+    &lt;/configurationGroup&gt;
+    &lt;configurationGroup name='person'&gt;
+      &lt;!-- the form 'person' is defined in ihris-common/modules/Person/Person.xml. --&gt;
+      &lt;configuration name='class'&gt;
+         &lt;value&gt;DemoPerson&lt;/value&gt;
+         &lt;!-- Here we are changing the form class it uses to be 'DemoPerson' which is defined below --&gt;
+      &lt;/configuration&gt;
+    &lt;/configurationGroup&gt;
+  &lt;/configurationGroup&gt;
+  &lt;configurationGroup name='formClasses' path='/modules/forms/formClasses'&gt;
+    &lt;configurationGroup name='DemoPerson'&gt;
+       &lt;!-- We are defining the DemoPerson class --&gt;
+       &lt;configuration name='extends'&gt;
+          &lt;value&gt;iHRIS_ManagePerson&lt;/value&gt;
+           &lt;!-- The DemoPerson class extends the 'iHRIS_ManagePerson' class defined in &lt;BASE DIR&gt;/iHRIS-Manage-Configuration.xml --&gt;
+       &lt;/configuration&gt;
+       &lt;configurationGroup name='fields'&gt;
+          &lt; !-- Under here we add in the new fields that DemoPerson has --&gt;
+          &lt;configurationGroup name='fav_animal'&gt;
+             &lt;!-- The data definining the 'fav_animal' field of DemoPerson --&gt;
+            &lt;configuration name='formfield'&gt;
+              &lt;value&gt;STRING_LINE&lt;/value&gt;
+              &lt;!-- Set the field to have type 'STRING_LINE' which is a single line of text e.g. an &lt;input type='text'&gt; in a form--&gt;
+            &lt;configuration&gt;
+            &lt;configuration name='headers' type='delimited' values='many'&gt;
+              &lt;value&gt;default:Favorite Animal&lt;/value&gt;
+              &lt;!-- Set the default header for this field to be 'Favorite Animal'--&gt;
+            &lt;/configuration&gt;
+          &lt;/configurationGroup&gt;
+          &lt;configurationGroup name='fav_color'&gt;
+            &lt;!-- The data definining the 'fav_color' field of DemoPerson --&gt;
+            &lt;configuration name='formfield'&gt;
+              &lt;value&gt;MAP&lt;/value&gt;
+              &lt;!-- Set the field to have type MAP. By default, this field will be one of the ids of the form fav_color--&gt;
+            &lt;configuration&gt;
+            &lt;configuration name='headers' type='delimited' values='many'&gt;
+              &lt;value&gt;default:Favorite Color&lt;/value&gt;
+              &lt;!-- Set the default header for this field to be 'Favorite Color'--&gt;
+            &lt;/configuration&gt;
+         &lt;/configurationGroup&gt;
+       &lt;/configurationGroup&gt;
+    &lt;/configurationGroup&gt;
+  &lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;
+</code></pre>
+<p>The tomato colored text are comments which you may leave out if you wish.</p>
+<p>The olive colored text can be removed before release, but it is useful for development purposes. It ensures that any changes that you make to the configuration file will be updated.</p>
+<h2>Customizing the Template Files</h2>
+<p>In the previous step, we enabled the two fields to be saved to the database. We now need to edit the user interface to show the fields where appropriate. There are three areas we need to add these fields:</p>
+<ul>
+<li>Displaying a person's record shows their favorite animal and color</li>
+<li>Editing a person's record lets you update favorite animal and color</li>
+<li>Add a place in the Administer Database page to and in the allowed colors</li>
+</ul>
+<h3>Displaying the Favorites</h3>
+<p>The page titled View Person and referenced in the URL as view is first provided in the Person sub-module of ihris-common. Here, looking at &lt;BASE DIR&gt;/ihris-common/modules/Person/Person.xml we see that the page view loads the default template file view.html which can be found in &lt;BASE DIR&gt;/ihris-common/modules/Person/templates/view.html.</p>
+<p>The ihris-manage module overides the view.html by providing it in &lt;BASE DIR&gt;/templates/view.html</p>
+<p>Since the view.html file is not specific to the DemoPerson module, it is not appropriate to put our modified version in the DemoPerson sub-moudule. Instead we will put in the templates directory of the Demo site module. Here is the (unix) command:</p>
+<pre><code>cp &lt;BASE DIR&gt;/ihris-manage/templates/view.html &lt;SITE DIR&gt;/templates/view.html
+</code></pre>
+<p>To display the favorite animal and color of a person after their nationality, open up the newly created &lt;SITE DIR&gt;/templates/view.html. Find the line:</p>
+<pre><code>&lt;span type=&quot;form&quot; name=&quot;person:nationality&quot; showhead=&quot;default&quot; class=&quot;even&quot;&gt;&lt;/span&gt;
+</code></pre>
+<p>and add the following to lines just after it:</p>
+<pre><code>&lt;span type=&quot;form&quot; name=&quot;person:fav_color&quot; showhead=&quot;default&quot; &gt;&lt;/span&gt;
+&lt;span type=&quot;form&quot; name=&quot;person:fav_animal&quot; showhead=&quot;default&quot; class=&quot;even&quot;&gt;&lt;/span&gt;
+</code></pre>
+<h3>Editing the Favorites</h3>
+<p>In the View Person, the first Update This Information link lets us changes the person's basic information such as name and nationality. We will add the fields to change their favorite color and animal to this page. Clicking on the link and looking at the URL, we see that this page is named person.</p>
+<p>We start by looking at the Person sub-module of ihris-common to find correct template file to edit. Looking at &lt;BASE DIR&gt;/ihris-common/modules/Person/Person.xml, we see that person page is loads the default html template file form_person.html. This file is found in &lt;BASE DIR&gt;/ihris-common/modules/Person/templates/form_person.html. It is not overidden by ihris-manage.</p>
+<p>Since this template file is specific to a person and does not involve any other forms, we will put this in our DemoPerson module. We will create a templates sub-directory and copy this file over to this directory. Here are the (unix) commands:</p>
+<pre><code> mkdir &lt;SITE DIR&gt;/modules/DemoPerson/templates
+ cp &lt;BASE DIR&gt;/ihris-common/modules/Person/tempaltes/form_person.html &lt;SITE DIR&gt;/modules/DemoPerson/templates/form_person.html
+</code></pre>
+<p>Now we open the newly created &lt;SITE DIR&gt;/modules/DemoPerson/templates/form_person.html and find the following line:</p>
+<pre><code>&lt;span type=&quot;form&quot; name=&quot;othername&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+</code></pre>
+<p>and add the following:</p>
+<pre><code>&lt;span type=&quot;form&quot; name=&quot;fav_color&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+&lt;span type=&quot;form&quot; name=&quot;fav_animal&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+</code></pre>
+<p>just after it.</p>
+<h3>Add to the Database Lists</h3>
+<p>The lists stored in the database are managed though the page titled Administer Database and referenced by lists. We need to add a link to administer the Favorite Color list.</p>
+<p>This basic functionality of the list page is provided by I2CE by the Lists sub-module of the Forms sub-module. Here the lists page is handled by the class in &lt;BASE DIR&gt;/I2CE/modules/Forms/modules/Lists/lib/I2CE_PageFormLists, and we we see that a template file lists.html is loaded. The lists.html is a template file which contains all of the database lists that we wish to administer. (Technically, we should have a file &lt;BASE DIR&gt;/I2CE/modules/Forms/modules/Lists/templates/lists.html but we forgot to add it.)</p>
+<p>The lists pages is extended in ihris-common through the class at &lt;BASE DIR&gt;/ihris-common/lib/iHRIS_PageFormLists. We also notice there is a template file &lt;BASE DIR&gt;/ihris-common/templates/lists.html that has all the lists provided by ihris-common.</p>
+<p>The ihris-manage module overrides the lists.html provided by ihris-common by providing its own at &lt;BASE DIR&gt;/ihris-manage/tempalte/lists.html. You will see that it has all the lists provided by ihris-common as well the new lists provided by ihris-manage. This is the template file we will modify for our site to add it the Favorite Color list.</p>
+<p>Since the lists.html file is not specific to the DemoPerson module, it is not appropriate to put our modified version in the DemoPerson sub-moudule. Instead we will put in the templates directory of the Demo site module. Here is the (unix) command:</p>
+<pre><code>cp &lt;BASE DIR&gt;/ihris-manage/templates/lists.html &lt;SITE DIR&gt;/templates/lists.html
+</code></pre>
+<p>Now open the file &lt;SITE DIR&gt;/templates/lists.html and add the following line:</p>
+<pre><code>&lt;li task='can_edit_database_list_fav_color' &gt;&lt;a  href=&quot;lists?type=fav_color&quot;&gt;Favorite Color&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>in the &lt;ul&gt; block under Employee Lists.</p>
+<p>You will notice, that we have a task attribute in the &lt;li&gt; tag. A user with the role HR Manager or Administrator can edit any database list. However, for purposes of an example, we will add this task which we can assign to a user with the Training Manager role. This we do in the next section</p>
+<h3>Creating Edit Favorite Color Template</h3>
+<p>We need to create a template called 'view_list_fav_color.html' in our templates directory which will contain:</p>
+<pre><code>&lt;!-- WARNING:  If you do not create the tasks as decribed below, you will need to remove
+&lt;div id=&quot;list_display&quot; class='recordsData' task=&quot;can_view_database_list_fav_color&quot;&gt;
+        &lt;div class=&quot;editRecord&quot;&gt;
+        &lt;p&gt;Edit This Information&lt;/p&gt;
+                &lt;ul&gt;
+                        &lt;li task='can_edit_database_list_fav_color'&gt;&lt;span type=&quot;form&quot; nam
+                        &lt;li&gt;&lt;a href=&quot;lists?type=emp_status&quot;&gt;Select another Favorite Color
+                &lt;/ul&gt;
+        &lt;/div&gt; &lt;!-- editRecord --&gt;
+        &lt;div class=&quot;dataTable&quot;&gt;
+        &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+                &lt;tr&gt;
+                        &lt;th colspan=&quot;2&quot;&gt;Favorite Color&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;span type=&quot;form&quot; name=&quot;fav_color:name&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+        &lt;/table&gt;
+        &lt;/div&gt; &lt;!-- dataTable --&gt;
+&lt;/div&gt; &lt;!-- list_display --&gt;
+</code></pre>
+<h2>Setting the Edit Database List Favorite Color Task (Optional)</h2>
+<p>In the last section, we made use of a task can_edit_database_list. In this section we perform the optional task of addding this to the configuration data.</p>
+<p>Insert the following code into &lt;SITE DIR&gt;/modules/DemoPerson/DemoPerson.xml just after the &lt;status&gt;overwrite:true&lt;/status&gt; tag:</p>
+<pre><code>&lt;configurationGroup name='tasks'
+path='/I2CE/tasks/task_description'&gt;
+   &lt;!-- This node has all of the tasks available to the system and a
+ description of what they are --&gt;
+   &lt;configuration name='can_edit_database_list_fav_color'&gt;
+      &lt;!-- This is the task that we added to edit the database list
+associated with the form fav_color
+           The class I2CE_PageFormList checks for the existence of
+&quot;can_edit_database_list_$formname&quot; for editing the list in the action()
+ method--&gt;
+      &lt;value&gt;Edit the Favorite Color list&lt;/value&gt;
+      &lt;!-- The description of the task.  It is displayed in the
+task/role management page --&gt;
+   &lt;/configuration&gt;
+   &lt;configuration name='can_view_database_list_fav_color'&gt;
+      &lt;!-- This is the task that we added to view an existing entry
+in the database list associated with the form fav_color
+           The class I2CE_PageViewList checks for the existence of
+&quot;can_view_database_list_$formname&quot; for editing the list in the action()
+ method--&gt;
+      &lt;value&gt;View the training course status list&lt;/value&gt;
+      &lt;!-- The description of the task.  It is displayed in the
+task/role management page --&gt;
+   &lt;/configuration&gt;
+&lt;/configurationGroup&gt;
+&lt;configurationGroup name='tasks_trickle_down'
+path='/I2CE/tasks/task_trickle_down/' &gt;
+  &lt;!-- This node is used to describes all the sub-tasks that are a
+specific task has--&gt;
+  &lt;configuration name='can_view_database_list_fav_color'
+values='many'&gt;
+    &lt;!--If we can view the database list for 'fav_color' we want to
+make sure we have permission to view
+         database lists in general.
+         The 'many' attribute says to treat this like an array of
+values --&gt;
+    &lt;value&gt;can_view_database_lists&lt;/value&gt;
+  &lt;/configuration&gt;
+  &lt;configuration name='can_edit_database_list_fav_color'
+values='many'&gt;
+    &lt;!-- If we can edit the database list 'fav_color' we need to
+make sure we can view it as well as edit
+         database lists in general.
+         The 'many' attribute says to treat this like an array of
+values --&gt;
+    &lt;value&gt;can_view_database_list_fav_color&lt;/value&gt;
+    &lt;value&gt;can_edit_database_lists&lt;/value&gt;
+  &lt;/configuration&gt;
+&lt;/configurationGroup&gt;
+&lt;configurationGroup name='role_trickle_down'
+path='/I2CE/tasks/role_trickle_down'&gt;
+  &lt;!-- This node is used to describes all the tasks that are
+assigned to various role --&gt;
+  &lt;configuration name='training_manager' values='many'&gt;
+    &lt;!-- This node defines the tasks that are assigned to the
+'training_manager' role.
+         The 'many' attribute says to treat this like an array of
+values --&gt;
+    &lt;status&gt;uniquemerge:true&lt;/status&gt;
+    &lt;!-- We want to merge the existing tasks for the
+training_manager role to the ones we define below.
+         The existing values for 'training_manager' are defined in
+&lt;BASE DIR&gt;/ihris-common/modules/TrainingCourse/TrainingCourse.xml
+ --&gt;
+    &lt;value&gt;can_edit_database_list_fav_color&lt;/value&gt;
+    &lt;!-- Here we assign the 'can_edit_database_list_fav_color' to
+the 'training_manager' role --&gt;
+  &lt;/configuration&gt;
+&lt;/configurationGroup&gt;
+</code></pre>
+<h2>Enabling the Module</h2>
+<p>Now that we have everything good to go, we just need to enabled the 'DemoPerson' module in the site. Open up the file:</p>
+<pre><code>&lt;SITE DIR&gt;/iHRIS-Manage-Demo.xml
+</code></pre>
+<p>and add in the following:</p>
+<pre><code>&lt;requirement name='DemoPerson'&gt;
+ &lt;atLeast version='4.0'&gt;
+ &lt;lessThan version='4.1'&gt;
+&lt;/requirement&gt;
+</code></pre>
+<p>in the &lt;metadata&gt; section after the requirement for ihris-manage. Also, ensure you have:</p>
+<pre><code>   &lt;path name='modules'&gt;
+      &lt;value&gt;./modules&lt;/value&gt;
+   &lt;/path&gt;
+</code></pre>
+<h2>Changing The Favorite Animal Header</h2>
+<p>Suppose that you want to change the header for the fav_animal field from "Favorite Animal" to "Favorite Mammal." To do this, we need to update the module version as well as add in a &lt;version&gt; tag where we have changed the header. The changes are highlighted. In the &lt;metatdata&gt; section we have:</p>
+<pre><code> &lt;metadata&gt;
+ &lt;displayName&gt;Demo Person&lt;/displayName&gt;
+ &lt;category&gt;Form&lt;/category&gt;
+ &lt;description&gt;Sets up the Demo Person form with extra fields for favorite animals and favorite color&lt;/description&gt;
+  &lt;version&gt;4.0.1&lt;/version&gt;
+ &lt;requirement name='Person'&gt;
+    &lt;atLeast version='4.0'/&gt;
+   &lt;lessThan version='4.1'/&gt;
+ &lt;/requirement&gt;
+ &lt;path name='templates'&gt;
+   &lt;value&gt;./templates&lt;/value&gt;
+ &lt;/path&gt;
+ &lt;priority&gt;300&lt;/priority&gt;
+&lt;/metadata&gt;
+</code></pre>
+<p>and in the defintiion of field 'fav_animal' we have:</p>
+<pre><code>     &lt;configuration name='headers' type='delimited' values='many'&gt;
+        &lt;version&gt;4.0.1&lt;/version&gt;
+         &lt;value&gt;default:Favorite Mammal&lt;/value&gt;
+     &lt;/configuration&gt;
+</code></pre>
+<p>Happy Debugging</p>
+<h2>References</h2>
+<p>[1] http://bazaar.launchpad.net/~ihris%2Bcssc/ihris-manage/4.0-central/files</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=11523">revision 11523</a>; contributors: Litlfred. Pages 2&ndash;11 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

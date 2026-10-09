@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom Reporting -- Creating Form Relationships · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Custom Reporting -- Creating Form Relationships</div>
+<h1>Custom Reporting -- Creating Form Relationships</h1>
+<div class="wiki">
+<h2>Overview</h2>
+<h3>Intended Use</h3>
+<p>This is primarily intended for a developer or administrator of the system who has a good idea of how all the forms are related. The possible connections between the different forms are already mapped out in the system. A relationship is the description of a path between the various forms in the system.</p>
+<p>A relationship is, at the moment, used for Custom Reports. We also intend to use it for Custom Pages.</p>
+<p>A form relationship is used to build the SQL queries used in a Custom Report. Although you do not need to know any SQL to create a report, a passing familiarity with relational databases will help.</p>
+<h3>Example</h3>
+<p>You may wish to create a form relationship in iHRIS Manage that describes all current employees, their salaries, and their supervisors. Here is an outline of how to define this relationship:</p>
+<ul>
+<li>Start with the primary form 'person_position' and limit to those positions which the 'being_date' field is not null and the 'end_date' field is null.</li>
+<li>Join to the primary form the 'person' form where the 'person' form is a parent of the 'person_position' form</li>
+<li>Join to the primary form the 'salary' form where 'salary' is a child of 'person_position' and where the 'start_date' field for 'salary' is maximal</li>
+<li>
+<p>Join to the primary form the 'position' form where the field 'position' of the primary 'person_position' form maps to that position. Call this the 'employee_position' form.</p>
+</li>
+<li>
+<p>Join to the 'position' form the 'position' form where the 'supervisor' field of the 'position' form maps to that position. Call this joined form the 'supervisor_position' to distinguish it from the 'employee_position' form.</p>
+</li>
+<li>
+<p>Join to the 'supervisor_position' the 'person_position' form whose 'position' field is the value of 'supervisor_position' form. Call this the 'supervisor_person_position'</p>
+</li>
+<li>Join to the 'supervisor_person_position' form the 'person' form which is a parent of the form. Call is the 'supervisor'</li>
+</ul>
+<h3>Some Terminology</h3>
+<ul>
+<li>A relationship is some times referred to as a "form relationship" or a "report relationship"</li>
+<li>The "primary_form" is the starting point in describing the form in your relationship.</li>
+<li>A form can be referenced several times in a relationship. In the example above, the person_position form was referenced twice. Once we gave it the "report form name" 'person_position' and once we gave it the "report form name" 'supervisor_person_position'. Similarly, the person form was referenced twice and given the two distinct "report form names" of 'person' and 'supervisor'</li>
+<li>Some of the terminology, such as 'join,' is borrowed from SQL.</li>
+</ul>
+<h2>Starting Out</h2>
+<p>A form relationship can be created following the "Configure System" and then the "Edit Form Relationship" linka. The first steps are to:</p>
+<ul>
+<li>select a "Display Name" for the relationship, the name of the relationship for the end user.</li>
+<li>select a "Short Name" for the report, which is a way to reference the relationship internally and can only contain alpha-numeric characters and some limited punctuation such as _ and -.</li>
+<li>A description of the relationship.</li>
+<li>
+<p>The you must do one of the following:</p>
+</li>
+<li>
+<p>Choose the "primary_form" for the relationship</p>
+</li>
+<li>Copy the details existing form relationship to modify</li>
+</ul>
+<h2>Joining a Form</h2>
+<p>Once a form, formA, is in a relationship, you can join to it any of its related forms. You must ensure, by adding a limit, that at most one instance of the formB is joined to another an instance of formA. There are four possible ways to join:</p>
+<ul>
+<li>
+<p>(An instance of) formA is a parent of (an instance of) formB.</p>
+</li>
+<li>
+<p>formA may have several child instances of formB. For example, a 'person' form may have may child 'salary' forms.</p>
+</li>
+<li>
+<p>(An instance of) formA is a child of (an instance of) formB.</p>
+</li>
+<li>
+<p>Note that a form, if it has a parent form, is unique, so no limits are needed when joining in this manner.</p>
+</li>
+<li>(An instance of) formA contains a mapped field whose value maps to (an instance of) formB.</li>
+<li>(An instance of) formB contains a mapped field whose value maps to (an instance of) formA.</li>
+</ul>
+<h2>Limiting a Form</h2>
+<p>The primary form and any joined forms in a relationship may be limited by using the limiting forms structure. The form relationship provides a nice interface to construct form limits.</p>
+<h2>Adding in a SQL Function</h2>
+<p>In addition to linking in forms to a report, we can define SQL functions that can be run on the data in the forms. To reference the field named $fieldName in the form named $reportFormName in the relationship you use:</p>
+<pre><code>`$reportFormName+$fieldName`
+</code></pre>
+<p>For example:</p>
+<pre><code>CONACT (SUBSTR(`supervisor+name`,1,1), '. ',  SUBSTR(`supervisor+surname`,1,1) , '.')
+</code></pre>
+<p>would return the initials of the supervisor.</p>
+<p>To define a sql function, you need to define:</p>
+<ul>
+<li>A (short) name use to reference the function. For example, 'supervisor_initials.'</li>
+<li>A description of the function. For example, "The Initials of the Supervisor."</li>
+<li>The form field that the result of the SQL function should take values in. For example, "STRING_LINE"</li>
+</ul></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=4407">revision 4407</a>; contributors: Litlfred. Pages 59&ndash;61 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

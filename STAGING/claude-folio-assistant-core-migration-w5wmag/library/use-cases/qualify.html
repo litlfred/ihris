@@ -1,0 +1,3792 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iHRIS Qualify use cases (2009) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Use cases</a> / iHRIS Qualify use cases (2009)</div>
+<h1>iHRIS Qualify use cases (2009)</h1>
+<p class="src">From the iHRIS use-case model by IntraHealth International / the Capacity Project iHRIS team (2009), published with permission. Published with the owner&#39;s permission (2026-09-23). Staff initials (&ldquo;Assigned To&rdquo;) and requirement sources naming a person are referenced by <a href="roles.html#opaque-actors">opaque actors</a>, with the identity withheld.</p><div class="wiki">
+<p><em>Serlio Software Case Complete, 3/25/2009 4:18 PM. From the iHRIS use-case model by IntraHealth International / the Capacity Project iHRIS team, published here with the owner's permission. Parsed by <code>src/tools/ingest_use_cases.py</code>; do not edit by hand.</em></p>
+<p>iHRIS Qualify is a health worker training, licensing and certification tracking system.</p>
+<ul>
+<li>This documentation refers to the core version of the Training, Certification and Licensure database (working title: PowerSupply) <em>(8/2/2006)</em></li>
+<li>This documentation was based on specifications gathered for Uganda UNMC release and also serves as documentation for that release. (UNMC release version 1.0) <em>(7/13/2006)</em></li>
+<li>Version 3.0 of iHRIS Qualify was released on March 18, 2007. <em>(7/24/2008)</em></li>
+<li>Core version 1.0 released August 8, 2008. <em>(9/29/2008)</em></li>
+</ul>
+<p>Related documents: https://launchpad.net/ihris-qualify, http://www.capacityproject.org/hris/suite/ihris_qualify.php</p>
+<h2>Actors</h2>
+<h3>A-PS1 Data Operations Manager</h3>
+<p>Role: <a href="roles.html#ihris-a-ps1">Data Operations Manager</a> (<code>ihris-a-ps1</code>)</p>
+<p>This person is responsible for managing data entry and data entry roles, including verifying and correcting data and updating standard lists in the system.</p>
+<p><strong>Goals</strong></p>
+<ul>
+<li>Create or update standard lists of data within the system.</li>
+<li>Check for, correct and report on data entry errors.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Can perform any use case that a Records Officer, Examination Supervisor or Registration Supervisor can.</li>
+</ul>
+<p><strong>Use cases:</strong> UC-PS2 Add or update a cadre, UC-PS10 Add or update a certificate, UC-PS3 Add or update a continuing education course, UC-PS13 Add or update a country, UC-PS16 Add or update a county, UC-PS4 Add or update a disciplinary action category, UC-PS15 Add or update a district, UC-PS23 Add or update a facility agent, UC-PS25 Add or update a facility status, UC-PS24 Add or update a facility type, UC-PS17 Add or update a health facility, UC-PS12 Add or update a marital status, UC-PS26 Add or update a personal title, UC-PS21 Add or update a pre-service training program, UC-PS1 Add or update a qualification, UC-PS5 Add or update a reason for disciplinary action, UC-PS6 Add or update a reason for out migration, UC-PS8 Add or update a reason for training disruption, UC-PS14 Add or update a region, UC-PS7 Add or update a training disruption category, UC-PS19 Add or update a training institution, UC-PS51 Add or update a verification change, UC-PS9 Add or update an academic level, UC-PS11 Add or update an identification type, UC-PS20 Associate a health facility with a training institution, UC-PS18 Associate a training institution with a health facility, UC-PS22 Enter inspection information</p>
+<h3>A-PS2 Records Officer</h3>
+<p>Role: <a href="roles.html#ihris-a-ps2">Records Officer</a> (<code>ihris-a-ps2</code>)</p>
+<p>This person is responsible for basic data entry, including initial indexing and upgrades of health professional students entering training programs, tracking out migration verifications and demographic data entry.</p>
+<p><strong>Goals</strong></p>
+<ul>
+<li>Create a new record for a health worker or student.</li>
+<li>Add information to or update a record with demographic, contact, identification or academic information.</li>
+<li>Add training program information to a health student's record.</li>
+<li>Record out migration verification requests and deployments in a health worker's record.</li>
+<li>Add notes to a record.</li>
+<li>Re-enter a record to ensure data quality.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Can enter examination results when they are not required and the Examination Supervisor role is not activated.</li>
+</ul>
+<p><strong>Use cases:</strong> UC-PS30 Add academic information, UC-PS31 Add contact information, UC-PS29 Add demographic information, UC-PS28 Add identification information, UC-PS27 Enter a new record, UC-PS35 Index a training, UC-PS36 Record a discontinuation, UC-PS37 Record a resumption, UC-PS39 Record exam details, UC-PS32 Record notes, UC-PS48 Record out migration verification, UC-PS50 Record verification, UC-PS38 Set a graduation date, UC-PS47 Update deployment information</p>
+<h3>A-PS3 Registration Supervisor</h3>
+<p>Role: <a href="roles.html#ihris-a-ps3">Registration Supervisor</a> (<code>ihris-a-ps3</code>)</p>
+<p>This person is responsible for data entry related to licensing updates, including entering initial registration, issuing new licenses and license renewals, issuing and renewing private practice licenses, and registering and licensing foreign-trained health care professionals applying to work in the country.</p>
+<p><strong>Goals</strong></p>
+<ul>
+<li>Issue registrations and licenses to a health worker.</li>
+<li>Record continuing education credits in a health worker's record.</li>
+<li>Record disciplinary actions in a health worker's record.</li>
+<li>Record deployment information in a health worker's record.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Can perform any use cases that a Records Officer can.</li>
+</ul>
+<p><strong>Use cases:</strong> UC-PS43 Add continuing education credits, UC-PS45 Document a disciplinary action, UC-PS46 Document a reinstatement, UC-PS41 Issue a license, UC-PS44 Issue a private practice license, UC-PS40 Issue a registration, UC-PS32 Record notes, UC-PS42 Renew a license, UC-PS47 Update deployment information</p>
+<h3>A-PS4 Examination Supervisor</h3>
+<p>Role: <a href="roles.html#ihris-a-ps4">Examination Supervisor</a> (<code>ihris-a-ps4</code>)</p>
+<p>This person is responsible for data entry related to national exams, including verifying applications to take exams and recording results. This is an optional role, used only when entering examination results is required for the system.</p>
+<p><strong>Goals</strong></p>
+<ul>
+<li>Record information about national exam applications and results.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Can perform any use case that a Records Officer can.</li>
+<li>The Examination Supervisor will not be a role in the core release system.</li>
+</ul>
+<p><strong>Use cases:</strong> UC-PS39 Record exam details</p>
+<h3>A-PS5 Decision Maker</h3>
+<p>Role: <a href="roles.html#ihris-a-ps5">Decision Maker</a> (<code>ihris-a-ps5</code>)</p>
+<p>This person runs reports in order to view and analyze data, and make health workforce policy and planning decisions. This person does not perform any data entry tasks.</p>
+<p><strong>Goals</strong></p>
+<ul>
+<li>Generate reports to analyze data entered in the system.</li>
+</ul>
+<h3>A-PS6 Any User</h3>
+<p>Role: <a href="roles.html#ihris-a-ice4">Any User</a> (<code>ihris-a-ice4</code>)</p>
+<p>A generic user (applies to all users of the system).</p>
+<p><strong>Goals</strong></p>
+<ul>
+<li>Search for and view a record.</li>
+</ul>
+<h2>1.1 Data Administration</h2>
+<p>Create and update standard lists of data for selection in system menus.</p>
+<ul>
+<li>Access is limited to System Administrators and Data Operations Managers. <em>(10/15/2007)</em></li>
+<li>Locate these functions via the Configure System / Administer Database link on the main menu. <em>(10/15/2007)</em></li>
+</ul>
+<h3>UC-PS1 Add or update a qualification</h3>
+<p>The Data Operations Manager adds or edits the list of qualifications that are available for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P7</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new qualification is saved and available for selection in various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of qualifications.</li>
+<li>The system displays all qualifications entered in the system.</li>
+<li>The user adds a new qualification.</li>
+<li>The user enters the description of the qualification.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the qualification available for selection when adding cadres.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item and enables it to be edited.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the name of the qualification matches a qualification already entered in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>qualification</code> (I2CE_SimpleList) in ihris-qualify</p>
+<h3>UC-PS2 Add or update a cadre</h3>
+<p>The Data Operations Manager enters or edits a cadre for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> Each cadre, as applied by the health professionals, is defined within the system and available for selection in various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update the list of cadres.</li>
+<li>The system displays all cadres entered in the system.</li>
+<li>The user adds a new cadre.</li>
+<li>The user enters the name of the cadre.</li>
+<li>The user enters the ISCO classification code for the cadre (optional).</li>
+<li>The user selects the minimum qualification for the cadre.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the new or edited cadre in selection lists of cadres.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The user enters a new qualification if the correct one does not appear (UC-PS1)<ol>
+<li>The user returns to Step 1 to enter the cadre.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The system determines that the cadre name already exists in the database.<ol>
+<li>The system displays an error message and will not proceed.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>cadre</code> (I2CE_SimpleList) in ihris-common, <code>cadre</code> (iHRIS_Cadre) in ihris-qualify</p>
+<h3>UC-PS3 Add or update a continuing education course</h3>
+<p>The Data Operations Manager enters valid continuing education courses for selection when renewing a license.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new continuing education course is saved and available for selection in appropriate use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update the list of continuing education courses.</li>
+<li>The system displays all continuing education courses added to the system.</li>
+<li>The user adds a new continuing education course.</li>
+<li>The user enters the name of the course.</li>
+<li>The user enters the number of credit hours that can be earned by completing the course.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the new course available for selection when adding continuing education information to a record.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing continuing education course name.<ol>
+<li>The system opens the course's details and provides the option to update them.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>continuing_education_course</code> (iHRIS_ContinuingEducationCourse) in ihris-common</p>
+<h3>UC-PS4 Add or update a disciplinary action category</h3>
+<p>The Data Operations Manager adds a new broad category to contain reasons for disciplinary action.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The category is successfully added to the system and is available for selection in applicable use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update disciplinary action categories.</li>
+<li>The system displays all disciplinary action categories entered in the system.</li>
+<li>The user adds a new category.</li>
+<li>The user enters a description for the category.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the disciplinary action category available for selection when adding disciplinary actions.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the disciplinary action category already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>disciplinary_action_category</code> (I2CE_SimpleList) in ihris-qualify</p>
+<h3>UC-PS5 Add or update a reason for disciplinary action</h3>
+<p>The Data Operations Manager adds or edits a reason for disciplinary action for display in selection menus.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The reason is successfully added to the system and is available for selection whenever its parent category is selected.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update the list of disciplinary action reasons.</li>
+<li>The system displays all reasons entered in the system.</li>
+<li>The user adds a new reason.</li>
+<li>The user selects a category for the reason.</li>
+<li>The user enters a description for the reason.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the reason available for selection when adding disciplinary actions.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>4.a</strong> The user adds a new disciplinary action category (UC-PS4).<ol>
+<li>The user returns to Step 1 to add the disciplinary action reason.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The system determines that the disciplinary action reason is already in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>disciplinary_action</code> (iHRIS_DisciplinaryAction) in ihris-qualify</p>
+<h3>UC-PS6 Add or update a reason for out migration</h3>
+<p>The Data Operations Manager adds or edits a reason for out migration to the system and makes it available for selection.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The out migration reason is saved to the system and is available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage out migration reasons.</li>
+<li>The system displays all reasons entered in the system.</li>
+<li>The user adds a new out migration reason.</li>
+<li>The user enters a description for the out migration reason.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the reason available for selection when recording out migration verification requests.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the out migration reason already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>out_migration</code> (iHRIS_OutMigration) in ihris-qualify</p>
+<h3>UC-PS7 Add or update a training disruption category</h3>
+<p>The Data Operations Manager adds a new broad category to contain reasons for training disruption.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The category is successfully added to the system and is available for selection in applicable use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of training disruption categories.</li>
+<li>The system displays all categories entered in the system.</li>
+<li>The user adds a new category.</li>
+<li>The user enters a description for the category.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the training disruption category available for selection when adding training disruptions.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the training disruption category already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training_disruption_category</code> (I2CE_SimpleList) in ihris-qualify</p>
+<h3>UC-PS8 Add or update a reason for training disruption</h3>
+<p>The Data Operations Manager adds or edits a reason for training disruption for display in selection menus.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The reason is successfully added to the system and is available for selection whenever its parent disruption category is selected.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update the list of reasons for training disruption.</li>
+<li>The system displays all reasons entered in the system.</li>
+<li>The user adds a new reason.</li>
+<li>The user selects a category for the reason.</li>
+<li>The user enters a description for the reason.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the reason available for selection when adding training disruptions.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>4.a</strong> The user adds a new training disruption category (UC-PS7).<ol>
+<li>The user returns to Step 1 to add the training disruption reason.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The system determines that the training disruption reason has already been entered in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training_disrupt</code> (iHRIS_TrainingDisrupt) in ihris-qualify</p>
+<h3>UC-PS9 Add or update an academic level</h3>
+<p>The Data Operations Manager adds or edits the list of academic levels that are available for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new academic level is saved and available for selection in various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of academic levels.</li>
+<li>The system displays all academic levels entered in the system.</li>
+<li>The user adds a new academic level.</li>
+<li>The user enters the description of the academic level.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the academic level available for selection when adding academic information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the academic level has already been entered in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>academic_level</code> (I2CE_SimpleList) in ihris-qualify</p>
+<h3>UC-PS10 Add or update a certificate</h3>
+<p>The Data Operations Manager updates the list of certificates that are available for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The certificate is added to the system and available for selection when its parent academic level is selected.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of certificates held.</li>
+<li>The system displays all certificates entered in the system.</li>
+<li>The user adds a new certificate.</li>
+<li>The user selects the academic level to which the certificate belongs.</li>
+<li>The user enters a description of the certificate.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the certificate available for selection when adding academic information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>4.a</strong> The user adds a new academic level (UC-PS9).<ol>
+<li>The user returns to Step 1 to add the certificate.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The system determines that the certificate already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>certificate</code> (iHRIS_Certificate) in ihris-qualify</p>
+<h3>UC-PS11 Add or update an identification type</h3>
+<p>The Data Operations Manager updates a list of identification types that are available for selection within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new identification type is saved and available for selection when adding an identification.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of identification types.</li>
+<li>The system displays all identification types entered in the system.</li>
+<li>The user adds a new identification type.</li>
+<li>The user enters the description or name of the item.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the identification type available for selection when adding identifications.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the identification type already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is identical for both iHRIS Manage and Qualify. <em>(10/31/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>id_type</code> (iHRIS_PersonID_Type) in ihris-common</p>
+<h3>UC-PS12 Add or update a marital status</h3>
+<p>The Data Operations Manager adds a new marital status to the system that is available in selection lists.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The marital status is added to the system and is available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of marital statuses.</li>
+<li>The system displays all marital statuses entered in the system.</li>
+<li>The user adds a new marital status.</li>
+<li>The user enters a description for the marital status.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the marital status available for selection when adding demographic information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the marital status was already entered in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is the same for both iHRIS Manage and Qualify. <em>(10/31/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>marital_status</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PS13 Add or update a country</h3>
+<p>The Data Operations Manager updates the list of countries available for selection in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new or changed country is defined within the system and available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage lists of countries.</li>
+<li>The system displays all countries entered in the system.</li>
+<li>The user adds a new country.</li>
+<li>The user enters the two-letter country code.</li>
+<li>The user enters the ISO numeric code for the country (optional).</li>
+<li>The user selects whether the country is the primary country for the system.</li>
+<li>The user selects whether the country is used for location selection.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the country available for selection whenever adding geographical locations or nationalities/citizenships.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing country<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The user selects the country as the primary country.<ol>
+<li>The system displays the country first in all country selection menus.</li>
+</ol>
+</li>
+<li><strong>6.b</strong> The user selects more than one country as the primary country.<ol>
+<li>The system displays all primary countries at the top of selection menus in alphabetical order.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The user selects that the country is used for location selection.<ol>
+<li>The system makes the country available for selection when a location, such as an address, is being specified.</li>
+</ol>
+</li>
+<li><strong>8.a</strong> The system determines that the country and country code are already in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is the same for iHRIS Manage, iHRIS Plan and iHRIS Qualify. <em>(10/31/2007)</em></li>
+<li>Geographical locations are tied together from largest to smallest: country --&gt; region --&gt; district, state or province --&gt; county or sector. <em>(10/31/2007)</em></li>
+<li>The country list also displays nationalities for selection. Disabling the location selection limits the country to nationality selection only (new feature in version 3.0). <em>(10/31/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>country</code> (iHRIS_Country) in ihris-common</p>
+<h3>UC-PS14 Add or update a region</h3>
+<p>The Data Operations Manager updates the list of regions available for selection in the system and establishes the region's parent country.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new or changed region is defined within the system and available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage lists of regions.</li>
+<li>The system displays all countries entered in the system.</li>
+<li>The user selects the country where the region is located.</li>
+<li>The system displays all regions entered for that country.</li>
+<li>The user adds a new region.</li>
+<li>The user selects the name of the country inside which the new region is located.</li>
+<li>The user enters the name of the region.</li>
+<li>The user enters the code for the region.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the region available for reporting.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The user does not select a country.<ol>
+<li>The system provides only the option to add a new region.</li>
+<li>Skip to Step 5.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The user adds a new country (UC-PS13).<ol>
+<li>The user returns to Step 1 to add the region.</li>
+</ol>
+</li>
+<li><strong>6.b</strong> The system detects that the country was previously selected.<ol>
+<li>The system fills in the selected country.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The system determines that the region and its parent are the same as a location previously entered in the database.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is identical for iHRIS Manage and iHRIS Qualify. <em>(10/31/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>region</code> (iHRIS_Region) in ihris-common</p>
+<h3>UC-PS15 Add or update a district</h3>
+<p>The Data Operations Manager updates the list of districts available for selection in the system and establishes the district's parent region.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new or changed district is defined within the system and available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage lists of districts.</li>
+<li>The system displays all countries entered in the system.</li>
+<li>The user selects the country where the district is located.</li>
+<li>The system displays all regions entered for that country.</li>
+<li>The user selects the region where the district is located.</li>
+<li>The system displays all districts entered for that region.</li>
+<li>The user adds a new district.</li>
+<li>The user selects the name of the country and region inside which the new district is located.</li>
+<li>The user enters the name of the district.</li>
+<li>The user enters the code for the district.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the district available for selection when adding geographical locations.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user does not select a country.<ol>
+<li>The system provides the option to add a new district only.</li>
+<li>Skip to Step 7.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The user selects an existing district.<ol>
+<li>The system displays its information for editing.</li>
+</ol>
+</li>
+<li><strong>8.a</strong> The system detects that the country and region were previously selected.<ol>
+<li>The system fills in the selections for the district.</li>
+</ol>
+</li>
+<li><strong>9.a</strong> The systerm determines that the district and its parents are the same as a location previously entered in the database.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is identical for iHRIS Manage and iHRIS Qualify. <em>(10/31/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>district</code> (iHRIS_District) in ihris-common</p>
+<h3>UC-PS16 Add or update a county</h3>
+<p>The Data Operations Manager updates the list of counties available for selection in the system and establishes the county's parent district.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The new or changed county is defined within the system and available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage lists of counties.</li>
+<li>The system displays all countries entered in the system.</li>
+<li>The user selects the country where the county is located.</li>
+<li>The system displays a list of regions for that country.</li>
+<li>The user selects the region inside which the county is located.</li>
+<li>The system displays all districts entered for that region.</li>
+<li>The user selects the district where the county is located.</li>
+<li>The system displays all districts entered for that county.</li>
+<li>The user adds a new county.</li>
+<li>The user selects the country, region and district where the county is located.</li>
+<li>The user enters the name of the county.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the county available for selection whenever geographical locations are added.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The user does not select a country.<ol>
+<li>The system provides the option to add a new county only.</li>
+<li>Skip to Step 9.</li>
+</ol>
+</li>
+<li><strong>9.a</strong> The user selects an existing county.<ol>
+<li>The system displays all information entered for that county and provides the option to update that information.</li>
+</ol>
+</li>
+<li><strong>10.a</strong> The system detects that the country, region and district were previously selected.<ol>
+<li>The system fills in the previous selections for the county.</li>
+</ol>
+</li>
+<li><strong>11.a</strong> The system determines that the county and its parents are the same as a location previously entered in the database.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The use case is the same for iHRIS Manage and iHRIS Qualify. <em>(10/31/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>county</code> (iHRIS_County) in ihris-common</p>
+<h3>UC-PS17 Add or update a health facility</h3>
+<p>The Data Operations Manager adds a new health facility or updates an existing health facility in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The health facility is added to the system and is available for selection from lists in various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of health facilities.</li>
+<li>The system displays all health facilities entered in the system.</li>
+<li>The user adds a new health facility.</li>
+<li>The user enters the name of the health facility.</li>
+<li>The user enters a health facility identification code.</li>
+<li>The user adds contact information (UC-PS31).</li>
+<li>The user selects the country where the health facility is located.</li>
+<li>The system displays a list of districts in that country.</li>
+<li>The user selects the district where the health facility is located.</li>
+<li>The system displays a list of counties in that district.</li>
+<li>The user selects the county where the health facility is located (optional).</li>
+<li>The user selects the facility agent.</li>
+<li>The user selects the facility type.</li>
+<li>The user selects the status of the health facility.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the health facility available for selection.</li>
+<li>The system provides the option to update the health facility.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing health facility.<ol>
+<li>The system displays the health facility's record with options to edit any of the information.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The user adds the country, district or county.<ol>
+<li>The user returns to Step 1 to add the health facility.</li>
+</ol>
+</li>
+<li><strong>12.a</strong> The user adds the facility agent (UC-PS23).<ol>
+<li>The user returns to Step 1 to add the health facility.</li>
+</ol>
+</li>
+<li><strong>13.a</strong> The user adds the facility type (UC-PS24).<ol>
+<li>The user returns to Step 1 to add the health facility.</li>
+</ol>
+</li>
+<li><strong>14.a</strong> The user adds the facility status (UC-PS25).<ol>
+<li>The user returns to Step 1 to add the health facility.</li>
+</ol>
+</li>
+<li><strong>16.a</strong> The system determines that the health facility name already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The health facility identification code is optional and is numbers only. <em>(8/23/2006)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>health_facility</code> (iHRIS_HealthFacility) in ihris-qualify</p>
+<h3>UC-PS18 Associate a training institution with a health facility</h3>
+<p>The Data Operations Manager selects one or more training institutions that are associated with a particular health facility.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system. The health facility's record must have been previously created.</p>
+<p><strong>Success guarantee.</strong> The health facility is successfully associated with the training institution.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of health facilities.</li>
+<li>The system displays all health facilities entered in the system.</li>
+<li>The user selects the health facility to edit.</li>
+<li>The user selects the option to associate a training institution.</li>
+<li>The user selects the training institution(s) associated with the health facility.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the training institution with the health facility's record.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>5.a</strong> The user adds a training institution (UC-PS19).<ol>
+<li>The user returns to Step 1 to associate the training institution with the health facility.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training_institution</code> (iHRIS_ListByCountry) in ihris-common, <code>health_facility</code> (iHRIS_HealthFacility) in ihris-qualify, <code>training_institution</code> (iHRIS_QualifyTrainingInstitution) in ihris-qualify</p>
+<h3>UC-PS19 Add or update a training institution</h3>
+<p>The Data Operations Manager enters identifying information about a training institution so that it may be used within the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The training institution is successfully entered into the database and is available for selection in other use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of training institutions.</li>
+<li>The system displays all training institutions entered in the system.</li>
+<li>The user adds a training institution.</li>
+<li>The user enters the name of the training institution.</li>
+<li>The user enters the training institution's identification code (optional).</li>
+<li>The user adds contact information (UC-PS31).</li>
+<li>The user selects the country where the training institution is located.</li>
+<li>The system displays a list of districts within that country.</li>
+<li>The user selects the district where the training institution is located.</li>
+<li>The system displays a list of counties within that district.</li>
+<li>The user selects the county where the training institution is located (optional).</li>
+<li>The user selects the agent under which the training institution belongs.</li>
+<li>The user selects the status of the training institution.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the training institution information and provides the option to associate a health facility with a training institution (UC-PS20), add a cadre offered by a training institution (UC-PS21) or add inspection information for a training institution (UC-PS22).</li>
+<li>The system provides the option to update the training institution information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing training institution.<ol>
+<li>The system displays the training institution's record and provides options to update the information.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The user adds a new country, district or county.<ol>
+<li>The user returns to Step 1 to add the training institution.</li>
+</ol>
+</li>
+<li><strong>12.a</strong> The user adds a new facility agent (UC-PS23).<ol>
+<li>The user returns to Step 1 to add the training institution.</li>
+</ol>
+</li>
+<li><strong>13.a</strong> The user adds a new facility status (UC-PS25).<ol>
+<li>The user returns to Step 1 to add the training institution.</li>
+</ol>
+</li>
+<li><strong>14.a</strong> The system determines that the training institution has already been entered in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The institution/centre code is numbers only and is optional. <em>(8/23/2006)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training_institution</code> (iHRIS_ListByCountry) in ihris-common, <code>training_institution</code> (iHRIS_QualifyTrainingInstitution) in ihris-qualify</p>
+<h3>UC-PS20 Associate a health facility with a training institution</h3>
+<p>The Data Operations Manager selects one or more health facilities that are associated with a particular training institution.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system. The training institution's record must have been previously created.</p>
+<p><strong>Success guarantee.</strong> The training institution is successfully associated with the health facility.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage training institutions.</li>
+<li>The system displays all training institutions that have been entered in the system.</li>
+<li>The user selects a training institution.</li>
+<li>The system displays the training institution's record.</li>
+<li>The user selects the option to associate a health facility.</li>
+<li>The user selects the health facility or facilities associated with the training institution.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the health facility with the training institution's record.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>6.a</strong> The user adds a new health facility (UC-PS17).<ol>
+<li>The user returns to Step 1 to associate the health facility with the training institution.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training_institution</code> (iHRIS_ListByCountry) in ihris-common, <code>health_facility</code> (iHRIS_HealthFacility) in ihris-qualify, <code>training_institution</code> (iHRIS_QualifyTrainingInstitution) in ihris-qualify</p>
+<h3>UC-PS21 Add or update a pre-service training program</h3>
+<p>The Data Operations Manager associates a cadre with a training institution so that when a new training is added to a student's record, the cadre is available for selection when that training institution is selected.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training institution has been added to the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The program is associated with the training institution so that when the training institution is selected in other use cases, the program is displayed.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a training institution.</li>
+<li>The system displays all training institutions entered in the system.</li>
+<li>The user selects a training institution to edit.</li>
+<li>The system displays the training institution's record with all training programs entered for that institution.</li>
+<li>The user selects the option to add a training program or select an existing training program to edit.</li>
+<li>The user selects the cadre.</li>
+<li>The system displays today's date for the program's start date.</li>
+<li>The user changes the start date for the program, if necessary.</li>
+<li>If the program is no longer being offered, The user selects an end date for it.</li>
+<li>The user enters the recommended number of students for the program.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the program information with the training institution's record and provides the option to add another program or edit the existing programs.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>5.a</strong> The user selects an existing training program.<ol>
+<li>The system displays all of the training program's information and enables any field to be changed.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The user adds a cadre (UC-PS2).<ol>
+<li>The user returns to Step 1 to add the training program.</li>
+</ol>
+</li>
+<li><strong>6.b</strong> The system determines that a cadre has already been added for that training institution.<ol>
+<li>The system removes the cadre from the selection list.</li>
+</ol>
+</li>
+<li><strong>10.a</strong> The user does not enter a recommended number of students.<ol>
+<li>The system saves 0 by default.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training_program</code> (iHRIS_TrainingProgram) in ihris-qualify</p>
+<h3>UC-PS22 Enter inspection information</h3>
+<p>The Data Operations Manager records the details of a training institution's inspection.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P2</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training institution has already been added to the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The inspection information is saved with the training institution's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of training institutions.</li>
+<li>The system displays all training institutions entered in the system.</li>
+<li>The user selects the training institution to edit.</li>
+<li>The system displays the training institution's record.</li>
+<li>The user selects the option to add inspection information.</li>
+<li>The system displays today's date for the inspection date.</li>
+<li>The user changes the date of the inspection, if necessary.</li>
+<li>The user enters any notes about the inspection.</li>
+<li>The user selects whether the training institution passed or failed inspection.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system saves the inspection information and displays it with the training institution's record.</li>
+<li>The system saves the previous inspection information as historical data and displays it in the inspection history.</li>
+<li>The system provides the option to view the training institution's inspection history and update the current inspection information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>9.a</strong> The user does not select any inspection results.<ol>
+<li>The system selects Pass by default.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PS23 Add or update a facility agent</h3>
+<p>The Data Operations Manager adds or edits a facility agent for selection in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The facility agent is added to the system and available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage facility agents.</li>
+<li>The system displays all facility agents entered in the system.</li>
+<li>The user adds a new facility agent.</li>
+<li>The user enters a description for the facility agent.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the facility agent available for selection when adding facilities.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing facility agent.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the facility agent already exists in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>facility_agent</code> (I2CE_SimpleList) in ihris-qualify</p>
+<h3>UC-PS24 Add or update a facility type</h3>
+<p>The Data Operations Manager adds a new facility type for selection in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The facility type is added to the system and is available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of facility types.</li>
+<li>The system displays all facility types entered in the system.</li>
+<li>The user adds a new facility type.</li>
+<li>The user enters a description or name for the facility type.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the facility type available for selection when adding facilities.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the facility type has already been entered in the database.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is identical for iHRIS Manage and Qualify. <em>(10/31/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>facility_type</code> (I2CE_SimpleList) in ihris-common</p>
+<h3>UC-PS25 Add or update a facility status</h3>
+<p>The Data Operations Manager adds a new facility status for selection in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The facility status is added to the system and is available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of facility statuses.</li>
+<li>The system displays all facility statuses entered in the system.</li>
+<li>The user adds a new facility status.</li>
+<li>The user enters a description or name for the facility status.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the facility status available for selection when adding facilities.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the facility status has already been entered in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>facility_status</code> (I2CE_SimpleList) in ihris-qualify</p>
+<h3>UC-PS51 Add or update a verification change</h3>
+<p>The Data Operations Manager adds a new verification change option for selection in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps1">Data Operations Manager</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The verification change is added to the system and is available for selection within various use cases.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to manage the list of verification changes.</li>
+<li>The system displays all verification changes entered in the system.</li>
+<li>The user adds a new verification change.</li>
+<li>The user enters a description or name for the verification change.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system makes the verification change available for selection when recording verifications.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects an existing item.<ol>
+<li>The system opens the item for editing.</li>
+</ol>
+</li>
+<li><strong>5.a</strong> The system determines that the verification change has already been entered in the database.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>verify_change</code> (I2CE_SimpleList) in ihris-qualify</p>
+<h2>1.2 Record Management</h2>
+<p>Add a new record to the system and update records that have been entered into the system.</p>
+<ul>
+<li>Access these functions via the Add Person link on the main menu. <em>(10/15/2007)</em></li>
+</ul>
+<h2>1.2.1 General</h2>
+<p>This module enables entering general information about a person into his/her record that is not related to training, registration or licensing.</p>
+<ul>
+<li>These functions become available when a new record is added or when a person's record is displayed; this is the first editable screen that appears. <em>(10/15/2007)</em></li>
+</ul>
+<h3>UC-PS27 Enter a new record</h3>
+<p>The Records Officer creates an initial record for a person in the system.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P4</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Partially Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user must be logged in to the system. The personal title, nationality, country and district of residence have been entered in the system.</p>
+<p><strong>Success guarantee.</strong> The health worker's basic details are recorded in the system and a new record for the person is created.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add a new record.</li>
+<li>The user selects the title for the person (optional).</li>
+<li>The user enters the name of the person:<ul>
+<li>surname (required)</li>
+<li>first name (required)</li>
+<li>any other names</li>
+<li>suffix</li>
+</ul>
+</li>
+<li>The user selects the person's nationality / citizenship (required).</li>
+<li>The user selects the country where the person resides (required).</li>
+<li>The system displays all districts in the country.</li>
+<li>The user selects the district where the person resides (the home district; required).</li>
+<li>The system displays all counties within that district.</li>
+<li>The user selects the county where the person resides (the home county), if known.</li>
+<li>The user selects the person's home (permanent) country.</li>
+<li>The system displays all districts in that country.</li>
+<li>The user selects the person's home (permanent) district.</li>
+<li>The system displays all counties within that district.</li>
+<li>The user selects the person's home county.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system validates that the name does not already exist in the system.</li>
+<li>The system logs the system date as the entry date for the index.</li>
+<li>The system displays the new record and the option to add additional information.</li>
+<li>The system provides the option to update the name or other information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>15.a</strong> The system determines that the surname and first name combination match a record that is already in the system.<ol>
+<li>The system prompts the user to compare the two records and determine whether they are the same.</li>
+<li>The user selects the matching record and edits it, or continues editing the new record, if it is different.</li>
+</ol>
+</li>
+<li><strong>19.a</strong> The user selects the update option and changes the person's name.<ol>
+<li>The system saves the former name in the person's name history.</li>
+<li>The system provides the option to view the name history.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case generally occurs after the student has been admitted to a training institution or has received a registration or license. <em>(2/11/2008)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PS28 Add identification information</h3>
+<p>The Records Officer enters identifications into a person's record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The required identification types have been added to the system. The person has a record in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The identification information is saved to the database and displayed with the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add an identification to a person's record.</li>
+<li>The user selects a type of identification.</li>
+<li>The user enters the identification number.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the new identification information in the person's record.</li>
+<li>The system provides the option to update the identification.</li>
+<li>The user repeats Steps 1-6 for each required type of identification.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Identification checking will have to be implemented at the time of customization because requirements change so much depending on where the system is located. <em>(10/31/2007)</em></li>
+<li>This use case is the same in both iHRIS Manage and iHRIS Qualify. <em>(10/31/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PS29 Add demographic information</h3>
+<p>The Records Officer adds demographic information about a person to his or her record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The person has a record in the system. The user must be logged in to the system. The marital status and country, district and county have been entered into the system for selection.</p>
+<p><strong>Success guarantee.</strong> The demographic information is saved and is displayed with the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add demographic information to a person's record.</li>
+<li>The user sets the date of birth.</li>
+<li>The user selects the gender.</li>
+<li>The user selects the marital status.</li>
+<li>The user selects the country of birth.</li>
+<li>The system displays all districts in that country.</li>
+<li>The user selects the district of birth.</li>
+<li>The system displays all counties within that district.</li>
+<li>The user selects the county of birth for the person, if known.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the demographic information in the record.</li>
+<li>The system provides the option to update the demographic information.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is essentially the same for iHRIS Manage and iHRIS Qualify. <em>(10/31/2007)</em></li>
+<li>Country, district and county of birth data entry fields are implemented in iHRIS Qualify only. <em>(10/31/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>demographic</code> (iHRIS_Demographic) in ihris-common, <code>demographic</code> (iHRIS_QualifyDemographic) in ihris-qualify</p>
+<h3>UC-PS30 Add academic information</h3>
+<p>The Records Officer adds secondary education information about a person to his or her record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The person has a record in the system. The correct academic levels and certificates have been entered into the system. The user is logged in.</p>
+<p><strong>Success guarantee.</strong> The health worker's academic qualification details are recorded in the system and displayed with his/her record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add secondary education information to a person's record.</li>
+<li>The user enters the name of the secondary school that the person attended.</li>
+<li>The user selects the highest academic level achieved.</li>
+<li>The system displays all certificates for that academic level.</li>
+<li>The user selects the certificate that the person holds.</li>
+<li>The user enters the grade obtained (optional).</li>
+<li>The user enters the certificate number (optional).</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the academic information in the person's record.</li>
+<li>The system provides the option to update the academic information.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Academic information refers to any education that took place prior to entering the health training program. <em>(11/1/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PS31 Add contact information</h3>
+<p>The Records Officer adds any type of contact information for a person or institution.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>Subfunction</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The record exists in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The contact information is saved with the appropriate record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the type of contact to add to a record.</li>
+<li>The user enters the full mailing address.</li>
+<li>The user enters the telephone number.</li>
+<li>The user enters the alternate telephone number.</li>
+<li>The user enters the fax number.</li>
+<li>The user enters the email address.</li>
+<li>The user enters notes about the contact.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the contact information in the record.</li>
+<li>The system provides the option to update the contact information.</li>
+<li>The user repeats Steps 1-10 for each contact.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>1.a</strong> The system determines that a contact of that type has previously been added.<ol>
+<li>The system does not provide the option to allow another contact of the same type.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is the same for iHRIS Manage and iHRIS Qualify, although the specific types of contacts for each are slightly different. <em>(10/31/2007)</em></li>
+<li>All fields are optional. <em>(10/31/2007)</em></li>
+<li>This subfunction is referenced wherever contact information additions or updates are required. <em>(10/31/2007)</em></li>
+<li>Institutions only have one contact type (as opposed to people records). The contact type does not need to be selected, as the contact information can be entered with the institution's other details. <em>(2/11/2008)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>contact</code> (iHRIS_Contact) in ihris-common</p>
+<h3>UC-PS32 Record notes</h3>
+<p>The Records Officer or Registration Supervisor records notes about a particular person and saves them with the person's record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a>, <a href="roles.html#ihris-a-ps3">Registration Supervisor</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The person has a record in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The notes are entered and saved with the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add a note to a person's record.</li>
+<li>The user enters any notes or special information about the person.</li>
+<li>The system displays today's date as the note entry date.</li>
+<li>The user changes the note entry date, if it is different.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system maintains and displays a log of all notes that were entered in reverse chronological order.</li>
+<li>The system provides an option to update each note.</li>
+</ol>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The notes area is an open area that can be used for any purpose. <em>(10/31/2007)</em></li>
+<li>This use case is the same for iHRIS Manage and Qualify. <em>(10/31/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>notes</code> (iHRIS_Notes) in ihris-common</p>
+<h3>UC-PS50 Record verification</h3>
+<p>The Records Officer records a verification of a user's record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>3.1.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The verification change has been entered in the system. The user is logged in.</p>
+<p><strong>Success guarantee.</strong> The verification change is saved in the person's verification history and can be viewed in the record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to record a verification in a record.</li>
+<li>The user selects the date of the verification.</li>
+<li>The user selects any verification changes made.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system saves the verification changes to the person's verification history and displays the latest verification change in the record.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The user does not select a date.<ol>
+<li>The system records today's date by default.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is a new use case to fulfill a verification requirement requested by the Uganda users of the system. <em>(10/7/2008)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>record_verify</code> (iHRIS_RecordVerify) in ihris-qualify</p>
+<h2>1.2.2 Training</h2>
+<p>This module enables adding a pre-service training program to a person's record. It includes optional functions for recording national exam results.</p>
+<ul>
+<li>These functions are available when clicking Add Training in a person's record. <em>(10/15/2007)</em></li>
+<li>The person's pre-service training program determines the health worker's cadre in the system. A person may have completed more than one training program and thus be registered/licensed in more than one cadre. <em>(10/15/2007)</em></li>
+<li>At least one pre-service training program, with a graduation date, must be added to a person's record before the person can be registered. Each registration/license is linked to one pre-service training program. <em>(10/15/2007)</em></li>
+</ul>
+<h3>UC-PS35 Index a training</h3>
+<p>The Records Officer records details about the training program that the student is enrolled in.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The training institution and its cadres have already been entered into the system. The initial record for the student has been created. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The student's record is updated and saved with the training information, and the student is assigned an index number for that training.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add a training to a person's record.</li>
+<li>The user enters the index number for the training.</li>
+<li>The user selects the date of intake (optional).</li>
+<li>The user selects the training institution where the student has been admitted.</li>
+<li>The system displays the cadres offered by the training institution.</li>
+<li>The user selects the cadre where the student is to be indexed.</li>
+<li>The user enters the training end (graduation) date if the student has completed training.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the record with the training information and provides the option to document a disruption (UC-PS36), record an application to sit for the exam (UC-PS40) or issue a registration (UC-PS40).</li>
+<li>The system provides the option to correct the information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The user selects the option to generate a new index number.<ol>
+<li>The system generates the next index number available upon saving the record.</li>
+</ol>
+</li>
+<li><strong>4.a</strong> The user selects the country where the person was trained if the training was outside the country.<ol>
+<li>The user enters the name of the training institution, if known.</li>
+<li>Continue to Step 6.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The user sets the graduation date for before the intake date.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+<li><strong>7.b</strong> The user enters a foreign country where the training took place.<ol>
+<li>The system prompts the user to enter the graduation date.</li>
+</ol>
+</li>
+<li><strong>9.a</strong> The user leaves the end date blank.<ol>
+<li>The system marks the training as "in progress."</li>
+<li>The system provides the option to set a graduation date (UC-PS38).</li>
+<li>The system does not provide the option to issue a registration.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Once a student has passed an exam for a particular cadre inside the country, the person cannot enroll in another training in that same cadre. <em>(9/22/2006)</em></li>
+<li>A training or upgrade, either inside or outside the country, can be added for any person at any time. <em>(6/4/2007)</em></li>
+<li>The training end date (graduation date) signifies that the person is eligible for registration. <em>(6/4/2007)</em></li>
+<li>To ensure the system is universal, the student can be registered in more than one instance of the same training program (cadre). It is up to the data entry person to ensure this information is entered correctly. Some implementations may be customized to prevent double-entry of cadres. <em>(7/26/2007)</em></li>
+<li>The training may be the student's first or an upgrade. The training program may be inside or outside the country. Training information may be recorded separately, when the student enters a training program, or as part of the registration process, after training is complete. <em>(11/1/2007)</em></li>
+<li>Index number is not unique. A new index number is issued with each training, and index numbers may be duplicated. The index number is linked to the training rather than to the entire record. The index number is used primarily for searching and display. <em>(2/11/2008)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>training</code> (iHRIS_Training) in ihris-qualify</p>
+<h3>UC-PS36 Record a discontinuation</h3>
+<p>If a student has discontinued a training program, the Records Officer notes this with the student's record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The appropriate disruption category and disruption reason have been added to the system. The student record has been created and the enrollment in a training program has been recorded in the student's record. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The disruption in training is correctly recorded with the student's record, and no registrations or licenses can be issued to the student.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a training in the student's record.</li>
+<li>The user selects the option to disrupt training.</li>
+<li>The user selects the disruption category.</li>
+<li>The system displays a list of specific reasons for disruption in that disruption category.</li>
+<li>The user selects the specific disruption reason.</li>
+<li>The user selects the date of disruption.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the record with the updated training disruption information and provides the option to document a resumption. (UC-PS37)</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The system determines that a disruption has already been recorded for the training and no resumption has been recorded.<ol>
+<li>The system does not provide the option to disrupt training again.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The user enters a disruption date that comes before the date of intake.<ol>
+<li>The system displays an error and prompts to enter a valid date.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This use case is triggered by the report of a training disruption from the training institution to the Licensing and Certification Authority. <em>(7/14/2006)</em></li>
+<li>This use case is optional and is not needed if disruptions are not recorded. <em>(6/4/2007)</em></li>
+<li>All fields are required if used. <em>(8/2/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PS37 Record a resumption</h3>
+<p>If the student has resumed training after a disruption, the Records Officer notes this along with the resumption date.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The student's training disruption has been recorded with the student's record in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The resumption in training is correctly recorded with the student's record, and a graduation date can be set for the training program.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a training in a health student's record.</li>
+<li>The user selects the option to resume training.</li>
+<li>The user enters the date of resumption.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the record with the new resumption information and provides the option to document a disruption (UC-PS36) as well as the option to set a graduation date (UC-PS38).</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user enters a resumption date that occurred before the disruption date.<ol>
+<li>The system displays an error message and will not continue.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PS38 Set a graduation date</h3>
+<p>The Records Officer sets a graduation date for a student to indicate that the student has completed training.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The user is logged in to the system. The student has entered a training program, which has been entered in the system, but has not completed or discontinued it.</p>
+<p><strong>Success guarantee.</strong> The graduation date is recorded in the student's record, and a registration can be issued to the student.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a training in a student's record.</li>
+<li>The user selects the option to set a graduation date.</li>
+<li>The user enters the graduation date.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the graduation date, marks the training as complete and provides the option to issue a registration to the student (UC-PS40).</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>2.a</strong> The system determines that the training was marked discontinued.<ol>
+<li>The system does not provide the option to set a graduation date.</li>
+</ol>
+</li>
+<li><strong>3.a</strong> The user sets a graduation date that falls before the intake date.<ol>
+<li>The system generates an error message and will not proceed.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PS39 Record exam details</h3>
+<p>The Examination Supervisor or Records Officer documents a student's application to take the national exam and the results.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps4">Examination Supervisor</a>, <a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The student has completed a training and training information has been entered in the student's record. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The student's record is successfully updated with their examination application information and the results of the examination that s/he took.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a training in a student's record.</li>
+<li>The user selects the option to record an exam.</li>
+<li>The system displays today's date for the application date.</li>
+<li>The user changes the date, if it is different.</li>
+<li>The user indicates whether the student's required application materials have been received.</li>
+<li>The user indicates whether the student's required application materials have been approved.</li>
+<li>The user enters the endorser information, if known:<ul>
+<li>name</li>
+<li>date of endorsement</li>
+<li>qualifications</li>
+</ul>
+</li>
+<li>The system displays today's date for the exam date.</li>
+<li>The user changes the exam date, if it is different.</li>
+<li>The user selects the number of tries for the exam:<ul>
+<li>First</li>
+<li>Re-try</li>
+<li>Final</li>
+</ul>
+</li>
+<li>The user selects the examination results:<ul>
+<li>pass</li>
+<li>fail</li>
+<li>did not sit for exam</li>
+</ul>
+</li>
+<li>The user enters the examination number.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the record with the exam application information.</li>
+<li>The system provides the option to correct the exam information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>5.a</strong> The user does not select an option.<ol>
+<li>The system saves yes by default.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The user does not select an option.<ol>
+<li>The system saves yes by default.</li>
+</ol>
+</li>
+<li><strong>9.a</strong> The user sets the exam date for before the application date.<ol>
+<li>The system displays an error and will not continue.</li>
+</ol>
+</li>
+<li><strong>10.a</strong> The user selects final.<ol>
+<li>The system does not allow the exam results to be updated.</li>
+</ol>
+</li>
+<li><strong>11.a</strong> The user selects fail or did not sit for exam.<ol>
+<li>The system provides the option to update the exam information.</li>
+<li>When exam performance is re-recorded, the system displays the new results and saves the previous results to an examination history.</li>
+</ol>
+</li>
+<li><strong>11.b</strong> The user selects pass.<ol>
+<li>The system does not allow any more updates to the exam information.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Exams are optional in the base system. In some implementations, entering exam results may be required, in which case a registration cannot be issued until a passing exam result is recorded by an Examination Supervisor, a special role authorized to enter examination results. When exams are optional, the Records Officer can enter exam results. <em>(6/4/2007)</em></li>
+<li>If the exam is passed, the graduation date must also be recorded so a registration can be added. <em>(7/19/2007)</em></li>
+<li>This use case is triggered when a student has completed a training program and has submitted an application to sit for the final exam (conducted annually). <em>(11/1/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>exam</code> (iHRIS_Exam) in ihris-qualify</p>
+<h2>1.2.3 Licensing</h2>
+<p>This module captures registration, licensing and other post-graduation actions, such as private practice licensing, out migration verification requests and deployment records.</p>
+<ul>
+<li>These functions are only enabled once a pre-service training program with a graduation date is recorded in a health worker's record. <em>(10/15/2007)</em></li>
+<li>These functions can be accessed by clicking Update Registrations/Licenses beside the training program in the Training Information section of a person's record. <em>(10/15/2007)</em></li>
+</ul>
+<h3>UC-PS40 Issue a registration</h3>
+<p>The Registration Supervisor documents an application for registration and issues a registration number.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P7</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps3">Registration Supervisor</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The student completed a training (the end date of the training has been recorded). The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The student's record is successfully updated and a registration number is issued; a license can now be issued to the health worker.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a training in a student's record.</li>
+<li>The user selects the option to add a registration.</li>
+<li>The user enters the registration number.</li>
+<li>The system displays today's date for the application date.</li>
+<li>The user changes the application date, if it is different.</li>
+<li>The system displays today's date for the registration date.</li>
+<li>The user changes the registration date, if it is different.</li>
+<li>The user selects whether the practice type is temporary or permanent.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system validates that the registration number does not already exist in the system.</li>
+<li>The system displays the record with the registration information and provides the option to issue a new license (UC-PS41).</li>
+<li>The system provides the option to correct the registration information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The user selects the option to generate a registration number.<ol>
+<li>The system generates the next registration number when the record is saved.</li>
+</ol>
+</li>
+<li><strong>8.a</strong> The user does not select a practice type.<ol>
+<li>The system enters permanent by default.</li>
+</ol>
+</li>
+<li><strong>10.a</strong> The system determines that the number exists in the database.<ol>
+<li>The system prompts the user to correct the number or generate a new number.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This is not reflected in this use case, but there can be a duplicate registration number for different cadres. This should only occur when entering historical data; new data should have a unique registration number every time. <em>(7/14/2006)</em></li>
+<li>This use case is triggered when a person applies for registration. <em>(11/1/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>registration</code> (iHRIS_Registration) in ihris-common, <code>registration</code> (iHRIS_Registration) in ihris-qualify</p>
+<h3>UC-PS41 Issue a license</h3>
+<p>The Registration Supervisor issues a new license to a health care professional who has successfully registered, with a license number.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps3">Registration Supervisor</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The person has been issued a registration, and that has been recorded in his/her record. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The license is successfully added to the health worker's record, and a license number is issued to the health worker.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a registration in a health worker's record.</li>
+<li>The user selects the option to add a license.</li>
+<li>The system displays the registration number for the license number.</li>
+<li>The user enters a new license number, if it is different.</li>
+<li>The system displays today's date for the license start date.</li>
+<li>The user changes the start date for the license, if it is different.</li>
+<li>The user enters the end date for the license.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the record with the license information and provides these options: Renew a license (UC-PS45); Add a completed continuing education course (UC-PS45); Issue or renew a private practice license (UC-PS45); Document a disciplinary action (UC-PS45).</li>
+<li>The system provides the option to correct the license information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>4.a</strong> The user generates a new license number rather than entering one.<ol>
+<li>The system generates the next license number when the record is saved.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The system determines that the end date entered comes before or is the same as the start date.<ol>
+<li>The system displays an error and prompts the user to enter a different end date.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>In the ideal situation, the registration number will be used to identify every transaction, including issuing a license. However, a separate license number may be needed. The use case provides the option of entering a different license number or reusing the registration number as the license number. <em>(6/5/2007)</em></li>
+<li>This use case is triggered when a health worker applies for a new license. <em>(11/1/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>license</code> (iHRIS_License) in ihris-qualify</p>
+<h3>UC-PS42 Renew a license</h3>
+<p>The Registration Supervisor records a license renewal.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps3">Registration Supervisor</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The person has previously been issued a license number in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The record is successfully updated with the new license information and number; the previous license is recorded in the person's license history.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a license in a health worker's record.</li>
+<li>The user selects the option to renew the license.</li>
+<li>The system displays the previously issued license number for the license number of the renewal.</li>
+<li>The system displays today's date for the license start date.</li>
+<li>The user changes the start date for the renewal, if it is different.</li>
+<li>The user enters the end date for the renewal.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system saves the previous license to the person's license history.</li>
+<li>The system displays the record with the latest license and provides an option to display the license history.</li>
+<li>The system provides the option to correct the license information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>5.a</strong> The system determines that the start date entered comes before the end date for a previous license.<ol>
+<li>The system displays an error and prompts the user to correct the date.</li>
+</ol>
+</li>
+<li><strong>6.a</strong> The system determines that the end date entered comes before or the same as the start date.<ol>
+<li>The system displays an error message and prompts the user to enter a new end date.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>In the ideal situation, the registration number will be used to identify every transaction, including issuing a license. However, a separate license number may be needed. The use case covers both situations by reusing the previous license number as the license number for the renewal. <em>(6/5/2007)</em></li>
+<li>This use case is triggered when a worker applies for a license renewal. <em>(2/11/2008)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>license</code> (iHRIS_License) in ihris-qualify</p>
+<h3>UC-PS43 Add continuing education credits</h3>
+<p>The Registration Supervisor documents continuing medical education requirements that have been fulfilled by the health worker to meet license renewal requirements.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P6</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps3">Registration Supervisor</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The person has been issued a license, which has been recorded in his/her record. The appropriate continuing education courses have been entered in the system for selection. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The record is successfully updated with the completed continuing education courses.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a license in a health worker's record.</li>
+<li>The user selects the option to record a continuing education course.</li>
+<li>The user selects a continuing education course that was completed.</li>
+<li>The user enters the number of credit hours that were earned.</li>
+<li>The user enters the start and end dates for the course.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the completed course information in the person's record.</li>
+<li>The system provides the option to correct the continuing education information.</li>
+<li>The user repeats Steps 1-8 for each course that the health worker has completed.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>5.a</strong> The system determines that the end date comes before the start date.<ol>
+<li>The system displays an error message and prompts the user to enter a new end date.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>continuing_education</code> (iHRIS_ContinuingEducation) in ihris-common, <code>person_training</code> (iHRIS_PersonTraining) in ihris-qualify</p>
+<h3>UC-PS44 Issue a private practice license</h3>
+<p>The Registration Supervisor issues a private practice license to a health care worker applying to operate a private health facility.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps3">Registration Supervisor</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The worker has received a license, which has been recorded in the system. The health facility where the person will be practicing has been entered in the database. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The private practice license number is issued and the person's record is updated with the private practice license information.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a license in a health worker's record.</li>
+<li>The user selects the option to issue a private practice license.</li>
+<li>The system displays the registration number for the private practice license number.</li>
+<li>The user enters a private practice license number, if it is different.</li>
+<li>The system displays today's date for the license start date.</li>
+<li>The user changes the start date for the license, if it is different.</li>
+<li>The user enters the end date for the license.</li>
+<li>The user enters the inspection results, if known.</li>
+<li>The system displays today's date for the inspection date.</li>
+<li>The user changes the inspection date, if it is different.</li>
+<li>The user selects the health facility where the person will be practicing.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the record with the private practice license information.</li>
+<li>The system provides the option to correct the private practice license information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>4.a</strong> The user generates a new private practice license number.<ol>
+<li>The system generates the next private practice license number when the record is saved.</li>
+</ol>
+</li>
+<li><strong>7.a</strong> The system determines that the end date comes before or is the same as the start date.<ol>
+<li>The system displays an error message and prompts the user to enter a new end date.</li>
+</ol>
+</li>
+<li><strong>13.a</strong> The system determines that a private practice license has previously been issued for that person.<ol>
+<li>The system saves the previous license as historical data and provides the option to review the past private practice license history.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>In the ideal situation, the registration number will be used to identify every transaction, including issuing a license. However, a separate private practice license number may be needed. The use case provides the option of entering a different license number or reusing the registration number as the license number. <em>(6/5/2007)</em></li>
+<li>This use case is triggered by an application for a private practice license. <em>(11/1/2007)</em></li>
+<li>The private practice license is issued and maintained separately from the health worker's license to practice. <em>(2/11/2008)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>private_practice</code> (iHRIS_PrivatePractice) in ihris-qualify</p>
+<h3>UC-PS45 Document a disciplinary action</h3>
+<p>If a member has been disciplined, the Registration Supervisor notes this with the member's record.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps3">Registration Supervisor</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The health worker has been issued a license, which has been recorded in the system. The appropriate disciplinary category and reason have been added to the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The disciplinary action is correctly recorded with the member's record. If the license is suspended, the system prevents any further license renewals or related information to be recorded.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a license in a health worker's record.</li>
+<li>The user selects the option to record a disciplinary action.</li>
+<li>The user selects the disciplinary action category.</li>
+<li>The system displays a list of specific reasons for that category.</li>
+<li>The user selects the specific disciplinary action.</li>
+<li>The system displays today's date for the date of the disciplinary action.</li>
+<li>The user changes the date of the disciplinary action, if it is different.</li>
+<li>The user indicates whether the license is suspended (yes or no).</li>
+<li>The user enters any notes about the disciplinary action.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the record with the updated disciplinary action information.</li>
+<li>The system provides the option to correct the disciplinary action information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>8.a</strong> The user suspends the license.<ol>
+<li>The system does not permit any new actions recorded on the record other than documenting a reinstatement (UC-PS46).</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Disciplinary actions can only be taken after licensing. <em>(6/4/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>disciplinary_action</code> (iHRIS_DisciplinaryAction) in ihris-qualify</p>
+<h3>UC-PS46 Document a reinstatement</h3>
+<p>If the member has been reinstated after a disciplinary action, the Registration Supervisor notes this along with the reinstatement date.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps3">Registration Supervisor</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The health worker has been issued a license that has been suspended, and this has been recorded in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The reinstatement is correctly recorded with the health worker's record, and license renewals and other actions can be recorded for that person's current license.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to update a license in a health worker's record.</li>
+<li>The user selects the option to enter a reinstatement.</li>
+<li>The user enters the date of the reinstatement.</li>
+<li>The user enters any notes about the reinstatement.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the record with the new reinstatement information and makes all license options available.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>3.a</strong> The system determines that the reinstatement date occurred before the suspension date.<ol>
+<li>The system displays an error and prompts the user to change the reinstatement date.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms:</strong> no form name occurs in the title (not linked).</p>
+<h3>UC-PS47 Update deployment information</h3>
+<p>The Registration Supervisor or Records Officer enters or updates a health care worker's deployment information.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a>, <a href="roles.html#ihris-a-ps3">Registration Supervisor</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The person has been registered, which has been entered in the system. The health care facility where the person is deployed has been entered into the database. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The deployment information is entered correctly and saved with the person's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to add deployment information to a health worker's record.</li>
+<li>The user selects the health facility where the person has been deployed.</li>
+<li>The user enters the job or post title.</li>
+<li>The user enters the job or post code, if known.</li>
+<li>The system displays today's date for the date of deployment.</li>
+<li>The user changes the date of deployment., if it is different.</li>
+<li>The user saves the record (UC-ICE2).</li>
+<li>The system displays the record with the deployment information.</li>
+<li>The system provides the option to correct the deployment information.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>8.a</strong> The system determines that a deployment has previously been entered for this health care worker.<ol>
+<li>The system saves the past deployment to the person's deployment history and provides an option to view all past deployments.</li>
+</ol>
+</li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>deployment</code> (iHRIS_Deployment) in ihris-qualify</p>
+<h3>UC-PS48 Record out migration verification</h3>
+<p>When a verification request is received for a health care worker, the Records Officer documents such details as the country the person is migrating to and the reason for migrating, which may be useful in analyzing health worker retention issues.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Primary actors</td>
+<td><a href="roles.html#ihris-a-ps2">Records Officer</a></td>
+</tr>
+<tr>
+<td>Level</td>
+<td>User</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Implementation status</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preconditions.</strong> The person has been issued a registration in the system. The user must be logged in to the system.</p>
+<p><strong>Success guarantee.</strong> The details of out migration are captured by the system during the process of verification and saved with the health worker's record.</p>
+<p><strong>Main success scenario</strong></p>
+<ol>
+<li>The user selects the option to record out migration verification in a person's record.</li>
+<li>The user selects the country where the request came from.</li>
+<li>The user enters the worker's new address in the foreign country, if known.</li>
+<li>The user selects the reason given for out migration.</li>
+<li>The user records the name of the organization requesting the verification (country board), if known.</li>
+<li>The system displays today's date for the date of the verification request.</li>
+<li>The user changes the date of the verification request, if it is different.</li>
+<li>The user saves the record (UC-ICE9).</li>
+<li>The system displays the record with the out migration details.</li>
+<li>The system provides the option to update the out migration details.</li>
+<li>The user repeats Steps 1-8 for each out migration verification request.</li>
+</ol>
+<p><strong>Extensions</strong></p>
+<ul>
+<li><strong>9.a</strong> The system determines that a verification request for out migration has previously been recorded for this person.<ol>
+<li>The system saves and displays all out migration verification requests that have been recorded.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>A request for verification for out migration does not mean that the health care worker has actually out migrated; that cannot be determined with this system. <em>(11/1/2007)</em></li>
+</ul>
+<p><strong>iHRIS 4.3.3 forms</strong> (derived by name matching): <code>out_migration</code> (iHRIS_OutMigration) in ihris-qualify</p>
+<h2>1.3 Requirements</h2>
+<h3>REQ-PS3 Index numbers</h3>
+<p>Each training receives a unique index number, which is tied to that training program in that cadre. An index number can be typed or automatically generated. The index number is used only to identify the training and may be issued by the training institution.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS35</p>
+<h3>REQ-PS4 Upgrades</h3>
+<p>When a person receives a subsequent training in another cadre other than the one s/he is initially registered in, this is called an upgrade. If the training is received in-country, the person cannot receive an upgrade in the same cadre. (The person can receive upgrades for the same cadre when trained outside the country.)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS35</p>
+<h3>REQ-PS5 Training location</h3>
+<p>A training may be received inside or outside the country.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS35</p>
+<h3>REQ-PS6 Examination numbers</h3>
+<p>Recording examination results is optional. The examination number must be unique.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS39</p>
+<h3>REQ-PS7 Examination attempts</h3>
+<p>A person can retake the exam three times by default. They must receive a passing exam result on one try to be eligible for registration, if exam results are required. If they do not receive a passing result in three tries, no more examination results can be recorded for that person.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS39</p>
+<h3>REQ-PS8 Private practice license numbers</h3>
+<p>When a person opens a clinic, s/he receives a private practice license in their name associated with the registration that they will be practicing. The registration number is reused for the private practice license number by default, or a new number may be entered.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS44</p>
+<h3>REQ-PS9 Disciplinary action</h3>
+<p>Disciplinary action can only be recorded after a license has been issued.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS45</p>
+<h3>REQ-PS10 License renewal dates</h3>
+<p>The start date for a license renewal cannot occur before the end date of the previous license period.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS43, UC-PS42</p>
+<h3>REQ-PS11 Registration numbers</h3>
+<p>The registration number is the person's main identification number. It must be unique within a cadre. It can be reused for all licenses and license renewals.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS40</p>
+<h3>REQ-PS12 Registration requirements</h3>
+<p>The only details about a training that must be recorded are the cadre and training end date. This specifies which cadre a person has received pre-service training in and makes that person eligible for registration in that cadre.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS35, UC-PS40</p>
+<h3>REQ-PS13 Multiple registrations</h3>
+<p>Registration numbers are tied to cadres. When a person receives more than one registration in multiple cadres, a new registration number is issued for each subsequent registration.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS40</p>
+<h3>REQ-PS14 License numbers</h3>
+<p>When the person applies for a license, the registration number is reused for the license number by default. A new license number may be entered. License numbers do not have to be unique.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS41</p>
+<h3>REQ-PS15 License renewals</h3>
+<p>When a license is renewed, the original license number is provided for the renewal by default. A new license number may not be typed in.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><a href="roles.html#ihris-2009-staff-02">2009 iHRIS staff member 02 (identity withheld)</a></td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS43, UC-PS42</p>
+<h3>REQ-PS16 Suspension of license</h3>
+<p>If a license is suspended, no actions can be performed on the person's record until the license is reinstated.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priority</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Business Rule</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Implemented</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+<p>Referenced by: UC-PS45</p>
+<h2>Cited but not described</h2>
+<p>The report cites these, but describes none of them:</p>
+<ul>
+<li>UC-PS26 <em>Add or update a personal title</em> (cited by A-PS1)</li>
+</ul></div>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

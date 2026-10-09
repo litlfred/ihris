@@ -1,0 +1,1787 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IHRIS Task List (4.0.6) · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / IHRIS Task List (4.0.6)</div>
+<h1>IHRIS Task List (4.0.6)</h1>
+<div class="wiki">
+<p>This is a list of all the tasks available in the iHRIS System</p>
+<h2>cached_forms_can_administer</h2>
+<p>The task cached_forms_can_administer is defined in the module CachedForms of the package I2CE.</p>
+<ul>
+<li>Description:Allows administering of cached forms</li>
+</ul>
+<h2>can_change_own_password</h2>
+<p>The task can_change_own_password is defined in the module LoginPage of the package I2CE.</p>
+<ul>
+<li>Description:Can change their own password</li>
+</ul>
+<h2>can_configure_modules</h2>
+<p>The task can_configure_modules is defined in the module admin of the package I2CE.</p>
+<ul>
+<li>Description:Can configure modules</li>
+</ul>
+<h2>can_configure_system</h2>
+<p>The task can_configure_system is defined in the module ihris-common of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can access the general configure system menu</li>
+</ul>
+<h2>can_create_or_edit_users</h2>
+<p>The task can_create_or_edit_users is defined in the module UserForm of the package I2CE.</p>
+<ul>
+<li>Description:Can create or edit the users in the system.</li>
+</ul>
+<h2>can_edit_all_database_lists</h2>
+<p>The task can_edit_all_database_lists is defined in the module Lists of the package I2CE.</p>
+<ul>
+<li>Description:Can edit all the lists stored in the database</li>
+<li>Can perform the following sub-tasks: can_edit_database_list_continuing_education_course, can_edit_all_geographic_database_lists, can_edit_database_lists, can_view_all_database_lists, can_edit_database_list_cadre, can_edit_all_job_structure_database_lists, can_edit_all_organization_database_lists, can_edit_all_employee_database_lists, can_edit_position_database_lists, can_edit_all_manage_positions_database_lists, can_edit_all_training_course_database_lists</li>
+</ul>
+<h2>can_edit_all_employee_database_lists</h2>
+<p>The task can_edit_all_employee_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit all employee database lists</li>
+<li>Can perform the following sub-tasks: can_edit_database_list_marital_status, can_edit_database_list_edu_type, can_edit_database_list_degree, can_edit_database_list_id_type, can_edit_database_list_language, can_edit_database_list_accident_type, can_edit_database_list_disciplinary_action_type, can_edit_employee_database_lists, can_view_all_employee_database_lists, can_edit_database_list_benefit_type, can_edit_database_list_pos_change_reason, can_edit_database_list_confirmation_type, can_edit_database_list_competency_evaluation, can_edit_database_lists_competency</li>
+</ul>
+<h2>can_edit_all_geographic_database_lists</h2>
+<p>The task can_edit_all_geographic_database_lists is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit all geography data</li>
+<li>Can perform the following sub-tasks: can_edit_database_list_currency, can_edit_database_list_country, can_edit_database_list_region, can_edit_database_list_district, can_edit_database_list_county, can_edit_geographic_database_lists, can_view_all_geographic_database_lists</li>
+</ul>
+<h2>can_edit_all_job_structure_database_lists</h2>
+<p>The task can_edit_all_job_structure_database_lists is defined in the module ihris-common-Job of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit all job structure database lists</li>
+<li>Can perform the following sub-tasks: can_view_all_job_structure_database_lists, can_edit_database_list_cadre, can_edit_database_list_classification, can_edit_database_list_job, can_edit_database_list_salary_grade</li>
+</ul>
+<h2>can_edit_all_manage_positions_database_lists</h2>
+<p>The task can_edit_all_manage_positions_database_lists is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit all information about positions</li>
+<li>Can perform the following sub-tasks: can_view_all_manage_positions_database_lists, can_edit_database_list_position_type, can_edit_database_list_position, can_edit_manage_positions_database_lists, can_edit_database_list_salary_source</li>
+</ul>
+<h2>can_edit_all_organization_database_lists</h2>
+<p>The task can_edit_all_organization_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit all organizational database lists</li>
+<li>Can perform the following sub-tasks: can_edit_database_list_facility, can_edit_database_list_facility_type, can_edit_database_list_council, can_edit_organization_database_lists, can_view_all_organization_database_lists, can_edit_database_list_department</li>
+</ul>
+<h2>can_edit_all_planning_database_lists</h2>
+<p>The task can_edit_all_planning_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit all planning database lists</li>
+<li>Can perform the following sub-tasks: can_edit_database_list_establishment_type, can_edit_database_list_establishment_period, can_edit_database_list_establishment</li>
+</ul>
+<h2>can_edit_all_training_course_database_lists</h2>
+<p>The task can_edit_all_training_course_database_lists is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit all lists assoicated with the training module</li>
+<li>Can perform the following sub-tasks: can_edit_database_list_continuing_education_course, can_view_all_training_course_database_lists, can_edit_database_lists, can_view_database_list_continuing_education_course, can_edit_database_list_training_course, can_edit_database_list_scheduled_training_course, can_edit_database_list_training_course_status, can_edit_database_list_training_course_requestor, can_edit_database_list_training_course_evaluation, can_edit_database_list_training_course_category, can_edit_database_list_training_institution, can_edit_database_list_training_funder, person_can_edit_child_form_scheduled_training_course</li>
+</ul>
+<h2>can_edit_database_list_accident_type</h2>
+<p>The task can_edit_database_list_accident_type is defined in the module accident of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Edit the workplace accident type list</li>
+<li>Can perform the following sub-tasks: can_edit_database_lists, can_edit_employee_database_lists, can_view_database_list_accident_type</li>
+</ul>
+<h2>can_edit_database_list_benefit_type</h2>
+<p>The task can_edit_database_list_benefit_type is defined in the module ihris-manage-Benefit of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit the benefit type database list</li>
+<li>Can perform the following sub-tasks: can_edit_employee_database_lists, can_view_database_list_benefit_type</li>
+</ul>
+<h2>can_edit_database_list_cadre</h2>
+<p>The task can_edit_database_list_cadre is defined in the module ihris-common-Cadre of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the cadre list</li>
+<li>Can perform the following sub-tasks: can_view_database_list_cadre</li>
+</ul>
+<h2>can_edit_database_list_cl_asource</h2>
+<p>The task can_edit_database_list_cl_asource is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_asource</li>
+</ul>
+<h2>can_edit_database_list_cl_cstype</h2>
+<p>The task can_edit_database_list_cl_cstype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_cstype</li>
+</ul>
+<h2>can_edit_database_list_cl_currency</h2>
+<p>The task can_edit_database_list_cl_currency is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_currency</li>
+</ul>
+<h2>can_edit_database_list_cl_day</h2>
+<p>The task can_edit_database_list_cl_day is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_day</li>
+</ul>
+<h2>can_edit_database_list_cl_disagg</h2>
+<p>The task can_edit_database_list_cl_disagg is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_disagg</li>
+</ul>
+<h2>can_edit_database_list_cl_disease</h2>
+<p>The task can_edit_database_list_cl_disease is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_disease</li>
+</ul>
+<h2>can_edit_database_list_cl_disstat</h2>
+<p>The task can_edit_database_list_cl_disstat is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_disstat</li>
+</ul>
+<h2>can_edit_database_list_cl_dsource</h2>
+<p>The task can_edit_database_list_cl_dsource is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_dsource</li>
+</ul>
+<h2>can_edit_database_list_cl_dstype</h2>
+<p>The task can_edit_database_list_cl_dstype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_dstype</li>
+</ul>
+<h2>can_edit_database_list_cl_dtype</h2>
+<p>The task can_edit_database_list_cl_dtype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_dtype</li>
+</ul>
+<h2>can_edit_database_list_cl_fperiod</h2>
+<p>The task can_edit_database_list_cl_fperiod is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_fperiod</li>
+</ul>
+<h2>can_edit_database_list_cl_gboundary_type</h2>
+<p>The task can_edit_database_list_cl_gboundary_type is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_gboundary_type</li>
+</ul>
+<h2>can_edit_database_list_cl_gcode_country</h2>
+<p>The task can_edit_database_list_cl_gcode_country is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_gcode_country</li>
+</ul>
+<h2>can_edit_database_list_cl_gender</h2>
+<p>The task can_edit_database_list_cl_gender is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_gender</li>
+</ul>
+<h2>can_edit_database_list_cl_glevel</h2>
+<p>The task can_edit_database_list_cl_glevel is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_glevel</li>
+</ul>
+<h2>can_edit_database_list_cl_glocation</h2>
+<p>The task can_edit_database_list_cl_glocation is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_glocation</li>
+</ul>
+<h2>can_edit_database_list_cl_hif1</h2>
+<p>The task can_edit_database_list_cl_hif1 is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_hif1</li>
+</ul>
+<h2>can_edit_database_list_cl_hif2</h2>
+<p>The task can_edit_database_list_cl_hif2 is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_hif2</li>
+</ul>
+<h2>can_edit_database_list_cl_income</h2>
+<p>The task can_edit_database_list_cl_income is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_income</li>
+</ul>
+<h2>can_edit_database_list_cl_logical</h2>
+<p>The task can_edit_database_list_cl_logical is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_logical</li>
+</ul>
+<h2>can_edit_database_list_cl_metype</h2>
+<p>The task can_edit_database_list_cl_metype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_metype</li>
+</ul>
+<h2>can_edit_database_list_cl_month</h2>
+<p>The task can_edit_database_list_cl_month is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_month</li>
+</ul>
+<h2>can_edit_database_list_cl_mult</h2>
+<p>The task can_edit_database_list_cl_mult is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_mult</li>
+</ul>
+<h2>can_edit_database_list_cl_operand</h2>
+<p>The task can_edit_database_list_cl_operand is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_operand</li>
+</ul>
+<h2>can_edit_database_list_cl_orphan</h2>
+<p>The task can_edit_database_list_cl_orphan is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_orphan</li>
+</ul>
+<h2>can_edit_database_list_cl_otype</h2>
+<p>The task can_edit_database_list_cl_otype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_otype</li>
+</ul>
+<h2>can_edit_database_list_cl_periodicity</h2>
+<p>The task can_edit_database_list_cl_periodicity is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_periodicity</li>
+</ul>
+<h2>can_edit_database_list_cl_preg</h2>
+<p>The task can_edit_database_list_cl_preg is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_preg</li>
+</ul>
+<h2>can_edit_database_list_cl_pstatus</h2>
+<p>The task can_edit_database_list_cl_pstatus is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_pstatus</li>
+</ul>
+<h2>can_edit_database_list_cl_ptype</h2>
+<p>The task can_edit_database_list_cl_ptype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_ptype</li>
+</ul>
+<h2>can_edit_database_list_cl_quarter</h2>
+<p>The task can_edit_database_list_cl_quarter is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_quarter</li>
+</ul>
+<h2>can_edit_database_list_cl_race</h2>
+<p>The task can_edit_database_list_cl_race is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_race</li>
+</ul>
+<h2>can_edit_database_list_cl_sector</h2>
+<p>The task can_edit_database_list_cl_sector is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_sector</li>
+</ul>
+<h2>can_edit_database_list_cl_sex</h2>
+<p>The task can_edit_database_list_cl_sex is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_sex</li>
+</ul>
+<h2>can_edit_database_list_cl_special_value</h2>
+<p>The task can_edit_database_list_cl_special_value is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_special_value</li>
+</ul>
+<h2>can_edit_database_list_cl_stype</h2>
+<p>The task can_edit_database_list_cl_stype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_stype</li>
+</ul>
+<h2>can_edit_database_list_cl_tpop</h2>
+<p>The task can_edit_database_list_cl_tpop is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_tpop</li>
+</ul>
+<h2>can_edit_database_list_cl_unit</h2>
+<p>The task can_edit_database_list_cl_unit is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_unit</li>
+</ul>
+<h2>can_edit_database_list_cl_value_type</h2>
+<p>The task can_edit_database_list_cl_value_type is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_value_type</li>
+</ul>
+<h2>can_edit_database_list_cl_vstatus</h2>
+<p>The task can_edit_database_list_cl_vstatus is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_vstatus</li>
+</ul>
+<h2>can_edit_database_list_cl_vulnstat</h2>
+<p>The task can_edit_database_list_cl_vulnstat is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_vulnstat</li>
+</ul>
+<h2>can_edit_database_list_cl_week</h2>
+<p>The task can_edit_database_list_cl_week is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_week</li>
+</ul>
+<h2>can_edit_database_list_cl_year</h2>
+<p>The task can_edit_database_list_cl_year is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit database code list cl_year</li>
+</ul>
+<h2>can_edit_database_list_classification</h2>
+<p>The task can_edit_database_list_classification is defined in the module ihris-common-Job of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the classification list</li>
+<li>Can perform the following sub-tasks: can_edit_job_structure_database_lists, can_view_database_list_classification</li>
+</ul>
+<h2>can_edit_database_list_competency</h2>
+<p>The task can_edit_database_list_competency is defined in the module simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the competency list</li>
+<li>Can perform the following sub-tasks: can_edit_employee_database_lists, can_view_database_list_competency</li>
+</ul>
+<h2>can_edit_database_list_competency_evaluation</h2>
+<p>The task can_edit_database_list_competency_evaluation is defined in the module person-simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the competency evaluation list</li>
+<li>Can perform the following sub-tasks: can_edit_employee_database_lists, can_view_database_list_competency_evaluation</li>
+</ul>
+<h2>can_edit_database_list_competency_type</h2>
+<p>The task can_edit_database_list_competency_type is defined in the module simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the competency type list</li>
+<li>Can perform the following sub-tasks: can_edit_employee_database_lists, can_view_database_list_competency_type</li>
+</ul>
+<h2>can_edit_database_list_confirmation_type</h2>
+<p>The task can_edit_database_list_confirmation_type is defined in the module ihris-manage-confirmation of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit the confirmation type database list</li>
+<li>Can perform the following sub-tasks: can_edit_employee_database_lists, can_view_database_list_confirmation_type</li>
+</ul>
+<h2>can_edit_database_list_continuing_education_course</h2>
+<p>The task can_edit_database_list_continuing_education_course is defined in the module CEUs of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the continuing education list</li>
+<li>Can perform the following sub-tasks: can_edit_training_course_database_lists, can_view_database_list_continuing_education_course</li>
+</ul>
+<h2>can_edit_database_list_council</h2>
+<p>The task can_edit_database_list_council is defined in the module ManageRegistration of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit the council database list</li>
+<li>Can perform the following sub-tasks: can_edit_organization_database_lists, can_view_database_list_council</li>
+</ul>
+<h2>can_edit_database_list_country</h2>
+<p>The task can_edit_database_list_country is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit country list</li>
+<li>Can perform the following sub-tasks: can_edit_geographic_database_lists, can_view_database_list_country</li>
+</ul>
+<h2>can_edit_database_list_county</h2>
+<p>The task can_edit_database_list_county is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit country list</li>
+<li>Can perform the following sub-tasks: can_edit_geographic_database_lists, can_view_database_list_county</li>
+</ul>
+<h2>can_edit_database_list_currency</h2>
+<p>The task can_edit_database_list_currency is defined in the module Currency of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit currency information</li>
+<li>Can perform the following sub-tasks: can_edit_geographic_database_lists, can_view_database_list_currency</li>
+</ul>
+<h2>can_edit_database_list_degree</h2>
+<p>The task can_edit_database_list_degree is defined in the module PersonEducation of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit degree type database lists</li>
+<li>Can perform the following sub-tasks: can_edit_employee_database_lists, can_view_database_lists_degree</li>
+</ul>
+<h2>can_edit_database_list_department</h2>
+<p>The task can_edit_database_list_department is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Edit the department list</li>
+<li>Can perform the following sub-tasks: can_edit_organization_database_lists, can_view_database_list_department</li>
+</ul>
+<h2>can_edit_database_list_disciplinary_action_type</h2>
+<p>The task can_edit_database_list_disciplinary_action_type is defined in the module disciplinary_action of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Edit the workplace disciplinary_action type list</li>
+<li>Can perform the following sub-tasks: can_edit_database_lists, can_edit_employee_database_lists, can_view_database_list_disciplinary_action_type</li>
+</ul>
+<h2>can_edit_database_list_district</h2>
+<p>The task can_edit_database_list_district is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit district list</li>
+<li>Can perform the following sub-tasks: can_edit_geographic_database_lists, can_view_database_list_country</li>
+</ul>
+<h2>can_edit_database_list_edu_type</h2>
+<p>The task can_edit_database_list_edu_type is defined in the module PersonEducation of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit education type database lists</li>
+<li>Can perform the following sub-tasks: can_edit_employee_database_lists, can_view_database_lists_edu_type</li>
+</ul>
+<h2>can_edit_database_list_establishment</h2>
+<p>The task can_edit_database_list_establishment is defined in the module establishment of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit the establishment database list</li>
+<li>Can perform the following sub-tasks: can_edit_planning_database_lists, can_view_database_list_establishment</li>
+</ul>
+<h2>can_edit_database_list_establishment_period</h2>
+<p>The task can_edit_database_list_establishment_period is defined in the module establishment of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit the establishment period database list</li>
+<li>Can perform the following sub-tasks: can_edit_planning_database_lists, can_view_database_list_establishment_period</li>
+</ul>
+<h2>can_edit_database_list_establishment_type</h2>
+<p>The task can_edit_database_list_establishment_type is defined in the module establishment of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit the establishment type database list</li>
+<li>Can perform the following sub-tasks: can_edit_planning_database_lists, can_view_database_list_establishment_type</li>
+</ul>
+<h2>can_edit_database_list_facility</h2>
+<p>The task can_edit_database_list_facility is defined in the module Facility of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the facility list</li>
+<li>Can perform the following sub-tasks: can_edit_organization_database_lists, can_view_database_list_facility</li>
+</ul>
+<h2>can_edit_database_list_facility_type</h2>
+<p>The task can_edit_database_list_facility_type is defined in the module Facility of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the facility type list</li>
+<li>Can perform the following sub-tasks: can_edit_organization_database_lists, can_view_database_list_facility_type</li>
+</ul>
+<h2>can_edit_database_list_id_type</h2>
+<p>The task can_edit_database_list_id_type is defined in the module PersonID of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit the id_type database list</li>
+<li>Can perform the following sub-tasks: can_edit_employee_database_lists, can_view_database_list_id_type</li>
+</ul>
+<h2>can_edit_database_list_job</h2>
+<p>The task can_edit_database_list_job is defined in the module ihris-common-Job of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the job list</li>
+<li>Can perform the following sub-tasks: can_edit_job_structure_database_lists, can_view_database_list_job</li>
+</ul>
+<h2>can_edit_database_list_language</h2>
+<p>The task can_edit_database_list_language is defined in the module PersonLanguage of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit the language database list</li>
+<li>Can perform the following sub-tasks: can_edit_employee_database_lists, can_view_database_list_language</li>
+</ul>
+<h2>can_edit_database_list_marital_status</h2>
+<p>The task can_edit_database_list_marital_status is defined in the module PersonDemographic of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit the department marital status list.</li>
+<li>Can perform the following sub-tasks: can_view_database_list_marital_status, can_edit_employee_database_lists</li>
+</ul>
+<h2>can_edit_database_list_pos_change_reason</h2>
+<p>The task can_edit_database_list_pos_change_reason is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Edit the pos_change_reason list</li>
+<li>Can perform the following sub-tasks: can_edit_employee_database_lists, can_view_database_list_pos_change_reason</li>
+</ul>
+<h2>can_edit_database_list_position</h2>
+<p>The task can_edit_database_list_position is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Edit the position list</li>
+<li>Can perform the following sub-tasks: can_edit_manage_positions_database_lists, can_view_database_list_position</li>
+</ul>
+<h2>can_edit_database_list_position_type</h2>
+<p>The task can_edit_database_list_position_type is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Edit the position_type list</li>
+<li>Can perform the following sub-tasks: can_edit_manage_positions_database_lists, can_view_database_list_position_type</li>
+</ul>
+<h2>can_edit_database_list_region</h2>
+<p>The task can_edit_database_list_region is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit region list</li>
+<li>Can perform the following sub-tasks: can_edit_geographic_database_lists, can_view_database_list_country</li>
+</ul>
+<h2>can_edit_database_list_salary_grade</h2>
+<p>The task can_edit_database_list_salary_grade is defined in the module ihris-manage-Job of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Edit the salary_grade list</li>
+<li>Can perform the following sub-tasks: can_edit_job_structure_database_lists, can_view_database_list_salary_grade</li>
+</ul>
+<h2>can_edit_database_list_salary_source</h2>
+<p>The task can_edit_database_list_salary_source is defined in the module ihris-manage-Salary of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Edit the salary_source list</li>
+<li>Can perform the following sub-tasks: can_edit_manage_positions_database_lists, can_view_database_list_salary_source</li>
+</ul>
+<h2>can_edit_database_list_scheduled_training_course</h2>
+<p>The task can_edit_database_list_scheduled_training_course is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the scheduled training course category list</li>
+</ul>
+<h2>can_edit_database_list_training_course</h2>
+<p>The task can_edit_database_list_training_course is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>
+<p>Description:Edit the training course list</p>
+</li>
+<li>
+<p>Can perform the following sub-tasks: can_edit_training_course_database_lists, can_view_database_list_training_course</p>
+</li>
+</ul>
+<h2>can_edit_database_list_training_course_category</h2>
+<p>The task can_edit_database_list_training_course_category is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the training course category list</li>
+<li>Can perform the following sub-tasks: can_edit_training_course_database_lists, can_view_database_list_training_course_category</li>
+</ul>
+<h2>can_edit_database_list_training_course_evaluation</h2>
+<p>The task can_edit_database_list_training_course_evaluation is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the training course evaluation list</li>
+<li>Can perform the following sub-tasks: can_edit_training_course_database_lists, can_view_database_list_training_course_evaluation</li>
+</ul>
+<h2>can_edit_database_list_training_course_requestor</h2>
+<p>The task can_edit_database_list_training_course_requestor is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the training course requestor list</li>
+</ul>
+<h2>can_edit_database_list_training_course_status</h2>
+<p>The task can_edit_database_list_training_course_status is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the training course status list</li>
+<li>Can perform the following sub-tasks: can_edit_training_course_database_lists, can_view_database_list_training_course_status</li>
+</ul>
+<h2>can_edit_database_list_training_funder</h2>
+<p>The task can_edit_database_list_training_funder is defined in the module training-institution of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the training funder list</li>
+<li>Can perform the following sub-tasks: can_edit_training_course_database_lists, can_view_database_list_training_funder</li>
+</ul>
+<h2>can_edit_database_list_training_institution</h2>
+<p>The task can_edit_database_list_training_institution is defined in the module training-institution of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the training institutions list</li>
+</ul>
+<h2>can_edit_database_lists</h2>
+<p>The task can_edit_database_lists is defined in the module Lists of the package I2CE.</p>
+<ul>
+<li>Description:Can edit some of the lists stored in the database</li>
+<li>Can perform the following sub-tasks: can_view_database_lists</li>
+</ul>
+<h2>can_edit_database_lists_competency</h2>
+<p>The task can_edit_database_lists_competency is defined in the module simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit all list associated with competency</li>
+<li>Can perform the following sub-tasks: can_edit_database_list_competency, can_edit_database_list_competency_type, can_edit_database_list_competency_evaluation, can_edit_employee_database_lists, can_view_database_lists_competency</li>
+</ul>
+<h2>can_edit_employee_database_lists</h2>
+<p>The task can_edit_employee_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit some employee database lists</li>
+<li>Can perform the following sub-tasks: can_edit_database_lists, can_view_employee_database_lists</li>
+</ul>
+<h2>can_edit_geographic_database_lists</h2>
+<p>The task can_edit_geographic_database_lists is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit some geography data</li>
+<li>Can perform the following sub-tasks: can_edit_database_lists, can_view_geographic_database_lists</li>
+</ul>
+<h2>can_edit_job_structure_database_lists</h2>
+<p>The task can_edit_job_structure_database_lists is defined in the module ihris-common-Job of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit some job structure database lists</li>
+<li>Can perform the following sub-tasks: can_edit_position_database_lists, can_view_job_structure_database_lists</li>
+</ul>
+<h2>can_edit_manage_positions_database_lists</h2>
+<p>The task can_edit_manage_positions_database_lists is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit some information about positions</li>
+<li>Can perform the following sub-tasks: can_view_manage_positions_database_lists, can_edit_position_database_lists</li>
+</ul>
+<h2>can_edit_organization_database_lists</h2>
+<p>The task can_edit_organization_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit some organizational database lists</li>
+<li>Can perform the following sub-tasks: can_edit_database_lists, can_view_organization_database_lists</li>
+</ul>
+<h2>can_edit_planning_database_lists</h2>
+<p>The task can_edit_planning_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit some planning database lists</li>
+</ul>
+<h2>can_edit_position_database_lists</h2>
+<p>The task can_edit_position_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit some position database lists</li>
+<li>Can perform the following sub-tasks: can_view_position_database_lists</li>
+</ul>
+<h2>can_edit_scheduled_training_course</h2>
+<p>The task can_edit_scheduled_training_course is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit a scheduled training course</li>
+</ul>
+<h2>can_edit_training_course_database_lists</h2>
+<p>The task can_edit_training_course_database_lists is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit some lists assoicated with the training module</li>
+<li>Can perform the following sub-tasks: can_edit_database_lists</li>
+</ul>
+<h2>can_evaluate_person_scheduled_training_course</h2>
+<p>The task can_evaluate_person_scheduled_training_course is defined in the module training-simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:Evaluate a perons's cheduled training course</li>
+</ul>
+<h2>can_hide_list_members</h2>
+<p>The task can_hide_list_members is defined in the module Lists of the package I2CE.</p>
+<ul>
+<li>Description:Can hide list members</li>
+</ul>
+<h2>can_view_all_database_lists</h2>
+<p>The task can_view_all_database_lists is defined in the module Lists of the package I2CE.</p>
+<ul>
+<li>
+<p>Description:Can view all the lists stored in the database</p>
+</li>
+<li>
+<p>Can perform the following sub-tasks: can_view_database_list_continuing_education_course, can_view_database_lists, can_view_database_list_cl_asource, can_view_database_list_cl_cstype, can_view_database_list_cl_currency, can_view_database_list_cl_day, can_view_database_list_cl_disagg, can_view_database_list_cl_disease, can_view_database_list_cl_disstat, can_view_database_list_cl_dsource,</p>
+</li>
+</ul>
+<p>can_view_database_list_cl_dstype, can_view_database_list_cl_dtype, can_view_database_list_cl_fperiod, can_view_database_list_cl_gboundary_type, can_view_database_list_cl_gcode_country, can_view_database_list_cl_gender, can_view_database_list_cl_glevel, can_view_database_list_cl_glocation, can_view_database_list_cl_hif1, can_view_database_list_cl_hif2, can_view_database_list_cl_income, can_view_database_list_cl_logical, can_view_database_list_cl_metype, can_view_database_list_cl_month, can_view_database_list_cl_mult, can_view_database_list_cl_operand, can_view_database_list_cl_orphan, can_view_database_list_cl_otype, can_view_database_list_cl_periodicity, can_view_database_list_cl_preg, can_view_database_list_cl_pstatus, can_view_database_list_cl_ptype, can_view_database_list_cl_quarter, can_view_database_list_cl_race, can_view_database_list_cl_sector, can_view_database_list_cl_sex, can_view_database_list_cl_special_value, can_view_database_list_cl_stype, can_view_database_list_cl_tpop, can_view_database_list_cl_unit, can_view_database_list_cl_value_type, can_view_database_list_cl_vstatus, can_view_database_list_cl_vulnstat, can_view_database_list_cl_week, can_view_database_list_cl_year, can_view_database_list_cadre, can_view_all_job_structure_database_lists, can_view_all_organization_database_lists, can_view_all_employee_database_lists, can_view_position_database_lists, can_view_all_manage_positions_database_lists</p>
+<h2>can_view_all_employee_database_lists</h2>
+<p>The task can_view_all_employee_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view all employee database lists</li>
+<li>Can perform the following sub-tasks: can_view_database_list_marital_status, can_view_database_list_edu_type, can_view_database_list_degree, can_view_database_list_id_type, can_view_database_list_language, can_view_database_list_accident_type, can_view_database_list_disciplinary_action_type, can_view_database_list_establishment_type, can_view_database_list_establishment_period, can_view_database_list_establishment, can_view_employee_database_lists, can_view_database_list_benefit_type, can_view_database_list_pos_change_reason, can_view_database_list_confirmation_type, can_view_database_list_competency_evaluation, can_view_database_lists_competency</li>
+</ul>
+<h2>can_view_all_geographic_database_lists</h2>
+<p>The task can_view_all_geographic_database_lists is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view all geography data</li>
+<li>Can perform the following sub-tasks: can_view_database_list_currency, can_view_database_list_country, can_view_database_list_region, can_view_database_list_district, can_view_database_list_county, can_view_geographic_database_lists</li>
+</ul>
+<h2>can_view_all_job_structure_database_lists</h2>
+<p>The task can_view_all_job_structure_database_lists is defined in the module ihris-common-Job of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view all job structure database lists</li>
+<li>Can perform the following sub-tasks: can_view_database_list_cadre, can_view_database_list_classification, can_view_database_list_job, can_view_database_list_salary_grade</li>
+</ul>
+<h2>can_view_all_manage_positions_database_lists</h2>
+<p>The task can_view_all_manage_positions_database_lists is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view all information about positions</li>
+<li>Can perform the following sub-tasks: can_view_manage_positions_database_lists, can_view_database_list_position_type, can_view_database_list_position, can_view_database_list_salary_source</li>
+</ul>
+<h2>can_view_all_organization_database_lists</h2>
+<p>The task can_view_all_organization_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view all organizational database lists</li>
+<li>Can perform the following sub-tasks: can_view_database_list_facility, can_view_database_list_facility_type, can_view_database_list_council, can_view_organization_database_lists, can_view_database_list_department</li>
+</ul>
+<h2>can_view_all_planning_database_lists</h2>
+<p>The task can_view_all_planning_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view all planning database lists</li>
+</ul>
+<h2>can_view_all_training_course_database_lists</h2>
+<p>The task can_view_all_training_course_database_lists is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:View all lists assoicated with the training module</li>
+<li>Can perform the following sub-tasks: can_view_database_list_continuing_education_course, can_view_database_lists, can_view_database_list_training_course, can_view_database_list_scheduled_training_course, can_view_database_list_training_course_status, can_view_database_list_training_course_requestor, can_view_database_list_training_course_evaluation, can_view_database_list_training_course_category, can_view_database_list_training_institution, can_view_database_list_training_funder, can_view_training_course_database_lists</li>
+</ul>
+<h2>can_view_background_processes</h2>
+<p>The task can_view_background_processes is defined in the module BackgroundProcess of the package I2CE.</p>
+<ul>
+<li>Description:Can view background processes</li>
+</ul>
+<h2>can_view_database_list_accident_type</h2>
+<p>The task can_view_database_list_accident_type is defined in the module accident of the package iHRIS Manage.</p>
+<ul>
+<li>Description:View the workplace accident type list</li>
+</ul>
+<h2>can_view_database_list_benefit_type</h2>
+<p>The task can_view_database_list_benefit_type is defined in the module ihris-manage-Benefit of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view the benefit type database list</li>
+</ul>
+<h2>can_view_database_list_cadre</h2>
+<p>The task can_view_database_list_cadre is defined in the module ihris-common-Cadre of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the cadre list</li>
+</ul>
+<h2>can_view_database_list_cl_asource</h2>
+<p>The task can_view_database_list_cl_asource is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_asource</li>
+</ul>
+<h2>can_view_database_list_cl_cstype</h2>
+<p>The task can_view_database_list_cl_cstype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_cstype</li>
+</ul>
+<h2>can_view_database_list_cl_currency</h2>
+<p>The task can_view_database_list_cl_currency is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_currency</li>
+</ul>
+<h2>can_view_database_list_cl_day</h2>
+<p>The task can_view_database_list_cl_day is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_day</li>
+</ul>
+<h2>can_view_database_list_cl_disagg</h2>
+<p>The task can_view_database_list_cl_disagg is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_disagg</li>
+</ul>
+<h2>can_view_database_list_cl_disease</h2>
+<p>The task can_view_database_list_cl_disease is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_disease</li>
+</ul>
+<h2>can_view_database_list_cl_disstat</h2>
+<p>The task can_view_database_list_cl_disstat is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_disstat</li>
+</ul>
+<h2>can_view_database_list_cl_dsource</h2>
+<p>The task can_view_database_list_cl_dsource is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_dsource</li>
+</ul>
+<h2>can_view_database_list_cl_dstype</h2>
+<p>The task can_view_database_list_cl_dstype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_dstype</li>
+</ul>
+<h2>can_view_database_list_cl_dtype</h2>
+<p>The task can_view_database_list_cl_dtype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_dtype</li>
+</ul>
+<h2>can_view_database_list_cl_fperiod</h2>
+<p>The task can_view_database_list_cl_fperiod is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_fperiod</li>
+</ul>
+<h2>can_view_database_list_cl_gboundary_type</h2>
+<p>The task can_view_database_list_cl_gboundary_type is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_gboundary_type</li>
+</ul>
+<h2>can_view_database_list_cl_gcode_country</h2>
+<p>The task can_view_database_list_cl_gcode_country is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_gcode_country</li>
+</ul>
+<h2>can_view_database_list_cl_gender</h2>
+<p>The task can_view_database_list_cl_gender is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_gender</li>
+</ul>
+<h2>can_view_database_list_cl_glevel</h2>
+<p>The task can_view_database_list_cl_glevel is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_glevel</li>
+</ul>
+<h2>can_view_database_list_cl_glocation</h2>
+<p>The task can_view_database_list_cl_glocation is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_glocation</li>
+</ul>
+<h2>can_view_database_list_cl_hif1</h2>
+<p>The task can_view_database_list_cl_hif1 is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_hif1</li>
+</ul>
+<h2>can_view_database_list_cl_hif2</h2>
+<p>The task can_view_database_list_cl_hif2 is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_hif2</li>
+</ul>
+<h2>can_view_database_list_cl_income</h2>
+<p>The task can_view_database_list_cl_income is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_income</li>
+</ul>
+<h2>can_view_database_list_cl_logical</h2>
+<p>The task can_view_database_list_cl_logical is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_logical</li>
+</ul>
+<h2>can_view_database_list_cl_metype</h2>
+<p>The task can_view_database_list_cl_metype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_metype</li>
+</ul>
+<h2>can_view_database_list_cl_month</h2>
+<p>The task can_view_database_list_cl_month is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_month</li>
+</ul>
+<h2>can_view_database_list_cl_mult</h2>
+<p>The task can_view_database_list_cl_mult is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_mult</li>
+</ul>
+<h2>can_view_database_list_cl_operand</h2>
+<p>The task can_view_database_list_cl_operand is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_operand</li>
+</ul>
+<h2>can_view_database_list_cl_orphan</h2>
+<p>The task can_view_database_list_cl_orphan is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_orphan</li>
+</ul>
+<h2>can_view_database_list_cl_otype</h2>
+<p>The task can_view_database_list_cl_otype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_otype</li>
+</ul>
+<h2>can_view_database_list_cl_periodicity</h2>
+<p>The task can_view_database_list_cl_periodicity is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_periodicity</li>
+</ul>
+<h2>can_view_database_list_cl_preg</h2>
+<p>The task can_view_database_list_cl_preg is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_preg</li>
+</ul>
+<h2>can_view_database_list_cl_pstatus</h2>
+<p>The task can_view_database_list_cl_pstatus is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_pstatus</li>
+</ul>
+<h2>can_view_database_list_cl_ptype</h2>
+<p>The task can_view_database_list_cl_ptype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_ptype</li>
+</ul>
+<h2>can_view_database_list_cl_quarter</h2>
+<p>The task can_view_database_list_cl_quarter is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_quarter</li>
+</ul>
+<h2>can_view_database_list_cl_race</h2>
+<p>The task can_view_database_list_cl_race is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_race</li>
+</ul>
+<h2>can_view_database_list_cl_sector</h2>
+<p>The task can_view_database_list_cl_sector is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_sector</li>
+</ul>
+<h2>can_view_database_list_cl_sex</h2>
+<p>The task can_view_database_list_cl_sex is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_sex</li>
+</ul>
+<h2>can_view_database_list_cl_special_value</h2>
+<p>The task can_view_database_list_cl_special_value is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_special_value</li>
+</ul>
+<h2>can_view_database_list_cl_stype</h2>
+<p>The task can_view_database_list_cl_stype is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_stype</li>
+</ul>
+<h2>can_view_database_list_cl_tpop</h2>
+<p>The task can_view_database_list_cl_tpop is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_tpop</li>
+</ul>
+<h2>can_view_database_list_cl_unit</h2>
+<p>The task can_view_database_list_cl_unit is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_unit</li>
+</ul>
+<h2>can_view_database_list_cl_value_type</h2>
+<p>The task can_view_database_list_cl_value_type is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_value_type</li>
+</ul>
+<h2>can_view_database_list_cl_vstatus</h2>
+<p>The task can_view_database_list_cl_vstatus is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_vstatus</li>
+</ul>
+<h2>can_view_database_list_cl_vulnstat</h2>
+<p>The task can_view_database_list_cl_vulnstat is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_vulnstat</li>
+</ul>
+<h2>can_view_database_list_cl_week</h2>
+<p>The task can_view_database_list_cl_week is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_week</li>
+</ul>
+<h2>can_view_database_list_cl_year</h2>
+<p>The task can_view_database_list_cl_year is defined in the module SDMX-HD-CodeLists of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view database code list cl_year</li>
+</ul>
+<h2>can_view_database_list_classification</h2>
+<p>The task can_view_database_list_classification is defined in the module ihris-common-Job of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the classification list</li>
+</ul>
+<h2>can_view_database_list_competency</h2>
+<p>The task can_view_database_list_competency is defined in the module simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the competency list</li>
+<li>Can perform the following sub-tasks: can_view_employee_database_lists</li>
+</ul>
+<h2>can_view_database_list_competency_evaluation</h2>
+<p>The task can_view_database_list_competency_evaluation is defined in the module person-simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the competency evaluation list</li>
+<li>Can perform the following sub-tasks: can_view_employee_database_lists</li>
+</ul>
+<h2>can_view_database_list_competency_type</h2>
+<p>The task can_view_database_list_competency_type is defined in the module simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the competency type list</li>
+<li>Can perform the following sub-tasks: can_view_employee_database_lists</li>
+</ul>
+<h2>can_view_database_list_confirmation_type</h2>
+<p>The task can_view_database_list_confirmation_type is defined in the module ihris-manage-confirmation of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view the confirmation type database list</li>
+</ul>
+<h2>can_view_database_list_continuing_education_course</h2>
+<p>The task can_view_database_list_continuing_education_course is defined in the module CEUs of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the continuing education list</li>
+</ul>
+<h2>can_view_database_list_council</h2>
+<p>The task can_view_database_list_council is defined in the module ManageRegistration of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view the council database list</li>
+</ul>
+<h2>can_view_database_list_country</h2>
+<p>The task can_view_database_list_country is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view country list</li>
+</ul>
+<h2>can_view_database_list_county</h2>
+<p>The task can_view_database_list_county is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view country list</li>
+</ul>
+<h2>can_view_database_list_currency</h2>
+<p>The task can_view_database_list_currency is defined in the module Currency of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view currency information</li>
+</ul>
+<h2>can_view_database_list_degree</h2>
+<p>The task can_view_database_list_degree is defined in the module PersonEducation of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view degree type database lists</li>
+</ul>
+<h2>can_view_database_list_department</h2>
+<p>The task can_view_database_list_department is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:View the department list</li>
+<li>Can perform the following sub-tasks: can_view_organization_database_lists</li>
+</ul>
+<h2>can_view_database_list_disciplinary_action_type</h2>
+<p>The task can_view_database_list_disciplinary_action_type is defined in the module disciplinary_action of the package iHRIS Manage.</p>
+<ul>
+<li>Description:View the workplace disciplinary_action type list</li>
+</ul>
+<h2>can_view_database_list_district</h2>
+<p>The task can_view_database_list_district is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view district list</li>
+</ul>
+<h2>can_view_database_list_edu_type</h2>
+<p>The task can_view_database_list_edu_type is defined in the module PersonEducation of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view education type database lists</li>
+</ul>
+<h2>can_view_database_list_establishment</h2>
+<p>The task can_view_database_list_establishment is defined in the module establishment of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view the establishment database list</li>
+</ul>
+<h2>can_view_database_list_establishment_period</h2>
+<p>The task can_view_database_list_establishment_period is defined in the module establishment of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view the establishment period database list</li>
+</ul>
+<h2>can_view_database_list_establishment_type</h2>
+<p>The task can_view_database_list_establishment_type is defined in the module establishment of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view the establishment type database list</li>
+</ul>
+<h2>can_view_database_list_facility</h2>
+<p>The task can_view_database_list_facility is defined in the module Facility of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the facility list</li>
+</ul>
+<h2>can_view_database_list_facility_type</h2>
+<p>The task can_view_database_list_facility_type is defined in the module Facility of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the facility type list</li>
+</ul>
+<h2>can_view_database_list_id_type</h2>
+<p>The task can_view_database_list_id_type is defined in the module PersonID of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view the id_type database list</li>
+</ul>
+<h2>can_view_database_list_job</h2>
+<p>The task can_view_database_list_job is defined in the module ihris-common-Job of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the job list</li>
+</ul>
+<h2>can_view_database_list_language</h2>
+<p>The task can_view_database_list_language is defined in the module PersonLanguage of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view the language database list</li>
+</ul>
+<h2>can_view_database_list_marital_status</h2>
+<p>The task can_view_database_list_marital_status is defined in the module PersonDemographic of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view the department marital status list.</li>
+</ul>
+<h2>can_view_database_list_pos_change_reason</h2>
+<p>The task can_view_database_list_pos_change_reason is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:View the pos_change_reason list</li>
+<li>Can perform the following sub-tasks: can_view_employee_database_lists</li>
+</ul>
+<h2>can_view_database_list_position</h2>
+<p>The task can_view_database_list_position is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:View the position list</li>
+<li>Can perform the following sub-tasks: can_view_manage_positions_database_lists</li>
+</ul>
+<h2>can_view_database_list_position_type</h2>
+<p>The task can_view_database_list_position_type is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:View the position_type list</li>
+<li>Can perform the following sub-tasks: can_view_manage_positions_database_lists</li>
+</ul>
+<h2>can_view_database_list_region</h2>
+<p>The task can_view_database_list_region is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view region list</li>
+</ul>
+<h2>can_view_database_list_salary_grade</h2>
+<p>The task can_view_database_list_salary_grade is defined in the module ihris-manage-Job of the package iHRIS Manage.</p>
+<ul>
+<li>Description:View the salary_grade list</li>
+</ul>
+<h2>can_view_database_list_salary_source</h2>
+<p>The task can_view_database_list_salary_source is defined in the module ihris-manage-Salary of the package iHRIS Manage.</p>
+<ul>
+<li>Description:View the salary_source list</li>
+</ul>
+<h2>can_view_database_list_scheduled_training_course</h2>
+<p>The task can_view_database_list_scheduled_training_course is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the scheduled training course category list</li>
+</ul>
+<h2>can_view_database_list_training_course</h2>
+<p>The task can_view_database_list_training_course is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the training course list</li>
+<li>Can perform the following sub-tasks: can_view_training_course_database_lists</li>
+</ul>
+<h2>can_view_database_list_training_course_category</h2>
+<p>The task can_view_database_list_training_course_category is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:view the training course category list</li>
+</ul>
+<h2>can_view_database_list_training_course_evaluation</h2>
+<p>The task can_view_database_list_training_course_evaluation is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the training course evaluation list</li>
+</ul>
+<h2>can_view_database_list_training_course_requestor</h2>
+<p>The task can_view_database_list_training_course_requestor is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit the training course requestor list</li>
+</ul>
+<h2>can_view_database_list_training_course_status</h2>
+<p>The task can_view_database_list_training_course_status is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the training course status list</li>
+</ul>
+<h2>can_view_database_list_training_funder</h2>
+<p>The task can_view_database_list_training_funder is defined in the module training-institution of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the training funder list</li>
+</ul>
+<h2>can_view_database_list_training_institution</h2>
+<p>The task can_view_database_list_training_institution is defined in the module training-institution of the package iHRIS Common.</p>
+<ul>
+<li>Description:View the training institutions list</li>
+</ul>
+<h2>can_view_database_lists</h2>
+<p>The task can_view_database_lists is defined in the module Lists of the package I2CE.</p>
+<ul>
+<li>Description:Can view some of the lists stored in the database</li>
+</ul>
+<h2>can_view_database_lists_competency</h2>
+<p>The task can_view_database_lists_competency is defined in the module simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:View all list associated with competency</li>
+</ul>
+<h2>can_view_employee_database_lists</h2>
+<p>The task can_view_employee_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view some employee database lists</li>
+</ul>
+<h2>can_view_form_browser</h2>
+<p>The task can_view_form_browser is defined in the module formBrowser of the package I2CE.</p>
+<ul>
+<li>Description:Can view form browser</li>
+</ul>
+<h2>can_view_geographic_database_lists</h2>
+<p>The task can_view_geographic_database_lists is defined in the module Geography of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view some geography data</li>
+</ul>
+<h2>can_view_job_structure_database_lists</h2>
+<p>The task can_view_job_structure_database_lists is defined in the module ihris-common-Job of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view some job structure database lists</li>
+<li>Can perform the following sub-tasks: can_view_position_database_lists</li>
+</ul>
+<h2>can_view_magic_data_browser</h2>
+<p>The task can_view_magic_data_browser is defined in the module magicDataBrowser of the package I2CE.</p>
+<ul>
+<li>Description:Can browse magic data</li>
+</ul>
+<h2>can_view_manage_positions_database_lists</h2>
+<p>The task can_view_manage_positions_database_lists is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view some information about positions</li>
+<li>Can perform the following sub-tasks: can_view_position_database_lists</li>
+</ul>
+<h2>can_view_organization_database_lists</h2>
+<p>The task can_view_organization_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view some organizational database lists</li>
+</ul>
+<h2>can_view_person_scheduled_training_course_evaluation</h2>
+<p>The task can_view_person_scheduled_training_course_evaluation is defined in the module training-simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:View a perons's cheduled training course evaluation</li>
+</ul>
+<h2>can_view_planning_database_lists</h2>
+<p>The task can_view_planning_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view some planning database lists</li>
+</ul>
+<h2>can_view_position_database_lists</h2>
+<p>The task can_view_position_database_lists is defined in the module ihris-manage of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view some position database lists</li>
+</ul>
+<h2>can_view_recent_forms</h2>
+<p>The task can_view_recent_forms is defined in the module ihris-common-RecentForm of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view the list of recent forms that have been edited/added.</li>
+</ul>
+<h2>can_view_training_course_database_lists</h2>
+<p>The task can_view_training_course_database_lists is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:View some lists assoicated with the training module</li>
+<li>Can perform the following sub-tasks: can_view_database_lists</li>
+</ul>
+<h2>custom_reports_admin</h2>
+<p>The task custom_reports_admin is defined in the module CustomReports of the package I2CE.</p>
+<ul>
+<li>Description:Administator for custom reports. Can perform all tasks associated with custom reports</li>
+<li>Can perform the following sub-tasks: custom_reports_can_access, custom_reports_delete_reports, custom_reports_can_access_relationships, custom_reports_can_access_reports, custom_reports_can_edit_reportViews, custom_reports_can_view_reportViews</li>
+</ul>
+<h2>custom_reports_archiver_admin</h2>
+<p>The task custom_reports_archiver_admin is defined in the module ReportArchiver of the package I2CE.</p>
+<ul>
+<li>Description:Allows full access to custom reports archiving system</li>
+<li>Can perform the following sub-tasks: custom_reports_archiver_can_delete, custom_reports_archiver_can_view, custom_reports_archiver_can_archive</li>
+</ul>
+<h2>custom_reports_archiver_can_archive</h2>
+<p>The task custom_reports_archiver_can_archive is defined in the module ReportArchiver of the package I2CE.</p>
+<ul>
+<li>Description:Allows archiving of custom reports</li>
+<li>Can perform the following sub-tasks: custom_reports_archiver_can_view</li>
+</ul>
+<h2>custom_reports_archiver_can_delete</h2>
+<p>The task custom_reports_archiver_can_delete is defined in the module ReportArchiver of the package I2CE.</p>
+<ul>
+<li>Description:Allows deleting of archivhed custom reports</li>
+<li>Can perform the following sub-tasks: custom_reports_archiver_can_archive, custom_reports_archiver_can_view</li>
+</ul>
+<h2>custom_reports_archiver_can_view</h2>
+<p>The task custom_reports_archiver_can_view is defined in the module ReportArchiver of the package I2CE.</p>
+<ul>
+<li>Description:Allows viewing of archvied Custom Reports</li>
+</ul>
+<h2>custom_reports_can_access</h2>
+<p>The task custom_reports_can_access is defined in the module CustomReports of the package I2CE.</p>
+<ul>
+<li>Description:Allows minimal access to the Custom Reporting System System</li>
+</ul>
+<h2>custom_reports_can_access_relationships</h2>
+<p>The task custom_reports_can_access_relationships is defined in the module CustomReports of the package I2CE.</p>
+<ul>
+<li>Description:Allows access to the Custom Report Relationships</li>
+<li>Can perform the following sub-tasks: custom_reports_can_access, custom_reports_can_access_reports, custom_reports_can_edit_reportViews</li>
+</ul>
+<h2>custom_reports_can_access_reports</h2>
+<p>The task custom_reports_can_access_reports is defined in the module CustomReports of the package I2CE.</p>
+<ul>
+<li>Description:Allows access to the Custom Reports</li>
+<li>Can perform the following sub-tasks: custom_reports_can_access, custom_reports_can_edit_reportViews</li>
+</ul>
+<h2>custom_reports_can_edit_relationships</h2>
+<p>The task custom_reports_can_edit_relationships is defined in the module CustomReports of the package I2CE.</p>
+<ul>
+<li>Description:Allows editing of the Custom Report Relationships</li>
+</ul>
+<h2>custom_reports_can_edit_reportViews</h2>
+<p>The task custom_reports_can_edit_reportViews is defined in the module CustomReports of the package I2CE.</p>
+<ul>
+<li>Description:Allows editing of the Custom Report Views</li>
+<li>Can perform the following sub-tasks: custom_reports_can_view_reportViews</li>
+</ul>
+<h2>custom_reports_can_edit_reports</h2>
+<p>The task custom_reports_can_edit_reports is defined in the module CustomReports of the package I2CE.</p>
+<ul>
+<li>Description:Allows editing of the Custom Report Reports</li>
+</ul>
+<h2>custom_reports_can_view_reportViews</h2>
+<p>The task custom_reports_can_view_reportViews is defined in the module CustomReports of the package I2CE.</p>
+<ul>
+<li>Description:Allows view of the Custom Report Views</li>
+<li>Can perform the following sub-tasks: custom_reports_can_access</li>
+</ul>
+<h2>custom_reports_delete</h2>
+<p>The task custom_reports_delete is defined in the module CustomReports of the package I2CE.</p>
+<ul>
+<li>Description:Allows deletion of data about custom reports</li>
+</ul>
+<h2>establishment_can_access</h2>
+<p>The task establishment_can_access is defined in the module establishment of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can access the establishment information</li>
+<li>Can perform the following sub-tasks: can_view_view_database_list_establishment_type, can_view_view_database_list_establishment_period, can_view_view_database_list_establishment</li>
+</ul>
+<h2>establishment_can_edit</h2>
+<p>The task establishment_can_edit is defined in the module establishment of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit the establishment information</li>
+<li>Can perform the following sub-tasks: can_edit_database_list_establishment_type, can_edit_database_list_establishment_period, can_edit_database_list_establishment, establishment_can_view</li>
+</ul>
+<h2>locales_can_edit_site_locale</h2>
+<p>The task locales_can_edit_site_locale is defined in the module localeSelector of the package I2CE.</p>
+<ul>
+<li>Description:Allows the selection and editting of the locales avaiable to the system for translation</li>
+</ul>
+<h2>person_can_change_child_form_person_position</h2>
+<p>The task person_can_change_child_form_person_position is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can change the existing position of a person</li>
+<li>Can perform the following sub-tasks: person_can_edit_child_form_person_position, person_can_view_child_form_person_position</li>
+</ul>
+<h2>person_can_change_child_form_salary</h2>
+<p>The task person_can_change_child_form_salary is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can change an existing salary of a person</li>
+<li>Can perform the following sub-tasks: person_can_edit_child_form_salary, person_can_view_child_form_salary</li>
+</ul>
+<h2>person_can_delete_child_form_salary</h2>
+<p>The task person_can_delete_child_form_salary is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can delete the salary of a person</li>
+<li>Can perform the following sub-tasks: person_can_edit_child_form_salary, person_can_view_child_form_salary, person_can_change_child_form_salary</li>
+</ul>
+<h2>person_can_edit</h2>
+<p>The task person_can_edit is defined in the module Person of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit the person page</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_accident</h2>
+<p>The task person_can_edit_child_form_accident is defined in the module accident of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit the workplace injuries and accidents assigned to a person</li>
+</ul>
+<h2>person_can_edit_child_form_application</h2>
+<p>The task person_can_edit_child_form_application is defined in the module ihris-manage-Application of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit aplicaiton child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_application, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_benefit</h2>
+<p>The task person_can_edit_child_form_benefit is defined in the module ihris-manage-Benefit of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit benefit child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_benefit, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_confirmation</h2>
+<p>The task person_can_edit_child_form_confirmation is defined in the module ihris-manage-confirmation of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit confirmation child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_confirmation, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_demographic</h2>
+<p>The task person_can_edit_child_form_demographic is defined in the module PersonDemographic of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit demographic child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_demographic, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_dependent</h2>
+<p>The task person_can_edit_child_form_dependent is defined in the module dependents of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit a person's dependents</li>
+</ul>
+<h2>person_can_edit_child_form_disciplinary_action</h2>
+<p>The task person_can_edit_child_form_disciplinary_action is defined in the module disciplinary_action of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit the workplace injuries and disciplinary_actions assigned to a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_disciplinary_action, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_education</h2>
+<p>The task person_can_edit_child_form_education is defined in the module PersonEducation of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit education child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_education, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_employment</h2>
+<p>The task person_can_edit_child_form_employment is defined in the module PersonEmployment of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit employment child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_employment, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_nextofkin</h2>
+<p>The task person_can_edit_child_form_nextofkin is defined in the module nextOfKin of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit a person's nextofkin</li>
+</ul>
+<h2>person_can_edit_child_form_notes</h2>
+<p>The task person_can_edit_child_form_notes is defined in the module PersonNotes of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit notes child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_notes, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_person_archive_scan</h2>
+<p>The task person_can_edit_child_form_person_archive_scan is defined in the module PersonArchivedScan of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit archive scan of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_person_archive_scan, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_person_competency</h2>
+<p>The task person_can_edit_child_form_person_competency is defined in the module person-simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit person_competency child forms of a person</li>
+<li>Can perform the following sub-tasks: person_competency_can_view_evaluation_history, person_can_view_child_form_person_competency, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_person_contact_emergency</h2>
+<p>The task person_can_edit_child_form_person_contact_emergency is defined in the module PersonContact of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit emergency contact child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_person_contact_emergency, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_person_contact_other</h2>
+<p>The task person_can_edit_child_form_person_contact_other is defined in the module PersonContact of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit other contact child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_person_contact_other, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_person_contact_personal</h2>
+<p>The task person_can_edit_child_form_person_contact_personal is defined in the module PersonContact of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit personal contact child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_person_contact_personal, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_person_contact_work</h2>
+<p>The task person_can_edit_child_form_person_contact_work is defined in the module PersonContact of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit work contact child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_person_contact_work, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_person_id</h2>
+<p>The task person_can_edit_child_form_person_id is defined in the module PersonID of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit person_id child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_person_id, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_person_language</h2>
+<p>The task person_can_edit_child_form_person_language is defined in the module PersonLanguage of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit person_language child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_person_language, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_person_photo_passport</h2>
+<p>The task person_can_edit_child_form_person_photo_passport is defined in the module PersonPassportPhoto of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit passpport photo of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_person_photo_passport, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_person_position</h2>
+<p>The task person_can_edit_child_form_person_position is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit the position of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_person_position</li>
+</ul>
+<h2>person_can_edit_child_form_person_resume</h2>
+<p>The task person_can_edit_child_form_person_resume is defined in the module PersonResume of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit resume of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_person_resume, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_person_scheduled_training_course</h2>
+<p>The task person_can_edit_child_form_person_scheduled_training_course is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:View a perons's scheduled training course</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_person_scheduled_training_course</li>
+</ul>
+<h2>person_can_edit_child_form_position_decision</h2>
+<p>The task person_can_edit_child_form_position_decision is defined in the module ihris-manage-Application of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit position decision child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_position_decision, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_position_interview</h2>
+<p>The task person_can_edit_child_form_position_interview is defined in the module ihris-manage-Application of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit position interview child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_position_interview, person_can_view</li>
+</ul>
+<h2>person_can_edit_child_form_registration</h2>
+<p>The task person_can_edit_child_form_registration is defined in the module ManageRegistration of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit registration child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_registration, person_can_view, person_can_edit</li>
+</ul>
+<h2>person_can_edit_child_form_salary</h2>
+<p>The task person_can_edit_child_form_salary is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can edit the salary of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_salary</li>
+</ul>
+<h2>person_can_edit_child_forms</h2>
+<p>The task person_can_edit_child_forms is defined in the module Person of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can edit all of the child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_edit_child_form_registration, person_can_view_child_forms, person_can_view, person_can_edit_child_form_person_archive_scan, person_can_edit_child_form_person_contact_work, person_can_edit_child_form_person_contact_personal, person_can_edit_child_form_person_contact_emergency, person_can_edit_child_form_person_contact_other, person_can_edit_child_form_demographic, person_can_edit_child_form_education, person_can_edit_child_form_employment, person_can_edit_child_form_person_person_id, person_can_edit_child_form_person_language, person_can_edit_child_form_notes, person_can_edit_child_form_person_photo_passport, person_can_edit_child_form_person_resume, person_can_edit_child_form_application, person_can_edit_child_form_position_interview, person_can_edit_child_form_position_decision, person_can_edit_child_form_benefit, person_can_edit_child_form_person_position, person_can_edit_child_form_confirmation, person_can_edit_child_form_person_competency, person_can_edit_child_form_person_scheduled_training_course</li>
+</ul>
+<h2>person_can_view</h2>
+<p>The task person_can_view is defined in the module Person of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view the person page</li>
+</ul>
+<h2>person_can_view_child_form</h2>
+<p>The task person_can_view_child_form is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view the salary of a person</li>
+</ul>
+<h2>person_can_view_child_form_accident</h2>
+<p>The task person_can_view_child_form_accident is defined in the module accident of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view the wokrplace injuries and accidents assigned to a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_application</h2>
+<p>The task person_can_view_child_form_application is defined in the module ihris-manage-Application of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view aplicaiton child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_benefit</h2>
+<p>The task person_can_view_child_form_benefit is defined in the module ihris-manage-Benefit of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view benefit child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_confirmation</h2>
+<p>The task person_can_view_child_form_confirmation is defined in the module ihris-manage-confirmation of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view confirmation child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_demographic</h2>
+<p>The task person_can_view_child_form_demographic is defined in the module PersonDemographic of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view demographic child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_dependent</h2>
+<p>The task person_can_view_child_form_dependent is defined in the module dependents of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view a person's dependents</li>
+</ul>
+<h2>person_can_view_child_form_disciplinary_action</h2>
+<p>The task person_can_view_child_form_disciplinary_action is defined in the module disciplinary_action of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view the wokrplace injuries and disciplinary_actions assigned to a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_education</h2>
+<p>The task person_can_view_child_form_education is defined in the module PersonEducation of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view education child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_employment</h2>
+<p>The task person_can_view_child_form_employment is defined in the module PersonEmployment of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view employment child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_nextofkin</h2>
+<p>The task person_can_view_child_form_nextofkin is defined in the module nextOfKin of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view a person's nextofkin</li>
+</ul>
+<h2>person_can_view_child_form_notes</h2>
+<p>The task person_can_view_child_form_notes is defined in the module PersonNotes of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view notes child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_person_archive_scan</h2>
+<p>The task person_can_view_child_form_person_archive_scan is defined in the module PersonArchivedScan of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view archive scan of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_person_competency</h2>
+<p>The task person_can_view_child_form_person_competency is defined in the module person-simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view person_competency child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_person_contact_emergency</h2>
+<p>The task person_can_view_child_form_person_contact_emergency is defined in the module PersonContact of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view emergnency contact child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_person_contact_other</h2>
+<p>The task person_can_view_child_form_person_contact_other is defined in the module PersonContact of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view other contact child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_person_contact_personal</h2>
+<p>The task person_can_view_child_form_person_contact_personal is defined in the module PersonContact of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view personal contact child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_person_contact_work</h2>
+<p>The task person_can_view_child_form_person_contact_work is defined in the module PersonContact of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view work contact child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_person_id</h2>
+<p>The task person_can_view_child_form_person_id is defined in the module PersonID of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view person_id child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_person_language</h2>
+<p>The task person_can_view_child_form_person_language is defined in the module PersonLanguage of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view person_language child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_person_photo_passport</h2>
+<p>The task person_can_view_child_form_person_photo_passport is defined in the module PersonPassportPhoto of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view passport photo of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_person_position</h2>
+<p>The task person_can_view_child_form_person_position is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view the position of a person</li>
+</ul>
+<h2>person_can_view_child_form_person_resume</h2>
+<p>The task person_can_view_child_form_person_resume is defined in the module PersonResume of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view resume of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_person_scheduled_training_course</h2>
+<p>The task person_can_view_child_form_person_scheduled_training_course is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:View a perons's scheduled training course</li>
+</ul>
+<h2>person_can_view_child_form_position_decision</h2>
+<p>The task person_can_view_child_form_position_decision is defined in the module ihris-manage-Application of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view position decision child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_position_interview</h2>
+<p>The task person_can_view_child_form_position_interview is defined in the module ihris-manage-Application of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view position interview child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_registration</h2>
+<p>The task person_can_view_child_form_registration is defined in the module ManageRegistration of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view registration child form of a person</li>
+<li>Can perform the following sub-tasks: person_can_view</li>
+</ul>
+<h2>person_can_view_child_form_salary</h2>
+<p>The task person_can_view_child_form_salary is defined in the module ihris-manage-PersonPosition of the package iHRIS Manage.</p>
+<ul>
+<li>Description:Can view an existing salary of a person</li>
+</ul>
+<h2>person_can_view_child_forms</h2>
+<p>The task person_can_view_child_forms is defined in the module Person of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view all of the child forms of a person</li>
+<li>Can perform the following sub-tasks: person_can_view_child_form_registration, person_can_view_child_form_person_archive_scan, person_can_view_child_form_person_contact_work, person_can_view_child_form_person_contact_personal, person_can_view_child_form_person_contact_emergency, person_can_view_child_form_person_contact_other, person_can_view_child_form_demographic, person_can_view_child_form_education, person_can_view_child_form_employment, person_can_view_child_form_person_person_id, person_can_view_child_form_person_language, person_can_view_child_form_notes, person_can_view_child_form_person_photo_passport, person_can_view_child_form_person_resume, person_can_view_child_form_application, person_can_view_child_form_position_interview, person_can_view_child_form_position_decision, person_can_view_child_form_benefit, person_can_view_child_form_person_position, person_can_view_child_form_salary, person_can_view_child_form_confirmation, person_can_view_child_form_person_competency, person_competency_can_view_evaluation_history, person_can_view_child_form_person_scheduled_training_course</li>
+</ul>
+<h2>person_competency_can_view_evaluation</h2>
+<p>The task person_competency_can_view_evaluation is defined in the module person-simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view the competency evaluation of a person</li>
+</ul>
+<h2>person_competency_can_view_evaluation_history</h2>
+<p>The task person_competency_can_view_evaluation_history is defined in the module person-simple-competency of the package iHRIS Common.</p>
+<ul>
+<li>Description:Can view the competency evaluation history of a person</li>
+</ul>
+<h2>person_scheduled_training_course_can_edit_evaluation</h2>
+<p>The task person_scheduled_training_course_can_edit_evaluation is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:Edit a perons's scheduled training course evaluations</li>
+<li>Can perform the following sub-tasks: person_scheduled_training_course_can_view_evaluation</li>
+</ul>
+<h2>person_scheduled_training_course_can_view_evaluation</h2>
+<p>The task person_scheduled_training_course_can_view_evaluation is defined in the module training-course of the package iHRIS Common.</p>
+<ul>
+<li>Description:View a perons's scheduled training course evaluations</li>
+</ul>
+<h2>printed_forms_admin</h2>
+<p>The task printed_forms_admin is defined in the module PrintedForms of the package I2CE.</p>
+<ul>
+<li>Description:Allows full access to the Printed Forms System</li>
+<li>Can perform the following sub-tasks: printed_forms_can_access, printed_forms_all_generate, printed_forms_archive_admin</li>
+</ul>
+<h2>printed_forms_all_generate</h2>
+<p>The task printed_forms_all_generate is defined in the module PrintedForms of the package I2CE.</p>
+<ul>
+<li>Description:Allows access to the generating all of the printed forms System</li>
+</ul>
+<h2>printed_forms_archive_admin</h2>
+<p>The task printed_forms_archive_admin is defined in the module PrintedForms of the package I2CE.</p>
+<ul>
+<li>Description:Allows administation of all archived of the printed forms System</li>
+<li>Can perform the following sub-tasks: printed_forms_view_all_archives, printed_forms_create_all_archives</li>
+</ul>
+<h2>printed_forms_can_access</h2>
+<p>The task printed_forms_can_access is defined in the module PrintedForms of the package I2CE.</p>
+<ul>
+<li>Description:Allows minimal access to the Printed Forms System</li>
+</ul>
+<h2>printed_forms_create_all_archives</h2>
+<p>The task printed_forms_create_all_archives is defined in the module PrintedForms of the package I2CE.</p>
+<ul>
+<li>Description:Allows creating of all archived of the printed forms System</li>
+</ul>
+<h2>printed_forms_view_all_archives</h2>
+<p>The task printed_forms_view_all_archives is defined in the module PrintedForms of the package I2CE.</p>
+<ul>
+<li>Description:Allows viewing of all archived of the printed forms System</li>
+</ul>
+<h2>tasks_and_roles_admin</h2>
+<p>The task tasks_and_roles_admin is defined in the module tasks-roles of the package I2CE.</p>
+<ul>
+<li>Description:Allows complete access to the Task and Role Management System</li>
+<li>Can perform the following sub-tasks: tasks_and_roles_can_access, tasks_and_roles_can_edit_roles, tasks_and_roles_can_edit_tasks</li>
+</ul>
+<h2>tasks_and_roles_can_access</h2>
+<p>The task tasks_and_roles_can_access is defined in the module tasks-roles of the package I2CE.</p>
+<ul>
+<li>Description:Allows minimal access to the Task and Role Management System</li>
+</ul>
+<h2>tasks_and_roles_can_edit_roles</h2>
+<p>The task tasks_and_roles_can_edit_roles is defined in the module tasks-roles of the package I2CE.</p>
+<ul>
+<li>Description:Allows edit access to the Role Management System</li>
+<li>Can perform the following sub-tasks: tasks_and_roles_can_access, tasks_and_roles_can_edit_roles</li>
+</ul>
+<h2>tasks_and_roles_can_edit_tasks</h2>
+<p>The task tasks_and_roles_can_edit_tasks is defined in the module tasks-roles of the package I2CE.</p>
+<ul>
+<li>Description:Allows edit access to the Task Management System</li>
+<li>Can perform the following sub-tasks: tasks_and_roles_can_access, tasks_and_roles_can_edit_tasks</li>
+</ul>
+<h2>users_can_edit</h2>
+<p>The task users_can_edit is defined in the module UserForm of the package I2CE.</p>
+<ul>
+<li>Description:Can create a user on the system</li>
+</ul>
+<h2>users_can_edit_all</h2>
+<p>The task users_can_edit_all is defined in the module UserForm of the package I2CE.</p>
+<ul>
+<li>Description:Can edit all the users in the system.</li>
+<li>Can perform the following sub-tasks: users_can_edit</li>
+</ul></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=33750">revision 33750</a>; contributors: Litlfred. Pages 362&ndash;408 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

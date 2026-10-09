@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installing a Custom Site from Launchpad · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Installing a Custom Site from Launchpad</div>
+<h1>Installing a Custom Site from Launchpad</h1>
+<div class="wiki">
+<p>In this tutorial, we will install a custom iHRIS Manage 4.0 site hosted on Launchpad. We will bazaar to download the code as well as discuss the basics on how to modify the code on Launchpad. We are assuming that you are using an Ubuntu Linux machine.</p>
+<p>Our first goal is to install the iHRIS Suite 4.0. Then we will download the CSSC's iHRIS Manage Customizations. Next we will create the database and finally we will install the site in our web-server.</p>
+<h2>Launchpad First Steps</h2>
+<p>First you should create an account on Launchpad [1] if you not have already done so. We will refer to this account as LAUNCHPAD_USER.</p>
+<p>Since we will want to contribute to the code, we will need to create a ssh public key [2] on your Ubuntu machine to add to Launchpad:</p>
+<pre><code>sudo apt-get install openssh-client
+ssh-keygen -t rsa
+</code></pre>
+<p>When prompted, press Enter to accept the default file name for your key. Next, enter then confirm a password to protect your SSH key.</p>
+<p>Your key pair is now stored in ~/.ssh/id_rsa.pub (public key) and ~/.ssh/id_rsa (private key). Now you need to upload the public portion of your SSH key to Launchpad. To do this, open in your web browser:</p>
+<pre><code>https://www.launchpad.net/~'''LAUNCHPAD_USER'''
+</code></pre>
+<p>You will see a place that says SSH Keys with an exclamation point (!) in a yellow circle next to it. Click on the (!) scroll down until you see Add an SSH Key and a text box. We will paste our public key into this text box. To do so type in a terminal:</p>
+<pre><code>gedit ~/.ssh/id_rsa.pub
+</code></pre>
+<p>you can now copy the contents of gedit (the public key) into the text box in the web browser. Now simply click on the button Import Public Key</p>
+<p>For every computer/account that you use you will need to repeat these steps to create and import a public key.</p>
+<h2>Bazaar First Steps</h2>
+<p>First we need to make sure the Bazaaar [3] (bzr) version control software is installed:</p>
+<pre><code> sudo apt-get install bzr bzrtools
+</code></pre>
+<p>You may wish to read the five minute tutorial [4] at this point. You should also let bzr know how you are:</p>
+<pre><code> bzr whoami &quot;Your Name &lt;your@email.add.ress&gt;&quot;
+</code></pre>
+<h2>Join the iHRIS Team</h2>
+<p>Launchpad uses "teams" to control who can modify code it stores under bazaar.</p>
+<p>If you wish to make modifications to the CSSC Customizations, you should join the ihris+cssc [5] team.</p>
+<p>If you are working on a joint project, but not the CSSC's customizations, you should create a team in Launchpad and add yourself to it as well as the team intrahealth+informatics. For example, you could create the team ihris+tanzania.</p>
+<h2>Downloading iHRIS</h2>
+<p>We will now download the iHRIS Suite from Launchpad using bzr (as opposed to the release tar.bz2 files) to get practice using bazaar.</p>
+<p>Below, I will assume that there is only one user using the system, or at least only one user that should be modifying files in iHRIS. This is probably not the "recommended" way of doing things though.</p>
+<h3>Changing Permissions</h3>
+<p>We want to make sure we can easily modify files under /var/lib/iHRIS without having to use sudo all the time.</p>
+<pre><code>sudo mkdir -p /var/lib/iHRIS
+sudo chown -R `whoami`:`whoami`  /var/lib/iHRIS
+</code></pre>
+<h3>Release Code</h3>
+<p>Now we want to get the iHRIS Suite 4.0 release code from launchpad.</p>
+<pre><code>sudo mkdir -p /var/lib/iHRIS/lib/4.0
+sudo chown -R  `whoami`:`whoami` /var/lib/iHRIS/lib/4.0
+cd /var/lib/iHRIS/lib/4.0
+bzr branch lp:i2ce/4.0 I2CE
+bzr branch lp:ihris-common/4.0 ihris-common
+bzr branch lp:ihris-manage/4.0 ihris-manage
+bzr branch lp:textlayout/4.0 textlayout
+</code></pre>
+<p>These branches will always contain the latest release code.</p>
+<h3>Development Code</h3>
+<p>If you wish to work with the development code instead, you should do this:</p>
+<pre><code>sudo mkdir -p /var/lib/iHRIS/lib/4.0-dev
+sudo chown -R `whoami`:`whoami` /var/lib/iHRIS/lib/4.0-dev
+cd /var/lib/iHRIS/lib/4.0-dev
+bzr branch lp:i2ce I2CE
+bzr branch lp:ihris-common ihris-common
+bzr branch lp:ihris-manage ihris-manage
+bzr branch lp:textlayout textlayout
+</code></pre>
+<p>These branches will always contain the main development code, which may or may be working at a particular time.</p>
+<h2>Downloading CSSC's Customizations</h2>
+<h3>Create a directory for Sites</h3>
+<p>First we will create a directory that will hold all the sites we have on our system.</p>
+<pre><code>sudo mkdir -p /var/lib/iHRIS/sites/
+sudo chown -R `whoami`:`whoami` /var/lib/iHRIS/sites
+</code></pre>
+<p>We have two choices on how to download the CSSC Customizations. One possibility to download it to install it, but do not want to make any code modifications. The other possibility is to download the code and have it setup to modify the customizations.</p>
+<h3>Download CSSC Customizations for no Modifications</h3>
+<p>We can download the CSSC customizations to our site directory by doing:</p>
+<pre><code>cd /var/lib/iHRIS/sites
+bzr branch lp:~ihris+cssc/ihris-manage/4.0-central cssc-central-4.0
+</code></pre>
+<p>You can still make modifications to the code, but they do not automatically get put back to launchpad once you commit.</p>
+<h3>Download CSSC Customizations for Modification</h3>
+<p>We can download the CSSC customizations to our site directory by doing:</p>
+<pre><code>cd /var/lib/iHRIS/sites
+bzr checkout lp:~ihris+cssc/ihris-manage/4.0-central cssc-central-4.0
+</code></pre>
+<p>To see why we are doing a checkout instead of a branch, read this [6]. To make sure everything is working OK, you should make sure the following succeeds:</p>
+<pre><code>cd /var/lib/iHRIS/sites/cssc-central-4.0
+bzr commit -m &quot;test commit&quot;  --unchanged
+</code></pre>
+<h2>Creating the Database</h2>
+<p>We will create a database called `cssc_central_4_0` as follows:</p>
+<pre><code>mysql -u root -p
+mysql&gt; CREATE DATABASE `cssc_central_4_0`;
+mysql&gt; GRANT ALL PRIVILEGES ON `cssc_central_4_0`.* TO cssc@localhost identified by 'PASSWORD';
+</code></pre>
+<p>you should change PASSWORD to be the password you want.</p>
+<h2>Installing on the Web Server</h2>
+<p>Let us suppose we want to access the site at the URL:</p>
+<pre><code>http://localhost/iHRIS/cssc-central
+</code></pre>
+<h3>Linking the Site</h3>
+<p>First we will need to link to our customized site under '/var/www' as follows:</p>
+<pre><code>sudo mkdir -p /var/www/iHRIS
+sudo ln -s /var/lib/iHRIS/sites/cssc-central-4.0/pages /var/www/iHRIS/cssc-central
+</code></pre>
+<h3>Setting the Database</h3>
+<p>We will need to specify the database and database user/password we are using. To do so:</p>
+<pre><code>mkdir -p /var/lib/iHRIS/sites/cssc-central-4.0/pages/local
+cp /var/lib/iHRIS/sites/cssc-central-4.0/pages/config.values.php /var/lib/iHRIS/sites/cssc-central-4.0/pages/local/config.values.php
+gedit /var/lib/iHRIS/sites/cssc-central-4.0/pages/local/config.values.php
+</code></pre>
+<p>Look for the the following variables and set their values:</p>
+<p>Variable Name Value</p>
+<p>$i2ce_site_i2ce_path /var/lib/iHRIS/lib/4.0/I2CE</p>
+<p>$i2ce_site_database cssc_central_4_0</p>
+<p>$i2ce_site_database_user cssc</p>
+<p>$i2ce_site_database_password PASSWORD (the password you set above)</p>
+<h3>Finishing Up</h3>
+<p>Just browse to the site at the URL:</p>
+<pre><code>http://localhost/iHRIS/cssc-central
+</code></pre>
+<p>to begin the iHRIS installation process.</p>
+<h2>Modifying the Code</h2>
+<p>When you make changes to the code, you should do so in small steps with a message about what you have done. This will help other developer's understand what you have done and to help track down bugs. This process is called commiting.</p>
+<pre><code>bzr help commit
+</code></pre>
+<h3>Ignored Files</h3>
+<p>Anything in a directory named local is ignored.</p>
+<pre><code>bzr help ignore
+cd /var/lib/iHRIS/sites/cssc-central-4.0
+bzr ignore
+</code></pre>
+<p>This is why in the above we copied config.values.php to local/config.values.php and set the database user name and password here. This way, if we are modifying the CSSC customizations we don't need to worry about the user name and password being uploaded to launchpad.</p>
+<h3>Updating files</h3>
+<p>If you are working with many people on a site customization, you can get the changes that they have made using the 'bzr update' command. For example:</p>
+<pre><code>cd /var/lib/iHRIS/sites/cssc-central-4.0
+bzr update
+</code></pre>
+<h3>Changed Files</h3>
+<p>To see which files have changed since the last time someone commited:</p>
+<pre><code>cd /var/lib/iHRIS/sites/cssc-central-4.0
+bzr status
+</code></pre>
+<h3>Committing Code</h3>
+<p>For instructions see:</p>
+<pre><code>bzr help commit.
+</code></pre>
+<h2>Command Line Editors</h2>
+<p>You may find that you will need to be able to edit a file from the command line, for example if you ssh into an iHRIS Appliance. There are several command line editors available that you can use to edit files and you should be familiar with at least one of them.</p>
+<ul>
+<li>emacs: powerful but not userfriendly (Carl's choice)</li>
+<li>vim: powerful but not userfriendly (Luke's choice)</li>
+<li>nano: Nano is by the far the easiest one to use, but is not very powerful and you can only work with one file at a time:</li>
+</ul>
+<h3>Nano</h3>
+<ul>
+<li>to open a file to edit, type nano the_file_name.php on the command line</li>
+<li>to determine the line number you hit [CTRL]-C</li>
+<li>Goto a line number [CTRL]-_</li>
+<li>save files with [CTRL]-O</li>
+<li>search for text with [CTRL]-W</li>
+<li>
+<p>to cute (delete) a line [CTRL]-K</p>
+</li>
+<li>
+<p>to paste the line(s) you just cut [CTRL]-U</p>
+</li>
+<li>if you decide to do a lot of editing in nano, you may want to add syntax highlighting. you can so as follows:</li>
+</ul>
+<pre><code>nano ~/.nanorc
+</code></pre>
+<p>and save the following:</p>
+<pre><code>## Sample initialization file for GNU nano.
+##
+## Please note that you must have configured nano with --enable-nanorc
+## for this file to be read!  Also note that this file should not be in
+## DOS or Mac format, and that characters specially interpreted by the
+## shell should not be escaped here.
+##
+## To make sure a value is disabled, use &quot;unset &lt;option&gt;&quot;.
+##
+## For the options that take parameters, the default value is given.
+## Other options are unset by default.
+##
+## Quotes inside string parameters don't have to be escaped with
+## backslashes.  The last double quote in the string will be treated as
+## its end.  For example, for the &quot;brackets&quot; option, &quot;&quot;')&gt;]}&quot; will match
+## &quot;, ', ), &gt;, ], and }.
+## Use auto-indentation.
+set autoindent
+## Backup files to filename~.
+set backup
+## The directory to put unique backup files in.
+# set backupdir &quot;&quot;
+## Do backwards searches by default.
+# set backwards
+## Use bold text instead of reverse video text.
+set boldtext
+## The characters treated as closing brackets when justifying
+## paragraphs.  They cannot contain blank characters.  Only closing
+## punctuation, optionally followed by closing brackets, can end
+## sentences.
+##
+set brackets &quot;&quot;')&gt;]}&quot;
+## Do case sensitive searches by default.
+# set casesensitive
+## Constantly display the cursor position in the statusbar.  Note that
+## this overrides &quot;quickblank&quot;.
+set const
+## Use cut to end of line by default.
+# set cut
+## Set the line length for wrapping text and justifying paragraphs.
+## If fill is 0 or less, the line length will be the screen width less
+## this number.
+##
+#set fill -8
+## Enable ~/.nano_history for saving and reading search/replace
+strings.
+set historylog
+## The opening and closing brackets that can be found by bracket
+## searches.  They cannot contain blank characters.  The former set
+must
+## come before the latter set, and both must be in the same order.
+##
+set matchbrackets &quot;(&lt;[{)&gt;]}&quot;
+## Use the blank line below the titlebar as extra editing space.
+# set morespace
+## Enable mouse support, if available for your system.  When enabled,
+## mouse clicks can be used to place the cursor, set the mark (with a
+## double click), and execute shortcuts.  The mouse will work in the X
+## Window System, and on the console when gpm is running.
+##
+set mouse
+## Allow multiple file buffers (inserting a file will put it into a
+## separate buffer).  You must have configured with
+--enable-multibuffer
+## for this to work.
+##
+# set multibuffer
+## Don't convert files from DOS/Mac format.
+# set noconvert
+## Don't follow symlinks when writing files.
+# set nofollow
+## Don't display the helpful shortcut lists at the bottom of the
+screen.
+# set nohelp
+## Don't add newlines to the ends of files.
+set nonewlines
+## Don't wrap text at all.
+set nowrap
+## Set operating directory.  nano will not read or write files outside
+## this directory and its subdirectories.  Also, the current directory
+## is changed to here, so any files are inserted from this dir.  A
+blank
+## string means the operating directory feature is turned off.
+##
+# set operatingdir &quot;&quot;
+## Preserve the XON and XOFF keys (^Q and ^S).
+# set preserve
+## The characters treated as closing punctuation when justifying
+## paragraphs.  They cannot contain blank characters.  Only closing
+## punctuation, optionally followed by closing brackets, can end
+## sentences.
+##
+# set punct &quot;!.?&quot;
+## Do quick statusbar blanking.  Statusbar messages will disappear
+after
+## 1 keystroke instead of 26.  Note that &quot;const&quot; overrides this.
+##
+# set quickblank
+## The email-quote string, used to justify email-quoted paragraphs.
+## This is an extended regular expression if your system supports them,
+## otherwise a literal string.  Default:
+# set quotestr &quot;^([       ]*[#:&gt;\|}])+&quot;
+## if you have extended regular expression support, otherwise:
+# set quotestr &quot;&gt; &quot;
+## Fix Backspace/Delete confusion problem.
+# set rebinddelete
+## Fix numeric keypad key confusion problem.
+# set rebindkeypad
+## Do extended regular expression searches by default.
+#set regexp
+## Make the Home key smarter.  When Home is pressed anywhere but at the
+## very beginning of non-whitespace characters on a line, the cursor
+## will jump to that beginning (either forwards or backwards).  If the
+## cursor is already at that position, it will jump to the true
+## beginning of the line.
+# set smarthome
+## Use smooth scrolling as the default.
+# set smooth
+## Use this spelling checker instead of the internal one.  This option
+## does not properly have a default value.
+##
+set speller &quot;aspell -x -c&quot;
+## Allow nano to be suspended.
+set suspend
+## Use this tab size instead of the default; it must be greater than 0.
+set tabsize 4
+## Convert typed tabs to spaces.
+set tabstospaces
+## Save automatically on exit, don't prompt.
+# set tempfile
+## Disallow file modification; why would you want this in an rcfile? ;)
+# set view
+## The two single-column characters used to display the first
+characters
+## of tabs and spaces.  187 in ISO 8859-1 (0000BB in Unicode) and 183
+in
+## ISO-8859-1 (0000B7 in Unicode) seem to be good values for these.
+set whitespace &quot;. &quot;
+## Detect word boundaries more accurately by treating punctuation
+## characters as part of a word.
+# set wordbounds
+## Here is an example for PHP
+##
+syntax &quot;php&quot; &quot;\.php[2345s~]?$&quot;
+## php markings
+color brightgreen &quot;(&lt;\?(php)?|\?&gt;)&quot;
+## functions
+color white &quot;\&lt;[a-z_]*\(&quot;
+## types
+color green &quot;\&lt;(var|float|global|double|bool|char|int|enum|const)\&gt;&quot;
+## structure
+color brightyellow &quot;\&lt;(class|new|private|public|function|for|foreach|if|while|do|else|els
+## control flow
+color magenta &quot;\&lt;(goto|continue|break|return)\&gt;&quot;
+## strings
+color brightyellow &quot;&lt;[^= ]*&gt;&quot; &quot;&quot;(\.|[^&quot;])*&quot;&quot;
+## comments
+color brightblue &quot;//.*&quot;
+color brightblue start=&quot;/\*&quot; end=&quot;\*/&quot;
+#color blue start=&quot;&lt;&quot; end=&quot;&gt;&quot;
+#color red &quot;&amp;[^;[[:space:]]]*;&quot;
+## Trailing whitespace
+color ,green &quot;[[:space:]]+$&quot;
+include &quot;/usr/share/nano/html.nanorc&quot;
+##############################################################################
+#
+# Syntax highlighting for XML files
+#
+# Author:  Josef 'Jupp' Schugt, jupp(a)rubyforge.org
+# License: GPL 2  or later
+#
+# Version: 2004-02-25
+#
+##############################################################################
+syntax &quot;ml&quot;
+&quot;.*\.([jrs]?html?|xml|sgml?|lhtml|opml|kdevelop|vcproj|glade|xsd|plist|gcs|dtd|dcl)$&quot;
+ &quot;catalog$&quot; &quot;docbook$&quot;
+color white &quot;^.+$&quot;
+color green  start=&quot;&lt;&quot; end=&quot;&gt;&quot;
+color cyan   &quot;&lt;[^&gt; ]+&quot;
+color cyan   &quot;&gt;&quot;
+color yellow start=&quot;&lt;!DOCTYPE&quot; end=&quot;[/]?&gt;&quot;
+color yellow start=&quot;&lt;!--&quot; end=&quot;--&gt;&quot;
+color red    &quot;&amp;[^;]*;&quot;
+### all *js files  ( e.g. Firefox user.js, prefs.js )
+## New updated taken from
+http://wiki.linuxhelp.net/index.php/Nano_Syntax_Highlighting
+syntax &quot;JavaScript&quot; &quot;\.(js)$&quot;
+## Default
+color white &quot;^.+$&quot;
+## Decimal, cotal and hexadecimal numbers
+color yellow &quot;\&lt;[-+]?([1-9][0-9]*|0[0-7]*|0x[0-9a-fA-F]+)([uU][lL]?|[lL][uU]?)?\&gt;&quot;
+## Floating point number with at least one digit before decimal point
+color yellow &quot;\&lt;[-+]?([0-9]+\.[0-9]*|[0-9]*\.[0-9]+)([EePp][+-]?[0-9]+)?[fFlL]?&quot;
+color yellow &quot;\&lt;[-+]?([0-9]+[EePp][+-]?[0-9]+)[fFlL]?&quot;
+## Keywords
+color green &quot;\&lt;(break|case|catch|continue|default|delete|do|else|finally)\&gt;&quot;
+color green &quot;\&lt;(for|function|if|in|instanceof|new|null|return|switch)\&gt;&quot;
+color green &quot;\&lt;(switch|this|throw|try|typeof|undefined|var|void|while|with)\&gt;&quot;
+## Type specifiers
+color red &quot;\&lt;(Array|Boolean|Date|Enumerator|Error|Function|Math)\&gt;&quot;
+color red &quot;\&lt;(Number|Object|RegExp|String)\&gt;&quot;
+color red &quot;\&lt;(true|false)\&gt;&quot;
+## String
+color brightyellow &quot;L?\&quot;(\\&quot;|[^&quot;])*\&quot;&quot;
+color brightyellow &quot;L?'(\'|[^'])*'&quot;
+## Escapes
+color red &quot;\\[0-7][0-7]?[0-7]?|\\x[0-9a-fA-F]+|\\[bfnrt'&quot;\?\\]&quot;
+## Comments
+color magenta start=&quot;/\*&quot; end=&quot;\*/&quot;
+color magenta &quot;//.*$&quot;
+</code></pre>
+<h2>GUI Editors</h2>
+<p>We don't use these so I don't have any recommendations. You may want to look here [7] for some recommendations.</p>
+<ul>
+<li>gedit Not geared to programming. Installed by default on ubuntu desktop.</li>
+<li>scite [8] (sudo apt-get install scite)</li>
+</ul>
+<p>Here are some IDEs</p>
+<ul>
+<li>geany A small GUI editor geared to programming (sudo apt-get install geany)</li>
+<li>bluefish [9] (sudo apt-get install bluefish)</li>
+<li>eclipse</li>
+</ul>
+<h2>References</h2>
+<p>[1] https://launchpad.net/ [2] https://help.launchpad.net/YourAccount/CreatingAnSSHKeyPair [3] http://bazaar-vcs.org/en/ [4] http://doc.bazaar-vcs.org/latest/en/mini-tutorial/index.html [5] http://www.launchpad.net/~ihris+cssc [6] http://bazaar-vcs.org/CheckoutTutorial [7] https://help.ubuntu.com/community/Programming [8] http://scintilla.org/SciTE.html [9] http://bluefish.openoffice.nl/features.html</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=33650">revision 33650</a>; contributors: Litlfred. Pages 435&ndash;446 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

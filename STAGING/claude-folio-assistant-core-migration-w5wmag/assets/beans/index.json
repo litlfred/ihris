@@ -1,0 +1,525 @@
+{
+  "$schema": "folio-bean-index/v1",
+  "tile": {
+    "beans": {
+      "count": 14,
+      "unit": "open beans"
+    }
+  },
+  "repoWeb": "https://github.com/litlfred/ihris",
+  "items": [
+    {
+      "id": "ihris-07z5",
+      "title": "Data-model site wireframes: rounds 2–3 (hybrid H, H2) review and acceptance",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-um1h",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T11:31:34Z",
+      "updatedAt": "2026-09-23T11:31:34Z",
+      "preview": "Candidate `docs/design/wireframes/data-model-site/round-2/h.html`: A's structure plus B's neighbourhood graph, with the five fixes round 1 carried forward. Its mechanical checks pass at web and mobile. Next: the blind agent review (agent-2), then the owner either accepts H or sends it round again. After acceptance, H becomes the just-the-docs template for the data-model pages and the harness visua",
+      "file": "beans/defs/ihris-07z5--data-model-site-wireframes-round-2-hybrid-h-review.md"
+    },
+    {
+      "id": "ihris-0nml",
+      "title": "Move wiregen + methodology-from-source upstream to folio-assistant",
+      "status": "todo",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-um1h",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T07:07:41Z",
+      "updatedAt": "2026-09-23T07:07:41Z",
+      "preview": "Both are domain-neutral. `methodology-adoption` §4 places them in the harness (folio-assistant `cat-harness/methodologies/`, `processes/`, `skills/folio-core/`). They are drafted in ihris because this session can only write to litlfred/ihris. Needs the owner to grant access to litlfred/folio-assistant, or to move them.",
+      "file": "beans/defs/ihris-0nml--move-wiregen-methodology-from-source-upstream-to-f.md"
+    },
+    {
+      "id": "ihris-0uoj",
+      "title": "Migrate to a folio-assistant-core dependent repository (as who-iris)",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-10-09T10:48:54Z",
+      "updatedAt": "2026-10-09T10:48:54Z",
+      "preview": "Owner, 2026-10-09: *\"migrrate to new folio-assistant-core dependent repo https://litlfred.github.io/who-iris\"*.\n\nlitlfred/folio-assistant no longer holds folio-assistant-core/ or cat-harness/ in its tree: each layer is its own repository, and folio-assistant is an index of remote mounts. CI cloned folio-assistant main for the zod schemas, so after the cutover it found no layers and every commit fa",
+      "file": "beans/defs/ihris-0uoj--migrate-to-a-folio-assistant-core-dependent-reposi.md"
+    },
+    {
+      "id": "ihris-4zar",
+      "title": "ISCO-88 → ISCO-08 correspondence (isco-08.json P2)",
+      "status": "todo",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-g768",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T06:04:45Z",
+      "updatedAt": "2026-09-23T06:04:45Z",
+      "preview": "Blocked on the ILO correspondence table, which the session cannot reach (ilo.org is egress-blocked). Owner uploads it to `uploads/`. Recorded in `src/ihris-data-dictionary/authored/isco-08.json` as P2.",
+      "file": "beans/defs/ihris-4zar--isco-88-isco-08-correspondence-isco-08json-p2.md"
+    },
+    {
+      "id": "ihris-73by",
+      "title": "build_kg: formClass group named by path attribute becomes a phantom class",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T11:33:09Z",
+      "updatedAt": "2026-09-23T11:33:09Z",
+      "preview": "Found by agent-2 in the round-2 wireframe review.\n\n`src/ihris-common/data-model/4.3.3/formClass.json` is an extraction artefact. `ihris-common/modules/TrainingCourse/modules/TrainingInstructor/TrainingInstructor.xml` line 35 reads:\n\n    <configurationGroup name=\"formClass\" path=\"/modules/forms/formClasses/iHRIS_Scheduled_Training_Course\">\n\nI2CE lets a `path` attribute name the target. `src/tools/b",
+      "file": "beans/defs/ihris-73by--build-kg-formclass-group-named-by-path-attribute-b.md"
+    },
+    {
+      "id": "ihris-7gl8",
+      "title": "Map the DAK logical models to the iHRIS 5 FHIR IG",
+      "status": "draft",
+      "type": "task",
+      "priority": "normal",
+      "parent": "ihris-g768",
+      "blocking": [],
+      "blockedBy": [
+        "ihris-ct58",
+        "ihris-dmgf"
+      ],
+      "createdAt": "2026-09-23T06:04:45Z",
+      "updatedAt": "2026-09-23T06:23:09Z",
+      "preview": "Crosswalk each of the 49 logical models / 242 data elements (from iHRIS 4.3.3 form classes) to the iHRIS 5 profile, element or extension that holds it, e.g. Person→IhrisPractitioner, PersonPosition→IhrisPractitionerRole, Education→IhrisBasicEducationHistory, License→IhrisBasicLicense, Salary→IhrisBasicSalary. Output: ConceptMap(s) or a mapping table, plus a two-way gap report. Needs the iHRIS 5 FS",
+      "file": "beans/defs/ihris-7gl8--map-the-dak-logical-models-to-the-ihris-5-fhir-ig.md"
+    },
+    {
+      "id": "ihris-91d2",
+      "title": "folio-assistant: define a schema for pdf-structure/v1",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T13:26:39Z",
+      "updatedAt": "2026-09-23T13:26:39Z",
+      "preview": "folio-assistant's library-ingestion (`pdf-structure.py`) writes `structure.json` tagged `_schema: pdf-structure/v1`, but defines no schema for that tag anywhere (checked 2026-09-23 on origin/main: no zod schema and no JSON Schema). ihris validates the keys it reads with a local stand-in, `src/schemas/pdf-structure.schema.json`. When folio-assistant defines the schema, bind to it and delete the sta",
+      "file": "beans/defs/ihris-91d2--folio-assistant-define-a-schema-for-pdf-structurev.md"
+    },
+    {
+      "id": "ihris-actr",
+      "title": "Use-case actors as Roles, and named people as opaque actors",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T21:00:00Z",
+      "updatedAt": "2026-09-23T21:00:00Z",
+      "preview": "The owner's direction for the 2009 use cases (`library/ihris-use-cases`, bean `ihris-hbuc`), 2026-09-23: *\"Actors can be instantiated.... actor schema instancnes could then be referenced.\"* It is step 6 of section 5 in folio-assistant's `cat-harness/docs/proposals/odrl-prov-actor-model.md`, from folio-assistant issue [#1180](https://github.com/litlfred/folio-assistant/issues/1180) (W3C ODRL 2.2 po",
+      "file": "beans/defs/ihris-actr--use-case-actors-as-roles-and-named-people-as-opa.md"
+    },
+    {
+      "id": "ihris-bwls",
+      "title": "IG render/publication for the iHRIS DAK: after the new lightweight IG render pipeline is done",
+      "status": "draft",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-g768",
+      "blocking": [],
+      "blockedBy": [
+        "ihris-dmgf"
+      ],
+      "createdAt": "2026-09-23T06:23:42Z",
+      "updatedAt": "2026-09-23T06:23:42Z",
+      "preview": "Owner, 2026-09-23: *\"bean up for IG publisher also needs first new lightweight IG render pipeline is done\"*.\n\nRendering or publishing the iHRIS DAK IG (HTML, gh-pages) waits for **two** things:\n\n1. the design gate `ihris-dmgf` (D7: sushi + validation only in this phase), and\n2. **folio-assistant's new lightweight IG render pipeline being done**, which is upstream. The relevant platform beans are:\n",
+      "file": "beans/defs/ihris-bwls--ig-renderpublication-for-the-ihris-dak-after-the-n.md"
+    },
+    {
+      "id": "ihris-ct58",
+      "title": "Express the DAK logical models as FHIR StructureDefinitions (FSH), sushi-clean",
+      "status": "draft",
+      "type": "task",
+      "priority": "normal",
+      "parent": "ihris-g768",
+      "blocking": [
+        "ihris-7gl8"
+      ],
+      "blockedBy": [
+        "ihris-dmgf"
+      ],
+      "createdAt": "2026-09-23T06:04:45Z",
+      "updatedAt": "2026-09-23T06:23:09Z",
+      "preview": "Turn `src/ihris-data-dictionary/data-dictionary` into FHIR logical models. Format depends on the design decision (smart-base DAK Logical Model, folio-assistant cz17). Sushi must run without error before any commit.\n\n## Owner decision D3 (2026-09-23)\n\nWait for smart-base's DAK model: [folio-assistant cz17](https://github.com/litlfred/folio-assistant/blob/main/beans/defs/folio-assistant-cz17--migrat",
+      "file": "beans/defs/ihris-ct58--express-the-dak-logical-models-as-fhir-structurede.md"
+    },
+    {
+      "id": "ihris-dipr",
+      "title": "F1: pinned SUSHI and an empty R4-core IG skeleton, sushi-clean",
+      "status": "todo",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-g768",
+      "blocking": [
+        "ihris-ej94"
+      ],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T06:28:07Z",
+      "updatedAt": "2026-09-23T06:28:07Z",
+      "preview": "Design phase F1 (`docs/design/fhir-strategy.md`).\n- Pin a SUSHI version.\n- Add `sushi-config.yaml` with canonical `https://litlfred.github.io/ihris/dak`, FHIR 4.0.1, and dependencies on R4 core only (no smart-base).\n- `validate.py` runs sushi and fails on any error.\n\nExit: sushi reports 0 errors and 0 warnings. No IG Publisher run and no HTML (D7).",
+      "file": "beans/defs/ihris-dipr--f1-pinned-sushi-and-an-empty-r4-core-ig-skeleton-s.md"
+    },
+    {
+      "id": "ihris-dmgf",
+      "title": "DESIGN STRATEGY: how the iHRIS DAK becomes FHIR — for owner review",
+      "status": "completed",
+      "type": "task",
+      "priority": "normal",
+      "parent": "ihris-g768",
+      "blocking": [
+        "ihris-7gl8",
+        "ihris-bwls",
+        "ihris-ct58",
+        "ihris-gj3u"
+      ],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T06:04:45Z",
+      "updatedAt": "2026-09-23T06:28:07Z",
+      "preview": "The gate. Everything else under the epic is blocked by this bean. Only the owner completes it.\n\n## Questions the strategy must answer\n\n1. **Source format.** Keep generating FHIR JSON from Python, or author/generate FSH and make sushi the build (per the owner's rule: sushi must run clean before commit)?\n2. **Where the IG lives.** A DAK IG in this repo (`src/ihris-data-dictionary`), contributions to",
+      "file": "beans/defs/ihris-dmgf--design-strategy-how-the-ihris-dak-becomes-fhir-for.md"
+    },
+    {
+      "id": "ihris-ej94",
+      "title": "Move the generated terminology into the chosen IG build",
+      "status": "todo",
+      "type": "task",
+      "priority": "normal",
+      "parent": "ihris-g768",
+      "blocking": [],
+      "blockedBy": [
+        "ihris-dipr"
+      ],
+      "createdAt": "2026-09-23T06:04:45Z",
+      "updatedAt": "2026-09-23T06:28:07Z",
+      "preview": "44 CS / 57 VS / 5 CM in `src/ihris-data-dictionary/terminology` are JSON from build_dak.py. Once the design says FSH/sushi, generate them there instead and retire the JSON path; until then they are unchanged.\n\n## Owner decisions D5, D7 and D8 (2026-09-23)\n\nR4 core only; sushi and validation only; the JSON is retired once the sushi output is equal in content. This can proceed as soon as the gate is",
+      "file": "beans/defs/ihris-ej94--move-the-generated-terminology-into-the-chosen-ig.md"
+    },
+    {
+      "id": "ihris-g768",
+      "title": "FHIR ASSET MIGRATION (independent of smart-base): gated by the approved design",
+      "status": "in-progress",
+      "type": "epic",
+      "priority": "normal",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T06:04:45Z",
+      "updatedAt": "2026-09-23T06:28:07Z",
+      "preview": "## Why paused\n\nOwner ruling 2026-09-23: **pause all FHIR/sushi asset migration until the design strategy is human-reviewed and approved.** No new FHIR resources, FSH, or sushi runs are produced until the design bean under this epic is `completed` by the owner.\n\n## What exists already (not migrated, not withdrawn)\n\n`src/ihris-data-dictionary/terminology/` has 44 CodeSystems, 57 ValueSets and 5 Conc",
+      "file": "beans/defs/ihris-g768--fhirsushi-asset-migration-paused-until-the-design.md"
+    },
+    {
+      "id": "ihris-gj3u",
+      "title": "Confirm the DAK canonical URL",
+      "status": "completed",
+      "type": "task",
+      "priority": "normal",
+      "parent": "ihris-g768",
+      "blocking": [],
+      "blockedBy": [
+        "ihris-dmgf"
+      ],
+      "createdAt": "2026-09-23T06:04:45Z",
+      "updatedAt": "2026-09-23T06:21:12Z",
+      "preview": "Provisional `https://litlfred.github.io/ihris/dak`. Every generated CodeSystem/ValueSet/ConceptMap url depends on it. Owner decision.\n\n## Decided\n\nOwner, 2026-09-23: canonical `https://litlfred.github.io/ihris/dak` (design D4).",
+      "file": "beans/defs/ihris-gj3u--confirm-the-dak-canonical-url.md"
+    },
+    {
+      "id": "ihris-glsk",
+      "title": "SKOS glossary: toolkit terms, use-case glossaries and code lists, on a glossary/ page and in search",
+      "status": "in-progress",
+      "type": "feature",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T23:00:00Z",
+      "updatedAt": "2026-09-23T23:00:00Z",
+      "preview": "The owner, 2026-09-23: *\"everything extracted to glosasay / skos? accesible in ihris page/search?\"*, then *\"it should be part of general pracice w/ glossary/ page\"*, *\"put glossary into folio-assistant-core\"* and *\"can glossary be refefences to external skos schema?\"*. Yes: reference first, define second. folio-assistant issue [#1217](https://github.com/litlfred/folio-assistant/issues/1217) put th",
+      "file": "beans/defs/ihris-glsk--skos-glossary-toolkit-terms-use-case-glossaries-and.md"
+    },
+    {
+      "id": "ihris-hbuc",
+      "title": "Ingest the 2010 Administrator Handbook (wiki export) and the 2009 use-case model",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T19:30:00Z",
+      "updatedAt": "2026-09-23T19:30:00Z",
+      "preview": "Two sources the owner uploaded on 2026-09-23, each ingested as its own library instance.\n\n## Sources\n\n- **`library/ihris-admin-handbook`**: `ihris_admin_handbook_sep_17_2010.pdf` (md5 `25186f0c5398b7f68364d33d78706613`), uploaded by the owner to litlfred/folio-assistant main (commit b8549160). It is a 534-page mwlib/PediaPress export of 79 iHRIS wiki articles (open.intrahealth.org), generated 2010",
+      "file": "beans/defs/ihris-hbuc--ingest-the-2010-admin-handbook-and-the-2009-use-case.md"
+    },
+    {
+      "id": "ihris-k1sv",
+      "title": "Site: pages for the other instances (toolkit, wiki, data dictionary, sources); harness KG viewer",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T12:15:52Z",
+      "updatedAt": "2026-09-23T12:15:52Z",
+      "preview": "On the landing board, only the four core packages and the data model link to generated pages. The toolkit, wiki, data dictionary, ihris5, ihris-plan, openhie-pr and ihris-4-on-fhir cards link to GitHub.\n\nNext:\n- Generate pages from their committed data. Licence rules apply: `iHRIS/ihris-documentation` is headings only.\n- Decide whether to also mount into folio-assistant (`/folio-assistant/ihris/`)",
+      "file": "beans/defs/ihris-k1sv--site-pages-for-the-other-instances-toolkit-wiki-da.md"
+    },
+    {
+      "id": "ihris-kngr",
+      "title": "Toolkit licence: may the site reproduce toolkit.ihris.org text?",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T13:37:09Z",
+      "updatedAt": "2026-09-23T13:37:09Z",
+      "preview": "No licence is recorded for toolkit.ihris.org. None is stated in the captured pages under `uploads/toolkit/*.html`, and none is recorded in `library/ihris-toolkit`. So the site shows the toolkit's structure only: stages, taglines, domains and tool titles, each linking back (AGENTS.md §2.4).\n\nThe owner decides whether the ingested text (the stage intros, objectives, challenges and technical terms in",
+      "file": "beans/defs/ihris-kngr--toolkit-licence-may-the-site-reproduce-toolkitihri.md"
+    },
+    {
+      "id": "ihris-mdzi",
+      "title": "Publish ihris's work-plan (beans) dashboard on its own site, then restore the beans navbar icon",
+      "status": "completed",
+      "type": "task",
+      "priority": "normal",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-10-09T11:53:31Z",
+      "updatedAt": "2026-10-09T12:21:50Z",
+      "preview": "Owner, 2026-10-09: 'missing icons on navbar top'. The folio rail's icon row inherited cat-harness's todos, beans and fsh-guts icons, which link to state-graph dashboards. ihris's site (built by src/tools/build_site.py into _site, not a Jekyll docs directory) publishes none of them, so each was inert with 'reason not recorded'. ihris.json now declares navbarIcons [close, launcher].\n\nTo bring 'beans",
+      "file": "beans/defs/ihris-mdzi--publish-ihriss-work-plan-beans-dashboard-on-its-ow.md"
+    },
+    {
+      "id": "ihris-msvi",
+      "title": "theme-ui-review.bpmn: require web AND mobile layouts",
+      "status": "todo",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-um1h",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T07:07:42Z",
+      "updatedAt": "2026-09-23T07:07:42Z",
+      "preview": "Owner, 2026-09-23: *need both web and mobile layouts in usability reviews*. [`theme-ui-review.bpmn`](https://github.com/litlfred/folio-assistant/blob/main/cat-harness/processes/theme-ui-review.bpmn) has Inventory, Accessibility, Branding, Locales and Judge steps, and none of them names viewports. Proposal: A_Inventory lists surfaces per viewport (web, mobile), and R_Judge is incomplete without bot",
+      "file": "beans/defs/ihris-msvi--theme-ui-reviewbpmn-require-web-and-mobile-layouts.md"
+    },
+    {
+      "id": "ihris-patc",
+      "title": "ISO proposal P1: owner decision",
+      "status": "todo",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-g768",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T06:04:45Z",
+      "updatedAt": "2026-09-23T06:04:45Z",
+      "preview": "`src/ihris-data-dictionary/authored/iso.json` P1 is `proposed`. Only the owner moves its status.",
+      "file": "beans/defs/ihris-patc--iso-proposal-p1-owner-decision.md"
+    },
+    {
+      "id": "ihris-qw6w",
+      "title": "Enable GitHub Pages from the gh-pages branch for litlfred/ihris",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T12:15:52Z",
+      "updatedAt": "2026-09-23T12:15:52Z",
+      "preview": "The `gh-pages` branch was first pushed on 2026-09-23 (the owner: \"make gh-pages\"). `.github/workflows/pages.yml` keeps it updated. Serving it needs **Settings → Pages → Source: Deploy from a branch → `gh-pages` / (root)** on litlfred/ihris, unless GitHub enabled that automatically when the branch was pushed. Only the owner can set it. The workflow cannot be verified from a cloud session, because l",
+      "file": "beans/defs/ihris-qw6w--enable-github-pages-source-github-actions-for-litl.md"
+    },
+    {
+      "id": "ihris-rluc",
+      "title": "Use-case roles: merge 'Any User'; derive useCases from primary actors",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-24T00:00:00Z",
+      "updatedAt": "2026-09-24T00:00:00Z",
+      "preview": "The owner's answers, 2026-09-24, to the open questions of PR [#17](https://github.com/litlfred/ihris/pull/17) (bean `ihris-actr`), tracked in issue [#20](https://github.com/litlfred/ihris/issues/20):\n\n1. *\"Any User\" in A-ICE4 and A-PS6 is the same role.* Merge them into one role, citing both sources.\n2. *Fill each role's `useCases` from the actors' goals in the 2009 reports.* Link each role to the",
+      "file": "beans/defs/ihris-rluc--use-case-roles-merge-any-user-derive-usecases-from.md"
+    },
+    {
+      "id": "ihris-tlok",
+      "title": "CRDM: on chat-initiated/updated CRDM, find related beans and issues, categorize and summarize, ask to coordinate",
+      "status": "todo",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-um1h",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T07:07:42Z",
+      "updatedAt": "2026-09-23T07:07:42Z",
+      "preview": "Owner, 2026-09-23: *when CRDM is initiated/updated through human agent chat discussions existing beans need to be searched for relevance and categorized (and summarized), same for issues (e.g. github). ask user if they want to coordinate. judgement is used to determine how.*\n\nTarget: folio-assistant [`methodologies/crdm/`](https://github.com/litlfred/folio-assistant/blob/main/cat-harness/methodolo",
+      "file": "beans/defs/ihris-tlok--crdm-on-chat-initiatedupdated-crdm-find-related-be.md"
+    },
+    {
+      "id": "ihris-u3fg",
+      "title": "Dark scheme for the iHRIS site theme (the folio rail's light/dark switch)",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-10-09T11:11:29Z",
+      "updatedAt": "2026-10-09T14:30:00Z",
+      "preview": "The folio chrome (bean ihris-0uoj's follow-up; Tool ihris-rail-site) gives every page the platform's light/dark switch, which sets data-fa-scheme on <html>. The iHRIS theme (src/site/theme/ihris-classic.json, measured from the 4.3.3 release CSS) has LIGHT colours only, so the page stays light when a reader picks dark, and folio-site-chrome-check reports 'scheme toggle changes the page' as failing.",
+      "file": "beans/defs/ihris-u3fg--dark-scheme-for-the-ihris-site-theme-the-folio-rai.md"
+    },
+    {
+      "id": "ihris-u704",
+      "title": "Data-model site wireframes: round 1 review and choice (A vs B)",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-um1h",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T07:10:48Z",
+      "updatedAt": "2026-09-23T12:00:00Z",
+      "preview": "Candidates in `docs/design/wireframes/data-model-site/`. Mechanical checks pass at both viewports. The blind review needs a non-author agent and a human. Where they disagree, the choice goes through adjudication, then options analysis.\n\n## Outcome (2026-09-23)\n\n- agent-1 and the owner (human-1) reviewed both candidates.\n- The one disagreement (B mobile) was adjudicated.\n- The owner chose the hybri",
+      "file": "beans/defs/ihris-u704--data-model-site-wireframes-round-1-review-and-choi.md"
+    },
+    {
+      "id": "ihris-um1h",
+      "title": "DESIGN METHOD: WireGen adoption, wireframe design review, methodology-from-source process",
+      "status": "in-progress",
+      "type": "epic",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T07:07:41Z",
+      "updatedAt": "2026-09-23T07:07:41Z",
+      "preview": "Owner, 2026-09-23: make it a methodology and integrate it into the existing processes. Both web and mobile layouts are needed in usability reviews. The wireframe is part of the design process for adjudication. Update the 'methodology source/paper' process to describe the general process.\n\n- Source: `library/arxiv-2312.07755` (reference only; no licence stated)\n- Method: `methodologies/wiregen/wire",
+      "file": "beans/defs/ihris-um1h--design-method-wiregen-adoption-wireframe-design-re.md"
+    },
+    {
+      "id": "ihris-xbqd",
+      "title": "smart-base ISCO08: file the drafted upstream issue (182 of 619 codes, content: complete)",
+      "status": "todo",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-g768",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T06:04:45Z",
+      "updatedAt": "2026-09-23T06:04:45Z",
+      "preview": "Draft at `docs/upstream/smart-base-isco08-codesystem.md`. Not filed: WorldHealthOrganization/smart-base is outside this session's scope. Owner files it, or grants access. Not blocked by the pause: it reports an upstream defect, it migrates nothing.",
+      "file": "beans/defs/ihris-xbqd--smart-base-isco08-file-the-drafted-upstream-issue.md"
+    },
+    {
+      "id": "ihris-xco6",
+      "title": "Build the iHRIS 4 data-model site from accepted wireframe H2",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "ihris-um1h",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-09-23T11:51:21Z",
+      "updatedAt": "2026-09-23T11:51:21Z",
+      "preview": "H2 was accepted on 2026-09-23 (`docs/design/wireframes/data-model-site/acceptance.json`). Next:\n- generate just-the-docs pages per package and class from `src/*/data-model/4.3.3`, following `round-3/h2.html` and `h2-menu.html` (sidebar, field table and cards, neighbourhood graph with its edge table, relationships list on phones, source);\n- declare the harness visualiser on the data-model subgraph ",
+      "file": "beans/defs/ihris-xco6--build-the-ihris-4-data-model-site-from-accepted-wi.md"
+    },
+    {
+      "id": "ihris-yvow",
+      "title": "cat-harness: a folio's own generated site cannot declare its pages to the rail (foreign-site rail gaps)",
+      "status": "completed",
+      "type": "task",
+      "priority": "",
+      "parent": "",
+      "blocking": [],
+      "blockedBy": [],
+      "createdAt": "2026-10-09T12:19:34Z",
+      "updatedAt": "2026-10-09T17:00:00Z",
+      "preview": "Found 2026-10-09 publishing ihris's work plan (bean ihris-mdzi) on its own Pages site, railed by cat-harness's rail-standalone-pages.ts --foreign-site --instance ihris. Three platform gaps, bridged in ihris by src/tools/own_site_links.py until cat-harness reconciles them:\n\n1. sync-docs-harness.ts writes the root instance's own pages root-relative (/beans/), while lib/foreign-site-scope.ts keeps a ",
+      "file": "beans/defs/ihris-yvow--cat-harness-a-folios-own-generated-site-cannot-dec.md"
+    }
+  ],
+  "edges": [
+    {
+      "blocker": "ihris-ct58",
+      "blocked": "ihris-7gl8",
+      "declaredOn": [
+        "blocked_by"
+      ]
+    },
+    {
+      "blocker": "ihris-dipr",
+      "blocked": "ihris-ej94",
+      "declaredOn": [
+        "blocked_by"
+      ]
+    },
+    {
+      "blocker": "ihris-dmgf",
+      "blocked": "ihris-7gl8",
+      "declaredOn": [
+        "blocked_by"
+      ]
+    },
+    {
+      "blocker": "ihris-dmgf",
+      "blocked": "ihris-bwls",
+      "declaredOn": [
+        "blocked_by"
+      ]
+    },
+    {
+      "blocker": "ihris-dmgf",
+      "blocked": "ihris-ct58",
+      "declaredOn": [
+        "blocked_by"
+      ]
+    },
+    {
+      "blocker": "ihris-dmgf",
+      "blocked": "ihris-gj3u",
+      "declaredOn": [
+        "blocked_by"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "kind": "blocked-without-expiry",
+      "bean": "ihris-dipr",
+      "blocks": "ihris-ej94",
+      "detail": "blocks `ihris-ej94` (declared by its blocked_by:), and neither states an expiry, so the block cannot be told from abandoned work"
+    }
+  ],
+  "plan": {
+    "milestones": [],
+    "orphanOpen": 14,
+    "openTotal": 14,
+    "coveredOpen": 0,
+    "duplicateIds": 0
+  }
+}

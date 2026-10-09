@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-github-inventory.schema.json",
+  "title": "ihris-github-inventory/v1",
+  "description": "A path inventory of a GitHub repository pinned at one commit (src/ihris5/inventory/*.json). Paths and FSH definition headers only: nothing is copied.",
+  "type": "object",
+  "required": [
+    "repo",
+    "owner",
+    "title",
+    "url",
+    "branch",
+    "commit",
+    "committedAt",
+    "licence"
+  ],
+  "properties": {
+    "repo": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "branch": {
+      "type": "string"
+    },
+    "commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "committedAt": {
+      "type": "string"
+    },
+    "licence": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "topLevel": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fshDefinitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "file",
+          "kind",
+          "name"
+        ],
+        "properties": {
+          "file": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

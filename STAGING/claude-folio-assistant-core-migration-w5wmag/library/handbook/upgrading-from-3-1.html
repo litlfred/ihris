@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Upgrading From 3.1 · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Upgrading From 3.1</div>
+<h1>Upgrading From 3.1</h1>
+<div class="wiki">
+<p>These are directions for upgrading iHRIS Manage from version 3.1 under Ubuntu.</p>
+<h2>First Steps</h2>
+<h3>Get The Source Code</h3>
+<p>You can either get the released or the development code. Suppose that [base_path] is the directory which contains i2ce, common, manage etc.</p>
+<h3>Backup Database</h3>
+<p>We should back up the database. Go into phpmyadmin, select your database, click on operations, and copy the database to a new name [database_name].</p>
+<h3>Logging</h3>
+<p>Open up a new terminal on the machine.</p>
+<pre><code>cd [base_path]/i2ce/tools
+php apache_tail.php 0
+</code></pre>
+<h2>Main Configuration</h2>
+<p>Copy the existing site directory over to a new directory and update the config.values.php to:</p>
+<ul>
+<li>set the $i2ce_site_database to [database_name], the name of the new database</li>
+<li>set $i2ce_site_i2ce_path to [base_path]/i2ce, the directory where the new version of I2CE is located</li>
+</ul>
+<p>If you have URL Rewriting turned on, you will want to update your .htaccess file. Look for the line RewriteBase and change it to the web directory you are using.</p>
+<h2>Site Configuration File</h2>
+<h3>Versions</h3>
+<p>We need to go through your site configuration (XML) file and look for any conflicts and any requirements with version info from 3.1 and update them to the new version. For example, if you have something that looks like:</p>
+<pre><code>&lt;requirement name='ihris-manage'&gt;
+  &lt;atLeast version='3.1'/&gt;
+  &lt;lessThan version='3.2'/&gt;
+&lt;/requirement&gt;
+</code></pre>
+<p>it should be, for the 3.2 development version:</p>
+<pre><code>&lt;requirement name='ihris-manage'&gt;
+  &lt;atLeast version='3.2'/&gt;
+  &lt;lessThan version='3.3'/&gt;
+&lt;/requirement&gt;
+</code></pre>
+<p>or for the 4.0 release version:</p>
+<pre><code>&lt;requirement name='ihris-manage'&gt;
+  &lt;atLeast version='4.0'/&gt;
+  &lt;lessThan version='4.1'/&gt;
+&lt;/requirement&gt;
+</code></pre>
+<p>for the release version.</p>
+<p>You should probably update the</p>
+<pre><code>&lt;version&gt;3.1.X&lt;/version&gt;
+</code></pre>
+<p>to be:</p>
+<pre><code>&lt;version&gt;3.2.0&lt;/version&gt;
+</code></pre>
+<p>or:</p>
+<pre><code>&lt;version&gt;4.0.0&lt;/version&gt;
+</code></pre>
+<p>as appropriate.</p>
+<h3>Modules</h3>
+<p>There were new modules created in the 3.2/4.0 code base for iHRIS Manage. Here are modules that did not exist in 3.1 which you probably want to enable in 3.2 or 4.0:</p>
+<pre><code>&lt;enable name='PersonContact'/&gt;
+&lt;enable name='ihris-manage-PersonDemographic'/&gt;
+&lt;enable name='PersonEducation'/&gt;
+&lt;enable name='PersonEmployment'/&gt;
+&lt;enable name='PersonID'/&gt;
+&lt;enable name='PersonLanguage'/&gt;
+&lt;enable name='PersonNotes'/&gt;
+</code></pre>
+<p>You may also want:</p>
+<pre><code>&lt;enable name='stub'/&gt;
+&lt;enable name=&quot;FileDump&quot;/&gt;
+&lt;enable name=&quot;StretchPage&quot;/&gt;
+&lt;enable name=&quot;messageBox&quot;/&gt;
+&lt;enable name=&quot;messageNotice&quot;/&gt;
+&lt;enable name=&quot;localeSelector&quot;/&gt;
+</code></pre>
+<h2>Changes to HTML Templates</h2>
+<p>There have been some changes to template files to better support localization.</p>
+<p>Some of these changes may be in the main.html and the welcome.html files in the site templates folder.</p>
+<h3>Welcome Role</h3>
+<p>Change things like:</p>
+<pre><code> Logout as &lt;span name='welcome_role'/&gt;
+</code></pre>
+<p>to:</p>
+<pre><code> &lt;span printf=&quot;'Log out as %s',ihris-common-&gt;getUserRole()&quot; /&gt;
+</code></pre>
+<h3>Welcome Name</h3>
+<p>Change things like:</p>
+<pre><code> Welcome, &lt;span name='welcome_name'&gt;,
+</code></pre>
+<p>to:</p>
+<pre><code> &lt;span printf=&quot;'Welcome, %s',ihris-common-&gt;getUserNames()&quot; /&gt;
+</code></pre></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=4158">revision 4158</a>; contributors: Lduncan, Litlfred, MarkAHershberger, Mnamutso. Pages 525&ndash;527 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>
