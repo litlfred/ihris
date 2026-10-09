@@ -129,7 +129,7 @@ jobs:
             exit 0
           fi
           git -C ghp commit -m "$MSG"
-          for i in 1 2 3; do
+          for _ in 1 2 3; do
             git -C ghp push origin gh-pages && break
             git -C ghp pull --rebase origin gh-pages
           done
