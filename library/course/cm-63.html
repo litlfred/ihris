@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Updating iHRIS · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Administrator course</a> / Updating iHRIS</div>
+<h1>Updating iHRIS</h1>
+<div class="credit" style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:12px 0 18px"><img src="../../assets/intrahealth-logo.png" alt="IntraHealth International" width="170" style="background:#fff;border-radius:8px;padding:6px 10px;flex:none"><p style="margin:0;flex:1 1 260px"><b>iHRIS Administrator - Level I</b>, &copy; IntraHealth International, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Originally offered at <a href="http://www.hrhresourcecenter.org/elearning">hrhresourcecenter.org/elearning</a> (CapacityPlus). <span class="mute">Licence stated by its author, the folio owner, 2026-10-09.</span></p></div><div class="wiki">
+<h2>1. Updating iHRIS</h2>
+<p>The iHRIS Software has periodic releases to:</p>
+<ul>
+<li>fix reported bugs</li>
+<li>add new functionality</li>
+<li>add and update translations to the software</li>
+</ul>
+<p>Strategy to update your software regularly:</p>
+<ul>
+<li>backup your test server</li>
+<li>perform the upgrade on your test server</li>
+<li>ensure that upgrade went smoothly on the test server</li>
+<li>backup your production server</li>
+<li>next perform the upgrade on your production server</li>
+</ul>
+<h2>2. Updating iHRIS</h2>
+<p>The instructions will vary depending on the installation. This tutorial assumes the administrator:</p>
+<ul>
+<li>installed version 4.0.5 of the software</li>
+<li>will be upgrading to version 4.0.10</li>
+<li>installed the demo site under var/lib/iHRIS/sites/manage/</li>
+</ul>
+<h2>3. Downloading iHRIS</h2>
+<p>Begin the iHRIS update by downloading the current version of iHRIS. The most current version can be found at: <a href="https://launchpad.net/i2ce">https://launchpad.net/i2ce</a></p>
+<p>You will be downloading a tarball such as: ihris-suite-4_0_10.tar.bz2</p>
+<h2>4. Updating the Main Code</h2>
+<p>Move the old iHRIS code:
+ <strong>sudo mv /var/lib/iHRIS/4.0.5 /var/lib/iHRIS/4.0.5.old</strong></p>
+<p>Make a directory for the new code:
+ <strong>sudo mkdir /var/lib/iHRIS/4.0.10</strong></p>
+<p>Extract the tarball to the "4.0.10" directory:
+ <strong>cd /var/lib/iHRIS/4.0.10
+ sudo tar -xjf ~/Desktop/ihris-suite-4_0_10.tar.bz2</strong></p>
+<h2>5. Updating the Site</h2>
+<p>If you are upgrading from a version prior to 4.0.9, update the site's module to the new demo code:
+ <strong>sudo gedit /var/lib/iHRIS/sites/manage/iHRIS-Manage-Demo.xml</strong></p>
+<p>Remove the &lt;value&gt;../../../&lt;/value&gt; by changing:
+&lt;path name=&quot;modules&quot;&gt;
+&lt;value&gt;./modules&lt;/value&gt;
+<strong>&lt;value&gt;../../../&lt;/value&gt;</strong>&lt;/path&gt;
+to:
+&lt;path name=&quot;modules&quot;&gt;
+&lt;value&gt;./modules&lt;/value&gt;
+&lt;/path&gt;</p>
+<h2>6. Updating the Site</h2>
+<p>Point the site's module to the new demo code:
+ <strong>sudo gedit /var/lib/iHRIS/sites/manage/pages/local/config.values.php</strong></p>
+<p>Change:
+<strong>/**
+* the path to the I2CE installation.
+* You might need to set this depending on your installation
+* Default value is ../../../../I2CE
+*/
+$i2ce_site_i2ce_path = "/var/lib/iHRIS/4.0.5/I2CE";</strong></p>
+<p>to:
+<strong>/**
+* the path to the I2CE installation.
+* You might need to set this depending on your installation
+* Default value is ../../../../I2CE
+*/
+$i2ce_site_i2ce_path = "/var/lib/iHRIS/4.0.10/I2CE";</strong></p>
+<h2>7. Checking Updates</h2>
+<p>Browse to: http://localhost/manage to check the updates</p></div><h2>Source</h2><p class="src">Lesson in Section 5 of <a href="index.html#section-5">iHRIS Administrator - Level I</a>, Moodle course module cm-63; <code>library/ihris-admin-course/modules/cm-63.md</code>.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

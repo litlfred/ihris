@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create PHP Program · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Administrator course</a> / Create PHP Program</div>
+<h1>Create PHP Program</h1>
+<div class="credit" style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:12px 0 18px"><img src="../../assets/intrahealth-logo.png" alt="IntraHealth International" width="170" style="background:#fff;border-radius:8px;padding:6px 10px;flex:none"><p style="margin:0;flex:1 1 260px"><b>iHRIS Administrator - Level I</b>, &copy; IntraHealth International, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Originally offered at <a href="http://www.hrhresourcecenter.org/elearning">hrhresourcecenter.org/elearning</a> (CapacityPlus). <span class="mute">Licence stated by its author, the folio owner, 2026-10-09.</span></p></div><div class="wiki">
+<h2>1. Create a PHP Program</h2>
+<p>This module will outline the process of creating a simple PHP program including:</p>
+<ul>
+<li>installing the LAMP stack</li>
+<li>creating a basic hello.php PHP program in the home directory that will tell the time and say hello</li>
+<li>making this program available to the web server</li>
+</ul>
+<h2>2. Install the LAMP Stack</h2>
+<p>To install the base LAMP (Linux, Apache, MySQL, and PHP) stack on an Ubuntu/Linux computer, open a terminal to interact with your computer via the command-line.</p>
+<p>Navigate to the "Applications" menu, go to "Accessories", then "Terminal" to access the command line.</p>
+<p><img alt="open terminal" src="images/create_php_program1.gif"></p>
+<h2>3. Install the LAMP Stack</h2>
+<p>Once the terminal is open and there is a command prompt, type:
+ <strong>sudo apt-get update
+ sudo apt-get install php5 mysql-server apache2</strong></p>
+<p>This will update the list of available software and install the LAMP stack.</p>
+<p>"sudo" means the programs will run with administrator (also called "root") privileges, so you will be prompted for your password on the first command. This password is probably the password of your user account, the one you use to login with.</p>
+<p>While you are installing mysql it may ask you to choose a password. You should be sure to remember this for later when you need to create a database.</p>
+<h2>4. Create a Directory</h2>
+<p>In the terminal, make a change to the home directory with the command:
+ <strong>cd ~/</strong></p>
+<p>Make a new directory there called "hello" with either one of the following commands:
+ <strong>mkdir hello</strong>
+or
+ <strong>mkdir ~/hello</strong></p>
+<p>Go into the new directory with either one of the following commands:
+ <strong>cd hello</strong>
+or
+ <strong>cd ~/hello</strong></p>
+<h2>5. Create hello.php</h2>
+<p>Now create and edit a new file "greetings.php" in the hello directory.</p>
+<p>In the command line type using either one of the following commands:
+ <strong>gedit ~/hello/greetings.php &amp;</strong>
+or
+ <strong>cd ~/hello &amp;&amp; gedit greetings.php &amp;</strong></p>
+<p>"gedit" is the name of the editor.</p>
+<p><img alt="gedit" src="images/create_php_program2.gif"></p>
+<h2>6. Say Hello in PHP</h2>
+<p>In the editor, type the following code including the spaces and punctuation:
+ <strong>&lt;?php
+ echo &quot;&lt;html&gt;&lt;body&gt;";
+ echo "&lt;b&gt;Hello!&lt;/b&gt;";
+ echo "It is now " . date("F d Y");
+ echo "&lt;/body&gt;&lt;/html&gt;";</strong></p>
+<p>Save it.</p>
+<p>To see this file on the command line type:
+ <strong>ls -l ~/hello</strong></p>
+<p><img alt="hellp php" src="images/create_php_program3.gif"></p>
+<h2>7. Make hello.php Available</h2>
+<p>"hello.php" is in the hello sub-directory of the home directory. However, web pages and php code live in the directory "/var/www". You will need administrator access to change it.</p>
+<p>To link the hello directory so that it also is under "/var/www" type the command:
+ <strong>sudo ln -s ~/hello /var/www</strong></p>
+<p>To see the hello.php file type either one of these commands:
+ <strong>ls -l ~/hello</strong>
+or
+ <strong>ls -l /var/www/hello</strong></p>
+<h2>8. Run the PHP Program</h2>
+<p>The PHP program runs whenever it is accessed by the Apache web server.</p>
+<p>Your computer is named "localhost".</p>
+<p>Open a web browser.</p>
+<p>Because the greetings.php file is linked under "/var/www/hello/greetings.php", run the program by typing the following into the URL line of your web browser:
+ <a href="http://localhost/hello/greetings.php"><strong>http://localhost/hello/greetings.php</strong></a></p></div><h2>Source</h2><p class="src">Lesson in Section 1 of <a href="index.html#section-1">iHRIS Administrator - Level I</a>, Moodle course module cm-47; <code>library/ihris-admin-course/modules/cm-47.md</code>.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>

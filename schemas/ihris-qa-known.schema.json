@@ -34,6 +34,31 @@
         },
         "additionalProperties": false
       }
+    },
+    "child-forms-undefined": {
+      "type": "object",
+      "description": "Module records whose childForms name forms no module of the release defines.",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "forms",
+          "reason"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "forms": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 20
+          }
+        }
+      }
     }
   },
   "additionalProperties": false

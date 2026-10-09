@@ -2,7 +2,7 @@
   "$schema": "folio-bean-index/v1",
   "tile": {
     "beans": {
-      "count": 14,
+      "count": 11,
       "unit": "open beans"
     }
   },
@@ -81,7 +81,7 @@
     {
       "id": "ihris-7gl8",
       "title": "Map the DAK logical models to the iHRIS 5 FHIR IG",
-      "status": "draft",
+      "status": "todo",
       "type": "task",
       "priority": "normal",
       "parent": "ihris-g768",
@@ -91,7 +91,7 @@
         "ihris-dmgf"
       ],
       "createdAt": "2026-09-23T06:04:45Z",
-      "updatedAt": "2026-09-23T06:23:09Z",
+      "updatedAt": "2026-10-09T18:00:00Z",
       "preview": "Crosswalk each of the 49 logical models / 242 data elements (from iHRIS 4.3.3 form classes) to the iHRIS 5 profile, element or extension that holds it, e.g. Person→IhrisPractitioner, PersonPosition→IhrisPractitionerRole, Education→IhrisBasicEducationHistory, License→IhrisBasicLicense, Salary→IhrisBasicSalary. Output: ConceptMap(s) or a mapping table, plus a two-way gap report. Needs the iHRIS 5 FS",
       "file": "beans/defs/ihris-7gl8--map-the-dak-logical-models-to-the-ihris-5-fhir-ig.md"
     },
@@ -142,7 +142,7 @@
     {
       "id": "ihris-ct58",
       "title": "Express the DAK logical models as FHIR StructureDefinitions (FSH), sushi-clean",
-      "status": "draft",
+      "status": "completed",
       "type": "task",
       "priority": "normal",
       "parent": "ihris-g768",
@@ -153,14 +153,14 @@
         "ihris-dmgf"
       ],
       "createdAt": "2026-09-23T06:04:45Z",
-      "updatedAt": "2026-09-23T06:23:09Z",
+      "updatedAt": "2026-10-09T18:00:00Z",
       "preview": "Turn `src/ihris-data-dictionary/data-dictionary` into FHIR logical models. Format depends on the design decision (smart-base DAK Logical Model, folio-assistant cz17). Sushi must run without error before any commit.\n\n## Owner decision D3 (2026-09-23)\n\nWait for smart-base's DAK model: [folio-assistant cz17](https://github.com/litlfred/folio-assistant/blob/main/beans/defs/folio-assistant-cz17--migrat",
       "file": "beans/defs/ihris-ct58--express-the-dak-logical-models-as-fhir-structurede.md"
     },
     {
       "id": "ihris-dipr",
       "title": "F1: pinned SUSHI and an empty R4-core IG skeleton, sushi-clean",
-      "status": "todo",
+      "status": "completed",
       "type": "task",
       "priority": "",
       "parent": "ihris-g768",
@@ -169,8 +169,8 @@
       ],
       "blockedBy": [],
       "createdAt": "2026-09-23T06:28:07Z",
-      "updatedAt": "2026-09-23T06:28:07Z",
-      "preview": "Design phase F1 (`docs/design/fhir-strategy.md`).\n- Pin a SUSHI version.\n- Add `sushi-config.yaml` with canonical `https://litlfred.github.io/ihris/dak`, FHIR 4.0.1, and dependencies on R4 core only (no smart-base).\n- `validate.py` runs sushi and fails on any error.\n\nExit: sushi reports 0 errors and 0 warnings. No IG Publisher run and no HTML (D7).",
+      "updatedAt": "2026-10-09T18:00:00Z",
+      "preview": "Design phase F1 (`docs/design/fhir-strategy.md`).\n- Pin a SUSHI version.\n- Add `sushi-config.yaml` with canonical `https://litlfred.github.io/ihris/dak`, FHIR 4.0.1, and dependencies on R4 core only (no smart-base).\n- `validate.py` runs sushi and fails on any error.\n\nExit: sushi reports 0 errors and 0 warnings. No IG Publisher run and no HTML (D7).\n\n## Done (2026-10-09)\n\nsrc/ihris-4-on-fhir/sushi-",
       "file": "beans/defs/ihris-dipr--f1-pinned-sushi-and-an-empty-r4-core-ig-skeleton-s.md"
     },
     {
@@ -195,7 +195,7 @@
     {
       "id": "ihris-ej94",
       "title": "Move the generated terminology into the chosen IG build",
-      "status": "todo",
+      "status": "completed",
       "type": "task",
       "priority": "normal",
       "parent": "ihris-g768",
@@ -204,7 +204,7 @@
         "ihris-dipr"
       ],
       "createdAt": "2026-09-23T06:04:45Z",
-      "updatedAt": "2026-09-23T06:28:07Z",
+      "updatedAt": "2026-10-09T18:00:00Z",
       "preview": "44 CS / 57 VS / 5 CM in `src/ihris-data-dictionary/terminology` are JSON from build_dak.py. Once the design says FSH/sushi, generate them there instead and retire the JSON path; until then they are unchanged.\n\n## Owner decisions D5, D7 and D8 (2026-09-23)\n\nR4 core only; sushi and validation only; the JSON is retired once the sushi output is equal in content. This can proceed as soon as the gate is",
       "file": "beans/defs/ihris-ej94--move-the-generated-terminology-into-the-chosen-ig.md"
     },
@@ -509,16 +509,22 @@
   ],
   "findings": [
     {
-      "kind": "blocked-without-expiry",
-      "bean": "ihris-dipr",
-      "blocks": "ihris-ej94",
-      "detail": "blocks `ihris-ej94` (declared by its blocked_by:), and neither states an expiry, so the block cannot be told from abandoned work"
+      "kind": "blocker-closed",
+      "bean": "ihris-ct58",
+      "blocks": "ihris-7gl8",
+      "detail": "is completed but still blocks `ihris-7gl8`, which is todo"
+    },
+    {
+      "kind": "blocker-closed",
+      "bean": "ihris-dmgf",
+      "blocks": "ihris-7gl8",
+      "detail": "is completed but still blocks `ihris-7gl8`, which is todo"
     }
   ],
   "plan": {
     "milestones": [],
-    "orphanOpen": 14,
-    "openTotal": 14,
+    "orphanOpen": 11,
+    "openTotal": 11,
     "coveredOpen": 0,
     "duplicateIds": 0
   }

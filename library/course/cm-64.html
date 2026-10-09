@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use Cases · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Administrator course</a> / Use Cases</div>
+<h1>Use Cases</h1>
+<div class="credit" style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:12px 0 18px"><img src="../../assets/intrahealth-logo.png" alt="IntraHealth International" width="170" style="background:#fff;border-radius:8px;padding:6px 10px;flex:none"><p style="margin:0;flex:1 1 260px"><b>iHRIS Administrator - Level I</b>, &copy; IntraHealth International, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Originally offered at <a href="http://www.hrhresourcecenter.org/elearning">hrhresourcecenter.org/elearning</a> (CapacityPlus). <span class="mute">Licence stated by its author, the folio owner, 2026-10-09.</span></p></div><div class="wiki">
+<h2>1. Use Cases</h2>
+<p>This module defines use cases and how to use them, including:</p>
+<ul>
+<li>basics</li>
+<li>examples</li>
+<li>benefits</li>
+<li>parts</li>
+<li>stages</li>
+<li>guidelines</li>
+</ul>
+<h2>2. Use Case Definition</h2>
+<p>Use cases are living documents to be used continously in development to:</p>
+<ul>
+<li>describe a work process</li>
+<li>focus discussion about system actions</li>
+<li>outline the functional requirements for a system</li>
+<li>document the design of a system</li>
+<li>generate procedures for testing a system</li>
+<li>write instructions, help resources and training materials for end users</li>
+</ul>
+<h2>3. Documenting Requirements</h2>
+<p>Use cases identify the function requirements (goals) that the system will need to perform.</p>
+<p>Some functions cannot be accomplished in a system as it is installed and require programmer customization.</p>
+<p>Example: building a new report or adding a new field to capture additional data</p>
+<h2>4. Writing a Use Case</h2>
+<p>A use case describes how to achieve a specific goal or function, using the system:</p>
+<ul>
+<li>should describe the main system behavior</li>
+<li>should not list all the requirements</li>
+<li>plain language—no technical jargon</li>
+</ul>
+<h2>5. Use Case Example</h2>
+<p><strong>1A. Use Case Number:</strong> 9
+<strong>1B. Use Case Title:</strong> Log in
+<strong>2. Level:</strong> User-level
+<strong>3. Primary Actor:</strong> Any user
+<strong>4. Context of Use:</strong> The user logs in to authenticate his or her role in the system and to perform a task in the system.
+<strong>5. Preconditions:</strong> A user account has been created for the user.
+<strong>6. Success Guarantee:</strong> The user can successfully access the system and perform actions appropriate for his or her role.
+<strong>7. Main Success Scenario (MSS):</strong>
+ 1. The user connects to the system.
+ 2. The user enters his/her username and password.
+ 3. The system validates the username and password.
+ 4. The system determines the user’s role.
+ 5. The system displays a list of actions the user can perform based on the user’s role.
+<strong>8. Extensions:</strong>
+ 3a. The system determines that the password is incorrect for the username entered.
+ 1. The system prompts the user to re-enter the password.
+ 3a1. The system determines that the re-entered password is incorrect.
+ 2. The system provides the option for the user to retrieve a forgotten password.
+ 3b. The system determines that the username does not match a username for any account.
+ 1. The system displays an error message.
+ 4a. The system determines that the user has no role assigned in the system.
+ 1. The system does not allow the user to access the system.
+<strong>9. Notes/ Issues/ Reviewer Comments:</strong> This use case is the same for iHRIS Manage, Qualify and Plan.
+<strong>Completed by:</strong> Use case writer Date: October 25, 2008
+<strong>Reviewed by:</strong> Use case reviewer Date: November 4, 2008</p>
+<h2>6. Examples of iHRIS Use Cases</h2>
+<p>iHRIS Manage:
+<a href="http://www.capacityproject.org/hris/suite/UseCaseReport-iHRISManage.htm">http://www.capacityproject.org/hris/suite/UseCaseReport-iHRISManage.htm</a></p>
+<p>iHRIS Qualify:
+<a href="http://www.capacityproject.org/hris/suite/UseCaseReport_iHRISQualify.htm">http://www.capacityproject.org/hris/suite/UseCaseReport_iHRISQualify.htm</a></p>
+<p>iHRIS Plan:
+<a href="http://www.capacityproject.org/hris/suite/UseCaseReport_iHRISPlan.htm">http://www.capacityproject.org/hris/suite/UseCaseReport_iHRISPlan.htm</a></p>
+<h2>7. Focused Goals</h2>
+<p>Use cases should be co-written by stakeholders, users, and developers:</p>
+<ul>
+<li>ensures that the system includes the functions that are truly important to the people who will be using it</li>
+<li>common understanding of the what will be implemented</li>
+</ul>
+<p>Use cases focus on action-oriented goals:</p>
+<ul>
+<li>defines the scope of the system</li>
+<li>eliminates unnecessary requirements</li>
+<li>reduces costs and development time</li>
+</ul>
+<h2>8. Guiding Development</h2>
+<p>There is a gap between the people who understand the problem and the people who understand how to build the solution.</p>
+<p>Use cases bridge that gap.</p>
+<p>Use cases describe functional requirements in a way that can be understood by the system's stakeholders, users and developers.</p>
+<h2>9. Prioritizing Development</h2>
+<p>Several related use cases may be organized into modules, called packages.</p>
+<p>Development of each module can then be prioritized and scheduled.</p>
+<p>Plan an iterative path for development:</p>
+<ul>
+<li>core functions can be developed first</li>
+<li>later, lower priority features are added</li>
+<li>the core system can be used even while new functions are being developed</li>
+</ul>
+<h2>10. Use Case Parts</h2>
+<p>At minimum, use cases include:</p>
+<ul>
+<li>goal: what to achieve</li>
+<li>primary actor: the role of the primary type of users (actors) who are interacting with the system</li>
+<li>main success scenario: a set of action steps</li>
+<li>preconditions: things that must be true to start the scenario</li>
+<li>triggering event: what starts the scenario</li>
+<li>success guarantee: an end condition if the scenario is successfully achieved</li>
+<li>extensions: alternative scenarios leading toward either the success or failure of the goal</li>
+</ul>
+<h2>11. Use Case Parts</h2>
+<p>1A. Use Case Number:</p>
+<ul>
+<li>assign a reference number to the use case</li>
+<li>it is helpful to number use cases in order of implementation or priority</li>
+<li>numbers can also indicate module</li>
+</ul>
+<p>1B. Use Case Title:</p>
+<ul>
+<li>assign a title to the use case</li>
+<li>generally a shortened form of the goal in action-verb-noun format</li>
+</ul>
+<h2>12. Use Case Parts</h2>
+<ol>
+<li>
+<p>Level:</p>
+</li>
+<li>
+<p>user-level: describes one complete activity in the system</p>
+</li>
+<li>subfunction: depends on a user-level use case but is too long to include in the user-level use case.</li>
+<li>
+<p>summary: sequences multiple user goals</p>
+</li>
+<li>
+<p>Primary Actor:</p>
+</li>
+<li>
+<p>the role of the user performing use case</p>
+</li>
+<li>list of roles should be set before hand</li>
+</ol>
+<h2>13. Use Case Parts</h2>
+<ol>
+<li>
+<p>Brief Description/Goal:</p>
+</li>
+<li>
+<p>describes the function that the primary actor wants to accomplish</p>
+</li>
+<li>
+<p>Preconditions:</p>
+</li>
+<li>
+<p>list any preconditions for the use case</p>
+</li>
+<li>preconditions specify what the system will ensure is true before letting the use case start</li>
+<li>
+<p>generally, a precondition indicates that some other use case has been run to set it up</p>
+</li>
+<li>
+<p>Success Guarantee:</p>
+</li>
+<li>
+<p>this statement describes the function that the primary actor wants to accomplish</p>
+</li>
+</ol>
+<h2>14. Use Case Parts</h2>
+<ol>
+<li>
+<p>Main Success Scenario (MSS):</p>
+</li>
+<li>
+<p>the action steps of a typical scenario in which the goal is delivered</p>
+</li>
+<li>the first step is the trigger that initiates the use case</li>
+<li>
+<p>ideally, there should be 3-12 steps; number each step</p>
+</li>
+<li>
+<p>Extensions:</p>
+</li>
+<li>
+<p>list the conditions that may cause the system behavior to branch from the steps that occur in the MSS</p>
+</li>
+<li>
+<p>Notes/Issues/Reviewer Comments:</p>
+</li>
+<li>
+<p>good place to note any issues that have arisen regarding the use case or its implementation in the system</p>
+</li>
+</ol>
+<h2>15. Use Case Stages</h2>
+<p>Writing use cases is an iterative process that works well with iterative software development.</p>
+<p>Stages of a use case:</p>
+<ul>
+<li>brief: the use case is summarized in brief narrative</li>
+<li>the description and main success scenario fields are completed</li>
+<li>generate the actors and goals list</li>
+<li>initial: the first draft is written</li>
+<li>steps described only briefly</li>
+<li>used for grouping and prioritizing</li>
+<li>full: the second draft of the use case is written</li>
+<li>includes all preconditions</li>
+<li>detailed steps</li>
+<li>extensions and explanations</li>
+<li>can be used for development</li>
+<li>tested: a testing procedure is developed from use cases</li>
+<li>tested against developed product</li>
+<li>use cases updated based on testing</li>
+<li>documented: help text is generated from the use case</li>
+<li>help tested against developed product</li>
+<li>use cases updated slightly</li>
+<li>released: the use case is part of a release version of the software</li>
+<li>updated: a use case is revised after a release</li>
+</ul>
+<h2>16. Use Case Stages Tips</h2>
+<p>Tips:</p>
+<ul>
+<li>once the full version has been complete, document and date any changes in the notes field</li>
+<li>create a revision history for the use case</li>
+<li>new features of use cases in development should be added to the project control list</li>
+</ul>
+<h2>17. Use Case Guidelines</h2>
+<p>Guidelines for developing use cases:</p>
+<ul>
+<li>list every possible human and non-human primary actor</li>
+<li>brainstorm and exhaustively list all possible user goals for each actor</li>
+<li>write a short description of use case behavior for each goal, the use case brief, mentioning only the most significant activity and failures</li>
+<li>write user-level use cases for each goal using the use case template outlined in this module</li>
+<li>use the actors and goals templates to organize before writing full use cases</li>
+<li>prioritize and assign goals to development teams and software releases</li>
+</ul>
+<h2>18. Use Case Guidelines</h2>
+<p>Write summary-level use cases:</p>
+<ul>
+<li>summary use cases tie together, and thus refer to, a number of user-level use cases but do not provide function requirements</li>
+<li>there are typically only four or five summary-level use cases for a system</li>
+<li>provide a helpful tool for quickly communicating with executives, stakeholders and customers the broad scope of what the system will do</li>
+</ul></div><h2>Source</h2><p class="src">Lesson in Section 5 of <a href="index.html#section-5">iHRIS Administrator - Level I</a>, Moodle course module cm-64; <code>library/ihris-admin-course/modules/cm-64.md</code>.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+</body>
+</html>
