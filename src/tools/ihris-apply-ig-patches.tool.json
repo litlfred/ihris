@@ -1,0 +1,46 @@
+{
+  "id": "ihris-apply-ig-patches",
+  "title": "Apply declared IG build patches to a workspace copy",
+  "description": "Applies a sub-instance's ig-build-patches.json (ihris-ig-build-patches/v1) to a WORKSPACE copy of its declared IG source before fhir-harness builds it: each patch replaces one exact text exactly once, and a patch whose text is absent or repeated stops the build. It refuses to patch a mounted source (<name>-source/). Each patch is an upstream defect to report, never a fork.",
+  "install": {
+    "none": true
+  },
+  "invoke": {
+    "shell": "python3 src/tools/apply_ig_patches.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "patches",
+        "schema": "https://www.iana.org/assignments/media-types/application/json",
+        "required": true,
+        "arg": {
+          "positional": 0
+        }
+      },
+      {
+        "name": "ig",
+        "schema": "https://www.iana.org/assignments/media-types/inode/directory",
+        "required": true,
+        "arg": {
+          "positional": 1
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "report",
+        "schema": "https://www.iana.org/assignments/media-types/text/plain"
+      }
+    ]
+  },
+  "satisfies": [
+    "snapshot-github-repo"
+  ],
+  "requires": {
+    "runtime": [
+      "python3"
+    ],
+    "network": false
+  }
+}

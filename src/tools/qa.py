@@ -523,6 +523,30 @@ def c_harness_config(C):
     return out
 
 
+def c_ig_build_patches(C):
+    """A patch list names the very source its sub-instance declares, and changes something; when the
+    source is mounted, each patch's text occurs exactly once in it (so it still applies)."""
+    out = []
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    sources = folio_platform.declared_sources()
+    for rel, d in C["bound"].get("ihris-ig-build-patches/v1", []):
+        name = rel.split("/")[1]
+        src = sources.get(name)
+        if not src:
+            out.append(f"{rel}: {name} declares no git source to patch")
+            continue
+        if d["source"] != f"{src['repository']}@{src['ref']}":
+            out.append(f"{rel}: written against {d['source']}, but {name} now pins {src['repository']}@{src['ref']}; re-check every patch")
+        base = os.path.join(ROOT, folio_platform.source_mount_path(name), src.get("path") or "")
+        for p in d["patches"]:
+            if p["find"] == p["replace"]:
+                out.append(f"{rel}: the patch on {p['file']} changes nothing")
+            f = os.path.join(base, p["file"])
+            if os.path.isdir(base) and (not os.path.exists(f) or open(f, encoding="utf-8").read().count(p["find"]) != 1):
+                out.append(f"{rel}: the patch text for {p['file']} does not occur exactly once in the mounted source")
+    return out
+
+
 IGNORE_BEGIN = "# BEGIN index mounts (generated from index.config.json — do not edit)"  # cat-harness/schemas/index-config.ts
 IGNORE_END = "# END index mounts"
 
@@ -1487,6 +1511,7 @@ QA = {
                            ("use-case-roles", "every use-case actor, and every actor's role, is a declared Role", c_uc_role_refs),
                            ("use-case-staff-refs", "every Assigned To / Source resolves to an actor file; references number what withheld records", c_uc_staff_refs)],
     "ihris-use-case-crosswalk/v1": [("use-case-crosswalk", "one entry per use case; linked forms exist and are named in the title; counts match", c_use_case_crosswalk)],
+    "ihris-ig-build-patches/v1": [("ig-build-patches", "names the source its sub-instance pins; each patch changes something and, with the source mounted, applies exactly once", c_ig_build_patches)],
     "ihris-instance-extension/v1": [("declarations", "instances, assets, directories and derivedFrom resolve; permissions name who", c_declarations)],
     # reused schemas (validated for shape by folio-assistant's zod or fhir.resources)
     "cat-harness declaration (zod)": [("declarations", "see ihris-instance-extension", c_declarations)],

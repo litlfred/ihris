@@ -1,0 +1,12 @@
+{
+  "_comment": "Fixes applied to a WORKSPACE COPY of the iHRIS 5 IG source before fhir-harness builds it (src/tools/build_ihris5_ig.sh). The mounted source (ihris5-source/) and iHRIS/iHRIS itself are never edited: this folio describes iHRIS 5, and each entry here is a defect to report upstream, not a fork. Every patch names the exact text it replaces, so a patch whose text is no longer there FAILS the build rather than silently doing nothing; when the pin in ihris5.json moves past an upstream fix, delete the entry.",
+  "source": "iHRIS/iHRIS@fa66e9b375e38525236d28459ec5e5eb3875e2b2",
+  "patches": [
+    {
+      "file": "input/fsh/IhrisRole.fsh",
+      "find": "Description:    \"iHRIS flag for roles to indicate a primary role for assignment to users.\"\n* ^context[1].type = #element\n* ^context[1].expression = \"IhrisRole\"",
+      "replace": "Description:    \"iHRIS flag for roles to indicate a primary role for assignment to users.\"\n* ^context[0].type = #element\n* ^context[0].expression = \"IhrisRole\"",
+      "reason": "Extension IhrisRolePrimary sets ^context[1] with no context[0], so SUSHI 3 emits StructureDefinition.context [null, {...}] and IG Publisher 2.3.4 refuses to parse it ('Not a JSON Object: null'). The extension has exactly one context; index 0 is what was meant. Found 2026-10-09 building the IG with fhir-harness."
+    }
+  ]
+}
