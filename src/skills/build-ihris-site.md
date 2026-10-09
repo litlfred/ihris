@@ -61,6 +61,8 @@ Check it in a browser, with the platform's own chrome check. The staging-banner 
 
 **The work plan is a page of this site** (Tools `ihris-gen-beans-data`, `ihris-own-site-links`). The navbar's beans icon opens it and carries the number of open beans, both THIS folio's, never the platform's: the board is the platform's own work-plan board, drawn from this folio's bean store with the platform's own functions, so it reads as it does on every folio. Two gaps in the platform's rail for a folio that is the root of its own site are bridged around the rail and recorded upstream (bean `ihris-yvow`); the bridge goes when they close.
 
+**The chrome's mark is the iHRIS logo** (ihris.json `icon`, `images`): the logo for a dark ground, because the rail is dark in both schemes, written with the dark theme. The rail places a folio's own mark at the platform's address; the own-site-links bridge points it at this site (the same upstream gap).
+
 **The light/dark switch decides the scheme** (Tool `ihris-scheme-css`). The dark colours are applied with the platform's own scheme functions, so the reader's choice wins and the OS decides only until they choose, and a page restores the reader's choice at first paint instead of flashing light first.
 
 ## 5. Publish (the `gh-pages` branch)

@@ -29,6 +29,11 @@ THEME = os.path.join(ROOT, "src", "site", "theme")
 LIGHT = os.path.join(THEME, "ihris-classic.json")
 CHOICE = os.path.join(THEME, "ihris-classic-dark.grounds.json")
 OUT = os.path.join(THEME, "ihris-classic-dark.json")
+# The iHRIS logo for a dark ground: the owner's choice of logo treatment applied to the file, for surfaces
+# that are dark in BOTH schemes and that this folio's CSS cannot reach, such as the folio chrome's rail,
+# whose avatar is this file (ihris.json `images`, `icon: "mark"`). Under the instance's site directory
+# (`docs/`), as cat-harness resolves a declared mark's published path.
+MARK = os.path.join(ROOT, "docs", "assets", "img", "iHRIS_logo-on-dark.svg")
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from extract_theme import _hex, _lum, contrast  # noqa: E402  the same WCAG arithmetic as the light theme
@@ -164,6 +169,25 @@ def standalone(page, css_path, t, to):
     open(to, "w", encoding="utf-8").write(html)
 
 
+def mark_on_dark(logo_treatment):
+    """The verified logo (src/site/theme/iHRIS_logo.png, sha256 in ihris-classic.json) wrapped unaltered in an
+    SVG that draws it for a dark ground. `invert`: every opaque pixel white, alpha kept, so the mark's shape is
+    exactly the logo's. `tile`: the black mark on a white disc."""
+    import base64
+    png = open(os.path.join(THEME, "iHRIS_logo.png"), "rb").read()
+    w = h = 62  # the logo's own size, measured: 62 x 62
+    data = base64.b64encode(png).decode()
+    if logo_treatment == "invert":
+        body = ('<filter id="w"><feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/></filter>'
+                f'<image width="{w}" height="{h}" filter="url(#w)" href="data:image/png;base64,{data}"/>')
+    else:
+        body = (f'<circle cx="{w / 2}" cy="{h / 2}" r="{w / 2}" fill="#ffffff"/>'
+                f'<image x="3" y="3" width="{w - 6}" height="{h - 6}" href="data:image/png;base64,{data}"/>')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">'
+            '<title>iHRIS logo, (c) IntraHealth International, from the iHRIS 4.3.3 release (GPL)</title>'
+            f'{body}</svg>\n')
+
+
 def main():
     a = sys.argv
     arg = lambda f, d=None: a[a.index(f) + 1] if f in a else d  # noqa: E731
@@ -175,11 +199,17 @@ def main():
         return
     text = json.dumps(t, indent=2, ensure_ascii=False) + "\n"
     out = arg("--out", OUT)
+    mark = mark_on_dark(t["logo"])
     if "--check" in a:
-        stale = not os.path.exists(out) or open(out, encoding="utf-8").read() != text
-        print("dark theme: STALE" if stale else "dark theme: OK")
+        stale = [os.path.relpath(f, ROOT) for f, want in ((out, text), (MARK, mark))
+                 if not os.path.exists(f) or open(f, encoding="utf-8").read() != want]
+        print(f"dark theme: STALE {stale}" if stale else "dark theme: OK")
         sys.exit(1 if stale else 0)
     open(out, "w", encoding="utf-8").write(text)
+    if out == OUT:
+        os.makedirs(os.path.dirname(MARK), exist_ok=True)
+        open(MARK, "w", encoding="utf-8").write(mark)
+        print(f"{os.path.relpath(MARK, ROOT)}: the logo for a dark ground ({t['logo']})")
     print(f"{os.path.relpath(out, ROOT)}: grounds {t['grounds']}")
     for d in t["derivations"]:
         print(f"  {d['role']:14} {d['light']} -> {d['applied']}  {d['contrast']['panel']}:1 / {d['contrast']['raised']}:1")

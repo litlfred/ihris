@@ -8,7 +8,19 @@
     "tone": 208,
     "reads": "two people side by side: a health workforce, in iHRIS blue"
   },
-  "_avatar_comment": "The mark the harness chrome draws for ihris (the rail's header, the harness rows). Without one the chrome drew a letter placeholder. 208 is MEASURED from the iHRIS site theme's h1 colour #1e5483 (src/site/theme/ihris-classic.json): rgb(30,84,131), max channel blue, so the hue is 4 + (30-84)/(131-30) sixths of a turn = 207.9 degrees, rounded. A glyph rather than the iHRIS logo image, because the logo is credited GPL content in the theme, not a declared asset of this instance.",
+  "_avatar_comment": "The harness chrome's mark for ihris (the rail's header, the harness rows) is the iHRIS logo: `icon` names the `mark` image, which cat-harness puts before the glyph. The rail is dark in both schemes and the logo is a black mark, so the image is the logo for a dark ground, white with its shape unchanged: the owner's dark-scheme logo choice (2026-10-09, docs/design/wireframes/dark-scheme/), written by src/tools/derive_dark_theme.py from the verified logo. The glyph stays as the fallback for a surface that draws no image. Tone 208 is MEASURED from the theme's h1 #1e5483 (src/site/theme/ihris-classic.json): rgb(30,84,131), hue 4 + (30-84)/(131-30) sixths of a turn = 207.9 degrees.",
+  "icon": "mark",
+  "images": [
+    {
+      "id": "mark",
+      "src": "docs/assets/img/iHRIS_logo-on-dark.svg",
+      "role": "mark",
+      "width": 62,
+      "height": 62,
+      "title": "iHRIS logo",
+      "description": "The iHRIS logo, (c) IntraHealth International, from the iHRIS 4.3.3 release (GPL), drawn white for a dark ground."
+    }
+  ],
   "navbarIcons": [
     "close",
     "beans",

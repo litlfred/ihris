@@ -538,6 +538,8 @@ def c_site_theme_dark(C):
                 c = m.exact(x["applied"], d["grounds"][name])
                 if c < x["target"]:
                     out.append(f"{rel}: {x['role']} {x['applied']} is {c:.3f}:1 on the {name} ground, below its target {x['target']}:1")
+        if not exists("docs/assets/img/iHRIS_logo-on-dark.svg") or open(os.path.join(ROOT, "docs/assets/img/iHRIS_logo-on-dark.svg"), encoding="utf-8").read() != m.mark_on_dark(d["logo"]):
+            out.append(f"{rel}: docs/assets/img/iHRIS_logo-on-dark.svg (the chrome's mark) is missing or stale; run derive_dark_theme.py")
         a = d["applied"]
         if m.contrast(a["navBarText"], a["navBar"]) < 4.5:
             out.append(f"{rel}: navbar text fails WCAG 4.5:1")
