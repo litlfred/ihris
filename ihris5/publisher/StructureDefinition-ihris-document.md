@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-ihris-document.csv),
   "name" : "IhrisDocument",
   "title" : "iHRIS Document",
   "status" : "active",
-  "date" : "2026-10-09T12:24:20+00:00",
+  "date" : "2026-10-09T12:31:23+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

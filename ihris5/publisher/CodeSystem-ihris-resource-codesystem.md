@@ -28,7 +28,7 @@
   "name" : "IhrisResourceCodeSystem",
   "title" : "Code System for iHRIS Basic Resources.",
   "status" : "active",
-  "date" : "2026-10-09T12:24:20+00:00",
+  "date" : "2026-10-09T12:31:23+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

@@ -47,7 +47,7 @@ Other representations of profile: [CSV](StructureDefinition-ihris-role-primary.c
   "name" : "IhrisRolePrimary",
   "title" : "iHRIS Role Primary",
   "status" : "active",
-  "date" : "2026-10-09T12:24:20+00:00",
+  "date" : "2026-10-09T12:31:23+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

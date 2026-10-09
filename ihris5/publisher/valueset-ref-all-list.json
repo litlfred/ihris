@@ -12,8 +12,8 @@
     "uses" : {
     },
     "Questionnaire-ihris-test.html" : "iHRIS Test Questionnaire",
-    "StructureDefinition-ihris-test-dependent.html" : "iHRIS Practitioner Dependent Detail",
-    "StructureDefinition-ihris-test-practitioner.html" : "IhrisTestPractitioner"
+    "StructureDefinition-ihris-test-practitioner.html" : "IhrisTestPractitioner",
+    "StructureDefinition-ihris-test-dependent.html" : "iHRIS Practitioner Dependent Detail"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/administrative-gender",
@@ -127,12 +127,12 @@
     "uses" : {
     },
     "StructureDefinition-iHRISRelationship.html" : "iHRIS Resources Relationship Profile",
-    "StructureDefinition-ihris-data-visualization.html" : "iHRIS Data Visualizer",
-    "StructureDefinition-ihris-report.html" : "iHRIS Report",
-    "StructureDefinition-ihris-page.html" : "iHRIS Page",
-    "StructureDefinition-ihris-task.html" : "iHRIS Task",
+    "StructureDefinition-ihris-role.html" : "iHRIS Role",
     "StructureDefinition-ihris-dashboard.html" : "iHRIS Dashboard",
-    "StructureDefinition-ihris-role.html" : "iHRIS Role"
+    "StructureDefinition-ihris-data-visualization.html" : "iHRIS Data Visualizer",
+    "StructureDefinition-ihris-task.html" : "iHRIS Task",
+    "StructureDefinition-ihris-report.html" : "iHRIS Report",
+    "StructureDefinition-ihris-page.html" : "iHRIS Page"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/c80-doc-typecodes",
@@ -174,8 +174,8 @@
     "sources" : ["2.16.840.1.113883.3.88.12.80.72"],
     "uses" : {
     },
-    "StructureDefinition-ihris-document.html" : "iHRIS Document",
-    "StructureDefinition-ihris-test-practitioner-role.html" : "iHRIS Test Practitioner Role"
+    "StructureDefinition-ihris-test-practitioner-role.html" : "iHRIS Test Practitioner Role",
+    "StructureDefinition-ihris-document.html" : "iHRIS Document"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/common-tags",
@@ -189,8 +189,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.79"],
     "uses" : {
     },
-    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation",
-    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation"
+    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation",
+    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/composition-status",
@@ -257,9 +257,9 @@
     "sources" : ["2.16.840.1.113883.4.642.3.512"],
     "uses" : {
     },
-    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation",
     "StructureDefinition-ihris-test-practitioner-role.html" : "iHRIS Test Practitioner Role",
-    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation"
+    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation",
+    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/definition-topic",
@@ -343,8 +343,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.45"],
     "uses" : {
     },
-    "Questionnaire-ihris-test.html" : "iHRIS Test Questionnaire",
     "StructureDefinition-ihris-test-practitioner-role.html" : "iHRIS Test Practitioner Role",
+    "Questionnaire-ihris-test.html" : "iHRIS Test Questionnaire",
     "StructureDefinition-ihris-test-practitioner.html" : "IhrisTestPractitioner"
   },
   {
@@ -414,23 +414,23 @@
     "sources" : ["2.16.840.1.113883.4.642.3.20"],
     "uses" : {
     },
-    "StructureDefinition-ihris-parameters-local-config.html" : "iHRIS Parameters Local Config",
-    "StructureDefinition-ihris-report.html" : "iHRIS Report",
-    "StructureDefinition-ihris-parameters-remote-config.html" : "iHRIS Parameters Remote Config",
-    "StructureDefinition-ihris-page.html" : "iHRIS Page",
     "StructureDefinition-ihris-test-practitioner-role.html" : "iHRIS Test Practitioner Role",
-    "StructureDefinition-ihris-test-practitioner.html" : "IhrisTestPractitioner",
-    "StructureDefinition-ihris-auditevent.html" : "iHRIS Audit Event",
-    "StructureDefinition-ihris-dashboard.html" : "iHRIS Dashboard",
-    "StructureDefinition-ihris-module.html" : "iHRIS Module",
-    "StructureDefinition-iHRISRelationship.html" : "iHRIS Resources Relationship Profile",
     "StructureDefinition-ihris-document.html" : "iHRIS Document",
+    "StructureDefinition-ihris-module.html" : "iHRIS Module",
+    "StructureDefinition-ihris-parameters-local-config.html" : "iHRIS Parameters Local Config",
+    "StructureDefinition-ihris-role.html" : "iHRIS Role",
+    "StructureDefinition-ihris-test-practitioner.html" : "IhrisTestPractitioner",
     "StructureDefinition-ihris-data-visualization.html" : "iHRIS Data Visualizer",
-    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation",
-    "StructureDefinition-ihris-questionnaire.html" : "iHRIS Questionnaire",
     "StructureDefinition-ihris-task.html" : "iHRIS Task",
     "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation",
-    "StructureDefinition-ihris-role.html" : "iHRIS Role"
+    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation",
+    "StructureDefinition-ihris-auditevent.html" : "iHRIS Audit Event",
+    "StructureDefinition-iHRISRelationship.html" : "iHRIS Resources Relationship Profile",
+    "StructureDefinition-ihris-questionnaire.html" : "iHRIS Questionnaire",
+    "StructureDefinition-ihris-dashboard.html" : "iHRIS Dashboard",
+    "StructureDefinition-ihris-report.html" : "iHRIS Report",
+    "StructureDefinition-ihris-parameters-remote-config.html" : "iHRIS Parameters Remote Config",
+    "StructureDefinition-ihris-page.html" : "iHRIS Page"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/languages",
@@ -469,8 +469,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.330"],
     "uses" : {
     },
-    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation",
-    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation"
+    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation",
+    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/location-physical-type",
@@ -484,8 +484,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.328"],
     "uses" : {
     },
-    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation",
-    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation"
+    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation",
+    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/location-status",
@@ -499,8 +499,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.332"],
     "uses" : {
     },
-    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation",
-    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation"
+    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation",
+    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/mimetypes",
@@ -515,8 +515,8 @@
     "uses" : {
     },
     "StructureDefinition-ihris-document.html" : "iHRIS Document",
-    "StructureDefinition-ihris-parameters-remote-config.html" : "iHRIS Parameters Remote Config",
-    "StructureDefinition-ihris-module.html" : "iHRIS Module"
+    "StructureDefinition-ihris-module.html" : "iHRIS Module",
+    "StructureDefinition-ihris-parameters-remote-config.html" : "iHRIS Parameters Remote Config"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/name-use",
@@ -687,12 +687,12 @@
     "sources" : ["2.16.840.1.113883.4.642.3.27"],
     "uses" : {
     },
-    "StructureDefinition-ihris-test-residence.html" : "iHRIS Practitioner Residence",
-    "StructureDefinition-composite-task.html" : "Composite Task",
     "StructureDefinition-ihris-assign-role.html" : "iHRIS Assign Role",
+    "StructureDefinition-composite-task.html" : "Composite Task",
     "StructureDefinition-ihris-questionnaire.html" : "iHRIS Questionnaire",
-    "StructureDefinition-ihris-task.html" : "iHRIS Task",
     "StructureDefinition-ihris-assign-task.html" : "iHRIS Assign Task",
+    "StructureDefinition-ihris-test-residence.html" : "iHRIS Practitioner Residence",
+    "StructureDefinition-ihris-task.html" : "iHRIS Task",
     "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation"
   },
   {
@@ -711,10 +711,10 @@
     "sources" : ["2.16.840.1.113883.4.642.3.47"],
     "uses" : {
     },
-    "StructureDefinition-ihris-document.html" : "iHRIS Document",
-    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation",
     "StructureDefinition-ihris-auditevent.html" : "iHRIS Audit Event",
-    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation"
+    "StructureDefinition-ihris-document.html" : "iHRIS Document",
+    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation",
+    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/security-role-type",
@@ -903,8 +903,8 @@
     "systems" : ["http://ihris.org/fhir/CodeSystem/ihris-job"],
     "uses" : {
     },
-    "Questionnaire-ihris-test.html" : "iHRIS Test Questionnaire",
-    "StructureDefinition-ihris-test-practitioner-role.html" : "iHRIS Test Practitioner Role"
+    "StructureDefinition-ihris-test-practitioner-role.html" : "iHRIS Test Practitioner Role",
+    "Questionnaire-ihris-test.html" : "iHRIS Test Questionnaire"
   },
   {
     "url" : "http://ihris.org/fhir/ValueSet/ihris-resource-valueset",
@@ -934,9 +934,9 @@
     "systems" : ["http://ihris.org/fhir/CodeSystem/ihris-task-permission"],
     "uses" : {
     },
-    "Questionnaire-ihris-task.html" : "iHRIS Add Task Workflow",
     "StructureDefinition-task-attributes.html" : "Task Attributes",
-    "StructureDefinition-ihris-task.html" : "iHRIS Task"
+    "StructureDefinition-ihris-task.html" : "iHRIS Task",
+    "Questionnaire-ihris-task.html" : "iHRIS Add Task Workflow"
   },
   {
     "url" : "http://ihris.org/fhir/ValueSet/ihris-task-resource",
@@ -948,9 +948,9 @@
     "systems" : ["http://ihris.org/fhir/CodeSystem/ihris-task-resource"],
     "uses" : {
     },
-    "Questionnaire-ihris-task.html" : "iHRIS Add Task Workflow",
     "StructureDefinition-task-attributes.html" : "Task Attributes",
-    "StructureDefinition-ihris-task.html" : "iHRIS Task"
+    "StructureDefinition-ihris-task.html" : "iHRIS Task",
+    "Questionnaire-ihris-task.html" : "iHRIS Add Task Workflow"
   },
   {
     "url" : "http://ihris.org/fhir/ValueSet/location-mode",
@@ -1041,8 +1041,8 @@
     "sources" : ["2.16.840.1.113883.21.51"],
     "uses" : {
     },
-    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation",
-    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation"
+    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation",
+    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation"
   },
   {
     "url" : "http://terminology.hl7.org/ValueSet/v2-0360",
@@ -1116,7 +1116,7 @@
     "sources" : ["2.16.840.1.113883.1.11.17660"],
     "uses" : {
     },
-    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation",
-    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation"
+    "StructureDefinition-IHE.mCSD.FacilityLocation.html" : "IHEmCSDFacilityLocation",
+    "StructureDefinition-IHE.mCSD.Location.html" : "IHEmCSDLocation"
   }]
 }

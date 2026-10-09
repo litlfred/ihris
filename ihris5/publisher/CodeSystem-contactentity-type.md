@@ -55,7 +55,7 @@ This example value set defines a set of codes that can be used to indicate the p
   "title" : "Contact entity type",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-10-09T12:24:20+00:00",
+  "date" : "2026-10-09T12:31:23+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",
