@@ -6,6 +6,8 @@ description: >
   layout, mechanical checks at both viewports, a blind per-criterion review,
   adjudication where reviewers disagree, and a recorded choice. Process:
   processes/wireframe-design-review.bpmn.
+input: src/schemas/skills/wireframe-design-review/input.schema.json
+output: src/schemas/skills/wireframe-design-review/output.schema.json
 ---
 
 # Wireframe design review

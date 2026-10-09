@@ -9,7 +9,32 @@
     "shell": "python3 src/tools/build_kg.py"
   },
   "io": {
-    "inputs": [],
+    "inputs": [
+      {
+        "name": "launchpadCaptures",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/launchpadCaptures",
+        "required": false,
+        "description": "Read from uploads/launchpad/"
+      },
+      {
+        "name": "releaseTarball",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/releaseTarball",
+        "required": false,
+        "description": "Read from uploads/ihris-suite-4.3.3/"
+      },
+      {
+        "name": "toolkitPages",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/toolkitPages",
+        "required": false,
+        "description": "Read from uploads/toolkit/"
+      },
+      {
+        "name": "githubSnapshot",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/githubSnapshot",
+        "required": false,
+        "description": "Read from uploads/github/"
+      }
+    ],
     "outputs": [
       {
         "name": "catalogue-node",
@@ -30,6 +55,41 @@
       {
         "name": "toolkit-stage",
         "schema": "https://github.com/litlfred/ihris/blob/main/src/schemas/ihris-toolkit-stage.schema.json"
+      },
+      {
+        "name": "catalogue",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/catalogue",
+        "description": "Written to src/*/catalogue/"
+      },
+      {
+        "name": "modules",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/modules",
+        "description": "Written to src/*/modules/"
+      },
+      {
+        "name": "dataModel",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataModel",
+        "description": "Written to src/*/data-model/4.3.3/"
+      },
+      {
+        "name": "dataLists",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataLists",
+        "description": "Written to src/*/data-lists/4.3.3/"
+      },
+      {
+        "name": "toolkit",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/toolkit",
+        "description": "Written to library/ihris-toolkit/"
+      },
+      {
+        "name": "wikiHelp",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/wikiHelp",
+        "description": "Written to library/ihris-wiki/"
+      },
+      {
+        "name": "ihris5Inventory",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/ihris5Inventory",
+        "description": "Written to src/ihris5/inventory/"
       }
     ]
   },
@@ -37,7 +97,8 @@
     "describe-launchpad-source",
     "extract-i2ce-modules",
     "ingest-toolkit-stage",
-    "restore-wiki-from-help-export"
+    "restore-wiki-from-help-export",
+    "snapshot-github-repo"
   ],
   "requires": {
     "runtime": [

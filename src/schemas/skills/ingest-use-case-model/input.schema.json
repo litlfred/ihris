@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/ingest-use-case-model/input.schema.json",
+  "title": "ingest-use-case-model input",
+  "description": "What the skill `ingest-use-case-model` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "useCaseReports",
+    "dataModel"
+  ],
+  "properties": {
+    "useCaseReports": {
+      "$ref": "../artefacts.schema.json#/$defs/useCaseReports"
+    },
+    "dataModel": {
+      "$ref": "../artefacts.schema.json#/$defs/dataModel"
+    }
+  }
+}

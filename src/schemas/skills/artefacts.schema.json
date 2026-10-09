@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json",
+  "title": "ihris-skill-artefacts/v1",
+  "description": "The kinds of data this folio holds, ONE definition each: where it lives (`default`, a repository path or glob), what its records are (`x-records`, a $schema tag) or its media type, and where it is published (`x-published`). Every skill's input and output contract references these by $ref, and every Tool's io port names one by its IRI, so a skill, the Tools that perform it and the workflow diagram generated from them (src/tools/gen_workflow.py) agree on one name per artefact. The cat-harness skills-and-tools practice: a skill names its contracts in its front matter (input:, output:).",
+  "$defs": {
+    "launchpadCaptures": {
+      "type": "string",
+      "title": "Launchpad captures",
+      "description": "Saved Launchpad project, series and milestone pages, +rdf, and the release files' MD5s (release-file-md5.tsv).",
+      "default": "uploads/launchpad/",
+      "contentMediaType": "text/html"
+    },
+    "releaseTarball": {
+      "type": "string",
+      "title": "iHRIS Suite release tarball",
+      "description": "The iHRIS Suite 4.3.3 tarball, MD5 matched against Launchpad and sha256 pinned in its manifest. Git-ignored.",
+      "default": "uploads/ihris-suite-4.3.3/",
+      "contentMediaType": "application/x-bzip2"
+    },
+    "toolkitPages": {
+      "type": "string",
+      "title": "Toolkit stage pages",
+      "description": "Saved toolkit.ihris.org stage pages and their graphics.",
+      "default": "uploads/toolkit/",
+      "contentMediaType": "text/html"
+    },
+    "githubClone": {
+      "type": "string",
+      "title": "A GitHub repository, cloned at a commit",
+      "description": "A shallow clone of an iHRIS GitHub repository, read and never copied in.",
+      "default": "<clone-dir>"
+    },
+    "githubSnapshot": {
+      "type": "string",
+      "title": "GitHub repository snapshot",
+      "description": "What a pinned GitHub repository holds: commit, licence, layout, FSH definitions, Markdown pages, packages.",
+      "default": "uploads/github/",
+      "contentMediaType": "application/json"
+    },
+    "handbookPdf": {
+      "type": "string",
+      "title": "Wiki book export (PDF)",
+      "description": "An mwlib/PediaPress MediaWiki book PDF, sha256 pinned.",
+      "default": "uploads/ihris-admin-handbook/",
+      "contentMediaType": "application/pdf"
+    },
+    "useCaseReports": {
+      "type": "string",
+      "title": "Use-case model reports (.doc)",
+      "description": "Serlio CaseComplete Complete Report exports, md5 and sha256 pinned.",
+      "default": "uploads/ihris-use-cases/",
+      "contentMediaType": "application/msword"
+    },
+    "moodleBackup": {
+      "type": "string",
+      "title": "Moodle course backup (.zip)",
+      "description": "A Moodle 1.9 course backup (moodle.xml + course_files/), md5 and sha256 pinned, with the totals expected of it.",
+      "default": "uploads/ihris-admin-course/",
+      "contentMediaType": "application/zip"
+    },
+    "sourceDocument": {
+      "type": "string",
+      "title": "A shared paper, book or standard",
+      "description": "A document whose method is to be adopted, with its origin and licence.",
+      "default": "uploads/<slug>/",
+      "contentMediaType": "application/pdf"
+    },
+    "ihris5Source": {
+      "type": "string",
+      "title": "iHRIS 5 IG source, mounted",
+      "description": "iHRIS/iHRIS at the commit src/ihris5/ihris5.json pins, mounted by mount_sources.py and never committed.",
+      "default": "ihris5-source/"
+    },
+    "catalogue": {
+      "type": "string",
+      "title": "Catalogue nodes",
+      "description": "Every described source as a catalogue node, by reference.",
+      "default": "src/*/catalogue/",
+      "x-records": "folio-catalogue-node/v1"
+    },
+    "modules": {
+      "type": "string",
+      "title": "I2CE modules",
+      "description": "Each I2CE module of a verified release.",
+      "default": "src/*/modules/",
+      "x-records": "ihris-i2ce-module/v1"
+    },
+    "dataModel": {
+      "type": "string",
+      "title": "iHRIS 4.3.3 data model",
+      "description": "One record per form class: fields, types, extends and the lists it draws from.",
+      "default": "src/*/data-model/4.3.3/",
+      "x-records": "ihris-form-class/v1"
+    },
+    "dataLists": {
+      "type": "string",
+      "title": "Shipped data lists",
+      "description": "The code lists the release ships, with their default records.",
+      "default": "src/*/data-lists/4.3.3/",
+      "x-records": "ihris-data-list/v1"
+    },
+    "toolkit": {
+      "type": "string",
+      "title": "Implementation Toolkit",
+      "description": "The toolkit's stages, tools and technical terms.",
+      "default": "library/ihris-toolkit/",
+      "x-records": "ihris-toolkit-stage/v1"
+    },
+    "wikiHelp": {
+      "type": "string",
+      "title": "Restored wiki help",
+      "description": "Wiki help pages restored from the release's help exports.",
+      "default": "library/ihris-wiki/",
+      "x-records": "ihris-wiki-help-structure/v1"
+    },
+    "handbook": {
+      "type": "string",
+      "title": "Wiki book",
+      "description": "One Markdown section per wiki article, with images and the GFDL attribution.",
+      "default": "library/ihris-admin-handbook/",
+      "x-records": "ihris-wiki-book/v1"
+    },
+    "useCases": {
+      "type": "string",
+      "title": "Use-case model",
+      "description": "Use cases, actors and requirements, with a crosswalk to the data model.",
+      "default": "library/ihris-use-cases/",
+      "x-records": "ihris-use-cases/v1"
+    },
+    "adminCourse": {
+      "type": "string",
+      "title": "Administrator course",
+      "description": "The Moodle course's structure and file inventory, and, under the declaration's licence (CC BY 4.0, IntraHealth International), its section summaries, lesson pages, quizzes, transcripts and images.",
+      "default": "library/ihris-admin-course/",
+      "x-records": "ihris-moodle-course/v1"
+    },
+    "ihris5Inventory": {
+      "type": "string",
+      "title": "iHRIS 5 inventory",
+      "description": "A path-level inventory of the iHRIS 5 repositories, pinned at a commit.",
+      "default": "src/ihris5/inventory/",
+      "x-records": "ihris-github-inventory/v1"
+    },
+    "libraryEntry": {
+      "type": "string",
+      "title": "Library entry",
+      "description": "A document ingested by folio-assistant's library rungs.",
+      "default": "library/<slug>/",
+      "x-records": "pdf-structure/v1"
+    },
+    "authoredProposals": {
+      "type": "string",
+      "title": "Authored proposals",
+      "description": "Definitions and decisions a person authored. No build writes here.",
+      "default": "src/ihris-data-dictionary/authored/",
+      "x-records": "ihris-dak-proposal/v1"
+    },
+    "dataDictionary": {
+      "type": "string",
+      "title": "Data dictionary",
+      "description": "51 logical-model sheets in WHO DAK L2 column order, plus csv and xlsx.",
+      "default": "src/ihris-data-dictionary/data-dictionary/",
+      "x-records": "ihris-dak-data-dictionary/v1"
+    },
+    "terminology": {
+      "type": "string",
+      "title": "FHIR R4 terminology",
+      "description": "CodeSystems, ValueSets and ConceptMaps from the shipped lists.",
+      "default": "src/ihris-data-dictionary/terminology/",
+      "contentMediaType": "application/fhir+json"
+    },
+    "glossary": {
+      "type": "string",
+      "title": "Glossary",
+      "description": "One SKOS concept scheme per source.",
+      "default": "glossary/",
+      "x-records": "folio-glossary/v1"
+    },
+    "theme": {
+      "type": "string",
+      "title": "Site theme",
+      "description": "Colours and fonts measured from the release's stylesheets, the dark scheme derived from the owner's grounds.",
+      "default": "src/site/theme/",
+      "x-records": "ihris-site-theme/v1"
+    },
+    "fsh": {
+      "type": "string",
+      "title": "Generated FSH",
+      "description": "FHIR Shorthand generated from the data dictionary and terminology.",
+      "default": "src/ihris-4-on-fhir/input/fsh/",
+      "contentMediaType": "text/fsh"
+    },
+    "fhirResources": {
+      "type": "string",
+      "title": "SUSHI output",
+      "description": "FHIR R4 resources SUSHI builds from the FSH. Build output, not committed.",
+      "default": "src/ihris-4-on-fhir/fsh-generated/",
+      "contentMediaType": "application/fhir+json"
+    },
+    "igPatches": {
+      "type": "string",
+      "title": "Declared IG build patches",
+      "description": "Exact-text fixes applied to a copy of the iHRIS 5 source, each with its reason.",
+      "default": "src/ihris5/ig-build-patches.json",
+      "x-records": "ihris-ig-build-patches/v1"
+    },
+    "beans": {
+      "type": "string",
+      "title": "Work plan",
+      "description": "The bean store: one Markdown file per work item.",
+      "default": "beans/defs/",
+      "contentMediaType": "text/markdown"
+    },
+    "processSpecs": {
+      "type": "string",
+      "title": "Process specs",
+      "description": "The JSON a process diagram is generated from.",
+      "default": "processes/specs/",
+      "x-records": "ihris-process-spec/v1"
+    },
+    "processes": {
+      "type": "string",
+      "title": "Process diagrams",
+      "description": "BPMN 2.0, generated from the specs.",
+      "default": "processes/",
+      "contentMediaType": "application/xml"
+    },
+    "methodology": {
+      "type": "string",
+      "title": "Methodology",
+      "description": "An adopted method, with its origin and evidence.",
+      "default": "methodologies/<id>/",
+      "x-records": "folio-methodology/v1"
+    },
+    "wireframes": {
+      "type": "string",
+      "title": "Wireframe round",
+      "description": "Intent, candidates, checks, reviews, adjudication and decision.",
+      "default": "docs/design/wireframes/<topic>/",
+      "contentMediaType": "text/html"
+    },
+    "schemas": {
+      "type": "string",
+      "title": "Schemas",
+      "description": "This folio's JSON Schemas and their bindings.",
+      "default": "src/schemas/",
+      "contentMediaType": "application/schema+json"
+    },
+    "qaReport": {
+      "type": "string",
+      "title": "QA report",
+      "description": "Each schema's and node type's semantic checks, pass or fail.",
+      "default": "stdout",
+      "contentMediaType": "text/plain"
+    },
+    "site": {
+      "type": "string",
+      "title": "The iHRIS Knowledge Base site",
+      "description": "The generated site, railed with the folio chrome. Build output.",
+      "default": "_site/",
+      "contentMediaType": "text/html",
+      "x-published": "https://litlfred.github.io/ihris/"
+    },
+    "ihris5Ig": {
+      "type": "string",
+      "title": "The iHRIS 5 IG site",
+      "description": "The iHRIS 5 IG in the platform chrome, with the Publisher's output and the AST. Build output.",
+      "default": "_ig/",
+      "contentMediaType": "text/html",
+      "x-published": "https://litlfred.github.io/ihris/ihris5/"
+    },
+    "subgraphLayout": {
+      "type": "string",
+      "title": "A KG subgraph's layout",
+      "description": "A subgraph of the knowledge graph as Graphviz DOT, in the i2ce Form Documentor's convention (record nodes, coloured by substring, fan-out splitters, firebrick child edges), laid out in the browser by Graphviz in WebAssembly with draggable nodes. Build output, written beside its page in the site.",
+      "default": "_site/data-model/graph/",
+      "contentMediaType": "text/vnd.graphviz"
+    }
+  }
+}

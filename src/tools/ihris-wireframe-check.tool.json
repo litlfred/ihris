@@ -26,6 +26,12 @@
         "arg": {
           "flag": "--out"
         }
+      },
+      {
+        "name": "wireframes",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/wireframes",
+        "required": false,
+        "description": "Read from docs/design/wireframes/<topic>/"
       }
     ],
     "outputs": [
@@ -36,6 +42,11 @@
       {
         "name": "screenshots",
         "schema": "https://www.iana.org/assignments/media-types/image/png"
+      },
+      {
+        "name": "wireframes",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/wireframes",
+        "description": "Written to docs/design/wireframes/<topic>/"
       }
     ]
   },

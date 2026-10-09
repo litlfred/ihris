@@ -1,0 +1,60 @@
+{
+  "id": "ihris-kg-layout",
+  "title": "Lay out a KG subgraph with Graphviz (the Form Documentor's convention)",
+  "description": "Projects a subgraph of the knowledge graph (today: an iHRIS product's forms, from the committed data model and module records) and writes it as Graphviz DOT in the convention of i2ce 4.3.3's Form Documentor (I2CE_Page_FormDocumentor::dot): Mrecord table nodes with required (*) and unique (!) marks, fill from the first matching substring:colour of the product's scheme, else ivory3; MAP fields with several targets through a splitter point; child forms in firebrick; i2ce's graph options. The site lays it out in the browser with Graphviz compiled to WebAssembly (@hpcc-js/wasm-graphviz 1.6.1, src/site/kg-graph.js: unflatten -l 2 -f -c 2 | dot), with pan, zoom, find and draggable nodes whose edges follow.",
+  "install": {
+    "none": true
+  },
+  "invoke": {
+    "shell": "python3 src/tools/kg_layout.py"
+  },
+  "io": {
+    "inputs": [
+      {
+        "name": "forms",
+        "schema": "https://www.w3.org/2001/XMLSchema#string",
+        "required": true,
+        "arg": {
+          "flag": "--forms"
+        },
+        "description": "ihris-manage or ihris-qualify"
+      },
+      {
+        "name": "out",
+        "schema": "https://www.w3.org/2001/XMLSchema#string",
+        "required": false,
+        "arg": {
+          "flag": "--out"
+        }
+      },
+      {
+        "name": "dataModel",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataModel",
+        "required": false,
+        "description": "Read from src/<package>/data-model/4.3.3/"
+      },
+      {
+        "name": "modules",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/modules",
+        "required": false,
+        "description": "Read from src/<package>/modules/4.3.3/ (child forms, the Form Documentor colour scheme and graph options)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "subgraphLayout",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/subgraphLayout",
+        "description": "DOT on stdout or --out; the site writes data-model/graph/<product>.dot"
+      }
+    ]
+  },
+  "satisfies": [
+    "kg-subgraph-layout"
+  ],
+  "requires": {
+    "runtime": [
+      "python3"
+    ],
+    "network": false
+  }
+}

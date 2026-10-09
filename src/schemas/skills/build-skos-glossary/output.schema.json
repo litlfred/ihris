@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/build-skos-glossary/output.schema.json",
+  "title": "build-skos-glossary output",
+  "description": "What the skill `build-skos-glossary` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "glossary"
+  ],
+  "properties": {
+    "glossary": {
+      "$ref": "../artefacts.schema.json#/$defs/glossary"
+    }
+  }
+}

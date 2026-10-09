@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/describe-launchpad-source/input.schema.json",
+  "title": "describe-launchpad-source input",
+  "description": "What the skill `describe-launchpad-source` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "launchpadCaptures"
+  ],
+  "properties": {
+    "launchpadCaptures": {
+      "$ref": "../artefacts.schema.json#/$defs/launchpadCaptures"
+    }
+  }
+}

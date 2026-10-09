@@ -25,6 +25,18 @@
         "arg": {
           "positional": 1
         }
+      },
+      {
+        "name": "ihris5Source",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/ihris5Source",
+        "required": false,
+        "description": "Read from ihris5-source/"
+      },
+      {
+        "name": "igPatches",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/igPatches",
+        "required": false,
+        "description": "Read from src/ihris5/ig-build-patches.json"
       }
     ],
     "outputs": [

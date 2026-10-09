@@ -4,6 +4,8 @@ description: >
   Ingest a saved page of the iHRIS Implementation Toolkit (toolkit.ihris.org)
   into library/ihris-toolkit as a structured ihris-toolkit-stage/v1 record and a
   readable Markdown section. Use when a toolkit page is shared.
+input: src/schemas/skills/ingest-toolkit-stage/input.schema.json
+output: src/schemas/skills/ingest-toolkit-stage/output.schema.json
 ---
 
 # Ingest a toolkit stage page

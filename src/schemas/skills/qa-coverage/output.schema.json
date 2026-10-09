@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/qa-coverage/output.schema.json",
+  "title": "qa-coverage output",
+  "description": "What the skill `qa-coverage` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "qaReport"
+  ],
+  "properties": {
+    "qaReport": {
+      "$ref": "../artefacts.schema.json#/$defs/qaReport"
+    }
+  }
+}

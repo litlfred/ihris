@@ -15,6 +15,18 @@
         "schema": "https://www.iana.org/assignments/media-types/application/msword",
         "required": true,
         "description": "uploads/ihris-use-cases/*.doc, pinned by uploads/ihris-use-cases/manifest.json"
+      },
+      {
+        "name": "useCaseReports",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/useCaseReports",
+        "required": false,
+        "description": "Read from uploads/ihris-use-cases/"
+      },
+      {
+        "name": "dataModel",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataModel",
+        "required": false,
+        "description": "Read from src/*/data-model/4.3.3/"
       }
     ],
     "outputs": [
@@ -40,6 +52,11 @@
         "name": "opaque-actors",
         "schema": "https://github.com/litlfred/cat-harness/blob/main/schemas/role-graph.ts",
         "description": "library/ihris-use-cases/scenarios/actors/ihris-2009-staff-NN.json (ActorDefSchema)"
+      },
+      {
+        "name": "useCases",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/useCases",
+        "description": "Written to library/ihris-use-cases/"
       }
     ]
   },

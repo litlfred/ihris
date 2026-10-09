@@ -57,12 +57,19 @@
         "arg": {
           "flag": "--to"
         }
+      },
+      {
+        "name": "theme",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/theme",
+        "required": false,
+        "description": "Read from src/site/theme/"
       }
     ],
     "outputs": [
       {
         "name": "theme",
-        "schema": "https://github.com/litlfred/ihris/src/schemas/ihris-site-theme-dark.schema.json"
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/theme",
+        "description": "(records: https://github.com/litlfred/ihris/src/schemas/ihris-site-theme-dark.schema.json)"
       },
       {
         "name": "candidate",

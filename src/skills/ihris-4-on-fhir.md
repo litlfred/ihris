@@ -5,8 +5,9 @@ description: >
   src/ihris-4-on-fhir: generate FSH from the data dictionary and terminology,
   build with SUSHI, validate, and map to iHRIS 5 with StructureMaps. It is
   built on fhir-harness (the bare FHIR IG pipeline); R4 core is its only IG
-  dependency. Documented now; SUSHI runs later (owner,
-  2026-09-23). Process: processes/ihris-4-on-fhir.bpmn.
+  dependency. F1 to F3 are built (owner, 2026-10-09: "all"). Process: processes/ihris-4-on-fhir.bpmn.
+input: src/schemas/skills/ihris-4-on-fhir/input.schema.json
+output: src/schemas/skills/ihris-4-on-fhir/output.schema.json
 ---
 
 # iHRIS 4 on FHIR
@@ -25,8 +26,8 @@ Design and owner decisions: [`docs/design/fhir-strategy.md`](../../docs/design/f
 
 | step | Tool | state |
 |---|---|---|
-| F1: pin SUSHI; create `sushi-config.yaml` (canonical, FHIR 4.0.1, `hl7.fhir.r4.core` only) | `ihris-sushi` | later |
-| F2: terminology as FSH; content-equal to today's JSON; then retire the JSON | `ihris-build-dak`, `ihris-sushi` | later |
-| F3: logical models | the generator, `ihris-sushi` | blocked on `cz17` |
-| F4: StructureMaps to `ig/`, `ihris-backend-site/ig` and `qualify-ig` | the generator, `ihris-sushi` | blocked on F3 |
+| F1: pin SUSHI; create `sushi-config.yaml` (canonical, FHIR 4.0.1, `hl7.fhir.r4.core` only) | `ihris-gen-fsh`, `ihris-sushi` | done |
+| F2: terminology as FSH; content-equal to today's JSON; then retire the JSON | `ihris-build-dak`, `ihris-gen-fsh` | done: the JSON is SUSHI's build |
+| F3: logical models | `ihris-gen-fsh` | done: 51, SUSHI clean |
+| F4: StructureMaps to `ig/`, `ihris-backend-site/ig` and `qualify-ig` | the generator, `ihris-sushi` | next (owner, 2026-10-09: "all") |
 | F5: render and publication | the platform pipeline | blocked on `ihris-bwls` |

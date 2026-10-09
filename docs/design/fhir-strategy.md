@@ -27,11 +27,30 @@
 | rename | `ihris-dak` → **`ihris-data-dictionary`** (done 2026-09-23). The schema ids `ihris-dak-data-dictionary/v1` and `ihris-dak-proposal/v1`, the Tool `ihris-build-dak` and the canonical `…/ihris/dak` are unchanged: they are contracts, so renaming them is a separate decision. |
 | focus | Now: modelling the iHRIS 4 data model on just-the-docs, with a harness visualiser. |
 
+### Owner ruling, 2026-10-09: all of it
+
+Asked which iHRIS 5 FHIR work to do (catalogue and crosswalk, upstream defects, F1–F3, F4), the owner answered **"all"**. So:
+
+| was | now |
+|---|---|
+| D3: logical models wait for folio-assistant `cz17` | **Superseded.** Logical models are FHIR R4 logical StructureDefinitions on `Base`, independent of smart-base. |
+| F3 and F4 blocked | **Unblocked.** F1, F2 (with the D8 switch) and F3 are done; F4 (bean `ihris-7gl8`) is next. |
+
+**What F1–F3 produced** (`src/tools/gen_fsh.py`, Tool `ihris-gen-fsh`):
+
+- **F1:** `src/ihris-4-on-fhir/sushi-config.yaml` (R4 core, `FSHOnly`), SUSHI pinned at 3.20.1, and `validate.py` runs `gen_fsh.py --check`.
+- **F2 and D8:** before the switch, SUSHI's build of FSH generated from the JSON equalled all 106 resources. Then `build_dak.py` switched to writing the terminology as FSH, and the JSON under `terminology/` became SUSHI's build, checked on every commit.
+- **F3:** 51 logical models, one per data-dictionary sheet. Choices made in the generator, for the owner to review:
+  - **Types:** the FHIR type of each I2CE type is fixed in one table. `CURRENCY` is `Money` and `INT_GENERATE` is `Identifier`.
+  - **Bindings:** a coded field binds to its ValueSet as **extensible**, because iHRIS deployments add codes to their lists.
+  - **Element names:** they are camelCase (FHIR's `eld-20`), and a `Mapping` keeps each I2CE field name.
+  - **Definitions:** none is written, because the source has none. SUSHI repeats the label as `definition`, as it does for any element without one.
+
 ### Consequences
 
 1. **The smart-base CoreDataElements were removed** (the 121 files, and their generation and validation), because of the independence ruling.
 2. **D6 γ depends on D3.** A StructureMap needs a source StructureDefinition, and that source is the iHRIS 4 logical models, which D3 defers until folio-assistant `cz17`. Now that iHRIS is independent of smart-base, whether logical models should still wait for `cz17` is **open for the owner** (bean `ihris-ct58`).
-3. **Unpaused by the gate:** F1 (the SUSHI skeleton, bean `ihris-dipr`) and F2 (terminology as FSH, then the D8 switch, bean `ihris-ej94`). Logical models, the iHRIS 5 mapping and publication stay blocked.
+3. **Unpaused by the gate:** F1 (the SUSHI skeleton, bean `ihris-dipr`) and F2 (terminology as FSH, then the D8 switch, bean `ihris-ej94`). Logical models and the iHRIS 5 mapping were blocked until the owner's 2026-10-09 ruling above; publication still waits on `ihris-bwls`.
 
 ## 1. Where we are (measured, 2026-09-23)
 

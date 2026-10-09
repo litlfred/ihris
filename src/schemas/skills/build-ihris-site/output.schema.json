@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/build-ihris-site/output.schema.json",
+  "title": "build-ihris-site output",
+  "description": "What the skill `build-ihris-site` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "theme",
+    "site"
+  ],
+  "properties": {
+    "theme": {
+      "$ref": "../artefacts.schema.json#/$defs/theme"
+    },
+    "site": {
+      "$ref": "../artefacts.schema.json#/$defs/site"
+    }
+  }
+}

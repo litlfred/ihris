@@ -34,12 +34,23 @@
         "arg": {
           "positional": 2
         }
+      },
+      {
+        "name": "githubClone",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/githubClone",
+        "required": false,
+        "description": "Read from <clone-dir>"
       }
     ],
     "outputs": [
       {
         "name": "snapshot",
         "schema": "https://www.iana.org/assignments/media-types/application/json"
+      },
+      {
+        "name": "githubSnapshot",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/githubSnapshot",
+        "description": "Written to uploads/github/"
       }
     ]
   },

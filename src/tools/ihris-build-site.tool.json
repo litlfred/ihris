@@ -25,12 +25,103 @@
         "arg": {
           "flag": "--check-links"
         }
+      },
+      {
+        "name": "catalogue",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/catalogue",
+        "required": false,
+        "description": "Read from src/*/catalogue/"
+      },
+      {
+        "name": "modules",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/modules",
+        "required": false,
+        "description": "Read from src/*/modules/"
+      },
+      {
+        "name": "dataModel",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataModel",
+        "required": false,
+        "description": "Read from src/*/data-model/4.3.3/"
+      },
+      {
+        "name": "dataLists",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataLists",
+        "required": false,
+        "description": "Read from src/*/data-lists/4.3.3/"
+      },
+      {
+        "name": "toolkit",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/toolkit",
+        "required": false,
+        "description": "Read from library/ihris-toolkit/"
+      },
+      {
+        "name": "wikiHelp",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/wikiHelp",
+        "required": false,
+        "description": "Read from library/ihris-wiki/"
+      },
+      {
+        "name": "handbook",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/handbook",
+        "required": false,
+        "description": "Read from library/ihris-admin-handbook/"
+      },
+      {
+        "name": "useCases",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/useCases",
+        "required": false,
+        "description": "Read from library/ihris-use-cases/"
+      },
+      {
+        "name": "adminCourse",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/adminCourse",
+        "required": false,
+        "description": "Read from library/ihris-admin-course/"
+      },
+      {
+        "name": "ihris5Inventory",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/ihris5Inventory",
+        "required": false,
+        "description": "Read from src/ihris5/inventory/"
+      },
+      {
+        "name": "dataDictionary",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/dataDictionary",
+        "required": false,
+        "description": "Read from src/ihris-data-dictionary/data-dictionary/"
+      },
+      {
+        "name": "terminology",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/terminology",
+        "required": false,
+        "description": "Read from src/ihris-data-dictionary/terminology/"
+      },
+      {
+        "name": "glossary",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/glossary",
+        "required": false,
+        "description": "Read from glossary/"
+      },
+      {
+        "name": "schemas",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/schemas",
+        "required": false,
+        "description": "Read from src/schemas/"
+      },
+      {
+        "name": "theme",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/theme",
+        "required": false,
+        "description": "Read from src/site/theme/"
       }
     ],
     "outputs": [
       {
         "name": "site",
-        "schema": "https://www.iana.org/assignments/media-types/text/html"
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/site",
+        "description": "(records: https://www.iana.org/assignments/media-types/text/html)"
       }
     ]
   },

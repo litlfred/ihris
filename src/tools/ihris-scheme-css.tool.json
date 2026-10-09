@@ -12,11 +12,12 @@
     "inputs": [
       {
         "name": "site",
-        "schema": "https://www.iana.org/assignments/media-types/inode/directory",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/site",
         "required": true,
         "arg": {
           "flag": "--site"
-        }
+        },
+        "description": "(records: https://www.iana.org/assignments/media-types/inode/directory)"
       },
       {
         "name": "rules",
@@ -25,12 +26,19 @@
         "arg": {
           "flag": "--rules"
         }
+      },
+      {
+        "name": "theme",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/theme",
+        "required": false,
+        "description": "Read from src/site/theme/"
       }
     ],
     "outputs": [
       {
         "name": "site",
-        "schema": "https://www.iana.org/assignments/media-types/text/html"
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/site",
+        "description": "(records: https://www.iana.org/assignments/media-types/text/html)"
       }
     ]
   },

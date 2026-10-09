@@ -5,6 +5,8 @@ description: >
   derive the theme from the verified release's own stylesheets, generate the
   landing board and the data-model pages from committed data, check every link
   and both viewports, and let the Pages workflow deploy it.
+input: src/schemas/skills/build-ihris-site/input.schema.json
+output: src/schemas/skills/build-ihris-site/output.schema.json
 ---
 
 # Build the ihris site

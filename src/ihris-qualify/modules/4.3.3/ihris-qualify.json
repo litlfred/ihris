@@ -271,6 +271,59 @@
       "displayName": "Disciplinary Action"
     }
   ],
+  "childForms": [
+    {
+      "form": "health_facility",
+      "children": [
+        "facility_contact"
+      ]
+    },
+    {
+      "form": "person",
+      "children": [
+        "contact",
+        "demographic",
+        "deployment",
+        "education",
+        "out_migration",
+        "training"
+      ]
+    },
+    {
+      "form": "training",
+      "children": [
+        "continuing_education",
+        "disciplinary_action",
+        "exam",
+        "license",
+        "private_practice",
+        "registration",
+        "training_disrupt"
+      ]
+    },
+    {
+      "form": "training_institution",
+      "children": [
+        "facility_contact",
+        "institution_inspection"
+      ]
+    }
+  ],
+  "formDocumentorScheme": {
+    "colors": [
+      "disciplinary:cadetblue1",
+      "out_migration:lemonchiffon",
+      "qualification:cadetblue1",
+      "cadre:cadetblue1",
+      "institution:lightpink",
+      "training_program:lightpink",
+      "exam:cadetblue1",
+      "registration:cadetblue1",
+      "license:cadetblue1",
+      "private_practice:cadetblue1",
+      "deployment:lemonchiffon"
+    ]
+  },
   "formClasses": [
     "ihris-qualify/form-class/iHRIS_Cadre",
     "ihris-qualify/form-class/iHRIS_Certificate",

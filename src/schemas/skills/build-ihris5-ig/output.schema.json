@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/build-ihris5-ig/output.schema.json",
+  "title": "build-ihris5-ig output",
+  "description": "What the skill `build-ihris5-ig` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "ihris5Ig"
+  ],
+  "properties": {
+    "ihris5Ig": {
+      "$ref": "../artefacts.schema.json#/$defs/ihris5Ig"
+    }
+  }
+}

@@ -26,12 +26,23 @@
         "arg": {
           "flag": "--check"
         }
+      },
+      {
+        "name": "processSpecs",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/processSpecs",
+        "required": false,
+        "description": "Read from processes/specs/"
       }
     ],
     "outputs": [
       {
         "name": "process",
         "schema": "https://www.omg.org/spec/BPMN/20100524/MODEL"
+      },
+      {
+        "name": "processes",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/processes",
+        "description": "Written to processes/"
       }
     ]
   },

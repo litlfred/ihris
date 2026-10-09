@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/ihris-4-on-fhir/output.schema.json",
+  "title": "ihris-4-on-fhir output",
+  "description": "What the skill `ihris-4-on-fhir` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "fsh",
+    "fhirResources"
+  ],
+  "properties": {
+    "fsh": {
+      "$ref": "../artefacts.schema.json#/$defs/fsh"
+    },
+    "fhirResources": {
+      "$ref": "../artefacts.schema.json#/$defs/fhirResources"
+    }
+  }
+}

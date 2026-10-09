@@ -5,6 +5,8 @@ description: >
   WHO's DAK L2 guide, plus FHIR R4 terminology from the shipped lists. iHRIS is
   independent of SMART Guidelines and smart-base. Use when the data model changes or
   when starting DAK authoring for health workforce information.
+input: src/schemas/skills/derive-dak-data-dictionary/input.schema.json
+output: src/schemas/skills/derive-dak-data-dictionary/output.schema.json
 ---
 
 # Derive the DAK data dictionary from the iHRIS data model

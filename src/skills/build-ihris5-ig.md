@@ -5,6 +5,8 @@ description: >
   and publish it only on the pages branch. Use when the pin moves, a declared patch changes,
   or the IG site is wanted. The general steps are fhir-harness's; this skill is how this
   folio exercises them, and the rules that keep the upstream untouched.
+input: src/schemas/skills/build-ihris5-ig/input.schema.json
+output: src/schemas/skills/build-ihris5-ig/output.schema.json
 ---
 
 # Build the iHRIS 5 IG

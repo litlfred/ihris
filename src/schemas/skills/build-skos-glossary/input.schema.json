@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/build-skos-glossary/input.schema.json",
+  "title": "build-skos-glossary input",
+  "description": "What the skill `build-skos-glossary` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "toolkit",
+    "useCases",
+    "dataLists"
+  ],
+  "properties": {
+    "toolkit": {
+      "$ref": "../artefacts.schema.json#/$defs/toolkit"
+    },
+    "useCases": {
+      "$ref": "../artefacts.schema.json#/$defs/useCases"
+    },
+    "dataLists": {
+      "$ref": "../artefacts.schema.json#/$defs/dataLists"
+    }
+  }
+}

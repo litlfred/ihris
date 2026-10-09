@@ -15,6 +15,12 @@
         "schema": "https://www.iana.org/assignments/media-types/application/pdf",
         "required": true,
         "description": "uploads/ihris-admin-handbook/<file>, pinned by uploads/ihris-admin-handbook/manifest.json"
+      },
+      {
+        "name": "handbookPdf",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/handbookPdf",
+        "required": false,
+        "description": "Read from uploads/ihris-admin-handbook/"
       }
     ],
     "outputs": [
@@ -31,6 +37,11 @@
         "name": "images",
         "schema": "https://www.iana.org/assignments/media-types/application/json",
         "description": "folio-document-images/v1"
+      },
+      {
+        "name": "handbook",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/handbook",
+        "description": "Written to library/ihris-admin-handbook/"
       }
     ]
   },

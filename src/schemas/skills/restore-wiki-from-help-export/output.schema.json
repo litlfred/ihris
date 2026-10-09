@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/restore-wiki-from-help-export/output.schema.json",
+  "title": "restore-wiki-from-help-export output",
+  "description": "What the skill `restore-wiki-from-help-export` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "wikiHelp"
+  ],
+  "properties": {
+    "wikiHelp": {
+      "$ref": "../artefacts.schema.json#/$defs/wikiHelp"
+    }
+  }
+}

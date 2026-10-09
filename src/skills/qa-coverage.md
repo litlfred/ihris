@@ -6,6 +6,8 @@ description: >
   schema also needs checks that references resolve, counts match what they
   count, and named files exist. A schema with no such check is itself a
   failing finding (qa-missing).
+input: src/schemas/skills/qa-coverage/input.schema.json
+output: src/schemas/skills/qa-coverage/output.schema.json
 ---
 
 # QA coverage

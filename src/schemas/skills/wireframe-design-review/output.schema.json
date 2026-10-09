@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/wireframe-design-review/output.schema.json",
+  "title": "wireframe-design-review output",
+  "description": "What the skill `wireframe-design-review` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "wireframes"
+  ],
+  "properties": {
+    "wireframes": {
+      "$ref": "../artefacts.schema.json#/$defs/wireframes"
+    }
+  }
+}

@@ -1,14 +1,14 @@
 ---
 # ihris-7gl8
 title: Map the DAK logical models to the iHRIS 5 FHIR IG
-status: draft
+status: todo
 type: task
 priority: normal
 tags:
     - fhir
     - paused
 created_at: 2026-09-23T06:04:45Z
-updated_at: 2026-09-23T06:23:09Z
+updated_at: 2026-10-09T18:00:00Z
 parent: ihris-g768
 blocked_by:
     - ihris-dmgf
@@ -24,3 +24,7 @@ All three iHRIS 5 IGs: `ig/`, `ihris-backend-site/ig` and `ihris-backend-site/qu
 ## Format (owner, 2026-09-23)
 
 StructureMaps (D6 γ). The source structures are the logical models (`ihris-ct58`), so this is blocked by that bean too.
+
+## Unblocked (2026-10-09)
+
+The owner answered "all" to the iHRIS 5 FHIR options, which includes this mapping (F4). Its inputs, the logical models, now exist (bean ihris-ct58).

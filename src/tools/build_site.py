@@ -139,6 +139,16 @@ main {{ min-width:0; }}
    (litlfred.github.io/folio-assistant), which predates it. Delete this when that deploy carries #49. Inline style,
    so !important. */
 .fa-nav-glyph:has(> img[src$="iHRIS_logo-on-dark.svg"]) {{ background:none !important; }}
+.kg-graph {{ border:1px solid var(--rule); background:var(--diagram-bg); margin:10px 0 16px; }}
+.kg-graph-bar {{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:8px; border-bottom:1px solid var(--rule); background:var(--panel); }}
+.kg-graph-bar input {{ min-height:36px; padding:4px 8px; font:inherit; border:1px solid var(--control); background:var(--panel); color:var(--ink); }}
+.kg-graph-bar button {{ min-height:36px; min-width:36px; padding:0 10px; font:inherit; border:1px solid var(--control); background:var(--panel); color:var(--ink); cursor:pointer; }}
+.kg-graph-stage {{ height:75vh; overflow:hidden; touch-action:none; user-select:none; }}
+.kg-graph-stage svg {{ width:100%; height:100%; cursor:grab; }}
+.kg-graph-stage svg.kg-dragging {{ cursor:grabbing; }}
+.kg-graph-stage g.node {{ cursor:move; }}
+.kg-graph-stage g.kg-found > path, .kg-graph-stage g.kg-found > polygon {{ stroke:var(--h1); stroke-width:6; }}
+.kg-graph-status {{ padding:12px; color:var(--mute); }}
 .hood svg {{ width:100%; height:auto; border:1px solid var(--rule); background:var(--diagram-bg); }}
 /* The neighbourhood graph's literals, re-coloured by the scheme (CSS outranks SVG presentation attributes). */
 .hood svg [fill="#1b1b1b"] {{ fill:var(--diagram-ink); }} .hood svg [stroke="#1b1b1b"] {{ stroke:var(--diagram-ink); }}
@@ -197,7 +207,7 @@ def shell(path, title, body, theme, current=None, scripts=""):
     r = lambda p: rel(path, p)  # noqa: E731
     items = [("index.html", "Home"), ("data-model/index.html", "Data model"), ("data-dictionary/index.html", "Data dictionary"),
              ("sources/index.html", "Sources"), ("library/index.html", "Library"), ("schemas/index.html", "Schemas"),
-             ("glossary/index.html", "Glossary"), ("data-model/search.html", "Search"), ("beans/index.html", "Work plan"), (None, "GitHub")]
+             ("glossary/index.html", "Glossary"), ("data-model/search.html", "Search"), ("beans/index.html", "Work plan"), ("workflow/index.html", "Workflow"), (None, "GitHub")]
     nav = "".join(
         f'<li><a href="{E(r(p) if p else REPO)}"{AC if p == current else ""}>{E(n)}</a></li>'
         for p, n in items)
@@ -244,6 +254,9 @@ def instance_stats(inst, recs):
     if name == "ihris-use-cases" and os.path.exists(os.path.join(p, "crosswalk.json")):
         x = load(os.path.join(inst["path"], "crosswalk.json"))
         return f"{len(x['entries'])} use cases in 4 products; {x['counts']['matched']} linked to forms", None
+    if name == "ihris-admin-course" and os.path.exists(os.path.join(p, "course.json")):
+        c = load(os.path.join(inst["path"], "course.json"))["counts"]
+        return f"{c['modules']} modules in {c['sections']} sections, {c['lessonPages']} lesson pages, {c['transcripts']} transcripts (CC BY 4.0)", None
     if name == "ihris-data-dictionary":
         dd = os.path.join(p, "data-dictionary")
         n = len([f for f in os.listdir(dd) if f.endswith(".json")]) if os.path.isdir(dd) else 0
@@ -591,6 +604,8 @@ def main():
     # The mark the folio chrome draws for ihris (ihris.json `images`/`icon`), served where cat-harness resolves it.
     os.makedirs(os.path.join(out, "assets", "img"), exist_ok=True)
     shutil.copy(os.path.join(ROOT, "docs/assets/img/iHRIS_logo-on-dark.svg"), os.path.join(out, "assets", "img", "iHRIS_logo-on-dark.svg"))
+    # The KG subgraph viewer (Graphviz in WebAssembly, movable nodes): the form graphs and the workflow page load it.
+    shutil.copy(os.path.join(ROOT, "src/site/kg-graph.js"), os.path.join(out, "assets", "kg-graph.js"))
     # The dark scheme (src/site/theme/ihris-classic-dark.json), applied through cat-harness's darkRules so the
     # rail's light/dark switch and the OS setting both decide (src/tools/scheme_css.ts). Needs the mounted platform.
     rules = os.path.join(out, "assets", "ihris-dark.rules.css")

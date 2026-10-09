@@ -5,6 +5,8 @@ description: >
   Report", Word .doc) into structured ihris-use-cases/v1 records, readable
   Markdown, and a name-matched crosswalk to the iHRIS data model. Use when
   someone shares iHRIS use-case documents.
+input: src/schemas/skills/ingest-use-case-model/input.schema.json
+output: src/schemas/skills/ingest-use-case-model/output.schema.json
 ---
 
 # Ingest a use-case model report

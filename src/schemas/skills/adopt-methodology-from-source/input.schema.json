@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/adopt-methodology-from-source/input.schema.json",
+  "title": "adopt-methodology-from-source input",
+  "description": "What the skill `adopt-methodology-from-source` reads. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "sourceDocument"
+  ],
+  "properties": {
+    "sourceDocument": {
+      "$ref": "../artefacts.schema.json#/$defs/sourceDocument"
+    }
+  }
+}

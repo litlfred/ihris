@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/skills/ingest-moodle-course/output.schema.json",
+  "title": "ingest-moodle-course output",
+  "description": "What the skill `ingest-moodle-course` writes. Each property is one artefact, defined once in ../artefacts.schema.json.",
+  "type": "object",
+  "required": [
+    "adminCourse"
+  ],
+  "properties": {
+    "adminCourse": {
+      "$ref": "../artefacts.schema.json#/$defs/adminCourse"
+    }
+  }
+}

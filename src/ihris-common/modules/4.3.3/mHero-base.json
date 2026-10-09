@@ -61,6 +61,21 @@
       "displayName": "Step Type"
     }
   ],
+  "childForms": [
+    {
+      "form": "person",
+      "children": [
+        "rapidpro_flow_run"
+      ]
+    },
+    {
+      "form": "rapidpro_flow_run",
+      "children": [
+        "rapidpro_flow_run_steps",
+        "rapidpro_flow_run_values"
+      ]
+    }
+  ],
   "formClasses": [
     "ihris-common/form-class/iHRIS_RapidproFlowRun",
     "ihris-common/form-class/iHRIS_RapidproFlowRunSteps",

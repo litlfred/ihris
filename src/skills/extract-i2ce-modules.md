@@ -4,6 +4,8 @@ description: >
   Turn a verified iHRIS/I2CE release tarball into module nodes
   (ihris-i2ce-module/v1) and a data model (ihris-form-class/v1) without
   committing the source. Use when a release tarball is uploaded.
+input: src/schemas/skills/extract-i2ce-modules/input.schema.json
+output: src/schemas/skills/extract-i2ce-modules/output.schema.json
 ---
 
 # Extract I2CE modules and the data model from a release

@@ -5,6 +5,8 @@ description: >
   SKOS (folio-assistant core's folio-glossary/v1), linked to external SKOS
   concepts only where a verified mapping says so, and published on the site's
   glossary/ page, in its search and as SKOS JSON-LD.
+input: src/schemas/skills/build-skos-glossary/input.schema.json
+output: src/schemas/skills/build-skos-glossary/output.schema.json
 ---
 
 # Build the SKOS glossary

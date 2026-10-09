@@ -17,12 +17,23 @@
         "arg": {
           "flag": "--out"
         }
+      },
+      {
+        "name": "beans",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/beans",
+        "required": false,
+        "description": "Read from beans/defs/"
       }
     ],
     "outputs": [
       {
         "name": "bean index",
         "schema": "https://www.iana.org/assignments/media-types/application/json"
+      },
+      {
+        "name": "site",
+        "schema": "https://github.com/litlfred/ihris/src/schemas/skills/artefacts.schema.json#/$defs/site",
+        "description": "Written to _site/"
       }
     ]
   },
