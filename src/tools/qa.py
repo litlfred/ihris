@@ -620,7 +620,9 @@ def c_skill_package(C):
 
 
 def c_tools(C):
-    skills = {os.path.basename(p)[:-3] for p in G("src/skills/*.md")}
+    """A Tool's script exists, every skill it satisfies is defined here or by a mounted layer, and every
+    subprocess it names is a process this checkout generates (processes/<id>.bpmn, from processes/specs)."""
+    skills = {os.path.basename(p)[:-3] for p in G("src/skills/*.md")} | C["fa_skills"]
     out = []
     for rel in G("src/tools/*.tool.json"):
         t = J(rel)
@@ -629,7 +631,10 @@ def c_tools(C):
             out.append(f"{rel}: invokes {m.group(1)}, which does not exist")
         for s in t.get("satisfies") or []:
             if s not in skills:
-                out.append(f"{rel}: satisfies skill {s}, which src/skills does not define")
+                out.append(f"{rel}: satisfies skill {s}, which neither src/skills nor a mounted layer defines")
+        for sp in t.get("subprocesses") or []:
+            if not exists(f"processes/{sp}.bpmn") or not exists(f"processes/specs/{sp}.json"):
+                out.append(f"{rel}: subprocess {sp} is not a process generated here (processes/specs/{sp}.json)")
     return out
 
 
@@ -1520,7 +1525,7 @@ QA = {
     "cat-harness-mount-lock/v1": [("platform-dependency", "see folio-index-config/v1", c_platform_dependency)],
     "bean-graph (zod)": [("bean-graph", "declared bean directories exist", c_bean_graph)],
     "skill-package (zod)": [("skill-package", "listed skills and skill files agree", c_skill_package)],
-    "tool (zod)": [("tools", "invoked scripts exist; satisfied skills exist", c_tools)],
+    "tool (zod)": [("tools", "invoked scripts exist; satisfied skills exist here or in a mounted layer; subprocesses are generated processes", c_tools)],
     "role graph (zod RoleGraphSchema)": [("role-graph", "one Role per described actor or owner's merge, each citing its actors; no id twice, no title twice in a product; title and description verbatim", c_role_graph)],
     "user stories (zod UserStoryGraphSchema)": [("role-use-cases", "every story names a declared role and a described use case; want is its title verbatim", c_role_use_cases),
                                                 ("role-use-cases-primary", "every link is backed by the use case's Primary Actors, and none is missing", c_role_use_cases_primary)],
@@ -1550,9 +1555,18 @@ REUSED = ["cat-harness declaration (zod)", "harness-config (zod)", "folio-index-
 
 
 def fa_skills():
-    """The skills the mounted cat-harness defines (empty when it is not mounted, which c_process_spec reports)."""
-    ch = folio_platform.layer("cat-harness")
-    return {os.path.basename(p)[:-3] for p in glob.glob(os.path.join(ch, "skills", "**", "*.md"), recursive=True)} if ch else set()
+    """The skills every mounted platform layer defines (cat-harness, fhir-harness, ...): a Tool here may
+    satisfy one and a process step may name one. Empty when nothing is mounted, which c_process_spec reports."""
+    base = folio_platform.platform_root()
+    if not base:
+        return set()
+    out = set()
+    for path in folio_platform.mounts().values():
+        for p in glob.glob(os.path.join(base, path, "skills", "**", "*.md"), recursive=True):
+            name = re.search(r"^name:\s*(\S+)", open(p, encoding="utf-8").read(400), re.M)
+            if name:
+                out.add(name.group(1))
+    return out
 
 
 KNOWN = json.load(open(os.path.join(ROOT, "src/tools/qa-known.json")))

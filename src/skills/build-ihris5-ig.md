@@ -1,28 +1,39 @@
 ---
 name: build-ihris5-ig
 description: >
-  Build the iHRIS 5 FHIR IG with fhir-harness from the source src/ihris5/ihris5.json pins,
-  and publish it only on gh-pages at /ihris/ihris5/: the AST fork of the IG Publisher, the
-  artefact index and pages from the AST, the IG's own narrative in just-the-docs inside the
-  platform chrome. Use when the pin moves, a build patch changes, or the IG site is wanted.
+  Build the iHRIS 5 FHIR IG from the source the ihris5 sub-instance pins, with fhir-harness,
+  and publish it only on the pages branch. Use when the pin moves, a declared patch changes,
+  or the IG site is wanted. The general steps are fhir-harness's; this skill is how this
+  folio exercises them, and the rules that keep the upstream untouched.
 ---
 
-# Build the iHRIS 5 IG (fhir-harness)
+# Build the iHRIS 5 IG
 
 Owner, 2026-10-09: *"i want litlfred/ihris to say that ihris-5 is a named subgraph using fhir-harness"*, *"there should be justthedocs which uses AST sushi etc."*, *"we only publish ihris 5 under gh-pages"*.
 
-**The declaration is the pin.** `src/ihris5/ihris5.json` declares core's git source (`iHRIS/iHRIS`, a 40-character commit, `path: ig`) and `needs: ["fhir-harness"]`. Nothing names the IG anywhere else.
+## The capability
 
-| step | what | Tool |
-|---|---|---|
-| mount | the source at the pin, at `ihris5-source/`, git-ignored, never committed | `ihris-mount-sources` |
-| patch | declared fixes (`src/ihris5/ig-build-patches.json`) applied to a WORKSPACE copy only; each one is an upstream defect to report | `ihris-apply-ig-patches` |
-| build | `bash src/tools/build_ihris5_ig.sh`: AST export, index, menu, pages, site, Publisher output | `ihris-build-ihris5-ig` |
-| publish | `.github/workflows/ihris5-ig.yml`: by hand, or when the pin, patches, script or workflow change; a PR builds into its staging preview | the workflow |
+Turn a pinned, third-party IG source into a readable site in this folio's chrome, without holding or changing the source. The general steps, and their own rules, are fhir-harness's:
+
+| step | general skill |
+|---|---|
+| make the IG's packages available, build it, publish to a pages branch | `ig-build-pipeline` |
+| one Publisher build that also writes the AST | `ig-publisher-fork` |
+| the artefact index, its pages and the IG's narrative, rendered with just-the-docs | `ig-render-jekyll` |
+
+**The mechanism is Tool `ihris-build-ihris5-ig`**, and its steps are its subprocess, process `build-ihris5-ig`. Two smaller Tools carry the parts that are this folio's own: `ihris-mount-sources` (the pinned source, mounted) and `ihris-apply-ig-patches` (declared fixes, applied to a copy). A publish workflow runs the Tool by hand, and when the pin, the patches or the build change; a change proposal builds into its staging preview.
 
 ## Rules
 
-- **Never edit the mount or the upstream.** A defect is a patch entry with its reason, and the build fails when a patch no longer applies exactly once, so a fixed upstream is noticed.
-- **Never commit the build.** Only gh-pages holds it: `/ihris5/` (the just-the-docs site), `/ihris5/publisher/` (the Publisher's own HTML) and `/ihris5/ast-data/` (the AST's resources).
-- **Scoped chrome.** The site wears the platform chrome for ihris and what it needs, never the platform's whole harness list.
-- **A package host refused is not a broken IG.** Seed with fhir-harness's `fhir-cache-seed-npm.ts` (npm, template repositories, `--mirror litlfred/fhir-package-mirror`); a version none of those carry needs adding to the mirror from a machine that reaches packages.fhir.org. Never substitute a version in a build that publishes.
+- **The declaration is the pin.** The sub-instance declares its git source (repository, a full commit, the IG's path) and that it needs fhir-harness. Nothing else names the IG or its commit.
+- **Describe, never materialize.** The source is mounted, verified and never committed; the build is never committed either. Only the pages branch holds the site, the Publisher's own output beside it, and the AST's resources.
+- **Never edit the upstream, or the mount.** A defect in the IG's own source is reported upstream, and the folio builds meanwhile from a **declared patch**: the exact text it replaces and the reason. A patch that no longer applies exactly once fails the build, so an upstream fix is noticed rather than silently doubled. Only the owner decides between a patch and waiting.
+- **Scoped chrome.** The site wears the platform chrome for this folio and what it needs, never the platform's whole harness list.
+
+## When a step cannot run
+
+Three states, never two:
+
+- **built and published**;
+- **blocked, and why**: a defect in the IG source (the owner decides, above), or a package no trusted source carries. A refused package host is not a broken IG: fhir-harness names the remedy for each host (its Tool `fhir-cache-seed-npm`, with the owner's mirror). A version none of those carry is **missing**, and is never substituted in a build that publishes;
+- **could not determine**: a step that did not run is never reported as a pass.

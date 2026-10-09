@@ -35,7 +35,10 @@
     ]
   },
   "satisfies": [
-    "build-ihris5-ig"
+    "build-ihris5-ig",
+    "ig-build-pipeline",
+    "ig-publisher-fork",
+    "ig-render-jekyll"
   ],
   "requires": {
     "runtime": [
@@ -48,5 +51,8 @@
       "bundler"
     ],
     "network": true
-  }
+  },
+  "subprocesses": [
+    "build-ihris5-ig"
+  ]
 }

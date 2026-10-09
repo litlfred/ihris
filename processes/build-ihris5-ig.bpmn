@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  xmlns:bootstrap.processes="https://litlfred.github.io/folio-assistant/bootstrap/processes/ns#"
+                  id="Definitions_Process_BuildIhris5Ig" targetNamespace="https://litlfred.github.io/ihris/workflows"
+                  exporter="ihris gen_bpmn.py" exporterVersion="1">
+  <bpmn:collaboration id="Collaboration_Process_BuildIhris5Ig">
+    <bpmn:participant id="Participant_Process_BuildIhris5Ig" name="Build the iHRIS 5 IG with fhir-harness" processRef="Process_BuildIhris5Ig"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_BuildIhris5Ig" name="Build the iHRIS 5 IG with fhir-harness" isExecutable="false">
+    <bpmn:documentation>The subprocess of Tool ihris-build-ihris5-ig: the iHRIS 5 IG built from the source its sub-instance pins, and published only on the pages branch. The general steps are fhir-harness's (ig-build-pipeline, ig-publisher-fork, ig-render-jekyll); this diagram is how this folio exercises them. The upstream is never edited: a defect becomes a declared patch the owner decides on.</bpmn:documentation>
+    <bpmn:laneSet id="LaneSet_Process_BuildIhris5Ig">
+      <bpmn:lane id="Lane_Pipeline" name="Build pipeline">
+        <bpmn:documentation>Runs every step unattended. A step that cannot run says why; it never reports a build it did not make.</bpmn:documentation>
+        <bpmn:extensionElements><bootstrap.processes:role ref="build-pipeline"/></bpmn:extensionElements>
+        <bpmn:flowNodeRef>Start_Ig</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>A_Mount</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>A_Patch</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>A_Packages</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>A_Ast</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>GW_Built</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>A_Render</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>A_Publish</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Published</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Owner" name="Owner">
+        <bpmn:documentation>Moves the pin, and decides each upstream defect: a declared patch, or wait for the upstream fix.</bpmn:documentation>
+        <bpmn:extensionElements><bootstrap.processes:role ref="user"/></bpmn:extensionElements>
+        <bpmn:flowNodeRef>U_Defect</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Blocked</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_Ig" name="Pin, patches or build changed, or started by hand"/>
+    <bpmn:task id="A_Mount" name="Mount the pinned source">
+      <bpmn:documentation>Tool ihris-mount-sources: the sub-instance's declared git source at its commit, verified, never committed.</bpmn:documentation>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="build-ihris5-ig"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:task id="A_Patch" name="Apply declared patches to a workspace copy">
+      <bpmn:documentation>Tool ihris-apply-ig-patches. A patch whose text is absent or repeated stops the build: the upstream moved.</bpmn:documentation>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="build-ihris5-ig"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:task id="A_Packages" name="Make the IG's packages available">
+      <bpmn:documentation>Where a package host is refused, seed the cache from trusted sources (fhir-harness Tool fhir-cache-seed-npm, with the owner's mirror). A version no source carries is MISSING, never substituted in a build that publishes.</bpmn:documentation>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="ig-build-pipeline"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:task id="A_Ast" name="One Publisher build, writing the AST">
+      <bpmn:documentation>fhir-harness Tool ig-ast-export: SUSHI, then one ordinary IG Publisher build, then the AST beside output/.</bpmn:documentation>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="ig-publisher-fork"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="GW_Built" name="Built?"/>
+    <bpmn:task id="A_Render" name="Index, artefact pages and the IG's own narrative, in just-the-docs">
+      <bpmn:documentation>The artefact index from the AST, the menu from sushi-config, the pages in IG-site mode, composed into the platform chrome scoped to this folio.</bpmn:documentation>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="ig-render-jekyll"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:task id="A_Publish" name="Publish to the pages branch">
+      <bpmn:documentation>Only on the pages branch: the folio's IG route, or a change proposal's staging preview. Never committed to the source branch.</bpmn:documentation>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="ig-build-pipeline"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:endEvent id="End_Published" name="IG published"/>
+    <bpmn:task id="U_Defect" name="Decide the upstream defect: declared patch or upstream fix">
+      <bpmn:documentation>A defect in the IG's own source is reported upstream; a declared patch, with its reason, is how the folio builds meanwhile. Only the owner decides.</bpmn:documentation>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="build-ihris5-ig"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:endEvent id="End_Blocked" name="Not published; the blocker is stated"/>
+    <bpmn:sequenceFlow id="SF_Process_BuildIhris5Ig_1" sourceRef="Start_Ig" targetRef="A_Mount"/>
+    <bpmn:sequenceFlow id="SF_Process_BuildIhris5Ig_2" sourceRef="A_Mount" targetRef="A_Patch"/>
+    <bpmn:sequenceFlow id="SF_Process_BuildIhris5Ig_3" sourceRef="A_Patch" targetRef="A_Packages"/>
+    <bpmn:sequenceFlow id="SF_Process_BuildIhris5Ig_4" sourceRef="A_Packages" targetRef="A_Ast"/>
+    <bpmn:sequenceFlow id="SF_Process_BuildIhris5Ig_5" sourceRef="A_Ast" targetRef="GW_Built"/>
+    <bpmn:sequenceFlow id="SF_Process_BuildIhris5Ig_6" name="yes" sourceRef="GW_Built" targetRef="A_Render"/>
+    <bpmn:sequenceFlow id="SF_Process_BuildIhris5Ig_7" name="no: a defect in the IG source" sourceRef="GW_Built" targetRef="U_Defect"/>
+    <bpmn:sequenceFlow id="SF_Process_BuildIhris5Ig_8" sourceRef="U_Defect" targetRef="End_Blocked"/>
+    <bpmn:sequenceFlow id="SF_Process_BuildIhris5Ig_9" sourceRef="A_Render" targetRef="A_Publish"/>
+    <bpmn:sequenceFlow id="SF_Process_BuildIhris5Ig_10" sourceRef="A_Publish" targetRef="End_Published"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_Process_BuildIhris5Ig">
+    <bpmndi:BPMNPlane id="Plane_Process_BuildIhris5Ig" bpmnElement="Collaboration_Process_BuildIhris5Ig">
+      <bpmndi:BPMNShape id="Shape_Participant_Process_BuildIhris5Ig" bpmnElement="Participant_Process_BuildIhris5Ig" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1890" height="340" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_Pipeline" bpmnElement="Lane_Pipeline" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1860" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_Owner" bpmnElement="Lane_Owner" isHorizontal="true">
+        <dc:Bounds x="190" y="250" width="1860" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Start_Ig" bpmnElement="Start_Ig">
+        <dc:Bounds x="302" y="147" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A_Mount" bpmnElement="A_Mount">
+        <dc:Bounds x="440" y="125" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A_Patch" bpmnElement="A_Patch">
+        <dc:Bounds x="630" y="125" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A_Packages" bpmnElement="A_Packages">
+        <dc:Bounds x="820" y="125" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A_Ast" bpmnElement="A_Ast">
+        <dc:Bounds x="1010" y="125" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GW_Built" bpmnElement="GW_Built" isMarkerVisible="true">
+        <dc:Bounds x="1245" y="140" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A_Render" bpmnElement="A_Render">
+        <dc:Bounds x="1390" y="125" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A_Publish" bpmnElement="A_Publish">
+        <dc:Bounds x="1580" y="125" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_Published" bpmnElement="End_Published">
+        <dc:Bounds x="1822" y="147" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_U_Defect" bpmnElement="U_Defect">
+        <dc:Bounds x="1390" y="295" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_Blocked" bpmnElement="End_Blocked">
+        <dc:Bounds x="1632" y="317" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_BuildIhris5Ig_1" bpmnElement="SF_Process_BuildIhris5Ig_1">
+        <di:waypoint x="338" y="165" />
+        <di:waypoint x="440" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_BuildIhris5Ig_2" bpmnElement="SF_Process_BuildIhris5Ig_2">
+        <di:waypoint x="580" y="165" />
+        <di:waypoint x="630" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_BuildIhris5Ig_3" bpmnElement="SF_Process_BuildIhris5Ig_3">
+        <di:waypoint x="770" y="165" />
+        <di:waypoint x="820" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_BuildIhris5Ig_4" bpmnElement="SF_Process_BuildIhris5Ig_4">
+        <di:waypoint x="960" y="165" />
+        <di:waypoint x="1010" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_BuildIhris5Ig_5" bpmnElement="SF_Process_BuildIhris5Ig_5">
+        <di:waypoint x="1150" y="165" />
+        <di:waypoint x="1245" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_BuildIhris5Ig_6" bpmnElement="SF_Process_BuildIhris5Ig_6">
+        <di:waypoint x="1295" y="165" />
+        <di:waypoint x="1390" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_BuildIhris5Ig_7" bpmnElement="SF_Process_BuildIhris5Ig_7">
+        <di:waypoint x="1295" y="165" />
+        <di:waypoint x="1365" y="165" />
+        <di:waypoint x="1365" y="335" />
+        <di:waypoint x="1390" y="335" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_BuildIhris5Ig_8" bpmnElement="SF_Process_BuildIhris5Ig_8">
+        <di:waypoint x="1530" y="335" />
+        <di:waypoint x="1632" y="335" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_BuildIhris5Ig_9" bpmnElement="SF_Process_BuildIhris5Ig_9">
+        <di:waypoint x="1530" y="165" />
+        <di:waypoint x="1580" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_Process_BuildIhris5Ig_10" bpmnElement="SF_Process_BuildIhris5Ig_10">
+        <di:waypoint x="1720" y="165" />
+        <di:waypoint x="1822" y="165" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
