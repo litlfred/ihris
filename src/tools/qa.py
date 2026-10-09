@@ -600,6 +600,208 @@ def c_harness_config(C):
     return out
 
 
+# ------------------------------------------------------------------ F4: the iHRIS 5 mapping (src/tools/map_ihris5.py)
+def _map_ihris5():
+    spec = importlib.util.spec_from_file_location("map_ihris5", os.path.join(ROOT, "src/tools/map_ihris5.py"))
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
+def _lm_elements():
+    """{logical-model url: {element name}} read from the generated logical-model FSH itself."""
+    out = {}
+    for rel in G("src/ihris-4-on-fhir/input/fsh/logical-models/*.fsh"):
+        text = open(os.path.join(ROOT, rel), encoding="utf-8").read()
+        url = re.search(r'^\* \^url = "([^"]+)"', text, re.M)
+        if url:
+            out[url.group(1)] = set(re.findall(r"^\* (\w+) \d+\.\.", text, re.M))
+    return out
+
+
+def c_ihris5_index(C):
+    """The iHRIS 5 element index is pinned at the commit ihris5.json declares, covers the three IGs, names each
+    structure once, and, where the compiled IGs are present (.build/ihris5-sd/), records each file's sha256."""
+    out = []
+    ref = J("src/ihris5/ihris5.json")["source"]["ref"]
+    for rel, d in C["tagged"].get("ihris-ihris5-element-index/v1", []):
+        if d["source"]["commit"] != ref:
+            out.append(f"{rel}: indexed at {d['source']['commit'][:12]}, but ihris5.json pins {ref[:12]} (run map_ihris5.py --index)")
+        ids = [(ig["id"], ig["path"]) for ig in d["igs"]]
+        if ids != [("ig", "ig"), ("manage", "ihris-backend/ihris-backend-site/ig"), ("qualify", "ihris-backend/ihris-backend-site/qualify-ig")]:
+            out.append(f"{rel}: the IGs are {ids}, not the three D6 names")
+        for ig in d["igs"]:
+            urls = [s["url"] for s in ig["structures"]]
+            if len(urls) != len(set(urls)):
+                out.append(f"{rel}: {ig['id']}: a structure url twice")
+            if ig["compile"]["errors"] and not ig["compile"]["errorMessages"]:
+                out.append(f"{rel}: {ig['id']}: {ig['compile']['errors']} SUSHI error(s) with no message recorded")
+            for s in ig["structures"] + ig["questionnaires"]:
+                built = os.path.join(".build", "ihris5-sd", ig["id"], "fsh-generated", "resources", s["file"])
+                if exists(built) and sha256(built) != s["sha256"]:
+                    out.append(f"{rel}: {ig['id']}: {s['file']} sha256 differs from the compiled file {built}")
+            for s in ig["structures"]:
+                eids = [e["id"] for e in s["elements"]]
+                if len(eids) != len(set(eids)):
+                    out.append(f"{rel}: {ig['id']}: {s['name']} lists an element twice")
+    return out
+
+
+def c_fhir_crosswalk(C):
+    """The crosswalk reads the committed index (by sha256) and every logical model; each rule's source element exists in
+    its logical model and its target in the indexed profile; tiers hold what they claim; counts are the records'; and
+    the StructureMap FSH carries exactly the exact and accepted rules, and nothing else is in maps/."""
+    out = []
+    mi = _map_ihris5()
+    lms = _lm_elements()
+    for rel, cw in C["tagged"].get("ihris-fhir-crosswalk/v1", []):
+        ix = cw["index"]["file"]
+        if not exists(ix) or sha256(ix) != cw["index"]["sha256"]:
+            out.append(f"{rel}: index {ix} is missing or not at the recorded sha256")
+            continue
+        idx = J(ix)
+        targets = {ig["id"]: mi.ig_targets(ig, idx["igs"])[0] for ig in idx["igs"]}
+        if cw["source"]["logicalModels"] != len(lms) or {m["url"] for m in cw["models"]} != set(lms):
+            out.append(f"{rel}: the models are not the {len(lms)} logical models in input/fsh/logical-models/")
+        if cw["source"]["elements"] != sum(len(v) for v in lms.values()):
+            out.append(f"{rel}: source.elements {cw['source']['elements']} is not the logical models' {sum(len(v) for v in lms.values())}")
+        maps = set()
+        for m in cw["models"]:
+            names = lms.get(m["url"], set())
+            if m["elements"] != len(names):
+                out.append(f"{rel}: {m['model']}: {m['elements']} elements, the logical model has {len(names)}")
+            for t in m["targets"]:
+                where = f"{rel}: {m['model']} -> {t['ig']}"
+                n = len(t["candidates"])
+                if (t["tier"] == "exact" and n != 1) or (t["tier"] == "ambiguous" and n < 2) or (t["tier"] == "none" and n):
+                    out.append(f"{where}: tier {t['tier']} with {n} model candidate(s)")
+                if t["tier"] in ("exact", "accepted") and t.get("profile") not in targets[t["ig"]]:
+                    out.append(f"{where}: profile {t.get('profile')} is not in the index")
+                    continue
+                if t["tier"] == "accepted" and not _decided(t.get("decidedBy")):
+                    out.append(f"{where}: accepted, but {t.get('decidedBy')} is no accepted owner decision")
+                P = targets[t["ig"]].get(t.get("profile")) or {"all": {}}
+                rules = []
+                for r in t.get("elements") or []:
+                    if r["element"] not in names:
+                        out.append(f"{where}: element {r['element']} is not in the logical model")
+                    k = len(r["candidates"])
+                    ok = {"exact": k == 1 and r["candidates"][0]["typeCompatible"] and not r.get("contention"),
+                          "ambiguous": k > 1 or (k == 1 and (not r["candidates"][0]["typeCompatible"] or r.get("contention"))),
+                          "none": k == 0, "accepted": _decided(r.get("decidedBy"))}[r["tier"]]
+                    if not ok:
+                        out.append(f"{where}: {r['element']} is {r['tier']} with {k} candidate(s)")
+                    for c in r["candidates"]:
+                        if c["path"] not in P["all"]:
+                            out.append(f"{where}: {r['element']} candidate {c['path']} is not in the indexed profile")
+                    if r["tier"] in ("exact", "accepted"):
+                        if r.get("target") not in P["all"]:
+                            out.append(f"{where}: {r['element']} target {r.get('target')} is not in the indexed profile")
+                        rules.append(r["element"])
+                sm = t.get("structureMap")
+                if bool(sm) != bool(rules):
+                    out.append(f"{where}: {len(rules)} rule(s) but structureMap is {sm}")
+                if sm:
+                    maps.add(sm["file"])
+                    if not exists(sm["file"]):
+                        out.append(f"{where}: {sm['file']} does not exist")
+                        continue
+                    fsh = open(os.path.join(ROOT, sm["file"]), encoding="utf-8").read()
+                    got = sorted(re.findall(r'\.source\[0\]\.element = "([^"]+)"', fsh))
+                    if got != sorted(rules):
+                        out.append(f"{where}: {sm['file']} maps {got}, the crosswalk's exact/accepted elements are {sorted(rules)}")
+                    if f'* structure[1].url = "{t["profile"]}"' not in fsh or f'* structure[0].url = "{m["url"]}"' not in fsh:
+                        out.append(f"{where}: {sm['file']} does not name the logical model and the profile as its structures")
+        extra = set(G("src/ihris-4-on-fhir/input/fsh/maps/*.fsh")) - maps
+        out += [f"{rel}: {x} is a StructureMap the crosswalk does not name" for x in sorted(extra)]
+        for ig, c in cw["counts"].items():
+            ts = [t for m in cw["models"] for t in m["targets"] if t["ig"] == ig]
+            want = {"models": {k: sum(t["tier"] == k for t in ts) for k in c["models"]},
+                    "elements": {k: sum(r["tier"] == k for t in ts for r in t.get("elements") or []) for k in c["elements"]},
+                    "structureMaps": sum(bool(t.get("structureMap")) for t in ts)}
+            if want != c:
+                out.append(f"{rel}: counts for {ig} are {c}, the records give {want}")
+    return out
+
+
+def _decided(ref):
+    """An owner's accepted decision: `<authored file>#<item id>` with status accepted and a decision."""
+    if not ref or "#" not in ref:
+        return False
+    f, _, iid = ref.partition("#")
+    if not exists(f):
+        return False
+    it = next((i for i in J(f).get("items") or [] if i["id"] == iid), None)
+    return bool(it and it.get("status") == "accepted" and (it.get("decision") or {}).get("status") == "accepted")
+
+
+def c_fhir_gaps(C):
+    """The gap report is the current crosswalk's: its counts are its lists'; no listed iHRIS 4 element has an exact or
+    accepted target anywhere; no listed iHRIS 5 element is any rule's target."""
+    out = []
+    for rel, g in C["tagged"].get("ihris-fhir-gaps/v1", []):
+        cwf = g["crosswalk"]["file"]
+        if not exists(cwf) or sha256(cwf) != g["crosswalk"]["sha256"]:
+            out.append(f"{rel}: crosswalk {cwf} is missing or not at the recorded sha256")
+            continue
+        cw = J(cwf)
+        mapped4, mapped5 = set(), set()
+        for m in cw["models"]:
+            for t in m["targets"]:
+                for r in t.get("elements") or []:
+                    if r["tier"] in ("exact", "accepted"):
+                        mapped4.add((m["model"], r["element"]))
+                        mapped5.add((t["ig"], t["profileName"], r["target"]))
+        if g["counts"]["ihris4ElementsWithNoTarget"] != len(g["ihris4"]):
+            out.append(f"{rel}: ihris4 count {g['counts']['ihris4ElementsWithNoTarget']} != {len(g['ihris4'])} listed")
+        out += [f"{rel}: {r['model']}.{r['element']} is listed as a gap but has a target" for r in g["ihris4"] if (r["model"], r["element"]) in mapped4]
+        total = sum(m["elements"] for m in cw["models"])
+        if len(g["ihris4"]) + len(mapped4) != total:
+            out.append(f"{rel}: {len(g['ihris4'])} gaps + {len(mapped4)} mapped is not the {total} logical-model elements")
+        for ig, v in g["ihris5"].items():
+            c = g["counts"]["ihris5"].get(ig) or {}
+            if c != {"profileElements": len(v["profileElements"]), "extensions": len(v["extensions"])}:
+                out.append(f"{rel}: {ig}: counts {c} are not the lists'")
+            out += [f"{rel}: {ig}: {r['profile']} {r['path']} is listed as a gap but is a rule's target"
+                    for r in v["profileElements"] if (ig, r["profile"], r["path"]) in mapped5]
+    return out
+
+
+def c_dak_proposal_mapping(C):
+    """A mapping proposal lists only candidates someone else found: the matcher's (each still in the crosswalk) or a
+    cited source's (the bean names it). `selected` is set only on an accepted item, names one of its candidates, and
+    the item then carries the owner's decision."""
+    out = []
+    cws = C["tagged"].get("ihris-fhir-crosswalk/v1", [])
+    cw = cws[0][1] if cws else {"models": []}
+    found = set()
+    for m in cw["models"]:
+        for t in m["targets"]:
+            found |= {(m["model"], t["ig"], None, c["profile"]) for c in t["candidates"]}
+            for r in t.get("elements") or []:
+                found |= {(m["model"], t["ig"], r["element"], c["path"]) for c in r["candidates"]}
+    bean = open(os.path.join(ROOT, "beans/defs/ihris-7gl8--map-the-dak-logical-models-to-the-ihris-5-fhir-ig.md"), encoding="utf-8").read()
+    for rel, d in C["tagged"].get("ihris-dak-proposal/v1", []):
+        for i in d.get("items") or []:
+            cands = i.get("candidates") or []
+            for c in cands:
+                key = (c["model"], c["ig"], c.get("element") if c["level"] == "element" else None, c["target"])
+                if c["basis"] == "matcher" and key not in found and i["status"] != "rejected":  # a rejected one is never matched again
+                    out.append(f"{rel}: {i['id']} candidate {c['id']} is not a candidate the crosswalk records")
+                elif c["basis"].startswith("bean ") and not any(f"{c['model']}→{x}" in bean for x in [c["target"].rsplit("/", 1)[-1]] + [
+                        s["name"] for _, ix in C["tagged"].get("ihris-ihris5-element-index/v1", []) for g in ix["igs"] for s in g["structures"] if s["url"] == c["target"]]):
+                    out.append(f"{rel}: {i['id']} candidate {c['id']} cites the bean, which does not name it")
+                elif c["basis"] != "matcher" and not c["basis"].startswith("bean "):
+                    out.append(f"{rel}: {i['id']} candidate {c['id']} has basis {c['basis']!r}: only the matcher or a cited source")
+            if i.get("selected"):
+                if i["status"] != "accepted" or not any(c["id"] == i["selected"] for c in cands):
+                    out.append(f"{rel}: {i['id']} selects {i['selected']} but is {i['status']} or has no such candidate")
+                if (i.get("decision") or {}).get("status") != "accepted":
+                    out.append(f"{rel}: {i['id']} selects a candidate without the owner's accepted decision")
+    return out
+
+
+
 def c_ig_build_patches(C):
     """A patch list names the very source its sub-instance declares, and changes something; when the
     source is mounted, each patch's text occurs exactly once in it (so it still applies)."""
@@ -1773,7 +1975,11 @@ QA = {
     "ihris-wiki-help-structure/v1": [("wiki-structure", "every page has its section, and every image exists at its sha256", c_wiki_structure)],
     "ihris-github-inventory/v1": [("github-inventory", "pinned at the commit ihris5.json declares; no duplicates", c_github_inventory)],
     "ihris-dak-data-dictionary/v1": [("dak-sheets", "class and fields exist in the data model; evidence exists; no stale to-author", c_dak_sheets)],
-    "ihris-dak-proposal/v1": [("dak-proposal", "unique items; value sets they apply to exist", c_dak_proposal)],
+    "ihris-dak-proposal/v1": [("dak-proposal", "unique items; value sets they apply to exist", c_dak_proposal),
+                              ("dak-proposal-mapping", "mapping candidates are the matcher's (still in the crosswalk) or a cited source's; only an owner-accepted item selects one", c_dak_proposal_mapping)],
+    "ihris-ihris5-element-index/v1": [("ihris5-index", "pinned at ihris5.json's commit; the three D6 IGs; no structure or element twice; compiled files at their sha256 where present", c_ihris5_index)],
+    "ihris-fhir-crosswalk/v1": [("fhir-crosswalk", "index at its sha256; rule sources exist in the logical models and targets in the indexed profiles; tiers hold; counts match; the StructureMaps carry exactly the exact and accepted rules", c_fhir_crosswalk)],
+    "ihris-fhir-gaps/v1": [("fhir-gaps", "the current crosswalk's; counts are the lists'; no listed gap is mapped", c_fhir_gaps)],
     "ihris-dak-value-sets/v1": [("dak-value-sets", "users are data elements; default codes come from a shipped list", c_dak_value_sets)],
     "ihris-dak-excluded/v1": [("dak-excluded", "excluded classes exist; scope counts match", c_dak_excluded)],
     "ihris-dak-iso-report/v1": [("iso-report", "the partition of shipped codes does not exceed what shipped", c_iso_report)],

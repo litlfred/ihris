@@ -1,0 +1,541 @@
+{
+  "$schema": "ihris-dak-proposal/v1",
+  "id": "ihris5-mapping",
+  "title": "F4: mapping the iHRIS 4 logical models to the three iHRIS 5 IGs: what the matcher could not decide",
+  "author": "src/tools/map_ihris5.py --propose (candidates found by the matcher, or the bean's examples as cited), for owner review",
+  "date": "2026-10-09",
+  "refs": [
+    "bean ihris-7gl8",
+    "src/ihris-4-on-fhir/mapping/crosswalk.json"
+  ],
+  "items": [
+    {
+      "id": "element-Demographic-gender-ig",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Demographic#Demographic.gender"
+      ],
+      "statement": "Which element of IhrisTestPractitioner (`ig`) holds Demographic.gender (Gender, Coding)?",
+      "rationale": "One element carries an equal label, but its type is not one the field's type copies into.",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "element",
+          "model": "Demographic",
+          "element": "gender",
+          "ig": "ig",
+          "target": "Practitioner.gender",
+          "basis": "matcher",
+          "evidence": [
+            "label: 'Gender' = element label 'Gender' (StructureDefinition-ihris-test-practitioner.json Practitioner.gender)",
+            "types ['code']; type-compatible: False"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "model-Demographic-manage",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Demographic"
+      ],
+      "statement": "Which profile of the iHRIS 5 `manage` IG holds the logical model Demographic? The matcher found 3 candidates and cannot choose. Accept with `selected` = one candidate id, or reject.",
+      "rationale": "Several profiles carry equal names or a majority of equal labels (see each candidate's evidence).",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "model",
+          "model": "Demographic",
+          "ig": "manage",
+          "target": "http://ihris.org/fhir/StructureDefinition/dependent-information-profile",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 2 of 3 elements label-equal (birthDate, gender)"
+          ]
+        },
+        {
+          "id": "c2",
+          "level": "model",
+          "model": "Demographic",
+          "ig": "manage",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-practitioner",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 2 of 3 elements label-equal (birthDate, maritalStatus)"
+          ]
+        },
+        {
+          "id": "c3",
+          "level": "model",
+          "model": "Demographic",
+          "ig": "manage",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-test-practitioner",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 2 of 3 elements label-equal (birthDate, gender)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "model-Demographic-qualify",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Demographic"
+      ],
+      "statement": "Which profile of the iHRIS 5 `qualify` IG holds the logical model Demographic? The matcher found 2 candidates and cannot choose. Accept with `selected` = one candidate id, or reject.",
+      "rationale": "Several profiles carry equal names or a majority of equal labels (see each candidate's evidence).",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "model",
+          "model": "Demographic",
+          "ig": "qualify",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-practitioner",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 3 of 3 elements label-equal (birthDate, gender, maritalStatus)"
+          ]
+        },
+        {
+          "id": "c2",
+          "level": "model",
+          "model": "Demographic",
+          "ig": "qualify",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-test-practitioner",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 2 of 3 elements label-equal (birthDate, gender)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "element-Dependent-gender-ig",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Dependent#Dependent.gender"
+      ],
+      "statement": "Which element of IhrisTestPractitioner (`ig`) holds Dependent.gender (Gender, Coding)?",
+      "rationale": "One element carries an equal label, but its type is not one the field's type copies into.",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "element",
+          "model": "Dependent",
+          "element": "gender",
+          "ig": "ig",
+          "target": "Practitioner.gender",
+          "basis": "matcher",
+          "evidence": [
+            "label: 'Gender' = element label 'Gender' (StructureDefinition-ihris-test-practitioner.json Practitioner.gender)",
+            "types ['code']; type-compatible: False"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "element-Dependent-name-ig",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Dependent#Dependent.name"
+      ],
+      "statement": "Which element of IhrisTestPractitioner (`ig`) holds Dependent.name (Name, string)?",
+      "rationale": "One element carries an equal label, but its type is not one the field's type copies into.",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "element",
+          "model": "Dependent",
+          "element": "name",
+          "ig": "ig",
+          "target": "Practitioner.name",
+          "basis": "matcher",
+          "evidence": [
+            "label: 'Name' = element label 'Name' (StructureDefinition-ihris-test-practitioner.json Practitioner.name)",
+            "types ['HumanName']; type-compatible: False"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "model-Dependent-manage",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Dependent"
+      ],
+      "statement": "Which profile of the iHRIS 5 `manage` IG holds the logical model Dependent? The matcher found 3 candidates and cannot choose. Accept with `selected` = one candidate id, or reject.",
+      "rationale": "Several profiles carry equal names or a majority of equal labels (see each candidate's evidence).",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "model",
+          "model": "Dependent",
+          "ig": "manage",
+          "target": "http://ihris.org/fhir/StructureDefinition/dependent-information-profile",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 2 of 3 elements label-equal (gender, dateOfBirth)"
+          ]
+        },
+        {
+          "id": "c2",
+          "level": "model",
+          "model": "Dependent",
+          "ig": "manage",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-practitioner",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 2 of 3 elements label-equal (dateOfBirth, name)"
+          ]
+        },
+        {
+          "id": "c3",
+          "level": "model",
+          "model": "Dependent",
+          "ig": "manage",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-test-practitioner",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 3 of 3 elements label-equal (gender, dateOfBirth, name)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "model-Dependent-qualify",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Dependent"
+      ],
+      "statement": "Which profile of the iHRIS 5 `qualify` IG holds the logical model Dependent? The matcher found 2 candidates and cannot choose. Accept with `selected` = one candidate id, or reject.",
+      "rationale": "Several profiles carry equal names or a majority of equal labels (see each candidate's evidence).",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "model",
+          "model": "Dependent",
+          "ig": "qualify",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-practitioner",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 3 of 3 elements label-equal (gender, dateOfBirth, name)"
+          ]
+        },
+        {
+          "id": "c2",
+          "level": "model",
+          "model": "Dependent",
+          "ig": "qualify",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-test-practitioner",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 3 of 3 elements label-equal (gender, dateOfBirth, name)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "element-Deployment-healthFacility-qualify",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Deployment#Deployment.healthFacility"
+      ],
+      "statement": "Which element of IhrisBasicDeployment (`qualify`) holds Deployment.healthFacility (Health Facility, Coding)?",
+      "rationale": "One element carries an equal label, but its type is not one the field's type copies into.",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "element",
+          "model": "Deployment",
+          "element": "healthFacility",
+          "ig": "qualify",
+          "target": "Basic.extension:deployment.extension:healthFacility",
+          "basis": "matcher",
+          "evidence": [
+            "label: 'Health Facility' = extension value label 'Health Facility' (StructureDefinition-ihris-deployment.json Extension.extension:healthFacility.value[x])",
+            "types ['Reference']; type-compatible: False"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "element-License-licenseNumber-qualify",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/License#License.licenseNumber"
+      ],
+      "statement": "Which element of IhrisBasicLicense (`qualify`) holds License.licenseNumber (License Number, Identifier)?",
+      "rationale": "One element carries an equal label, but its type is not one the field's type copies into.",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "element",
+          "model": "License",
+          "element": "licenseNumber",
+          "ig": "qualify",
+          "target": "Basic.extension:license.extension:licenseNumber",
+          "basis": "matcher",
+          "evidence": [
+            "label: 'License Number' = extension value label 'License Number' (StructureDefinition-ihris-license.json Extension.extension:licenseNumber.value[x])",
+            "types ['string']; type-compatible: False"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "element-Person-residence-manage",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Person#Person.residence"
+      ],
+      "statement": "Which element of IhrisPractitioner (`manage`) holds Person.residence (Residence, Coding)?",
+      "rationale": "One element carries an equal label, but its type is not one the field's type copies into.",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "element",
+          "model": "Person",
+          "element": "residence",
+          "ig": "manage",
+          "target": "Practitioner.extension:residence",
+          "basis": "matcher",
+          "evidence": [
+            "label: 'Residence' = element label 'Residence' (StructureDefinition-ihris-practitioner.json Practitioner.extension:residence)",
+            "label: 'Residence' = extension value label 'Residence' (StructureDefinition-ihris-practitioner-residence.json Extension.value[x])",
+            "types ['Reference']; type-compatible: False"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "model-PersonPosition-manage",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/PersonPosition"
+      ],
+      "statement": "Which profile of the iHRIS 5 `manage` IG holds the logical model PersonPosition? The matcher found 2 candidates and cannot choose. Accept with `selected` = one candidate id, or reject.",
+      "rationale": "Several profiles carry equal names or a majority of equal labels (see each candidate's evidence).",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "model",
+          "model": "PersonPosition",
+          "ig": "manage",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-basic-employment-history",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 3 of 4 elements label-equal (position, startDate, endDate)"
+          ]
+        },
+        {
+          "id": "c2",
+          "level": "model",
+          "model": "PersonPosition",
+          "ig": "manage",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-practitioner-role",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 3 of 4 elements label-equal (startDate, endDate, reason)",
+            "also named by bean ihris-7gl8: 'PersonPosition→IhrisPractitionerRole'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "element-PersonReference-address-manage",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/PersonReference#PersonReference.address"
+      ],
+      "statement": "Which element of IhrisPractitioner (`manage`) holds PersonReference.address (Address, string)?",
+      "rationale": "One element carries an equal label, but its type is not one the field's type copies into.",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "element",
+          "model": "PersonReference",
+          "element": "address",
+          "ig": "manage",
+          "target": "Practitioner.address",
+          "basis": "matcher",
+          "evidence": [
+            "label: 'Address' = element label 'Address' (StructureDefinition-ihris-practitioner.json Practitioner.address)",
+            "types ['Address']; type-compatible: False"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "model-Salary-manage",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Salary"
+      ],
+      "statement": "Which profile of the iHRIS 5 `manage` IG holds the logical model Salary? The matcher found 2 candidates and cannot choose. Accept with `selected` = one candidate id, or reject.",
+      "rationale": "Several profiles carry equal names or a majority of equal labels (see each candidate's evidence).",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "model",
+          "model": "Salary",
+          "ig": "manage",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-basic-employment-history",
+          "basis": "matcher",
+          "evidence": [
+            "majority: 3 of 5 elements label-equal (startDate, salary, endDate)"
+          ]
+        },
+        {
+          "id": "c2",
+          "level": "model",
+          "model": "Salary",
+          "ig": "manage",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-basic-salary",
+          "basis": "matcher",
+          "evidence": [
+            "name: iHRIS 4 class 'iHRIS_Salary', form 'salary', form displayName 'Salary', group 'Salary', title 'Salary' (src/ihris-data-dictionary/data-dictionary/Salary.json) = iHRIS 5 name 'IhrisBasicSalary' (StructureDefinition-ihris-basic-salary.json), key 'salary'",
+            "name: iHRIS 4 class 'iHRIS_Salary', form 'salary', form displayName 'Salary', group 'Salary', title 'Salary' (src/ihris-data-dictionary/data-dictionary/Salary.json) = iHRIS 5 id 'ihris-basic-salary' (StructureDefinition-ihris-basic-salary.json), key 'salary'",
+            "name: iHRIS 4 class 'iHRIS_Salary', form 'salary', form displayName 'Salary', group 'Salary', title 'Salary' (src/ihris-data-dictionary/data-dictionary/Salary.json) = iHRIS 5 extension name (at Basic.extension:salary) 'IhrisSalary' (StructureDefinition-ihris-salary.json), key 'salary'",
+            "also named by bean ihris-7gl8: 'Salary→IhrisBasicSalary'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "element-Training-indexNum-qualify",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Training#Training.indexNum"
+      ],
+      "statement": "Which element of IhrisBasicTraining (`qualify`) holds Training.indexNum (Index Number, Identifier)?",
+      "rationale": "One element carries an equal label, but its type is not one the field's type copies into.",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "element",
+          "model": "Training",
+          "element": "indexNum",
+          "ig": "qualify",
+          "target": "Basic.extension:training.extension:indexNumber",
+          "basis": "matcher",
+          "evidence": [
+            "label: 'Index Number' = extension value label 'Index Number' (StructureDefinition-ihris-training.json Extension.extension:indexNumber.value[x])",
+            "types ['string']; type-compatible: False"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "element-Training-outInstitution-qualify",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Training#Training.outInstitution"
+      ],
+      "statement": "Which element of IhrisBasicTraining (`qualify`) holds Training.outInstitution (Training Institution, string)?",
+      "rationale": "One element carries an equal label, but its type is not one the field's type copies into.",
+      "evidence": [
+        "src/ihris-4-on-fhir/mapping/crosswalk.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "element",
+          "model": "Training",
+          "element": "outInstitution",
+          "ig": "qualify",
+          "target": "Basic.extension:training.extension:institution",
+          "basis": "matcher",
+          "evidence": [
+            "label: 'Training Institution' = extension value label 'Training Institution' (StructureDefinition-ihris-training.json Extension.extension:institution.value[x])",
+            "types ['Coding']; type-compatible: False"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bean-Person-qualify",
+      "kind": "mapping",
+      "status": "proposed",
+      "appliesTo": [
+        "https://litlfred.github.io/ihris/dak/StructureDefinition/Person"
+      ],
+      "statement": "The bean's example Person→IhrisPractitioner: the logical model Person is held by IhrisPractitioner in the iHRIS 5 `qualify` IG.",
+      "rationale": "Named in bean ihris-7gl8's text as an example. The matcher's own result here is `none`. IhrisPractitioner exists at the pin as http://ihris.org/fhir/StructureDefinition/ihris-practitioner.",
+      "evidence": [
+        "beans/defs/ihris-7gl8--map-the-dak-logical-models-to-the-ihris-5-fhir-ig.md",
+        "src/ihris-4-on-fhir/mapping/ihris5-index.json"
+      ],
+      "candidates": [
+        {
+          "id": "c1",
+          "level": "model",
+          "model": "Person",
+          "ig": "qualify",
+          "target": "http://ihris.org/fhir/StructureDefinition/ihris-practitioner",
+          "basis": "bean ihris-7gl8",
+          "evidence": [
+            "bean ihris-7gl8: 'Person→IhrisPractitioner'"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -34,7 +34,7 @@ Asked which iHRIS 5 FHIR work to do (catalogue and crosswalk, upstream defects, 
 | was | now |
 |---|---|
 | D3: logical models wait for folio-assistant `cz17` | **Superseded.** Logical models are FHIR R4 logical StructureDefinitions on `Base`, independent of smart-base. |
-| F3 and F4 blocked | **Unblocked.** F1, F2 (with the D8 switch) and F3 are done; F4 (bean `ihris-7gl8`) is next. |
+| F3 and F4 blocked | **Unblocked.** F1, F2 (with the D8 switch) and F3 are done; F4 (bean `ihris-7gl8`) is in progress (below). |
 
 **What F1–F3 produced** (`src/tools/gen_fsh.py`, Tool `ihris-gen-fsh`):
 
@@ -45,6 +45,13 @@ Asked which iHRIS 5 FHIR work to do (catalogue and crosswalk, upstream defects, 
   - **Bindings:** a coded field binds to its ValueSet as **extensible**, because iHRIS deployments add codes to their lists.
   - **Element names:** they are camelCase (FHIR's `eld-20`), and a `Mapping` keeps each I2CE field name.
   - **Definitions:** none is written, because the source has none. SUSHI repeats the label as `definition`, as it does for any element without one.
+
+**F4, in progress (2026-10-09)** (`src/tools/map_ihris5.py`, Tool `ihris-map-ihris5`):
+
+- **Source of truth for iHRIS 5:** the three IGs at the pinned commit, compiled by SUSHI 3.20.1 outside the source tree. Each backend IG pulls in `ig/` through its `input/fsh/core` symlink. The qualify IG does not compile cleanly (2 errors: `IhrisFacility` and `IhrisJurisdiction` are defined only in the manage IG), so it is used as compiled and the defect is recorded in `mapping/ihris5-index.json`.
+- **Matcher:** deterministic, using name and label equality only. The crosswalk (`mapping/crosswalk.json`) records every candidate's evidence. The two-way gap report is `mapping/gaps.json` and `gaps.md`, and it is shown on the site's FHIR page.
+- **StructureMaps (D6 γ):** one per logical model and IG that has a model-level match and at least one exact element, in `input/fsh/maps/`, built clean by SUSHI. They target the iHRIS 5 canonicals as URLs only, with R4 core as the only dependency (D5). They do not yet set the values a target profile fixes, such as `Basic.code`.
+- **Owner:** ambiguous matches, and the bean's examples that the matcher did not reach, are proposals in `src/ihris-data-dictionary/authored/ihris5-mapping.json`. An accepted proposal (with `selected`) drives the next run.
 
 ### Consequences
 
@@ -155,7 +162,7 @@ The recommendation is to keep the JSON until the sushi build of the same content
 | F1 | Pin SUSHI; create an empty IG skeleton (`sushi-config.yaml`, dependencies) | sushi: 0 errors, 0 warnings; `validate.py` runs it |
 | F2 | Terminology as generated FSH | content-equal to today's JSON (D8); JSON path retired |
 | F3 | 51 logical models as generated FSH (`SGLogicalModel`) | sushi clean; every data element present, and no field filled that the source leaves null |
-| F4 | iHRIS 5 mapping (D6) | every logical model has a `mapping`; gap report generated; uncertain matches are proposals |
+| F4 | iHRIS 5 mapping (D6, γ: StructureMaps) | every logical model is in the crosswalk; gap report generated; uncertain matches are proposals. **In progress**: generated, and waiting on the owner's decisions |
 | F5 | Publication (bean `ihris-bwls`) | blocked until folio-assistant's new lightweight IG render pipeline is done (`jut3`, `kn0t`, `nsbb`) |
 
 Each phase is its own bean, blocked by the one before.

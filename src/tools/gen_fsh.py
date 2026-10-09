@@ -120,6 +120,11 @@ I2CE_TYPE = {
 }
 
 
+def element_name(field):
+    """The logical-model element name of an I2CE field: camelCase, as FHIR element names are plain alphanumerics."""
+    return re.sub(r"_+([A-Za-z0-9])", lambda m: m.group(1).upper(), field)
+
+
 def logical_fsh(d, src):
     """One data-dictionary sheet as an FSH Logical. Carries only what the sheet states: the field, its label (short),
     its type and cardinality, its value set, and a definition only where a person authored one."""
@@ -135,7 +140,7 @@ def logical_fsh(d, src):
         field = e["id"].rsplit(".", 1)[1]
         # FHIR element names are plain alphanumerics (eld-20): the I2CE field `start_date` is the element `startDate`,
         # and the Mapping below keeps the source field's own name.
-        name = re.sub(r"_+([A-Za-z0-9])", lambda m: m.group(1).upper(), field)
+        name = element_name(field)
         mapping.append(f"* {name} -> {fsh_string(field)}")
         i2ce = (e.get("source") or {}).get("i2ceType")
         typ = I2CE_TYPE.get(i2ce)
