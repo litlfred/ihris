@@ -1,0 +1,960 @@
+[{
+  "id" : "gofr-search-isbroadcast",
+  "type" : "SearchParameter",
+  "url" : "http://gofr.org/fhir/SearchParameter/gofr-search-isbroadcast",
+  "version" : "0.1.0",
+  "name" : "search parameter for broadcasted messages"
+},
+{
+  "id" : "gofr-search-isflowstart",
+  "type" : "SearchParameter",
+  "url" : "http://gofr.org/fhir/SearchParameter/gofr-search-isflowstart",
+  "version" : "0.1.0",
+  "name" : "search parameter for flow starts"
+},
+{
+  "id" : "ContactPoint",
+  "type" : "StructureDefinition",
+  "url" : "http://hl7.org/fhir/StructureDefinition/ContactPoint",
+  "version" : "0.1.0",
+  "name" : "ContactPoint"
+},
+{
+  "id" : "administrative-gender",
+  "type" : "ValueSet",
+  "url" : "http://hl7.org/fhir/ValueSet/administrative-gender",
+  "version" : "0.1.0",
+  "name" : "AdministrativeGender",
+  "oids" : ["2.16.840.1.113883.4.642.3.1"]
+},
+{
+  "id" : "currencies",
+  "type" : "ValueSet",
+  "url" : "http://hl7.org/fhir/ValueSet/currencies",
+  "version" : "0.1.0",
+  "name" : "Currencies",
+  "oids" : ["2.16.840.1.113883.4.642.3.1025"]
+},
+{
+  "id" : "iso3166-1-2",
+  "type" : "ValueSet",
+  "url" : "http://hl7.org/fhir/ValueSet/iso3166-1-2",
+  "version" : "0.1.0",
+  "name" : "Iso3166-1-2"
+},
+{
+  "id" : "languages",
+  "type" : "ValueSet",
+  "url" : "http://hl7.org/fhir/ValueSet/languages",
+  "version" : "0.1.0",
+  "name" : "CommonLanguages",
+  "oids" : ["2.16.840.1.113883.4.642.3.20"]
+},
+{
+  "id" : "name-use",
+  "type" : "ValueSet",
+  "url" : "http://hl7.org/fhir/ValueSet/name-use",
+  "version" : "0.1.0",
+  "name" : "NameUse",
+  "oids" : ["2.16.840.1.113883.4.642.3.65"]
+},
+{
+  "id" : "address-type",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/address-type",
+  "version" : "0.1.0",
+  "name" : "AddressType",
+  "oids" : ["2.16.840.1.113883.4.642.4.70"]
+},
+{
+  "id" : "address-use",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/address-use",
+  "version" : "0.1.0",
+  "name" : "AddressUse",
+  "oids" : ["2.16.840.1.113883.4.642.4.68"]
+},
+{
+  "id" : "administrative-gender",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/administrative-gender",
+  "version" : "0.1.0",
+  "name" : "AdministrativeGender",
+  "oids" : ["2.16.840.1.113883.4.642.1.2"]
+},
+{
+  "id" : "contact-point-system",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/contact-point-system",
+  "version" : "0.1.0",
+  "name" : "ContactPointSystem",
+  "oids" : ["2.16.840.1.113883.4.642.4.72"]
+},
+{
+  "id" : "contact-point-use",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/contact-point-use",
+  "version" : "0.1.0",
+  "name" : "ContactPointUse",
+  "oids" : ["2.16.840.1.113883.4.642.4.74"]
+},
+{
+  "id" : "days-of-week",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/days-of-week",
+  "version" : "0.1.0",
+  "name" : "DaysOfWeek",
+  "oids" : ["2.16.840.1.113883.4.642.4.513"]
+},
+{
+  "id" : "identifier-use",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/identifier-use",
+  "version" : "0.1.0",
+  "name" : "IdentifierUse",
+  "oids" : ["2.16.840.1.113883.4.642.4.58"]
+},
+{
+  "id" : "location-mode",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/location-mode",
+  "version" : "0.1.0",
+  "name" : "LocationMode",
+  "oids" : ["2.16.840.1.113883.4.642.4.331"]
+},
+{
+  "id" : "location-status",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/location-status",
+  "version" : "0.1.0",
+  "name" : "LocationStatus",
+  "oids" : ["2.16.840.1.113883.4.642.4.333"]
+},
+{
+  "id" : "name-use",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/name-use",
+  "version" : "0.1.0",
+  "name" : "NameUse",
+  "oids" : ["2.16.840.1.113883.4.642.1.66"]
+},
+{
+  "id" : "IHE.mCSD.FacilityLocation",
+  "type" : "StructureDefinition",
+  "url" : "http://ihe.net/fhir/StructureDefinition/IHE.mCSD.FacilityLocation",
+  "version" : "0.1.0",
+  "name" : "IHEmCSDFacilityLocation"
+},
+{
+  "id" : "IHE.mCSD.Location",
+  "type" : "StructureDefinition",
+  "url" : "http://ihe.net/fhir/StructureDefinition/IHE.mCSD.Location",
+  "version" : "0.1.0",
+  "name" : "IHEmCSDLocation"
+},
+{
+  "id" : "ihris-cadre",
+  "type" : "CodeSystem",
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-cadre",
+  "version" : "0.1.0",
+  "name" : "IhrisCadre"
+},
+{
+  "id" : "ihris-classification",
+  "type" : "CodeSystem",
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+  "version" : "0.1.0",
+  "name" : "IhrisClassification"
+},
+{
+  "id" : "ihris-document-category",
+  "type" : "CodeSystem",
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-document-category",
+  "version" : "0.1.0",
+  "name" : "IhrisDocumentCategoryCodeSystem"
+},
+{
+  "id" : "ihris-job",
+  "type" : "CodeSystem",
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-job",
+  "version" : "0.1.0",
+  "name" : "IhrisJob"
+},
+{
+  "id" : "ihris-resource-codesystem",
+  "type" : "CodeSystem",
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem",
+  "version" : "0.1.0",
+  "name" : "IhrisResourceCodeSystem"
+},
+{
+  "id" : "ihris-salary-grade",
+  "type" : "CodeSystem",
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+  "version" : "0.1.0",
+  "name" : "IhrisSalaryGrade"
+},
+{
+  "id" : "ihris-task-permission",
+  "type" : "CodeSystem",
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-task-permission",
+  "version" : "0.1.0",
+  "name" : "IhrisTaskPermissionCodeSystem"
+},
+{
+  "id" : "ihris-task-resource",
+  "type" : "CodeSystem",
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-task-resource",
+  "version" : "0.1.0",
+  "name" : "IhrisTaskResourceCodeSystem"
+},
+{
+  "id" : "ihris-test-codesystem",
+  "type" : "CodeSystem",
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-test-codesystem",
+  "version" : "0.1.0",
+  "name" : "IhrisTestCodeSystem"
+},
+{
+  "id" : "v3-RoleCode",
+  "type" : "CodeSystem",
+  "url" : "http://ihris.org/fhir/CodeSystem/v3-RoleCode",
+  "version" : "0.1.0",
+  "name" : "V3_RoleCode",
+  "oids" : ["2.16.840.1.113883.5.111"]
+},
+{
+  "id" : "ihris",
+  "type" : "ImplementationGuide",
+  "url" : "http://ihris.org/fhir/ImplementationGuide/ihris",
+  "version" : "0.1.0",
+  "name" : "iHRISImplementationGuide"
+},
+{
+  "id" : "ihris-module-example",
+  "type" : "Library",
+  "url" : "http://ihris.org/fhir/Library/ihris-module-example",
+  "version" : "0.1.0",
+  "name" : "ihris-example"
+},
+{
+  "id" : "ihris-role",
+  "type" : "Questionnaire",
+  "url" : "http://ihris.org/fhir/Questionnaire/ihris-role",
+  "version" : "0.1.0",
+  "name" : "ihris-role"
+},
+{
+  "id" : "ihris-task",
+  "type" : "Questionnaire",
+  "url" : "http://ihris.org/fhir/Questionnaire/ihris-task",
+  "version" : "0.1.0",
+  "name" : "ihris-task"
+},
+{
+  "id" : "ihris-test",
+  "type" : "Questionnaire",
+  "url" : "http://ihris.org/fhir/Questionnaire/ihris-test",
+  "version" : "0.1.0",
+  "name" : "ihris-test"
+},
+{
+  "id" : "active-user",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/active-user",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on active person resources for security"
+},
+{
+  "id" : "basic-location-constraint",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/basic-location-constraint",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on related location constraint resources for role"
+},
+{
+  "id" : "basic-name",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/basic-name",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on a name extension on Basic resources"
+},
+{
+  "id" : "basic-practitioner",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/basic-practitioner",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on an practitioner extension on Basic resources"
+},
+{
+  "id" : "basic-related-location",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/basic-related-location",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on related location resources for security"
+},
+{
+  "id" : "basic-related-practitioner",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/basic-related-practitioner",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on related practitioner resources for security"
+},
+{
+  "id" : "employment-status-search",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/employment-status-search",
+  "version" : "0.1.0",
+  "name" : "Search Parameter for a practitionerRole employment-status"
+},
+{
+  "id" : "job-search",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/job-search",
+  "version" : "0.1.0",
+  "name" : "Search Parameter for a practitionerRole job"
+},
+{
+  "id" : "leaveperiod-search",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/leaveperiod-search",
+  "version" : "0.1.0",
+  "name" : "Search Parameter for a practitioner's Leave Period"
+},
+{
+  "id" : "leavetype-search",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/leavetype-search",
+  "version" : "0.1.0",
+  "name" : "Search Parameter for a practitioner's Leave Type"
+},
+{
+  "id" : "location-related-location",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/location-related-location",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on related location resources for security"
+},
+{
+  "id" : "performanceperiod-search",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/performanceperiod-search",
+  "version" : "0.1.0",
+  "name" : "Search Parameter for a practitioner's Performance Period"
+},
+{
+  "id" : "position-status-search",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/position-status-search",
+  "version" : "0.1.0",
+  "name" : "Search Parameter for a practitionerRole position status"
+},
+{
+  "id" : "practitioner-birthdate",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/practitioner-birthdate",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on birthdate resources for practioner"
+},
+{
+  "id" : "practitioner-employeeNumber",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/practitioner-employeeNumber",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on employee Number for practitioner"
+},
+{
+  "id" : "practitioner-phone",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/practitioner-phone",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on a name extension on Basic resources"
+},
+{
+  "id" : "practitioner-related-location",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/practitioner-related-location",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on related location resources for security"
+},
+{
+  "id" : "practitioner-related-practitioner",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/practitioner-related-practitioner",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on related practitioner resources for security"
+},
+{
+  "id" : "practitioner-renewrole",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/practitioner-renewrole",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on  employee id for practitioner"
+},
+{
+  "id" : "practitionerrole-related-location",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/practitionerrole-related-location",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on related location resources for security"
+},
+{
+  "id" : "practitionerrole-related-practitioner",
+  "type" : "SearchParameter",
+  "url" : "http://ihris.org/fhir/SearchParameter/practitionerrole-related-practitioner",
+  "version" : "0.1.0",
+  "name" : "Search Parameter on related practitioner resources for security"
+},
+{
+  "id" : "composite-task",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/composite-task",
+  "version" : "0.1.0",
+  "name" : "CompositeTask"
+},
+{
+  "id" : "iHRISRelationship",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/iHRISRelationship",
+  "version" : "0.1.0",
+  "name" : "IhrisRelationship"
+},
+{
+  "id" : "iHRISReportDetails",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/iHRISReportDetails",
+  "version" : "0.1.0",
+  "name" : "IhrisReportDetails"
+},
+{
+  "id" : "iHRISReportElement",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/iHRISReportElement",
+  "version" : "0.1.0",
+  "name" : "IhrisReportElement"
+},
+{
+  "id" : "iHRISReportLink",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/iHRISReportLink",
+  "version" : "0.1.0",
+  "name" : "IhrisReportLink"
+},
+{
+  "id" : "iHRISReportParameters",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/iHRISReportParameters",
+  "version" : "0.1.0",
+  "name" : "IhrisReportParameters"
+},
+{
+  "id" : "ihris-assign-role",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-assign-role",
+  "version" : "0.1.0",
+  "name" : "IhrisAssignRole"
+},
+{
+  "id" : "ihris-assign-task",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-assign-task",
+  "version" : "0.1.0",
+  "name" : "IhrisAssignTask"
+},
+{
+  "id" : "ihris-auditevent",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-auditevent",
+  "version" : "0.1.0",
+  "name" : "IhrisAuditEvent"
+},
+{
+  "id" : "ihris-basic-name",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-basic-name",
+  "version" : "0.1.0",
+  "name" : "IhrisBasicName"
+},
+{
+  "id" : "ihris-dashboard",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-dashboard",
+  "version" : "0.1.0",
+  "name" : "IhrisDashboard"
+},
+{
+  "id" : "ihris-dashboard-visualization",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-dashboard-visualization",
+  "version" : "0.1.0",
+  "name" : "IhrisDashboardVisualization"
+},
+{
+  "id" : "ihris-data-visualization",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-data-visualization",
+  "version" : "0.1.0",
+  "name" : "IhrisDataVisualization"
+},
+{
+  "id" : "ihris-document",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-document",
+  "version" : "0.1.0",
+  "name" : "IhrisDocument"
+},
+{
+  "id" : "ihris-module",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-module",
+  "version" : "0.1.0",
+  "name" : "IhrisModule"
+},
+{
+  "id" : "ihris-page",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-page",
+  "version" : "0.1.0",
+  "name" : "IhrisPage"
+},
+{
+  "id" : "ihris-page-display",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-page-display",
+  "version" : "0.1.0",
+  "name" : "IhrisPageDisplay"
+},
+{
+  "id" : "ihris-page-section",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-page-section",
+  "version" : "0.1.0",
+  "name" : "IhrisPageSection"
+},
+{
+  "id" : "ihris-page-task",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-page-task",
+  "version" : "0.1.0",
+  "name" : "IhrisPageTask"
+},
+{
+  "id" : "ihris-parameters-local-config",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-parameters-local-config",
+  "version" : "0.1.0",
+  "name" : "IhrisParametersLocalConfig"
+},
+{
+  "id" : "ihris-parameters-remote-config",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-parameters-remote-config",
+  "version" : "0.1.0",
+  "name" : "IhrisParametersRemoteConfig"
+},
+{
+  "id" : "ihris-questionnaire",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-questionnaire",
+  "version" : "0.1.0",
+  "name" : "IhrisQuestionnaire"
+},
+{
+  "id" : "ihris-report",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-report",
+  "version" : "0.1.0",
+  "name" : "IhrisReport"
+},
+{
+  "id" : "ihris-resource-relationships",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-resource-relationships",
+  "version" : "0.1.0",
+  "name" : "IhrisResourceRelationships"
+},
+{
+  "id" : "ihris-role",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-role",
+  "version" : "0.1.0",
+  "name" : "IhrisRole"
+},
+{
+  "id" : "ihris-role-primary",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-role-primary",
+  "version" : "0.1.0",
+  "name" : "IhrisRolePrimary"
+},
+{
+  "id" : "ihris-task",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-task",
+  "version" : "0.1.0",
+  "name" : "IhrisTask"
+},
+{
+  "id" : "ihris-test-dependent",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-test-dependent",
+  "version" : "0.1.0",
+  "name" : "IhrisTestDependent"
+},
+{
+  "id" : "ihris-test-practitioner",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-test-practitioner",
+  "version" : "0.1.0",
+  "name" : "IhrisTestPractitioner"
+},
+{
+  "id" : "ihris-test-practitioner-role",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-test-practitioner-role",
+  "version" : "0.1.0",
+  "name" : "IhrisTestPractitionerRole"
+},
+{
+  "id" : "ihris-test-residence",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-test-residence",
+  "version" : "0.1.0",
+  "name" : "IhrisTestResidence"
+},
+{
+  "id" : "ihris-visualization-categories",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-visualization-categories",
+  "version" : "0.1.0",
+  "name" : "IhrisVisualizationCategories"
+},
+{
+  "id" : "ihris-visualization-dataset",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-visualization-dataset",
+  "version" : "0.1.0",
+  "name" : "IhrisVisualizationDataset"
+},
+{
+  "id" : "ihris-visualization-filters",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-visualization-filters",
+  "version" : "0.1.0",
+  "name" : "IhrisVisualizationFilters"
+},
+{
+  "id" : "ihris-visualization-permissions",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-visualization-permissions",
+  "version" : "0.1.0",
+  "name" : "IhrisVisualizationPermissions"
+},
+{
+  "id" : "ihris-visualization-series",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-visualization-series",
+  "version" : "0.1.0",
+  "name" : "IhrisVisualizationSeries"
+},
+{
+  "id" : "ihris-visualization-settings",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-visualization-settings",
+  "version" : "0.1.0",
+  "name" : "IhrisVisualizationSettings"
+},
+{
+  "id" : "task-attributes",
+  "type" : "StructureDefinition",
+  "url" : "http://ihris.org/fhir/StructureDefinition/task-attributes",
+  "version" : "0.1.0",
+  "name" : "TaskAttributes"
+},
+{
+  "id" : "address-type",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/address-type",
+  "version" : "0.1.0",
+  "name" : "AddressType",
+  "oids" : ["2.16.840.1.113883.4.642.3.69"]
+},
+{
+  "id" : "address-use",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/address-use",
+  "version" : "0.1.0",
+  "name" : "AddressUse",
+  "oids" : ["2.16.840.1.113883.4.642.3.67"]
+},
+{
+  "id" : "c80-practice-codes",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/c80-practice-codes",
+  "version" : "0.1.0",
+  "name" : "PracticeSettingCodeValueSet",
+  "oids" : ["2.16.840.1.113883.3.88.12.80.72"]
+},
+{
+  "id" : "contact-point-system",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/contact-point-system",
+  "version" : "0.1.0",
+  "name" : "ContactPointSystem",
+  "oids" : ["2.16.840.1.113883.4.642.3.71"]
+},
+{
+  "id" : "contact-point-use",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/contact-point-use",
+  "version" : "0.1.0",
+  "name" : "ContactPointUse",
+  "oids" : ["2.16.840.1.113883.4.642.3.73"]
+},
+{
+  "id" : "contactentity-type",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/contactentity-type",
+  "version" : "0.1.0",
+  "name" : "ContactEntityType",
+  "oids" : ["2.16.840.1.113883.4.642.3.416"]
+},
+{
+  "id" : "days-of-week",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/days-of-week",
+  "version" : "0.1.0",
+  "name" : "DaysOfWeek",
+  "oids" : ["2.16.840.1.113883.4.642.3.512"]
+},
+{
+  "id" : "identifier-type",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/identifier-type",
+  "version" : "0.1.0",
+  "name" : "IdentifierType",
+  "oids" : ["2.16.840.1.113883.4.642.3.45"]
+},
+{
+  "id" : "identifier-use",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/identifier-use",
+  "version" : "0.1.0",
+  "name" : "IdentifierUse",
+  "oids" : ["2.16.840.1.113883.4.642.3.57"]
+},
+{
+  "id" : "ihris-cadre",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/ihris-cadre",
+  "version" : "0.1.0",
+  "name" : "IhrisCadre"
+},
+{
+  "id" : "ihris-classification",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/ihris-classification",
+  "version" : "0.1.0",
+  "name" : "IhrisClassification"
+},
+{
+  "id" : "ihris-document-category",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/ihris-document-category",
+  "version" : "0.1.0",
+  "name" : "IhrisDocumentCategoryValueSet"
+},
+{
+  "id" : "ihris-job",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/ihris-job",
+  "version" : "0.1.0",
+  "name" : "IhrisJob"
+},
+{
+  "id" : "ihris-resource-valueset",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/ihris-resource-valueset",
+  "version" : "0.1.0",
+  "name" : "IhrisResourceValueSet"
+},
+{
+  "id" : "ihris-salary-grade",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/ihris-salary-grade",
+  "version" : "0.1.0",
+  "name" : "IhrisSalaryGrade"
+},
+{
+  "id" : "ihris-task-permission",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/ihris-task-permission",
+  "version" : "0.1.0",
+  "name" : "IhrisTaskPermissionValueSet"
+},
+{
+  "id" : "ihris-task-resource",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/ihris-task-resource",
+  "version" : "0.1.0",
+  "name" : "IhrisTaskResourceValueSet"
+},
+{
+  "id" : "location-mode",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/location-mode",
+  "version" : "0.1.0",
+  "name" : "LocationMode",
+  "oids" : ["2.16.840.1.113883.4.642.3.330"]
+},
+{
+  "id" : "location-physical-type",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/location-physical-type",
+  "version" : "0.1.0",
+  "name" : "LocationType",
+  "oids" : ["2.16.840.1.113883.4.642.3.328"]
+},
+{
+  "id" : "location-status",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/location-status",
+  "version" : "0.1.0",
+  "name" : "LocationStatus",
+  "oids" : ["2.16.840.1.113883.4.642.3.332"]
+},
+{
+  "id" : "organization-type",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/organization-type",
+  "version" : "0.1.0",
+  "name" : "OrganizationType",
+  "oids" : ["2.16.840.1.113883.4.642.3.414"]
+},
+{
+  "id" : "service-category",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/service-category",
+  "version" : "0.1.0",
+  "name" : "ServiceCategory",
+  "oids" : ["2.16.840.1.113883.4.642.3.516"]
+},
+{
+  "id" : "service-provision-conditions",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/service-provision-conditions",
+  "version" : "0.1.0",
+  "name" : "ServiceProvisionConditions",
+  "oids" : ["2.16.840.1.113883.4.642.3.514"]
+},
+{
+  "id" : "service-type",
+  "type" : "ValueSet",
+  "url" : "http://ihris.org/fhir/ValueSet/service-type",
+  "version" : "0.1.0",
+  "name" : "ServiceType",
+  "oids" : ["2.16.840.1.113883.4.642.3.518"]
+},
+{
+  "id" : "snomedct",
+  "type" : "CodeSystem",
+  "url" : "http://snomed.info/sct",
+  "version" : "0.1.0",
+  "name" : "SNOMED_CT",
+  "oids" : ["2.16.840.1.113883.6.96"]
+},
+{
+  "id" : "contactentity-type",
+  "type" : "CodeSystem",
+  "url" : "http://terminology.hl7.org/CodeSystem/contactentity-type",
+  "version" : "0.1.0",
+  "name" : "ContactEntityType",
+  "oids" : ["2.16.840.1.113883.4.642.4.1129"]
+},
+{
+  "id" : "location-physical-type",
+  "type" : "CodeSystem",
+  "url" : "http://terminology.hl7.org/CodeSystem/location-physical-type",
+  "version" : "0.1.0",
+  "name" : "LocationType",
+  "oids" : ["2.16.840.1.113883.4.642.4.1108"]
+},
+{
+  "id" : "organization-type",
+  "type" : "CodeSystem",
+  "url" : "http://terminology.hl7.org/CodeSystem/organization-type",
+  "version" : "0.1.0",
+  "name" : "OrganizationType",
+  "oids" : ["2.16.840.1.113883.4.642.4.1128"]
+},
+{
+  "id" : "service-category",
+  "type" : "CodeSystem",
+  "url" : "http://terminology.hl7.org/CodeSystem/service-category",
+  "version" : "0.1.0",
+  "name" : "ServiceCategory",
+  "oids" : ["2.16.840.1.113883.4.642.4.1144"]
+},
+{
+  "id" : "service-provision-conditions",
+  "type" : "CodeSystem",
+  "url" : "http://terminology.hl7.org/CodeSystem/service-provision-conditions",
+  "version" : "0.1.0",
+  "name" : "ServiceProvisionConditions",
+  "oids" : ["2.16.840.1.113883.4.642.4.1143"]
+},
+{
+  "id" : "service-type",
+  "type" : "CodeSystem",
+  "url" : "http://terminology.hl7.org/CodeSystem/service-type",
+  "version" : "0.1.0",
+  "name" : "ServiceType",
+  "oids" : ["2.16.840.1.113883.4.642.4.1145"]
+},
+{
+  "id" : "2103",
+  "type" : "CodeSystem",
+  "url" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+  "version" : "0.1.0",
+  "name" : "IdentifierType",
+  "oids" : ["2.16.840.1.113883.18.108"]
+},
+{
+  "id" : "3654",
+  "type" : "CodeSystem",
+  "url" : "http://terminology.hl7.org/CodeSystem/v2-0360",
+  "version" : "0.1.0",
+  "name" : "DegreeLicenseCertificate",
+  "oids" : ["2.16.840.1.113883.18.220"]
+},
+{
+  "id" : "v2-0360",
+  "type" : "ValueSet",
+  "url" : "http://terminology.hl7.org/ValueSet/v2-0360",
+  "version" : "0.1.0",
+  "name" : "Hl7VSDegreeLicenseCertificate",
+  "oids" : ["2.16.840.1.113883.21.236"]
+},
+{
+  "id" : "v3-ServiceDeliveryLocationRoleType",
+  "type" : "ValueSet",
+  "url" : "http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType",
+  "version" : "0.1.0",
+  "name" : "V3_ServiceDeliveryLocationRoleType",
+  "oids" : ["2.16.840.1.113883.1.11.17660"]
+},
+{
+  "id" : "ISO3166Part1",
+  "type" : "CodeSystem",
+  "url" : "urn:iso:std:iso:3166",
+  "version" : "0.1.0",
+  "name" : "ISO3166Part1",
+  "oids" : ["1.0.3166.1"]
+},
+{
+  "id" : "currencies",
+  "type" : "CodeSystem",
+  "url" : "urn:iso:std:iso:4217",
+  "version" : "0.1.0",
+  "name" : "Currencies"
+}]

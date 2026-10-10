@@ -1,0 +1,86 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://ihris.org/fhir/CodeSystem/location-status> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "location-status"] ;
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "1" ] ;
+     fhir:Meta.lastUpdated [ fhir:value "2022-02-15T08:14:24.960+03:00"^^xsd:dateTime ] ;
+     fhir:Meta.source [ fhir:value "#ofZ1t0pi6T7bA09X" ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem location-status</b></p><a name=\"location-status\"> </a><a name=\"hclocation-status\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">version: 1; Last updated: 2022-02-15 08:14:24+0300; </p><p style=\"margin-bottom: 0px\">Information Source: #ofZ1t0pi6T7bA09X</p></div><p>This case-sensitive code system <code>http://hl7.org/fhir/location-status</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">active<a name=\"location-status-active\"> </a></td><td>Active</td><td>The location is operational.</td></tr><tr><td style=\"white-space:nowrap\">suspended<a name=\"location-status-suspended\"> </a></td><td>Suspended</td><td>The location is temporarily closed.</td></tr><tr><td style=\"white-space:nowrap\">inactive<a name=\"location-status-inactive\"> </a></td><td>Inactive</td><td>The location is no longer used.</td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg" ] ;
+     fhir:Extension.valueCode [ fhir:value "pa" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status" ] ;
+     fhir:Extension.valueCode [ fhir:value "trial-use" ]
+  ], [
+     fhir:index 2 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm" ] ;
+     fhir:Extension.valueInteger [ fhir:value "3"^^xsd:integer ]
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "http://hl7.org/fhir/location-status"] ;
+  fhir:CodeSystem.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "urn:ietf:rfc:3986" ] ;
+     fhir:Identifier.value [ fhir:value "urn:oid:2.16.840.1.113883.4.642.4.333" ]
+  ] ;
+  fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "LocationStatus"] ;
+  fhir:CodeSystem.title [ fhir:value "LocationStatus"] ;
+  fhir:CodeSystem.status [ fhir:value "draft"] ;
+  fhir:CodeSystem.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2019-11-01T09:29:23+11:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "Luke Duncan"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Luke Duncan" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "lduncan@intrahealth.org" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "Indicates whether the location is still in use."] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.valueSet [
+     fhir:value "http://hl7.org/fhir/ValueSet/location-status" ;
+     fhir:link <http://hl7.org/fhir/ValueSet/location-status>
+  ] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "3"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "active" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Active" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "The location is operational." ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "suspended" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Suspended" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "The location is temporarily closed." ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "inactive" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Inactive" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "The location is no longer used." ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://ihris.org/fhir/CodeSystem/location-status.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

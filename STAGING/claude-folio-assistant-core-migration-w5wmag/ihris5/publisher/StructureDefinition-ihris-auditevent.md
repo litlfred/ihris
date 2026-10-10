@@ -1,0 +1,208 @@
+# iHRIS Audit Event - iHRIS Implementation Guide v0.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **iHRIS Audit Event**
+
+## Resource Profile: iHRIS Audit Event 
+
+| | |
+| :--- | :--- |
+| *Official URL*:http://ihris.org/fhir/StructureDefinition/ihris-auditevent | *Version*:0.1.0 |
+| Active as of 2026-10-10 | *Computable Name*:IhrisAuditEvent |
+
+ 
+iHRIS profile for AuditEvent 
+
+**Usages:**
+
+* This Profile is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/ihris|current/StructureDefinition/StructureDefinition-ihris-auditevent.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-ihris-auditevent.csv), [Excel](StructureDefinition-ihris-auditevent.xlsx), [Schematron](StructureDefinition-ihris-auditevent.sch) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ihris-auditevent",
+  "url" : "http://ihris.org/fhir/StructureDefinition/ihris-auditevent",
+  "version" : "0.1.0",
+  "name" : "IhrisAuditEvent",
+  "title" : "iHRIS Audit Event",
+  "status" : "active",
+  "date" : "2026-10-10T05:44:59+00:00",
+  "publisher" : "Luke Duncan",
+  "contact" : [{
+    "name" : "Luke Duncan",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "lduncan@intrahealth.org"
+    }]
+  }],
+  "description" : "iHRIS profile for AuditEvent",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "dicom",
+    "uri" : "http://nema.org/dicom",
+    "name" : "DICOM Tag Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "w3c.prov",
+    "uri" : "http://www.w3.org/ns/prov",
+    "name" : "W3C PROV"
+  },
+  {
+    "identity" : "fhirprovenance",
+    "uri" : "http://hl7.org/fhir/provenance",
+    "name" : "FHIR Provenance Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "AuditEvent",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/AuditEvent",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "AuditEvent",
+      "path" : "AuditEvent"
+    },
+    {
+      "id" : "AuditEvent.type",
+      "path" : "AuditEvent.type",
+      "label" : "Type",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.subtype",
+      "path" : "AuditEvent.subtype",
+      "label" : "SubType",
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.action",
+      "path" : "AuditEvent.action",
+      "label" : "Action",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.recorded",
+      "path" : "AuditEvent.recorded",
+      "label" : "Time Recorded",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.outcome",
+      "path" : "AuditEvent.outcome",
+      "label" : "Outcome",
+      "min" : 1,
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.agent",
+      "path" : "AuditEvent.agent",
+      "label" : "Agent",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.agent.altId",
+      "path" : "AuditEvent.agent.altId",
+      "label" : "User AltId",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.agent.name",
+      "path" : "AuditEvent.agent.name",
+      "label" : "Name",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.agent.requestor",
+      "path" : "AuditEvent.agent.requestor",
+      "label" : "Requestor",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.agent.network",
+      "path" : "AuditEvent.agent.network",
+      "label" : "Network",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.agent.network.address",
+      "path" : "AuditEvent.agent.network.address",
+      "label" : "Network Address",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.agent.network.type",
+      "path" : "AuditEvent.agent.network.type",
+      "label" : "Type of Network Device",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.source",
+      "path" : "AuditEvent.source",
+      "label" : "Audit Event Reporter",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.source.observer",
+      "path" : "AuditEvent.source.observer",
+      "label" : "Identity Of Source",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.source.type",
+      "path" : "AuditEvent.source.type",
+      "label" : "Type of Source",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.entity",
+      "path" : "AuditEvent.entity",
+      "label" : "Entity/Data",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.entity.what",
+      "path" : "AuditEvent.entity.what",
+      "label" : "Resource",
+      "mustSupport" : true
+    },
+    {
+      "id" : "AuditEvent.entity.detail",
+      "path" : "AuditEvent.entity.detail",
+      "label" : "Additional Information",
+      "mustSupport" : true
+    }]
+  }
+}
+
+```

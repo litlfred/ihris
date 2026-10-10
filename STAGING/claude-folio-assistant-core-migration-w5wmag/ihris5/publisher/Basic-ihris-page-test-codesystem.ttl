@@ -1,0 +1,92 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://ihris.org/fhir/Basic/ihris-page-test-codesystem> a fhir:Basic ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ihris-page-test-codesystem"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-page" ;
+       fhir:index 0 ;
+       fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-page>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Basic ihris-page-test-codesystem</b></p><a name=\"ihris-page-test-codesystem\"> </a><a name=\"hcihris-page-test-codesystem\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ihris-page.html\">iHRIS Page</a></p></div><blockquote><p><b>iHRIS Page Display</b></p><ul><li>resource: <a href=\"CodeSystem-ihris-test-codesystem.html\">CodeSystem iHRIS Test CodeSystem</a></li><li>search: Property One|prop1</li><li>search: Property Two|prop2</li></ul></blockquote><blockquote><p><b>iHRIS Page Section</b></p><ul><li>title: Test CodeSystem</li><li>description: Code system details</li><li>name: CodeSystem</li><li>field: CodeSystem.code</li><li>field: CodeSystem.definition</li><li>field: CodeSystem.display</li><li>field: CodeSystem.prop2</li><li>field: CodeSystem.prop1</li></ul></blockquote><p><b>code</b>: <span title=\"Codes:{http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem page}\">iHRIS Page</span></p></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "resource" ] ;
+       fhir:Extension.valueReference [
+         fhir:link <http://ihris.org/fhir/CodeSystem/ihris-test-codesystem> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/ihris-test-codesystem" ]
+       ]
+     ], [
+       fhir:index 1 ;
+       fhir:Extension.url [ fhir:value "search" ] ;
+       fhir:Extension.valueString [ fhir:value "Property One|prop1" ]
+     ], [
+       fhir:index 2 ;
+       fhir:Extension.url [ fhir:value "search" ] ;
+       fhir:Extension.valueString [ fhir:value "Property Two|prop2" ]
+     ] ;
+     fhir:Extension.url [ fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-page-display" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "title" ] ;
+       fhir:Extension.valueString [ fhir:value "Test CodeSystem" ]
+     ], [
+       fhir:index 1 ;
+       fhir:Extension.url [ fhir:value "description" ] ;
+       fhir:Extension.valueString [ fhir:value "Code system details" ]
+     ], [
+       fhir:index 2 ;
+       fhir:Extension.url [ fhir:value "name" ] ;
+       fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+     ], [
+       fhir:index 3 ;
+       fhir:Extension.url [ fhir:value "field" ] ;
+       fhir:Extension.valueString [ fhir:value "CodeSystem.code" ]
+     ], [
+       fhir:index 4 ;
+       fhir:Extension.url [ fhir:value "field" ] ;
+       fhir:Extension.valueString [ fhir:value "CodeSystem.definition" ]
+     ], [
+       fhir:index 5 ;
+       fhir:Extension.url [ fhir:value "field" ] ;
+       fhir:Extension.valueString [ fhir:value "CodeSystem.display" ]
+     ], [
+       fhir:index 6 ;
+       fhir:Extension.url [ fhir:value "field" ] ;
+       fhir:Extension.valueString [ fhir:value "CodeSystem.prop2" ]
+     ], [
+       fhir:index 7 ;
+       fhir:Extension.url [ fhir:value "field" ] ;
+       fhir:Extension.valueString [ fhir:value "CodeSystem.prop1" ]
+     ] ;
+     fhir:Extension.url [ fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-page-section" ]
+  ] ;
+  fhir:Basic.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem" ] ;
+       fhir:Coding.code [ fhir:value "page" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://ihris.org/fhir/Basic/ihris-page-test-codesystem.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

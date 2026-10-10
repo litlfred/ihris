@@ -1,0 +1,1051 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://ihris.org/fhir/ValueSet/iso3166-1-2> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "iso3166-1-2"] ;
+  fhir:Resource.meta [
+     fhir:Meta.lastUpdated [ fhir:value "2019-11-01T09:29:23.356+11:00"^^xsd:dateTime ] ;
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/StructureDefinition/shareablevalueset" ;
+       fhir:index 0 ;
+       fhir:link <http://hl7.org/fhir/StructureDefinition/shareablevalueset>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet iso3166-1-2</b></p><a name=\"iso3166-1-2\"> </a><a name=\"hciso3166-1-2\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Last updated: 2019-11-01 09:29:23+1100</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"http://hl7.org/fhir/R4/shareablevalueset.html\">Shareable ValueSet</a></p></div><ul><li>Include these codes as defined in <a href=\"CodeSystem-ISO3166Part1.html\"><code>urn:iso:std:iso:3166</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version ?0.1.0</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AD\">AD</a></td><td>Andorra</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AE\">AE</a></td><td>United Arab Emirates</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AF\">AF</a></td><td>Afghanistan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AG\">AG</a></td><td>Antigua and Barbuda</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AI\">AI</a></td><td>Anguilla</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AL\">AL</a></td><td>Albania</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AM\">AM</a></td><td>Armenia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AO\">AO</a></td><td>Angola</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AQ\">AQ</a></td><td>Antarctica</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AR\">AR</a></td><td>Argentina</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AS\">AS</a></td><td>American Samoa</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AT\">AT</a></td><td>Austria</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AU\">AU</a></td><td>Australia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AW\">AW</a></td><td>Aruba</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AX\">AX</a></td><td>Ã…land Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-AZ\">AZ</a></td><td>Azerbaijan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BA\">BA</a></td><td>Bosnia and Herzegovina</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BB\">BB</a></td><td>Barbados</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BD\">BD</a></td><td>Bangladesh</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BE\">BE</a></td><td>Belgium</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BF\">BF</a></td><td>Burkina Faso</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BG\">BG</a></td><td>Bulgaria</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BH\">BH</a></td><td>Bahrain</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BI\">BI</a></td><td>Burundi</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BJ\">BJ</a></td><td>Benin</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BL\">BL</a></td><td>Saint BarthÃ©lemy</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BM\">BM</a></td><td>Bermuda</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BN\">BN</a></td><td>Brunei Darussalam</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BO\">BO</a></td><td>Bolivia, Plurinational State of</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BQ\">BQ</a></td><td>Bonaire, Sint Eustatius and Saba</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BR\">BR</a></td><td>Brazil</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BS\">BS</a></td><td>Bahamas</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BT\">BT</a></td><td>Bhutan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BV\">BV</a></td><td>Bouvet Island</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BW\">BW</a></td><td>Botswana</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BY\">BY</a></td><td>Belarus</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-BZ\">BZ</a></td><td>Belize</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CA\">CA</a></td><td>Canada</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CC\">CC</a></td><td>Cocos (Keeling) Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CD\">CD</a></td><td>Congo, the Democratic Republic of the</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CF\">CF</a></td><td>Central African Republic</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CG\">CG</a></td><td>Congo</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CH\">CH</a></td><td>Switzerland</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CI\">CI</a></td><td>CÃ´te d''Ivoire</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CK\">CK</a></td><td>Cook Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CL\">CL</a></td><td>Chile</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CM\">CM</a></td><td>Cameroon</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CN\">CN</a></td><td>China</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CO\">CO</a></td><td>Colombia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CR\">CR</a></td><td>Costa Rica</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CU\">CU</a></td><td>Cuba</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CV\">CV</a></td><td>Cabo Verde</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CW\">CW</a></td><td>CuraÃ§ao</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CX\">CX</a></td><td>Christmas Island</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CY\">CY</a></td><td>Cyprus</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-CZ\">CZ</a></td><td>Czechia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-DE\">DE</a></td><td>Germany</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-DJ\">DJ</a></td><td>Djibouti</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-DK\">DK</a></td><td>Denmark</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-DM\">DM</a></td><td>Dominica</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-DO\">DO</a></td><td>Dominican Republic</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-DZ\">DZ</a></td><td>Algeria</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-EC\">EC</a></td><td>Ecuador</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-EE\">EE</a></td><td>Estonia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-EG\">EG</a></td><td>Egypt</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-EH\">EH</a></td><td>Western Sahara</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-ER\">ER</a></td><td>Eritrea</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-ES\">ES</a></td><td>Spain</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-ET\">ET</a></td><td>Ethiopia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-FI\">FI</a></td><td>Finland</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-FJ\">FJ</a></td><td>Fiji</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-FK\">FK</a></td><td>Falkland Islands (Malvinas)</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-FM\">FM</a></td><td>Micronesia, Federated States of</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-FO\">FO</a></td><td>Faroe Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-FR\">FR</a></td><td>France</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GA\">GA</a></td><td>Gabon</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GB\">GB</a></td><td>United Kingdom of Great Britain and Northern Ireland</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GD\">GD</a></td><td>Grenada</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GE\">GE</a></td><td>Georgia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GF\">GF</a></td><td>French Guiana</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GG\">GG</a></td><td>Guernsey</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GH\">GH</a></td><td>Ghana</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GI\">GI</a></td><td>Gibraltar</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GL\">GL</a></td><td>Greenland</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GM\">GM</a></td><td>Gambia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GN\">GN</a></td><td>Guinea</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GP\">GP</a></td><td>Guadeloupe</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GQ\">GQ</a></td><td>Equatorial Guinea</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GR\">GR</a></td><td>Greece</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GS\">GS</a></td><td>South Georgia and the South Sandwich Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GT\">GT</a></td><td>Guatemala</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GU\">GU</a></td><td>Guam</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GW\">GW</a></td><td>Guinea-Bissau</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-GY\">GY</a></td><td>Guyana</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-HK\">HK</a></td><td>Hong Kong</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-HM\">HM</a></td><td>Heard Island and McDonald Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-HN\">HN</a></td><td>Honduras</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-HR\">HR</a></td><td>Croatia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-HT\">HT</a></td><td>Haiti</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-HU\">HU</a></td><td>Hungary</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-ID\">ID</a></td><td>Indonesia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-IE\">IE</a></td><td>Ireland</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-IL\">IL</a></td><td>Israel</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-IM\">IM</a></td><td>Isle of Man</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-IN\">IN</a></td><td>India</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-IO\">IO</a></td><td>British Indian Ocean Territory</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-IQ\">IQ</a></td><td>Iraq</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-IR\">IR</a></td><td>Iran, Islamic Republic of</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-IS\">IS</a></td><td>Iceland</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-IT\">IT</a></td><td>Italy</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-JE\">JE</a></td><td>Jersey</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-JM\">JM</a></td><td>Jamaica</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-JO\">JO</a></td><td>Jordan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-JP\">JP</a></td><td>Japan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-KE\">KE</a></td><td>Kenya</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-KG\">KG</a></td><td>Kyrgyzstan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-KH\">KH</a></td><td>Cambodia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-KI\">KI</a></td><td>Kiribati</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-KM\">KM</a></td><td>Comoros</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-KN\">KN</a></td><td>Saint Kitts and Nevis</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-KP\">KP</a></td><td>Korea, Democratic People''s Republic of</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-KR\">KR</a></td><td>Korea, Republic of</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-KW\">KW</a></td><td>Kuwait</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-KY\">KY</a></td><td>Cayman Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-KZ\">KZ</a></td><td>Kazakhstan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-LA\">LA</a></td><td>Lao People''s Democratic Republic</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-LB\">LB</a></td><td>Lebanon</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-LC\">LC</a></td><td>Saint Lucia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-LI\">LI</a></td><td>Liechtenstein</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-LK\">LK</a></td><td>Sri Lanka</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-LR\">LR</a></td><td>Liberia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-LS\">LS</a></td><td>Lesotho</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-LT\">LT</a></td><td>Lithuania</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-LU\">LU</a></td><td>Luxembourg</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-LV\">LV</a></td><td>Latvia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-LY\">LY</a></td><td>Libya</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MA\">MA</a></td><td>Morocco</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MC\">MC</a></td><td>Monaco</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MD\">MD</a></td><td>Moldova, Republic of</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-ME\">ME</a></td><td>Montenegro</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MF\">MF</a></td><td>Saint Martin (French part)</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MG\">MG</a></td><td>Madagascar</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MH\">MH</a></td><td>Marshall Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MK\">MK</a></td><td>Macedonia, the former Yugoslav Republic of</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-ML\">ML</a></td><td>Mali</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MM\">MM</a></td><td>Myanmar</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MN\">MN</a></td><td>Mongolia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MO\">MO</a></td><td>Macao</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MP\">MP</a></td><td>Northern Mariana Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MQ\">MQ</a></td><td>Martinique</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MR\">MR</a></td><td>Mauritania</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MS\">MS</a></td><td>Montserrat</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MT\">MT</a></td><td>Malta</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MU\">MU</a></td><td>Mauritius</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MV\">MV</a></td><td>Maldives</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MW\">MW</a></td><td>Malawi</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MX\">MX</a></td><td>Mexico</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MY\">MY</a></td><td>Malaysia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-MZ\">MZ</a></td><td>Mozambique</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NA\">NA</a></td><td>Namibia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NC\">NC</a></td><td>New Caledonia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NE\">NE</a></td><td>Niger</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NF\">NF</a></td><td>Norfolk Island</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NG\">NG</a></td><td>Nigeria</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NI\">NI</a></td><td>Nicaragua</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NL\">NL</a></td><td>Netherlands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NO\">NO</a></td><td>Norway</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NP\">NP</a></td><td>Nepal</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NR\">NR</a></td><td>Nauru</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NU\">NU</a></td><td>Niue</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-NZ\">NZ</a></td><td>New Zealand</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-OM\">OM</a></td><td>Oman</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PA\">PA</a></td><td>Panama</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PE\">PE</a></td><td>Peru</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PF\">PF</a></td><td>French Polynesia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PG\">PG</a></td><td>Papua New Guinea</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PH\">PH</a></td><td>Philippines</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PK\">PK</a></td><td>Pakistan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PL\">PL</a></td><td>Poland</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PM\">PM</a></td><td>Saint Pierre and Miquelon</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PN\">PN</a></td><td>Pitcairn</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PR\">PR</a></td><td>Puerto Rico</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PS\">PS</a></td><td>Palestine, State of</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PT\">PT</a></td><td>Portugal</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PW\">PW</a></td><td>Palau</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-PY\">PY</a></td><td>Paraguay</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-QA\">QA</a></td><td>Qatar</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-RE\">RE</a></td><td>RÃ©union</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-RO\">RO</a></td><td>Romania</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-RS\">RS</a></td><td>Serbia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-RU\">RU</a></td><td>Russian Federation</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-RW\">RW</a></td><td>Rwanda</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SA\">SA</a></td><td>Saudi Arabia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SB\">SB</a></td><td>Solomon Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SC\">SC</a></td><td>Seychelles</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SD\">SD</a></td><td>Sudan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SE\">SE</a></td><td>Sweden</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SG\">SG</a></td><td>Singapore</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SH\">SH</a></td><td>Saint Helena, Ascension and Tristan da Cunha</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SI\">SI</a></td><td>Slovenia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SJ\">SJ</a></td><td>Svalbard and Jan Mayen</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SK\">SK</a></td><td>Slovakia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SL\">SL</a></td><td>Sierra Leone</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SM\">SM</a></td><td>San Marino</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SN\">SN</a></td><td>Senegal</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SO\">SO</a></td><td>Somalia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SR\">SR</a></td><td>Suriname</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SS\">SS</a></td><td>South Sudan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-ST\">ST</a></td><td>Sao Tome and Principe</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SV\">SV</a></td><td>El Salvador</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SX\">SX</a></td><td>Sint Maarten (Dutch part)</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SY\">SY</a></td><td>Syrian Arab Republic</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-SZ\">SZ</a></td><td>Swaziland</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TC\">TC</a></td><td>Turks and Caicos Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TD\">TD</a></td><td>Chad</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TF\">TF</a></td><td>French Southern Territories</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TG\">TG</a></td><td>Togo</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TH\">TH</a></td><td>Thailand</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TJ\">TJ</a></td><td>Tajikistan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TK\">TK</a></td><td>Tokelau</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TL\">TL</a></td><td>Timor-Leste</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TM\">TM</a></td><td>Turkmenistan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TN\">TN</a></td><td>Tunisia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TO\">TO</a></td><td>Tonga</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TR\">TR</a></td><td>Turkey</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TT\">TT</a></td><td>Trinidad and Tobago</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TV\">TV</a></td><td>Tuvalu</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TW\">TW</a></td><td>Taiwan, Province of China</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-TZ\">TZ</a></td><td>Tanzania, United Republic of</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-UA\">UA</a></td><td>Ukraine</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-UG\">UG</a></td><td>Uganda</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-UM\">UM</a></td><td>United States Minor Outlying Islands</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-US\">US</a></td><td>United States of America</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-UY\">UY</a></td><td>Uruguay</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-UZ\">UZ</a></td><td>Uzbekistan</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-VA\">VA</a></td><td>Holy See</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-VC\">VC</a></td><td>Saint Vincent and the Grenadines</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-VE\">VE</a></td><td>Venezuela, Bolivarian Republic of</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-VG\">VG</a></td><td>Virgin Islands, British</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-VI\">VI</a></td><td>Virgin Islands,</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-VN\">VN</a></td><td>Viet Nam</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-VU\">VU</a></td><td>Vanuatu</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-WF\">WF</a></td><td>Wallis and Futuna</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-WS\">WS</a></td><td>Samoa</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-YE\">YE</a></td><td>Yemen</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-YT\">YT</a></td><td>Mayotte</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-ZA\">ZA</a></td><td>South Africa</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-ZM\">ZM</a></td><td>Zambia</td></tr><tr><td><a href=\"CodeSystem-ISO3166Part1.html#ISO3166Part1-ZW\">ZW</a></td><td>Zimbabwe</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "http://hl7.org/fhir/ValueSet/iso3166-1-2"] ;
+  fhir:ValueSet.version [ fhir:value "0.1.0"] ;
+  fhir:ValueSet.name [ fhir:value "Iso3166-1-2"] ;
+  fhir:ValueSet.title [ fhir:value "Iso 3166 Part 1: 2 Letter Codes"] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2026-10-10T05:44:59+00:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Luke Duncan"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Luke Duncan" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "lduncan@intrahealth.org" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "This value set defines the ISO 3166 Part 1 2-letter codes"] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Andorra" ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "United Arab Emirates" ]
+       ], [
+         fhir:index 2 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Afghanistan" ]
+       ], [
+         fhir:index 3 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Antigua and Barbuda" ]
+       ], [
+         fhir:index 4 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AI" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Anguilla" ]
+       ], [
+         fhir:index 5 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Albania" ]
+       ], [
+         fhir:index 6 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Armenia" ]
+       ], [
+         fhir:index 7 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Angola" ]
+       ], [
+         fhir:index 8 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AQ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Antarctica" ]
+       ], [
+         fhir:index 9 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Argentina" ]
+       ], [
+         fhir:index 10 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "American Samoa" ]
+       ], [
+         fhir:index 11 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Austria" ]
+       ], [
+         fhir:index 12 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Australia" ]
+       ], [
+         fhir:index 13 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Aruba" ]
+       ], [
+         fhir:index 14 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AX" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ã…land Islands" ]
+       ], [
+         fhir:index 15 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AZ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Azerbaijan" ]
+       ], [
+         fhir:index 16 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bosnia and Herzegovina" ]
+       ], [
+         fhir:index 17 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BB" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Barbados" ]
+       ], [
+         fhir:index 18 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bangladesh" ]
+       ], [
+         fhir:index 19 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Belgium" ]
+       ], [
+         fhir:index 20 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Burkina Faso" ]
+       ], [
+         fhir:index 21 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bulgaria" ]
+       ], [
+         fhir:index 22 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BH" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bahrain" ]
+       ], [
+         fhir:index 23 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BI" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Burundi" ]
+       ], [
+         fhir:index 24 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BJ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Benin" ]
+       ], [
+         fhir:index 25 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Saint BarthÃ©lemy" ]
+       ], [
+         fhir:index 26 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bermuda" ]
+       ], [
+         fhir:index 27 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Brunei Darussalam" ]
+       ], [
+         fhir:index 28 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bolivia, Plurinational State of" ]
+       ], [
+         fhir:index 29 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BQ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bonaire, Sint Eustatius and Saba" ]
+       ], [
+         fhir:index 30 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Brazil" ]
+       ], [
+         fhir:index 31 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bahamas" ]
+       ], [
+         fhir:index 32 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bhutan" ]
+       ], [
+         fhir:index 33 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BV" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bouvet Island" ]
+       ], [
+         fhir:index 34 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Botswana" ]
+       ], [
+         fhir:index 35 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Belarus" ]
+       ], [
+         fhir:index 36 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BZ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Belize" ]
+       ], [
+         fhir:index 37 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Canada" ]
+       ], [
+         fhir:index 38 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cocos (Keeling) Islands" ]
+       ], [
+         fhir:index 39 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Congo, the Democratic Republic of the" ]
+       ], [
+         fhir:index 40 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Central African Republic" ]
+       ], [
+         fhir:index 41 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Congo" ]
+       ], [
+         fhir:index 42 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CH" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Switzerland" ]
+       ], [
+         fhir:index 43 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CI" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "CÃ´te d''Ivoire" ]
+       ], [
+         fhir:index 44 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cook Islands" ]
+       ], [
+         fhir:index 45 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Chile" ]
+       ], [
+         fhir:index 46 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cameroon" ]
+       ], [
+         fhir:index 47 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "China" ]
+       ], [
+         fhir:index 48 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Colombia" ]
+       ], [
+         fhir:index 49 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Costa Rica" ]
+       ], [
+         fhir:index 50 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cuba" ]
+       ], [
+         fhir:index 51 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CV" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cabo Verde" ]
+       ], [
+         fhir:index 52 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "CuraÃ§ao" ]
+       ], [
+         fhir:index 53 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CX" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Christmas Island" ]
+       ], [
+         fhir:index 54 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cyprus" ]
+       ], [
+         fhir:index 55 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CZ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Czechia" ]
+       ], [
+         fhir:index 56 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "DE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Germany" ]
+       ], [
+         fhir:index 57 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "DJ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Djibouti" ]
+       ], [
+         fhir:index 58 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "DK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Denmark" ]
+       ], [
+         fhir:index 59 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "DM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Dominica" ]
+       ], [
+         fhir:index 60 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "DO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Dominican Republic" ]
+       ], [
+         fhir:index 61 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "DZ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Algeria" ]
+       ], [
+         fhir:index 62 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "EC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ecuador" ]
+       ], [
+         fhir:index 63 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "EE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Estonia" ]
+       ], [
+         fhir:index 64 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "EG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Egypt" ]
+       ], [
+         fhir:index 65 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "EH" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Western Sahara" ]
+       ], [
+         fhir:index 66 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ER" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Eritrea" ]
+       ], [
+         fhir:index 67 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ES" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Spain" ]
+       ], [
+         fhir:index 68 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ET" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ethiopia" ]
+       ], [
+         fhir:index 69 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "FI" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Finland" ]
+       ], [
+         fhir:index 70 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "FJ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fiji" ]
+       ], [
+         fhir:index 71 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "FK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Falkland Islands (Malvinas)" ]
+       ], [
+         fhir:index 72 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "FM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Micronesia, Federated States of" ]
+       ], [
+         fhir:index 73 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "FO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Faroe Islands" ]
+       ], [
+         fhir:index 74 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "FR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "France" ]
+       ], [
+         fhir:index 75 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Gabon" ]
+       ], [
+         fhir:index 76 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GB" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "United Kingdom of Great Britain and Northern Ireland" ]
+       ], [
+         fhir:index 77 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Grenada" ]
+       ], [
+         fhir:index 78 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Georgia" ]
+       ], [
+         fhir:index 79 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "French Guiana" ]
+       ], [
+         fhir:index 80 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Guernsey" ]
+       ], [
+         fhir:index 81 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GH" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ghana" ]
+       ], [
+         fhir:index 82 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GI" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Gibraltar" ]
+       ], [
+         fhir:index 83 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Greenland" ]
+       ], [
+         fhir:index 84 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Gambia" ]
+       ], [
+         fhir:index 85 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Guinea" ]
+       ], [
+         fhir:index 86 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Guadeloupe" ]
+       ], [
+         fhir:index 87 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GQ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Equatorial Guinea" ]
+       ], [
+         fhir:index 88 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Greece" ]
+       ], [
+         fhir:index 89 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "South Georgia and the South Sandwich Islands" ]
+       ], [
+         fhir:index 90 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Guatemala" ]
+       ], [
+         fhir:index 91 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Guam" ]
+       ], [
+         fhir:index 92 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Guinea-Bissau" ]
+       ], [
+         fhir:index 93 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Guyana" ]
+       ], [
+         fhir:index 94 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hong Kong" ]
+       ], [
+         fhir:index 95 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Heard Island and McDonald Islands" ]
+       ], [
+         fhir:index 96 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Honduras" ]
+       ], [
+         fhir:index 97 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Croatia" ]
+       ], [
+         fhir:index 98 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Haiti" ]
+       ], [
+         fhir:index 99 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hungary" ]
+       ], [
+         fhir:index 100 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ID" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Indonesia" ]
+       ], [
+         fhir:index 101 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ireland" ]
+       ], [
+         fhir:index 102 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Israel" ]
+       ], [
+         fhir:index 103 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Isle of Man" ]
+       ], [
+         fhir:index 104 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "India" ]
+       ], [
+         fhir:index 105 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "British Indian Ocean Territory" ]
+       ], [
+         fhir:index 106 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IQ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Iraq" ]
+       ], [
+         fhir:index 107 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Iran, Islamic Republic of" ]
+       ], [
+         fhir:index 108 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Iceland" ]
+       ], [
+         fhir:index 109 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Italy" ]
+       ], [
+         fhir:index 110 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "JE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Jersey" ]
+       ], [
+         fhir:index 111 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "JM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Jamaica" ]
+       ], [
+         fhir:index 112 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "JO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Jordan" ]
+       ], [
+         fhir:index 113 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "JP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Japan" ]
+       ], [
+         fhir:index 114 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Kenya" ]
+       ], [
+         fhir:index 115 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Kyrgyzstan" ]
+       ], [
+         fhir:index 116 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KH" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cambodia" ]
+       ], [
+         fhir:index 117 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KI" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Kiribati" ]
+       ], [
+         fhir:index 118 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Comoros" ]
+       ], [
+         fhir:index 119 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Saint Kitts and Nevis" ]
+       ], [
+         fhir:index 120 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Korea, Democratic People''s Republic of" ]
+       ], [
+         fhir:index 121 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Korea, Republic of" ]
+       ], [
+         fhir:index 122 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Kuwait" ]
+       ], [
+         fhir:index 123 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cayman Islands" ]
+       ], [
+         fhir:index 124 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KZ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Kazakhstan" ]
+       ], [
+         fhir:index 125 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lao People''s Democratic Republic" ]
+       ], [
+         fhir:index 126 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LB" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lebanon" ]
+       ], [
+         fhir:index 127 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Saint Lucia" ]
+       ], [
+         fhir:index 128 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LI" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Liechtenstein" ]
+       ], [
+         fhir:index 129 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Sri Lanka" ]
+       ], [
+         fhir:index 130 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Liberia" ]
+       ], [
+         fhir:index 131 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lesotho" ]
+       ], [
+         fhir:index 132 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lithuania" ]
+       ], [
+         fhir:index 133 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Luxembourg" ]
+       ], [
+         fhir:index 134 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LV" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Latvia" ]
+       ], [
+         fhir:index 135 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Libya" ]
+       ], [
+         fhir:index 136 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Morocco" ]
+       ], [
+         fhir:index 137 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Monaco" ]
+       ], [
+         fhir:index 138 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Moldova, Republic of" ]
+       ], [
+         fhir:index 139 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ME" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Montenegro" ]
+       ], [
+         fhir:index 140 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Saint Martin (French part)" ]
+       ], [
+         fhir:index 141 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Madagascar" ]
+       ], [
+         fhir:index 142 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MH" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Marshall Islands" ]
+       ], [
+         fhir:index 143 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Macedonia, the former Yugoslav Republic of" ]
+       ], [
+         fhir:index 144 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ML" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mali" ]
+       ], [
+         fhir:index 145 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Myanmar" ]
+       ], [
+         fhir:index 146 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mongolia" ]
+       ], [
+         fhir:index 147 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Macao" ]
+       ], [
+         fhir:index 148 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Northern Mariana Islands" ]
+       ], [
+         fhir:index 149 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MQ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Martinique" ]
+       ], [
+         fhir:index 150 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mauritania" ]
+       ], [
+         fhir:index 151 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Montserrat" ]
+       ], [
+         fhir:index 152 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Malta" ]
+       ], [
+         fhir:index 153 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mauritius" ]
+       ], [
+         fhir:index 154 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MV" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Maldives" ]
+       ], [
+         fhir:index 155 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Malawi" ]
+       ], [
+         fhir:index 156 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MX" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mexico" ]
+       ], [
+         fhir:index 157 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Malaysia" ]
+       ], [
+         fhir:index 158 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MZ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mozambique" ]
+       ], [
+         fhir:index 159 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Namibia" ]
+       ], [
+         fhir:index 160 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "New Caledonia" ]
+       ], [
+         fhir:index 161 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Niger" ]
+       ], [
+         fhir:index 162 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Norfolk Island" ]
+       ], [
+         fhir:index 163 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Nigeria" ]
+       ], [
+         fhir:index 164 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NI" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Nicaragua" ]
+       ], [
+         fhir:index 165 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Netherlands" ]
+       ], [
+         fhir:index 166 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Norway" ]
+       ], [
+         fhir:index 167 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Nepal" ]
+       ], [
+         fhir:index 168 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Nauru" ]
+       ], [
+         fhir:index 169 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Niue" ]
+       ], [
+         fhir:index 170 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NZ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "New Zealand" ]
+       ], [
+         fhir:index 171 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "OM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Oman" ]
+       ], [
+         fhir:index 172 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Panama" ]
+       ], [
+         fhir:index 173 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Peru" ]
+       ], [
+         fhir:index 174 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "French Polynesia" ]
+       ], [
+         fhir:index 175 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Papua New Guinea" ]
+       ], [
+         fhir:index 176 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PH" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Philippines" ]
+       ], [
+         fhir:index 177 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pakistan" ]
+       ], [
+         fhir:index 178 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Poland" ]
+       ], [
+         fhir:index 179 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Saint Pierre and Miquelon" ]
+       ], [
+         fhir:index 180 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pitcairn" ]
+       ], [
+         fhir:index 181 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Puerto Rico" ]
+       ], [
+         fhir:index 182 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Palestine, State of" ]
+       ], [
+         fhir:index 183 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Portugal" ]
+       ], [
+         fhir:index 184 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Palau" ]
+       ], [
+         fhir:index 185 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Paraguay" ]
+       ], [
+         fhir:index 186 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "QA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Qatar" ]
+       ], [
+         fhir:index 187 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RÃ©union" ]
+       ], [
+         fhir:index 188 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Romania" ]
+       ], [
+         fhir:index 189 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Serbia" ]
+       ], [
+         fhir:index 190 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Russian Federation" ]
+       ], [
+         fhir:index 191 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Rwanda" ]
+       ], [
+         fhir:index 192 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Saudi Arabia" ]
+       ], [
+         fhir:index 193 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SB" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Solomon Islands" ]
+       ], [
+         fhir:index 194 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Seychelles" ]
+       ], [
+         fhir:index 195 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Sudan" ]
+       ], [
+         fhir:index 196 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Sweden" ]
+       ], [
+         fhir:index 197 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Singapore" ]
+       ], [
+         fhir:index 198 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SH" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Saint Helena, Ascension and Tristan da Cunha" ]
+       ], [
+         fhir:index 199 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SI" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Slovenia" ]
+       ], [
+         fhir:index 200 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SJ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Svalbard and Jan Mayen" ]
+       ], [
+         fhir:index 201 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Slovakia" ]
+       ], [
+         fhir:index 202 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Sierra Leone" ]
+       ], [
+         fhir:index 203 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "San Marino" ]
+       ], [
+         fhir:index 204 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Senegal" ]
+       ], [
+         fhir:index 205 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Somalia" ]
+       ], [
+         fhir:index 206 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Suriname" ]
+       ], [
+         fhir:index 207 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "South Sudan" ]
+       ], [
+         fhir:index 208 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ST" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Sao Tome and Principe" ]
+       ], [
+         fhir:index 209 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SV" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "El Salvador" ]
+       ], [
+         fhir:index 210 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SX" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Sint Maarten (Dutch part)" ]
+       ], [
+         fhir:index 211 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Syrian Arab Republic" ]
+       ], [
+         fhir:index 212 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SZ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Swaziland" ]
+       ], [
+         fhir:index 213 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Turks and Caicos Islands" ]
+       ], [
+         fhir:index 214 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Chad" ]
+       ], [
+         fhir:index 215 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "French Southern Territories" ]
+       ], [
+         fhir:index 216 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Togo" ]
+       ], [
+         fhir:index 217 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TH" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Thailand" ]
+       ], [
+         fhir:index 218 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TJ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tajikistan" ]
+       ], [
+         fhir:index 219 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tokelau" ]
+       ], [
+         fhir:index 220 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Timor-Leste" ]
+       ], [
+         fhir:index 221 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Turkmenistan" ]
+       ], [
+         fhir:index 222 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tunisia" ]
+       ], [
+         fhir:index 223 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tonga" ]
+       ], [
+         fhir:index 224 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Turkey" ]
+       ], [
+         fhir:index 225 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Trinidad and Tobago" ]
+       ], [
+         fhir:index 226 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TV" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tuvalu" ]
+       ], [
+         fhir:index 227 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Taiwan, Province of China" ]
+       ], [
+         fhir:index 228 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TZ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tanzania, United Republic of" ]
+       ], [
+         fhir:index 229 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "UA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ukraine" ]
+       ], [
+         fhir:index 230 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "UG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Uganda" ]
+       ], [
+         fhir:index 231 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "UM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "United States Minor Outlying Islands" ]
+       ], [
+         fhir:index 232 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "US" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "United States of America" ]
+       ], [
+         fhir:index 233 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "UY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Uruguay" ]
+       ], [
+         fhir:index 234 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "UZ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Uzbekistan" ]
+       ], [
+         fhir:index 235 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Holy See" ]
+       ], [
+         fhir:index 236 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Saint Vincent and the Grenadines" ]
+       ], [
+         fhir:index 237 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Venezuela, Bolivarian Republic of" ]
+       ], [
+         fhir:index 238 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Virgin Islands, British" ]
+       ], [
+         fhir:index 239 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VI" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Virgin Islands," ]
+       ], [
+         fhir:index 240 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Viet Nam" ]
+       ], [
+         fhir:index 241 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Vanuatu" ]
+       ], [
+         fhir:index 242 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "WF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Wallis and Futuna" ]
+       ], [
+         fhir:index 243 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "WS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Samoa" ]
+       ], [
+         fhir:index 244 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "YE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Yemen" ]
+       ], [
+         fhir:index 245 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "YT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mayotte" ]
+       ], [
+         fhir:index 246 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ZA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "South Africa" ]
+       ], [
+         fhir:index 247 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ZM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Zambia" ]
+       ], [
+         fhir:index 248 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ZW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Zimbabwe" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://ihris.org/fhir/ValueSet/iso3166-1-2.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
