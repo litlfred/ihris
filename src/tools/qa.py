@@ -1969,6 +1969,20 @@ def c_glossary_page(C):
     want = collections.Counter(f"{g['id']}--{t['id']}" for _, g in _glossaries(C) for t in g.get("terms") or [])
     out = [f"glossary page: term {a} is listed {got[a]} times" for a in sorted(want) if got[a] != 1]
     out += [f"glossary page: lists {a}, which is no term" for a in sorted(set(got) - set(want))]
+    # Each glossary's own page (glossary/<scheme>/) lists exactly that scheme's terms, each once.
+    with tempfile.TemporaryDirectory() as tmp:
+        pages = dict(site_instances.glossary_scheme_pages(theme, tmp))
+    for _, g in _glossaries(C):
+        if not g.get("terms"):
+            continue
+        page = pages.get(site_instances.scheme_page(g))
+        if page is None:
+            out.append(f"glossary page: {g['id']} has no page of its own")
+            continue
+        got = collections.Counter(re.findall(r'<(?:dt|div class="sense") id="([^"]+)"', page))
+        want = collections.Counter(f"{g['id']}--{t['id']}" for t in g["terms"])
+        if got != want:
+            out.append(f"glossary page {site_instances.scheme_page(g)}: lists {sum(got.values())} anchors, and the scheme has {len(g['terms'])} terms")
     return out
 
 
@@ -2038,7 +2052,7 @@ QA = {
                           ("glossary-matches", "every SKOS match is a mapping a verified ConceptMap records, or ISCO-08 ValueSet identity (owner-accepted), to a referenced external scheme, and none is missing", c_glossary_matches),
                           ("glossary-counts", "terms per source match the toolkit's technical terms, the reports' glossaries, each code list's default records", c_glossary_counts),
                           ("glossary-verbatim", "every authored definition is verbatim in its source (and the toolkit's in the captured page)", c_glossary_verbatim),
-                          ("glossary-page", "the glossary page lists every term exactly once", c_glossary_page)],
+                          ("glossary-page", "the glossary page lists every term exactly once, and each glossary's own page exactly its terms", c_glossary_page)],
     # node types that are not JSON documents
     "bean (beans/defs/*.md)": [("beans", "front matter parses; status/type in vocabulary; parents are epics; links resolve", c_beans)],
     "skill (src/skills/*.md)": [("skills", "front matter parses; name matches file; each skill has a Tool or names one", c_skills),
