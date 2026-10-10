@@ -887,17 +887,50 @@ def _source_link(path, t, stage_of):
     return f'<a class="tgt" href="{E(href)}"><code>{E(f)}</code></a>' + (f' <code class="mute">#{E(ptr)}</code>' if ptr else "")
 
 
+def scheme_group(g):
+    """Which selectable group a scheme (a sub-glossary) is in: the folio's own glossaries, the ISCO classifications
+    (ISCO-08 and ISCO-88, every level), or the other code lists (countries, currencies ...). Owner, 2026-10-10:
+    "ISCO should be another selectable glossary"."""
+    if not g["id"].startswith("code-list-"):
+        return "glossaries"
+    return "isco" if g["id"].startswith("code-list-isco_") else "code-lists"
+
+
+GROUPS = [("glossaries", "Glossaries", None), ("isco", "ISCO", "ISCO-08 and ISCO-88, every level"),
+          ("code-lists", "Code lists", "countries, currencies, statuses &hellip;")]
+
+
+def scheme_page(g):
+    """The page of one glossary (one SKOS scheme): glossary/<scheme id>/index.html."""
+    return f"glossary/{g['id']}/index.html"
+
+
+def scheme_name(g):
+    return g["title"].replace("iHRIS 4.3.3 code list: ", "") if g["id"].startswith("code-list-") else g["title"]
+
+
 def glossary_page(theme, out_dir):
-    """glossary/: every term, A-Z, with a live filter; SKOS JSON-LD per scheme; schema.org DefinedTermSet.
-    Mirrors folio-assistant core's glossary page (folio-assistant-core/scripts/glossary-page.ts) in the iHRIS theme."""
-    path = GLOSSARY
-    schemes = sorted((g for _, g in bg.load()), key=lambda g: (g["id"].startswith("code-list-"), g["id"]))
+    """glossary/: every term, A-Z, with a live filter by status and by glossary; SKOS JSON-LD per scheme;
+    schema.org DefinedTermSet. Mirrors folio-assistant core's glossary page in the iHRIS theme."""
+    return _glossary(theme, out_dir)
+
+
+def glossary_scheme_pages(theme, out_dir):
+    """glossary/<scheme id>/: one glossary on its own, browsable from the main glossary page (owner, 2026-10-10:
+    "browse just a named glossary with something like glossary/<NAME>")."""
+    return [_glossary(theme, out_dir, only=g) for _, g in bg.load() if g.get("terms")]
+
+
+def _glossary(theme, out_dir, only=None):
+    path = scheme_page(only) if only else GLOSSARY
+    schemes_all = sorted((g for _, g in bg.load()), key=lambda g: ([k for k, _, _ in GROUPS].index(scheme_group(g)), g["id"]))
+    schemes = [only] if only else schemes_all
     files = {g["id"]: rel_ for rel_, g in bg.load()}
-    rows = glossary_rows()
+    rows = [r for r in glossary_rows() if not only or r[0]["id"] == only["id"]]
     remote = bg.remote_glossaries()
     stage_of = {os.path.relpath(f, ROOT): J(os.path.relpath(f, ROOT))["ordinal"] for f in glob.glob(os.path.join(ROOT, "library/ihris-toolkit/stages/*.json"))}
     os.makedirs(os.path.join(out_dir, "assets", "glossary"), exist_ok=True)
-    for g in schemes:
+    for g in ([] if only else schemes):
         with open(os.path.join(out_dir, bg.skos_asset(g)), "w", encoding="utf-8") as f:
             f.write(bg.skos_text(g))
     status = collections.Counter(t["status"] for _, t, _ in rows)
@@ -946,16 +979,18 @@ def glossary_page(theme, out_dir):
         if len(group) == 1:
             g, t, label = group[0]
             code, badge = marks(t, label)
-            return (f'<dt id="{E(term_anchor(g, t))}" data-k="{E(key(g, t, label))}"><b>{E(label)}</b>{code}{badge}</dt>\n'
+            return (f'<dt id="{E(term_anchor(g, t))}" data-k="{E(key(g, t, label))}" data-s="{E(g["id"])}" data-st="{E(t["status"])}">'
+                    f'<b>{E(label)}</b>{code}{badge}</dt>\n'
                     f'<dd>{sense_body(g, t, label)}</dd>')
         label = group[0][2]
         senses = []
         for g, t, lab in group:
             code, badge = marks(t, lab)
-            senses.append(f'<div class="sense" id="{E(term_anchor(g, t))}"><p class="in"><b>{E(g["title"])}</b>{code}{badge}</p>'
+            senses.append(f'<div class="sense" id="{E(term_anchor(g, t))}" data-s="{E(g["id"])}" data-st="{E(t["status"])}">'
+                          f'<p class="in"><b>{E(g["title"])}</b>{code}{badge}</p>'
                           f'{sense_body(g, t, lab)}</div>')
         k = " ".join(key(g, t, lab) for g, t, lab in group)
-        return (f'<dt data-k="{E(k)}"><b>{E(label)}</b> <span class="mute">({len(group)} schemes)</span></dt>\n'
+        return (f'<dt data-k="{E(k)}" data-multi="1"><b>{E(label)}</b> <span class="mute gn-s">({len(group)} schemes)</span></dt>\n'
                 f'<dd>{"".join(senses)}</dd>')
 
     def entries(rs):
@@ -973,7 +1008,7 @@ def glossary_page(theme, out_dir):
     for g in schemes:
         c = collections.Counter(t["status"] for t in g.get("terms") or [])
         n_m = sum(1 for t in g.get("terms") or [] if any(t.get(m) for m in bg.MATCHES))
-        items.append(f'<li><b>{E(g["title"])}</b>: {len(g.get("terms") or [])} terms'
+        items.append(f'<li><b>{"<a href=" + chr(34) + E(bs.rel(path, scheme_page(g))) + chr(34) + ">" + E(g["title"]) + "</a>" if g.get("terms") else E(g["title"])}</b>: {len(g.get("terms") or [])} terms'
                      f'{" (" + E(", ".join(f"{v} {k}" for k, v in sorted(c.items()))) + ")" if c else ""}'
                      f'{f", {n_m} linked to an external concept" if n_m else ""}.<br>'
                      f'<span class="mute">{E(g.get("description") or "")}</span><br>'
@@ -988,6 +1023,39 @@ def glossary_page(theme, out_dir):
                         matched[(rid, m)] += 1
     ext = "".join(f'<li><a class="tgt" href="{E(rg["url"])}">{E(rg["title"])}</a>: {E(rg.get("description") or "")} '
                   f'<b>{sum(v for (r, _), v in matched.items() if r == rid)} term(s) link here.</b></li>' for rid, rg in remote.items())
+    # The filter panel: which statuses and which glossaries (schemes) are shown. A scheme is a sub-glossary; the
+    # code lists (countries, currencies, ISCO groups ...) are glossaries in their own right and can be switched off
+    # as a group (owner, 2026-10-10: "you should be able to turn those on and off in the glossary view").
+    def scheme_box(g):
+        n = len(g.get("terms") or [])
+        return (f'<label class="gf-s"><input type="checkbox" name="s" value="{E(g["id"])}" data-g="{scheme_group(g)}" checked'
+                f'{" disabled" if not n else ""}> {E(scheme_name(g))} <span class="mute">({n})</span></label>'
+                + (f' <a class="gf-open" href="{E(bs.rel(path, scheme_page(g)))}" aria-label="Open the {E(scheme_name(g))} glossary on its own">open</a>' if n else ""))
+    groups_html = ""
+    for gid, gtitle, gwhat in GROUPS:
+        members = [g for g in schemes if scheme_group(g) == gid]
+        if not members:
+            continue
+        nt = sum(len(g.get("terms") or []) for g in members)
+        if gid == "glossaries":
+            groups_html += "".join(f'<div class="gf-row">{scheme_box(g)}</div>' for g in members)
+            continue
+        groups_html += (f'<div class="gf-row"><label class="gf-group"><input type="checkbox" data-group="{gid}" checked> <b>{E(gtitle)}</b> '
+                        f'<span class="mute">({len(members)} lists, {nt} terms{": " + gwhat if gwhat else ""})</span></label></div>'
+                        f'<details><summary>Choose {"code" if gid == "code-lists" else E(gtitle)} lists</summary><div class="gf-lists">'
+                        + "".join(f'<div class="gf-row">{scheme_box(g)}</div>' for g in members) + '</div></details>')
+    panel = "" if only else (
+        '<form class="gfilter" onsubmit="return false" aria-label="Choose what the glossary shows">'
+        '<fieldset><legend>Status</legend>'
+        + "".join(f'<label><input type="checkbox" name="st" value="{E(k)}" checked> {E(k)} <span class="mute">({v})</span></label>'
+                  for k, v in sorted(status.items()))
+        + '</fieldset><fieldset class="gf-schemes"><legend>Glossaries</legend>' + groups_html
+        + '<p class="gf-all"><button type="button" data-all="1">Show all</button> <button type="button" data-all="0">Hide all</button></p>'
+        '</fieldset></form>')
+    if only:  # a glossary on its own still filters by status
+        panel = ('<form class="gfilter" onsubmit="return false" aria-label="Choose what the glossary shows"><fieldset><legend>Status</legend>'
+                 + "".join(f'<label><input type="checkbox" name="st" value="{E(k)}" checked> {E(k)} <span class="mute">({v})</span></label>'
+                           for k, v in sorted(status.items())) + '</fieldset></form>')
     ld = {"@context": "https://schema.org", "@type": "DefinedTermSet", "@id": f"{bg.NS}glossary", "name": "iHRIS Knowledge Base glossary",
           "hasDefinedTerm": [{"@type": "DefinedTerm", "@id": bg.term_iri(bg.NS, g, t["id"]), "name": label,
                               **({"description": _first(t["definition"])} if t.get("definition") else {}),
@@ -995,20 +1063,56 @@ def glossary_page(theme, out_dir):
                               "inDefinedTermSet": bg.scheme_iri(bg.NS, g)} for g, t, label in rows]}
     ld_text = json.dumps(ld, ensure_ascii=False).replace("</", "<\\/")
     js = """<script>
-(function(){var q=document.getElementById('gq'),n=document.getElementById('gn');if(!q)return;
+(function(){var q=document.getElementById('gq'),n=document.getElementById('gn'),f=document.querySelector('form.gfilter');if(!q)return;
 var dts=[].slice.call(document.querySelectorAll('dl.gloss dt'));
 var txt=dts.map(function(dt){return dt.dataset.k+' '+(dt.nextElementSibling?dt.nextElementSibling.textContent.toLowerCase():'');});
-function run(){var v=q.value.trim().toLowerCase(),k=0;dts.forEach(function(dt,i){var ok=!v||txt[i].indexOf(v)>=0;
-dt.hidden=!ok;if(dt.nextElementSibling)dt.nextElementSibling.hidden=!ok;if(ok)k++;});
+var boxes=f?[].slice.call(f.querySelectorAll('input[name=s]')):[],sts=f?[].slice.call(f.querySelectorAll('input[name=st]')):[];
+var grps=f?[].slice.call(f.querySelectorAll('input[data-group]')):[];
+function mem(g){return boxes.filter(function(b){return b.dataset.g===g.dataset.group;});}
+function on(set,name){var o={};set.forEach(function(b){if(b.checked)o[b.value]=1;});return o;}
+function syncGroup(){grps.forEach(function(g){var m=mem(g),c=m.filter(function(b){return b.checked;}).length;g.checked=c>0;g.indeterminate=c>0&&c<m.length;});}
+function save(){var off=boxes.filter(function(b){return !b.checked&&!b.disabled;}).map(function(b){return b.value;});
+grps.forEach(function(g){var m=mem(g);if(m.length&&m.every(function(b){return !b.checked;})){var ids=m.map(function(b){return b.value;});
+off=off.filter(function(id){return ids.indexOf(id)<0;}).concat([g.dataset.group]);}});
+var
+so=sts.filter(function(b){return !b.checked;}).map(function(b){return b.value;}),u=new URL(location.href);
+['off','st','q'].forEach(function(k){u.searchParams.delete(k);});if(off.length)u.searchParams.set('off',off.join(','));
+if(so.length)u.searchParams.set('st',so.join(','));if(q.value.trim())u.searchParams.set('q',q.value.trim());
+history.replaceState(null,'',u.pathname+u.search+u.hash);}
+function run(){var v=q.value.trim().toLowerCase(),S=on(boxes),T=on(sts),k=0;
+dts.forEach(function(dt,i){var dd=dt.nextElementSibling,ok;
+if(dt.dataset.multi){var any=0;[].slice.call(dd.querySelectorAll('.sense')).forEach(function(se){var s=(!boxes.length||S[se.dataset.s])&&T[se.dataset.st];se.hidden=!s;if(s)any++;});ok=any>0;}
+else ok=!!((!boxes.length||S[dt.dataset.s])&&T[dt.dataset.st]);
+ok=ok&&(!v||txt[i].indexOf(v)>=0);dt.hidden=!ok;if(dd)dd.hidden=!ok;if(ok)k++;});
 document.querySelectorAll('section.letter').forEach(function(s){s.hidden=!s.querySelector('dt:not([hidden])');});
-n.textContent=k;}
-var p=new URLSearchParams(location.search).get('q');if(p){q.value=p;}
+document.querySelectorAll('nav.az a[href^="#letter-"]').forEach(function(a){var s=document.getElementById(a.getAttribute('href').slice(1));a.classList.toggle('off',!!(s&&s.parentNode.hidden));});
+n.textContent=k;syncGroup();save();}
+var P=new URLSearchParams(location.search);if(P.get('q'))q.value=P.get('q');
+(P.get('off')||'').split(',').forEach(function(id){boxes.forEach(function(b){if(b.value===id||b.dataset.g===id)b.checked=false;});});
+(P.get('st')||'').split(',').forEach(function(id){sts.forEach(function(b){if(b.value===id)b.checked=false;});});
+if(f){f.addEventListener('change',function(e){if(e.target.dataset&&e.target.dataset.group)mem(e.target).forEach(function(b){b.checked=e.target.checked;});run();});
+f.addEventListener('click',function(e){var a=e.target.dataset&&e.target.dataset.all;if(a===undefined)return;
+boxes.forEach(function(b){if(!b.disabled)b.checked=a==='1';});run();});}
 q.addEventListener('input',run);run();})();
 </script>"""
-    inner = f"""<p>Every term this folio extracted, as W3C SKOS in folio-assistant&#39;s <code>folio-glossary/v1</code>: {len(rows)} terms in
+    browse = ""
+    if not only:
+        cols = []
+        for gid, gtitle, _ in GROUPS:
+            ms = [g for g in schemes_all if scheme_group(g) == gid and g.get("terms")]
+            if ms:
+                cols.append(f'<div><h3>{E(gtitle)}</h3><ul>' + "".join(
+                    f'<li><a href="{E(bs.rel(path, scheme_page(g)))}">{E(scheme_name(g))}</a> <span class="mute">({len(g["terms"])})</span></li>'
+                    for g in ms) + '</ul></div>')
+        browse = f'<details class="gbrowse"><summary>Browse one glossary on its own ({sum(1 for g in schemes_all if g.get("terms"))})</summary><div class="gbrowse-cols">{"".join(cols)}</div></details>'
+    lead = (f'<p><b>{E(only["title"])}</b>: {len(rows)} terms, as W3C SKOS (<a href="{E(bs.rel(path, bg.skos_asset(only)))}">JSON-LD</a>). '
+            f'{E(only.get("description") or "")} It is one of the glossaries in the <a href="{E(bs.rel(path, GLOSSARY))}">full glossary</a>.</p>') if only else ""
+    inner = lead + ("" if only else f"""<p>Every term this folio extracted, as W3C SKOS in folio-assistant&#39;s <code>folio-glossary/v1</code>: {len(rows)} terms in
 {len(schemes)} schemes. A term links to the external concept it matches rather than copying it, and only where this repository verified the
 mapping. <b>authored</b>: the definition is the source&#39;s own, verbatim. <b>candidate</b>: the source names the term and gives no definition.</p>
-<div class="badges">{"".join(f'<span class="badge">{v} {E(k)}</span>' for k, v in sorted(status.items()))}<span class="badge">{len(schemes)} schemes</span></div>
+""") + f"""<div class="badges">{"".join(f'<span class="badge">{v} {E(k)}</span>' for k, v in sorted(status.items()))}{"" if only else f'<span class="badge">{len(schemes)} schemes</span>'}</div>
+{browse}
+{panel}
 <form class="gsearch" role="search" onsubmit="return false"><label for="gq">Filter terms (name, code or definition)</label>
 <input id="gq" type="search" autocomplete="off"></form>
 <p class="mute" aria-live="polite"><span id="gn">{n_entries}</span> of {n_entries} entries shown ({len(rows)} terms: a label several schemes use is one entry, with each scheme&#39;s sense under it)</p>
@@ -1021,9 +1125,11 @@ mapping. <b>authored</b>: the definition is the source&#39;s own, verbatim. <b>c
 <p>Referenced, never copied. Links follow each publisher&#39;s IRI pattern; the building session could not reach these hosts, so no IRI was dereferenced.</p>
 <ul>{ext}</ul>
 <script type="application/ld+json">{ld_text}</script>"""
-    title = "Glossary"
+    title = f"Glossary: {scheme_name(only)}" if only else "Glossary"
     r_ = lambda p_: bs.rel(path, p_)  # noqa: E731
-    main = f'<main id="main" tabindex="-1"><div class="crumbs"><a href="{r_("index.html")}">Home</a> / {title}</div>\n<h1>{title}</h1>\n{inner}\n</main>'
+    crumbs = (f'<a href="{r_("index.html")}">Home</a> / <a href="{r_(GLOSSARY)}">Glossary</a> / {E(scheme_name(only))}' if only
+              else f'<a href="{r_("index.html")}">Home</a> / {title}')
+    main = f'<main id="main" tabindex="-1"><div class="crumbs">{crumbs}</div>\n<h1>{E(title)}</h1>\n{inner}\n</main>'
     return path, bs.shell(path, title, main, theme, current=GLOSSARY, scripts=js)
 
 
@@ -1143,6 +1249,7 @@ def all_pages(theme, cls_index, out_dir):
     pages += use_case_pages(theme, cls_index)
     pages += course_pages(theme, out_dir)
     pages.append(glossary_page(theme, out_dir))
+    pages += glossary_scheme_pages(theme, out_dir)
     pages.append(work_plan_page(theme))
     pages.append(workflow_page(theme))
     pages += form_graph_pages(theme, cls_index, out_dir)

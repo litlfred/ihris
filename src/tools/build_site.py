@@ -154,6 +154,26 @@ main {{ min-width:0; }}
 .hood svg [fill="#1b1b1b"] {{ fill:var(--diagram-ink); }} .hood svg [stroke="#1b1b1b"] {{ stroke:var(--diagram-ink); }}
 .hood svg [fill="#fff"] {{ fill:var(--diagram-bg); }} .hood svg [fill="#f2f2f2"] {{ fill:var(--diagram-base); }} .hood svg [fill="#5c5c5c"] {{ fill:var(--mute); }}
 .rels {{ display:none; }}
+.gfilter {{ display:flex; flex-wrap:wrap; gap:12px; margin:12px 0; align-items:flex-start; }}
+.gfilter .gf-row {{ display:flex; align-items:center; gap:6px; flex-wrap:wrap; }}
+.gfilter .gf-open {{ font-size:13px; }}
+.gfilter fieldset.gf-schemes {{ flex:2 1 420px; }}
+.gbrowse {{ margin:12px 0; }}
+.gbrowse summary {{ cursor:pointer; min-height:44px; display:flex; align-items:center; font-weight:600; }}
+.gbrowse-cols {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:4px 16px; }}
+.gbrowse-cols ul {{ margin:0; padding-left:18px; }} .gbrowse-cols li {{ min-height:32px; }}
+/* Bridge until the platform rail stops repeating a one-letter label after its own initial (cat-harness-tools navbar.ts). */
+.fa-nav .fa-nav-same {{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }}
+.gfilter fieldset {{ border:1px solid var(--rule); padding:6px 12px 8px; margin:0; min-width:0; flex:1 1 280px; }}
+.gfilter legend {{ font-weight:600; padding:0 4px; }}
+.gfilter label {{ display:inline-flex; align-items:center; gap:6px; min-height:44px; margin-right:14px; }}
+.gfilter input[type=checkbox] {{ width:20px; height:20px; accent-color:var(--nav-accent); }}
+.gfilter details summary {{ cursor:pointer; min-height:44px; display:flex; align-items:center; }}
+.gfilter .gf-lists {{ display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); column-gap:8px; }}
+.gfilter .gf-lists label {{ margin-right:0; }}
+.gfilter .gf-all {{ margin:6px 0 0; }}
+.gfilter button {{ min-height:44px; padding:0 14px; font:inherit; border:1px solid var(--control); background:var(--panel); color:var(--ink); cursor:pointer; }}
+nav.az a.off {{ opacity:.35; }}
 .gsearch label {{ display:block; font-size:13px; color:var(--mute); margin-bottom:2px; }}
 .gsearch input {{ width:100%; max-width:520px; min-height:44px; padding:8px; font:inherit; border:1px solid var(--control); background:var(--panel); color:var(--ink); }}
 nav.az {{ display:flex; flex-wrap:wrap; gap:4px; margin:10px 0 4px; }}
@@ -234,6 +254,10 @@ def shell(path, title, body, theme, current=None, scripts=""):
 <a href="{REPO}">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
 </div>
 {scripts}
+<script>/* Bridge (see .fa-nav-same in ihris.css): hide a rail label that only repeats its own initial, e.g. "A A" in Contents. */
+(function(){{function dedupe(){{document.querySelectorAll('nav.fa-nav .fa-nav-glyph').forEach(function(g){{var l=g.nextElementSibling;
+if(l&&l.classList.contains('fa-nav-label')&&!g.querySelector('img,svg')&&g.textContent.trim().toLowerCase()===l.textContent.trim().toLowerCase())l.classList.add('fa-nav-same');}});}}
+dedupe();new MutationObserver(dedupe).observe(document.documentElement,{{childList:true,subtree:true}});}})();</script>
 </body>
 </html>
 """
