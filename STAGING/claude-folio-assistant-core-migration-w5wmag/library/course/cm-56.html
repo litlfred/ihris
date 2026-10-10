@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom Reports · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Administrator course</a> / Custom Reports</div>
+<h1>Custom Reports</h1>
+<div class="credit" style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:12px 0 18px"><img src="../../assets/intrahealth-logo.png" alt="IntraHealth International" width="170" style="background:#fff;border-radius:8px;padding:6px 10px;flex:none"><p style="margin:0;flex:1 1 260px"><b>iHRIS Administrator - Level I</b>, &copy; IntraHealth International, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Originally offered at <a href="http://www.hrhresourcecenter.org/elearning">hrhresourcecenter.org/elearning</a> (CapacityPlus). <span class="mute">Licence stated by its author, the folio owner, 2026-10-09.</span></p></div><div class="wiki">
+<h2>1. Custom Reports</h2>
+<p>iHRIS has a custom reporting system to develop new reports based on the data in the system.</p>
+<p>There is a data map that shows how all the data is related in the system.</p>
+<p>Building a custom report is a three part process:</p>
+<ul>
+<li>create directions to navigate the data map (form relationship)</li>
+<li>determine what data to use from the map (report)</li>
+<li>display the selected data (report view)</li>
+</ul>
+<h2>2. Custom Reports</h2>
+<p>To create a custom staff info report for iHRIS Manage:</p>
+<ul>
+<li>create a custom form relationship "staff_info"</li>
+<li>choose the forms and how they are related to each other</li>
+<li>create a custom report "staff_report" based on the staff_info relationship</li>
+<li>choose the fields for the report from the relationship created above</li>
+<li>choose which fields to limit by for all the report views created from this report</li>
+<li>create a custom report view for the staff report</li>
+<li>various report views are intended for non-administrative users to view the data in the system</li>
+</ul>
+<h2>3. Custom Reports Example</h2>
+<p>Requirement: create a staff list with each person's cadre and facility.</p>
+<p>Determine what data is needed and where it is stored.</p>
+<p>Start with the form and field map.</p>
+<p><strong>See a video demonstration of this example in the box on the right.</strong></p>
+<h2>4. Form Map</h2>
+<p>Taken from larger <a href="http://open.intrahealth.org/mediawiki/IHRIS_Manage_Form_Fields">form and field map</a>:</p>
+<p><img alt="form map" src="images/custom_reports1.gif"></p>
+<h2>5. Form Relationships</h2>
+<p>To construct a form relationship, join forms by traversing the arrows of the form field map, both forward and backward.</p>
+<p>There are two colors of arrows:</p>
+<ul>
+<li>Black arrows:</li>
+<li>the source of an arrow, formA, is related to the target of the arrow form, formB, via a mapped field</li>
+<li>if the arrow is not labeled, then the mapped field is also named formB, otherwise it is the label of the arrow</li>
+<li>although formA maps to at most one instance of formB, there may be many instances of formA mapping to formB</li>
+<li>to go backward on a black arrow, limit the joined form so that a unique form is chosen</li>
+<li>Red arrows:</li>
+<li>the source of an arrow, formA, is the parent of the target of the arrow, formB</li>
+<li>formA may have many instances of formB as a child form, but formB can only have one parent form</li>
+<li>to go forward on a red arrow, limit the child form so that a unique child form is chosen</li>
+</ul>
+<h2>6. (untitled page)</h2>
+<p>To make a report for the requirement in the example, include the following forms:</p>
+<ul>
+<li>facility: to find name of the facility</li>
+<li>job: to find the cadres</li>
+<li>person: although not explicitly stated as a requirement, assume that the names of the staff will aid in organizing the report</li>
+</ul>
+<h2>7. Connecting Forms</h2>
+<p>The data map does not have arrows that directly connect the facility, job, and person forms.</p>
+<p>The forms must be connected:</p>
+<ul>
+<li>from"person" to "person_position"</li>
+<li>from "person_position" to "position"</li>
+<li>from "position", "facility" and "job" can be connected</li>
+</ul>
+<h2>8. Connecting Forms</h2>
+<p>In the example, there is one red arrow connecting "person" and "person_position," and the rest of the arrows are black.</p>
+<p><img alt="connecting forms" src="images/custom_reports2.gif"></p>
+<h2>9. Form Relationships</h2>
+<p>Once the forms and their connections are identified, you can build a form relationship called "staff_info."</p>
+<p>You will use the primary form to traverse the form map.</p>
+<p>You can choose where to start mapping, but choosing different primary forms will produce a different data set.</p>
+<h2>10. Form Relationships</h2>
+<p>There are several ways to build the form relationship (always clarify which option a user intended):</p>
+<ul>
+<li>option a: select "person" as the primary form—reports based on the relationship "staff_info" will contain everyone in the system whether or not they have a position</li>
+<li>option b: select "position" as the primary form—reports based on the relationship "staff_info" will only contain the people in the system that have a position and positions that have no people assigned to them</li>
+<li>option c: select "person_position" as the primary form—reports based on the relationship "staff_info" will only have currently filled positions</li>
+</ul>
+<h2>11. Form Relationships</h2>
+<p>For this example, choose option a, create a report relationship called "staff_info", and choose "person" as the primary form.</p>
+<p>Select "Configure System" and then "Form Relationships".</p>
+<p>Enter a display name and description and click "Update".</p>
+<h2>12. Form Relationships</h2>
+<p><img alt="form relationship" src="images/custom_reports3.gif"></p>
+<h2>13. Form Relationships</h2>
+<p>The "staff_info" relationship is now ready for editing:</p>
+<ul>
+<li>join "person_position" to "position“ by clicking "Joined Forms" then "Add a New Form"</li>
+<li>select "person_position (child)" as the form to add</li>
+<li>set the "short name" to person_position</li>
+<li>set a display name and description for this form</li>
+</ul>
+<h2>14. Form Relationships</h2>
+<p><img alt="add form" src="images/custom_reports4.gif"></p>
+<h2>15. Joined Forms</h2>
+<p>For iHRIS versions 4.0.8 or earlier, the screen should look like this:</p>
+<p><img alt="joined forms" src="images/custom_reports5.gif"></p>
+<h2>16. Joined Forms</h2>
+<p>iHRIS version 4.0.9 introduced new functionality to the custom reporting system, so the screen should look like this:</p>
+<p><img alt="joined forms" src="images/custom_reports6.gif"></p>
+<p>Default options have the same effect in all versions.</p>
+<h2>17. Limiting Form Relationships</h2>
+<p>"person" to "person_position" traverses a red arrow forward</p>
+<p>Limit the forms as there may be many "person_positions" associated with "person" in the example.</p>
+<p>Limit "person_position" so that:</p>
+<ul>
+<li>the "end_date" is not null, to ensure the employee still holds this position</li>
+<li>the "start_date" is maximum start_date for all the person_position forms whose parent form is a person we are working with</li>
+</ul>
+<h2>18. Limiting Form Relationships</h2>
+<p>To limit the relationship, click "Joined Forms".</p>
+<p>Select the form you just added, "Person Position" (person_position).</p>
+<p>Choose "Limit This Form".</p>
+<p>Since there are two limits to place on this form, set the "Operator Node" to "And."</p>
+<h2>19. Limiting Form Relationships</h2>
+<p><img alt="limiting forms" src="images/custom_reports7.gif"></p>
+<h2>20. Limiting Form Relationships</h2>
+<p>Click "Update" and choose "Add A New Operand".</p>
+<p>You will do this twice, once for the "start_date" and once for the "end_date".</p>
+<p>Once the operands have been added, "Edit" each of them and "Limit By A Field".</p>
+<p>Click "Update".</p>
+<p><img alt="limiting forms" src="images/custom_reports8.gif"></p>
+<h2>21. Limiting Form Relationships</h2>
+<p><img alt="limiting form relationships" src="images/custom_reports8.gif"></p>
+<p>For the "end_date" field:</p>
+<ul>
+<li>set the limit style to be "null"</li>
+<li>this means the end date has not been set</li>
+</ul>
+<p>For the "start_date "field:</p>
+<ul>
+<li>make the limit style "max_parent"</li>
+<li>make this field the maximum for all (person_positoin) forms that have the same value for the field "parent"</li>
+<li>make the offset from the maximum "0"</li>
+</ul>
+<h2>22. Joining Forms</h2>
+<p>Join "position" to "person_position" as a linked form:</p>
+<ul>
+<li>click "Joined Forms" and "Add A New Child Form" underneath "person_position"</li>
+<li>do not specify limits here as you are traversing a black arrow in the correct direction</li>
+</ul>
+<h2>23. Joining Forms</h2>
+<p><img alt="joining forms" src="images/custom_reports9.gif"></p>
+<h2>24. Joining Forms</h2>
+<p>We will finish by joining "facility" form to the "position" form. You will also need to join the "job" form to the "position" form.</p>
+<p>To do so, click "Joined Forms" and "Add A New Child Form" underneath "position".</p>
+<p>Do not specify any limits here as you are traversing a black arrow in the correct direction.</p>
+<h2>25. Custom Reports Variations</h2>
+<p>Option A:</p>
+<ul>
+<li>The preceeding example limited the end_date to not null to get current positions only. Without the limit, the results would include the last position the person held, regardless of whether they currently hold it or not.</li>
+<li>If a person was assigned to more than one position at a time with the same start_date, then there will be a person_position for each of the positions, so that when the person_position form is joined it will choose one of person_position forms arbitrarily. If you expect that people can have more than one position, then you should choose option B.</li>
+<li>If you selected "Drop row if no form found" under the person_position form, then if a person did not have an associated person_position form, they would be removed from the report. Selecting to do so would make this a "Current Staff Report", rather than a "Person Report”.</li>
+</ul>
+<h2>26. Custom Reports Variations</h2>
+<p>Option B: Position Report</p>
+<ul>
+<li>select "Configure System" and "Form Relationships"</li>
+<li>create a report relationship called staff_info_b and choose "position" as the primary form,</li>
+<li>enter a display name and description and click update</li>
+<li>
+<p>edit the staff_info_b relationship:</p>
+</li>
+<li>
+<p>join "facility" to "position" by the mapped field "position" or join "job" to "position" by the mapped field "job"</p>
+</li>
+<li>join "person_position" to "position" via the "position" field</li>
+<li>this will traverse a black arrow backwards in the form field map, so add an "end_date" of null limit to choose a unique "person_position" form</li>
+<li>join "person" to "person_position" as its parent form (this will traverse a red arrow backwards, so there is no ambiguity about the form joining)</li>
+<li>choosing "Drop Row If No Form Found" when joining the person_position form produces only positions assigned to someone so that it becomes a filled positions report, and not a current positions report</li>
+</ul>
+<h2>27. Custom Reports Variations</h2>
+<p>Option C: Current Position Report</p>
+<ul>
+<li>select "Configure System" and "Form Relationships"</li>
+<li>create a report relationship called staff_info_c and choose "person_position" as the primary form</li>
+<li>enter a display name and description and click "Update"</li>
+<li>
+<p>edit the "staff_info_c" relationship:</p>
+</li>
+<li>
+<p>limit the "person_position" form so that the "end_date" is null to only show current positions</p>
+</li>
+<li>join "person" as the parent form of "person_position" (traversing a red arrow backward)</li>
+<li>join "position" to "person_position" via the mapped field position (traversing a black arrow forward)</li>
+<li>join "job" and "facility" to the "position" form (traversing a black arrow forward)</li>
+<li>if you chose not to use the limit "end_date" is null, the report would show the history of any position which has been filled</li>
+</ul>
+<h2>28. Custom Report</h2>
+<p>To create a custom report from the relationship “staff_info”:</p>
+<ul>
+<li>go to "Configure System" and "Reports"</li>
+<li>create a new report called staff_report based on the staff_info relationship</li>
+<li>this will create a zebra_staff_report table in the database that is populated from the form cache tables:</li>
+<li>hippo_job</li>
+<li>hippo_person_position</li>
+<li>hippo_position</li>
+<li>hippo_person</li>
+<li>hippo_facility</li>
+</ul>
+<h2>29. Report Views</h2>
+<p>A "report view" is a way of displaying some of the data/fields in a report:</p>
+<ul>
+<li>Paginated HTML Table</li>
+<li>Excel / CSV export</li>
+<li>XML Export</li>
+<li>Flash Charts</li>
+</ul>
+<p>Limits in a report view are set in the report.</p>
+<p>Each report view can have a default display.</p>
+<h2>30. Report Views</h2>
+<p>Go to "Configure System" and "Report Views" and choose to create a new report view based on "staff_report".</p>
+<p>Select the fields to display.</p>
+<p>To choose limits for the report views and its fields:</p>
+<ul>
+<li>click "Reporting Forms" and "Fields" to enable or disable fields from the relationship to include in the report</li>
+<li>change the header text for the field and set the limits for the field</li>
+</ul></div><h2>Source</h2><p class="src">Lesson in Section 3 of <a href="index.html#section-3">iHRIS Administrator - Level I</a>, Moodle course module cm-56; <code>library/ihris-admin-course/modules/cm-56.md</code>.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+<script>/* Bridge (see .fa-nav-same in ihris.css): hide a rail label that only repeats its own initial, e.g. "A A" in Contents. */
+(function(){function dedupe(){document.querySelectorAll('nav.fa-nav .fa-nav-glyph').forEach(function(g){var l=g.nextElementSibling;
+if(l&&l.classList.contains('fa-nav-label')&&!g.querySelector('img,svg')&&g.textContent.trim().toLowerCase()===l.textContent.trim().toLowerCase())l.classList.add('fa-nav-same');});}
+dedupe();new MutationObserver(dedupe).observe(document.documentElement,{childList:true,subtree:true});})();</script>
+</body>
+</html>

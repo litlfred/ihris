@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technical Overview: Form Storage -- SDMX-HD · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Technical Overview: Form Storage -- SDMX-HD</div>
+<h1>Technical Overview: Form Storage -- SDMX-HD</h1>
+<div class="wiki">
+<p>This is a form storage mechanism designed to read data from an SDMX-HD code list file. This form storage mechanism is present in version &gt;= 4.0.5.</p>
+<p>This is a read-only form storage mechanism. This storage mechanism will only work for forms that are or extend I2CE_SimpleList.</p>
+<p>This form storage mechanism requires PHP 5.3 or greater</p>
+<h2>Form Storage Options</h2>
+<p>The options specifying a SDMX-HD storage for $form are stored at:</p>
+<pre><code>/modules/forms/forms/$form/storage_options/SDMXHD
+</code></pre>
+<p>It has the following structure:</p>
+<ul>
+<li>file: The SDMX-HD file that the data should be read from. This can either be an absolutely given file path, a relative file path, or the URL of a stream handled by php. If it is a relative file path, then it uses the SDMXHD file search category.The file can also be a path to a scalar node in magic data as indicated by 'mdn://path/in/magic/data'</li>
+<li>CodeListID: The code list ID to be read. This is for files that may have more than one code list defined. This must be set.</li>
+</ul>
+<h2>Global Options</h2>
+<p>There are global options for SDMX-HD form storage. They are specified at:</p>
+<pre><code>/modules/forms/storage_options/SDMX-HD
+</code></pre>
+<p>This has the structure:</p>
+<ul>
+<li>closeFile: defaults to false. If true, we close the file between access. Otherwise, we allow PHP to handle closing the file resource at the end of the script's call.</li>
+</ul>
+<h2>Form Definition</h2>
+<p>To use SDMX-HD storage for a form use the following configuration. Replace $form, $form_name, $file_location and $CL_ID with the appropriate values.</p>
+<pre><code>&lt;configurationGroup name=&quot;$form&quot;&gt;
+  &lt;displayName&gt;SDMX-HD Code List: $form&lt;/displayName&gt;
+  &lt;description&gt;The SDMX-HD Code List: $form_name&lt;/description&gt;
+  &lt;configuration name=&quot;class&quot; values=&quot;single&quot;&gt;
+    &lt;value&gt;I2CE_SimpleList&lt;/value&gt;
+  &lt;/configuration&gt;
+  &lt;configuration name=&quot;display&quot; values=&quot;single&quot; locale=&quot;en_US&quot;&gt;
+    &lt;value&gt;$form_name&lt;/value&gt;
+  &lt;/configuration&gt;
+  &lt;configuration name=&quot;storage&quot; values=&quot;single&quot;&gt;
+    &lt;value&gt;SDMXHD&lt;/value&gt;
+  &lt;/configuration&gt;
+  &lt;configurationGroup name=&quot;storage_options&quot; path=&quot;storage_options/SDMXHD&quot;&gt;
+    &lt;configuration name=&quot;file&quot; values=&quot;single&quot;&gt;
+      &lt;values&gt;$file_location&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configuration name=&quot;CodeListID&quot; values=&quot;single&quot;&gt;
+      &lt;value&gt;$CL_ID&lt;/value&gt;
+    &lt;/configuration&gt;
+  &lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;
+</code></pre>
+<p>An example for gender may be:</p>
+<pre><code>&lt;configurationGroup name=&quot;cl_gender&quot;&gt;
+  &lt;displayName&gt;SDMX-HD Code List: cl_gender&lt;/displayName&gt;
+  &lt;description&gt;The SDMX-HD Code List: Gender&lt;/description&gt;
+  &lt;configuration name=&quot;class&quot; values=&quot;single&quot;&gt;
+    &lt;value&gt;I2CE_SimpleList&lt;/value&gt;
+  &lt;/configuration&gt;
+  &lt;configuration name=&quot;display&quot; values=&quot;single&quot; locale=&quot;en_US&quot;&gt;
+    &lt;value&gt;Gender&lt;/value&gt;
+  &lt;/configuration&gt;
+  &lt;configuration name=&quot;storage&quot; values=&quot;single&quot;&gt;
+    &lt;value&gt;SDMXHD&lt;/value&gt;
+  &lt;/configuration&gt;
+  &lt;configurationGroup name=&quot;storage_options&quot; path=&quot;storage_options/SDMXHD&quot;&gt;
+    &lt;configuration name=&quot;file&quot; values=&quot;single&quot;&gt;
+      &lt;values&gt;CL_GENDER+SDMX-HD+1.0.xml&lt;/value&gt;
+    &lt;/configuration&gt;
+    &lt;configuration name=&quot;CodeListID&quot; values=&quot;single&quot;&gt;
+      &lt;value&gt;CL_GENDER&lt;/value&gt;
+    &lt;/configuration&gt;
+  &lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;
+</code></pre></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=33553">revision 33553</a>; contributors: Lduncan, Litlfred. Pages 520&ndash;521 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+<script>/* Bridge (see .fa-nav-same in ihris.css): hide a rail label that only repeats its own initial, e.g. "A A" in Contents. */
+(function(){function dedupe(){document.querySelectorAll('nav.fa-nav .fa-nav-glyph').forEach(function(g){var l=g.nextElementSibling;
+if(l&&l.classList.contains('fa-nav-label')&&!g.querySelector('img,svg')&&g.textContent.trim().toLowerCase()===l.textContent.trim().toLowerCase())l.classList.add('fa-nav-same');});}
+dedupe();new MutationObserver(dedupe).observe(document.documentElement,{childList:true,subtree:true});})();</script>
+</body>
+</html>

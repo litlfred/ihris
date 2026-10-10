@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installing Ubuntu VMWare · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Administrator course</a> / Installing Ubuntu VMWare</div>
+<h1>Installing Ubuntu VMWare</h1>
+<div class="credit" style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:12px 0 18px"><img src="../../assets/intrahealth-logo.png" alt="IntraHealth International" width="170" style="background:#fff;border-radius:8px;padding:6px 10px;flex:none"><p style="margin:0;flex:1 1 260px"><b>iHRIS Administrator - Level I</b>, &copy; IntraHealth International, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Originally offered at <a href="http://www.hrhresourcecenter.org/elearning">hrhresourcecenter.org/elearning</a> (CapacityPlus). <span class="mute">Licence stated by its author, the folio owner, 2026-10-09.</span></p></div><div class="wiki">
+<h2>1. Install Ubuntu on VMWare</h2>
+<p>Ubuntu is an operating system designed to control your computer.</p>
+<p>Why you should install Ubuntu on VMWare:</p>
+<ul>
+<li>this installation method works if you already have Windows installed on your computer</li>
+<li>VMWare lets you create a virtual computer inside your Windows computer</li>
+<li>Ubuntu can be installed on the virtual computer</li>
+<li>Windows and Ubuntu can be used on one computer at the same time using this method</li>
+<li>users can test Ubuntu or different versions of Linux on one machine</li>
+</ul>
+<h2>2. Download Ubuntu</h2>
+<p>Download Ubuntu 10.10 (Latest Edition) 32-bit <a href="http://www.ubuntu.com/desktop/get-ubuntu/download">http://www.ubuntu.com/desktop/get-ubuntu/download</a></p>
+<p>Save the file ubuntu-10.10-desktop-i386.iso to the Desktop. This is a 700 mb download.</p>
+<h2>3. Download VMWare</h2>
+<p>Register and download VMWare Player from: <a href="http://www.vmware.com/">http://www.vmware.com</a></p>
+<p>Run installation .exe file.</p>
+<p>Accept the Software License.</p>
+<h2>4. Create a Virtual Machine</h2>
+<p>Create a new virtual machine.</p>
+<p><img alt="create virtual machine" src="images/install_ubuntu_vmware1.gif"></p>
+<h2>5. Create a Virutal Machine</h2>
+<p>Select "Install Source" to the Ubuntu Live CD .iso image, which you saved to the desktop.</p>
+<p><img alt="ubuntu live cd" src="images/install_ubuntu_vmware2.gif"></p>
+<h2>6. Create a Virtual Machine</h2>
+<p>Select disk capacity to 10GB.</p>
+<p><img alt="ubuntu disk capacity" src="images/install_ubuntu_vmware3.gif"></p>
+<h2>7. Create a Virtual Machine</h2>
+<p>Choose Ubuntu user name and password. Ubuntu will now be installed on your virtual machine.</p>
+<p><img alt="ubuntu username and password" src="images/install_ubuntu_vmware4.gif"></p>
+<h2>8. Installation is Complete</h2>
+<p>Once installation is complete, reboot the virtual computer.</p>
+<p><img alt="reboot virtual computer" src="images/install_ubuntu_vmware5.gif"></p>
+<h2>9. Booting to Ubuntu</h2>
+<p>Boot to Ubuntu and login with your username and password.</p>
+<p><img alt="login to ubuntu" src="images/install_ubuntu_vmware6.gif"></p>
+<h2>10. Ubuntu Post-Install</h2>
+<p>Install the VMWare tools.</p>
+<p>Video tutorial:</p>
+<p><a href="https://www.youtube.com/watch?v=J4FXEObkUG0">YouTube video J4FXEObkUG0</a></p>
+<h2>11. Accessing Web Server from Windows</h2>
+<p>Set the Virtual Machine's Network to NAT.</p>
+<p>Reboot Virtual Machine.</p>
+<p>Open a Terminal (Applications &gt; Accessories &gt; Terminal) type:
+ <strong>ipconfig</strong></p>
+<p>Look at <strong>eth0</strong> and the <strong>inet addr</strong> should be the <strong>GUEST_IP_ADDRESS</strong> address you'll use on windows  <a href="http://guest_ip_address/">http://GUEST_IP_ADDRESS/</a></p>
+<h2>12. Accessing Web Server from Local Network</h2>
+<p>Click on "NAT Settings for Ubuntu Virtual Machine".</p>
+<p>You will see "Gateway IP Address"—this is your "HOST IP Address".</p>
+<p>Click "Port Forwarding".</p>
+<p>Click "Add".</p>
+<p>Host Port: 80 (or <strong>8080</strong> if you use Skype).</p>
+<p>Virtual Machine IP Address: GUEST_IP_ADDRESS</p>
+<p>Computers on a network access iHRIS by: http://HOST_IP_ADDRESS :<strong>8080</strong> /</p>
+<p>Learn more: <a href="http://www.howtogeek.com/howto/vmware/allow-access-to-a-vmware-virtual-machinenat-from-another-computer/">http://www.howtogeek.com/howto/vmware/allow-access-to-a-vmware-virtual-machinenat-from-another-computer/</a></p></div><h2>Source</h2><p class="src">Lesson in Section 1 of <a href="index.html#section-1">iHRIS Administrator - Level I</a>, Moodle course module cm-44; <code>library/ihris-admin-course/modules/cm-44.md</code>.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+<script>/* Bridge (see .fa-nav-same in ihris.css): hide a rail label that only repeats its own initial, e.g. "A A" in Contents. */
+(function(){function dedupe(){document.querySelectorAll('nav.fa-nav .fa-nav-glyph').forEach(function(g){var l=g.nextElementSibling;
+if(l&&l.classList.contains('fa-nav-label')&&!g.querySelector('img,svg')&&g.textContent.trim().toLowerCase()===l.textContent.trim().toLowerCase())l.classList.add('fa-nav-same');});}
+dedupe();new MutationObserver(dedupe).observe(document.documentElement,{childList:true,subtree:true});})();</script>
+</body>
+</html>

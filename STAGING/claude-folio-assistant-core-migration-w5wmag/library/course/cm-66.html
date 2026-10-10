@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adding Forms · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Administrator course</a> / Adding Forms</div>
+<h1>Adding Forms</h1>
+<div class="credit" style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:12px 0 18px"><img src="../../assets/intrahealth-logo.png" alt="IntraHealth International" width="170" style="background:#fff;border-radius:8px;padding:6px 10px;flex:none"><p style="margin:0;flex:1 1 260px"><b>iHRIS Administrator - Level I</b>, &copy; IntraHealth International, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Originally offered at <a href="http://www.hrhresourcecenter.org/elearning">hrhresourcecenter.org/elearning</a> (CapacityPlus). <span class="mute">Licence stated by its author, the folio owner, 2026-10-09.</span></p></div><div class="wiki">
+<h2>1. Adding Forms</h2>
+<p>This module outlines an example of adding a new form to iHRIS Manage including:</p>
+<ul>
+<li>creating a module to contain functionality</li>
+<li>creating a form</li>
+<li>adding fields to the form</li>
+<li>relating the form to other forms</li>
+</ul>
+<h2>2. Gather Requirements</h2>
+<p>Discuss the client's information needs to determine the form requirements:</p>
+<ul>
+<li>example: an HR manager requests information on the dependents for each employee, including the name and birth date</li>
+</ul>
+<p>The next step is to develop a use case based on these requirements.</p>
+<h2>3. Form Use Case</h2>
+<p>1A. Use Case Number: DEP-1</p>
+<p>1B. Use Case Title: Add Person's Dependents</p>
+<ol>
+<li>
+<p>Level: User-level</p>
+</li>
+<li>
+<p>Primary Actor: HR Staff</p>
+</li>
+<li>
+<p>Context of Use: The user adds information about a person's dependent to the system</p>
+</li>
+<li>
+<p>Preconditions: The user must be logged in and a personnel record must be visible</p>
+</li>
+<li>
+<p>Success Guarantee: The dependent is added to the system and can be seen in their personnel record.</p>
+</li>
+<li>
+<p>Main Success Scenario (MSS):</p>
+</li>
+<li>
+<p>The user chooses to add a new dependent to the system</p>
+</li>
+<li>
+<p>The user adds the dependent's name, date of birth and gender</p>
+</li>
+<li>
+<p>The user saves the record</p>
+</li>
+<li>
+<p>The dependent is now shown in the personnel page</p>
+</li>
+</ol>
+<h2>4. Form Use Case</h2>
+<ol>
+<li>Extensions:</li>
+</ol>
+<p>1a. The user chooses to edit the information on an existing dependent</p>
+<p>2a. The system determines that no name is set for the dependent</p>
+<ol>
+<li>The system displays an error message</li>
+</ol>
+<h2>5. Creating a Module for Forms</h2>
+<p>Adding and editing the example "dependents" in the system is a discrete function and should be put in a module:</p>
+<ul>
+<li>in this case, this new module should be dependent on the person module</li>
+<li>you need to define the form created (the dependent form)</li>
+</ul>
+<p>The module will need an associated module class that shows "dependents" in the "view person page".</p>
+<h2>6. Creating a Module for Forms</h2>
+<p>Create a submodule of the site.</p>
+<p>Create module via file configuration.xml:
+ <strong>sudo chown -R
+ <code>whoami</code>:<code>whoami</code> /var/lib/iHRIS/sites/manage
+ cd /var/lib/iHRIS/sites/manage/modules
+ mkdir dependent
+ cd dependent
+ gedit dependent.xml</strong></p>
+<p>The path /var/lib/iHRIS/sites/manage may be different depending on your installation.</p>
+<h2>7. Configuration .xml</h2>
+<p>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE I2CEConfiguration SYSTEM &quot;I2CE_Configuration.dtd&quot;&gt;
+&lt;I2CEConfiguration name='my-dependents'&gt;
+&lt;metadata&gt;
+&lt;displayName&gt;Person's Dependents&lt;/displayName&gt;
+&lt;className&gt;My_Module_Dependents&lt;/className&gt;
+&lt;description&gt;Adds Dependent Information to a Person&lt;/description&gt;
+&lt;version&gt;4.0.3.0&lt;/version&gt;
+&lt;requirement name='Person''&gt;
+&lt;atLeast version='4.0'/&gt;
+&lt;lessThan version='4.1'/&gt;
+&lt;/requirement&gt;
+&lt;/metadata&gt;
+&lt;configurationGroup name='my-dependents' path='/'&gt;
+<strong>&lt;!-- INSERT INFORMATION ABOUT FORM CLASS/FORM/TASKS HERE --&gt;</strong>&lt;/configurationGroup&gt;
+&lt;/I2CEConfiguration&gt;</p>
+<h2>8. The Form Class</h2>
+<p>&lt;configurationGroup name='dep_class' path='/modules/forms/formClasses/My_Dependent'&gt;
+&lt;configuration name='extends'&gt;
+&lt;value&gt;I2CE_Form&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configurationGroup name='fields'&gt;
+&lt;configurationGroup name='name'&gt;
+&lt;configuration name='formfield'&gt;
+&lt;value&gt;STRING_LINE&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name='headers' type='delimited' values='many'&gt;
+&lt;value&gt;default:Name&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;/configurationGroup&gt;
+....
+(CONTINUED)</p>
+<p>Make a form class and add the "name" field.</p>
+<h2>9. The Form Class</h2>
+<p>(CONTINUED UNDER &lt;configurationGroup name='fields'&gt; )
+&lt;configurationGroup name='date_of_birth'&gt;
+&lt;configuration name='formfield'&gt;
+&lt;value&gt;DATE_YMD&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name='headers' type='delimited' values='many' locale=&quot;en_US&quot;&gt;
+&lt;value&gt;default:Date of Birth&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;/configurationGroup&gt;
+(CONTINUED)</p>
+<p>Add the "date_of_birth" field as a date.</p>
+<h2>10. The Form Class</h2>
+<p>(CONTINUED UNDER &lt;configurationGroup name='fields'&gt; )
+&lt;configurationGroup name='gender'&gt;
+&lt;configuration name='formfield'&gt;
+&lt;value&gt;MAP&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name='headers' type='delimited' values='many' locale=&quot;en_US&quot;&gt;
+&lt;value&gt;default:Gender&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;</p>
+<p>Add the "gender" field as a mapped field.</p>
+<p>By default, a mapped field maps to the form of the same name.</p>
+<h2>11. The Form</h2>
+<p>&lt;configurationGroup name='dep_form' path='/modules/forms/forms/mydependent'&gt;
+&lt;configuration name='class'&gt;
+&lt;value&gt;My_Dependent&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name='display' locale=&quot;en_US&quot;&gt;
+&lt;value&gt;Dependent&lt;/value&gt;
+&lt;/configuration&gt;'
+&lt;/configurationGroup&gt;
+&lt;configuration name='person_child_forms' path='/modules/forms/forms/person/meta/child_forms' values='many'&gt;
+&lt;value&gt;mydependent&lt;/value&gt;
+&lt;/configuration&gt;</p>
+<p>Register "My_Dependent" as the class associated to the form "dependent" and give it a name to display to end users.</p>
+<p>Register "mydependent" as a child form of "person".</p>
+<h2>12. Tasks</h2>
+<p>&lt;configurationGroup name=&quot;tasks&quot; path=&quot;/I2CE/tasks/task_description&quot; locale=&quot;en_US&quot;&gt;
+&lt;configuration name=&quot;person_can_view_child_form_mydependent&quot; locale=&quot;en_US&quot;&gt;
+&lt;value&gt;Can view a person's dependents&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name=&quot;person_can_edit_child_form_mydependent&quot; locale=&quot;en_US&quot;&gt;
+&lt;value&gt;Can edit resume a person's dependents&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;/configurationGroup&gt;</p>
+<p>Create a task to view and edit the dependent forms associated to a person.</p>
+<p>Tasks are checked by the "iHRIS_PageView" class when it adds child forms to the "view" page.</p>
+<p>If user has task, then hook is called.</p>
+<h2>13. Task Inheritance</h2>
+<p>&lt;configurationGroup name=&quot;tasks_trickle_down&quot; path=&quot;/I2CE/tasks/task_trickle_down/&quot;&gt;
+&lt;configuration name=&quot;person_can_view_child_form_mydependent&quot; values=&quot;many&quot;&gt;
+&lt;value&gt;person_can_view&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name=&quot;person_can_edit_child_form_mydependent&quot; values=&quot;many&quot;&gt;
+&lt;value&gt;person_can_view_child_form_mydependent&lt;/value&gt;
+&lt;value&gt;person_can_view&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name=&quot;person_can_view_child_forms&quot; values=&quot;many&quot;&gt;
+&lt;value&gt;person_can_view_child_form_mydependent&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name=&quot;person_can_edit_child_forms&quot; values=&quot;many&quot;&gt;
+&lt;value&gt;person_can_edit_child_form_mydependent&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;/configurationGroup&gt;</p>
+<p>Set inheritance of tasks.</p>
+<h2>14. User Interaction</h2>
+<p>Now that the "mydependent" form has been defined, the next steps are to:</p>
+<ul>
+<li>add a way to view dependents in the view person page</li>
+<li>add a way to create dependents or edit existing dependents</li>
+<li>edit and create HTML template files</li>
+<li>hook into "view page" by creating "My_Module_Dependents" as a subclass of "I2CE_Module"</li>
+</ul>
+<h2>15. view.html</h2>
+<p><strong>&lt;span type='module' name='my-dependents' ifenabled='true'&gt;</strong>&lt;div class=&quot;recordsData&quot; task='person_can_view_child_form_mydependent'&gt;
+&lt;h3&gt;&lt;a name=&quot;jump_mydependent&quot;&gt;Dependent Information&lt;/a&gt;&lt;/h3&gt;
+&lt;p class=&quot;editRecordsData&quot;&gt;
+&lt;a href=&quot;&quot; class=&quot;hide&quot; title=&quot;Hide&quot; onclick=&quot;return hideDiv('mydependent', this );&quot;&gt;Hide&lt;/a&gt;
+&lt;span task='person_can_edit_child_form_mydependent' type=&quot;form&quot; name=&quot;person:id&quot; href=&quot;mydependent?parent=&quot; &gt;Add Dependent&lt;/span&gt;
+&lt;/p&gt;
+&lt;div id=&quot;mydependent&quot;&gt;&lt;/div&gt;
+&lt;br style=&quot;clear: both;&quot; /&gt;
+&lt;/div&gt;
+&lt;/span&gt;</p>
+<p>Edit the "view.html" file to add tags that will display dependents if the "my-dependents" module is enabled.</p>
+<p>Copy or edit the existing "templates/en_US/view.html" from iHRIS-Manage.</p>
+<h2>16. view.html</h2>
+<p>&lt;span type='module' name='my-dependents' ifenabled='true'&gt;
+&lt;div class=&quot;recordsData&quot; task='person_can_view_child_form_mydependent'&gt;
+&lt;h3&gt;&lt;a name=&quot;jump_mydependent&quot;&gt;Dependent Information&lt;/a&gt;&lt;/h3&gt;
+&lt;p class=&quot;editRecordsData&quot;&gt;
+<strong>&lt;a href=&quot;&quot; class=&quot;hide&quot; title=&quot;Hide&quot; onclick=&quot;return hideDiv('mydependent', this );&quot;&gt;Hide&lt;/a&gt;</strong>&lt;span task='person_can_edit_child_form_mydependent' type=&quot;form&quot; name=&quot;person:id&quot; href=&quot;mydependent?parent=&quot; &gt;Add Dependent&lt;/span&gt;
+&lt;/p&gt;
+&lt;div id=&quot;mydependent&quot;&gt;&lt;/div&gt;
+&lt;br style=&quot;clear: both;&quot; /&gt;
+&lt;/div&gt;
+&lt;/span&gt;</p>
+<p>The JavaScript hides or shows dependent information.</p>
+<h2>17. view.html</h2>
+<p>&lt;span type='module' name='my-dependents' ifenabled='true'&gt;
+&lt;div class=&quot;recordsData&quot; task='person_can_view_child_form_mydependent'&gt;
+&lt;h3&gt;&lt;a name=&quot;jump_mydependent&quot;&gt;Dependent Information&lt;/a&gt;&lt;/h3&gt;
+&lt;p class=&quot;editRecordsData&quot;&gt;
+&lt;a href=&quot;&quot; class=&quot;hide&quot; title=&quot;Hide&quot; onclick=&quot;return hideDiv('mydependent', this );&quot;&gt;Hide&lt;/a&gt;
+<strong>&lt;span task='person_can_edit_child_form_mydependent' type=&quot;form&quot; name=&quot;person:id&quot; href=&quot;mydependent?parent=&quot; &gt;Add Dependent&lt;/span&gt;</strong>&lt;/p&gt;
+&lt;div id=&quot;mydependent&quot;&gt;&lt;/div&gt;
+&lt;br style=&quot;clear: both;&quot; /&gt;
+&lt;/div&gt;
+&lt;/span&gt;</p>
+<p>The &lt;span&gt; tag inserts a link to add a new dependent.</p>
+<h2>18. view.html</h2>
+<p>&lt;span type='module' name='my-dependents' ifenabled='true'&gt;
+&lt;div class=&quot;recordsData&quot; task='person_can_view_child_form_mydependent'&gt;
+&lt;h3&gt;&lt;a name=&quot;jump_mydependent&quot;&gt;Dependent Information&lt;/a&gt;&lt;/h3&gt;
+&lt;p class=&quot;editRecordsData&quot;&gt;
+&lt;a href=&quot;&quot; class=&quot;hide&quot; title=&quot;Hide&quot; onclick=&quot;return hideDiv('mydependent', this );&quot;&gt;Hide&lt;/a&gt;
+&lt;span task='person_can_edit_child_form_mydependent' type=&quot;form&quot; name=&quot;person:id&quot; href=&quot;mydependent?parent=&quot; &gt;Add Dependent&lt;/span&gt;
+&lt;/p&gt;
+<strong>&lt;div id=&quot;mydependent&quot;&gt;&lt;/div&gt;</strong>&lt;br style=&quot;clear: both;&quot; /&gt;
+&lt;/div&gt;
+&lt;/span&gt;</p>
+<p>The &lt;div&gt; tag indicates where to display existing dependents.</p>
+<h2>19. Existing Dependents</h2>
+<p>Child forms of person are displayed using "iHRIS_PageView".</p>
+<p>It looks for a fuzzy method for the "iHRIS_PageView" class named "action_mydependent()".</p>
+<p>"My_Module_Dependents" should implement "action_mydependent()" for "iHRIS_PageView".</p>
+<h2>20. Module Class</h2>
+<p>modules/dependents/lib/My_Module_Dependents.php:
+class My_Module_Dependents extends I2CE_Module {
+/** register a fuzzy method to display dependents on the view person page */
+function getMethods() {
+return array('iHRIS_PageView-&gt;action_mydependent'=&gt;'show_dependents');
+}
+function show_dependents($pageObject) {
+$pageObj-&gt;addChildForms('mydependent');
+return true;
+}
+}</p>
+<p>If "$this-&gt;action_mydependent()" is called in "iHRIS_PageView", then "show_dependents()" is called with the "$pageObject" as its first argument.</p>
+<h2>21. Module Class</h2>
+<p>The method addChildForms('mydependent') is a method of iHRIS_PageView which:</p>
+<ul>
+<li>looks for the html "$node" with id "mydependent"</li>
+<li>populates all of the child forms "mydependent" of the "person" form</li>
+<li>for each "mydependent" form adds the HTML template file "view_mydependent.html" and associates the mydependent form for that node</li>
+</ul>
+<h2>22. Adding Paths</h2>
+<p>The dependents module needs the following files:</p>
+<ul>
+<li>lib/My_Module_Dependents.php</li>
+<li>templates/en_US/view_mydependent.html</li>
+</ul>
+<p>Add their directories to the search path in the "dependent.xml" configuration file just after the requirements section:
+&lt;path name='templates'&gt;
+&lt;value&gt;./templates&lt;/value&gt;
+&lt;/path&gt;
+&lt;path name='classes'&gt;
+&lt;value&gt;./lib&lt;/value&gt;
+&lt;/path&gt;</p>
+<h2>23. templates/en_US/view_mydependent.html</h2>
+<p>&lt;div class=&quot;editRecord&quot; task='person_can_edit_child_form_nydependentt'&gt;
+ &lt;p&gt;Edit This Information&lt;/p&gt;
+ &lt;ul&gt;&lt;li &gt;&lt;span type=&quot;form&quot; name=&quot;mydependent:id&quot; href=&quot;mydependent?id=&quot; parent=&quot;true&quot; &gt;Update this Information&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;dataTable&quot; task='person_can_view_child_form_mydependent'&gt;
+ &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+ &lt;tr&gt;&lt;th colspan=&quot;2&quot;&gt;Dependent Information&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;span type=&quot;form&quot; name=&quot;mydependent:name&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+ &lt;span type=&quot;form&quot; name=&quot;mydependent:date_of_birth&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+ &lt;/table&gt;
+ &lt;/div&gt;
+&lt;/div&gt;</p>
+<h2>24. templates/en_US/view_mydependent.html</h2>
+<p>&lt;div class=&quot;editRecord&quot; task='person_can_edit_child_form_mydependentt'&gt;
+&lt;p&gt;Edit This Information&lt;/p&gt;
+&lt;ul&gt;&lt;li &gt;&lt;span type=&quot;form&quot; name=&quot;mydependent:id&quot; href=&quot;mydependent?id=&quot; parent=&quot;true&quot; &gt;Update this Information&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;/div&gt;</p>
+<p>This file checks if the person has the task:
+person_can_edit_child_form_mydependent</p>
+<p>And creates a link to the mydependent page to edit this dependent's information.</p>
+<h2>25. templates/en_US/view_mydependent.html</h2>
+<p>&lt;div class=&quot;dataTable&quot; task='person_can_view_child_form_mydependent'&gt;
+&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+&lt;tr&gt;&lt;th colspan=&quot;2&quot;&gt;Dependent Information&lt;/th&gt;
+&lt;/tr&gt;
+&lt;span type=&quot;form&quot; name=&quot;mydependent:name&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+&lt;span type=&quot;form&quot; name=&quot;mydependent:date_of_birth&quot; showhead=&quot;default&quot;&gt;&lt;/span&gt;
+&lt;/table&gt;
+&lt;/div&gt;</p>
+<p>This code:</p>
+<ul>
+<li>checks if the user can view information about a person's dependents</li>
+<li>displays the name and date of birth for the dependent</li>
+</ul>
+<h2>26. Editing Dependents</h2>
+<p>Editing an existing dependent and/or creating a new dependent requires a page.</p>
+<p>There is a page class "iHRIS_PageFormParentPerson" that handles editing forms which are child forms of the parent form:</p>
+<ul>
+<li>register the dependent page as a top-level page using <strong>HRIS_PageFormParentPerson</strong></li>
+<li>create the <strong>form_mydependent.html</strong> HTML template used by this page</li>
+</ul>
+<h2>27. Registering the Page</h2>
+<p>Add a new section to dependent.xml:</p>
+<p>&lt;configurationGroup name=&quot;dependent_page&quot; path='/I2CE/page/mydependent'&gt;
+&lt;configuration name=&quot;style&quot; values=&quot;single&quot;&gt;
+&lt;value&gt;ihris_common_page_form_parent_person&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configurationGroup name=&quot;args&quot;&gt;
+&lt;configuration name=&quot;title&quot; values=&quot;single&quot; locale=&quot;en_US&quot;&gt;
+&lt;value&gt;Add/Update Dependent Information&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name=&quot;page_form&quot; values=&quot;single&quot;&gt;
+&lt;value&gt;mydependent&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;</p>
+<h2>28. Registering the Page</h2>
+<p>&lt;configurationGroup name=&quot;dependent_page&quot; path='/I2CE/page/mydependent'&gt;
+&lt;configuration name=&quot;style&quot; values=&quot;single&quot;&gt;
+&lt;value&gt;ihris_common_page_form_parent_person&lt;/value&gt;
+&lt;/configuration&gt;
+....</p>
+<p>This registers the page "mydependent" as a top-level page:</p>
+<ul>
+<li>sets the page style to: ihris_common_page_form_parent_person</li>
+<li>registers the page's class as: iHRIS_PageForm_ParentPerson</li>
+</ul>
+<h2>29. Registering the Page</h2>
+<p>&lt;configurationGroup name=&quot;args&quot;&gt;
+&lt;configuration name=&quot;title&quot; values=&quot;single&quot; locale=&quot;en_US&quot;&gt;
+&lt;value&gt;Add/Update Dependent Information&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name=&quot;page_form&quot; values=&quot;single&quot;&gt;
+&lt;value&gt;mydependent&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;/configurationGroup&gt;</p>
+<p>Sets arguments passed to the page's constructor, which are specific to the dependent page:</p>
+<ul>
+<li>page's title</li>
+<li>form that this page is editing/creating</li>
+</ul>
+<h2>30. Commit to Bazaar (bzr)</h2>
+<p>Once you finish making the changes:</p>
+<ul>
+<li>test the module</li>
+<li>check "bzr status" to see which files were edited</li>
+<li>add the files to nzr: bzr add modules/dependent</li>
+<li>commit the files to bzr: bzr commit -m "adding a dependents module"</li>
+</ul>
+<h2>31. Adding Additional Form Fields</h2>
+<p>To add another field to the form such as dependents' favorite colors:</p>
+<ul>
+<li>increase module's version to 4.0.3.1</li>
+<li>add a "&lt;version&gt;4.0.3.1&lt;/version&gt;" where the favorite color field has been added</li>
+<li>adjust the HTML template files</li>
+<li>test it</li>
+<li>commit the changes to bzr/launchpad: bzr commit -m "added the favorite color field to dependent form"</li>
+</ul></div><h2>Source</h2><p class="src">Lesson in Section 5 of <a href="index.html#section-5">iHRIS Administrator - Level I</a>, Moodle course module cm-66; <code>library/ihris-admin-course/modules/cm-66.md</code>.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+<script>/* Bridge (see .fa-nav-same in ihris.css): hide a rail label that only repeats its own initial, e.g. "A A" in Contents. */
+(function(){function dedupe(){document.querySelectorAll('nav.fa-nav .fa-nav-glyph').forEach(function(g){var l=g.nextElementSibling;
+if(l&&l.classList.contains('fa-nav-label')&&!g.querySelector('img,svg')&&g.textContent.trim().toLowerCase()===l.textContent.trim().toLowerCase())l.classList.add('fa-nav-same');});}
+dedupe();new MutationObserver(dedupe).observe(document.documentElement,{childList:true,subtree:true});})();</script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Working in Teams: Launchpad and Bazaar · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Administrator course</a> / Working in Teams: Launchpad and Bazaar</div>
+<h1>Working in Teams: Launchpad and Bazaar</h1>
+<div class="credit" style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:12px 0 18px"><img src="../../assets/intrahealth-logo.png" alt="IntraHealth International" width="170" style="background:#fff;border-radius:8px;padding:6px 10px;flex:none"><p style="margin:0;flex:1 1 260px"><b>iHRIS Administrator - Level I</b>, &copy; IntraHealth International, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Originally offered at <a href="http://www.hrhresourcecenter.org/elearning">hrhresourcecenter.org/elearning</a> (CapacityPlus). <span class="mute">Licence stated by its author, the folio owner, 2026-10-09.</span></p></div><div class="wiki">
+<h2>1. Launchpad and Bazaar</h2>
+<p>Launchpad allows users to work on team projects:
+<a href="http://www.launchpad.net">http://www.launchpad.net</a></p>
+<p>Bazaar is a distributed version control system (D-VCS) that keeps track of changes in software source code and helps people work on it in teams.</p>
+<h2>2. Launchpad and Bazaar: SSH Key</h2>
+<p>Go to <a href="http://www.launchpad.net/">http://www.launchpad.net</a> and create an account with a username you select.</p>
+<p>Generate a ssh-key on your machine:</p>
+<ul>
+<li>open a terminal</li>
+<li>install ssh: sudo apt-get install openssh-client</li>
+<li>generate a key: ssh-keygen -t rsa</li>
+</ul>
+<p>When prompted, press Enter to accept the default file name for your key.</p>
+<p>Enter a password (Optional).</p>
+<p>The public key is stored in: ~/.ssh/id_rsa.pub</p>
+<p>The private key is stored in: ~/.ssh/id_rsa.pub</p>
+<h2>3. Launchpad and Bazaar: SSH Key</h2>
+<p>Upload the ssh-key to launchpad:</p>
+<ul>
+<li>browse to <a href="http://www.launchpad.net/~username">http://www.launchpad.net/~username</a></li>
+<li>find SSH Keys with an exclamation point (!) in a yellow circle next to it</li>
+<li>click the (!) and scroll down to "Add an SSH Key and a text box"</li>
+<li>paste the public key into this text box:</li>
+<li>in a terminal type:
+     <strong>gedit ~/.ssh/id_rsa.pub &amp;</strong></li>
+<li>copy and paste from gedit to the web browser</li>
+<li>click "Import Public Key"</li>
+</ul>
+<p>Import the ssh-key for each computer used.</p>
+<h2>4. Launchpad and Bazaar: Bazaar</h2>
+<p>bzr is the main command for the Bazaar software:</p>
+<ul>
+<li>bzr init: create a "branch" to hold your code</li>
+<li>bzr add: add files to your branch</li>
+<li>bzr whoami: tell bzr who you are</li>
+<li>bzr commit: change and "commit" code to your branch</li>
+<li>bzr status: see what has not been commited</li>
+<li>bzr log: see what changes have been made</li>
+<li>bzr branch: make a copy of a branch</li>
+</ul>
+<p>Install bzr:
+<strong>sudo apt-get install bzr bzrtool</strong></p>
+<h2>5. Launchpad and Bazaar: Locations</h2>
+<p>Bazaar can work with files on your computer.</p>
+<p>Launchpad has a Bazaar service you can use to host branches:</p>
+<ul>
+<li>files are publically readable</li>
+<li>control who can change the files by individual or teams</li>
+<li>backs up source code</li>
+<li>create a project on Launchpad to hold multiple branches: ihris-manage, i2ce, ihris-manage-lesotho</li>
+<li>use the translation capabilities built into Launchpad</li>
+</ul>
+<p>bzr operates effectively with Launchpad.</p>
+<h2>6. Launchpad and Bazaar: Teams</h2>
+<p>Launchpad uses teams to control who can modify code it stores under Bazaar.</p>
+<p>If you are working with a group of people, you should all agree on who will be the team owner.</p>
+<p>The team owner should create the team.</p>
+<p>Every person should join this team.</p>
+<p>To practice creating teams, use the test site: <a href="http://staging.launchpad.net/~his-workshop">http://staging.launchpad.net/~his-workshop</a></p>
+<h2>7. Launchpad and Bazaar: Project</h2>
+<p>Launchpad uses projects to group related code (branches), manage software releases, translations, etc.</p>
+<p>Create a project in Launchpad.</p>
+<p>Launchpad is licensed under the GPL V3.</p>
+<p>The Maintainer of the project assigns the teams by clicking the yellow exclamation point.</p>
+<p>To practice creating projects, use the test site: <a href="https://staging.launchpad.net/his-helloworld-Z">https://staging.launchpad.net/his-helloworld-Z</a></p>
+<h2>8. Apache: helloworld.php</h2>
+<p>The owner creates a directory for the "trunk" of the Hello World web application such as:
+ <strong>mkdir -p ~/helloworld/trunk</strong></p>
+<p>Create helloworld.php:
+ <strong>gedit ~/helloworld/trunk/helloworld.php</strong></p>
+<p>Add the following code to helloworld.php:
+ <strong>&lt;?php
+ echo &quot;&lt;p&gt;hello his gathering&lt;/p&gt;\n";</strong></p>
+<p>Make it available to apache web server:
+ <strong>sudo ln -s ~/helloworld/trunk /var/www/helloworld</strong></p>
+<h2>9. Bazaar: Initial Commit</h2>
+<p>The team owner needs to make the bzr branch and the intial commit:
+ <strong>cd ~/helloworld/trunk</strong>
+ <strong>bzr init</strong>
+ <strong>bzr add</strong>
+ <strong>bzr commit -m</strong></p>
+<h2>10. Bazaar and Launchpad: Putting the Code on Launchpad</h2>
+<p>As the team owner, go to "Registers a Branch" at:</p>
+<ul>
+<li><a href="https://code.staging.launchpad.net/his-helloworld-Z">https://code.staging.launchpad.net/his-helloworld-Z</a></li>
+<li>Owner: his-workshop</li>
+<li>Name: trunk</li>
+<li>Branch Type: hosted</li>
+</ul>
+<p>Put the code on Launchpad:
+ <strong>cd ~/helloworld/trunk
+ bzr push --use-existing-dir
+ lp://staging/~his-workshop/his-helloworld-Z/trunk
+ bzr bind
+ lp://staging/~his-workshop/his-helloworld-Z/trunk</strong></p>
+<h2>11. Bazaar</h2>
+<p>Each team member can get a checkout of the code from Launchpad:
+ <strong>mkdir ~/helloworld</strong>
+ <strong>bzr branch
+ lp://staging/~his-workshop/his-helloworld-Z/trunk</strong></p>
+<p>"bind" the code to Launchpad—all committed changes automatically go to Launchpad:
+ <strong>cd ~/helloworld/trunk
+ bzr bind lp://staging/~his-workshop/his-helloworld-Z/trunk</strong></p>
+<h2>12. Bazaar and Launchpad: Commits</h2>
+<p>The team owner needs to make the initial commit.</p>
+<p>Commit to the (unbound) branches means changes are only local and do not get pushed up to Launchpad automatically.</p>
+<p>To put changes to code on Launchpad, use one of the following:</p>
+<ul>
+<li><strong>bzr checkout</strong>: use instead of bzr branch</li>
+<li><strong>bzr push</strong>: if you used bzr branch this will move committed code to launchpad one time only</li>
+<li><strong>bzr bind</strong>: changes a bzr branch to a bzr checkout</li>
+<li><strong>bzr info</strong>: tells you what is going on</li>
+</ul>
+<h2>13. Changing the Code</h2>
+<p>For example, if a team member wants to change the code to add a footer file:
+ <strong>cd ~/helloworld/trunk
+ gedit footer.php</strong></p>
+<p>Add the contents and save:
+ <strong>echo "&lt;b&gt;Today is " . date("D, d M Y") . "&lt;/b&gt;\n";</strong></p>
+<p>Edit the helloworld.php:
+ <strong>gedit helloworld.php</strong></p>
+<p>Append the line to the end of the file and save.</p>
+<p>Include("footer.php");</p>
+<h2>14. Committing the Changes</h2>
+<p>Commit the changes to Launchpad:
+ <strong>cd ~/helloworld/trunk
+ bzr add footer.php
+ bzr commit -m "added footer"</strong></p>
+<p>To look at changes:
+<a href="https://code.staging.launchpad.net/his-helloworld-z">https://code.staging.launchpad.net/his-helloworld-z</a></p>
+<p>Team members may get the changes by:
+ <strong>cd ~/helloworld/trunk
+ bzr update</strong></p>
+<h2>15. Renaming Files</h2>
+<p>To rename files, such as changing helloworld to an index for example:
+ <strong>cd ~/helloworld/trunk
+ bzr mv helloworld.php index.php
+ bzr commit -m "Renamed helloworld.php to index.php"</strong></p>
+<p>Team members can get the changes:
+ <strong>cd ~/helloworld/trunk
+ bzr update</strong></p></div><h2>Source</h2><p class="src">Lesson in Section 4 of <a href="index.html#section-4">iHRIS Administrator - Level I</a>, Moodle course module cm-59; <code>library/ihris-admin-course/modules/cm-59.md</code>.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+<script>/* Bridge (see .fa-nav-same in ihris.css): hide a rail label that only repeats its own initial, e.g. "A A" in Contents. */
+(function(){function dedupe(){document.querySelectorAll('nav.fa-nav .fa-nav-glyph').forEach(function(g){var l=g.nextElementSibling;
+if(l&&l.classList.contains('fa-nav-label')&&!g.querySelector('img,svg')&&g.textContent.trim().toLowerCase()===l.textContent.trim().toLowerCase())l.classList.add('fa-nav-same');});}
+dedupe();new MutationObserver(dedupe).observe(document.documentElement,{childList:true,subtree:true});})();</script>
+</body>
+</html>

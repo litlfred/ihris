@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installing Ubuntu Natively · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Administrator course</a> / Installing Ubuntu Natively</div>
+<h1>Installing Ubuntu Natively</h1>
+<div class="credit" style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:12px 0 18px"><img src="../../assets/intrahealth-logo.png" alt="IntraHealth International" width="170" style="background:#fff;border-radius:8px;padding:6px 10px;flex:none"><p style="margin:0;flex:1 1 260px"><b>iHRIS Administrator - Level I</b>, &copy; IntraHealth International, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Originally offered at <a href="http://www.hrhresourcecenter.org/elearning">hrhresourcecenter.org/elearning</a> (CapacityPlus). <span class="mute">Licence stated by its author, the folio owner, 2026-10-09.</span></p></div><div class="wiki">
+<h2>1. Installing Ubuntu Natively</h2>
+<p>Ubuntu is an operating system designed to control your computer. It can run with or without Windows installed on the computer.</p>
+<p>Install Ubuntu natively if:</p>
+<ul>
+<li>you want to take full advantage of all Ubuntu features</li>
+<li>you plan on running Ubuntu as a production web server or as your primary operating system</li>
+<li>you feel very comfortable using computers</li>
+</ul>
+<h2>2. Download Ubuntu</h2>
+<p>Download Ubuntu 10.10 (Latest Edition) 32-bit:</p>
+<ul>
+<li><a href="http://www.ubuntu.com/desktop/get-ubuntu/download">http://www.ubuntu.com/desktop/get-ubuntu/download</a></li>
+<li>this is a Live CD that lets you either try or install Ubuntu</li>
+</ul>
+<p>Save the file "ubuntu-10.10-desktop-i386.iso" to your desktop. It is a 700 mb download.</p>
+<p>Burn the .iso file to a CD. See next two pages for options.</p>
+<h2>3. Burning the Ubuntu CD—Windows 7</h2>
+<p>Right click the file "ubuntu-10.10-desktop-i386.iso" on the desktop.</p>
+<p><img alt="ubuntu cd" src="images/installing_ubuntu_natively1.gif"></p>
+<p>Select a disk burner (CD drive) and click "Burn".</p>
+<p><img alt="select drive" src="images/installing_ubuntu_natively2.gif"></p>
+<h2>4. Burning the Ubuntu CD—Windows XP</h2>
+<p>Download and install InfraRecorder from:</p>
+<ul>
+<li><a href="http://infrarecorder.org/?page_id=5">http://infrarecorder.org/?page_id=5</a></li>
+<li>choose: Installer (Windows 2000/XP/Vista/7, 3.53 MiB)</li>
+</ul>
+<p>Insert a blank CD.</p>
+<p>Select "Do nothing" or "Cancel" if an autorun dialog pops up.</p>
+<p>Open InfraRecorder and click the "Write Image" button in the main screen.</p>
+<p>Select the file "ubuntu-10.10-desktop-i386.iso" from the desktop.</p>
+<p>Click "Open" and then "OK".</p>
+<p><img alt="infrarecorder" src="images/installing_ubuntu_natively3.gif"></p>
+<h2>5. Running Windows and Ubuntu</h2>
+<p>Dual Booting</p>
+<ul>
+<li>dual booting is running two operating systems, Windows and Ubuntu, on the same computer.</li>
+<li>more details: <a href="http://ubuntuguide.org/wiki/Ubuntu:Maverick#Dual-Booting_Windows_and_Ubuntu">http://ubuntuguide.org/wiki/Ubuntu:Maverick#Dual-Booting_Windows_and_Ubuntu</a></li>
+</ul>
+<p>Resizing Partitions</p>
+<ul>
+<li>if you are running Windows, you will need to resize your Windows partition (C: drive) to make room to install Ubuntu</li>
+<li>you will need about 20GB of free space</li>
+<li>more details: <a href="http://ubuntuguide.org/wiki/Multiple_OS_Installation#Changing_Windows_partition_sizes">http://ubuntuguide.org/wiki/Multiple_OS_Installation#Changing_Windows_partition_sizes</a></li>
+</ul>
+<h2>6. Booting from the Ubuntu CD</h2>
+<p>Insert the burned CD into your drive and reboot.</p>
+<p>If your computer starts Windows, you may need change your BIOS settings to tell it to boot from the CD:</p>
+<ul>
+<li>the BIOS bootup menu is usually accessed during the first few seconds after powering on your computer</li>
+<li>the BIOS setup access key is often displayed on your screen (F2, Delete, or F10 key)</li>
+<li>newer computers allow a one-time choice to boot the CD</li>
+<li>if not, enter the BIOS setup menu and look for Bootup Device Priority (sometimes in the Advanced Setup menu)—make sure your CD/DVD drive is listed as the first boot device, before the hard drive</li>
+</ul>
+<p>Once you have booted from the CD, installation is easy.</p>
+<p>Video tutorial for dual-booting with Windows: <a href="http://www.youtube.com/watch?v=JBfl3oViny8">http://www.youtube.com/watch?v=JBfl3oViny8</a></p>
+<h2>7. Choose Language</h2>
+<p>Select your language and click on the "Install Ubuntu" button to start the installation.</p>
+<p><img alt="install ubuntu" src="images/installing_ubuntu_natively4.gif"></p>
+<h2>8. Check Requirements</h2>
+<p>On the next screen you will see requirements for the Ubuntu 10.10 installation.</p>
+<p>Check "Download updates while installing" and "Install this third-party software" (this will install the software necessary to process Flash, MP3, and other media files).</p>
+<p>Click "Forward".</p>
+<p><img alt="ubuntu requirements" src="images/installing_ubuntu_natively5.gif"></p>
+<h2>9. Allocate Drive Space</h2>
+<p>If you are not running Windows choose "Erase and use the entire disk".</p>
+<p><img alt="allocate drive space" src="images/installing_ubuntu_natively6.gif"></p>
+<p>If you are running Windows, stop and follow the video tutorial mentioned earlier.</p>
+<h2>10. Allocate Drive Space</h2>
+<p>Choose which hard drive to use for the Ubuntu installation.</p>
+<p><img alt="choose hard drive" src="images/installing_ubuntu_natively7.gif"></p>
+<h2>11. Select Time Zone</h2>
+<p>Choose your country.</p>
+<p><img alt="choose country" src="images/installing_ubuntu_natively8.gif"></p>
+<h2>12. Select Keyboard</h2>
+<p>Choose your keyboard layout.</p>
+<p><img alt="select keyboard layout" src="images/installing_ubuntu_natively9.gif"></p>
+<h2>13. Create Account</h2>
+<p>Choose a username and password and a name for your computer. Once you have done this, Ubuntu will install.</p>
+<p><img alt="choose username and password" src="images/installing_ubuntu_native10.gif"></p>
+<h2>14. Boot Ubuntu</h2>
+<p>Once installation is complete, remove the CD and reboot your computer.</p>
+<p>Boot to Ubuntu and login with your username and password.</p>
+<p><img alt="login to ubuntu" src="images/installing_ubuntu_native11.gif"></p></div><h2>Source</h2><p class="src">Lesson in Section 1 of <a href="index.html#section-1">iHRIS Administrator - Level I</a>, Moodle course module cm-43; <code>library/ihris-admin-course/modules/cm-43.md</code>.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+<script>/* Bridge (see .fa-nav-same in ihris.css): hide a rail label that only repeats its own initial, e.g. "A A" in Contents. */
+(function(){function dedupe(){document.querySelectorAll('nav.fa-nav .fa-nav-glyph').forEach(function(g){var l=g.nextElementSibling;
+if(l&&l.classList.contains('fa-nav-label')&&!g.querySelector('img,svg')&&g.textContent.trim().toLowerCase()===l.textContent.trim().toLowerCase())l.classList.add('fa-nav-same');});}
+dedupe();new MutationObserver(dedupe).observe(document.documentElement,{childList:true,subtree:true});})();</script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adding ISCO 88 Job Codes to iHRIS Manage · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Handbook</a> / Adding ISCO 88 Job Codes to iHRIS Manage</div>
+<h1>Adding ISCO 88 Job Codes to iHRIS Manage</h1>
+<div class="wiki">
+<p>The ISCO 88 Job Codes can be found here [1] and represent an international standard for classifying jobs. They are broken up hierachically into major, sub-major , minor groups under which the job codes (called unit) are under the minor groups.</p>
+<p>We will create a module for each of the major groups, all of which will sit under a meta-module.</p>
+<h2>Getting The Data</h2>
+<p>The data file with all of the codes compiled can be found in the launchpad bzr [1] repository for I2CE. All of the codes, names, and descriptions were downloaded from the International Labor Organization's website [2].</p>
+<h2>Creating The XML Magic(Configuration) Data</h2>
+<p>The ISCO 88 codes are going to be separated into 10 different xml files, each representing a major group. Each xml file will contain the number and description of the major number followed by all the sub-major, minor, and then unit. The php code is provided here [3] and needs to be in the same directory as the isco88 codes file to run.</p>
+<h2>Creating The Modules</h2>
+<p>Since this data is related to Jobs in iHRIS Manage, we will put everything as sub-modules under the ihris-manage-Job. This can be found in the directory:</p>
+<pre><code>[BASE INSTALLATION PATH]/ihris-manage/modules/ManageJob
+</code></pre>
+<p>All instructions below assume that you are in this directory.</p>
+<p>The first thing we will need to do is to enable sub-modules for ihris-manage-Job (you may wish to read the module structure overview before proceeding). To do this</p>
+<pre><code>gedit Job.xml
+</code></pre>
+<p>and make sure the following lines are in the appropriate place in the metadata section:</p>
+<pre><code>&lt;path name='modules'&gt;
+  &lt;value&gt;./modules&lt;/value&gt;
+&lt;/path&gt;
+</code></pre>
+<p>Now we add the modules directory</p>
+<pre><code>mkdir modules
+</code></pre>
+<h3>Creating The Meta-Module</h3>
+<p>We will create a meta-module to contain general information about the ISCO Codes</p>
+<pre><code>cd [BASE INSTALLATION PATH]/ihris-manage/modules/ManageJob/modules
+mkdir isco_88
+cd isco_88
+mkdir modules
+gedit ISCO_88.xml
+</code></pre>
+<p>Add the following contents and save:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE I2CEConfiguration SYSTEM &quot;I2CE_Configuration.dtd&quot;&gt;
+&lt;I2CEConfiguration name='isco-88'&gt;
+  &lt;metadata&gt;
+    &lt;displayName&gt;ISCO 88 Job Codes&lt;/displayName&gt;
+    &lt;description&gt;The ISCO 88 Job Codes&lt;/description&gt;
+    &lt;version&gt;3.2.0&lt;/version&gt;
+    &lt;path name='modules'&gt;
+      &lt;value&gt;./modules&lt;/value&gt;
+    &lt;/path&gt;
+ &lt;/metadata&gt;
+ &lt;configurationGroup name='isco-88' path='/'&gt;
+   &lt;configurationGroup name='isco_88_forms' path='/modules/forms/formClasses'&gt;
+     &lt;!--we will add a form class for each of the isco 88 groupings --&gt;
+     &lt;!--each form class will extend the class I2CE_List --&gt;
+     &lt;!--each form class will provide the field 'name' and 'description' of which name is
+     &lt;!--the forms will map to each other in a heirachical relationship as follows:
+         iHRIS_ISCO_88_Sub_Major has a field isco_88_major which will
+map to the isco_88_major form
+         iHRIS_ISCO_88_Minor has a field isco_88_sub_major which will
+map to the isco_88_sub_major form
+         iHRIS_ISCO_88_Unit has a field isco_88_minor which will map to
+ the isco_88_minor form
+         --&gt;
+     &lt;!--we will specify a header (or title) for each of the fields we add in the forms -
+     &lt;!--the corrseponding forms are defined in the block  following this one --&gt;
+        &lt;configurationGroup name='iHRIS_ISCO_88_Major'&gt;
+          &lt;configuration name=&quot;extends&quot;&gt;
+            &lt;!-- This form class extends I2CE_List class  --&gt;
+            &lt;value&gt;I2CE_List&lt;/value&gt;
+          &lt;/configuration&gt;
+          &lt;configurationGroup name=&quot;fields&quot;&gt;
+            &lt;!-- The fields defined for this form --&gt;
+            &lt;configurationGroup name=&quot;name&quot;&gt;
+              &lt;configuration name=&quot;formfield&quot;&gt;
+                &lt;!-- The field type is string--&gt;
+                &lt;value&gt;STRING_LINE&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+                &lt;!-- The headers for this field. --&gt;
+                &lt;value&gt;default:Major Group&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;required&quot; type=&quot;boolean&quot;&gt;
+                &lt;!--This field is requried --&gt;
+                &lt;value&gt;true&lt;/value&gt;
+              &lt;/configuration&gt;
+            &lt;/configurationGroup&gt;
+            &lt;configurationGroup name=&quot;description&quot;&gt;
+              &lt;configuration name=&quot;formfield&quot;&gt;
+                &lt;!-- The field type is a multi-line string --&gt;
+                &lt;value&gt;STRING_MLINE&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+                &lt;!-- The headers for this field. --&gt;
+                &lt;value&gt;default:Description&lt;/value&gt;
+              &lt;/configuration&gt;
+            &lt;/configurationGroup&gt;
+          &lt;/configurationGroup&gt;
+        &lt;/configurationGroup&gt;
+        &lt;configurationGroup name='iHRIS_ISCO_88_Sub_Major'&gt;
+          &lt;configuration name=&quot;extends&quot;&gt;
+            &lt;!-- this form class extends I2CE_List --&gt;
+            &lt;value&gt;I2CE_List&lt;/value&gt;
+          &lt;/configuration&gt;
+          &lt;configurationGroup name=&quot;fields&quot;&gt;
+            &lt;!-- The fields defined for this form --&gt;
+            &lt;configurationGroup name=&quot;name&quot;&gt;
+              &lt;configuration name=&quot;formfield&quot;&gt;
+                &lt;!--The field type is string_line --&gt;
+                &lt;value&gt;STRING_LINE&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+                &lt;!-- The headers for this field. --&gt;
+                &lt;value&gt;default:Sub-Major Group&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;required&quot; type=&quot;boolean&quot;&gt;
+                &lt;!--This field is requried --&gt;
+                &lt;value&gt;true&lt;/value&gt;
+              &lt;/configuration&gt;
+            &lt;/configurationGroup&gt;
+            &lt;configurationGroup name=&quot;description&quot;&gt;
+              &lt;configuration name=&quot;formfield&quot;&gt;
+                &lt;!--The field type is multi-line string --&gt;
+                &lt;value&gt;STRING_MLINE&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+                &lt;!-- The headers for this field. --&gt;
+                &lt;value&gt;default:Description&lt;/value&gt;
+              &lt;/configuration&gt;
+            &lt;/configurationGroup&gt;
+            &lt;configurationGroup name=&quot;isco_88_major&quot;&gt;
+              &lt;configuration name=&quot;formfield&quot;&gt;
+                &lt;!--The field  is a mapped  value --&gt;
+                &lt;value&gt;MAP&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+                &lt;!-- The headers for this field. --&gt;
+                &lt;value&gt;default:Major Group&lt;/value&gt;
+              &lt;/configuration&gt;
+            &lt;/configurationGroup&gt;
+          &lt;/configurationGroup&gt;
+        &lt;/configurationGroup&gt;
+        &lt;configurationGroup name='iHRIS_ISCO_88_Minor'&gt;
+          &lt;configurationGroup name=&quot;fields&quot;&gt;
+            &lt;!-- The fields defined for this form --&gt;
+            &lt;configurationGroup name=&quot;name&quot;&gt;
+              &lt;configuration name=&quot;formfield&quot;&gt;
+                &lt;!--The field type is string --&gt;
+                &lt;value&gt;STRING_LINE&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+                &lt;!-- The headers for this field. --&gt;
+                &lt;value&gt;default:Minor Group&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;required&quot; type=&quot;boolean&quot;&gt;
+                &lt;!--This field is requried --&gt;
+                &lt;value&gt;true&lt;/value&gt;
+              &lt;/configuration&gt;
+            &lt;/configurationGroup&gt;
+            &lt;configurationGroup name=&quot;description&quot;&gt;
+              &lt;configuration name=&quot;formfield&quot;&gt;
+                &lt;!--The field type is mult-line string --&gt;
+                &lt;value&gt;STRING_MLINE&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+                &lt;!-- The headers for this field. --&gt;
+                &lt;value&gt;default:Description&lt;/value&gt;
+              &lt;/configuration&gt;
+            &lt;/configurationGroup&gt;
+            &lt;configurationGroup name=&quot;isco_88_sub_major&quot;&gt;
+              &lt;configuration name=&quot;formfield&quot;&gt;
+                &lt;!--The field is a mapped value --&gt;
+                &lt;value&gt;MAP&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+                &lt;!-- The headers for this field. --&gt;
+                &lt;value&gt;default:Sub-Major Group&lt;/value&gt;
+              &lt;/configuration&gt;
+            &lt;/configurationGroup&gt;
+          &lt;/configurationGroup&gt;
+        &lt;/configurationGroup&gt;
+        &lt;configurationGroup name='iHRIS_ISCO_88_Unit'&gt;
+          &lt;configurationGroup name=&quot;fields&quot;&gt;
+            &lt;!-- The fields defined for this form--&gt;
+            &lt;configurationGroup name=&quot;name&quot;&gt;
+              &lt;configuration name=&quot;formfield&quot;&gt;
+                &lt;!--The field type is string --&gt;
+                &lt;value&gt;STRING_LINE&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+                &lt;!-- The headers for this field. --&gt;
+                &lt;value&gt;default:Unit&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;required&quot; type=&quot;boolean&quot;&gt;
+                &lt;!--This field is requried --&gt;
+                &lt;value&gt;true&lt;/value&gt;
+              &lt;/configuration&gt;
+            &lt;/configurationGroup&gt;
+            &lt;configurationGroup name=&quot;description&quot;&gt;
+              &lt;configuration name=&quot;formfield&quot;&gt;
+                &lt;!--The field type is a mult-line string --&gt;
+                &lt;value&gt;STRING_LINE&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+                &lt;!-- The headers for this field. --&gt;
+                &lt;value&gt;default:Description&lt;/value&gt;
+              &lt;/configuration&gt;
+            &lt;/configurationGroup&gt;
+            &lt;configurationGroup name=&quot;isco_88_sub_major&quot;&gt;
+              &lt;configuration name=&quot;formfield&quot;&gt;
+                &lt;!--The field is a mapped-value --&gt;
+                &lt;value&gt;MAP&lt;/value&gt;
+              &lt;/configuration&gt;
+              &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+                &lt;!-- The headers for this field. --&gt;
+                &lt;value&gt;default:Minor Group&lt;/value&gt;
+              &lt;/configuration&gt;
+            &lt;/configurationGroup&gt;
+          &lt;/configurationGroup&gt;
+        &lt;/configurationGroup&gt;
+    &lt;/configurationGroup&gt;
+   &lt;configurationGroup name='isco_88_forms' path='/modules/forms/forms'&gt;
+     &lt;!--we will add a form for each of the isco 88 groupings --&gt;
+        &lt;configurationGroup name='isco_88_major'&gt;
+          &lt;configuration name='class' values='single'&gt;
+            &lt;!-- The name of the class providing the form --&gt;
+            &lt;value&gt;iHRIS_ISCO_88_Major&lt;/value&gt;
+          &lt;/configuration&gt;
+          &lt;configuration name='display' values='single'&gt;
+            &lt;!-- The display name for this form --&gt;
+            &lt;value&gt;ISCO 88 Major&lt;/value&gt;
+          &lt;/configuration&gt;
+          &lt;configuration name=&quot;storage&quot; values='single'&gt;
+            &lt;!-- The storage mechanism for this form. --!&gt;
+            &lt;value&gt;magicdata&lt;/value&gt;
+          &lt;/configuration&gt;
+        &lt;/configurationGroup&gt;
+        &lt;configurationGroup name='isco_88_sub_major'&gt;
+          &lt;configuration name='class' values='single'&gt;
+            &lt;!-- The name of the class providing the form --&gt;
+            &lt;value&gt;iHRIS_ISCO_88_Sub_Major&lt;/value&gt;
+          &lt;/configuration&gt;
+          &lt;configuration name='display' values='single'&gt;
+            &lt;!-- The display name for this form --&gt;
+            &lt;value&gt;ISCO 88 Sub-Major&lt;/value&gt;
+          &lt;/configuration&gt;
+          &lt;configuration name=&quot;storage&quot; values='single'&gt;
+            &lt;!-- The storage mechanism for this form. --!&gt;
+            &lt;value&gt;magicdata&lt;/value&gt;
+          &lt;/configuration&gt;
+        &lt;/configurationGroup&gt;
+        &lt;configurationGroup name='isco_88_minor'&gt;
+          &lt;configuration name='class' values='single'&gt;
+            &lt;!-- The name of the class providing the form --&gt;
+            &lt;value&gt;iHRIS_ISCO_88_Minor&lt;/value&gt;
+          &lt;/configuration&gt;
+          &lt;configuration name='display' values='single'&gt;
+            &lt;!-- The display name for this form --&gt;
+            &lt;value&gt;ISCO 88 Minor&lt;/value&gt;
+          &lt;/configuration&gt;
+          &lt;configuration name=&quot;storage&quot; values='single'&gt;
+            &lt;!-- The storage mechanism for this form. --&gt;
+            &lt;value&gt;magicdata&lt;/value&gt;
+          &lt;/configuration&gt;
+        &lt;/configurationGroup&gt;
+        &lt;configurationGroup name='isco_88_unit'&gt;
+          &lt;configuration name='class' values='single'&gt;
+            &lt;!-- The name of the class providing the form --&gt;
+            &lt;value&gt;iHRIS_ISCO_88_Unit&lt;/value&gt;
+          &lt;/configuration&gt;
+          &lt;configuration name='display' values='single'&gt;
+            &lt;!-- The display name for this form --&gt;
+            &lt;value&gt;ISCO 88 Unit&lt;/value&gt;
+          &lt;/configuration&gt;
+          &lt;configuration name=&quot;storage&quot; values='single'&gt;
+            &lt;!-- The storage mechanism for this form. --&gt;
+            &lt;value&gt;magicdata&lt;/value&gt;
+          &lt;/configuration&gt;
+        &lt;/configurationGroup&gt;
+     &lt;/configurationGroup&gt;
+   &lt;configurationGroup name='isco_88_field' path='/modules/forms/formClasses/iHRIS_Job/fi
+     &lt;!--Add the isco_88_unit field into iHRIS_Job which will point to the isco_88_units/
+     &lt;configuration name=&quot;formfield&quot;&gt;
+       &lt;!-- This is a mapped value--&gt;
+       &lt;value&gt;MAP&lt;/value&gt;
+     &lt;/configuration&gt;
+     &lt;configuration name=&quot;headers&quot; type=&quot;delimited&quot;&gt;
+       &lt;!-- The headers for this field. --&gt;
+       &lt;value&gt;default:ISCO 88 Code&lt;/value&gt;
+     &lt;/configuration&gt;
+     &lt;configurationGroup name=&quot;display&quot;&gt;
+       &lt;configurationGroup name=&quot;default&quot;&gt;
+         &lt;configuration name=&quot;fields&quot;&gt;
+           &lt;!--This describes the default display and select isco_88_unit field.  We star
+               in the lowest part of the hierarchy of forms,
+isco_88_unit and proceed up to the top
+               part, the isco_88_major. The forms are separated by
+colons.
+               When a value is selected, the full hierarchy is
+displayed.
+               When a value is displayed, we only display the the
+isco_88_unit data, as the
+               other forms' display is suppressed by the [ ] --&gt;
+           &lt;value&gt;isco_88_unit:[isco_88_minor]:[isco_88_sub_major]:[isco_88_major]&lt;/value
+         &lt;/configuration&gt;
+       &lt;/configurationGroup&gt;
+     &lt;/configurationGroup&gt;
+   &lt;/configurationGroup&gt;
+ &lt;/configurationGroup&gt;
+&lt;/I2CEConfiguration&gt;
+</code></pre>
+<h3>Creating The Sub-Modules</h3>
+<p>We are going to create a sub-module for each of the Major Groups.</p>
+<p>The template for the configuration file is:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE I2CEConfiguration SYSTEM &quot;I2CE_Configuration.dtd&quot;&gt;
+&lt;I2CEConfiguration name='isco-88-major-XX'&gt;
+  &lt;metadata&gt;
+    &lt;displayName&gt;ISCO 88 Job Codes&lt;/displayName&gt;
+    &lt;description&gt;The ISCO 88 Job Codes&lt;/description&gt;
+    &lt;version&gt;3.2.0&lt;/version&gt;
+    &lt;requirement name='isco-88'&gt;
+       &lt;atLeast version='3.2'/&gt;
+       &lt;lessThan version='3.3'/&gt;
+    &lt;/requirement&gt;
+ &lt;/metadata&gt;
+ &lt;configurationGroup name='isco-88-major-XX' path='/'&gt;
+   &lt;!--Form Data Goes here --&gt;
+ &lt;/configurationGroup&gt;
+&lt;/I2CEConfiguration&gt;
+</code></pre>
+<p>where XX is the Major Group number.</p>
+<p>For each Major Group number XX, we will do:</p>
+<pre><code>mkdir [BASE INSTALLATION PATH]/ihris-manage/modules/ManageJob/modules/isco_88/modules/isco_88_major_XX
+</code></pre>
+<p>and put the generated configuration file in this directory.</p>
+<h2>References</h2>
+<p>[1] http://BLAH [2] http://www.ilo.org/public/english/bureau/stat/isco/isco88/index.htm [3] http://bazaar.launchpad.net/~intrahealth%2Binformatics/ihris-manage/3.2-dev/files/head%3A/modules/ManageJob/modules/isco_88/</p>
+<p>tools/</p></div><h2>Source</h2><p class="src">iHRIS wiki, <a href="http://open.intrahealth.org/w/index.php?oldid=4224">revision 4224</a>; contributors: Litlfred, Lucaswood, MarkAHershberger. Pages 24&ndash;31 of the 2010-09-17 export (sha256 <code>958d9bf5360f2859&hellip;</code>). GNU FDL 1.2.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+<script>/* Bridge (see .fa-nav-same in ihris.css): hide a rail label that only repeats its own initial, e.g. "A A" in Contents. */
+(function(){function dedupe(){document.querySelectorAll('nav.fa-nav .fa-nav-glyph').forEach(function(g){var l=g.nextElementSibling;
+if(l&&l.classList.contains('fa-nav-label')&&!g.querySelector('img,svg')&&g.textContent.trim().toLowerCase()===l.textContent.trim().toLowerCase())l.classList.add('fa-nav-same');});}
+dedupe();new MutationObserver(dedupe).observe(document.documentElement,{childList:true,subtree:true});})();</script>
+</body>
+</html>

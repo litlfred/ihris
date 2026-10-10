@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>try{var s=localStorage.getItem("fa-color-scheme");if(s==="light"||s==="dark")document.documentElement.setAttribute("data-fa-scheme",s)}catch(e){}</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decentralized iHRIS · iHRIS Knowledge Base</title>
+<link rel="stylesheet" href="../../assets/ihris.css">
+<link rel="icon" href="../../assets/iHRIS_logo.png">
+<link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar.css"><script src="../../assets/navbar/rail-12htxqpore4.js" defer></script><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/navbar-row.css"><script src="https://litlfred.github.io/folio-assistant/assets/js/navbar-row.js" defer></script><link rel="stylesheet" href="https://litlfred.github.io/folio-assistant/assets/css/docs-ui.css" data-fa-platform-ui><script src="https://litlfred.github.io/folio-assistant/assets/js/docs-ui.js" defer data-fa-platform-ui></script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,'PR #'+f.pr));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  stamp(f);
+  measure();
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+measure();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","beans","launcher"],"hrefs":{"beans":"/beans/"},"notes":{},"folders":[{"kind":"bean-defs","label":"Bean definitions","note":"no viewer yet"},{"kind":"beans","label":"Beans","path":"/beans/"},{"kind":"catalogue","label":"Catalogue","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"glossary","label":"Glossary","path":"/glossary/"},{"kind":"library","label":"Library","path":"/library/"},{"kind":"processes","label":"Processes","note":"no viewer yet"},{"kind":"schemas","label":"Schemas","path":"/schemas/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"uploads","label":"Uploads","note":"ihris's uploads graph is not published on this site"}]}</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../..">{"data":"rail-12htxqpore4"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">iHRIS Knowledge Base</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="site">
+  <a href="../../index.html"><img src="../../assets/iHRIS_logo.png" alt="iHRIS"></a>
+  <div><p class="brand"><a href="../../index.html">iHRIS Knowledge Base</a></p>
+  <p class="tag">A folio that describes iHRIS: source, data model, toolkit and wiki</p></div>
+</header>
+<nav class="top" aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../data-model/index.html">Data model</a></li><li><a href="../../data-dictionary/index.html">Data dictionary</a></li><li><a href="../../sources/index.html">Sources</a></li><li><a href="../index.html" aria-current="page">Library</a></li><li><a href="../../schemas/index.html">Schemas</a></li><li><a href="../../glossary/index.html">Glossary</a></li><li><a href="../../data-model/search.html">Search</a></li><li><a href="../../beans/index.html">Work plan</a></li><li><a href="../../workflow/index.html">Workflow</a></li><li><a href="https://github.com/litlfred/ihris">GitHub</a></li></ul></nav>
+<main id="main" tabindex="-1"><div class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Library</a> / <a href="index.html">Administrator course</a> / Decentralized iHRIS</div>
+<h1>Decentralized iHRIS</h1>
+<div class="credit" style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:12px 0 18px"><img src="../../assets/intrahealth-logo.png" alt="IntraHealth International" width="170" style="background:#fff;border-radius:8px;padding:6px 10px;flex:none"><p style="margin:0;flex:1 1 260px"><b>iHRIS Administrator - Level I</b>, &copy; IntraHealth International, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Originally offered at <a href="http://www.hrhresourcecenter.org/elearning">hrhresourcecenter.org/elearning</a> (CapacityPlus). <span class="mute">Licence stated by its author, the folio owner, 2026-10-09.</span></p></div><div class="wiki">
+<h2>1. Decentralized iHRIS</h2>
+<p>This module outlines decentralization of iHRIS by running several iHRIS sites and aggregating data, including:</p>
+<ul>
+<li>reasons for decentralization</li>
+<li>prerequisites</li>
+<li>data model</li>
+<li>implementation details</li>
+</ul>
+<h2>2. Reasons for a Decentralized iHRIS</h2>
+<p>access: an office may not have a good Internet connection to the central server</p>
+<p>data silos: different sites are used to keep data separate (for example, data from one district cannot be edited by another district)</p>
+<p>customizations: there are different needs within a country—departments (education, health, etc.) or organizations (faith-based organizations and ministries of health) require different customizations of iHRIS</p>
+<h2>3. Standardized Data Prerequisite</h2>
+<p>Standardized Data Lists</p>
+<ul>
+<li>data sets that are shared across the sites (cadres, facility types, geography) must be standardized</li>
+<li>standardized lists should only be changed at the central level</li>
+<li>each list should be maintained as a separate module in magic data so updates can be easily distributed</li>
+</ul>
+<h2>4. Multitier Data Model</h2>
+<p>Example of a two-tier data model:</p>
+<ul>
+<li>national office (ministry of health)</li>
+<li>district health offices and hospitals</li>
+</ul>
+<p>Example of a three-tier data model:</p>
+<ul>
+<li>national office (ministry of health)</li>
+<li>regional health offices</li>
+<li>district health offices and hospitals</li>
+</ul>
+<h2>5. Two-Tier Data Model</h2>
+<p>Central Site</p>
+<ul>
+<li>maintains standard list</li>
+<li>aggregates data from decentralized sites</li>
+<li>does not edit data from decentralized sites</li>
+</ul>
+<p>Decentralized Site</p>
+<ul>
+<li>gets standard list from central site</li>
+<li>does not edit standardized lists</li>
+<li>passes local data only to central site</li>
+<li>data does not go to other decentralized sites</li>
+</ul>
+<p><img alt="two tier data model" src="images/decentralized_ihris1.gif"></p>
+<h2>6. Three-Tier Geographic Example</h2>
+<p><img alt="3 tier geographic data model" src="images/decentralized_ihris2.gif"></p>
+<h2>7. Two/Three-Tier Organizational Example</h2>
+<p><img alt="2/3 tier organizational data model" src="images/decentralized_ihris3.gif"></p>
+<h2>8. Decentralized iHRIS Implementation</h2>
+<p>Specify each form in the form storage mechanism.</p>
+<p>Specify if each form is read-write or read-only.</p>
+<p>A form should only be read-write either at the central site or at the decentralized sites.</p>
+<p>Standardized data should be in magic data:</p>
+<ul>
+<li>read-write at central site</li>
+<li>read-only at local sites</li>
+</ul>
+<h2>9. Standardized Data Example</h2>
+<p>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE I2CEConfiguration SYSTEM &quot;I2CE_Configuration.dtd&quot;&gt;
+&lt;I2CEConfiguration name='SL-geography'&gt;
+&lt;metadata&gt;
+&lt;displayName&gt;Sierra Leone Geogrpahy&lt;/displayName&gt;
+&lt;category&gt;Site&lt;/category&gt;
+&lt;description&gt;
+Sierra Leone base geographic configuration.
+&lt;/description&gt;
+&lt;version&gt;4.0.5&lt;/version&gt;
+&lt;requirement name=&quot;Geography&quot;&gt;
+&lt;atLeast version=&quot;4.0&quot; /&gt;
+&lt;lessThan version='4.1'/&gt;
+&lt;/requirement&gt;
+&lt;priority&gt;375&lt;/priority&gt;
+&lt;/metadata&gt;</p>
+<p>&lt;configurationGroup path='/' name='SL-geography'&gt;
+&lt;configurationGroup name='SL-region' path='/I2CE/formsData/forms/region'&gt;
+&lt;configurationGroup name=&quot;SL_national&quot;&gt;
+&lt;configuration name=&quot;last_modified&quot;&gt;
+&lt;value&gt;2009-11-03 09:44:41&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configurationGroup name=&quot;fields&quot;&gt;
+&lt;configuration name=&quot;name&quot;&gt;
+&lt;value&gt;National&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name=&quot;country&quot;&gt;
+&lt;value&gt;country|SL&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;configuration name=&quot;code&quot;&gt;
+&lt;value&gt;Nat&lt;/value&gt;
+&lt;/configuration&gt;
+&lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;
+&lt;/configurationGroup&gt;</p>
+<p>…..</p>
+<h2>10. Exporting Standardized Data</h2>
+<p>Export data for form "cadre":
+"Configure System"
+"Browse Magic Data Browser"
+"I2CE"
+"formsData"
+"forms"
+"cadre"</p>
+<p>Click "Options".</p>
+<p>Click "Export".</p>
+<p>Choose "Save File To Site Customizations".</p>
+<p><img alt="site customizations" src="images/decentralized_ihris4.gif"></p>
+<h2>11. Decentralized iHRIS Implementation Example</h2>
+<p>For a form storage combination of:</p>
+<ul>
+<li>central site: multi-flat read-only</li>
+<li>decentralized site: entry read-write</li>
+</ul>
+<p>Data is aggregated from decentralized sites to central site.</p>
+<p>Form examples:</p>
+<ul>
+<li>person</li>
+<li>person_position</li>
+<li>salary</li>
+</ul>
+<p>ID examples:</p>
+<ul>
+<li>"person|5" used at decentralized sites. This is the id that is assigned by the system at one of the decentralized sites for a particular person's record. Multiple sites can use the same id, so the central system automatically addresses this when aggregating data (see next bullet).</li>
+<li>" person|5@EZ " and "person|5@WZ" used at the central site to import two different person records. The first is from the Eastern Zone, the second is from the Western Zone. These are the id's that are created by the central system when it aggregates the data from each of the decentralized sites to the central site. You'll see that it appends to the id from the decentralized site information on where that person's record came from -- the Eastern Zone and the Western Zone.</li>
+</ul>
+<h2>12. Decentralized iHRIS Implementation Example</h2>
+<p>For a form storage combination of:</p>
+<ul>
+<li>central site: magic data read-write</li>
+<li>decentralized site: magic data read-only</li>
+</ul>
+<p>Standard lists are set at the central site.</p>
+<p>Form examples:</p>
+<ul>
+<li>cadre</li>
+<li>geography</li>
+</ul>
+<p>ID example:</p>
+<ul>
+<li>country|TZ used at both central and decentralized sites</li>
+</ul>
+<h2>13. Decentralized iHRIS Implementation Example</h2>
+<p>For a form storage combination of:</p>
+<ul>
+<li>central site: magic data read-only</li>
+<li>decentralized site: magic data read-write</li>
+</ul>
+<p>All nonstandard translatable data is maintained at decentralized sites.</p>
+<p>Data may be pushed down to subsites (district level).</p>
+<p>Form examples:</p>
+<ul>
+<li>facility</li>
+<li>competency_type</li>
+</ul>
+<p>ID examples:</p>
+<ul>
+<li>"facility|15" used at decentralized sites</li>
+<li>"facility|15@EZ" and "facility|15@WZ" used at the central site</li>
+</ul></div><h2>Source</h2><p class="src">Lesson in Section 4 of <a href="index.html#section-4">iHRIS Administrator - Level I</a>, Moodle course module cm-61; <code>library/ihris-admin-course/modules/cm-61.md</code>.</p>
+</main>
+<footer>Colours, fonts and logo from iHRIS Manage 4.3.3, (c) IntraHealth International, GPL. Generated by <code>src/tools/build_site.py</code> from
+<a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
+</div>
+
+<script>/* Bridge (see .fa-nav-same in ihris.css): hide a rail label that only repeats its own initial, e.g. "A A" in Contents. */
+(function(){function dedupe(){document.querySelectorAll('nav.fa-nav .fa-nav-glyph').forEach(function(g){var l=g.nextElementSibling;
+if(l&&l.classList.contains('fa-nav-label')&&!g.querySelector('img,svg')&&g.textContent.trim().toLowerCase()===l.textContent.trim().toLowerCase())l.classList.add('fa-nav-same');});}
+dedupe();new MutationObserver(dedupe).observe(document.documentElement,{childList:true,subtree:true});})();</script>
+</body>
+</html>
