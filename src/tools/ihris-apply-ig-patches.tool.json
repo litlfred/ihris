@@ -1,7 +1,7 @@
 {
   "id": "ihris-apply-ig-patches",
   "title": "Apply declared IG build patches to a workspace copy",
-  "description": "Applies a sub-instance's ig-build-patches.json (ihris-ig-build-patches/v1) to a WORKSPACE copy of its declared IG source before fhir-harness builds it: each patch replaces one exact text exactly once, and a patch whose text is absent or repeated stops the build. It refuses to patch a mounted source (<name>-source/). Each patch is an upstream defect to report, never a fork.",
+  "description": "Applies a sub-instance's ig-build-patches.json (ihris-ig-build-patches/v1) to a WORKSPACE copy of its declared IG source before it is built: a patch replaces one exact text exactly once, or copies one file of the same pinned source into the copy (copyFrom); a patch whose text is absent or repeated, or a copy onto an existing file, stops the build. Paths are relative to the declared source path unless the patch's base is `repository`, so one list serves every IG of the repository; only the patches inside the given workspace apply. Used by build_ihris5_ig.sh (the published IG) and map_ihris5.py (all three IGs, for the F4 index). It refuses to patch a mounted source (<name>-source/). Each patch is an upstream defect to report, never a fork.",
   "install": {
     "none": true
   },

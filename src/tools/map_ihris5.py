@@ -15,7 +15,8 @@ Design: docs/design/fhir-strategy.md (D6 target: all three iHRIS 5 IGs; D6 forma
    the Questionnaire items whose `definition` names a profile element. Types SUSHI leaves out of a differential are
    resolved from FHIR R4 core. The result, names and labels only with the sha256 of each compiled file, is committed
    as src/ihris-4-on-fhir/mapping/ihris5-index.json, so CI (which does not mount iHRIS 5) checks against it. SUSHI's
-   errors are recorded there as upstream defects, never patched here.
+   errors are recorded there. The copies get the declared workspace patches (src/ihris5/ig-build-patches.json: each
+   an upstream defect drafted in docs/upstream/ihris5-ig-defects.md), and the index records which were applied.
 2. MATCH. Deterministic, and only on equality after normalisation. No synonym table and no judgement:
    - model level, per IG: a logical model's names (its group, title, I2CE class, forms and the forms' display names
      in the module records) equal to a profile's name, id or title, or to those of a complex extension the profile
@@ -46,8 +47,10 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gen_fsh  # noqa: E402  element names and FHIR types of the logical models, one definition
+import apply_ig_patches  # noqa: E402  the declared workspace patches, one implementation
 
 SRC = os.path.join(ROOT, "ihris5-source")
+PATCHES = os.path.join(ROOT, "src", "ihris5", "ig-build-patches.json")
 BUILD = os.path.join(ROOT, ".build", "ihris5-sd")
 MAPPING = os.path.join(ROOT, "src", "ihris-4-on-fhir", "mapping")
 INDEX = os.path.join(MAPPING, "ihris5-index.json")
@@ -153,14 +156,23 @@ def core_types(path):
 
 
 def compile_ig(ig_id, ig_path):
-    """Copy one IG's sushi-config.yaml and input/ to .build/ihris5-sd/<id>/ and build it. Returns (errors, warnings,
-    unique error messages). The mounted source is never written."""
+    """Copy one IG's sushi-config.yaml and input/ to .build/ihris5-sd/<id>/ (the backend IGs' `core` symlink resolved
+    into the copy), apply the declared build patches (src/ihris5/ig-build-patches.json) to that copy, and build it.
+    Returns (errors, warnings, unique error messages, ids of the patches applied). The mounted source is never written."""
     w = os.path.join(BUILD, ig_id)
     if os.path.isdir(w):
         shutil.rmtree(w)
     os.makedirs(w)
     shutil.copy(os.path.join(SRC, ig_path, "sushi-config.yaml"), w)
     shutil.copytree(os.path.join(SRC, ig_path, "input"), os.path.join(w, "input"))
+    # Where each copied file came from in the repository, following the symlinks the copy resolved.
+    ws_of_repo, src_real = {}, os.path.realpath(SRC)
+    for d, _, files in os.walk(os.path.join(SRC, ig_path, "input"), followlinks=True):
+        wd = os.path.join(w, os.path.relpath(d, os.path.join(SRC, ig_path)))
+        ws_of_repo.setdefault(os.path.relpath(os.path.realpath(d), src_real), wd)
+        for f in files:
+            ws_of_repo.setdefault(os.path.relpath(os.path.realpath(os.path.join(d, f)), src_real), os.path.join(wd, f))
+    applied = apply_ig_patches.apply(J(PATCHES), w, ws_of_repo, source_root=SRC, log=lambda m: None)
     r = subprocess.run(["sushi", "build", w], capture_output=True, text=True)
     text = r.stdout + r.stderr
     open(os.path.join(w, "sushi.log"), "w", encoding="utf-8").write(text)
@@ -168,11 +180,11 @@ def compile_ig(ig_id, ig_path):
     if not m:
         raise SystemExit(f"map_ihris5: SUSHI did not report a result for {ig_id}:\n{text[-2000:]}")
     msgs = sorted({re.sub(r"\s+", " ", x).strip() for x in re.findall(r"^error\s+(.*)$", text, re.M)})
-    return int(m.group(1)), int(m.group(2)), msgs
+    return int(m.group(1)), int(m.group(2)), msgs, applied
 
 
 def index_ig(ig_id, ig_path):
-    errors, warnings, msgs = compile_ig(ig_id, ig_path)
+    errors, warnings, msgs, applied = compile_ig(ig_id, ig_path)
     out_dir = os.path.join(BUILD, ig_id, "fsh-generated", "resources")
     cfg = open(os.path.join(SRC, ig_path, "sushi-config.yaml"), encoding="utf-8").read()
     field = lambda k: (re.search(rf"^{k}:\s*(.+)$", cfg, re.M) or [None, None])[1]  # noqa: E731
@@ -217,7 +229,7 @@ def index_ig(ig_id, ig_path):
         questionnaires.append({"url": q.get("url"), "title": q.get("title"), "file": os.path.basename(p),
                                "sha256": sha256_file(p), "items": items})
     return {"id": ig_id, "path": ig_path, "title": field("title"), "canonical": field("canonical"),
-            "compile": {"errors": errors, "warnings": warnings, "errorMessages": msgs},
+            "compile": {"errors": errors, "warnings": warnings, "errorMessages": msgs, "patchesApplied": applied},
             "structures": structures, "questionnaires": questionnaires}
 
 

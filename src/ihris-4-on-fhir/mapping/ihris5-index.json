@@ -16,8 +16,11 @@
    "canonical": "http://ihris.org/fhir",
    "compile": {
     "errors": 0,
-    "warnings": 6,
-    "errorMessages": []
+    "warnings": 5,
+    "errorMessages": [],
+    "patchesApplied": [
+     "role-primary-context"
+    ]
    },
    "structures": [
     {
@@ -3635,7 +3638,7 @@
      "kind": "complex-type",
      "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
      "file": "StructureDefinition-ihris-role-primary.json",
-     "sha256": "3c1c0f2ce29b0c92799e0a19ea08784a643298d84a86f98ed3f922d38096089f",
+     "sha256": "5f9507779509501b042167783107cf87bcfe3117a6896d0bca53404fd02bd22e",
      "elements": [
       {
        "id": "Extension"
@@ -5043,8 +5046,11 @@
    "canonical": "http://ihris.org/fhir",
    "compile": {
     "errors": 0,
-    "warnings": 7,
-    "errorMessages": []
+    "warnings": 6,
+    "errorMessages": [],
+    "patchesApplied": [
+     "role-primary-context"
+    ]
    },
    "structures": [
     {
@@ -13059,7 +13065,7 @@
      "kind": "complex-type",
      "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
      "file": "StructureDefinition-ihris-role-primary.json",
-     "sha256": "3c1c0f2ce29b0c92799e0a19ea08784a643298d84a86f98ed3f922d38096089f",
+     "sha256": "5f9507779509501b042167783107cf87bcfe3117a6896d0bca53404fd02bd22e",
      "elements": [
       {
        "id": "Extension"
@@ -15967,11 +15973,13 @@
    "title": "iHRIS Qualify Implementation Guide",
    "canonical": "http://ihris.org/fhir",
    "compile": {
-    "errors": 2,
-    "warnings": 7,
-    "errorMessages": [
-     "No definition for the type \"IhrisFacility\" could be found.",
-     "No definition for the type \"IhrisJurisdiction\" could be found."
+    "errors": 0,
+    "warnings": 6,
+    "errorMessages": [],
+    "patchesApplied": [
+     "role-primary-context",
+     "qualify-include-location",
+     "qualify-residence-jurisdiction"
     ]
    },
    "structures": [
@@ -17531,6 +17539,118 @@
      ]
     },
     {
+     "url": "http://ihris.org/fhir/StructureDefinition/ihris-country",
+     "id": "ihris-country",
+     "name": "IhrisCountry",
+     "title": "Country",
+     "type": "Location",
+     "kind": "resource",
+     "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Location",
+     "file": "StructureDefinition-ihris-country.json",
+     "sha256": "79e78ce98aeb1cad957b9a53a71efbc4890973773c2e97e10f10509f97dd7b13",
+     "elements": [
+      {
+       "id": "Location.extension"
+      },
+      {
+       "id": "Location.extension:boundary",
+       "label": "Location Boundary (GeoJSON)",
+       "types": [
+        "Extension"
+       ],
+       "typeFrom": "differential",
+       "profiles": [
+        "http://ihris.org/fhir/StructureDefinition/location-boundary-geojson"
+       ],
+       "min": 0,
+       "max": "1"
+      },
+      {
+       "id": "Location.extension:boundary.value[x]",
+       "label": "Location Boundary (GeoJSON)"
+      },
+      {
+       "id": "Location.extension:boundary.value[x].contentType"
+      },
+      {
+       "id": "Location.extension:boundary.value[x].data"
+      },
+      {
+       "id": "Location.identifier",
+       "label": "Identifier",
+       "types": [
+        "Identifier"
+       ],
+       "typeFrom": "r4-core",
+       "max": "1"
+      },
+      {
+       "id": "Location.identifier.value",
+       "label": "Code",
+       "types": [
+        "string"
+       ],
+       "typeFrom": "r4-core"
+      },
+      {
+       "id": "Location.status",
+       "label": "Status",
+       "types": [
+        "code"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.name",
+       "label": "Name",
+       "types": [
+        "string"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.type",
+       "label": "Location Type",
+       "types": [
+        "CodeableConcept"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1,
+       "max": "1"
+      },
+      {
+       "id": "Location.type.coding",
+       "label": "Location Type",
+       "types": [
+        "Coding"
+       ],
+       "typeFrom": "r4-core",
+       "binding": "http://ihris.org/fhir/ValueSet/ihris-jurisdiction-type",
+       "min": 1,
+       "max": "1"
+      },
+      {
+       "id": "Location.physicalType",
+       "label": "Location Physical Type",
+       "types": [
+        "CodeableConcept"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.partOf",
+       "types": [
+        "Reference"
+       ],
+       "typeFrom": "r4-core",
+       "max": "0"
+      }
+     ]
+    },
+    {
      "url": "http://ihris.org/fhir/StructureDefinition/ihris-dashboard-visualization",
      "id": "ihris-dashboard-visualization",
      "name": "IhrisDashboardVisualization",
@@ -17899,7 +18019,7 @@
      "kind": "complex-type",
      "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
      "file": "StructureDefinition-ihris-deployment.json",
-     "sha256": "293e7451987d4076c47b51d456b03cbbb2d6c26f82ecfce0e6ec4911f9117e6d",
+     "sha256": "f4040a77a23f5ebb069d3a4cd3534f3aa5aef98f160b0a119a789c5648ae9da5",
      "elements": [
       {
        "id": "Extension"
@@ -18099,6 +18219,119 @@
      ]
     },
     {
+     "url": "http://ihris.org/fhir/StructureDefinition/ihris-district",
+     "id": "ihris-district",
+     "name": "IhrisDistrict",
+     "title": "District",
+     "type": "Location",
+     "kind": "resource",
+     "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Location",
+     "file": "StructureDefinition-ihris-district.json",
+     "sha256": "2ce173ac66afed202825dd6cf5dc1314fecdcc6f7c7b104aec9ce370ae60dc77",
+     "elements": [
+      {
+       "id": "Location.extension"
+      },
+      {
+       "id": "Location.extension:boundary",
+       "label": "Location Boundary (GeoJSON)",
+       "types": [
+        "Extension"
+       ],
+       "typeFrom": "differential",
+       "profiles": [
+        "http://ihris.org/fhir/StructureDefinition/location-boundary-geojson"
+       ],
+       "min": 0,
+       "max": "1"
+      },
+      {
+       "id": "Location.extension:boundary.value[x]",
+       "label": "Location Boundary (GeoJSON)"
+      },
+      {
+       "id": "Location.extension:boundary.value[x].contentType"
+      },
+      {
+       "id": "Location.extension:boundary.value[x].data"
+      },
+      {
+       "id": "Location.identifier",
+       "label": "Identifier",
+       "types": [
+        "Identifier"
+       ],
+       "typeFrom": "r4-core",
+       "max": "1"
+      },
+      {
+       "id": "Location.identifier.value",
+       "label": "Code",
+       "types": [
+        "string"
+       ],
+       "typeFrom": "r4-core"
+      },
+      {
+       "id": "Location.status",
+       "label": "Status",
+       "types": [
+        "code"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.name",
+       "label": "Name",
+       "types": [
+        "string"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.type",
+       "label": "Location Type",
+       "types": [
+        "CodeableConcept"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1,
+       "max": "1"
+      },
+      {
+       "id": "Location.type.coding",
+       "label": "Location Type",
+       "types": [
+        "Coding"
+       ],
+       "typeFrom": "r4-core",
+       "binding": "http://ihris.org/fhir/ValueSet/ihris-jurisdiction-type",
+       "min": 1,
+       "max": "1"
+      },
+      {
+       "id": "Location.physicalType",
+       "label": "Location Physical Type",
+       "types": [
+        "CodeableConcept"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.partOf",
+       "label": "Region",
+       "types": [
+        "Reference"
+       ],
+       "typeFrom": "differential",
+       "min": 1
+      }
+     ]
+    },
+    {
      "url": "http://ihris.org/fhir/StructureDefinition/ihris-document",
      "id": "ihris-document",
      "name": "IhrisDocument",
@@ -18271,6 +18504,184 @@
       {
        "id": "Extension.value[x]",
        "max": "0"
+      }
+     ]
+    },
+    {
+     "url": "http://ihris.org/fhir/StructureDefinition/ihris-facility-ownership-prefix",
+     "id": "ihris-facility-ownership-prefix",
+     "name": "IhrisFacilityOwnership",
+     "title": "iHRIS facility ownership type",
+     "type": "Extension",
+     "kind": "complex-type",
+     "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+     "file": "StructureDefinition-ihris-facility-ownership-prefix.json",
+     "sha256": "9582c47956ebf584555fbb4989cb3fc940cc20638fee7e46a3822e273b9fc42b",
+     "elements": [
+      {
+       "id": "Extension"
+      },
+      {
+       "id": "Extension.extension",
+       "max": "0"
+      },
+      {
+       "id": "Extension.url",
+       "fixedUri": "http://ihris.org/fhir/StructureDefinition/ihris-facility-ownership-prefix"
+      },
+      {
+       "id": "Extension.value[x]",
+       "label": "Ownership",
+       "types": [
+        "Coding"
+       ],
+       "typeFrom": "differential",
+       "binding": "http://ihris.org/fhir/ValueSet/Ihris-facility-ownership",
+       "min": 1
+      }
+     ]
+    },
+    {
+     "url": "http://ihris.org/fhir/StructureDefinition/ihris-facility",
+     "id": "ihris-facility",
+     "name": "IhrisFacility",
+     "title": "Facility",
+     "type": "Location",
+     "kind": "resource",
+     "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Location",
+     "file": "StructureDefinition-ihris-facility.json",
+     "sha256": "b81127e92b487ca7039b65ba054609e19e90efb0e045bb878cd84f37882c4ef8",
+     "elements": [
+      {
+       "id": "Location.extension"
+      },
+      {
+       "id": "Location.extension:ownership",
+       "label": "Ownership",
+       "types": [
+        "Extension"
+       ],
+       "typeFrom": "differential",
+       "profiles": [
+        "http://ihris.org/fhir/StructureDefinition/ihris-facility-ownership-prefix"
+       ],
+       "min": 0,
+       "max": "1"
+      },
+      {
+       "id": "Location.identifier",
+       "label": "Identifier",
+       "types": [
+        "Identifier"
+       ],
+       "typeFrom": "r4-core",
+       "max": "1"
+      },
+      {
+       "id": "Location.identifier.use",
+       "types": [
+        "code"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.identifier.type",
+       "label": "Type",
+       "types": [
+        "CodeableConcept"
+       ],
+       "typeFrom": "r4-core",
+       "binding": "http://ihris.org/fhir/ValueSet/ihris-Facility-identifier-valueset"
+      },
+      {
+       "id": "Location.identifier.type.coding",
+       "label": "Type",
+       "types": [
+        "Coding"
+       ],
+       "typeFrom": "r4-core",
+       "binding": "http://ihris.org/fhir/ValueSet/ihris-Facility-identifier-valueset"
+      },
+      {
+       "id": "Location.identifier.value",
+       "label": "Value",
+       "types": [
+        "string"
+       ],
+       "typeFrom": "r4-core"
+      },
+      {
+       "id": "Location.status",
+       "label": "Status",
+       "types": [
+        "code"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.name",
+       "label": "Name",
+       "types": [
+        "string"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.type",
+       "label": "Facility Type",
+       "types": [
+        "CodeableConcept"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1,
+       "max": "1"
+      },
+      {
+       "id": "Location.type.coding",
+       "label": "Facility Type",
+       "types": [
+        "Coding"
+       ],
+       "typeFrom": "r4-core",
+       "binding": "http://ihris.org/fhir/ValueSet/facility-type-valueset",
+       "min": 1,
+       "max": "1"
+      },
+      {
+       "id": "Location.position",
+       "label": "Co-ordinates",
+       "types": [
+        "BackboneElement"
+       ],
+       "typeFrom": "r4-core"
+      },
+      {
+       "id": "Location.position.longitude",
+       "label": "Longitude",
+       "types": [
+        "decimal"
+       ],
+       "typeFrom": "r4-core"
+      },
+      {
+       "id": "Location.position.latitude",
+       "label": "Latitude",
+       "types": [
+        "decimal"
+       ],
+       "typeFrom": "r4-core"
+      },
+      {
+       "id": "Location.partOf",
+       "label": "Location",
+       "types": [
+        "Reference"
+       ],
+       "typeFrom": "differential",
+       "min": 1
       }
      ]
     },
@@ -20782,7 +21193,7 @@
      "kind": "complex-type",
      "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
      "file": "StructureDefinition-ihris-practitioner-residence.json",
-     "sha256": "bf6421bac9982c0ae74d20871252e0853b83f3854b55414152def1a5ff3d6cb5",
+     "sha256": "041bf30611109fc5bf77bd8a334d0b2f0ba59ccca88e93b52df6c2d9875bd161",
      "elements": [
       {
        "id": "Extension"
@@ -21277,6 +21688,119 @@
      ]
     },
     {
+     "url": "http://ihris.org/fhir/StructureDefinition/ihris-region",
+     "id": "ihris-region",
+     "name": "IhrisRegion",
+     "title": "Region",
+     "type": "Location",
+     "kind": "resource",
+     "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Location",
+     "file": "StructureDefinition-ihris-region.json",
+     "sha256": "6e12fbcd1587e7384feba7a8d23cb49c490641e00d145e1e141729edcc046f8d",
+     "elements": [
+      {
+       "id": "Location.extension"
+      },
+      {
+       "id": "Location.extension:boundary",
+       "label": "Location Boundary (GeoJSON)",
+       "types": [
+        "Extension"
+       ],
+       "typeFrom": "differential",
+       "profiles": [
+        "http://ihris.org/fhir/StructureDefinition/location-boundary-geojson"
+       ],
+       "min": 0,
+       "max": "1"
+      },
+      {
+       "id": "Location.extension:boundary.value[x]",
+       "label": "Location Boundary (GeoJSON)"
+      },
+      {
+       "id": "Location.extension:boundary.value[x].contentType"
+      },
+      {
+       "id": "Location.extension:boundary.value[x].data"
+      },
+      {
+       "id": "Location.identifier",
+       "label": "Identifier",
+       "types": [
+        "Identifier"
+       ],
+       "typeFrom": "r4-core",
+       "max": "1"
+      },
+      {
+       "id": "Location.identifier.value",
+       "label": "Code",
+       "types": [
+        "string"
+       ],
+       "typeFrom": "r4-core"
+      },
+      {
+       "id": "Location.status",
+       "label": "Status",
+       "types": [
+        "code"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.name",
+       "label": "Name",
+       "types": [
+        "string"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.type",
+       "label": "Location Type",
+       "types": [
+        "CodeableConcept"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1,
+       "max": "1"
+      },
+      {
+       "id": "Location.type.coding",
+       "label": "Location Type",
+       "types": [
+        "Coding"
+       ],
+       "typeFrom": "r4-core",
+       "binding": "http://ihris.org/fhir/ValueSet/ihris-jurisdiction-type",
+       "min": 1,
+       "max": "1"
+      },
+      {
+       "id": "Location.physicalType",
+       "label": "Location Physical Type",
+       "types": [
+        "CodeableConcept"
+       ],
+       "typeFrom": "r4-core",
+       "min": 1
+      },
+      {
+       "id": "Location.partOf",
+       "label": "Country",
+       "types": [
+        "Reference"
+       ],
+       "typeFrom": "differential",
+       "min": 1
+      }
+     ]
+    },
+    {
      "url": "http://ihris.org/fhir/StructureDefinition/ihris-registration",
      "id": "ihris-registration",
      "name": "IhrisRegistration",
@@ -21555,7 +22079,7 @@
      "kind": "complex-type",
      "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
      "file": "StructureDefinition-ihris-role-primary.json",
-     "sha256": "3c1c0f2ce29b0c92799e0a19ea08784a643298d84a86f98ed3f922d38096089f",
+     "sha256": "5f9507779509501b042167783107cf87bcfe3117a6896d0bca53404fd02bd22e",
      "elements": [
       {
        "id": "Extension"
@@ -22966,6 +23490,71 @@
        "label": "Settings",
        "types": [
         "base64Binary"
+       ],
+       "typeFrom": "differential",
+       "min": 1
+      }
+     ]
+    },
+    {
+     "url": "http://ihris.org/fhir/StructureDefinition/location-boundary-geojson",
+     "id": "location-boundary-geojson",
+     "name": "LocBoundaryGeojson",
+     "title": "Location Boundary (GeoJSON)",
+     "type": "Extension",
+     "kind": "complex-type",
+     "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+     "file": "StructureDefinition-location-boundary-geojson.json",
+     "sha256": "f44a5f78e96c5997af681dccc5641f20d5ed145c18906267d24e786aa087c852",
+     "elements": [
+      {
+       "id": "Extension",
+       "max": "1"
+      },
+      {
+       "id": "Extension.extension",
+       "max": "0"
+      },
+      {
+       "id": "Extension.url",
+       "fixedUri": "http://ihris.org/fhir/StructureDefinition/location-boundary-geojson"
+      },
+      {
+       "id": "Extension.value[x]",
+       "types": [
+        "Attachment"
+       ],
+       "typeFrom": "differential"
+      }
+     ]
+    },
+    {
+     "url": "http://ihris.org/fhir/StructureDefinition/locationcode",
+     "id": "locationcode",
+     "name": "LocationCode",
+     "title": "Code",
+     "type": "Extension",
+     "kind": "complex-type",
+     "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+     "file": "StructureDefinition-locationcode.json",
+     "sha256": "46b4eaeefeb5f4efd58fe105a1712c979c26cb2c69f4eaec63a4c2a8fb038242",
+     "elements": [
+      {
+       "id": "Extension"
+      },
+      {
+       "id": "Extension.extension",
+       "max": "0"
+      },
+      {
+       "id": "Extension.url",
+       "fixedUri": "http://ihris.org/fhir/StructureDefinition/locationcode"
+      },
+      {
+       "id": "Extension.value[x]",
+       "label": "Code",
+       "types": [
+        "string"
        ],
        "typeFrom": "differential",
        "min": 1
