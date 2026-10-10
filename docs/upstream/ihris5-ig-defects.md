@@ -5,8 +5,9 @@ the iHRIS 4 logical models to them (F4, bean `ihris-7gl8`). The source is
 [iHRIS/iHRIS@fa66e9b](https://github.com/iHRIS/iHRIS/tree/fa66e9b375e38525236d28459ec5e5eb3875e2b2), which is `master`
 on 2026-10-09. The compiler is SUSHI 3.20.1 against `hl7.fhir.r4.core#4.0.1`.
 
-Each section below is one issue, ready to file. **Not filed yet:** on 2026-10-09 GitHub refused to create issues on iHRIS/iHRIS for this account (`403 Resource not accessible by integration`). The five defects were re-checked on `master` and none is covered by an existing issue (all 41 open and closed issues read). Someone with issue rights on iHRIS/iHRIS files them, or the account gets access. The first defect is the only one this folio works around
-(`src/ihris5/ig-build-patches.json`). Delete that patch when the pin moves past the fix.
+Each section below is one issue, ready to file. **Not filed yet:** on 2026-10-09 GitHub refused to create issues on iHRIS/iHRIS for this account (`403 Resource not accessible by integration`). The five defects were re-checked on `master` and none is covered by an existing issue (all 41 open and closed issues read). Someone with issue rights on iHRIS/iHRIS files them, or the account gets access. This folio works around defects 1 and 2 in workspace copies only (`src/ihris5/ig-build-patches.json`:
+`role-primary-context`, `qualify-include-location`, `qualify-residence-jurisdiction`; owner, 2026-10-09: "do the #2
+qualify local fix"). Delete each patch when the pin moves past its fix.
 
 ---
 

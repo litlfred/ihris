@@ -14,7 +14,7 @@ parent: ihris-g768
 
 Drafts in `docs/upstream/ihris5-ig-defects.md`, found building the three iHRIS 5 IGs with SUSHI 3.20.1 at iHRIS/iHRIS@fa66e9b (master, 2026-10-09):
 1. IhrisRolePrimary sets ^context[1] with no context[0]; the IG Publisher cannot parse it (the one defect patched here: src/ihris5/ig-build-patches.json).
-2. qualify-ig references IhrisFacility (defined only in the manage IG) and IhrisJurisdiction (defined nowhere): 2 SUSHI errors.
+2. qualify-ig references IhrisFacility (defined only in the manage IG) and IhrisJurisdiction (defined nowhere): 2 SUSHI errors. Worked around locally by the workspace patches qualify-include-location and qualify-residence-jurisdiction (owner, 2026-10-09).
 3. The three IGs share canonical http://ihris.org/fhir and package ihris#0.1.0, yet define different content at 7 canonical URLs (ihris-practitioner, ...).
 4. Duplicate FSH names (IhrisRole, IhrisJob, ...) make by-name references ambiguous.
 5. ValueSet name Iso3166-1-2 is not computable.

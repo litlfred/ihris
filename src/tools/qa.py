@@ -816,12 +816,23 @@ def c_ig_build_patches(C):
             continue
         if d["source"] != f"{src['repository']}@{src['ref']}":
             out.append(f"{rel}: written against {d['source']}, but {name} now pins {src['repository']}@{src['ref']}; re-check every patch")
-        base = os.path.join(ROOT, folio_platform.source_mount_path(name), src.get("path") or "")
+        mount = os.path.join(ROOT, folio_platform.source_mount_path(name))
+        ids = [p["id"] for p in d["patches"]]
+        for dup in sorted({i for i in ids if ids.count(i) > 1}):
+            out.append(f"{rel}: patch id {dup} is used twice")
         for p in d["patches"]:
+            at = (lambda k: p[k]) if p.get("base") == "repository" else (lambda k: f"{src.get('path') or '.'}/{p[k]}")
+            f = os.path.join(mount, at("file"))
+            if "copyFrom" in p:
+                # A copy adds a file the source lacks, from the same pinned source.
+                if os.path.isdir(mount) and (os.path.exists(f) or not os.path.isfile(os.path.join(mount, at("copyFrom")))
+                                             or not os.path.isdir(os.path.dirname(f))):
+                    out.append(f"{rel}: {p['id']} copies {at('copyFrom')} onto {at('file')}, but the source already has that file, "
+                               "lacks the original, or lacks the directory")
+                continue
             if p["find"] == p["replace"]:
                 out.append(f"{rel}: the patch on {p['file']} changes nothing")
-            f = os.path.join(base, p["file"])
-            if os.path.isdir(base) and (not os.path.exists(f) or open(f, encoding="utf-8").read().count(p["find"]) != 1):
+            if os.path.isdir(mount) and (not os.path.exists(f) or open(f, encoding="utf-8").read().count(p["find"]) != 1):
                 out.append(f"{rel}: the patch text for {p['file']} does not occur exactly once in the mounted source")
     return out
 

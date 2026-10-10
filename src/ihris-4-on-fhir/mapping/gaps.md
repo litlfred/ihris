@@ -10,7 +10,7 @@ iHRIS 5 is iHRIS/iHRIS at `fa66e9b375e3`, compiled with SUSHI 3.20.1. Matches ar
 |---|---|---|---|---|
 | `ig` (ig) | 0 | 3 / 0 / 0 / 48 | 2 / 0 / 3 / 4 | 2 |
 | `manage` (ihris-backend/ihris-backend-site/ig) | 0 | 6 / 0 / 4 / 41 | 9 / 0 / 2 / 26 | 3 |
-| `qualify` (ihris-backend/ihris-backend-site/qualify-ig) | 2 | 9 / 0 / 2 / 40 | 12 / 0 / 4 / 32 | 6 |
+| `qualify` (ihris-backend/ihris-backend-site/qualify-ig) | 0 | 9 / 0 / 2 / 40 | 12 / 0 / 4 / 32 | 6 |
 
 ## Models with a candidate
 
@@ -763,7 +763,7 @@ iHRIS 5 is iHRIS/iHRIS at `fa66e9b375e3`, compiled with SUSHI 3.20.1. Matches ar
 - PractitionerSurname (Practitioner Surname), `http://ihris.org/fhir/StructureDefinition/practitioner-surname`
 - TaskAttributes (Task Attributes), `http://ihris.org/fhir/StructureDefinition/task-attributes`
 
-## iHRIS 5 `qualify`: profile elements with no iHRIS 4 source (183)
+## iHRIS 5 `qualify`: profile elements with no iHRIS 4 source (212)
 
 | profile | element | label | has a candidate |
 |---|---|---|---|
@@ -822,6 +822,12 @@ iHRIS 5 is iHRIS/iHRIS at `fa66e9b375e3`, compiled with SUSHI 3.20.1. Matches ar
 | IhrisBasicRegistration | `Basic.extension:registration.extension:serialNumber` | Serial Number |  |
 | IhrisBasicTraining | `Basic.extension:practitioner` | Practitioner |  |
 | IhrisBasicTraining | `Basic.extension:training.extension:indexNumber` | Index Number | yes |
+| IhrisCountry | `Location.extension:boundary` | Location Boundary (GeoJSON) |  |
+| IhrisCountry | `Location.identifier.value` | Code |  |
+| IhrisCountry | `Location.status` | Status |  |
+| IhrisCountry | `Location.name` | Name |  |
+| IhrisCountry | `Location.type.coding` | Location Type |  |
+| IhrisCountry | `Location.physicalType` | Location Physical Type |  |
 | IhrisDashboard | `Basic.extension:name` | Name |  |
 | IhrisDashboard | `Basic.extension:visualization.extension:vizID` | Visualization ID |  |
 | IhrisDashboard | `Basic.extension:visualization.extension:horizontal` | Visualization Horizontal Position |  |
@@ -846,6 +852,22 @@ iHRIS 5 is iHRIS/iHRIS at `fa66e9b375e3`, compiled with SUSHI 3.20.1. Matches ar
 | IhrisDataVisualization | `Basic.extension:filters` | Filters |  |
 | IhrisDataVisualization | `Basic.extension:permissions.extension:shared` | Visualization Sharing |  |
 | IhrisDataVisualization | `Basic.extension:settings` | Settings |  |
+| IhrisDistrict | `Location.extension:boundary` | Location Boundary (GeoJSON) |  |
+| IhrisDistrict | `Location.identifier.value` | Code |  |
+| IhrisDistrict | `Location.status` | Status |  |
+| IhrisDistrict | `Location.name` | Name |  |
+| IhrisDistrict | `Location.type.coding` | Location Type |  |
+| IhrisDistrict | `Location.physicalType` | Location Physical Type |  |
+| IhrisDistrict | `Location.partOf` | Region |  |
+| IhrisFacility | `Location.extension:ownership` | Ownership |  |
+| IhrisFacility | `Location.identifier.type.coding` | Type |  |
+| IhrisFacility | `Location.identifier.value` | Value |  |
+| IhrisFacility | `Location.status` | Status |  |
+| IhrisFacility | `Location.name` | Name |  |
+| IhrisFacility | `Location.type.coding` | Facility Type |  |
+| IhrisFacility | `Location.position.longitude` | Longitude |  |
+| IhrisFacility | `Location.position.latitude` | Latitude |  |
+| IhrisFacility | `Location.partOf` | Location |  |
 | IhrisPage | `Basic.extension:display.extension:resource` | Primary Resource |  |
 | IhrisPage | `Basic.extension:display.extension:search` | Search Headers |  |
 | IhrisPage | `Basic.extension:display.extension:filter` | Search Filters |  |
@@ -902,6 +924,13 @@ iHRIS 5 is iHRIS/iHRIS at `fa66e9b375e3`, compiled with SUSHI 3.20.1. Matches ar
 | IhrisPractitioner | `Practitioner.communication.extension:proficiency.extension:level` | Proficiency Level |  |
 | IhrisPractitioner | `Practitioner.communication.extension:proficiency.extension:type` | Proficiency Type |  |
 | IhrisPractitioner | `Practitioner.communication.coding` | Language |  |
+| IhrisRegion | `Location.extension:boundary` | Location Boundary (GeoJSON) |  |
+| IhrisRegion | `Location.identifier.value` | Code |  |
+| IhrisRegion | `Location.status` | Status |  |
+| IhrisRegion | `Location.name` | Name |  |
+| IhrisRegion | `Location.type.coding` | Location Type |  |
+| IhrisRegion | `Location.physicalType` | Location Physical Type |  |
+| IhrisRegion | `Location.partOf` | Country |  |
 | IhrisReport | `Basic.extension:reportDetails.extension:name` | Unique name of the primary resource in the relationship |  |
 | IhrisReport | `Basic.extension:reportDetails.extension:label` | Relationship title |  |
 | IhrisReport | `Basic.extension:reportDetails.extension:resource` | Resource type of the primary resource |  |
@@ -951,7 +980,7 @@ iHRIS 5 is iHRIS/iHRIS at `fa66e9b375e3`, compiled with SUSHI 3.20.1. Matches ar
 | IhrisTestPractitioner | `Practitioner.birthDate` | Birth Date |  |
 | IhrisTrainingBasic | `Basic.extension:training-basic` | Training |  |
 
-### Extensions with no iHRIS 4 source (43)
+### Extensions with no iHRIS 4 source (46)
 
 - CompositeTask (Composite Task), `http://ihris.org/fhir/StructureDefinition/composite-task`
 - IhrisReportDetails (Details of a report), `http://ihris.org/fhir/StructureDefinition/iHRISReportDetails`
@@ -966,6 +995,7 @@ iHRIS 5 is iHRIS/iHRIS at `fa66e9b375e3`, compiled with SUSHI 3.20.1. Matches ar
 - IhrisDeployment (Deployment details), `http://ihris.org/fhir/StructureDefinition/ihris-deployment`
 - IhrisDiscipline (Discipline details), `http://ihris.org/fhir/StructureDefinition/ihris-discipline`
 - IhrisEducation (Education Information), `http://ihris.org/fhir/StructureDefinition/ihris-education`
+- IhrisFacilityOwnership (iHRIS facility ownership type), `http://ihris.org/fhir/StructureDefinition/ihris-facility-ownership-prefix`
 - IhrisFirstTimeLogin (Ihris first time login), `http://ihris.org/fhir/StructureDefinition/ihris-first-time-login`
 - IhrisLicense (License details), `http://ihris.org/fhir/StructureDefinition/ihris-license`
 - IhrisPageDisplay (iHRIS Page Display), `http://ihris.org/fhir/StructureDefinition/ihris-page-display`
@@ -995,4 +1025,6 @@ iHRIS 5 is iHRIS/iHRIS at `fa66e9b375e3`, compiled with SUSHI 3.20.1. Matches ar
 - IhrisVisualizationPermissions (iHRIS Visualization Permissions), `http://ihris.org/fhir/StructureDefinition/ihris-visualization-permissions`
 - IhrisVisualizationSeries (iHRIS Visualization Series), `http://ihris.org/fhir/StructureDefinition/ihris-visualization-series`
 - IhrisVisualizationSettings (iHRIS Visualization Settings), `http://ihris.org/fhir/StructureDefinition/ihris-visualization-settings`
+- LocBoundaryGeojson (Location Boundary (GeoJSON)), `http://ihris.org/fhir/StructureDefinition/location-boundary-geojson`
+- LocationCode (Code), `http://ihris.org/fhir/StructureDefinition/locationcode`
 - TaskAttributes (Task Attributes), `http://ihris.org/fhir/StructureDefinition/task-attributes`

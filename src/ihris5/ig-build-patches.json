@@ -1,12 +1,31 @@
 {
-  "_comment": "Fixes applied to a WORKSPACE COPY of the iHRIS 5 IG source before fhir-harness builds it (src/tools/build_ihris5_ig.sh). The mounted source (ihris5-source/) and iHRIS/iHRIS itself are never edited: this folio describes iHRIS 5, and each entry here is a defect to report upstream, not a fork. Every patch names the exact text it replaces, so a patch whose text is no longer there FAILS the build rather than silently doing nothing; when the pin in ihris5.json moves past an upstream fix, delete the entry.",
+  "_comment": "Fixes applied to a WORKSPACE COPY of the iHRIS 5 IG sources before they are built: by fhir-harness for the published IG (src/tools/build_ihris5_ig.sh, the ig/ patches) and by SUSHI for the F4 element index (src/tools/map_ihris5.py, every IG). A patch's `file` is relative to the declared source path (ig/) unless its `base` is `repository`. The mounted source (ihris5-source/) and iHRIS/iHRIS itself are never edited: this folio describes iHRIS 5, and each entry here is a defect to report upstream, not a fork. Every patch names the exact text it replaces, so a patch whose text is no longer there FAILS the build rather than silently doing nothing; when the pin in ihris5.json moves past an upstream fix, delete the entry.",
   "source": "iHRIS/iHRIS@fa66e9b375e38525236d28459ec5e5eb3875e2b2",
   "patches": [
     {
+      "id": "role-primary-context",
       "file": "input/fsh/IhrisRole.fsh",
       "find": "Description:    \"iHRIS flag for roles to indicate a primary role for assignment to users.\"\n* ^context[1].type = #element\n* ^context[1].expression = \"IhrisRole\"",
       "replace": "Description:    \"iHRIS flag for roles to indicate a primary role for assignment to users.\"\n* ^context[0].type = #element\n* ^context[0].expression = \"IhrisRole\"",
-      "reason": "Extension IhrisRolePrimary sets ^context[1] with no context[0], so SUSHI 3 emits StructureDefinition.context [null, {...}] and IG Publisher 2.3.4 refuses to parse it ('Not a JSON Object: null'). The extension has exactly one context; index 0 is what was meant. Found 2026-10-09 building the IG with fhir-harness."
+      "reason": "Extension IhrisRolePrimary sets ^context[1] with no context[0], so SUSHI 3 emits StructureDefinition.context [null, {...}] and IG Publisher 2.3.4 refuses to parse it ('Not a JSON Object: null'). The extension has exactly one context; index 0 is what was meant. Found 2026-10-09 building the IG with fhir-harness.",
+      "upstream": "docs/upstream/ihris5-ig-defects.md #1"
+    },
+    {
+      "id": "qualify-include-location",
+      "base": "repository",
+      "file": "ihris-backend/ihris-backend-site/qualify-ig/input/fsh/IhrisLocation.fsh",
+      "copyFrom": "ihris-backend/ihris-backend-site/ig/input/fsh/IhrisLocation.fsh",
+      "reason": "qualify-ig's IhrisDeployment.fsh:25 constrains a reference to IhrisFacility, which only the manage IG defines (in IhrisLocation.fsh), so SUSHI fails ('No definition for the type \"IhrisFacility\"') and drops the constraint. The manage IG's file is added to the qualify workspace, as the drafted upstream fix proposes. Owner, 2026-10-09: 'do the #2 qualify local fix'.",
+      "upstream": "docs/upstream/ihris5-ig-defects.md #2"
+    },
+    {
+      "id": "qualify-residence-jurisdiction",
+      "base": "repository",
+      "file": "ihris-backend/ihris-backend-site/qualify-ig/input/fsh/IhrisPractitioner.fsh",
+      "find": "* valueReference only Reference(IhrisJurisdiction)",
+      "replace": "* valueReference only Reference(IhrisCountry or IhrisRegion or IhrisDistrict)",
+      "reason": "qualify-ig's extension ihris-practitioner-residence constrains its reference to IhrisJurisdiction, which nothing in the repository defines, so SUSHI fails and drops the constraint. The manage IG defines the same extension id (ihris-backend-site/ig/input/fsh/IhrisPractitioner.fsh, IhrisPractitionerResidence) with 'value[x] only Reference(IhrisCountry or IhrisRegion or IhrisDistrict)': that is the target used here, taken from iHRIS 5's own definition of the same extension, not chosen. Owner, 2026-10-09: 'do the #2 qualify local fix'.",
+      "upstream": "docs/upstream/ihris5-ig-defects.md #2"
     }
   ]
 }

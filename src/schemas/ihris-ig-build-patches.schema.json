@@ -2,25 +2,102 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-ig-build-patches.schema.json",
   "title": "ihris-ig-build-patches/v1",
-  "description": "Fixes applied to a WORKSPACE copy of a sub-instance's declared IG source before fhir-harness builds it (src/tools/apply_ig_patches.py). Each replaces one exact text, exactly once; the mounted source and the upstream are never edited. Each entry is an upstream defect to report, removed when the pinned source fixes it.",
+  "description": "Fixes applied to a WORKSPACE copy of a sub-instance's declared IG source before it is built (src/tools/apply_ig_patches.py, used by build_ihris5_ig.sh and map_ihris5.py). A patch either replaces one exact text, exactly once, or copies one file of the same pinned source into the workspace (`copyFrom`); the mounted source and the upstream are never edited. Each entry is an upstream defect to report, removed when the pinned source fixes it.",
   "type": "object",
-  "required": ["source", "patches"],
+  "required": [
+    "source",
+    "patches"
+  ],
   "additionalProperties": false,
   "properties": {
-    "_comment": {"type": "string"},
-    "source": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+@[0-9a-f]{40}$", "description": "owner/repo@commit the patches were written against: must equal the sub-instance's declared source."},
+    "_comment": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+@[0-9a-f]{40}$",
+      "description": "owner/repo@commit the patches were written against: must equal the sub-instance's declared source."
+    },
     "patches": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["file", "find", "replace", "reason"],
+        "required": [
+          "id",
+          "file",
+          "reason"
+        ],
         "additionalProperties": false,
         "properties": {
-          "file": {"type": "string", "pattern": "^[^/].*[^/]$"},
-          "find": {"type": "string", "minLength": 1},
-          "replace": {"type": "string"},
-          "reason": {"type": "string", "minLength": 20}
-        }
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "a short stable name, recorded where the patch is applied (e.g. in the F4 element index)"
+          },
+          "base": {
+            "enum": [
+              "source-path",
+              "repository"
+            ],
+            "description": "what `file` and `copyFrom` are relative to: the declared source path (default, e.g. ig/) or the repository root (for the other IGs in the same repository)"
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^[^/].*[^/]$"
+          },
+          "find": {
+            "type": "string",
+            "minLength": 1
+          },
+          "replace": {
+            "type": "string"
+          },
+          "copyFrom": {
+            "type": "string",
+            "pattern": "^[^/].*[^/]$",
+            "description": "a file of the same pinned source, copied to `file` (which must not exist)"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 20
+          },
+          "upstream": {
+            "type": "string",
+            "description": "where the defect is reported or drafted"
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "find",
+              "replace"
+            ],
+            "not": {
+              "required": [
+                "copyFrom"
+              ]
+            }
+          },
+          {
+            "required": [
+              "copyFrom"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "find"
+                  ]
+                },
+                {
+                  "required": [
+                    "replace"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
       }
     }
   }
