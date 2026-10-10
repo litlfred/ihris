@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://ihris.org/fhir/StructureDefinition/ihris-basic-name | *Version*:0.1.0 |
-| Active as of 2026-10-09 | *Computable Name*:IhrisBasicName |
+| Active as of 2026-10-10 | *Computable Name*:IhrisBasicName |
 
 iHRIS name field for basic resources.
 
@@ -48,7 +48,7 @@ Other representations of profile: [CSV](StructureDefinition-ihris-basic-name.csv
   "name" : "IhrisBasicName",
   "title" : "iHRIS Basic Name",
   "status" : "active",
-  "date" : "2026-10-09T12:31:23+00:00",
+  "date" : "2026-10-10T05:51:05+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

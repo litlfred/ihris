@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://snomed.info/sct | *Version*:0.1.0 |
-| Active as of 2026-10-09 | *Computable Name*:SNOMED_CT |
+| Active as of 2026-10-10 | *Computable Name*:SNOMED_CT |
 | *Other Identifiers:*OID:2.16.840.1.113883.6.96 | |
 | **Copyright/Legal**: © 2002-2016 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. "SNOMED" and "SNOMED CT" are registered trademarks of the IHTSDO http://www.ihtsdo.org/snomed-ct/get-snomed-ct | |
 
@@ -47,7 +47,7 @@ SNOMED CT is the most comprehensive and precise clinical health terminology prod
   "title" : "SNOMED CT (all versions)",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-10-09T12:31:23+00:00",
+  "date" : "2026-10-10T05:51:05+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://hl7.org/fhir/ValueSet/iso3166-1-2 | *Version*:0.1.0 |
-| Active as of 2026-10-09 | *Computable Name*:Iso3166-1-2 |
+| Active as of 2026-10-10 | *Computable Name*:Iso3166-1-2 |
 
  
 This value set defines the ISO 3166 Part 1 2-letter codes 
@@ -55,7 +55,7 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
   "title" : "Iso 3166 Part 1: 2 Letter Codes",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-10-09T12:31:23+00:00",
+  "date" : "2026-10-10T05:51:05+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

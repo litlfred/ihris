@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://ihris.org/fhir/SearchParameter/leavetype-search | *Version*:0.1.0 |
-| Active as of 2026-10-09 | *Computable Name*:Search Parameter for a practitioner's Leave Type |
+| Active as of 2026-10-10 | *Computable Name*:Search Parameter for a practitioner's Leave Type |
 
  
 Search for a practitioner's Leave Type. 
@@ -26,7 +26,7 @@ Search for a practitioner's Leave Type.
   "version" : "0.1.0",
   "name" : "Search Parameter for a practitioner's Leave Type",
   "status" : "active",
-  "date" : "2026-10-09T12:31:23+00:00",
+  "date" : "2026-10-10T05:51:05+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

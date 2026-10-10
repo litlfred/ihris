@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://ihris.org/fhir/CodeSystem/ihris-test-codesystem | *Version*:0.1.0 |
-| Active as of 2026-10-09 | *Computable Name*:IhrisTestCodeSystem |
+| Active as of 2026-10-10 | *Computable Name*:IhrisTestCodeSystem |
 
  This Code system is referenced in the content logical definition of the following value sets: 
 
@@ -28,7 +28,7 @@
   "name" : "IhrisTestCodeSystem",
   "title" : "iHRIS Test CodeSystem",
   "status" : "active",
-  "date" : "2026-10-09T12:31:23+00:00",
+  "date" : "2026-10-10T05:51:05+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

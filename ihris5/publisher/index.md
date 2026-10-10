@@ -8,7 +8,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://ihris.org/fhir/ImplementationGuide/ihris | *Version*:0.1.0 |
-| Active as of 2026-10-09 | *Computable Name*:iHRISImplementationGuide |
+| Active as of 2026-10-10 | *Computable Name*:iHRISImplementationGuide |
 
 # iHRIS Health Workforce Information Systems Software implementation Guide
 
@@ -95,7 +95,7 @@ Introduce customizations of the IG into the following files:
   "name" : "iHRISImplementationGuide",
   "title" : "iHRIS Implementation Guide",
   "status" : "active",
-  "date" : "2026-10-09T12:31:23+00:00",
+  "date" : "2026-10-10T05:51:05+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

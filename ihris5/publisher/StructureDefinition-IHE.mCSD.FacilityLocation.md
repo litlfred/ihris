@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://ihe.net/fhir/StructureDefinition/IHE.mCSD.FacilityLocation | *Version*:0.1.0 |
-| Draft as of 2026-10-09 | *Computable Name*:IHEmCSDFacilityLocation |
+| Draft as of 2026-10-10 | *Computable Name*:IHEmCSDFacilityLocation |
 
 **Usages:**
 
@@ -37,7 +37,7 @@ Other representations of profile: [CSV](StructureDefinition-IHE.mCSD.FacilityLoc
   "version" : "0.1.0",
   "name" : "IHEmCSDFacilityLocation",
   "status" : "draft",
-  "date" : "2026-10-09T12:31:23+00:00",
+  "date" : "2026-10-10T05:51:05+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

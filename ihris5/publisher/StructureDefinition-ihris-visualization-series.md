@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://ihris.org/fhir/StructureDefinition/ihris-visualization-series | *Version*:0.1.0 |
-| Active as of 2026-10-09 | *Computable Name*:IhrisVisualizationSeries |
+| Active as of 2026-10-10 | *Computable Name*:IhrisVisualizationSeries |
 
 iHRIS visualization series
 
@@ -46,7 +46,7 @@ Other representations of profile: [CSV](StructureDefinition-ihris-visualization-
   "name" : "IhrisVisualizationSeries",
   "title" : "iHRIS Visualization Series",
   "status" : "active",
-  "date" : "2026-10-09T12:31:23+00:00",
+  "date" : "2026-10-10T05:51:05+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://ihris.org/fhir/StructureDefinition/ihris-auditevent | *Version*:0.1.0 |
-| Active as of 2026-10-09 | *Computable Name*:IhrisAuditEvent |
+| Active as of 2026-10-10 | *Computable Name*:IhrisAuditEvent |
 
  
 iHRIS profile for AuditEvent 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-ihris-auditevent.csv
   "name" : "IhrisAuditEvent",
   "title" : "iHRIS Audit Event",
   "status" : "active",
-  "date" : "2026-10-09T12:31:23+00:00",
+  "date" : "2026-10-10T05:51:05+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",
