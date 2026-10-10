@@ -1733,5 +1733,9 @@
 <a href="https://github.com/litlfred/ihris">litlfred/ihris</a>; edit the generator or its inputs, never this page.</footer>
 </div>
 
+<script>/* Bridge (see .fa-nav-same in ihris.css): hide a rail label that only repeats its own initial, e.g. "A A" in Contents. */
+(function(){function dedupe(){document.querySelectorAll('nav.fa-nav .fa-nav-glyph').forEach(function(g){var l=g.nextElementSibling;
+if(l&&l.classList.contains('fa-nav-label')&&!g.querySelector('img,svg')&&g.textContent.trim().toLowerCase()===l.textContent.trim().toLowerCase())l.classList.add('fa-nav-same');});}
+dedupe();new MutationObserver(dedupe).observe(document.documentElement,{childList:true,subtree:true});})();</script>
 </body>
 </html>
