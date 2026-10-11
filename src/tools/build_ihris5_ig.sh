@@ -17,8 +17,9 @@
 #   6. site        cat-harness compose-docs.ts --shell (the platform chrome, scoped to ihris)
 #                  + fhir-harness stage-ig-sites.ts (the IG's own narrative and menu, composed at
 #                  the root) + Jekyll with just-the-docs, the gem the platform's Gemfile pins.
-#   7. bytes       the Publisher's output/ at <out>/publisher/ (the artefact pages' "published"
-#                  links) and the AST's resources at <out>/ast-data/.
+#   7. bytes       the AST's resources at <out>/ast-data/. The Publisher's own HTML (output/) is
+#                  NOT copied: it is not deployed (owner, 2026-10-11), so the artefact index claims
+#                  no "published" address and the pages draw no links to it.
 #
 # Needs: the platform mounted (src/tools/mount_platform.sh, which includes fhir-harness), java 17+,
 # maven, node with fsh-sushi, ruby with bundler, and the FHIR package hosts (packages.fhir.org,
@@ -83,9 +84,10 @@ d.setdefault("directories", []).append({"id": "ihris5-ig-site", "path": "docs/",
 json.dump(d, open(sys.argv[2], "w"), indent=2)
 PY
 bun run fhir-harness/scripts/ingest-ig-menu.ts --source "$SRC" --out "$I/fhir-artifact-index"
-SITE_URL="https://litlfred.github.io${BASEURL}"
+# No --published-base: the Publisher's HTML is not deployed (owner, 2026-10-11), so no artefact
+# claims a published address.
 bun run fhir-harness/scripts/ast-to-artifact-index.ts --ast "$W/ig/output-ast" --instance-id ihris5 \
-  --published-base "$SITE_URL/publisher/" --out "$I/fhir-artifact-index/index.json"
+  --out "$I/fhir-artifact-index/index.json"
 
 step "5. artefact pages (IG-site mode)"
 bun run fhir-harness/scripts/gen-ig-pages.ts --instance "$I" --label "$LABEL" \
@@ -114,8 +116,7 @@ for r in "$OUT"/assets/navbar/rail-*.js; do
   grep -rlq --include='*.html' "$(basename "$r")" "$OUT" || rm -f "$r"
 done
 
-step "7. the Publisher's bytes and the AST's resources"
-cp -r "$W/ig/output" "$OUT/publisher"
+step "7. the AST's resources (the Publisher's HTML is not deployed)"
 mkdir -p "$OUT/ast-data" && cp -r "$W/ig/output-ast/resources" "$OUT/ast-data/resources"
 touch "$OUT/.nojekyll"
 echo "site: $(find "$OUT" -name '*.html' | wc -l) html file(s) -> $OUT (base $BASEURL)"

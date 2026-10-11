@@ -28,7 +28,7 @@ Turn a pinned, third-party IG source into a readable site in this folio's chrome
 ## Rules
 
 - **The declaration is the pin.** The sub-instance declares its git source (repository, a full commit, the IG's path) and that it needs fhir-harness. Nothing else names the IG or its commit.
-- **Describe, never materialize.** The source is mounted, verified and never committed; the build is never committed either. Only the pages branch holds the site, the Publisher's own output beside it, and the AST's resources.
+- **Describe, never materialize.** The source is mounted, verified and never committed; the build is never committed either. Only the pages branch holds the site and the AST's resources. The IG Publisher's own HTML is not deployed (owner, 2026-10-11: *"i dont want IG publisher to deploy to gh-pages"*); the Publisher runs only to write the AST.
 - **Never edit the upstream, or the mount.** A defect in the IG's own source is reported upstream, and the folio builds meanwhile from a **declared patch**: the exact text it replaces and the reason. A patch that no longer applies exactly once fails the build, so an upstream fix is noticed rather than silently doubled. Only the owner decides between a patch and waiting.
 - **Scoped chrome.** The site wears the platform chrome for this folio and what it needs, never the platform's whole harness list.
 

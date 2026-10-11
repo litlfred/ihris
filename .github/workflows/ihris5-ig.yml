@@ -5,7 +5,8 @@
 # remote layer and never committed. src/tools/build_ihris5_ig.sh runs fhir-harness's pipeline:
 # the AST fork of the IG Publisher (litlfred/fhir-ig-publisher ast-export), the artefact index
 # and pages from the AST, the IG's own narrative and menu, and just-the-docs inside the platform
-# chrome, scoped to ihris. The Publisher's own output is published beside it, at /ihris5/publisher/.
+# chrome, scoped to ihris. The IG Publisher's own HTML is NOT deployed (owner, 2026-10-11: "i dont
+# want IG publisher to deploy to gh-pages"): the Publisher runs only to produce the AST.
 #
 # When: by hand, and when what decides the build changes (the pin, the declared patches, the
 # build script, this file). On a pull request it builds into that PR's staging preview,
