@@ -1,6 +1,6 @@
 {
   "$schema": "folio-index-config/v1",
-  "_comment": "What this checkout instantiates, and where the platform comes from. ihris is a folio-assistant-core DEPENDENT repository, laid out as litlfred/who-iris is: ihris is local at `.`, and the platform layers are remote mounts pinned to 40-char SHAs, landed at `<name>/` (git-ignored, generated block in .gitignore) by `python3 src/tools/mount_platform.py`, never committed. folio-assistant-core is the one instance ihris `needs`; cat-harness, cat-harness-tools, bootstrap and bootstrap-tools are its closure, and fhir-harness is what the FHIR subgraphs (ihris5, ihris-4-on-fhir) need, pinned at the SHAs folio-assistant-core's and cat-harness's own index.config.json name, so the closure is the one core is tested against. Bump the pins together. Schema: cat-harness/schemas/index-config.ts; skill: cat-harness's `index-config`.",
+  "_comment": "What this checkout instantiates, and where the platform comes from. ihris is a folio-assistant-core DEPENDENT repository, laid out as litlfred/who-iris is: ihris is local at `.`, and the platform layers are remote mounts pinned to 40-char SHAs, landed at `<name>/` (git-ignored, generated block in .gitignore) by `bash src/tools/mount_platform.sh`, never committed. folio-assistant-core is the one instance ihris `needs`; cat-harness, cat-harness-tools, bootstrap and bootstrap-tools are its closure, and fhir-harness is what the FHIR subgraphs (ihris5, ihris-4-on-fhir) need, pinned together at mutually consistent commits of each layer's main (the closure folio-assistant's own index is tested against). Bump the pins together. Schema: cat-harness/schemas/index-config.ts; skill: cat-harness's `index-config`.",
   "instances": [
     {
       "name": "ihris",
@@ -16,7 +16,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/folio-assistant-core",
-          "ref": "175d2b019f7bb91d63ab09f3f93f60fd7ef9e9dd",
+          "ref": "899894c1f1b532e6fca43e144136c33064030ea1",
           "overrides": {
             "folio-assistant-core": {
               "whole": true
@@ -28,13 +28,13 @@
               "skip": true
             }
           },
-          "note": "The content layer ihris needs: catalogue, glossary and materialization schemas (folio-catalogue(-node)/v1, folio-glossary/v1).",
+          "note": "The content layer ihris needs: catalogue, glossary and materialization schemas (folio-catalogue(-node)/v1, folio-glossary/v1). Pinned at its main after the 70lx move (litlfred/folio-assistant-core#45), together with the rest of the closure.",
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-09",
-              "ref": "175d2b019f7bb91d63ab09f3f93f60fd7ef9e9dd",
-              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'migrrate to new folio-assistant-core dependent repo https://litlfred.github.io/who-iris'"
+              "on": "2026-10-11",
+              "ref": "899894c1f1b532e6fca43e144136c33064030ea1",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-11: 'repin as neede. merge all ready green next 4hrs, continue'"
             }
           }
         }
@@ -45,7 +45,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness",
-          "ref": "1e4aaf95f39a52bd1aa924cfbe2ed81a91306e1a",
+          "ref": "3b59170711b39e7fb6c2786248f0677e81e562e1",
           "overrides": {
             "cat-harness": {
               "whole": true
@@ -57,13 +57,13 @@
               "skip": true
             }
           },
-          "note": "folio-assistant-core's need (declaration, tool, bean-graph, skill-package, pdf-structure and role-graph schemas, and the skills processes call), pinned ahead of core's own pin to the merge of litlfred/cat-harness#49, which fixes the foreign-site rail for a folio that is the root of its own site (litlfred/cat-harness#46).",
+          "note": "folio-assistant-core's need (declaration, tool, bean-graph, skill-package, pdf-structure and role-graph schemas, and the skills processes call), pinned at its main after the 70lx move took its code (scripts, src/, health/, the MCP server, the standalone fixture) to cat-harness-tools (litlfred/cat-harness#115, #120, #113).",
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-09",
-              "ref": "1e4aaf95f39a52bd1aa924cfbe2ed81a91306e1a",
-              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'merge when green and ready, then do the ihris follow-up' (after litlfred/cat-harness#49)"
+              "on": "2026-10-11",
+              "ref": "3b59170711b39e7fb6c2786248f0677e81e562e1",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-11: 'repin as neede. merge all ready green next 4hrs, continue'"
             }
           }
         }
@@ -74,7 +74,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness-tools",
-          "ref": "64cc1c62541dca55e779091e9881d03d8166cd39",
+          "ref": "6d5281912d8ebd0dba18eb445865481b21237575",
           "overrides": {
             "cat-harness-tools": {
               "whole": true
@@ -86,13 +86,13 @@
               "skip": true
             }
           },
-          "note": "folio-assistant-core's need, at the pin core's own index.config.json names.",
+          "note": "What implements cat-harness's tool definitions, and since the 70lx move the code ihris's tools run: mount-from-lock/remote-mount, the navbar and rail, the site and beans scripts. Pinned at its main (litlfred/cat-harness-tools#78, #89, #79), which is the post-70lx counterpart of the cat-harness pin above.",
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-09",
-              "ref": "64cc1c62541dca55e779091e9881d03d8166cd39",
-              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'migrrate to new folio-assistant-core dependent repo https://litlfred.github.io/who-iris'"
+              "on": "2026-10-11",
+              "ref": "6d5281912d8ebd0dba18eb445865481b21237575",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-11: 'repin as neede. merge all ready green next 4hrs, continue'"
             }
           }
         }
@@ -103,19 +103,19 @@
       "source": {
         "remote": {
           "repository": "litlfred/bootstrap",
-          "ref": "12a5c9eadca337483d37ce8402b3cf9a63588d2a",
+          "ref": "7d7d75411d9e022214f28ad5b04438e537d23347",
           "overrides": {
             "bootstrap": {
               "whole": true
             }
           },
-          "note": "cat-harness's need, at the pin cat-harness's own index.config.json names.",
+          "note": "cat-harness's need, at its main (the commit folio-assistant's own index pins).",
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-09",
-              "ref": "12a5c9eadca337483d37ce8402b3cf9a63588d2a",
-              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'migrrate to new folio-assistant-core dependent repo https://litlfred.github.io/who-iris'"
+              "on": "2026-10-11",
+              "ref": "7d7d75411d9e022214f28ad5b04438e537d23347",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-11: 'repin as neede. merge all ready green next 4hrs, continue'"
             }
           }
         }
@@ -126,7 +126,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/bootstrap-tools",
-          "ref": "1947e0536a97a9ca447b76edc39de1cf18b1f29e",
+          "ref": "18da84de86f88b32a3ce5972f2649b7c98c044a5",
           "overrides": {
             "bootstrap-tools": {
               "whole": true
@@ -135,13 +135,13 @@
               "skip": true
             }
           },
-          "note": "cat-harness's need (its declaration schema imports bootstrap-tools/schemas/), at the pin cat-harness's own index.config.json names.",
+          "note": "cat-harness's need (its declaration schema imports bootstrap-tools/schemas/), at its main, which carries the secret capability the cat-harness pin above reads (litlfred/bootstrap-tools#17).",
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-09",
-              "ref": "1947e0536a97a9ca447b76edc39de1cf18b1f29e",
-              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'migrrate to new folio-assistant-core dependent repo https://litlfred.github.io/who-iris'"
+              "on": "2026-10-11",
+              "ref": "18da84de86f88b32a3ce5972f2649b7c98c044a5",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-11: 'repin as neede. merge all ready green next 4hrs, continue'"
             }
           }
         }
@@ -152,7 +152,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/fhir-harness",
-          "ref": "63591af7a9892bfb343e3dbb859807985f1ecda3",
+          "ref": "e0f653a2a328558b4daf02054c4cb6613de25ca9",
           "overrides": {
             "fhir-harness": {
               "whole": true
@@ -161,13 +161,13 @@
               "skip": true
             }
           },
-          "note": "The bare FHIR IG pipeline (SUSHI, the IG Publisher and its AST fork, the just-the-docs IG render), with no WHO in it. Needed by ihris5 (the iHRIS 5 IG, built from its pinned source) and ihris-4-on-fhir, not by the ihris root. Its own need, folio-assistant-core, is the mount above.",
+          "note": "The bare FHIR IG pipeline (SUSHI, the IG Publisher and its AST fork, the just-the-docs IG render), with no WHO in it, at its main after the 70lx move. Needed by ihris5 (the iHRIS 5 IG, built from its pinned source) and ihris-4-on-fhir, not by the ihris root. Its own need, folio-assistant-core, is the mount above.",
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-09",
-              "ref": "63591af7a9892bfb343e3dbb859807985f1ecda3",
-              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-09: 'update ihris fhir 5 to make use of fhir-harness'; 'i want litlfred/ihris to say that ihris-5 is a named subgraph using fhir-harness'"
+              "on": "2026-10-11",
+              "ref": "e0f653a2a328558b4daf02054c4cb6613de25ca9",
+              "evidence": "owner, session_01UC1NuEuSy1MBNpEhnDuiGj 2026-10-11: 'repin as neede. merge all ready green next 4hrs, continue'"
             }
           }
         }

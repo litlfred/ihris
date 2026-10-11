@@ -9,8 +9,8 @@ permission (2026-09-23). See ihris-admin-handbook.json.
 Steps, all deterministic:
 
 1. Verify uploads/ihris-admin-handbook/<pdf> against its manifest's sha256. Refuse on mismatch.
-2. Run folio-assistant's rungs on it: cat-harness/scripts/pdf-structure.py
-   (structure.json, pdf-structure/v1) and cat-harness/scripts/pdf-images.py
+2. Run folio-assistant's rungs on it: cat-harness-tools/scripts/pdf-structure.py
+   (structure.json, pdf-structure/v1) and cat-harness-tools/scripts/pdf-images.py
    (images.json, folio-document-images/v1, plus images/*.png). structure.json's
    metadata.title is corrected from the DocInfo /Title (the rung took the mwlib
    banner on page 1), and source.mtime is nulled so a re-run gives the same file.
@@ -28,7 +28,7 @@ Steps, all deterministic:
    and the counts must agree or the script refuses.
 5. Write book.json (ihris-wiki-book/v1) and manifest.jsonld.
 
-  python3 src/tools/ingest_handbook.py        # needs pymupdf and the mounted cat-harness (src/tools/mount_platform.sh)
+  python3 src/tools/ingest_handbook.py        # needs pymupdf and the mounted cat-harness-tools (src/tools/mount_platform.sh)
 """
 import hashlib
 import json
@@ -129,9 +129,9 @@ def run_rungs(pdf):
     scratch = os.path.join(ROOT, ".build", "handbook-rungs")
     shutil.rmtree(scratch, ignore_errors=True)
     os.makedirs(scratch)
-    ch = folio_platform.layer("cat-harness")
+    ch = folio_platform.layer("cat-harness-tools")  # the pdf rungs moved here from cat-harness (70lx)
     if not ch:
-        sys.exit("cat-harness is not mounted, and its pdf rungs are needed: run src/tools/mount_platform.sh")
+        sys.exit("cat-harness-tools is not mounted, and its pdf rungs are needed: run src/tools/mount_platform.sh")
     scripts = os.path.join(ch, "scripts")
     for s, extra in (("pdf-structure.py", ["--no-sections"]), ("pdf-images.py", [])):
         r = subprocess.run([sys.executable, os.path.join(scripts, s), pdf, "-o", scratch] + extra, capture_output=True, text=True)

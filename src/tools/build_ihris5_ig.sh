@@ -94,9 +94,9 @@ bun run fhir-harness/scripts/gen-ig-pages.ts --instance "$I" --label "$LABEL" \
 step "6. site: platform chrome scoped to ihris, the IG composed at its root, Jekyll"
 # The mounted cat-harness carries the PLATFORM's harness list; regenerate it from this checkout so
 # the chrome names ihris and what it needs (no smart-base, no smart-trust).
-bun run cat-harness/scripts/sync-docs-harness.ts
-bun run cat-harness/scripts/compose-docs.ts --out "$W/shell" --shell --instance ihris --title "$LABEL" --link-root https://litlfred.github.io/ihris
-bun run cat-harness/scripts/gen-navbar-include.ts --instance ihris --link-root https://litlfred.github.io/ihris \
+bun run cat-harness-tools/scripts/sync-docs-harness.ts
+bun run cat-harness-tools/scripts/compose-docs.ts --out "$W/shell" --shell --instance ihris --title "$LABEL" --link-root https://litlfred.github.io/ihris
+bun run cat-harness-tools/scripts/gen-navbar-include.ts --instance ihris --link-root https://litlfred.github.io/ihris \
   --title "$LABEL" --out "$W/shell/_includes/generated/navbar-footer.html"
 (cd "$W/stage" && bun run "$ROOT/fhir-harness/scripts/stage-ig-sites.ts" --work "$W/work" --baseurl "$BASEURL" \
   --only ihris5 --source "$W/ig" --compose-into "$W/shell" --compose-at-root)

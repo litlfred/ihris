@@ -9,24 +9,25 @@
 # pins each layer to a SHA, index.lock.json records what each resolved to (tree digests included),
 # and the layers land at <root>/<name>/, git-ignored by the generated block in .gitignore.
 #
-# The replay is cat-harness's own `mount-from-lock.ts`, reused rather than restated: it imports
-# only node:*, verifies every directory against the lock's treeDigest, and never writes over a
-# path that holds somebody's work. It lives INSIDE cat-harness, which is itself one of the layers
+# The replay is cat-harness-tools' own `mount-from-lock.ts` (cat-harness's until the 70lx move
+# took the harness's code to cat-harness-tools), reused rather than restated: it imports only
+# node:*, verifies every directory against the lock's treeDigest, and never writes over a path
+# that holds somebody's work. It lives INSIDE cat-harness-tools, which is itself one of the layers
 # it mounts, so on a fresh clone it is fetched alone first, at the very SHA the lock pins
-# cat-harness to (a raw URL at a commit SHA is content-addressed by git).
+# cat-harness-tools to (a raw URL at a commit SHA is content-addressed by git).
 #
-# To bump a pin: edit index.config.json, then re-run cat-harness's `mount:remote` (it rewrites
-# index.lock.json and the .gitignore block); `validate.py` fails when the three disagree.
+# To bump a pin: edit index.config.json, then re-run cat-harness-tools' `remote-mount.ts` (it
+# rewrites index.lock.json and the .gitignore block); `validate.py` fails when the three disagree.
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT"
 
-script="cat-harness/scripts/mount-from-lock.ts"
+script="cat-harness-tools/scripts/mount-from-lock.ts"
 if [ ! -f "$script" ]; then
-  sha="$(python3 -c 'import json; print(next(m["ref"] for m in json.load(open("index.lock.json"))["mounts"] if m["harness"] == "cat-harness"))')"
+  sha="$(python3 -c 'import json; print(next(m["ref"] for m in json.load(open("index.lock.json"))["mounts"] if m["harness"] == "cat-harness-tools"))')"
   mkdir -p .build
   script=".build/mount-from-lock.$sha.ts"
-  [ -f "$script" ] || curl -sSfL -o "$script" "https://raw.githubusercontent.com/litlfred/cat-harness/$sha/scripts/mount-from-lock.ts"
+  [ -f "$script" ] || curl -sSfL -o "$script" "https://raw.githubusercontent.com/litlfred/cat-harness-tools/$sha/scripts/mount-from-lock.ts"
 fi
 
 if [ "${1:-}" = "--check" ]; then

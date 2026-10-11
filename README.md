@@ -58,6 +58,6 @@ python3 src/tools/validate.py      # schemas, references, and folio-assistant's 
 
 ### The platform dependency
 
-ihris depends on [folio-assistant-core](https://github.com/litlfred/folio-assistant-core) (`needs` in [`ihris.json`](ihris.json)), and through it on cat-harness, cat-harness-tools, bootstrap and bootstrap-tools. [`index.config.json`](index.config.json) pins each to a commit SHA, [`index.lock.json`](index.lock.json) records what each resolved to, and `src/tools/mount_platform.sh` lays them down at `<name>/` with cat-harness's own `mount-from-lock.ts`. They are never committed. To bump a pin, edit `index.config.json` and re-run cat-harness's `mount:remote`, which rewrites the lock and the `.gitignore` block; `validate.py` fails while the three disagree.
+ihris depends on [folio-assistant-core](https://github.com/litlfred/folio-assistant-core) (`needs` in [`ihris.json`](ihris.json)), and through it on cat-harness, cat-harness-tools, bootstrap and bootstrap-tools. [`index.config.json`](index.config.json) pins each to a commit SHA, [`index.lock.json`](index.lock.json) records what each resolved to, and `src/tools/mount_platform.sh` lays them down at `<name>/` with cat-harness-tools' own `mount-from-lock.ts`. They are never committed. To bump a pin, edit `index.config.json` and re-run cat-harness-tools' `remote-mount.ts`, which rewrites the lock and the `.gitignore` block; `validate.py` fails while the three disagree.
 
 Tracking issue: [#1](https://github.com/litlfred/ihris/issues/1).

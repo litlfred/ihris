@@ -17,7 +17,7 @@
 # ihris is a folio-assistant-core DEPENDENT repository (as litlfred/who-iris is): the
 # platform layers are mounted at <name>/ from the committed index.lock.json, each at its
 # pinned SHA and verified against the lock's tree digest, by src/tools/mount_platform.sh
-# (cat-harness's own mount-from-lock.ts). They are git-ignored, and validate.py and qa.py
+# (cat-harness-tools' own mount-from-lock.ts). They are git-ignored, and validate.py and qa.py
 # skip them (src/tools/folio_platform.py), so the platform's files are never validated as
 # this folio's. Before the cutover this cloned litlfred/folio-assistant main, which no
 # longer holds the layers in its tree.

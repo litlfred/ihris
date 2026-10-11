@@ -4,7 +4,7 @@
 # gh-pages holds build output only. Never edit it by hand; change the generator.
 #
 # Every page carries the folio chrome (the C@T harness rail, icon row, Folio glass and
-# scheme switch), added AFTER the build by cat-harness's own rail-standalone-pages.ts in
+# scheme switch), added AFTER the build by cat-harness-tools' own rail-standalone-pages.ts in
 # --foreign-site mode, the step folio-assistant's folio-staging.yml runs for a folio's own
 # Pages site. The rail's data is written beside the pages; its navbar.js/css and
 # docs-ui.js/css load from the platform's published site. The platform is mounted from
@@ -12,7 +12,7 @@
 #
 # STAGING, as folio-staging.yml does it: every pull request from this repository gets a
 # preview at https://litlfred.github.io/ihris/STAGING/<branch-slug>/, carrying
-# cat-harness's staging banner (staging-banner.ts) so it can never be mistaken for the
+# cat-harness-tools' staging banner (staging-banner.ts) so it can never be mistaken for the
 # live site. Each push REPLACES that preview; closing the PR removes it. Publishing main
 # replaces everything at the root EXCEPT STAGING/ and ihris5/ (the iHRIS 5 IG, from ihris5-ig.yml).
 name: pages
@@ -88,8 +88,8 @@ jobs:
         # It rewrites cat-harness/docs/_data/harness.json in this throwaway CI mount only. ihris is the
         # root of its checkout, so the rail keeps its own pages, counts and mark on THIS site.
         run: |
-          bun run cat-harness/scripts/sync-docs-harness.ts
-          bun run cat-harness/scripts/rail-standalone-pages.ts --site _site --built cat-harness --foreign-site --home-label "iHRIS Knowledge Base" --instance ihris
+          bun run cat-harness-tools/scripts/sync-docs-harness.ts
+          bun run cat-harness-tools/scripts/rail-standalone-pages.ts --site _site --built cat-harness --foreign-site --home-label "iHRIS Knowledge Base" --instance ihris
       - name: Staging banner (pull requests only)
         if: steps.target.outputs.slug != ''
         env:
@@ -97,7 +97,7 @@ jobs:
           PR: ${{ github.event.pull_request.number }}
           SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          bun run cat-harness/scripts/staging-banner.ts \
+          bun run cat-harness-tools/scripts/staging-banner.ts \
             --site _site \
             --branch "$BRANCH" \
             --sha "${SHA:0:7}" \
