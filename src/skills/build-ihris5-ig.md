@@ -31,6 +31,10 @@ Turn a pinned, third-party IG source into a readable site in this folio's chrome
 - **Describe, never materialize.** The source is mounted, verified and never committed; the build is never committed either. Only the pages branch holds the site and the AST's resources. The IG Publisher's own HTML is not deployed (owner, 2026-10-11: *"i dont want IG publisher to deploy to gh-pages"*); the Publisher runs only to write the AST.
 - **Never edit the upstream, or the mount.** A defect in the IG's own source is reported upstream, and the folio builds meanwhile from a **declared patch**: the exact text it replaces and the reason. A patch that no longer applies exactly once fails the build, so an upstream fix is noticed rather than silently doubled. Only the owner decides between a patch and waiting.
 - **Scoped chrome.** The site wears the platform chrome for this folio and what it needs, never the platform's whole harness list.
+- **Thin artefact pages.** The owner chose option A on 2026-10-11: *"tiny html w/ dynamic load from json(ld) KG"*. Each artefact page is fhir-harness's thin shell (`gen-ig-pages --thin`), about 5.6 KB with the rail linked. It replaces the full just-the-docs page of about 168 KB.
+  - Its asset is a WHO-free JSON-LD node beside it (`artifact/<Type>-<id>.jsonld`, fhir-harness Tool `ig-artifact-jsonld`).
+  - One shared script draws the page from the node and the AST resource.
+  - The build fails when the nodes' QA (`ig-artifact-jsonld.ts check`) finds a node missing, misnamed, or naming a resource that is not on the site.
 
 ## When a step cannot run
 

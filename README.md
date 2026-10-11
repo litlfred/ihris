@@ -16,7 +16,7 @@ A [folio-assistant-core](https://github.com/litlfred/folio-assistant-core) depen
 | [`ihris-qualify`](src/ihris-qualify/) | training, licensing and certification | series, releases, 29 modules, data model |
 | [`ihris-plan`](src/ihris-plan/) | workforce planning and modelling | series and releases only; modules need a tarball |
 | [`openhie-pr`](src/openhie-pr/) | OpenHIE Health Worker Registry (CSD) | series only; modules need a tarball |
-| [`ihris5`](src/ihris5/) | iHRIS 5 (FHIR) on GitHub, plus its docs | pinned at a commit, with path inventories |
+| [`ihris5`](src/ihris5/) | iHRIS 5 (FHIR) on GitHub, plus its docs | pinned at a commit, with path inventories. Its IG is built with fhir-harness and published only on gh-pages at [/ihris/ihris5/](https://litlfred.github.io/ihris/ihris5/). Each artefact page there is a thin shell that loads the artefact's JSON-LD node (skill `build-ihris5-ig`). |
 | [`ihris-toolkit`](library/ihris-toolkit/) | toolkit.ihris.org implementation stages | 6 stages ingested; 47 hosted tool documents still referenced |
 | [`ihris-data-dictionary`](src/ihris-data-dictionary/) | **derived:** WHO SMART DAK (L2) data dictionary for health workforce data | 247 data elements, 51 logical models, 47 value sets as FHIR R4 terminology (12 with shipped codes); descriptions to author |
 | [`ihris-wiki`](library/ihris-wiki/) | the old iHRIS wiki | 44 user-manual pages restored from 4.3.3 help exports |

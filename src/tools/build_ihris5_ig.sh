@@ -13,13 +13,21 @@
 #                  ordinary IG Publisher build (SUSHI first) and writes the AST beside output/.
 #   4. index       fhir-harness ast-to-artifact-index.ts: the artefact index, from the AST.
 #                  ingest-ig-menu.ts: the IG's menu, from its sushi-config.yaml at the pin.
-#   5. pages       gen-ig-pages.ts: one page per artefact, in IG-site mode.
+#   5. pages       gen-ig-pages.ts --thin: one THIN page per artefact, in IG-site mode (owner,
+#                  2026-10-11, option A: "tiny html w/ dynamic load from json(ld) KG"): each
+#                  artifact/<Type>-<id>.html is a few KB of identity and a pointer to its JSON-LD node
+#                  (artifact/<Type>-<id>.jsonld, fhir-harness ig-artifact-jsonld.ts), drawn in the
+#                  browser by one shared renderer (assets/ig-artifact.js) from the node and the resource.
 #   6. site        cat-harness compose-docs.ts --shell (the platform chrome, scoped to ihris)
 #                  + fhir-harness stage-ig-sites.ts (the IG's own narrative and menu, composed at
-#                  the root) + Jekyll with just-the-docs, the gem the platform's Gemfile pins.
+#                  the root) + Jekyll with just-the-docs, the gem the platform's Gemfile pins; then
+#                  cat-harness-tools rail-standalone-pages.ts gives the thin pages the rail, LINKED
+#                  (the platform's navbar css/js by URL), never inlined.
 #   7. bytes       the AST's resources at <out>/ast-data/. The Publisher's own HTML (output/) is
 #                  NOT copied: it is not deployed (owner, 2026-10-11), so the artefact index claims
-#                  no "published" address and the pages draw no links to it.
+#                  no "published" address and the pages draw no links to it. Then the JSON-LD
+#                  nodes' QA (ig-artifact-jsonld.ts check): one node per artefact, each its own,
+#                  and every resource it names on the site.
 #
 # Needs: the platform mounted (src/tools/mount_platform.sh, which includes fhir-harness), java 17+,
 # maven, node with fsh-sushi, ruby with bundler, and the FHIR package hosts (packages.fhir.org,
@@ -90,8 +98,12 @@ bun run fhir-harness/scripts/ast-to-artifact-index.ts --ast "$W/ig/output-ast" -
   --out "$I/fhir-artifact-index/index.json"
 
 step "5. artefact pages (IG-site mode)"
+# --compiled-data is a path from the DOCS root, which in an IG site is the site root: the resources
+# are at <site>/ast-data/. (It was ../ast-data, which pointed one level above the site, so every
+# full artefact page's resource answered 404.)
 bun run fhir-harness/scripts/gen-ig-pages.ts --instance "$I" --label "$LABEL" \
-  --index "$I/fhir-artifact-index/index.json" --out "$I/docs" --compiled-data ../ast-data
+  --index "$I/fhir-artifact-index/index.json" --out "$I/docs" --compiled-data ast-data \
+  --thin --jsonld-base "https://litlfred.github.io$BASEURL/"
 
 step "6. site: platform chrome scoped to ihris, the IG composed at its root, Jekyll"
 # The mounted cat-harness carries the PLATFORM's harness list; regenerate it from this checkout so
@@ -108,6 +120,10 @@ rm -rf "$OUT" && mkdir -p "$OUT"
 BUNDLE_GEMFILE="$ROOT/cat-harness/docs/Gemfile" bundle exec jekyll build --source "$W/shell" --destination "$OUT" \
   --baseurl "$BASEURL" --config "$W/shell/_config.yml,$W/jekyll-override.yml"
 bun run fhir-harness/scripts/build-ig-site.ts --dedupe-ids "$OUT"
+# The thin artefact pages carry no rail of their own; they ask for it LINKED (folio-navbar: linked).
+# Pages Jekyll already railed are skipped. Before the sweep below, which keeps only referenced rail data.
+bun run cat-harness-tools/scripts/rail-standalone-pages.ts --site "$OUT" --built cat-harness --foreign-site \
+  --home-label "iHRIS Knowledge Base" --instance ihris
 # The platform's own data, copied in with the shell, is not this site's: its library, glossary,
 # diagrams and any rail data no page here references.
 rm -rf "$OUT/assets/library" "$OUT/assets/glossary" "$OUT/assets/img/uml"
@@ -119,4 +135,11 @@ done
 step "7. the AST's resources (the Publisher's HTML is not deployed)"
 mkdir -p "$OUT/ast-data" && cp -r "$W/ig/output-ast/resources" "$OUT/ast-data/resources"
 touch "$OUT/.nojekyll"
+bun run fhir-harness/scripts/ig-artifact-jsonld.ts check --index "$I/fhir-artifact-index/index.json" --dir "$OUT"
+python3 - "$OUT/artifact" <<'PY'
+import os, sys
+d = sys.argv[1]
+sizes = [os.path.getsize(os.path.join(d, f)) for f in os.listdir(d) if f.endswith(".html")]
+print(f"artefact pages: {len(sizes)}, mean {sum(sizes) / max(len(sizes), 1) / 1024:.1f} KB, max {max(sizes, default=0) / 1024:.1f} KB")
+PY
 echo "site: $(find "$OUT" -name '*.html' | wc -l) html file(s) -> $OUT (base $BASEURL)"
