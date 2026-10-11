@@ -1,0 +1,73 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://ihris.org/fhir/Basic/ihris-role-open> a fhir:Basic ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ihris-role-open"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-role" ;
+       fhir:index 0 ;
+       fhir:link <http://ihris.org/fhir/StructureDefinition/ihris-role>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Basic ihris-role-open</b></p><a name=\"ihris-role-open\"> </a><a name=\"hcihris-role-open\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ihris-role.html\">iHRIS Role</a></p></div><p><b>iHRIS Basic Name</b>: Open Role</p><p><b>iHRIS Role Primary</b>: true</p><p><b>iHRIS Assign Task</b>: <a href=\"Basic-ihris-task-read-structure-definition.html\">Basic iHRIS Task</a></p><p><b>iHRIS Assign Task</b>: <a href=\"Basic-ihris-task-read-code-system.html\">Basic iHRIS Task</a></p><p><b>iHRIS Assign Task</b>: <a href=\"Basic-ihris-task-read-value-set.html\">Basic iHRIS Task</a></p><p><b>iHRIS Assign Task</b>: <a href=\"Basic-ihris-task-read-document-reference.html\">Basic iHRIS Task</a></p><p><b>code</b>: <span title=\"Codes:{http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem role}\">iHRIS Role</span></p></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-basic-name" ] ;
+     fhir:Extension.valueString [ fhir:value "Open Role" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Extension.url [ fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-role-primary" ] ;
+     fhir:Extension.valueBoolean [ fhir:value "true"^^xsd:boolean ]
+  ], [
+     fhir:index 2 ;
+     fhir:Extension.url [ fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-assign-task" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-structure-definition> ;
+       fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-structure-definition" ]
+     ]
+  ], [
+     fhir:index 3 ;
+     fhir:Extension.url [ fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-assign-task" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-code-system> ;
+       fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-code-system" ]
+     ]
+  ], [
+     fhir:index 4 ;
+     fhir:Extension.url [ fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-assign-task" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-value-set> ;
+       fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-value-set" ]
+     ]
+  ], [
+     fhir:index 5 ;
+     fhir:Extension.url [ fhir:value "http://ihris.org/fhir/StructureDefinition/ihris-assign-task" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <http://ihris.org/fhir/Basic/ihris-task-read-document-reference> ;
+       fhir:Reference.reference [ fhir:value "Basic/ihris-task-read-document-reference" ]
+     ]
+  ] ;
+  fhir:Basic.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem" ] ;
+       fhir:Coding.code [ fhir:value "role" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://ihris.org/fhir/Basic/ihris-role-open.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

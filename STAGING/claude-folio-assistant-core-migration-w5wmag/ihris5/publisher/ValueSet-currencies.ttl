@@ -1,0 +1,807 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://ihris.org/fhir/ValueSet/currencies> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "currencies"] ;
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "1" ] ;
+     fhir:Meta.lastUpdated [ fhir:value "2020-05-31T23:14:39.281+00:00"^^xsd:dateTime ] ;
+     fhir:Meta.source [ fhir:value "#jOyZdehzLMngJhS1" ] ;
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/StructureDefinition/shareablevalueset" ;
+       fhir:index 0 ;
+       fhir:link <http://hl7.org/fhir/StructureDefinition/shareablevalueset>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet currencies</b></p><a name=\"currencies\"> </a><a name=\"hccurrencies\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">version: 1; Last updated: 2020-05-31 23:14:39+0000; </p><p style=\"margin-bottom: 0px\">Information Source: #jOyZdehzLMngJhS1</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"http://hl7.org/fhir/R4/shareablevalueset.html\">Shareable ValueSet</a></p></div><ul><li>Include these codes as defined in <a href=\"CodeSystem-currencies.html\"><code>urn:iso:std:iso:4217</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version ?0.1.0</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-AED\">AED</a></td><td>United Arab Emirates dirham</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-AFN\">AFN</a></td><td>Afghan afghani</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-ALL\">ALL</a></td><td>Albanian lek</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-AMD\">AMD</a></td><td>Armenian dram</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-ANG\">ANG</a></td><td>Netherlands Antillean guilder</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-AOA\">AOA</a></td><td>Angolan kwanza</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-ARS\">ARS</a></td><td>Argentine peso</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-AUD\">AUD</a></td><td>Australian dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-AWG\">AWG</a></td><td>Aruban florin</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-AZN\">AZN</a></td><td>Azerbaijani manat</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BAM\">BAM</a></td><td>Bosnia and Herzegovina convertible mark</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BBD\">BBD</a></td><td>Barbados dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BDT\">BDT</a></td><td>Bangladeshi taka</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BGN\">BGN</a></td><td>Bulgarian lev</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BHD\">BHD</a></td><td>Bahraini dinar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BIF\">BIF</a></td><td>Burundian franc</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BMD\">BMD</a></td><td>Bermudian dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BND\">BND</a></td><td>Brunei dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BOB\">BOB</a></td><td>Boliviano</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BOV\">BOV</a></td><td>Bolivian Mvdol (funds code)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BRL\">BRL</a></td><td>Brazilian real</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BSD\">BSD</a></td><td>Bahamian dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BTN\">BTN</a></td><td>Bhutanese ngultrum</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BWP\">BWP</a></td><td>Botswana pula</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BYN\">BYN</a></td><td>Belarusian ruble</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-BZD\">BZD</a></td><td>Belize dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CAD\">CAD</a></td><td>Canadian dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CDF\">CDF</a></td><td>Congolese franc</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CHE\">CHE</a></td><td>WIR Euro (complementary currency)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CHF\">CHF</a></td><td>Swiss franc</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CHW\">CHW</a></td><td>WIR Franc (complementary currency)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CLF\">CLF</a></td><td>Unidad de Fomento (funds code)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CLP\">CLP</a></td><td>Chilean peso</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CNY\">CNY</a></td><td>Renminbi (Chinese) yuan[8]</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-COP\">COP</a></td><td>Colombian peso</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-COU\">COU</a></td><td>Unidad de Valor Real (UVR) (funds code)[9]</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CRC\">CRC</a></td><td>Costa Rican colon</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CUC\">CUC</a></td><td>Cuban convertible peso</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CUP\">CUP</a></td><td>Cuban peso</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CVE\">CVE</a></td><td>Cape Verde escudo</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-CZK\">CZK</a></td><td>Czech koruna</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-DJF\">DJF</a></td><td>Djiboutian franc</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-DKK\">DKK</a></td><td>Danish krone</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-DOP\">DOP</a></td><td>Dominican peso</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-DZD\">DZD</a></td><td>Algerian dinar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-EGP\">EGP</a></td><td>Egyptian pound</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-ERN\">ERN</a></td><td>Eritrean nakfa</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-ETB\">ETB</a></td><td>Ethiopian birr</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-EUR\">EUR</a></td><td>Euro</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-FJD\">FJD</a></td><td>Fiji dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-FKP\">FKP</a></td><td>Falkland Islands pound</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-GBP\">GBP</a></td><td>Pound sterling</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-GEL\">GEL</a></td><td>Georgian lari</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-GGP\">GGP</a></td><td>Guernsey Pound</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-GHS\">GHS</a></td><td>Ghanaian cedi</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-GIP\">GIP</a></td><td>Gibraltar pound</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-GMD\">GMD</a></td><td>Gambian dalasi</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-GNF\">GNF</a></td><td>Guinean franc</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-GTQ\">GTQ</a></td><td>Guatemalan quetzal</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-GYD\">GYD</a></td><td>Guyanese dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-HKD\">HKD</a></td><td>Hong Kong dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-HNL\">HNL</a></td><td>Honduran lempira</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-HRK\">HRK</a></td><td>Croatian kuna</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-HTG\">HTG</a></td><td>Haitian gourde</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-HUF\">HUF</a></td><td>Hungarian forint</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-IDR\">IDR</a></td><td>Indonesian rupiah</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-ILS\">ILS</a></td><td>Israeli new shekel</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-IMP\">IMP</a></td><td>Isle of Man Pound</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-INR\">INR</a></td><td>Indian rupee</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-IQD\">IQD</a></td><td>Iraqi dinar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-IRR\">IRR</a></td><td>Iranian rial</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-ISK\">ISK</a></td><td>Icelandic króna</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-JEP\">JEP</a></td><td>Jersey Pound</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-JMD\">JMD</a></td><td>Jamaican dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-JOD\">JOD</a></td><td>Jordanian dinar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-JPY\">JPY</a></td><td>Japanese yen</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-KES\">KES</a></td><td>Kenyan shilling</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-KGS\">KGS</a></td><td>Kyrgyzstani som</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-KHR\">KHR</a></td><td>Cambodian riel</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-KMF\">KMF</a></td><td>Comoro franc</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-KPW\">KPW</a></td><td>North Korean won</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-KRW\">KRW</a></td><td>South Korean won</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-KWD\">KWD</a></td><td>Kuwaiti dinar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-KYD\">KYD</a></td><td>Cayman Islands dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-KZT\">KZT</a></td><td>Kazakhstani tenge</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-LAK\">LAK</a></td><td>Lao kip</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-LBP\">LBP</a></td><td>Lebanese pound</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-LKR\">LKR</a></td><td>Sri Lankan rupee</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-LRD\">LRD</a></td><td>Liberian dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-LSL\">LSL</a></td><td>Lesotho loti</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-LYD\">LYD</a></td><td>Libyan dinar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MAD\">MAD</a></td><td>Moroccan dirham</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MDL\">MDL</a></td><td>Moldovan leu</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MGA\">MGA</a></td><td>Malagasy ariary</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MKD\">MKD</a></td><td>Macedonian denar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MMK\">MMK</a></td><td>Myanmar kyat</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MNT\">MNT</a></td><td>Mongolian tögrög</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MOP\">MOP</a></td><td>Macanese pataca</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MRU\">MRU</a></td><td>Mauritanian ouguiya</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MUR\">MUR</a></td><td>Mauritian rupee</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MVR\">MVR</a></td><td>Maldivian rufiyaa</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MWK\">MWK</a></td><td>Malawian kwacha</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MXN\">MXN</a></td><td>Mexican peso</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MXV\">MXV</a></td><td>Mexican Unidad de Inversion (UDI) (funds code)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MYR\">MYR</a></td><td>Malaysian ringgit</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-MZN\">MZN</a></td><td>Mozambican metical</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-NAD\">NAD</a></td><td>Namibian dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-NGN\">NGN</a></td><td>Nigerian naira</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-NIO\">NIO</a></td><td>Nicaraguan córdoba</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-NOK\">NOK</a></td><td>Norwegian krone</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-NPR\">NPR</a></td><td>Nepalese rupee</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-NZD\">NZD</a></td><td>New Zealand dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-OMR\">OMR</a></td><td>Omani rial</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-PAB\">PAB</a></td><td>Panamanian balboa</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-PEN\">PEN</a></td><td>Peruvian Sol</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-PGK\">PGK</a></td><td>Papua New Guinean kina</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-PHP\">PHP</a></td><td>Philippine piso[13]</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-PKR\">PKR</a></td><td>Pakistani rupee</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-PLN\">PLN</a></td><td>Polish złoty</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-PYG\">PYG</a></td><td>Paraguayan guaraní</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-QAR\">QAR</a></td><td>Qatari riyal</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-RON\">RON</a></td><td>Romanian leu</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-RSD\">RSD</a></td><td>Serbian dinar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-RUB\">RUB</a></td><td>Russian ruble</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-RWF\">RWF</a></td><td>Rwandan franc</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SAR\">SAR</a></td><td>Saudi riyal</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SBD\">SBD</a></td><td>Solomon Islands dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SCR\">SCR</a></td><td>Seychelles rupee</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SDG\">SDG</a></td><td>Sudanese pound</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SEK\">SEK</a></td><td>Swedish krona/kronor</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SGD\">SGD</a></td><td>Singapore dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SHP\">SHP</a></td><td>Saint Helena pound</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SLL\">SLL</a></td><td>Sierra Leonean leone</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SOS\">SOS</a></td><td>Somali shilling</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SRD\">SRD</a></td><td>Surinamese dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SSP\">SSP</a></td><td>South Sudanese pound</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-STN\">STN</a></td><td>São Tomé and Príncipe dobra</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SVC\">SVC</a></td><td>Salvadoran colón</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SYP\">SYP</a></td><td>Syrian pound</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-SZL\">SZL</a></td><td>Swazi lilangeni</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-THB\">THB</a></td><td>Thai baht</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-TJS\">TJS</a></td><td>Tajikistani somoni</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-TMT\">TMT</a></td><td>Turkmenistan manat</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-TND\">TND</a></td><td>Tunisian dinar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-TOP\">TOP</a></td><td>Tongan paʻanga</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-TRY\">TRY</a></td><td>Turkish lira</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-TTD\">TTD</a></td><td>Trinidad and Tobago dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-TVD\">TVD</a></td><td>Tuvalu Dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-TWD\">TWD</a></td><td>New Taiwan dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-TZS\">TZS</a></td><td>Tanzanian shilling</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-UAH\">UAH</a></td><td>Ukrainian hryvnia</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-UGX\">UGX</a></td><td>Ugandan shilling</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-USD\">USD</a></td><td>United States dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-USN\">USN</a></td><td>United States dollar (next day) (funds code)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-UYI\">UYI</a></td><td>Uruguay Peso en Unidades Indexadas (URUIURUI) (funds code)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-UYU\">UYU</a></td><td>Uruguayan peso</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-UZS\">UZS</a></td><td>Uzbekistan som</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-VEF\">VEF</a></td><td>Venezuelan bolívar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-VND\">VND</a></td><td>Vietnamese đồng</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-VUV\">VUV</a></td><td>Vanuatu vatu</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-WST\">WST</a></td><td>Samoan tala</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XAF\">XAF</a></td><td>CFA franc BEAC</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XAG\">XAG</a></td><td>Silver (one troy ounce)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XAU\">XAU</a></td><td>Gold (one troy ounce)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XBA\">XBA</a></td><td>European Composite Unit (EURCO) (bond market unit)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XBB\">XBB</a></td><td>European Monetary Unit (E.M.U.-6) (bond market unit)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XBC\">XBC</a></td><td>European Unit of Account 9 (E.U.A.-9) (bond market unit)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XBD\">XBD</a></td><td>European Unit of Account 17 (E.U.A.-17) (bond market unit)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XCD\">XCD</a></td><td>East Caribbean dollar</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XDR\">XDR</a></td><td>Special drawing rights</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XOF\">XOF</a></td><td>CFA franc BCEAO</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XPD\">XPD</a></td><td>Palladium (one troy ounce)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XPF\">XPF</a></td><td>CFP franc (franc Pacifique)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XPT\">XPT</a></td><td>Platinum (one troy ounce)</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XSU\">XSU</a></td><td>SUCRE</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XTS\">XTS</a></td><td>Code reserved for testing purposes</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XUA\">XUA</a></td><td>ADB Unit of Account</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-XXX\">XXX</a></td><td>No currency</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-YER\">YER</a></td><td>Yemeni rial</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-ZAR\">ZAR</a></td><td>South African rand</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-ZMW\">ZMW</a></td><td>Zambian kwacha</td></tr><tr><td><a href=\"CodeSystem-currencies.html#currencies-ZWL\">ZWL</a></td><td>Zimbabwean dollar </td></tr></table></li></ul></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg" ] ;
+     fhir:Extension.valueCode [ fhir:value "vocab" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status" ] ;
+     fhir:Extension.valueCode [ fhir:value "normative" ]
+  ], [
+     fhir:index 2 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version" ] ;
+     fhir:Extension.valueCode [ fhir:value "4.0.0" ]
+  ], [
+     fhir:index 3 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm" ] ;
+     fhir:Extension.valueInteger [ fhir:value "5"^^xsd:integer ]
+  ] ;
+  fhir:ValueSet.url [ fhir:value "http://hl7.org/fhir/ValueSet/currencies"] ;
+  fhir:ValueSet.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "urn:ietf:rfc:3986" ] ;
+     fhir:Identifier.value [ fhir:value "urn:oid:2.16.840.1.113883.4.642.3.1025" ]
+  ] ;
+  fhir:ValueSet.version [ fhir:value "0.1.0"] ;
+  fhir:ValueSet.name [ fhir:value "Currencies"] ;
+  fhir:ValueSet.title [ fhir:value "CurrencyCode"] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2019-11-01T09:29:23+11:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Luke Duncan"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Luke Duncan" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "lduncan@intrahealth.org" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)"] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "urn:iso:std:iso:4217" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AED" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "United Arab Emirates dirham" ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AFN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Afghan afghani" ]
+       ], [
+         fhir:index 2 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ALL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Albanian lek" ]
+       ], [
+         fhir:index 3 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AMD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Armenian dram" ]
+       ], [
+         fhir:index 4 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ANG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Netherlands Antillean guilder" ]
+       ], [
+         fhir:index 5 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AOA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Angolan kwanza" ]
+       ], [
+         fhir:index 6 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ARS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Argentine peso" ]
+       ], [
+         fhir:index 7 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AUD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Australian dollar" ]
+       ], [
+         fhir:index 8 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AWG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Aruban florin" ]
+       ], [
+         fhir:index 9 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "AZN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Azerbaijani manat" ]
+       ], [
+         fhir:index 10 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BAM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bosnia and Herzegovina convertible mark" ]
+       ], [
+         fhir:index 11 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BBD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Barbados dollar" ]
+       ], [
+         fhir:index 12 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BDT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bangladeshi taka" ]
+       ], [
+         fhir:index 13 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BGN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bulgarian lev" ]
+       ], [
+         fhir:index 14 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BHD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bahraini dinar" ]
+       ], [
+         fhir:index 15 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BIF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Burundian franc" ]
+       ], [
+         fhir:index 16 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BMD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bermudian dollar" ]
+       ], [
+         fhir:index 17 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BND" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Brunei dollar" ]
+       ], [
+         fhir:index 18 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BOB" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Boliviano" ]
+       ], [
+         fhir:index 19 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BOV" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bolivian Mvdol (funds code)" ]
+       ], [
+         fhir:index 20 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BRL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Brazilian real" ]
+       ], [
+         fhir:index 21 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BSD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bahamian dollar" ]
+       ], [
+         fhir:index 22 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BTN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bhutanese ngultrum" ]
+       ], [
+         fhir:index 23 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BWP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Botswana pula" ]
+       ], [
+         fhir:index 24 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BYN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Belarusian ruble" ]
+       ], [
+         fhir:index 25 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "BZD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Belize dollar" ]
+       ], [
+         fhir:index 26 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CAD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Canadian dollar" ]
+       ], [
+         fhir:index 27 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CDF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Congolese franc" ]
+       ], [
+         fhir:index 28 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CHE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "WIR Euro (complementary currency)" ]
+       ], [
+         fhir:index 29 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CHF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Swiss franc" ]
+       ], [
+         fhir:index 30 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CHW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "WIR Franc (complementary currency)" ]
+       ], [
+         fhir:index 31 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CLF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Unidad de Fomento (funds code)" ]
+       ], [
+         fhir:index 32 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CLP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Chilean peso" ]
+       ], [
+         fhir:index 33 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CNY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Renminbi (Chinese) yuan[8]" ]
+       ], [
+         fhir:index 34 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "COP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Colombian peso" ]
+       ], [
+         fhir:index 35 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "COU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Unidad de Valor Real (UVR) (funds code)[9]" ]
+       ], [
+         fhir:index 36 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CRC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Costa Rican colon" ]
+       ], [
+         fhir:index 37 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CUC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cuban convertible peso" ]
+       ], [
+         fhir:index 38 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CUP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cuban peso" ]
+       ], [
+         fhir:index 39 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CVE" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cape Verde escudo" ]
+       ], [
+         fhir:index 40 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CZK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Czech koruna" ]
+       ], [
+         fhir:index 41 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "DJF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Djiboutian franc" ]
+       ], [
+         fhir:index 42 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "DKK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Danish krone" ]
+       ], [
+         fhir:index 43 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "DOP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Dominican peso" ]
+       ], [
+         fhir:index 44 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "DZD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Algerian dinar" ]
+       ], [
+         fhir:index 45 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "EGP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Egyptian pound" ]
+       ], [
+         fhir:index 46 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ERN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Eritrean nakfa" ]
+       ], [
+         fhir:index 47 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ETB" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ethiopian birr" ]
+       ], [
+         fhir:index 48 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "EUR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Euro" ]
+       ], [
+         fhir:index 49 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "FJD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fiji dollar" ]
+       ], [
+         fhir:index 50 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "FKP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Falkland Islands pound" ]
+       ], [
+         fhir:index 51 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GBP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pound sterling" ]
+       ], [
+         fhir:index 52 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GEL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Georgian lari" ]
+       ], [
+         fhir:index 53 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GGP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Guernsey Pound" ]
+       ], [
+         fhir:index 54 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GHS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ghanaian cedi" ]
+       ], [
+         fhir:index 55 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GIP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Gibraltar pound" ]
+       ], [
+         fhir:index 56 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GMD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Gambian dalasi" ]
+       ], [
+         fhir:index 57 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GNF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Guinean franc" ]
+       ], [
+         fhir:index 58 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GTQ" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Guatemalan quetzal" ]
+       ], [
+         fhir:index 59 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "GYD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Guyanese dollar" ]
+       ], [
+         fhir:index 60 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HKD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hong Kong dollar" ]
+       ], [
+         fhir:index 61 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HNL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Honduran lempira" ]
+       ], [
+         fhir:index 62 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HRK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Croatian kuna" ]
+       ], [
+         fhir:index 63 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HTG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Haitian gourde" ]
+       ], [
+         fhir:index 64 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HUF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hungarian forint" ]
+       ], [
+         fhir:index 65 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IDR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Indonesian rupiah" ]
+       ], [
+         fhir:index 66 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ILS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Israeli new shekel" ]
+       ], [
+         fhir:index 67 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IMP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Isle of Man Pound" ]
+       ], [
+         fhir:index 68 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "INR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Indian rupee" ]
+       ], [
+         fhir:index 69 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IQD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Iraqi dinar" ]
+       ], [
+         fhir:index 70 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "IRR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Iranian rial" ]
+       ], [
+         fhir:index 71 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ISK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Icelandic króna" ]
+       ], [
+         fhir:index 72 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "JEP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Jersey Pound" ]
+       ], [
+         fhir:index 73 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "JMD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Jamaican dollar" ]
+       ], [
+         fhir:index 74 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "JOD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Jordanian dinar" ]
+       ], [
+         fhir:index 75 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "JPY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Japanese yen" ]
+       ], [
+         fhir:index 76 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KES" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Kenyan shilling" ]
+       ], [
+         fhir:index 77 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KGS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Kyrgyzstani som" ]
+       ], [
+         fhir:index 78 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KHR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cambodian riel" ]
+       ], [
+         fhir:index 79 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KMF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Comoro franc" ]
+       ], [
+         fhir:index 80 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KPW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "North Korean won" ]
+       ], [
+         fhir:index 81 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KRW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "South Korean won" ]
+       ], [
+         fhir:index 82 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KWD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Kuwaiti dinar" ]
+       ], [
+         fhir:index 83 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KYD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cayman Islands dollar" ]
+       ], [
+         fhir:index 84 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "KZT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Kazakhstani tenge" ]
+       ], [
+         fhir:index 85 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LAK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lao kip" ]
+       ], [
+         fhir:index 86 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LBP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lebanese pound" ]
+       ], [
+         fhir:index 87 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LKR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Sri Lankan rupee" ]
+       ], [
+         fhir:index 88 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LRD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Liberian dollar" ]
+       ], [
+         fhir:index 89 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LSL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lesotho loti" ]
+       ], [
+         fhir:index 90 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "LYD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Libyan dinar" ]
+       ], [
+         fhir:index 91 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MAD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Moroccan dirham" ]
+       ], [
+         fhir:index 92 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MDL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Moldovan leu" ]
+       ], [
+         fhir:index 93 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MGA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Malagasy ariary" ]
+       ], [
+         fhir:index 94 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MKD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Macedonian denar" ]
+       ], [
+         fhir:index 95 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MMK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Myanmar kyat" ]
+       ], [
+         fhir:index 96 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MNT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mongolian tögrög" ]
+       ], [
+         fhir:index 97 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MOP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Macanese pataca" ]
+       ], [
+         fhir:index 98 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MRU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mauritanian ouguiya" ]
+       ], [
+         fhir:index 99 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MUR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mauritian rupee" ]
+       ], [
+         fhir:index 100 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MVR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Maldivian rufiyaa" ]
+       ], [
+         fhir:index 101 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MWK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Malawian kwacha" ]
+       ], [
+         fhir:index 102 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MXN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mexican peso" ]
+       ], [
+         fhir:index 103 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MXV" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mexican Unidad de Inversion (UDI) (funds code)" ]
+       ], [
+         fhir:index 104 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MYR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Malaysian ringgit" ]
+       ], [
+         fhir:index 105 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "MZN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mozambican metical" ]
+       ], [
+         fhir:index 106 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NAD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Namibian dollar" ]
+       ], [
+         fhir:index 107 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NGN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Nigerian naira" ]
+       ], [
+         fhir:index 108 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NIO" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Nicaraguan córdoba" ]
+       ], [
+         fhir:index 109 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NOK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Norwegian krone" ]
+       ], [
+         fhir:index 110 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NPR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Nepalese rupee" ]
+       ], [
+         fhir:index 111 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "NZD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "New Zealand dollar" ]
+       ], [
+         fhir:index 112 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "OMR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Omani rial" ]
+       ], [
+         fhir:index 113 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PAB" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Panamanian balboa" ]
+       ], [
+         fhir:index 114 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PEN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Peruvian Sol" ]
+       ], [
+         fhir:index 115 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PGK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Papua New Guinean kina" ]
+       ], [
+         fhir:index 116 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PHP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Philippine piso[13]" ]
+       ], [
+         fhir:index 117 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PKR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pakistani rupee" ]
+       ], [
+         fhir:index 118 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PLN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Polish złoty" ]
+       ], [
+         fhir:index 119 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PYG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Paraguayan guaraní" ]
+       ], [
+         fhir:index 120 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "QAR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Qatari riyal" ]
+       ], [
+         fhir:index 121 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RON" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Romanian leu" ]
+       ], [
+         fhir:index 122 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RSD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Serbian dinar" ]
+       ], [
+         fhir:index 123 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RUB" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Russian ruble" ]
+       ], [
+         fhir:index 124 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RWF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Rwandan franc" ]
+       ], [
+         fhir:index 125 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SAR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Saudi riyal" ]
+       ], [
+         fhir:index 126 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SBD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Solomon Islands dollar" ]
+       ], [
+         fhir:index 127 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SCR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Seychelles rupee" ]
+       ], [
+         fhir:index 128 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SDG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Sudanese pound" ]
+       ], [
+         fhir:index 129 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SEK" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Swedish krona/kronor" ]
+       ], [
+         fhir:index 130 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SGD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Singapore dollar" ]
+       ], [
+         fhir:index 131 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SHP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Saint Helena pound" ]
+       ], [
+         fhir:index 132 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SLL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Sierra Leonean leone" ]
+       ], [
+         fhir:index 133 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SOS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Somali shilling" ]
+       ], [
+         fhir:index 134 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SRD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Surinamese dollar" ]
+       ], [
+         fhir:index 135 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SSP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "South Sudanese pound" ]
+       ], [
+         fhir:index 136 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "STN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "São Tomé and Príncipe dobra" ]
+       ], [
+         fhir:index 137 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SVC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Salvadoran colón" ]
+       ], [
+         fhir:index 138 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SYP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Syrian pound" ]
+       ], [
+         fhir:index 139 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "SZL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Swazi lilangeni" ]
+       ], [
+         fhir:index 140 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "THB" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Thai baht" ]
+       ], [
+         fhir:index 141 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TJS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tajikistani somoni" ]
+       ], [
+         fhir:index 142 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TMT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Turkmenistan manat" ]
+       ], [
+         fhir:index 143 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TND" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tunisian dinar" ]
+       ], [
+         fhir:index 144 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TOP" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tongan paʻanga" ]
+       ], [
+         fhir:index 145 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TRY" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Turkish lira" ]
+       ], [
+         fhir:index 146 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TTD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Trinidad and Tobago dollar" ]
+       ], [
+         fhir:index 147 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TVD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tuvalu Dollar" ]
+       ], [
+         fhir:index 148 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TWD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "New Taiwan dollar" ]
+       ], [
+         fhir:index 149 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "TZS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tanzanian shilling" ]
+       ], [
+         fhir:index 150 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "UAH" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ukrainian hryvnia" ]
+       ], [
+         fhir:index 151 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "UGX" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ugandan shilling" ]
+       ], [
+         fhir:index 152 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "USD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "United States dollar" ]
+       ], [
+         fhir:index 153 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "USN" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "United States dollar (next day) (funds code)" ]
+       ], [
+         fhir:index 154 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "UYI" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Uruguay Peso en Unidades Indexadas (URUIURUI) (funds code)" ]
+       ], [
+         fhir:index 155 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "UYU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Uruguayan peso" ]
+       ], [
+         fhir:index 156 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "UZS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Uzbekistan som" ]
+       ], [
+         fhir:index 157 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VEF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Venezuelan bolívar" ]
+       ], [
+         fhir:index 158 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VND" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Vietnamese đồng" ]
+       ], [
+         fhir:index 159 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "VUV" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Vanuatu vatu" ]
+       ], [
+         fhir:index 160 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "WST" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Samoan tala" ]
+       ], [
+         fhir:index 161 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XAF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "CFA franc BEAC" ]
+       ], [
+         fhir:index 162 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XAG" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Silver (one troy ounce)" ]
+       ], [
+         fhir:index 163 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XAU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Gold (one troy ounce)" ]
+       ], [
+         fhir:index 164 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XBA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "European Composite Unit (EURCO) (bond market unit)" ]
+       ], [
+         fhir:index 165 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XBB" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "European Monetary Unit (E.M.U.-6) (bond market unit)" ]
+       ], [
+         fhir:index 166 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XBC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "European Unit of Account 9 (E.U.A.-9) (bond market unit)" ]
+       ], [
+         fhir:index 167 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XBD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "European Unit of Account 17 (E.U.A.-17) (bond market unit)" ]
+       ], [
+         fhir:index 168 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XCD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "East Caribbean dollar" ]
+       ], [
+         fhir:index 169 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XDR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Special drawing rights" ]
+       ], [
+         fhir:index 170 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XOF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "CFA franc BCEAO" ]
+       ], [
+         fhir:index 171 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XPD" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Palladium (one troy ounce)" ]
+       ], [
+         fhir:index 172 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XPF" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "CFP franc (franc Pacifique)" ]
+       ], [
+         fhir:index 173 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XPT" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Platinum (one troy ounce)" ]
+       ], [
+         fhir:index 174 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XSU" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "SUCRE" ]
+       ], [
+         fhir:index 175 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XTS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Code reserved for testing purposes" ]
+       ], [
+         fhir:index 176 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XUA" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ADB Unit of Account" ]
+       ], [
+         fhir:index 177 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "XXX" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "No currency" ]
+       ], [
+         fhir:index 178 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "YER" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Yemeni rial" ]
+       ], [
+         fhir:index 179 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ZAR" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "South African rand" ]
+       ], [
+         fhir:index 180 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ZMW" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Zambian kwacha" ]
+       ], [
+         fhir:index 181 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ZWL" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Zimbabwean dollar " ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://ihris.org/fhir/ValueSet/currencies.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

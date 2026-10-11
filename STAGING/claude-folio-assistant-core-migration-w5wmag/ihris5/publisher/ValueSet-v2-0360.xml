@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v2-0360"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet v2-0360</b></p><a name="v2-0360"> </a><a name="hcv2-0360"> </a><ul><li>Include all codes defined in <code>http://terminology.hl7.org/CodeSystem/v2-0360</code><span title="Version is explicitly stated to be 2.1.0"> version &#x1F4CD;2.1.0</span></li></ul></div>
+  </text>
+  <url value="http://terminology.hl7.org/ValueSet/v2-0360"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.21.236"/>
+  </identifier>
+  <version value="0.1.0"/>
+  <name value="Hl7VSDegreeLicenseCertificate"/>
+  <title value="hl7VS-degreeLicenseCertificate"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="Luke Duncan"/>
+  <contact>
+    <name value="Luke Duncan"/>
+    <telecom>
+      <system value="email"/>
+      <value value="lduncan@intrahealth.org"/>
+    </telecom>
+  </contact>
+  <description value="Concepts specifying an educational degree (e.g., MD).  Used in the CNN datatype (names and identifiers of clinicians) in Version 2 messaging.  Used in Version 2 messaging; note that in releases of HL7 prior to 2.3.1, was also used in person names (XPN), but this use was deprecated, then withdrawn in 2.7."/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0360"/>
+      <version value="2.1.0"/>
+    </include>
+  </compose>
+</ValueSet>
