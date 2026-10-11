@@ -88,7 +88,8 @@ main { min-width:0; }
 .gbrowse summary { cursor:pointer; min-height:44px; display:flex; align-items:center; font-weight:600; }
 .gbrowse-cols { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:4px 16px; }
 .gbrowse-cols ul { margin:0; padding-left:18px; } .gbrowse-cols li { min-height:32px; }
-/* Bridge until the platform rail stops repeating a one-letter label after its own initial (cat-harness-tools navbar.ts). */
+/* Bridge until the PUBLISHED navbar.js (litlfred.github.io/folio-assistant) carries litlfred/cat-harness-tools#47, which wraps a
+   label that is its own initial in .fa-nav-sr (checked 2026-10-11: the gh-pages navbar.js, last deployed 2026-10-07, does not). */
 .fa-nav .fa-nav-same { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 .gfilter fieldset { border:1px solid var(--rule); padding:6px 12px 8px; margin:0; min-width:0; flex:1 1 280px; }
 .gfilter legend { font-weight:600; padding:0 4px; }
