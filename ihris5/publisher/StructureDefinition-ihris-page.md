@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://ihris.org/fhir/StructureDefinition/ihris-page | *Version*:0.1.0 |
-| Active as of 2026-10-10 | *Computable Name*:IhrisPage |
+| Active as of 2026-10-11 | *Computable Name*:IhrisPage |
 
  
 iHRIS Profile of the Basic resource to manage pages. 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-ihris-page.csv), [Ex
   "name" : "IhrisPage",
   "title" : "iHRIS Page",
   "status" : "active",
-  "date" : "2026-10-10T05:51:05+00:00",
+  "date" : "2026-10-11T05:58:49+00:00",
   "publisher" : "Luke Duncan",
   "contact" : [{
     "name" : "Luke Duncan",

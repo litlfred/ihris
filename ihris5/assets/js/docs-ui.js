@@ -832,11 +832,12 @@
 
   // A static glyph: three finder squares and a scatter of modules. Inline so
   // it needs no extra request and inherits the header's colour.
-  var GLYPH =
+  var QR_GLYPH =
     '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
     '<path d="M3 3h7v7H3V3zm2 2v3h3V5H5zm9-2h7v7h-7V3zm2 2v3h3V5h-3zM3 14h7v7H3v-7zm2 2v3h3v-3H5z"/>' +
     '<path d="M13 13h3v3h-3v-3zm5 0h3v2h-3v-2zm-5 5h2v3h-2v-3zm4 1h4v2h-4v-2zm2-3h2v2h-2v-2z"/>' +
     "</svg>";
+  var GLYPH = QR_GLYPH;
 
   // Ordered most specific first. just-the-docs has used `.site-title` across
   // many versions, but the theme is unpinned, so a miss here is configuration
@@ -1088,6 +1089,20 @@
       });
   }
 
+  /**
+   * Strip raw markdown code backticks, bold/heading markers from node names and
+   * descriptions so text renders cleanly (folio-assistant-oi3h).
+   */
+  function cleanMarkdownText(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/`([^`]+)`/g, "$1")
+      .replace(/`/g, "")
+      .replace(/\*\*([^*]+)\*\*/g, "$1")
+      .replace(/#+\s*/g, "")
+      .trim();
+  }
+
   /** One node's detail: what it was, where it came from, and its text. */
   function buildDiscardedDetail(node, onBack) {
     var wrap = el("div", { class: "fa-discarded-detail" });
@@ -1098,7 +1113,7 @@
     wrap.appendChild(back);
 
     var h = el("h4", { class: "fa-discarded-title", tabindex: "-1" },
-               String(node.name || node.sourcePath || "Untitled"));
+               cleanMarkdownText(node.name || node.sourcePath || "Untitled"));
     wrap.appendChild(h);
 
     // The metadata that makes it not an orphan. `movedFrom` first: a reader
@@ -1116,7 +1131,7 @@
     if (meta.childNodes.length) wrap.appendChild(meta);
 
     if (node.description) {
-      wrap.appendChild(el("p", { class: "fa-discarded-summary" }, String(node.description)));
+      wrap.appendChild(el("p", { class: "fa-discarded-summary" }, cleanMarkdownText(node.description)));
     }
 
     // NEVER A BLANK PANE. A node with no body says so; it does not render
@@ -1133,7 +1148,11 @@
       wrap.appendChild(el("a", {
         class: "fa-discarded-source",
         href: safeHref(String(links.source).replace(/\/$/, "") + "/blob/main/" + node.sourcePath),
-      }, "View the source of this item"));
+        target: "_blank",
+        rel: "noopener noreferrer",
+        title: "View on GitHub",
+        "aria-label": "View the source of this item (opens on GitHub)",
+      }, "View the source of this item ↗"));
     }
     return wrap;
   }
@@ -1221,6 +1240,8 @@
       detail.setAttribute("hidden", "hidden");
       detail.innerHTML = "";
       list.removeAttribute("hidden");
+      var tilesBack = wrap.closest(".fa-tiles-view") ? wrap.closest(".fa-tiles-view").querySelector(".fa-tiles-back") : null;
+      if (tilesBack) tilesBack.removeAttribute("hidden");
       var first = list.querySelector("button");
       if (first) first.focus();
     }
@@ -1229,7 +1250,7 @@
       var li = el("li");
       var b = el("button", { type: "button", class: "fa-discarded-item" });
       b.appendChild(el("span", { class: "fa-discarded-item-name" },
-                       String(node.name || node.sourcePath || "Untitled")));
+                       cleanMarkdownText(node.name || node.sourcePath || "Untitled")));
       if (node.nodeKind) {
         b.appendChild(el("span", { class: "fa-discarded-item-kind" }, String(node.nodeKind)));
       }
@@ -1238,6 +1259,8 @@
         detail.innerHTML = "";
         detail.appendChild(buildDiscardedDetail(node, showList));
         detail.removeAttribute("hidden");
+        var tilesBack = wrap.closest(".fa-tiles-view") ? wrap.closest(".fa-tiles-view").querySelector(".fa-tiles-back") : null;
+        if (tilesBack) tilesBack.setAttribute("hidden", "hidden");
         // Focus the heading, not the top of the pane: the reader chose this
         // item and the first thing they should be told is which one opened.
         var h = detail.querySelector(".fa-discarded-title");
@@ -1907,7 +1930,9 @@
     var toggle = el("button", {
       type: "button",
       class: "fa-qr-toggle fa-tiles-toggle",
-      "aria-label": "Actions",
+      "aria-label": "Actions — settings, discarded items",
+      title: "Actions — settings, discarded items",
+      "data-fa-tip": "Actions — settings, discarded items",
       "aria-expanded": "false",
     });
     toggle.innerHTML = TILES_GLYPH; // static markup above, no input involved
@@ -2533,6 +2558,9 @@
       grid.appendChild(tileAction(SEARCH_GLYPH, "Search", revealSearch));
     }
     var pageSettingsTile = tileButton(GEAR_GLYPH, SETTINGS_NAMES.page, "settings");
+    pageSettingsTile.setAttribute("aria-label", SETTINGS_NAMES.page + " \u2014 " + SETTINGS_SCOPES.page);
+    pageSettingsTile.setAttribute("title", SETTINGS_NAMES.page + " \u2014 " + SETTINGS_SCOPES.page);
+    pageSettingsTile.setAttribute("data-fa-tip", SETTINGS_NAMES.page + " \u2014 " + SETTINGS_SCOPES.page);
     grid.appendChild(pageSettingsTile);
     // The glass's "Page settings →" lands HERE: the launcher opened and the
     // view shown, the same two steps a reader takes by hand (`ob3m` 12).
@@ -10236,6 +10264,78 @@
   // this page's, so nothing here could have reached into it anyway; inlining
   // it is what puts it under the one viewer. Its fallback text, the only text
   // it carries, becomes the accessible name, as `alt` does for an `<img>`.
+  // AN INLINED SVG'S STYLESHEET IS NO LONGER ITS OWN. Inside `<img>` a file's
+  // `<style>` applies to that file alone; moved into this document it applies
+  // to the whole PAGE. Visio exports (the WHO IGs' business-process figures)
+  // all name their classes `.st1`…`.st30` and their markers `mrkr…`, with a
+  // different meaning in every file, so a page holding eight of them rendered
+  // each with whichever file's rules came last: black-filled gateways, lost
+  // labels, a stray marker drawn as a large black wedge (reported 2026-10-10
+  // on smart-immunizations' business-processes page). Each inlined drawing
+  // therefore gets its own prefix on every class and id, and its `<style>`
+  // selectors, `url(#…)` references and `#…` hrefs are rewritten to match.
+  // The harness's OWN classes (`fa-…`, e.g. render-bpmn's `fa-subprocess-link`)
+  // are not the file's private names: the page's stylesheet and scripts select
+  // them, so they are left as written. Prefixing them broke every subprocess
+  // link on the processes pages (subprocess-links.e2e.ts, 2026-10-10).
+  var svgScopeSeq = 0;
+  function scopeSvg(svg) {
+    var pfx = "fa-svg" + ++svgScopeSeq + "-";
+    function scoped(c) { return /^fa-/.test(c) ? c : pfx + c; }
+    var ids = {};
+    [].forEach.call(svg.querySelectorAll("[id]"), function (el) {
+      var id = el.getAttribute("id");
+      ids[id] = pfx + id;
+      el.setAttribute("id", pfx + id);
+    });
+    function reId(text) {
+      return text.replace(/url\(\s*(['"]?)#([^'")\s]+)\1\s*\)/g, function (m, q, id) {
+        return ids[id] ? "url(" + q + "#" + ids[id] + q + ")" : m;
+      });
+    }
+    [].forEach.call(svg.querySelectorAll("*"), function (el) {
+      var cls = el.getAttribute("class");
+      if (cls) {
+        el.setAttribute("class", cls.split(/\s+/).filter(Boolean).map(scoped).join(" "));
+      }
+      [].forEach.call([].slice.call(el.attributes), function (a) {
+        if (a.value.indexOf("url(") !== -1) el.setAttribute(a.name, reId(a.value));
+        if ((a.localName === "href") && a.value.charAt(0) === "#" && ids[a.value.slice(1)]) {
+          el.setAttributeNS(a.namespaceURI, a.name, "#" + ids[a.value.slice(1)]);
+        }
+      });
+    });
+    var rootCls = svg.getAttribute("class");
+    if (rootCls) svg.setAttribute("class", rootCls.split(/\s+/).filter(Boolean).map(scoped).join(" "));
+    // Selectors are rewritten only OUTSIDE the declaration blocks, so a value
+    // such as `font-size:0.83em` is never mistaken for a class.
+    [].forEach.call(svg.querySelectorAll("style"), function (st) {
+      var css = st.textContent, out = "", depth = 0, buf = "";
+      for (var i = 0; i < css.length; i++) {
+        var ch = css.charAt(i);
+        if (ch === "{") {
+          if (depth === 0) {
+            out += buf.replace(/([.#])(-?[A-Za-z_][\w-]*)/g, function (m, sigil, name) {
+              return sigil === "." ? "." + scoped(name) : (ids[name] ? "#" + ids[name] : m);
+            });
+            buf = "";
+          }
+          depth++;
+          out += ch;
+        } else if (ch === "}") {
+          depth--;
+          out += ch;
+        } else if (depth === 0) {
+          buf += ch;
+        } else {
+          out += ch;
+        }
+      }
+      st.textContent = reId(out + buf);
+    });
+    return svg;
+  }
+
   function inlineDiagrams(done) {
     var imgs = [].slice.call(
       document.querySelectorAll(
@@ -10287,7 +10387,7 @@
             if (checked === undefined) a.removeAttribute("href");
             else a.setAttribute("href", new URL(checked, fileUrl).href);
           });
-          img.parentNode.replaceChild(document.importNode(svg, true), img);
+          img.parentNode.replaceChild(scopeSvg(document.importNode(svg, true)), img);
         })
         .catch(function (e) {
           console.warn("docs-ui: could not inline " + src + " (" + e.message + "); it stays a static image, so its links will not work.");
