@@ -5,23 +5,23 @@
  *
  *   bun run src/tools/gen_beans_data.ts --out <site dir>
  *
- * This is the bean block of cat-harness's `gen-docs-pages.ts`, which writes the same two files for
+ * This is the bean block of cat-harness-tools' `gen-docs-pages.ts`, which writes the same two files for
  * the platform's own Jekyll site and cannot be pointed at another one. Every value comes from the
  * same function it calls there (the store, the block edges both ways, the findings, the milestone
  * rollup, the open count and its unit), so the dashboard (`work-plan.js`) and the navbar's beans
  * badge read exactly the shape they read on the platform. Nothing is computed here that the
  * platform does not compute. Only the composition is restated, and it is short.
  *
- * Imports reach the mounted cat-harness (src/tools/mount_platform.sh); without it this cannot run.
+ * Imports reach the mounted cat-harness-tools and cat-harness (src/tools/mount_platform.sh); without it this cannot run.
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
-import { beanFindings, blockEdges, blockedBy, blocksOf, readBeans } from "../../cat-harness/scripts/beans.ts";
-import { milestoneRollup } from "../../cat-harness/scripts/milestone-rollup.ts";
-import { OPEN_BEANS_UNIT, openBeanCount } from "../../cat-harness/scripts/bean-store-read.ts";
+import { beanFindings, blockEdges, blockedBy, blocksOf, readBeans } from "../../cat-harness-tools/scripts/beans.ts";
+import { milestoneRollup } from "../../cat-harness-tools/scripts/milestone-rollup.ts";
+import { OPEN_BEANS_UNIT, openBeanCount } from "../../cat-harness-tools/scripts/bean-store-read.ts";
 import { tileCounts } from "../../cat-harness/schemas/tile-count.ts";
-import { detectRepoUrl } from "../../cat-harness/src/core/git-refs.ts";
+import { detectRepoUrl } from "../../cat-harness-tools/src/core/git-refs.ts";
 
 /** The platform's preview length (`BEAN_BODY_PREVIEW` in gen-docs-pages.ts). */
 const BEAN_BODY_PREVIEW = 400;

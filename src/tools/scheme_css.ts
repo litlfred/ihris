@@ -15,7 +15,7 @@
 import { appendFileSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { darkRules, withSavedScheme } from "../../cat-harness/scripts/lib/scheme-css.ts";
+import { darkRules, withSavedScheme } from "../../cat-harness-tools/scripts/lib/scheme-css.ts";
 
 const arg = (f: string) => {
   const i = process.argv.indexOf(f);
