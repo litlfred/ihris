@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-basic-name.jsonld",
+  "@type": "fhir:SearchParameter",
+  "dcterms:identifier": "SearchParameter/basic-name",
+  "schema:name": "Search Parameter on a name extension on Basic resources",
+  "dcterms:title": "Search Parameter on a name extension on Basic resources",
+  "dcterms:description": "Search by name for a Basic resource.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Behavior: Search Parameters",
+  "schema:sameAs": {
+    "@id": "http://ihris.org/fhir/SearchParameter/basic-name"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/ast-data/resources/SearchParameter/basic-name--0db08b7f.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 2.3.4 / core 6.10.4",
+    "prov:used": "8e154cc6ec72010731107976a7c1a4f9104d409e"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "ihris",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://ihris.org/fhir"
+    }
+  }
+}

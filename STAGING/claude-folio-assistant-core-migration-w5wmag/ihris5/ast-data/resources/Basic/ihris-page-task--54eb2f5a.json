@@ -1,0 +1,136 @@
+{
+  "resourceType" : "Basic",
+  "id" : "ihris-page-task",
+  "meta" : {
+    "profile" : ["http://ihris.org/fhir/StructureDefinition/ihris-page"]
+  },
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Basic ihris-page-task</b></p><a name=\"ihris-page-task\"> </a><a name=\"hcihris-page-task\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ihris-page.html\">iHRIS Page</a></p></div><blockquote><p><b>iHRIS Page Display</b></p><blockquote><p><b>url</b></p>resource</blockquote><p><b>value</b>: <a href=\"StructureDefinition-ihris-task.html\">StructureDefinition iHRIS Task</a></p><blockquote><p><b>url</b></p>search</blockquote><p><b>value</b>: Id|Basic.id</p><p><b>field</b>: Basic.id</p><p><b>text</b>: Edit</p><p><b>url</b>: /questionnaire/ihris-task/task/FIELD</p><p><b>button</b>: true</p><p><b>icon</b>: mdi-pencil</p><p><b>class</b>: secondary</p><blockquote><p><b>url</b></p>link</blockquote><p><b>field</b>: </p><p><b>text</b>: View Other Tasks</p><p><b>url</b>: /resource/search/task</p><p><b>button</b>: true</p><p><b>icon</b>: mdi-account-arrow-right</p><blockquote><p><b>url</b></p>link</blockquote><p><b>url</b>: /questionnaire/ihris-task/task</p><p><b>icon</b>: mdi-account-plus</p><p><b>class</b>: accent</p><blockquote><p><b>url</b></p>add</blockquote><blockquote><p><b>url</b></p>search</blockquote><p><b>value</b>: Name|Basic.extension.where(url='http://ihris.org/fhir/StructureDefinition/ihris-basic-name').valueString</p><blockquote><p><b>url</b></p><a href=\"filter\">FilterSearchParameter</a></blockquote><p><b>value</b>: Task|Basic.extension:id:contains</p></blockquote><blockquote><p><b>iHRIS Page Section</b></p><ul><li>title: Task</li><li>description: iHRIS User task details</li><li>name: Basic</li><li>field: Basic.extension:name.value[x]:valueString</li><li>field: Basic.extension:attributes</li><li>field: Basic.extension:compositeTask</li></ul></blockquote><p><b>code</b>: <span title=\"Codes:{http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem page}\">iHRIS Page</span></p></div>"
+  },
+  "extension" : [{
+    "extension" : [{
+      "url" : "resource",
+      "valueReference" : {
+        "reference" : "StructureDefinition/ihris-task"
+      }
+    },
+    {
+      "url" : "search",
+      "valueString" : "Id|Basic.id"
+    },
+    {
+      "extension" : [{
+        "url" : "field",
+        "valueString" : "Basic.id"
+      },
+      {
+        "url" : "text",
+        "valueString" : "Edit"
+      },
+      {
+        "url" : "displayIn"
+      },
+      {
+        "url" : "url",
+        "valueUrl" : "/questionnaire/ihris-task/task/FIELD"
+      },
+      {
+        "url" : "button",
+        "valueBoolean" : true
+      },
+      {
+        "url" : "icon",
+        "valueString" : "mdi-pencil"
+      },
+      {
+        "url" : "class",
+        "valueString" : "secondary"
+      }],
+      "url" : "link"
+    },
+    {
+      "extension" : [{
+        "url" : "field",
+        "valueString" : ""
+      },
+      {
+        "url" : "text",
+        "valueString" : "View Other Tasks"
+      },
+      {
+        "url" : "displayIn"
+      },
+      {
+        "url" : "url",
+        "valueUrl" : "/resource/search/task"
+      },
+      {
+        "url" : "button",
+        "valueBoolean" : true
+      },
+      {
+        "url" : "icon",
+        "valueString" : "mdi-account-arrow-right"
+      }],
+      "url" : "link"
+    },
+    {
+      "extension" : [{
+        "url" : "url",
+        "valueUrl" : "/questionnaire/ihris-task/task"
+      },
+      {
+        "url" : "icon",
+        "valueString" : "mdi-account-plus"
+      },
+      {
+        "url" : "class",
+        "valueString" : "accent"
+      }],
+      "url" : "add"
+    },
+    {
+      "url" : "search",
+      "valueString" : "Name|Basic.extension.where(url='http://ihris.org/fhir/StructureDefinition/ihris-basic-name').valueString"
+    },
+    {
+      "url" : "filter",
+      "valueString" : "Task|Basic.extension:id:contains"
+    }],
+    "url" : "http://ihris.org/fhir/StructureDefinition/ihris-page-display"
+  },
+  {
+    "extension" : [{
+      "url" : "title",
+      "valueString" : "Task"
+    },
+    {
+      "url" : "description",
+      "valueString" : "iHRIS User task details"
+    },
+    {
+      "url" : "name",
+      "valueString" : "Basic"
+    },
+    {
+      "url" : "field",
+      "valueString" : "Basic.extension:name.value[x]:valueString"
+    },
+    {
+      "url" : "field",
+      "valueString" : "Basic.extension:attributes"
+    },
+    {
+      "url" : "field",
+      "valueString" : "Basic.extension:compositeTask"
+    }],
+    "url" : "http://ihris.org/fhir/StructureDefinition/ihris-page-section"
+  }],
+  "code" : {
+    "coding" : [{
+      "system" : "http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem",
+      "code" : "page"
+    }]
+  }
+}
