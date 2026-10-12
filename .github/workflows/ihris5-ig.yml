@@ -7,8 +7,9 @@
 # and pages from the AST, the IG's own narrative and menu, and just-the-docs inside the platform
 # chrome, scoped to ihris. The IG Publisher's own HTML is NOT deployed (owner, 2026-10-11: "i dont
 # want IG publisher to deploy to gh-pages"): the Publisher runs only to produce the AST.
-# The artefact pages are THIN (owner, 2026-10-11, option A: "tiny html w/ dynamic load from
-# json(ld) KG"): each is a few KB pointing at its JSON-LD node, drawn by fhir-harness's renderer.
+# The pages are THIN (owner, 2026-10-11, option A: "tiny html w/ dynamic load from json(ld) KG";
+# fhir-harness's default since 2026-10-12): each artefact page, artifacts.html and toc.html is a few
+# KB drawn from JSON-LD by fhir-harness's renderer, and the narrative keeps its prose, chrome linked.
 #
 # When: by hand, and when what decides the build changes (the pin, the declared patches, the
 # build script, this file). On a pull request it builds into that PR's staging preview,

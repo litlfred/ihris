@@ -1,7 +1,7 @@
 {
   "id": "ihris-map-ihris5",
   "title": "Map the iHRIS 4 logical models to the three iHRIS 5 IGs (F4)",
-  "description": "Compiles the three iHRIS 5 IGs (ig/, ihris-backend-site/ig, qualify-ig) from the pinned, mounted source with SUSHI 3.20.1 in .build/ihris5-sd/, and indexes what compiles (names, element paths, labels, types, bindings, Questionnaire item texts, each file's sha256) into src/ihris-4-on-fhir/mapping/ihris5-index.json. Then matches each logical model to a profile per IG and its elements to the profile's elements by name and label equality only (tiers exact, accepted, ambiguous, none; an owner-accepted proposal in authored/ decides a model or element, a rejected one removes its candidates), and writes crosswalk.json, the two-way gap report (gaps.json, gaps.md) and one StructureMap per mapped model and IG as FSH Instances in input/fsh/maps/, built by gen_fsh.py's SUSHI run. --check: the crosswalk, gap report and StructureMaps are current against the committed index (no iHRIS 5 mount needed, so CI runs it). --propose (by hand, never in a build): ADDS proposal items for ambiguous matches and the bean's examples to src/ihris-data-dictionary/authored/ihris5-mapping.json, never changing an existing item.",
+  "description": "Compiles the three iHRIS 5 IGs (ig/, ihris-backend-site/ig, qualify-ig) from the pinned, mounted source with SUSHI 3.20.1 in .build/ihris5-sd/, and indexes what compiles (names, element paths, labels, types, bindings, Questionnaire item texts, each file's sha256) into src/ihris-4-on-fhir/mapping/ihris5-index.json. It also records every resource SUSHI compiles for the IG the site publishes (ihris5.json `source.path`), keyed by its artefact page (fhir-harness artifactPageName) with the FSH definition it came from (SUSHI's fsh-index), in src/ihris-4-on-fhir/mapping/ihris5-artifacts.json (--artifacts rewrites only that file); the crosswalk and gaps carry each iHRIS 5 structure's `artifact` key where the published IG compiles the same url to the same bytes, and the site links into the IG only through it. Then matches each logical model to a profile per IG and its elements to the profile's elements by name and label equality only (tiers exact, accepted, ambiguous, none; an owner-accepted proposal in authored/ decides a model or element, a rejected one removes its candidates), and writes crosswalk.json, the two-way gap report (gaps.json, gaps.md) and one StructureMap per mapped model and IG as FSH Instances in input/fsh/maps/, built by gen_fsh.py's SUSHI run. --check: the crosswalk, gap report and StructureMaps are current against the committed index (no iHRIS 5 mount needed, so CI runs it). --propose (by hand, never in a build): ADDS proposal items for ambiguous matches and the bean's examples to src/ihris-data-dictionary/authored/ihris5-mapping.json, never changing an existing item.",
   "install": {
     "cli": "npm install -g fsh-sushi@3.20.1"
   },
@@ -24,6 +24,14 @@
         "required": false,
         "arg": {
           "flag": "--index"
+        }
+      },
+      {
+        "name": "artifacts",
+        "schema": "https://www.w3.org/2001/XMLSchema#boolean",
+        "required": false,
+        "arg": {
+          "flag": "--artifacts"
         }
       },
       {
