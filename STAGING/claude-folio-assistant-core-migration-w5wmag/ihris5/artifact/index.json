@@ -1,0 +1,1411 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-index-jsonld/v1",
+  "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/index.jsonld",
+  "@type": "fhir:ImplementationGuide",
+  "dcterms:identifier": "ihris",
+  "schema:version": "0.1.0",
+  "schema:sameAs": {
+    "@id": "http://ihris.org/fhir"
+  },
+  "dcterms:title": "iHRIS 5 Implementation Guide",
+  "schema:numberOfItems": 182,
+  "schema:hasPart": [
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-es-report-mhero-send-message.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-es-report-mhero-send-message",
+      "dcterms:title": "ihris-es-report-mhero-send-message",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-es-report-staff-directorate.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-es-report-staff-directorate",
+      "dcterms:title": "ihris-es-report-staff-directorate",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-page-auditevent.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-page-auditevent",
+      "dcterms:title": "ihris-page-auditevent",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-page-role.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-page-role",
+      "dcterms:title": "ihris-page-role",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-page-task.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-page-task",
+      "dcterms:title": "ihris-page-task",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-page-test-codesystem.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-page-test-codesystem",
+      "dcterms:title": "ihris-page-test-codesystem",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-page-test-practitioner.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-page-test-practitioner",
+      "dcterms:title": "ihris-page-test-practitioner",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-role-admin.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-role-admin",
+      "dcterms:title": "ihris-role-admin",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-role-open.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-role-open",
+      "dcterms:title": "ihris-role-open",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-role-self.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-role-self",
+      "dcterms:title": "ihris-role-self",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-all-permissions-to-everything.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-all-permissions-to-everything",
+      "dcterms:title": "ihris-task-all-permissions-to-everything",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-navigation-evaluation.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-navigation-evaluation",
+      "dcterms:title": "ihris-task-navigation-evaluation",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-navigation-leave.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-navigation-leave",
+      "dcterms:title": "ihris-task-navigation-leave",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-navigation-password.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-navigation-password",
+      "dcterms:title": "ihris-task-navigation-password",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-navigation-profile.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-navigation-profile",
+      "dcterms:title": "ihris-task-navigation-profile",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-auditevent-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-auditevent-resource",
+      "dcterms:title": "ihris-task-read-auditevent-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-basic-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-basic-resource",
+      "dcterms:title": "ihris-task-read-basic-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-code-system.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-code-system",
+      "dcterms:title": "ihris-task-read-code-system",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-document-reference.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-document-reference",
+      "dcterms:title": "ihris-task-read-document-reference",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-ihris-page-practitioner.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-ihris-page-practitioner",
+      "dcterms:title": "ihris-task-read-ihris-page-practitioner",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-ihris-page-practitioner-role.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-ihris-page-practitioner-role",
+      "dcterms:title": "ihris-task-read-ihris-page-practitioner-role",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-location-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-location-resource",
+      "dcterms:title": "ihris-task-read-location-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-organization-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-organization-resource",
+      "dcterms:title": "ihris-task-read-organization-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-person-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-person-resource",
+      "dcterms:title": "ihris-task-read-person-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-practitioner-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-practitioner-resource",
+      "dcterms:title": "ihris-task-read-practitioner-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-practitioner-role-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-practitioner-role-resource",
+      "dcterms:title": "ihris-task-read-practitioner-role-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-questionnaire-leave.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-questionnaire-leave",
+      "dcterms:title": "ihris-task-read-questionnaire-leave",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-questionnaire-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-questionnaire-resource",
+      "dcterms:title": "ihris-task-read-questionnaire-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-questionnaire-response-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-questionnaire-response-resource",
+      "dcterms:title": "ihris-task-read-questionnaire-response-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-structure-definition.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-structure-definition",
+      "dcterms:title": "ihris-task-read-structure-definition",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-read-value-set.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-read-value-set",
+      "dcterms:title": "ihris-task-read-value-set",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-auditevent-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-auditevent-resource",
+      "dcterms:title": "ihris-task-write-auditevent-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-basic-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-basic-resource",
+      "dcterms:title": "ihris-task-write-basic-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-code-system.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-code-system",
+      "dcterms:title": "ihris-task-write-code-system",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-document-reference.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-document-reference",
+      "dcterms:title": "ihris-task-write-document-reference",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-location-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-location-resource",
+      "dcterms:title": "ihris-task-write-location-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-organization-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-organization-resource",
+      "dcterms:title": "ihris-task-write-organization-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-person-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-person-resource",
+      "dcterms:title": "ihris-task-write-person-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-practitioner-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-practitioner-resource",
+      "dcterms:title": "ihris-task-write-practitioner-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-practitioner-role-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-practitioner-role-resource",
+      "dcterms:title": "ihris-task-write-practitioner-role-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-questionnaire-change-password.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-questionnaire-change-password",
+      "dcterms:title": "ihris-task-write-questionnaire-change-password",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-questionnaire-leave.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-questionnaire-leave",
+      "dcterms:title": "ihris-task-write-questionnaire-leave",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-questionnaire-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-questionnaire-resource",
+      "dcterms:title": "ihris-task-write-questionnaire-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-questionnaire-response-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-questionnaire-response-resource",
+      "dcterms:title": "ihris-task-write-questionnaire-response-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-structure-definition.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-structure-definition",
+      "dcterms:title": "ihris-task-write-structure-definition",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-value-set.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-value-set",
+      "dcterms:title": "ihris-task-write-value-set",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Basic-ihris-task-write-valueset-resource.jsonld",
+      "@type": "fhir:Basic",
+      "dcterms:identifier": "Basic/ihris-task-write-valueset-resource",
+      "dcterms:title": "ihris-task-write-valueset-resource",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Bundle-Country.jsonld",
+      "@type": "fhir:Bundle",
+      "dcterms:identifier": "Bundle/Country",
+      "dcterms:title": "Country",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/DocumentReference-page-about.jsonld",
+      "@type": "fhir:DocumentReference",
+      "dcterms:identifier": "DocumentReference/page-about",
+      "dcterms:title": "page-about",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/DocumentReference-page-home.jsonld",
+      "@type": "fhir:DocumentReference",
+      "dcterms:identifier": "DocumentReference/page-home",
+      "dcterms:title": "page-home",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Library-ihris-module-example.jsonld",
+      "@type": "fhir:Library",
+      "dcterms:identifier": "Library/ihris-module-example",
+      "dcterms:title": "iHRIS Example Module",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Parameters-ihris-dashboard.jsonld",
+      "@type": "fhir:Parameters",
+      "dcterms:identifier": "Parameters/ihris-dashboard",
+      "dcterms:title": "ihris-dashboard",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Questionnaire-ihris-role.jsonld",
+      "@type": "fhir:Questionnaire",
+      "dcterms:identifier": "Questionnaire/ihris-role",
+      "dcterms:title": "iHRIS AddRole Workflow",
+      "dcterms:description": "iHRIS workflow to record a Role",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Questionnaire-ihris-task.jsonld",
+      "@type": "fhir:Questionnaire",
+      "dcterms:identifier": "Questionnaire/ihris-task",
+      "dcterms:title": "iHRIS Add Task Workflow",
+      "dcterms:description": "iHRIS workflow to record a Role",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/Questionnaire-ihris-test.jsonld",
+      "@type": "fhir:Questionnaire",
+      "dcterms:identifier": "Questionnaire/ihris-test",
+      "dcterms:title": "iHRIS Test Questionnaire",
+      "dcterms:description": "iHRIS Test initial data entry questionnaire.",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-2103.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/2103",
+      "dcterms:title": "identifierType",
+      "dcterms:description": "HL7-defined code system of concepts specifying type of identifier. Used in HL7 Version 2.x messaging data types CX, PLN, PPN, XCN and XON.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-3654.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/3654",
+      "dcterms:title": "degreeLicenseCertificate",
+      "dcterms:description": "Code system of concepts specifying an educational degree (e.g., MD).  Used in the CNN datatype (names and identifiers of clinicians) in Version 2 messaging.  Used in HL7 Version 2.x messaging in the CNN segment; note that in releases of HL7 prior to 2.3.1, was also used in person names (XPN), but this use was deprecated, then withdrawn in 2.7.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-ISO3166Part1.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/ISO3166Part1",
+      "dcterms:title": "ISO 3166-1 Codes for the representation of names of countries and their subdivisions — Part 1: Country code",
+      "dcterms:description": "ISO 3166-1 establishes codes that represent the current names of countries, dependencies, and other areas of particular geopolitical interest, on the basis of country names obtained from the United Nations.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-address-type.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/address-type",
+      "dcterms:title": "AddressType",
+      "dcterms:description": "The type of an address (physical / postal).",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-address-use.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/address-use",
+      "dcterms:title": "AddressUse",
+      "dcterms:description": "The use of an address.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-administrative-gender.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/administrative-gender",
+      "dcterms:title": "AdministrativeGender",
+      "dcterms:description": "The gender of a person used for administrative purposes.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-contact-point-system.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/contact-point-system",
+      "dcterms:title": "ContactPointSystem",
+      "dcterms:description": "Telecommunications form for contact point.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-contact-point-use.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/contact-point-use",
+      "dcterms:title": "ContactPointUse",
+      "dcterms:description": "Use of contact point.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-contactentity-type.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/contactentity-type",
+      "dcterms:title": "Contact entity type",
+      "dcterms:description": "This example value set defines a set of codes that can be used to indicate the purpose for which you would contact a contact party.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-currencies.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/currencies",
+      "dcterms:title": "Code System for Currencies.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-days-of-week.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/days-of-week",
+      "dcterms:title": "DaysOfWeek",
+      "dcterms:description": "The days of the week.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-identifier-use.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/identifier-use",
+      "dcterms:title": "IdentifierUse",
+      "dcterms:description": "Identifies the purpose for this identifier, if known .",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-ihris-cadre.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/ihris-cadre",
+      "dcterms:title": "iHRIS Cadre",
+      "dcterms:description": "Sample iHRIS CodeSystem for: IhrisCadre",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-ihris-classification.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/ihris-classification",
+      "dcterms:title": "iHRIS Classification",
+      "dcterms:description": "Sample iHRIS CodeSystem for: IhrisClassification",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-ihris-document-category.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/ihris-document-category",
+      "dcterms:title": "Code system for document categories.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-ihris-job.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/ihris-job",
+      "dcterms:title": "iHRIS Job",
+      "dcterms:description": "Sample iHRIS CodeSystem for: IhrisJob",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-ihris-resource-codesystem.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/ihris-resource-codesystem",
+      "dcterms:title": "Code System for iHRIS Basic Resources.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-ihris-salary-grade.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/ihris-salary-grade",
+      "dcterms:title": "iHRIS Salary Grade",
+      "dcterms:description": "Sample iHRIS CodeSystem for: iHRISSalaryGrade",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-ihris-task-permission.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/ihris-task-permission",
+      "dcterms:title": "Code system for task permissions.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-ihris-task-resource.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/ihris-task-resource",
+      "dcterms:title": "Code system for task permissions.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-ihris-test-codesystem.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/ihris-test-codesystem",
+      "dcterms:title": "iHRIS Test CodeSystem",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-location-mode.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/location-mode",
+      "dcterms:title": "LocationMode",
+      "dcterms:description": "Indicates whether a resource instance represents a specific location or a class of locations.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-location-physical-type.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/location-physical-type",
+      "dcterms:title": "Location type",
+      "dcterms:description": "This example value set defines a set of codes that can be used to indicate the physical form of the Location.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-location-status.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/location-status",
+      "dcterms:title": "LocationStatus",
+      "dcterms:description": "Indicates whether the location is still in use.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-name-use.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/name-use",
+      "dcterms:title": "NameUse",
+      "dcterms:description": "The use of a human name.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-organization-type.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/organization-type",
+      "dcterms:title": "Organization type",
+      "dcterms:description": "This example value set defines a set of codes that can be used to indicate a type of organization.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-service-category.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/service-category",
+      "dcterms:title": "Service category",
+      "dcterms:description": "This value set defines an example set of codes that can be used to classify groupings of service-types/specialties.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-service-provision-conditions.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/service-provision-conditions",
+      "dcterms:title": "ServiceProvisionConditions",
+      "dcterms:description": "The code(s) that detail the conditions under which the healthcare service is available/offered.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-service-type.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/service-type",
+      "dcterms:title": "Service type",
+      "dcterms:description": "This value set defines an example set of codes of service-types.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-snomedct.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/snomedct",
+      "dcterms:title": "SNOMED CT (all versions)",
+      "dcterms:description": "SNOMED CT is the most comprehensive and precise clinical health terminology product in the world, owned and distributed around the world by The International Health Terminology Standards Development Organisation (IHTSDO).",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-v3-RoleCode.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/v3-RoleCode",
+      "dcterms:title": "v3 Code System RoleCode",
+      "dcterms:description": " A set of codes further specifying the kind of Role; specific classification codes for further qualifying RoleClass codes.",
+      "dcterms:type": "Terminology: Code Systems"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-active-user.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/active-user",
+      "dcterms:title": "Search Parameter on active person resources for security",
+      "dcterms:description": "Search by active status for a Person resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-basic-location-constraint.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/basic-location-constraint",
+      "dcterms:title": "Search Parameter on related location constraint resources for role",
+      "dcterms:description": "Search by related location for a Basic resource Role.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-basic-name.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/basic-name",
+      "dcterms:title": "Search Parameter on a name extension on Basic resources",
+      "dcterms:description": "Search by name for a Basic resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-basic-practitioner.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/basic-practitioner",
+      "dcterms:title": "Search Parameter on an practitioner extension on Basic resources",
+      "dcterms:description": "Search by practitioner for a Basic resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-basic-related-location.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/basic-related-location",
+      "dcterms:title": "Search Parameter on related location resources for security",
+      "dcterms:description": "Search by related location for a Basic resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-basic-related-practitioner.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/basic-related-practitioner",
+      "dcterms:title": "Search Parameter on related practitioner resources for security",
+      "dcterms:description": "Search by related practitioner for a Basic resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-employment-status-search.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/employment-status-search",
+      "dcterms:title": "Search Parameter for a practitionerRole employment-status",
+      "dcterms:description": "Search for a practitionerRole employment-status.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-gofr-search-isbroadcast.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/gofr-search-isbroadcast",
+      "dcterms:title": "search parameter for broadcasted messages",
+      "dcterms:description": "search parameter for broadcasted messages",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-gofr-search-isflowstart.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/gofr-search-isflowstart",
+      "dcterms:title": "search parameter for flow starts",
+      "dcterms:description": "search parameter for flow starts",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-job-search.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/job-search",
+      "dcterms:title": "Search Parameter for a practitionerRole job",
+      "dcterms:description": "Search for a practitionerRole job.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-leaveperiod-search.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/leaveperiod-search",
+      "dcterms:title": "Search Parameter for a practitioner's Leave Period",
+      "dcterms:description": "Search for a practitioner's Leave Period",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-leavetype-search.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/leavetype-search",
+      "dcterms:title": "Search Parameter for a practitioner's Leave Type",
+      "dcterms:description": "Search for a practitioner's Leave Type.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-location-related-location.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/location-related-location",
+      "dcterms:title": "Search Parameter on related location resources for security",
+      "dcterms:description": "Search by related location for a Location resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-performanceperiod-search.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/performanceperiod-search",
+      "dcterms:title": "Search Parameter for a practitioner's Performance Period",
+      "dcterms:description": "Search for a practitioner's Performance Period",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-position-status-search.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/position-status-search",
+      "dcterms:title": "Search Parameter for a practitionerRole position status",
+      "dcterms:description": "Search for a practitionerRole position status.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-practitioner-birthdate.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/practitioner-birthdate",
+      "dcterms:title": "Search Parameter on birthdate resources for practioner",
+      "dcterms:description": "Search by birthdate for a Practitioner resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-practitioner-employeeNumber.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/practitioner-employeeNumber",
+      "dcterms:title": "Search Parameter on employee Number for practitioner",
+      "dcterms:description": "Search by employee number for a practitioner resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-practitioner-phone.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/practitioner-phone",
+      "dcterms:title": "Search Parameter on a name extension on Basic resources",
+      "dcterms:description": "Search by phone for a Practitioner resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-practitioner-related-location.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/practitioner-related-location",
+      "dcterms:title": "Search Parameter on related location resources for security",
+      "dcterms:description": "Search by related location for a Practitioner resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-practitioner-related-practitioner.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/practitioner-related-practitioner",
+      "dcterms:title": "Search Parameter on related practitioner resources for security",
+      "dcterms:description": "Search by related practitioner for a Practitioner resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-practitioner-renewrole.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/practitioner-renewrole",
+      "dcterms:title": "Search Parameter on  employee id for practitioner",
+      "dcterms:description": "Search by employee ID for a practitioner resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-practitionerrole-related-location.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/practitionerrole-related-location",
+      "dcterms:title": "Search Parameter on related location resources for security",
+      "dcterms:description": "Search by related location for a PractitionerRole resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/SearchParameter-practitionerrole-related-practitioner.jsonld",
+      "@type": "fhir:SearchParameter",
+      "dcterms:identifier": "SearchParameter/practitionerrole-related-practitioner",
+      "dcterms:title": "Search Parameter on related practitioner resources for security",
+      "dcterms:description": "Search by related practitioner for a PractitionerRole resource.",
+      "dcterms:type": "Behavior: Search Parameters"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ContactPoint.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ContactPoint",
+      "dcterms:title": "ContactPoint",
+      "dcterms:description": "Base StructureDefinition for ContactPoint Type: Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.",
+      "dcterms:type": "Structures: Logical Models"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-IHE.mCSD.FacilityLocation.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/IHE.mCSD.FacilityLocation",
+      "dcterms:title": "IHEmCSDFacilityLocation",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-IHE.mCSD.Location.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/IHE.mCSD.Location",
+      "dcterms:title": "IHEmCSDLocation",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-iHRISRelationship.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/iHRISRelationship",
+      "dcterms:title": "iHRIS Resources Relationship Profile",
+      "dcterms:description": "iHRIS Resources Relationship Profile",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-auditevent.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-auditevent",
+      "dcterms:title": "iHRIS Audit Event",
+      "dcterms:description": "iHRIS profile for AuditEvent",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-dashboard.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-dashboard",
+      "dcterms:title": "iHRIS Dashboard",
+      "dcterms:description": "iHRIS Profile of the Basic resource to manage dashboards.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-data-visualization.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-data-visualization",
+      "dcterms:title": "iHRIS Data Visualizer",
+      "dcterms:description": "iHRIS Profile of the Basic resource to manage visualizations.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-document.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-document",
+      "dcterms:title": "iHRIS Document",
+      "dcterms:description": "iHRIS Profile of the DocumentReference resource to manage static documents.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-module.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-module",
+      "dcterms:title": "iHRIS Module",
+      "dcterms:description": "iHRIS profile of Library resource to manage modules.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-page.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-page",
+      "dcterms:title": "iHRIS Page",
+      "dcterms:description": "iHRIS Profile of the Basic resource to manage pages.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-parameters-local-config.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-parameters-local-config",
+      "dcterms:title": "iHRIS Parameters Local Config",
+      "dcterms:description": "Configuration Parameters to be loaded from a local file for iHRIS.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-parameters-remote-config.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-parameters-remote-config",
+      "dcterms:title": "iHRIS Parameters Remote Config",
+      "dcterms:description": "Configuration Parameters to be loaded from a remote file for iHRIS.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-questionnaire.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-questionnaire",
+      "dcterms:title": "iHRIS Questionnaire",
+      "dcterms:description": "iHRIS Profile of the Questionnaire resource for data entry and validation.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-report.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-report",
+      "dcterms:title": "iHRIS Report",
+      "dcterms:description": "iHRIS Profile of the Basic resource to manage reports.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-role.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-role",
+      "dcterms:title": "iHRIS Role",
+      "dcterms:description": "iHRIS Profile of the Basic resource to manage roles.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-task.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-task",
+      "dcterms:title": "iHRIS Task",
+      "dcterms:description": "iHRIS Profile of the Basic resource to manage tasks.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-test-practitioner.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-test-practitioner",
+      "dcterms:title": "IhrisTestPractitioner",
+      "dcterms:description": "iHRIS profile of Practitioner for tests.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-test-practitioner-role.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-test-practitioner-role",
+      "dcterms:title": "iHRIS Test Practitioner Role",
+      "dcterms:description": "iHRIS Test profile of Practitioner Role.",
+      "dcterms:type": "Structures: Resource Profiles"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-composite-task.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/composite-task",
+      "dcterms:title": "Composite Task",
+      "dcterms:description": "Tasks Inheritance",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-iHRISReportDetails.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/iHRISReportDetails",
+      "dcterms:title": "Details of a report",
+      "dcterms:description": "Defines the primary resource of the relationship",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-iHRISReportElement.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/iHRISReportElement",
+      "dcterms:title": "Resource Fields",
+      "dcterms:description": "Lists fields of a resource to be displayed/cached",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-iHRISReportLink.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/iHRISReportLink",
+      "dcterms:title": "Links to the primary resource",
+      "dcterms:description": "Links to the primary resource",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-iHRISReportParameters.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/iHRISReportParameters",
+      "dcterms:title": "ihRIS Report parameters",
+      "dcterms:description": "Lists parameters ",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-assign-role.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-assign-role",
+      "dcterms:title": "iHRIS Assign Role",
+      "dcterms:description": "iHRIS Assign Role to a user or other role.",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-assign-task.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-assign-task",
+      "dcterms:title": "iHRIS Assign Task",
+      "dcterms:description": "iHRIS Assign Task to a user or other task.",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-basic-name.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-basic-name",
+      "dcterms:title": "iHRIS Basic Name",
+      "dcterms:description": "iHRIS name field for basic resources.",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-dashboard-visualization.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-dashboard-visualization",
+      "dcterms:title": "iHRIS Dashboard Visualization",
+      "dcterms:description": "iHRIS Dashboard Visualization",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-page-display.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-page-display",
+      "dcterms:title": "iHRIS Page Display",
+      "dcterms:description": "iHRIS Page Display details.",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-page-section.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-page-section",
+      "dcterms:title": "iHRIS Page Section",
+      "dcterms:description": "iHRIS Page Section information.",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-page-task.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-page-task",
+      "dcterms:title": "iHRIS Page Task",
+      "dcterms:description": "iHRIS Page Task details.",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-resource-relationships.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-resource-relationships",
+      "dcterms:title": "iHRIS Resource Relationships",
+      "dcterms:description": "iHRIS Resource Relationships",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-role-primary.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-role-primary",
+      "dcterms:title": "iHRIS Role Primary",
+      "dcterms:description": "iHRIS flag for roles to indicate a primary role for assignment to users.",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-test-dependent.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-test-dependent",
+      "dcterms:title": "iHRIS Practitioner Dependent Detail",
+      "dcterms:description": "iHRIS Test extension for Practitioner Dependent Detail.",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-test-residence.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-test-residence",
+      "dcterms:title": "iHRIS Practitioner Residence",
+      "dcterms:description": "iHRIS Test extension for Practitioner residence.",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-visualization-categories.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-visualization-categories",
+      "dcterms:title": "iHRIS Visualization Categories",
+      "dcterms:description": "iHRIS visualization categories",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-visualization-dataset.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-visualization-dataset",
+      "dcterms:title": "iHRIS Visualization Dataset",
+      "dcterms:description": "iHRIS visualization dataset",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-visualization-filters.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-visualization-filters",
+      "dcterms:title": "iHRIS Visualization Filters",
+      "dcterms:description": "iHRIS visualization filters",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-visualization-permissions.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-visualization-permissions",
+      "dcterms:title": "iHRIS Visualization Permissions",
+      "dcterms:description": "iHRIS Visualization Permissions",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-visualization-series.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-visualization-series",
+      "dcterms:title": "iHRIS Visualization Series",
+      "dcterms:description": "iHRIS visualization series",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-visualization-settings.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/ihris-visualization-settings",
+      "dcterms:title": "iHRIS Visualization Settings",
+      "dcterms:description": "iHRIS visualization settings for the data visualizer",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-task-attributes.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/task-attributes",
+      "dcterms:title": "Task Attributes",
+      "dcterms:description": "Task attributes.",
+      "dcterms:type": "Structures: Extension Definitions"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-address-type.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/address-type",
+      "dcterms:title": "AddressType",
+      "dcterms:description": "The type of an address (physical / postal).",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-address-use.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/address-use",
+      "dcterms:title": "AddressUse",
+      "dcterms:description": "The use of an address.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-administrative-gender.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/administrative-gender",
+      "dcterms:title": "AdministrativeGender",
+      "dcterms:description": "The gender of a person used for administrative purposes.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-c80-practice-codes.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/c80-practice-codes",
+      "dcterms:title": "Practice Setting Code Value Set",
+      "dcterms:description": "This is the code representing the clinical specialty of the clinician or provider who interacted with, treated, or provided a service to/for the patient. The value set used for clinical specialty has been limited by HITSP to the value set reproduced from HITSP C80 Table 2-149 Clinical Specialty Value Set Definition.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-contact-point-system.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/contact-point-system",
+      "dcterms:title": "ContactPointSystem",
+      "dcterms:description": "Telecommunications form for contact point.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-contact-point-use.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/contact-point-use",
+      "dcterms:title": "ContactPointUse",
+      "dcterms:description": "Use of contact point.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-contactentity-type.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/contactentity-type",
+      "dcterms:title": "Contact entity type",
+      "dcterms:description": "This example value set defines a set of codes that can be used to indicate the purpose for which you would contact a contact party.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-currencies.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/currencies",
+      "dcterms:title": "CurrencyCode",
+      "dcterms:description": "Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-days-of-week.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/days-of-week",
+      "dcterms:title": "DaysOfWeek",
+      "dcterms:description": "The days of the week.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-identifier-type.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/identifier-type",
+      "dcterms:title": "IdentifierType",
+      "dcterms:description": "A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-identifier-use.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/identifier-use",
+      "dcterms:title": "IdentifierUse",
+      "dcterms:description": "Identifies the purpose for this identifier, if known .",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-ihris-cadre.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/ihris-cadre",
+      "dcterms:title": "iHRIS Cadre",
+      "dcterms:description": "Sample iHRIS ValueSet for: IhrisCadre",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-ihris-classification.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/ihris-classification",
+      "dcterms:title": "iHRIS Classification",
+      "dcterms:description": "Sample iHRIS ValueSet for: IhrisClassification",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-ihris-document-category.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/ihris-document-category",
+      "dcterms:title": "Code system for document categories.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-ihris-job.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/ihris-job",
+      "dcterms:title": "iHRIS Job",
+      "dcterms:description": "Sample iHRIS ValueSet for: IhrisJob",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-ihris-resource-valueset.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/ihris-resource-valueset",
+      "dcterms:title": "Value Set for iHRIS Basic Resources.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-ihris-salary-grade.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/ihris-salary-grade",
+      "dcterms:title": "iHRIS Salary Grade",
+      "dcterms:description": "Sample iHRIS ValueSet for: iHRISSalaryGrade",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-ihris-task-permission.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/ihris-task-permission",
+      "dcterms:title": "Code system for task permissions.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-ihris-task-resource.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/ihris-task-resource",
+      "dcterms:title": "Code system for task permissions.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-iso3166-1-2.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/iso3166-1-2",
+      "dcterms:title": "Iso 3166 Part 1: 2 Letter Codes",
+      "dcterms:description": "This value set defines the ISO 3166 Part 1 2-letter codes",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-languages.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/languages",
+      "dcterms:title": "Common Languages",
+      "dcterms:description": "This value set includes common codes from BCP-47 (http://tools.ietf.org/html/bcp47)",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-location-mode.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/location-mode",
+      "dcterms:title": "LocationMode",
+      "dcterms:description": "Indicates whether a resource instance represents a specific location or a class of locations.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-location-physical-type.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/location-physical-type",
+      "dcterms:title": "Location type",
+      "dcterms:description": "This example value set defines a set of codes that can be used to indicate the physical form of the Location.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-location-status.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/location-status",
+      "dcterms:title": "LocationStatus",
+      "dcterms:description": "Indicates whether the location is still in use.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-name-use.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/name-use",
+      "dcterms:title": "NameUse",
+      "dcterms:description": "The use of a human name.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-organization-type.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/organization-type",
+      "dcterms:title": "Organization type",
+      "dcterms:description": "This example value set defines a set of codes that can be used to indicate a type of organization.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-service-category.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/service-category",
+      "dcterms:title": "Service category",
+      "dcterms:description": "This value set defines an example set of codes that can be used to classify groupings of service-types/specialties.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-service-provision-conditions.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/service-provision-conditions",
+      "dcterms:title": "ServiceProvisionConditions",
+      "dcterms:description": "The code(s) that detail the conditions under which the healthcare service is available/offered.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-service-type.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/service-type",
+      "dcterms:title": "Service type",
+      "dcterms:description": "This value set defines an example set of codes of service-types.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-v2-0360.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/v2-0360",
+      "dcterms:title": "hl7VS-degreeLicenseCertificate",
+      "dcterms:description": "Concepts specifying an educational degree (e.g., MD).  Used in the CNN datatype (names and identifiers of clinicians) in Version 2 messaging.  Used in Version 2 messaging; note that in releases of HL7 prior to 2.3.1, was also used in person names (XPN), but this use was deprecated, then withdrawn in 2.7.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-v3-ServiceDeliveryLocationRoleType.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/v3-ServiceDeliveryLocationRoleType",
+      "dcterms:title": "V3 Value SetServiceDeliveryLocationRoleType",
+      "dcterms:description": " A role of a place that further classifies the setting (e.g., accident site, road side, work site, community location) in which services are delivered.",
+      "dcterms:type": "Terminology: Value Sets"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ImplementationGuide-ihris.jsonld",
+      "@type": "fhir:ImplementationGuide",
+      "dcterms:identifier": "ImplementationGuide/ihris",
+      "dcterms:title": "iHRIS Implementation Guide",
+      "dcterms:description": "Conformance resources that define the base installation of iHRIS 5"
+    }
+  ]
+}
