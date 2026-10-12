@@ -224,10 +224,18 @@ document.querySelectorAll('.menu-btn').forEach(function(b){b.addEventListener('c
 </script>"""
 
 
+# Directories of this site that another workflow deploys beside it on gh-pages, so a build of the site alone does
+# not contain them: the iHRIS 5 IG (.github/workflows/ihris5-ig.yml writes ihris5/, and STAGING/<slug>/ihris5/ for
+# a pull request, next to the site build_site.py writes). Links into them are kept relative, so a staging preview
+# links its own IG, and the link check does not require them to be built here.
+SEPARATELY_DEPLOYED = ("ihris5/",)
+IG_HOME = "ihris5/index.html"
+
+
 def shell(path, title, body, theme, current=None, scripts=""):
     r = lambda p: rel(path, p)  # noqa: E731
     items = [("index.html", "Home"), ("data-model/index.html", "Data model"), ("data-dictionary/index.html", "Data dictionary"),
-             ("sources/index.html", "Sources"), ("library/index.html", "Library"), ("schemas/index.html", "Schemas"),
+             ("sources/index.html", "Sources"), (IG_HOME, "iHRIS 5 IG"), ("library/index.html", "Library"), ("schemas/index.html", "Schemas"),
              ("glossary/index.html", "Glossary"), ("data-model/search.html", "Search"), ("beans/index.html", "Work plan"), ("workflow/index.html", "Workflow"), (None, "GitHub")]
     nav = "".join(
         f'<li><a href="{E(r(p) if p else REPO)}"{AC if p == current else ""}>{E(n)}</a></li>'
@@ -667,6 +675,8 @@ def broken_links(out):
                     if u.startswith(("http:", "https:", "#", "mailto:")):
                         continue
                     t = os.path.normpath(os.path.join(d, u.split("?")[0].split("#")[0]))
+                    if os.path.relpath(t, out).replace(os.sep, "/").startswith(SEPARATELY_DEPLOYED):
+                        continue
                     if not os.path.exists(t):
                         bad.append((os.path.relpath(p, out), u))
                     elif "#" in u and not os.path.relpath(p, out).startswith("library/wiki/") and os.path.isfile(t) and ids_of(t) is not None and u.split("#", 1)[1] not in ids_of(t):
