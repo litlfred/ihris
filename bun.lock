@@ -127,6 +127,17 @@
         "typescript7": "npm:typescript@^7.0.2",
       },
     },
+    "fhir-harness": {
+      "name": "@litlfred/fhir-harness",
+      "dependencies": {
+        "liquidjs": "^10.29.0",
+        "yaml": "^2.9.1",
+        "zod": "^4.6.5",
+      },
+      "devDependencies": {
+        "ajv": "^6.15.0",
+      },
+    },
     "folio-assistant-core": {
       "name": "@litlfred/folio-assistant-core",
       "version": "0.1.0",
@@ -210,6 +221,8 @@
     "@litlfred/cat-harness": ["@litlfred/cat-harness@workspace:cat-harness"],
 
     "@litlfred/cat-harness-tools": ["@litlfred/cat-harness-tools@workspace:cat-harness-tools"],
+
+    "@litlfred/fhir-harness": ["@litlfred/fhir-harness@workspace:fhir-harness"],
 
     "@litlfred/folio-assistant-core": ["@litlfred/folio-assistant-core@workspace:folio-assistant-core"],
 
