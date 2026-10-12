@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-wireframe-adjudication.schema.json",
+  "title": "ihris-wireframe-adjudication/v1",
+  "description": "The settlement of criteria where reviewers disagreed (Process_Adjudication, called from Call_Adjudicate).",
+  "type": "object",
+  "required": [
+    "process",
+    "round",
+    "adjudicator",
+    "decidedOn",
+    "disagreements"
+  ],
+  "properties": {
+    "process": {
+      "type": "string"
+    },
+    "round": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "adjudicator": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "human",
+            "agent"
+          ]
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "decidedOn": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+    },
+    "disagreements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "candidate",
+          "criterion",
+          "entries",
+          "resolution",
+          "reason"
+        ],
+        "properties": {
+          "candidate": {
+            "type": "string"
+          },
+          "criterion": {
+            "type": "string"
+          },
+          "entries": {
+            "type": "object",
+            "additionalProperties": {
+              "enum": [
+                "pass",
+                "warn",
+                "fail"
+              ]
+            }
+          },
+          "resolution": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "agreements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "candidate",
+          "criterion",
+          "result"
+        ],
+        "properties": {
+          "candidate": {
+            "type": "string"
+          },
+          "criterion": {
+            "type": "string"
+          },
+          "result": {
+            "enum": [
+              "pass",
+              "warn",
+              "fail"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
