@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "https://litlfred.github.io/ihris/ihris5/artifact/StructureDefinition-ihris-test-residence.jsonld",
+  "@type": "fhir:StructureDefinition",
+  "dcterms:identifier": "StructureDefinition/ihris-test-residence",
+  "schema:name": "IhrisTestResidence",
+  "dcterms:title": "iHRIS Practitioner Residence",
+  "dcterms:description": "iHRIS Test extension for Practitioner residence.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Structures: Extension Definitions",
+  "schema:sameAs": {
+    "@id": "http://ihris.org/fhir/StructureDefinition/ihris-test-residence"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://litlfred.github.io/ihris/ihris5/ast-data/resources/StructureDefinition/ihris-test-residence--04fcb8be.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 2.3.4 / core 6.10.4",
+    "prov:used": "941537b1067a43a1ea2dd2dc904ab425a38c3792"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "ihris",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://ihris.org/fhir"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "https://litlfred.github.io/ihris/ihris5/artifact/ValueSet-v3-ServiceDeliveryLocationRoleType.jsonld",
+  "@type": "fhir:ValueSet",
+  "dcterms:identifier": "ValueSet/v3-ServiceDeliveryLocationRoleType",
+  "schema:name": "V3_ServiceDeliveryLocationRoleType",
+  "dcterms:title": "V3 Value SetServiceDeliveryLocationRoleType",
+  "dcterms:description": " A role of a place that further classifies the setting (e.g., accident site, road side, work site, community location) in which services are delivered.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Terminology: Value Sets",
+  "schema:sameAs": {
+    "@id": "http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://litlfred.github.io/ihris/ihris5/ast-data/resources/ValueSet/v3-ServiceDeliveryLocationRoleType--17b95422.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 2.3.4 / core 6.10.4",
+    "prov:used": "941537b1067a43a1ea2dd2dc904ab425a38c3792"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "ihris",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://ihris.org/fhir"
+    }
+  }
+}

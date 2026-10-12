@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "https://litlfred.github.io/ihris/ihris5/artifact/SearchParameter-job-search.jsonld",
+  "@type": "fhir:SearchParameter",
+  "dcterms:identifier": "SearchParameter/job-search",
+  "schema:name": "Search Parameter for a practitionerRole job",
+  "dcterms:title": "Search Parameter for a practitionerRole job",
+  "dcterms:description": "Search for a practitionerRole job.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Behavior: Search Parameters",
+  "schema:sameAs": {
+    "@id": "http://ihris.org/fhir/SearchParameter/job-search"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://litlfred.github.io/ihris/ihris5/ast-data/resources/SearchParameter/job-search--ef397bec.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 2.3.4 / core 6.10.4",
+    "prov:used": "941537b1067a43a1ea2dd2dc904ab425a38c3792"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "ihris",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://ihris.org/fhir"
+    }
+  }
+}
