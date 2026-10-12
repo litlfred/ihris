@@ -237,6 +237,7 @@ def ihris5_page(theme):
     dpages = rows_table(["Heading", "Path"], [[E(re.sub(r"!\[[^\]]*\]\([^)]*\)", "", p["heading"] or "").strip()),
                                               f'<a href="{E(at(doc, p["path"]))}"><code>{E(p["path"])}</code></a>'] for p in doc["markdownPages"]], "Documentation pages")
     inner = f"""<p>iHRIS 5, the FHIR-based rewrite, is on GitHub. Both repositories are <b>pinned by commit</b> and inventoried by path; nothing is copied.</p>
+<p><b>Browse the built IG:</b> <a href="{bs.rel(path, bs.IG_HOME)}">iHRIS 5 Implementation Guide</a>, with <a href="{bs.rel(path, "ihris5/artifacts.html")}">all its artefacts</a>, built from this pin by fhir-harness (skill <code>build-ihris5-ig</code>).</p>
 <h2><a href="{E(app['url'])}">iHRIS/iHRIS</a></h2>
 <div class="badges"><span class="badge">commit <code>{E(app['commit'][:12])}</code></span><span class="badge">{E(app['committedAt'][:10])}</span>
 <span class="badge">licence {E(app.get('licence') or 'none')}</span></div>
