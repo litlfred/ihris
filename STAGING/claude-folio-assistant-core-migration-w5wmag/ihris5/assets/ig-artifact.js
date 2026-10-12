@@ -34,7 +34,7 @@
   var cfg;
   try {
     cfg = JSON.parse(cfgEl.textContent);
-  } catch (e) {
+  } catch (_e) {
     return;
   }
   var body = document.querySelector(".iga-body");
@@ -86,7 +86,7 @@
       while (i < from.length && i < parts.length - 1 && from[i] === parts[i]) i++;
       var rel = new Array(from.length - i + 1).join("../") + parts.slice(i).join("/");
       return new URL(rel, nodeUrl).href;
-    } catch (e) {
+    } catch (_e) {
       return iri;
     }
   }
