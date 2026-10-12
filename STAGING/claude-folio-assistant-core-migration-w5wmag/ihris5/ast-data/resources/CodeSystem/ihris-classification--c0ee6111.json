@@ -1,0 +1,55 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "ihris-classification",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem ihris-classification</b></p><a name=\"ihris-classification\"> </a><a name=\"hcihris-classification\"> </a><p>This  code system <code>http://ihris.org/fhir/CodeSystem/ihris-classification</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">doctor<a name=\"ihris-classification-doctor\"> </a></td><td>Medical Doctor</td><td>Medical doctors</td></tr><tr><td style=\"white-space:nowrap\">nurse<a name=\"ihris-classification-nurse\"> </a></td><td>Nurse</td><td>Nursing and midwifery professionals</td></tr><tr><td style=\"white-space:nowrap\">allied-health<a name=\"ihris-classification-allied-health\"> </a></td><td>Allied Health Professional</td><td>Modern health associate professionals (except nursing)</td></tr><tr><td style=\"white-space:nowrap\">non-health<a name=\"ihris-classification-non-health\"> </a></td><td>Non-Health Professional</td><td>Professionals, not health</td></tr><tr><td style=\"white-space:nowrap\">support<a name=\"ihris-classification-support\"> </a></td><td>Non-Health Support Staff</td><td>Support staff, not health-related</td></tr><tr><td style=\"white-space:nowrap\">pharmacist<a name=\"ihris-classification-pharmacist\"> </a></td><td>Pharmacist</td><td>Dispenses drugs.</td></tr></table></div>"
+  },
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+  "version" : "0.1.0",
+  "name" : "IhrisClassification",
+  "title" : "iHRIS Classification",
+  "status" : "active",
+  "date" : "2020-09-25T20:48:33.646Z",
+  "publisher" : "Luke Duncan",
+  "contact" : [{
+    "name" : "Luke Duncan",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "lduncan@intrahealth.org"
+    }]
+  }],
+  "description" : "Sample iHRIS CodeSystem for: IhrisClassification",
+  "content" : "complete",
+  "count" : 6,
+  "concept" : [{
+    "code" : "doctor",
+    "display" : "Medical Doctor",
+    "definition" : "Medical doctors"
+  },
+  {
+    "code" : "nurse",
+    "display" : "Nurse",
+    "definition" : "Nursing and midwifery professionals"
+  },
+  {
+    "code" : "allied-health",
+    "display" : "Allied Health Professional",
+    "definition" : "Modern health associate professionals (except nursing)"
+  },
+  {
+    "code" : "non-health",
+    "display" : "Non-Health Professional",
+    "definition" : "Professionals, not health"
+  },
+  {
+    "code" : "support",
+    "display" : "Non-Health Support Staff",
+    "definition" : "Support staff, not health-related"
+  },
+  {
+    "code" : "pharmacist",
+    "display" : "Pharmacist",
+    "definition" : "Dispenses drugs."
+  }]
+}

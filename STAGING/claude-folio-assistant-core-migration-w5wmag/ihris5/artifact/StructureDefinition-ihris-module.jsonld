@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-module.jsonld",
+  "@type": "fhir:StructureDefinition",
+  "dcterms:identifier": "StructureDefinition/ihris-module",
+  "schema:name": "IhrisModule",
+  "dcterms:title": "iHRIS Module",
+  "dcterms:description": "iHRIS profile of Library resource to manage modules.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Structures: Resource Profiles",
+  "schema:sameAs": {
+    "@id": "http://ihris.org/fhir/StructureDefinition/ihris-module"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/ast-data/resources/StructureDefinition/ihris-module--8f50e04b.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 2.3.4 / core 6.10.4",
+    "prov:used": "21a1440974b492e8207291291e554490b8aef418"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "ihris",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://ihris.org/fhir"
+    }
+  }
+}

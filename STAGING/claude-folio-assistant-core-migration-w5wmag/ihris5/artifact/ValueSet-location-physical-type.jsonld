@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/ValueSet-location-physical-type.jsonld",
+  "@type": "fhir:ValueSet",
+  "dcterms:identifier": "ValueSet/location-physical-type",
+  "schema:name": "LocationType",
+  "dcterms:title": "Location type",
+  "dcterms:description": "This example value set defines a set of codes that can be used to indicate the physical form of the Location.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Terminology: Value Sets",
+  "schema:sameAs": {
+    "@id": "http://ihris.org/fhir/ValueSet/location-physical-type"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/ast-data/resources/ValueSet/location-physical-type--1f5dd85b.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 2.3.4 / core 6.10.4",
+    "prov:used": "21a1440974b492e8207291291e554490b8aef418"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "ihris",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://ihris.org/fhir"
+    }
+  }
+}

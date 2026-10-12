@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/StructureDefinition-ihris-visualization-permissions.jsonld",
+  "@type": "fhir:StructureDefinition",
+  "dcterms:identifier": "StructureDefinition/ihris-visualization-permissions",
+  "schema:name": "IhrisVisualizationPermissions",
+  "dcterms:title": "iHRIS Visualization Permissions",
+  "dcterms:description": "iHRIS Visualization Permissions",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Structures: Extension Definitions",
+  "schema:sameAs": {
+    "@id": "http://ihris.org/fhir/StructureDefinition/ihris-visualization-permissions"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/ast-data/resources/StructureDefinition/ihris-visualization-permissions--0604008f.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 2.3.4 / core 6.10.4",
+    "prov:used": "21a1440974b492e8207291291e554490b8aef418"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "ihris",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://ihris.org/fhir"
+    }
+  }
+}

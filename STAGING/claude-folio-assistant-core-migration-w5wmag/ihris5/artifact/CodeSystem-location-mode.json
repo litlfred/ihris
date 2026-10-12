@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/artifact/CodeSystem-location-mode.jsonld",
+  "@type": "fhir:CodeSystem",
+  "dcterms:identifier": "CodeSystem/location-mode",
+  "schema:name": "LocationMode",
+  "dcterms:title": "LocationMode",
+  "dcterms:description": "Indicates whether a resource instance represents a specific location or a class of locations.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Terminology: Code Systems",
+  "schema:sameAs": {
+    "@id": "http://hl7.org/fhir/location-mode"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://litlfred.github.io/ihris/STAGING/claude-folio-assistant-core-migration-w5wmag/ihris5/ast-data/resources/CodeSystem/location-mode--4ebb5cd8.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 2.3.4 / core 6.10.4",
+    "prov:used": "21a1440974b492e8207291291e554490b8aef418"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "ihris",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://ihris.org/fhir"
+    }
+  }
+}
