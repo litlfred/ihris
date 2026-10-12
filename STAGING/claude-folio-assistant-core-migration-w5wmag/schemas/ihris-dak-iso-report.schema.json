@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-dak-iso-report.schema.json",
+  "title": "ihris-dak-iso-report/v1",
+  "description": "How the shipped country and currency lists compare with ISO 3166-1 and ISO 4217 in a pinned pycountry (src/ihris-data-dictionary/iso-report.json).",
+  "type": "object",
+  "required": [
+    "verifiedWith",
+    "country",
+    "currency"
+  ],
+  "properties": {
+    "verifiedWith": {
+      "type": "string"
+    },
+    "country": {
+      "type": "object",
+      "required": [
+        "system",
+        "shipped",
+        "equal",
+        "notCurrent",
+        "currentMissingFromIhris",
+        "olderNames"
+      ],
+      "properties": {
+        "system": {
+          "type": "string"
+        },
+        "shipped": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "equal": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "notCurrent": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "currentMissingFromIhris": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "olderNames": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "code",
+              "shipped",
+              "iso"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "shipped": {
+                "type": "string"
+              },
+              "iso": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "currency": {
+      "type": "object",
+      "required": [
+        "system",
+        "shipped",
+        "equal",
+        "notCurrent",
+        "currentMissingFromIhris",
+        "olderNames"
+      ],
+      "properties": {
+        "system": {
+          "type": "string"
+        },
+        "shipped": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "equal": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "notCurrent": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "currentMissingFromIhris": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "olderNames": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "code",
+              "shipped",
+              "iso"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "shipped": {
+                "type": "string"
+              },
+              "iso": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
