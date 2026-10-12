@@ -647,6 +647,105 @@ def c_ihris5_index(C):
     return out
 
 
+def c_ihris5_artifacts(C):
+    """The artefact index of the published iHRIS 5 IG is pinned at ihris5.json's commit and SUSHI version, for the IG
+    ihris5.json builds; each key is fhir-harness's page name for its resourceType and id, once; each FSH origin is a
+    definition the GitHub inventory lists; compiled files are at their sha256 where present (.build/ihris5-sd/), and
+    agree with the element index; and where a local IG build left its fhir-artifact-index, it holds every key."""
+    out = []
+    mi = _map_ihris5()
+    decl = J("src/ihris5/ihris5.json")["source"]
+    inv = {(d["file"], d["name"]) for _, x in C["bound"].get("ihris-github-inventory/v1", []) for d in x.get("fshDefinitions") or []}
+    for rel, d in C["tagged"].get("ihris-ihris5-artifact-index/v1", []):
+        if (d["source"]["commit"], d["sushi"]) != (decl["ref"], mi.SUSHI_VERSION):
+            out.append(f"{rel}: built at {d['source']['commit'][:12]} with SUSHI {d['sushi']}, not ihris5.json's {decl['ref'][:12]} "
+                       f"with {mi.SUSHI_VERSION} (run map_ihris5.py --artifacts)")
+        if d["ig"]["path"] != decl["path"]:
+            out.append(f"{rel}: indexes the IG at {d['ig']['path']}, and ihris5.json builds {decl['path']}")
+        keys = [a["key"] for a in d["artifacts"]]
+        out += [f"{rel}: key {k} twice" for k in sorted({k for k in keys if keys.count(k) > 1})]
+        for a in d["artifacts"]:
+            if a["key"] != mi.page_name(a["resourceType"], a["id"]):
+                out.append(f"{rel}: {a['key']} is not the page name of {a['resourceType']}/{a['id']}")
+            if a.get("fsh") and (a["fsh"]["file"], a["fsh"]["name"]) not in inv:
+                out.append(f"{rel}: {a['key']} comes from {a['fsh']['name']} in {a['fsh']['file']}, which the GitHub inventory does not list")
+            built = os.path.join(".build", "ihris5-sd", d["ig"]["id"], "fsh-generated", "resources", a["file"])
+            if exists(built) and sha256(built) != a["sha256"]:
+                out.append(f"{rel}: {a['file']} sha256 differs from the compiled file {built}")
+        by_url = {a["url"]: a for a in d["artifacts"] if a.get("url")}
+        for _, ix in C["tagged"].get("ihris-ihris5-element-index/v1", []):
+            for ig in ix["igs"]:
+                if ig["id"] != d["ig"]["id"]:
+                    continue
+                for s_ in ig["structures"]:
+                    if s_["url"] not in by_url:
+                        out.append(f"{rel}: the element index's {d['ig']['id']} structure {s_['url']} has no artefact")
+                    elif by_url[s_["url"]]["sha256"] != s_["sha256"]:
+                        out.append(f"{rel}: {s_['url']} is at another sha256 than in the element index (one of them is stale)")
+        fai = os.path.join(".build", "ihris5-ig", "stage", "ihris5", "fhir-artifact-index", "index.json")
+        if exists(fai):
+            have = {mi.page_name(a["resourceType"], a["id"]) for a in J(fai)["artifacts"]}
+            out += [f"{rel}: {k} is not in the IG build's own artefact index {fai}" for k in keys if k not in have]
+    return out
+
+
+def ig_site_pages():
+    """{site path: html} of every page that writes links into the iHRIS 5 IG, rendered as build_site.py renders them:
+    the iHRIS 5 source page (FSH definitions), the FHIR page (the F4 crosswalk and gaps), the data-dictionary pages and
+    the data-model class pages (the crosswalk's targets)."""
+    sys.path.insert(0, os.path.join(ROOT, "src", "tools"))
+    import build_site as bs
+    import site_instances as si
+    theme = J("src/site/theme/ihris-classic.json")
+    recs = bs.data_model()
+    by_pkg = {p: sorted((x for x in recs if x["_pkg"] == p), key=lambda x: x["class"]) for p in bs.PACKAGES}
+    cls_index, form_to_cls = {}, {}
+    for x in recs:
+        cls_index.setdefault(x["class"], x["_pkg"])
+        for fm in x.get("forms") or []:
+            form_to_cls.setdefault(fm, x["class"])
+    pages = [si.ihris5_page(theme), si.fhir_page(theme)] + si.dd_pages(theme, cls_index, set())
+    pages += [bs.class_page(x, recs, by_pkg, cls_index, form_to_cls, theme) for x in recs]
+    return dict(pages)
+
+
+def c_ihris5_artifact_links(C):
+    """Every link the site writes into the iHRIS 5 IG names an artefact its index contains; and the crosswalk's and gap
+    report's `artifact` keys are the resolver's (same url, same compiled bytes), from the index at its recorded sha256."""
+    sys.path.insert(0, os.path.join(ROOT, "src", "tools"))
+    import site_instances as si
+    out = []
+    mi = _map_ihris5()
+    arts = C["tagged"].get("ihris-ihris5-artifact-index/v1", [])
+    if len(arts) != 1:
+        return [f"expected one ihris-ihris5-artifact-index/v1 document, found {len(arts)}"]
+    arel, adoc = arts[0]
+    for rel, ix in C["tagged"].get("ihris-ihris5-element-index/v1", []):
+        resolve = mi.artifact_resolver(ix, adoc)
+        for crel, cw in C["tagged"].get("ihris-fhir-crosswalk/v1", []):
+            a = cw.get("artifacts")
+            if not a or a["file"] != arel or sha256(arel) != a["sha256"]:
+                out.append(f"{crel}: does not record {arel} at its sha256")
+            for m in cw["models"]:
+                for t in m["targets"]:
+                    for what, url, got in ([("target", t["profile"], t.get("artifact"))] if t.get("profile") else []) + [
+                            ("candidate", c["profile"], c.get("artifact")) for c in t["candidates"]]:
+                        if got != resolve(t["ig"], url):
+                            out.append(f"{crel}: {m['model']} {t['ig']} {what} {url}: artifact {got}, the index resolves {resolve(t['ig'], url)}")
+        for grel, g in C["tagged"].get("ihris-fhir-gaps/v1", []):
+            for ig_id, v in g["ihris5"].items():
+                names = {s_["name"]: s_["url"] for ig in ix["igs"] if ig["id"] == ig_id for s_ in ig["structures"]}
+                for r in v["profileElements"]:
+                    if r.get("artifact") != resolve(ig_id, names.get(r["profile"])):
+                        out.append(f"{grel}: {ig_id} {r['profile']} {r['path']}: artifact {r.get('artifact')}, the index resolves {resolve(ig_id, names.get(r['profile']))}")
+                for x in v["extensions"]:
+                    if x.get("artifact") != resolve(ig_id, x["url"]):
+                        out.append(f"{grel}: {ig_id} {x['url']}: artifact {x.get('artifact')}, the index resolves {resolve(ig_id, x['url'])}")
+    for path, text in sorted(ig_site_pages().items()):
+        out += si.ig_link_findings(path, text)
+    return out
+
+
 def c_fhir_crosswalk(C):
     """The crosswalk reads the committed index (by sha256) and every logical model; each rule's source element exists in
     its logical model and its target in the indexed profile; tiers hold what they claim; counts are the records'; and
@@ -2003,6 +2102,8 @@ QA = {
     "ihris-dak-proposal/v1": [("dak-proposal", "unique items; value sets they apply to exist", c_dak_proposal),
                               ("dak-proposal-mapping", "mapping candidates are the matcher's (still in the crosswalk) or a cited source's; only an owner-accepted item selects one", c_dak_proposal_mapping)],
     "ihris-ihris5-element-index/v1": [("ihris5-index", "pinned at ihris5.json's commit; the three D6 IGs; no structure or element twice; compiled files at their sha256 where present", c_ihris5_index)],
+    "ihris-ihris5-artifact-index/v1": [("ihris5-artifacts", "pinned at ihris5.json's commit and SUSHI version for the IG it builds; each key the page name of its resource, once; FSH origins in the inventory; compiled files at their sha256 and agreeing with the element index; contained in a local IG build's own artefact index where present", c_ihris5_artifacts),
+                                       ("ihris5-artifact-links", "every link the site writes into the iHRIS 5 IG names an artefact the index contains; the crosswalk's and gaps' artifact keys are the resolver's, from the index at its sha256", c_ihris5_artifact_links)],
     "ihris-fhir-crosswalk/v1": [("fhir-crosswalk", "index at its sha256; rule sources exist in the logical models and targets in the indexed profiles; tiers hold; counts match; the StructureMaps carry exactly the exact and accepted rules", c_fhir_crosswalk)],
     "ihris-fhir-gaps/v1": [("fhir-gaps", "the current crosswalk's; counts are the lists'; no listed gap is mapped", c_fhir_gaps)],
     "ihris-dak-value-sets/v1": [("dak-value-sets", "users are data elements; default codes come from a shipped list", c_dak_value_sets)],

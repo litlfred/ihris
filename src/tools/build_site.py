@@ -517,12 +517,18 @@ dashed arrow: a field draws from the list. The table lists every edge.</figcapti
 <h2>Fields</h2>
 {fields}
 {hood}
+{_ihris5_targets(path, cls)}
 <h2>Source</h2>
 <p class="src">Defined in module {mods}, ihris-suite-{RELEASE} (MD5 verified against Launchpad).
 Record: <a href="{REPO}/blob/main/src/{pkg}/data-model/{RELEASE}/{E(cls)}.json">src/{E(pkg)}/data-model/{RELEASE}/{E(cls)}.json</a>.</p>
 </main>
 </div>"""
     return path, shell(path, cls, body, theme, current="data-model/index.html", scripts=MENU_JS)
+
+
+def _ihris5_targets(path, cls):
+    import site_instances
+    return site_instances.ihris5_targets_html(path, cls)
 
 
 def package_page(pkg, recs, by_pkg, theme):
@@ -660,6 +666,7 @@ def broken_links(out):
     to another built page must name an id on that page. Fragments are not checked on the restored wiki
     pages (library/wiki/): their section anchors were never generated, 97 links measured 2026-09-23."""
     import re
+    import site_instances
     bad, ids = [], {}
 
     def ids_of(t):
@@ -670,6 +677,8 @@ def broken_links(out):
         for f in fs:
             if f.endswith(".html"):
                 p = os.path.join(d, f)
+                # Links into the separately deployed IG are not checked as files, but each must name an indexed artefact.
+                bad += [(os.path.relpath(p, out), x) for x in site_instances.ig_link_findings(os.path.relpath(p, out).replace(os.sep, "/"), open(p).read())]
                 for u in re.findall(r'(?:href|src|action)="([^"]+)"', open(p).read()):
                     u = html.unescape(u)
                     if u.startswith(("http:", "https:", "#", "mailto:")):

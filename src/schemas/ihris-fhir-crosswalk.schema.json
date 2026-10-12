@@ -290,6 +290,11 @@
                             }
                           }
                         }
+                      },
+                      "artifact": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9._-]+$",
+                        "description": "The artefact's page key in the published iHRIS 5 IG (ihris5/artifact/<key>.html), from ihris5-artifacts.json; present only when the built IG compiles this url to the same bytes."
                       }
                     }
                   }
@@ -413,10 +418,33 @@
                       }
                     }
                   }
+                },
+                "artifact": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9._-]+$",
+                  "description": "The artefact's page key in the published iHRIS 5 IG (ihris5/artifact/<key>.html), from ihris5-artifacts.json; present only when the built IG compiles this url to the same bytes."
                 }
               }
             }
           }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file",
+        "sha256"
+      ],
+      "description": "The iHRIS 5 artefact index (ihris-ihris5-artifact-index/v1) the `artifact` keys were resolved from, at its sha256.",
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
         }
       }
     }

@@ -35,6 +35,7 @@ import markdown
 
 import build_glossary as bg
 import build_site as bs
+import map_ihris5 as mi5
 
 E, ROOT, REPO, RELEASE = bs.E, bs.ROOT, bs.REPO, bs.RELEASE
 LP_INSTANCES = ["i2ce", "ihris-common", "ihris-manage", "ihris-qualify", "ihris-plan", "openhie-pr"]
@@ -231,8 +232,12 @@ def ihris5_page(theme):
     kinds = collections.defaultdict(list)
     for d in app["fshDefinitions"]:
         kinds[d["kind"]].append(d)
-    fsh = "".join(f"<details><summary>{E(k)} ({len(v)})</summary>" + rows_table(["Name", "Id", "Title", "File"], [
-        [E(d["name"]), f'<code>{E(d.get("id") or "")}</code>', E(d.get("title") or ""), f'<a href="{E(at(app, d["file"]))}">{E(d["file"].split("/")[-1])}</a>']
+    by_fsh = ig_artifacts()["by_fsh"]
+    key = lambda d: by_fsh.get((d["file"], d["name"]))  # noqa: E731
+    fsh = "".join(f"<details><summary>{E(k)} ({len(v)}; {sum(bool(key(d)) for d in v)} with an IG page)</summary>" + rows_table(["Name", "Id", "Title", "IG page", "Source"], [
+        [E(d["name"]), f'<code>{E(d.get("id") or "")}</code>', E(d.get("title") or ""),
+         ig_link(path, key(d), f"<code>{E(key(d))}</code>") if key(d) else "&mdash;",
+         f'<a href="{E(at(app, d["file"]))}">{E(d["file"].split("/")[-1])}</a>']
         for d in sorted(v, key=lambda d: d["name"])], f"{k} definitions") + "</details>" for k, v in sorted(kinds.items(), key=lambda kv: -len(kv[1])))
     dpages = rows_table(["Heading", "Path"], [[E(re.sub(r"!\[[^\]]*\]\([^)]*\)", "", p["heading"] or "").strip()),
                                               f'<a href="{E(at(doc, p["path"]))}"><code>{E(p["path"])}</code></a>'] for p in doc["markdownPages"]], "Documentation pages")
@@ -242,13 +247,90 @@ def ihris5_page(theme):
 <div class="badges"><span class="badge">commit <code>{E(app['commit'][:12])}</code></span><span class="badge">{E(app['committedAt'][:10])}</span>
 <span class="badge">licence {E(app.get('licence') or 'none')}</span></div>
 <p>Top level: {', '.join(f'<code>{E(t)}</code>' for t in app.get('topLevel') or [])}.</p>
-<h3>FHIR Implementation Guide: {len(app['fshDefinitions'])} FSH definitions</h3>{fsh}
+<h3>FHIR Implementation Guide: {len(app['fshDefinitions'])} FSH definitions</h3>
+<p>Each definition the published IG (<code>{E(ig_artifacts()["doc"]["ig"].get("path", ""))}/</code>) compiles links to its artefact page there, resolved
+through the artefact index <code>src/ihris-4-on-fhir/mapping/ihris5-artifacts.json</code> (SUSHI's own record of which FSH definition made which resource);
+the FSH file on GitHub, at the pinned commit, stays the source. The backend IGs are not built, so their definitions have no page.</p>{fsh}
 <h2><a href="{E(doc['url'])}">iHRIS/ihris-documentation</a></h2>
 <div class="badges"><span class="badge">commit <code>{E(doc['commit'][:12])}</code></span><span class="badge">{E(doc['committedAt'][:10])}</span>
 <span class="badge">licence: none</span></div>
 <p>No licence file, so pages are listed by <b>path and heading only</b> and link to GitHub at the pinned commit.</p>
 <details><summary>{len(doc['markdownPages'])} documentation pages</summary>{dpages}</details>"""
     return page(path, "iHRIS 5", [("index.html", "Home"), ("sources/index.html", "Sources")], inner, theme, "sources/index.html")
+
+
+# ------------------------------------------------------------------ links into the iHRIS 5 IG (its artefact pages)
+_IG = {}
+
+
+def ig_artifacts():
+    """The artefact index of the iHRIS 5 IG the site publishes beside itself (src/ihris-4-on-fhir/mapping/
+    ihris5-artifacts.json, map_ihris5.py --artifacts), read once: its keys, and each FSH definition's key by (file, name).
+    Every link this site writes into the IG is resolved here; a name with no indexed artefact gets no link."""
+    if not _IG:
+        a = mi5.load_artifacts() or {"ig": {"site": bs.SEPARATELY_DEPLOYED[0], "pages": "artifact/"}, "artifacts": []}
+        _IG.update(doc=a, keys={x["key"] for x in a["artifacts"]},
+                   by_fsh={(x["fsh"]["file"], x["fsh"]["name"]): x["key"] for x in a["artifacts"] if x.get("fsh")})
+    return _IG
+
+
+def ig_href(path, key):
+    """Relative URL from site page `path` to the IG's artefact page `key`, so a staging preview links its own IG."""
+    a = ig_artifacts()["doc"]["ig"]
+    return bs.rel(path, f"{a['site']}{a['pages']}{key}.html")
+
+
+def ig_link(path, key, text):
+    """`text` linked to the artefact page `key` when the IG index has it; `text` alone otherwise."""
+    if not key or key not in ig_artifacts()["keys"]:
+        return text
+    return f'<a href="{E(ig_href(path, key))}" title="{E(key)} in the iHRIS 5 IG">{text}</a>'
+
+
+def ig_link_findings(page_path, html_text):
+    """Every link a page writes into the IG's artefact pages must name an artefact the IG index contains: one finding per
+    link that does not. Read by qa.py (ihris5-artifact-links) and by build_site.py --check-links on the built site."""
+    a = ig_artifacts()
+    pre = a["doc"]["ig"]["site"] + a["doc"]["ig"]["pages"]
+    out = []
+    for u in re.findall(r'href="([^"]+)"', html_text):
+        u = html.unescape(u)
+        if u.startswith(("http:", "https:", "#", "mailto:")):
+            continue
+        t = os.path.normpath(os.path.join(os.path.dirname(page_path), u.split("?")[0].split("#")[0])).replace(os.sep, "/")
+        if t.startswith(pre):
+            key = t[len(pre):]
+            if not key.endswith(".html") or key[:-5] not in a["keys"]:
+                out.append(f"{page_path}: links {u}, and the iHRIS 5 IG index has no artefact {key[:-5] if key.endswith('.html') else key}")
+    return out
+
+
+def ihris5_targets_html(path, cls):
+    """The F4 crosswalk's iHRIS 5 targets for one iHRIS 4 class (data-model and data-dictionary pages), each profile
+    linked to its artefact page where the crosswalk records one (`artifact`)."""
+    cwp = os.path.join(ROOT, "src/ihris-4-on-fhir/mapping/crosswalk.json")
+    if not os.path.exists(cwp):
+        return ""
+    rows = []
+    for m in J(cwp)["models"]:
+        if m["class"] != cls:
+            continue
+        for t in m["targets"]:
+            if t["tier"] == "none":
+                continue
+            if t.get("profileName"):
+                tgt = ig_link(path, t.get("artifact"), E(t["profileName"]))
+            else:
+                tgt = ", ".join(ig_link(path, c.get("artifact"), E(c["name"])) for c in t["candidates"])
+            els = t.get("elements") or []
+            rows.append([E(m["model"]), f"<code>{E(t['ig'])}</code>", E(t["tier"]), tgt,
+                         f"{sum(r['tier'] in ('exact', 'accepted') for r in els)} of {len(els)}" if els else "&mdash;"])
+    if not rows:
+        return ""
+    return (f'<h2 id="ihris5">iHRIS 5</h2><p>The F4 crosswalk\'s targets for this class (<a href="{E(bs.rel(path, "fhir/index.html#ihris5-mapping"))}">'
+            'the mapping to iHRIS 5</a>), matched by name and label equality only. A profile is linked to its page in the iHRIS 5 IG '
+            'where that IG builds it.</p>'
+            + rows_table(["logical model", "IG", "tier", "profile (or candidates)", "elements mapped"], rows, "iHRIS 5 targets"))
 
 
 # ------------------------------------------------------------------ toolkit (structure only)
@@ -726,7 +808,8 @@ Columns the source cannot answer (definitions, conditionality, indicator linkage
         cls = s["class"]
         cl = f'<a href="{E(bs.rel(path, bs.page_of(cls_index[cls], cls)))}"><code>{E(cls)}</code></a>' if cls in cls_index else f"<code>{E(cls)}</code>"
         inner = (f'<p>Logical model <code>{E(s["logicalModel"])}</code>, derived from {cl}{" (extends " + E(s["extends"]) + ")" if s.get("extends") else ""}.</p>' +
-                 rows_table(["Element", "Label", "Data type", "Input options", "Optionality", "Description", "Wiki evidence"], rows, f"Data elements of {s['title']}"))
+                 rows_table(["Element", "Label", "Data type", "Input options", "Optionality", "Description", "Wiki evidence"], rows, f"Data elements of {s['title']}")
+                 + ihris5_targets_html(path, cls))
         out.append(page(path, s["title"], crumbs, inner, theme, "data-dictionary/index.html"))
 
     # value sets, with codes from the generated FHIR terminology
@@ -753,8 +836,11 @@ Columns the source cannot answer (definitions, conditionality, indicator linkage
 
 
 # ------------------------------------------------------------------ FHIR (own README) and schemas
+FHIR_PAGE = INSTANCE_PAGE["ihris-4-on-fhir"]
+
+
 def fhir_page(theme):
-    path = INSTANCE_PAGE["ihris-4-on-fhir"]
+    path = FHIR_PAGE
     text = open(os.path.join(ROOT, "src/ihris-4-on-fhir/README.md"), encoding="utf-8").read()
     body = re.sub(r"\A\s*<h1>.*?</h1>", "", md_to_html(text, lambda h: h if h.startswith(("http:", "https:", "#")) else f"{REPO}/blob/main/src/ihris-4-on-fhir/{h}"), flags=re.S)
     return page(path, "iHRIS 4 on FHIR", [("index.html", "Home")], body + ihris5_mapping_html(), theme, None)
@@ -779,8 +865,9 @@ def ihris5_mapping_html():
             if t["tier"] == "none":
                 continue
             els = t.get("elements") or []
-            rows.append([E(m["model"]), f"<code>{E(t['ig'])}</code>", E(t["tier"]),
-                         E(t.get("profileName") or ", ".join(c["name"] for c in t["candidates"])),
+            tgt = (ig_link(FHIR_PAGE, t.get("artifact"), E(t["profileName"])) if t.get("profileName")
+                   else ", ".join(ig_link(FHIR_PAGE, c.get("artifact"), E(c["name"])) for c in t["candidates"]))
+            rows.append([E(m["model"]), f"<code>{E(t['ig'])}</code>", E(t["tier"]), tgt,
                          " / ".join(str(sum(r["tier"] == k for r in els)) for k in tiers) if els else "",
                          E(t["structureMap"]["id"]) if t.get("structureMap") else ""])
     models = rows_table(["logical model", "IG", "tier", "target (or candidates)", "elements " + " / ".join(tiers), "StructureMap"], rows,
@@ -793,14 +880,15 @@ def ihris5_mapping_html():
         f"<details><summary><code>{E(i)}</code>: {len(g['ihris5'][i]['profileElements'])} profile elements and "
         f"{len(g['ihris5'][i]['extensions'])} extensions with no iHRIS 4 source</summary>"
         + rows_table(["profile", "element", "label", "has a candidate"], [
-            [E(r["profile"]), f"<code>{E(r['path'])}</code>", E(r["label"]), "yes" if r["candidateOnly"] else ""] for r in g["ihris5"][i]["profileElements"]],
+            [ig_link(FHIR_PAGE, r.get("artifact"), E(r["profile"])), f"<code>{E(r['path'])}</code>", E(r["label"]), "yes" if r["candidateOnly"] else ""] for r in g["ihris5"][i]["profileElements"]],
             label=f"iHRIS 5 {i} profile elements with no iHRIS 4 source")
-        + rows_table(["extension", "title", "url"], [[E(x["extension"]), E(x["title"] or ""), f"<code>{E(x['url'])}</code>"] for x in g["ihris5"][i]["extensions"]],
+        + rows_table(["extension", "title", "url"], [[ig_link(FHIR_PAGE, x.get("artifact"), E(x["extension"])), E(x["title"] or ""), f"<code>{E(x['url'])}</code>"] for x in g["ihris5"][i]["extensions"]],
                      label=f"iHRIS 5 {i} extensions with no iHRIS 4 source")
         + "</details>" for i in ig_ids)
     return (f"<h2 id=\"ihris5-mapping\">F4: the mapping to iHRIS 5</h2>\n<p>Generated by <code>src/tools/map_ihris5.py</code> from "
             f"iHRIS/iHRIS at <code>{E(J(os.path.join(ROOT, cw['index']['file']))['source']['commit'][:12])}</code>. Matches are equalities of "
-            "names and labels only; ambiguous ones wait on the owner as proposals.</p>\n" + per_ig
+            "names and labels only; ambiguous ones wait on the owner as proposals. A profile or extension links to its page in the "
+            "iHRIS 5 IG where the published IG compiles the same canonical to the same bytes (the crosswalk's <code>artifact</code>).</p>\n" + per_ig
             + "\n<h3>Models with a candidate</h3>\n" + models
             + f"\n<h3>iHRIS 4 elements with no target in any IG ({len(g['ihris4'])})</h3>\n<details><summary>Show</summary>{gap4}</details>"
             + "\n<h3>iHRIS 5 elements with no iHRIS 4 source</h3>\n" + gap5)

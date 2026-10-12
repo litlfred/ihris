@@ -3,6 +3,7 @@
 
   python3 src/tools/map_ihris5.py             # match and write everything (re-indexing first when the pin has moved)
   python3 src/tools/map_ihris5.py --index     # only (re)compile iHRIS 5 from ihris5-source/ and rewrite the element index
+  python3 src/tools/map_ihris5.py --artifacts # only (re)compile the IG the site publishes and rewrite its artefact index
   python3 src/tools/map_ihris5.py --check     # fail if the crosswalk, gap report or StructureMap FSH is stale
   python3 src/tools/map_ihris5.py --propose   # add proposal items for what the matcher could not decide (additive)
 
@@ -26,6 +27,13 @@ Design: docs/design/fhir-strategy.md (D6 target: all three iHRIS 5 IGs; D6 forma
    - element level, inside the model's profile: the I2CE field's label equal to an element's label, the label of the
      value of the extension it holds, that extension's title, or the text of a Questionnaire item defined on it.
      `exact`: one candidate, type-compatible. `ambiguous`: several, or type-incompatible. `none`: no candidate.
+1b. ARTEFACTS. The one IG this folio builds and publishes (ihris5.json `source.path`, at /ihris/ihris5/, by
+   .github/workflows/ihris5-ig.yml) has a page per artefact at artifact/<Type>-<id>.html, named by fhir-harness's
+   artifactPageName rule. Every resource SUSHI compiles for it is recorded with that key, its canonical url, the
+   sha256 of the compiled file, and the FSH definition it came from (SUSHI's own fsh-generated/data/fsh-index.json),
+   as src/ihris-4-on-fhir/mapping/ihris5-artifacts.json. The site links an iHRIS 5 name to the IG only through it:
+   an iHRIS 5 structure has an artefact page when the built IG compiles the same url to the same bytes (sha256).
+   Nothing else gets a link, and no key is ever composed from a name.
 3. GENERATE. crosswalk.json, gaps.json and gaps.md in src/ihris-4-on-fhir/mapping/, and one StructureMap per
    (logical model, IG) with a model-level match and at least one exact element, as FSH Instances in
    src/ihris-4-on-fhir/input/fsh/maps/. Rules cover only exact (and owner-accepted) element matches. The iHRIS 5
@@ -54,6 +62,7 @@ PATCHES = os.path.join(ROOT, "src", "ihris5", "ig-build-patches.json")
 BUILD = os.path.join(ROOT, ".build", "ihris5-sd")
 MAPPING = os.path.join(ROOT, "src", "ihris-4-on-fhir", "mapping")
 INDEX = os.path.join(MAPPING, "ihris5-index.json")
+ARTIFACTS = os.path.join(MAPPING, "ihris5-artifacts.json")
 CROSSWALK = os.path.join(MAPPING, "crosswalk.json")
 GAPS = os.path.join(MAPPING, "gaps.json")
 GAPS_MD = os.path.join(MAPPING, "gaps.md")
@@ -247,11 +256,78 @@ def build_index():
            "sushi": SUSHI_VERSION, "igs": [index_ig(i, p) for i, p in IGS]}
     os.makedirs(MAPPING, exist_ok=True)
     open(INDEX, "w", encoding="utf-8").write(dump(idx))
+    build_artifacts(compiled=True)
     for ig in idx["igs"]:
         c = ig["compile"]
         print(f"map_ihris5: {ig['id']}: SUSHI {c['errors']} error(s), {c['warnings']} warning(s); "
               f"{len(ig['structures'])} profiles/extensions, {len(ig['questionnaires'])} Questionnaires")
     return idx
+
+
+# ------------------------------------------------------------------ 1b. the artefacts of the IG the site publishes
+def page_name(resource_type, rid):
+    """fhir-harness schemas/fhir-artifact-index.ts artifactPageName: the one rule for an artefact page's name."""
+    return re.sub(r"[^A-Za-z0-9._-]", "_", f"{resource_type}-{rid}")
+
+
+def published_ig():
+    """(id, path) of the IG this folio builds and publishes: the IGS entry at ihris5.json `source.path`."""
+    path = J(os.path.join(ROOT, "src", "ihris5", "ihris5.json"))["source"]["path"]
+    return next((i, p) for i, p in IGS if p == path)
+
+
+def build_artifacts(compiled=False):
+    """Every resource SUSHI compiles for the published IG, keyed as its artefact page is. `compiled`: the IG was just
+    compiled into .build/ihris5-sd/<id>/ (by build_index), so it is read rather than compiled again."""
+    head = mounted()
+    if not head:
+        raise SystemExit("map_ihris5: ihris5-source/ is not mounted (python3 src/tools/mount_sources.py)")
+    ig_id, ig_path = published_ig()
+    if not compiled:
+        compile_ig(ig_id, ig_path)
+    gen = os.path.join(BUILD, ig_id, "fsh-generated")
+    fsh = {x["outputFile"]: x for x in J(os.path.join(gen, "data", "fsh-index.json"))}
+    arts = []
+    for p in sorted(glob.glob(os.path.join(gen, "resources", "*.json"))):
+        r, f = J(p), os.path.basename(p)
+        a = {"key": page_name(r["resourceType"], r["id"]), "resourceType": r["resourceType"], "id": r["id"]}
+        a |= {k: r[k] for k in ("url", "name", "title") if isinstance(r.get(k), str)}
+        a |= {"file": f, "sha256": sha256_file(p)}
+        if f in fsh:
+            a["fsh"] = {"name": fsh[f]["fshName"], "type": fsh[f]["fshType"], "file": f"{ig_path}/input/fsh/{fsh[f]['fshFile']}",
+                        "lines": [fsh[f]["startLine"], fsh[f]["endLine"]]}
+        arts.append(a)
+    repo, ref = pin()
+    doc = {"$schema": "ihris-ihris5-artifact-index/v1",
+           "_comment": f"GENERATED by {TOOL} --artifacts (and --index). Do not edit. Every resource SUSHI compiles for the iHRIS 5 "
+                       "IG this folio publishes, keyed by its artefact page (fhir-harness artifactPageName), with the FSH "
+                       "definition it came from (SUSHI's fsh-index). The site links to the IG only through this file.",
+           "source": {"repository": repo, "commit": ref},
+           "sushi": SUSHI_VERSION,
+           "ig": {"id": ig_id, "path": ig_path, "site": "ihris5/", "pages": "artifact/"},
+           "artifacts": arts}
+    os.makedirs(MAPPING, exist_ok=True)
+    open(ARTIFACTS, "w", encoding="utf-8").write(dump(doc))
+    print(f"map_ihris5: {ig_id}: {len(arts)} artefacts, {sum('fsh' in a for a in arts)} from FSH -> {rel(ARTIFACTS)}")
+    return doc
+
+
+def artifact_resolver(idx, arts):
+    """(ig id, structure url) -> artefact key, or None. The published IG has an artefact page for an iHRIS 5 structure
+    when it compiles the same url to the same bytes: the sha256 the element index records for that IG equals the one
+    the artefact index records. Equality of evidence only; a url alone is not enough, since the backend IGs carry their
+    own definitions at shared canonicals."""
+    by_url = {a["url"]: a for a in (arts or {}).get("artifacts", []) if a.get("url")}
+    sha = {(ig["id"], s["url"]): s["sha256"] for ig in idx["igs"] for s in ig["structures"]}
+
+    def resolve(ig_id, url):
+        a = by_url.get(url)
+        return a["key"] if a and sha.get((ig_id, url)) == a["sha256"] else None
+    return resolve
+
+
+def load_artifacts():
+    return J(ARTIFACTS) if os.path.exists(ARTIFACTS) else None
 
 
 # ------------------------------------------------------------------ 2. the two sides
@@ -485,7 +561,9 @@ def match_elements(m, P, ig_id, el_decisions, rejected):
     return rows
 
 
-def crosswalk(idx):
+def crosswalk(idx, arts=None):
+    arts = arts if arts is not None else load_artifacts()
+    art = artifact_resolver(idx, arts)
     models = ihris4_models()
     mdec, edec, rejected = authored_decisions()
     per_ig = {ig["id"]: ig_targets(ig, idx["igs"]) for ig in idx["igs"]}
@@ -495,6 +573,9 @@ def crosswalk(idx):
         for ig in idx["igs"]:
             profiles, ext = per_ig[ig["id"]]
             cands = match_model(m, profiles, ig["id"], rejected)
+            for c in cands:
+                if art(ig["id"], c["profile"]):
+                    c["artifact"] = art(ig["id"], c["profile"])
             dec = mdec.get((m["model"], ig["id"]))
             if dec and dec[0] in profiles:
                 tier, prof, by = "accepted", dec[0], dec[1]
@@ -506,6 +587,8 @@ def crosswalk(idx):
             if prof:
                 t["profile"] = prof
                 t["profileName"] = profiles[prof]["name"]
+                if art(ig["id"], prof):
+                    t["artifact"] = art(ig["id"], prof)
                 if by:
                     t["decidedBy"] = by
                 t["elements"] = match_elements(m, profiles[prof], ig["id"], edec, rejected)
@@ -524,6 +607,7 @@ def crosswalk(idx):
             "_comment": f"GENERATED by {TOOL}. Do not edit: change the inputs, an owner decision in "
                         "src/ihris-data-dictionary/authored/, or the matcher.",
             "index": {"file": rel(INDEX), "sha256": sha256_file(INDEX)},
+            **({"artifacts": {"file": rel(ARTIFACTS), "sha256": sha256_file(ARTIFACTS)}} if arts else {}),
             "source": {"canonical": CANONICAL, "logicalModels": len(models), "elements": sum(len(m["elements"]) for m in models)},
             "method": {
                 "modelLevel": "per IG: a logical model's names (group, title, I2CE class, forms, forms' display names) equal, "
@@ -668,7 +752,8 @@ def all_maps(cw, idx):
 
 
 # ------------------------------------------------------------------ 5. the gap report
-def gaps(cw, idx):
+def gaps(cw, idx, arts=None):
+    art = artifact_resolver(idx, arts if arts is not None else load_artifacts())
     per_ig = {ig["id"]: ig_targets(ig, idx["igs"]) for ig in idx["igs"]}
     ih4 = []
     for m in cw["models"]:
@@ -713,9 +798,9 @@ def gaps(cw, idx):
                 if x["container"]:
                     continue
                 rows.append({"profile": P["name"], "path": x["path"], "label": x["labels"][0]["value"],
-                             "candidateOnly": (url, x["path"]) in cands})
-        exts = [{"extension": s["name"], "url": s["url"], "title": s.get("title")} for s in idx_structs(idx, ig["id"])
-                if s["type"] == "Extension" and s["url"] not in covered_ext]
+                             "candidateOnly": (url, x["path"]) in cands} | ({"artifact": art(ig["id"], url)} if art(ig["id"], url) else {}))
+        exts = [{"extension": s["name"], "url": s["url"], "title": s.get("title")} | ({"artifact": art(ig["id"], s["url"])} if art(ig["id"], s["url"]) else {})
+                for s in idx_structs(idx, ig["id"]) if s["type"] == "Extension" and s["url"] not in covered_ext]
         ih5[ig["id"]] = {"profileElements": rows, "extensions": exts}
     return {"$schema": "ihris-fhir-gaps/v1",
             "_comment": f"GENERATED by {TOOL} from the crosswalk. Do not edit.",
@@ -873,6 +958,9 @@ def main():
     if "--index" in sys.argv:
         build_index()
         return
+    if "--artifacts" in sys.argv:
+        build_artifacts()
+        return
     if "--check" in sys.argv:
         if not os.path.exists(INDEX):
             raise SystemExit(f"map_ihris5: {rel(INDEX)} is missing")
@@ -888,6 +976,9 @@ def main():
         idx = build_index()
     else:
         idx = have
+        arts = load_artifacts()
+        if not arts or (arts["source"]["commit"], arts["sushi"]) != (pin()[1], SUSHI_VERSION):
+            build_artifacts()
     cw, files = outputs(idx)
     if os.path.isdir(MAPS_FSH):
         shutil.rmtree(MAPS_FSH)
