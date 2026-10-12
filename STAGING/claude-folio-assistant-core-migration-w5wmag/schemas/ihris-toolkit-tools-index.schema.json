@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-toolkit-tools-index.schema.json",
+  "title": "ihris-toolkit-tools-index/v1",
+  "description": "Every tool the toolkit lists, by stage and domain. A tool hosted on toolkit.ihris.org is referenced, never copied (library/ihris-toolkit/tools-index.json).",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "stage",
+      "domain",
+      "title",
+      "href",
+      "kind",
+      "hostedOnToolkit",
+      "materialization"
+    ],
+    "properties": {
+      "stage": {
+        "type": "string"
+      },
+      "domain": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "href": {
+        "type": "string",
+        "format": "uri"
+      },
+      "kind": {
+        "type": "string"
+      },
+      "hostedOnToolkit": {
+        "type": "boolean"
+      },
+      "materialization": {
+        "enum": [
+          "referenced",
+          "ingested"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+}
