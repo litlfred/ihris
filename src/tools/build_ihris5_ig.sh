@@ -13,15 +13,18 @@
 #                  ordinary IG Publisher build (SUSHI first) and writes the AST beside output/.
 #   4. index       fhir-harness ast-to-artifact-index.ts: the artefact index, from the AST.
 #                  ingest-ig-menu.ts: the IG's menu, from its sushi-config.yaml at the pin.
-#   5. pages       gen-ig-pages.ts --thin: one THIN page per artefact, in IG-site mode (owner,
-#                  2026-10-11, option A: "tiny html w/ dynamic load from json(ld) KG"): each
-#                  artifact/<Type>-<id>.html is a few KB of identity and a pointer to its JSON-LD node
-#                  (artifact/<Type>-<id>.jsonld, fhir-harness ig-artifact-jsonld.ts), drawn in the
-#                  browser by one shared renderer (assets/ig-artifact.js) from the node and the resource.
+#   5. pages       gen-ig-pages.ts: one THIN page per artefact, in IG-site mode (owner, 2026-10-11,
+#                  option A: "tiny html w/ dynamic load from json(ld) KG"; thin is fhir-harness's
+#                  default since 2026-10-12, "make thin default"): each artifact/<Type>-<id>.html is a
+#                  few KB of identity and a pointer to its JSON-LD node (artifact/<Type>-<id>.jsonld,
+#                  fhir-harness ig-artifact-jsonld.ts), plus the index node artifact/index.jsonld,
+#                  drawn in the browser by one shared renderer (assets/ig-artifact.js).
 #   6. site        cat-harness compose-docs.ts --shell (the platform chrome, scoped to ihris)
 #                  + fhir-harness stage-ig-sites.ts (the IG's own narrative and menu, composed at
-#                  the root) + Jekyll with just-the-docs, the gem the platform's Gemfile pins; then
-#                  cat-harness-tools rail-standalone-pages.ts gives the thin pages the rail, LINKED
+#                  the root) + Jekyll with just-the-docs, the gem the platform's Gemfile pins. Thin by
+#                  default: artifacts.html and toc.html are shells over artifact/index.jsonld, and the
+#                  narrative pages wear fhir-harness's thin layout, prose kept, chrome linked. Then
+#                  cat-harness-tools rail-standalone-pages.ts gives every page the rail, LINKED
 #                  (the platform's navbar css/js by URL), never inlined.
 #   7. bytes       the AST's resources at <out>/ast-data/. The Publisher's own HTML (output/) is
 #                  NOT copied: it is not deployed (owner, 2026-10-11), so the artefact index claims
@@ -103,7 +106,7 @@ step "5. artefact pages (IG-site mode)"
 # full artefact page's resource answered 404.)
 bun run fhir-harness/scripts/gen-ig-pages.ts --instance "$I" --label "$LABEL" \
   --index "$I/fhir-artifact-index/index.json" --out "$I/docs" --compiled-data ast-data \
-  --thin --jsonld-base "https://litlfred.github.io$BASEURL/"
+  --jsonld-base "https://litlfred.github.io$BASEURL/"
 
 step "6. site: platform chrome scoped to ihris, the IG composed at its root, Jekyll"
 # The mounted cat-harness carries the PLATFORM's harness list; regenerate it from this checkout so
@@ -120,7 +123,7 @@ rm -rf "$OUT" && mkdir -p "$OUT"
 BUNDLE_GEMFILE="$ROOT/cat-harness/docs/Gemfile" bundle exec jekyll build --source "$W/shell" --destination "$OUT" \
   --baseurl "$BASEURL" --config "$W/shell/_config.yml,$W/jekyll-override.yml"
 bun run fhir-harness/scripts/build-ig-site.ts --dedupe-ids "$OUT"
-# The thin artefact pages carry no rail of their own; they ask for it LINKED (folio-navbar: linked).
+# The thin pages carry no rail of their own; they ask for it LINKED (folio-navbar: linked).
 # Pages Jekyll already railed are skipped. Before the sweep below, which keeps only referenced rail data.
 bun run cat-harness-tools/scripts/rail-standalone-pages.ts --site "$OUT" --built cat-harness --foreign-site \
   --home-label "iHRIS Knowledge Base" --instance ihris

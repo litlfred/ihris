@@ -31,10 +31,12 @@ Turn a pinned, third-party IG source into a readable site in this folio's chrome
 - **Describe, never materialize.** The source is mounted, verified and never committed; the build is never committed either. Only the pages branch holds the site and the AST's resources. The IG Publisher's own HTML is not deployed (owner, 2026-10-11: *"i dont want IG publisher to deploy to gh-pages"*); the Publisher runs only to write the AST.
 - **Never edit the upstream, or the mount.** A defect in the IG's own source is reported upstream, and the folio builds meanwhile from a **declared patch**: the exact text it replaces and the reason. A patch that no longer applies exactly once fails the build, so an upstream fix is noticed rather than silently doubled. Only the owner decides between a patch and waiting.
 - **Scoped chrome.** The site wears the platform chrome for this folio and what it needs, never the platform's whole harness list.
-- **Thin artefact pages.** The owner chose option A on 2026-10-11: *"tiny html w/ dynamic load from json(ld) KG"*. Each artefact page is fhir-harness's thin shell (`gen-ig-pages --thin`), about 5.6 KB with the rail linked. It replaces the full just-the-docs page of about 168 KB.
-  - Its asset is a WHO-free JSON-LD node beside it (`artifact/<Type>-<id>.jsonld`, fhir-harness Tool `ig-artifact-jsonld`).
-  - One shared script draws the page from the node and the AST resource.
-  - The build fails when the nodes' QA (`ig-artifact-jsonld.ts check`) finds a node missing, misnamed, or naming a resource that is not on the site.
+- **Thin pages.** The owner chose option A on 2026-10-11: *"tiny html w/ dynamic load from json(ld) KG"*, and thin is fhir-harness's default since 2026-10-12 (*"make thin default"*), so the build passes no flag for it.
+  - Each artefact page is fhir-harness's thin shell, about 5.6 KB with the rail linked, in place of a full page of about 168 KB. Its asset is a WHO-free JSON-LD node beside it (`artifact/<Type>-<id>.jsonld`, fhir-harness Tool `ig-artifact-jsonld`).
+  - `artifacts.html` and `toc.html` are thin shells (about 4 KB each, from about 170-210 KB) over one index node, `artifact/index.jsonld`. Every category is shown open.
+  - The narrative (`index.html`) keeps its prose in the HTML, with the chrome linked rather than inlined (about 11 KB, from about 180 KB).
+  - One shared script draws the pages from the nodes and the AST resources.
+  - The build fails when the nodes' QA (`ig-artifact-jsonld.ts check`) finds a node missing, misnamed, or naming a resource that is not on the site, or when the index node does not list every artefact once.
 
 ## When a step cannot run
 
