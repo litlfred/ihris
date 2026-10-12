@@ -24,6 +24,8 @@ on:
       - "src/ihris5/ihris5.json"
       - "src/ihris5/ig-build-patches.json"
       - "src/tools/build_ihris5_ig.sh"
+      # The platform pins: the IG is built by the mounted fhir-harness, so a re-pin changes the pages.
+      - "index.lock.json"
       - ".github/workflows/ihris5-ig.yml"
   pull_request:
     types: [opened, synchronize, reopened]
@@ -31,6 +33,8 @@ on:
       - "src/ihris5/ihris5.json"
       - "src/ihris5/ig-build-patches.json"
       - "src/tools/build_ihris5_ig.sh"
+      # The platform pins: the IG is built by the mounted fhir-harness, so a re-pin changes the pages.
+      - "index.lock.json"
       - ".github/workflows/ihris5-ig.yml"
 
 permissions:
