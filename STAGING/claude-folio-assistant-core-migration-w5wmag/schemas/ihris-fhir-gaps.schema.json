@@ -156,6 +156,11 @@
                 },
                 "candidateOnly": {
                   "type": "boolean"
+                },
+                "artifact": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9._-]+$",
+                  "description": "The artefact's page key in the published iHRIS 5 IG (ihris5/artifact/<key>.html), from ihris5-artifacts.json; present only when the built IG compiles this url to the same bytes."
                 }
               }
             }
@@ -182,6 +187,11 @@
                     "string",
                     "null"
                   ]
+                },
+                "artifact": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9._-]+$",
+                  "description": "The artefact's page key in the published iHRIS 5 IG (ihris5/artifact/<key>.html), from ihris5-artifacts.json; present only when the built IG compiles this url to the same bytes."
                 }
               }
             }
