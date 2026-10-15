@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "https://litlfred.github.io/ihris/STAGING/claude-repin-layers-2026-10-15/ihris5/artifact/Basic-ihris-task-write-questionnaire-resource.jsonld",
+  "@type": "fhir:Basic",
+  "dcterms:identifier": "Basic/ihris-task-write-questionnaire-resource",
+  "dcterms:title": "ihris-task-write-questionnaire-resource",
+  "dcterms:type": "Other",
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://litlfred.github.io/ihris/STAGING/claude-repin-layers-2026-10-15/ihris5/ast-data/resources/Basic/ihris-task-write-questionnaire-resource--8171fba6.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 2.3.4 / core 6.10.4",
+    "prov:used": "73709f33f0c82403bc30b2a12f741445baabe6cf"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "ihris",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://ihris.org/fhir"
+    }
+  },
+  "dcterms:conformsTo": [
+    {
+      "@id": "http://ihris.org/fhir/StructureDefinition/ihris-task"
+    }
+  ],
+  "dcterms:subject": [
+    {
+      "@type": "schema:DefinedTerm",
+      "schema:termCode": "task",
+      "schema:inDefinedTermSet": {
+        "@id": "http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem"
+      }
+    }
+  ]
+}
