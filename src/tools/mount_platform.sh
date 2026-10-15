@@ -35,3 +35,7 @@ if [ "${1:-}" = "--check" ]; then
 fi
 bun "$script" --root "$ROOT"
 bun install --frozen-lockfile
+if [ -f "cat-harness/site-chrome/Gemfile" ] && [ ! -e "cat-harness/docs/Gemfile" ]; then
+  ln -s ../site-chrome/Gemfile cat-harness/docs/Gemfile
+  [ -f "cat-harness/site-chrome/Gemfile.lock" ] && ln -s ../site-chrome/Gemfile.lock cat-harness/docs/Gemfile.lock || true
+fi
