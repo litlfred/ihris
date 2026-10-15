@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-wiki-book.schema.json",
+  "title": "ihris-wiki-book/v1",
+  "description": "A MediaWiki book export (mwlib/PediaPress PDF), ingested: each article with its wiki revision, contributors (the GFDL attribution), page range and the sha256 of its Markdown section; each placed image with the credit line matched to it; the text and image licences as the export states them; and every redaction (library/ihris-admin-handbook/book.json, src/tools/ingest_handbook.py). The images themselves are in images.json (folio-document-images/v1).",
+  "type": "object",
+  "required": ["$schema", "title", "wiki", "generator", "generatedAt", "source", "licence", "appendices", "articles", "images", "redactions", "redactionNote", "notIngested"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {"const": "ihris-wiki-book/v1"},
+    "title": {"type": "string"},
+    "titleNote": {"type": "string"},
+    "wiki": {"type": "string", "format": "uri"},
+    "generator": {"type": "string"},
+    "generatedAt": {"type": "string", "format": "date-time"},
+    "source": {
+      "type": "object", "required": ["file", "md5", "sha256", "pages", "manifest"], "additionalProperties": false,
+      "properties": {
+        "file": {"type": "string", "pattern": "\\.pdf$"},
+        "md5": {"type": "string", "pattern": "^[0-9a-f]{32}$"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "pages": {"type": "integer", "minimum": 1},
+        "manifest": {"type": "string"}
+      }
+    },
+    "licence": {
+      "type": "object", "required": ["text", "images"], "additionalProperties": false,
+      "properties": {
+        "text": {"type": "object", "required": ["id", "statement", "page"], "additionalProperties": false,
+                 "properties": {"id": {"type": "string"}, "statement": {"type": "string"}, "page": {"type": "integer", "minimum": 1}}},
+        "images": {"type": "object", "required": ["statedLicence", "page", "publishedUnder"], "additionalProperties": false,
+                   "properties": {"statedLicence": {"type": "array", "items": {"type": "string"}}, "page": {"type": "integer", "minimum": 1},
+                                  "publishedUnder": {"type": "string"}}}
+      }
+    },
+    "appendices": {
+      "type": "object", "required": ["articleSources", "imageCredits", "licence"], "additionalProperties": false,
+      "properties": {
+        "articleSources": {"type": "array", "items": {"type": "integer"}},
+        "imageCredits": {"type": "array", "items": {"type": "integer"}},
+        "licence": {"type": "array", "items": {"type": "integer"}}
+      }
+    },
+    "articles": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["id", "title", "pageStart", "pageEnd", "source", "oldid", "contributors", "file", "sha256"], "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+          "title": {"type": "string"},
+          "pageStart": {"type": "integer", "minimum": 1},
+          "pageEnd": {"type": "integer", "minimum": 1},
+          "source": {"type": "string", "format": "uri"},
+          "oldid": {"type": "integer"},
+          "contributors": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "file": {"type": "string", "pattern": "^sections/[a-z0-9-]+\\.md$"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["id", "file", "page", "article", "credit", "creditMatchedBy"], "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "pattern": "^img-p\\d{3}-\\d+$"},
+          "file": {"type": "string", "pattern": "^images/"},
+          "page": {"type": "integer", "minimum": 1},
+          "article": {"type": ["string", "null"]},
+          "credit": {
+            "type": "object", "required": ["name", "source", "licence", "contributors"], "additionalProperties": false,
+            "properties": {"name": {"type": "string"}, "source": {"type": "string", "format": "uri"}, "licence": {"type": "string"},
+                           "contributors": {"type": "array", "items": {"type": "string"}}}
+          },
+          "creditMatchedBy": {"type": "string"}
+        }
+      }
+    },
+    "redactions": {
+      "type": "array",
+      "items": {"type": "object", "required": ["article", "page", "kind", "count"], "additionalProperties": false,
+                "properties": {"article": {"type": "string"}, "page": {"type": "integer"}, "kind": {"enum": ["email", "phone"]}, "count": {"type": "integer", "minimum": 1}}}
+    },
+    "redactionNote": {"type": "string"},
+    "notIngested": {"type": "array", "items": {"type": "string"}}
+  }
+}

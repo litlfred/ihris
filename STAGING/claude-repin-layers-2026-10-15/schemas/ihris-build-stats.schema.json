@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-build-stats.schema.json",
+  "title": "ihris-build-stats/v1",
+  "description": "The counts build_kg.py prints and the READMEs quote (docs/generated/build-stats.json).",
+  "type": "object",
+  "required": [
+    "launchpadProjects",
+    "modules",
+    "wiki",
+    "toolkit",
+    "ihris5"
+  ],
+  "properties": {
+    "launchpadProjects": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "modules",
+          "localeOverlays",
+          "dataLists",
+          "formClasses",
+          "fields",
+          "described",
+          "sites"
+        ],
+        "properties": {
+          "modules": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "localeOverlays": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "dataLists": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "formClasses": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "fields": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "described": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sites": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "wiki": {
+      "type": "object",
+      "required": [
+        "pages",
+        "sections"
+      ],
+      "properties": {
+        "pages": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sections": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "toolkit": {
+      "type": "object",
+      "required": [
+        "stages",
+        "tools",
+        "hosted",
+        "domains"
+      ],
+      "properties": {
+        "stages": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tools": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "hosted": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ihris5": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
