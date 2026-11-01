@@ -120,7 +120,7 @@ bun run cat-harness-tools/scripts/gen-navbar-include.ts --instance ihris --link-
 # just-the-docs as the gem the platform's Gemfile.lock pins, not a remote_theme download.
 printf 'remote_theme: ""\ntheme: just-the-docs\nplugins: []\ntitle: "%s"\n' "$LABEL" > "$W/jekyll-override.yml"
 rm -rf "$OUT" && mkdir -p "$OUT"
-BUNDLE_GEMFILE="$ROOT/cat-harness/docs/Gemfile" bundle exec jekyll build --source "$W/shell" --destination "$OUT" \
+BUNDLE_GEMFILE="$ROOT/cat-harness/site-chrome/Gemfile" bundle exec jekyll build --source "$W/shell" --destination "$OUT" \
   --baseurl "$BASEURL" --config "$W/shell/_config.yml,$W/jekyll-override.yml"
 bun run fhir-harness/scripts/build-ig-site.ts --dedupe-ids "$OUT"
 # The thin pages carry no rail of their own; they ask for it LINKED (folio-navbar: linked).

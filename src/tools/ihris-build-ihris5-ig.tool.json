@@ -3,7 +3,7 @@
   "title": "Build the iHRIS 5 IG with fhir-harness",
   "description": "Builds the iHRIS 5 IG from the source src/ihris5/ihris5.json pins: mounts it, applies the declared patches to a workspace copy, runs one IG Publisher build through litlfred/fhir-ig-publisher's ast-export (pinned), derives the artefact index and menu (fhir-harness ast-to-artifact-index, ingest-ig-menu), writes the artefact pages THIN (gen-ig-pages, thin by default since 2026-10-12; owner, 2026-10-11, option A: \"tiny html w/ dynamic load from json(ld) KG\"), each a few KB beside its WHO-free JSON-LD node (ig-artifact-jsonld) with one index node for the artifacts and toc pages, drawn by one shared renderer, and composes them with the IG's own narrative (stage-ig-sites, thin layout: prose kept, chrome linked) into the platform chrome scoped to ihris (compose-docs --shell, gen-navbar-include), built with just-the-docs; every page gets the rail LINKED (rail-standalone-pages), and the nodes' QA (ig-artifact-jsonld check) runs on the built site. Writes one site directory with the AST's resources at ast-data/, for gh-pages only; the Publisher's own HTML is not included (owner, 2026-10-11: not deployed).",
   "install": {
-    "cli": "bash src/tools/mount_platform.sh; java 17+, maven, npm install -g fsh-sushi@3.20.1, BUNDLE_GEMFILE=cat-harness/docs/Gemfile bundle install"
+    "cli": "bash src/tools/mount_platform.sh; java 17+, maven, npm install -g fsh-sushi@3.20.1, BUNDLE_GEMFILE=cat-harness/site-chrome/Gemfile bundle install"
   },
   "invoke": {
     "shell": "bash src/tools/build_ihris5_ig.sh"
