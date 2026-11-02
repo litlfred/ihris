@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-wireframe-check-report.schema.json",
+  "title": "ihris-wireframe-check-report/v1",
+  "description": "Mechanical checks of wireframe candidates at the web and mobile viewports, written by src/tools/wireframe_check.mjs (Tool ihris-wireframe-check).",
+  "type": "object",
+  "required": [
+    "tool",
+    "viewports",
+    "candidates"
+  ],
+  "properties": {
+    "tool": {
+      "const": "ihris-wireframe-check"
+    },
+    "viewports": {
+      "type": "object",
+      "required": [
+        "web",
+        "mobile"
+      ],
+      "properties": {
+        "web": {
+          "type": "object",
+          "required": [
+            "width",
+            "height"
+          ],
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "mobile": {
+          "type": "object",
+          "required": [
+            "width",
+            "height"
+          ],
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "file",
+          "entries"
+        ],
+        "properties": {
+          "file": {
+            "type": "string"
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "viewport",
+                "criterion",
+                "result"
+              ],
+              "properties": {
+                "viewport": {
+                  "enum": [
+                    "web",
+                    "mobile"
+                  ]
+                },
+                "criterion": {
+                  "type": "string"
+                },
+                "result": {
+                  "enum": [
+                    "pass",
+                    "fail"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
