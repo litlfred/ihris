@@ -20,7 +20,7 @@ import { join, resolve } from "node:path";
 import { beanFindings, blockEdges, blockedBy, blocksOf, readBeans } from "../../cat-harness-tools/scripts/beans.ts";
 import { milestoneRollup } from "../../cat-harness-tools/scripts/milestone-rollup.ts";
 import { OPEN_BEANS_UNIT, openBeanCount } from "../../cat-harness-tools/scripts/bean-store-read.ts";
-import { tileCounts } from "../../cat-harness/schemas/tile-count.ts";
+import { tileCounts } from "../../cat-harness-tools/schemas/ui/tile-count.ts";
 import { detectRepoUrl } from "../../cat-harness-tools/src/core/git-refs.ts";
 
 /** The platform's preview length (`BEAN_BODY_PREVIEW` in gen-docs-pages.ts). */

@@ -24,7 +24,7 @@ Deterministic, in order:
    say so instead of matching.
 6. Declare the actors the reports describe (A-PT1 HR Manager, ...) as ROLES in the
    iHRIS domain: scenarios/roles.json, folio-assistant's `scenarios` graph kind
-   (RoleGraphSchema, cat-harness/schemas/role-graph.ts). Each use case's primary and
+   (RoleGraphSchema, cat-harness-tools/schemas/process/role-graph.ts). Each use case's primary and
    supporting actors become role ids, resolved by name within the product and then in
    Common. A name that resolves to nothing stops the build.
    Owner, 2026-09-24: A-ICE4 and A-PS6 ("Any User") are one role, citing both; and

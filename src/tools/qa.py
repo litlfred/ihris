@@ -936,7 +936,7 @@ def c_ig_build_patches(C):
     return out
 
 
-IGNORE_BEGIN = "# BEGIN index mounts (generated from index.config.json — do not edit)"  # cat-harness/schemas/index-config.ts
+IGNORE_BEGIN = "# BEGIN index mounts (generated from index.config.json — do not edit)"  # cat-harness-tools/schemas/kg/index-config.ts
 IGNORE_END = "# END index mounts"
 
 

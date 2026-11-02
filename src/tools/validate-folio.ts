@@ -36,24 +36,24 @@ import { Glob } from "bun";
 import { resolve } from "node:path";
 const S = (p: string) => import(resolve(process.cwd(), p));
 const { CatalogueNodeSchema, CatalogueSchema } = await S("folio-assistant-core/schemas/catalogue.ts");
-const { ToolDefinitionSchema } = await S("cat-harness/schemas/tool.ts");
-const { CatHarnessDeclarationSchema } = await S("cat-harness/schemas/cat-harness.ts");
-const { HarnessConfigSchema } = await S("cat-harness/schemas/harness-config.ts");
-const { BeanGraphSchema } = await S("cat-harness/schemas/bean-graph.ts");
-const { SkillPackageManifestSchema } = await S("cat-harness/schemas/skill-package.ts");
-const { IndexConfigSchema } = await S("cat-harness/schemas/index-config.ts");
-const { MountLockSchema } = await S("cat-harness/schemas/remote-mount.ts");
+const { ToolDefinitionSchema } = await S("cat-harness-tools/schemas/tools/tool.ts");
+const { CatHarnessDeclarationSchema } = await S("cat-harness-tools/schemas/kg/cat-harness.ts");
+const { HarnessConfigSchema } = await S("cat-harness-tools/schemas/kg/harness-config.ts");
+const { BeanGraphSchema } = await S("cat-harness-tools/schemas/sdlc/bean-graph.ts");
+const { SkillPackageManifestSchema } = await S("cat-harness-tools/schemas/kg/skill-package.ts");
+const { IndexConfigSchema } = await S("cat-harness-tools/schemas/kg/index-config.ts");
+const { MountLockSchema } = await S("cat-harness-tools/schemas/kg/remote-mount.ts");
 // pdf-structure/v1 was defined upstream in litlfred/folio-assistant#1113 (issue #1112).
 // An older checkout has no such module: say so, never pass silently.
-const { PdfStructureSchema } = await S("cat-harness/schemas/pdf-structure.ts").catch(() => {
+const { PdfStructureSchema } = await S("cat-harness-tools/schemas/ui/pdf-structure.ts").catch(() => {
   console.log("the mounted cat-harness predates schemas/pdf-structure.ts (#1112): bump its pin in index.config.json");
   process.exit(1);
 });
 
-const { ImagesSidecarSchema } = await S("cat-harness/schemas/document-image.ts");
-const { MethodologyFrontMatterSchema } = await S("cat-harness/schemas/methodology.ts");
-const { ActorDefSchema, readRoleGraph } = await S("cat-harness/schemas/role-graph.ts");
-const { readUserStories, danglingStoryRoles } = await S("cat-harness/schemas/user-story.ts");
+const { ImagesSidecarSchema } = await S("cat-harness-tools/schemas/content/document-image.ts");
+const { MethodologyFrontMatterSchema } = await S("cat-harness-tools/schemas/process/methodology.ts");
+const { ActorDefSchema, readRoleGraph } = await S("cat-harness-tools/schemas/process/role-graph.ts");
+const { readUserStories, danglingStoryRoles } = await S("cat-harness-tools/schemas/process/user-story.ts");
 // folio-glossary/v1 is core's, from litlfred/folio-assistant#1218 (issue #1217). Say so on an older checkout.
 const { GlossarySchema, toSkos } = await S("folio-assistant-core/schemas/glossary.ts").catch(() => {
   console.log("the mounted folio-assistant-core predates schemas/glossary.ts (#1218): bump its pin in index.config.json");
