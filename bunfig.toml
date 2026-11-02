@@ -1,0 +1,11 @@
+# The checkout's install: ONE node_modules, at the root, as folio-assistant's
+# own bunfig.toml lays it out.
+#
+# The platform layers mounted here (from index.lock.json) are the root
+# package.json's workspaces. Bun's isolated linker, its default for
+# workspaces, puts nothing at the root that another mount can reach.
+# fhir-harness's scripts import `@litlfred/cat-harness-tools` by name without
+# declaring it, so only a root node_modules, found by Node's upward walk,
+# resolves it (the iHRIS 5 IG build failed on ig-read-scope.ts without this).
+[install]
+linker = "hoisted"

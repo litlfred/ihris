@@ -906,13 +906,13 @@ def schemas_page(theme, out_dir):
         rows.append([f'<a href="{E(os.path.basename(f))}"><code>{E(s["title"])}</code></a>', E(s.get("description") or ""),
                      "<br>".join(f"<code>{E(w)}</code>" for w in where) or '<span class="mute">by <code>$schema</code> tag</span>'])
     reused = [["<code>folio-catalogue/v1</code>, <code>folio-catalogue-node/v1</code>", "catalogues and catalogue nodes", "<code>folio-assistant-core/schemas/catalogue.ts</code>"],
-              ["Tool definition", "<code>src/tools/*.tool.json</code>", "<code>cat-harness/schemas/tool.ts</code>"],
-              ["Instance declaration", "<code>ihris.json</code> and every instance's <code>&lt;name&gt;.json</code>", "<code>cat-harness/schemas/cat-harness.ts</code>"],
-              ["Harness config", "<code>ihris.config.json</code>", "<code>cat-harness/schemas/harness-config.ts</code>"],
-              ["Bean graph", "<code>beans/beans.json</code>", "<code>cat-harness/schemas/bean-graph.ts</code>"],
-              ["Skill package", "<code>src/skills/package-manifest.json</code>", "<code>cat-harness/schemas/skill-package.ts</code>"],
-              ["<code>pdf-structure/v1</code>", "<code>library/*/structure.json</code>", "<code>cat-harness/schemas/pdf-structure.ts</code>"],
-              ["<code>folio-document-images/v1</code>", "<code>library/*/images.json</code>", "<code>cat-harness/schemas/document-image.ts</code>"],
+              ["Tool definition", "<code>src/tools/*.tool.json</code>", "<code>cat-harness-tools/schemas/tools/tool.ts</code>"],
+              ["Instance declaration", "<code>ihris.json</code> and every instance's <code>&lt;name&gt;.json</code>", "<code>cat-harness-tools/schemas/kg/cat-harness.ts</code>"],
+              ["Harness config", "<code>ihris.config.json</code>", "<code>cat-harness-tools/schemas/kg/harness-config.ts</code>"],
+              ["Bean graph", "<code>beans/beans.json</code>", "<code>cat-harness-tools/schemas/sdlc/bean-graph.ts</code>"],
+              ["Skill package", "<code>src/skills/package-manifest.json</code>", "<code>cat-harness-tools/schemas/kg/skill-package.ts</code>"],
+              ["<code>pdf-structure/v1</code>", "<code>library/*/structure.json</code>", "<code>cat-harness-tools/schemas/ui/pdf-structure.ts</code>"],
+              ["<code>folio-document-images/v1</code>", "<code>library/*/images.json</code>", "<code>cat-harness-tools/schemas/content/document-image.ts</code>"],
               ["<code>folio-glossary/v1</code>", "<code>glossary/*.glossary.json</code> (SKOS)", "<code>folio-assistant-core/schemas/glossary.ts</code>"],
               ["FHIR R4", "<code>src/ihris-data-dictionary/terminology/*.json</code>", "<code>fhir.resources</code> (R4)"]]
     import importlib.util as ilu
