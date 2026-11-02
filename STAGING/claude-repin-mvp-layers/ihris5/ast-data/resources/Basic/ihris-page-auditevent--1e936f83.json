@@ -1,0 +1,117 @@
+{
+  "resourceType" : "Basic",
+  "id" : "ihris-page-auditevent",
+  "meta" : {
+    "profile" : ["http://ihris.org/fhir/StructureDefinition/ihris-page"]
+  },
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Basic ihris-page-auditevent</b></p><a name=\"ihris-page-auditevent\"> </a><a name=\"hcihris-page-auditevent\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ihris-page.html\">iHRIS Page</a></p></div><blockquote><p><b>iHRIS Page Display</b></p><ul><li>resource: <a href=\"StructureDefinition-ihris-auditevent.html\">StructureDefinition iHRIS Audit Event</a></li><li>search: Id|AuditEvent.id</li><li>search: User AltId|AuditEvent.agent.altId</li><li>search: User|AuditEvent.agent.name</li><li>search: Action|AuditEvent.subtype.display</li><li>search: Resource|AuditEvent.entity.what.reference</li><li>search: Outcome|AuditEvent.outcome</li><li>search: Resource(If Error)|AuditEvent.entity.detail.where(type='resource').valueString</li><li>search: Error|AuditEvent.entity.detail.where(type='error').valueString</li><li>search: Time/Date|AuditEvent.recorded</li><li>filter: Action|subtype|http://dicom.nema.org/resources/ontology/DCM</li><li>filter: User AltId|altid</li><li>filter: User|agent-name:contains</li><li>filter: Date|date</li></ul></blockquote><blockquote><p><b>iHRIS Page Section</b></p><ul><li>title: Audit Events/Logs</li><li>description: System Logs details</li><li>name: AuditEvent</li><li>field: AuditEvent.agent.altIdd</li><li>field: AuditEvent.agent.name</li><li>field: AuditEvent.subtype.display</li><li>field: AuditEvent.entity.what.reference</li><li>field: AuditEvent.outcome</li><li>field: AuditEvent.recorded</li></ul></blockquote><p><b>code</b>: <span title=\"Codes:{http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem page}\">iHRIS Page</span></p></div>"
+  },
+  "extension" : [{
+    "extension" : [{
+      "url" : "resource",
+      "valueReference" : {
+        "reference" : "StructureDefinition/ihris-auditevent"
+      }
+    },
+    {
+      "url" : "search",
+      "valueString" : "Id|AuditEvent.id"
+    },
+    {
+      "url" : "search",
+      "valueString" : "User AltId|AuditEvent.agent.altId"
+    },
+    {
+      "url" : "search",
+      "valueString" : "User|AuditEvent.agent.name"
+    },
+    {
+      "url" : "search",
+      "valueString" : "Action|AuditEvent.subtype.display"
+    },
+    {
+      "url" : "search",
+      "valueString" : "Resource|AuditEvent.entity.what.reference"
+    },
+    {
+      "url" : "search",
+      "valueString" : "Outcome|AuditEvent.outcome"
+    },
+    {
+      "url" : "search",
+      "valueString" : "Resource(If Error)|AuditEvent.entity.detail.where(type='resource').valueString"
+    },
+    {
+      "url" : "search",
+      "valueString" : "Error|AuditEvent.entity.detail.where(type='error').valueString"
+    },
+    {
+      "url" : "search",
+      "valueString" : "Time/Date|AuditEvent.recorded"
+    },
+    {
+      "url" : "filter",
+      "valueString" : "Action|subtype|http://dicom.nema.org/resources/ontology/DCM"
+    },
+    {
+      "url" : "filter",
+      "valueString" : "User AltId|altid"
+    },
+    {
+      "url" : "filter",
+      "valueString" : "User|agent-name:contains"
+    },
+    {
+      "url" : "filter",
+      "valueString" : "Date|date"
+    }],
+    "url" : "http://ihris.org/fhir/StructureDefinition/ihris-page-display"
+  },
+  {
+    "extension" : [{
+      "url" : "title",
+      "valueString" : "Audit Events/Logs"
+    },
+    {
+      "url" : "description",
+      "valueString" : "System Logs details"
+    },
+    {
+      "url" : "name",
+      "valueString" : "AuditEvent"
+    },
+    {
+      "url" : "field",
+      "valueString" : "AuditEvent.agent.altIdd"
+    },
+    {
+      "url" : "field",
+      "valueString" : "AuditEvent.agent.name"
+    },
+    {
+      "url" : "field",
+      "valueString" : "AuditEvent.subtype.display"
+    },
+    {
+      "url" : "field",
+      "valueString" : "AuditEvent.entity.what.reference"
+    },
+    {
+      "url" : "field",
+      "valueString" : "AuditEvent.outcome"
+    },
+    {
+      "url" : "field",
+      "valueString" : "AuditEvent.recorded"
+    }],
+    "url" : "http://ihris.org/fhir/StructureDefinition/ihris-page-section"
+  }],
+  "code" : {
+    "coding" : [{
+      "system" : "http://ihris.org/fhir/CodeSystem/ihris-resource-codesystem",
+      "code" : "page"
+    }]
+  }
+}

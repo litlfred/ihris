@@ -1,0 +1,1260 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "ihris-job",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem ihris-job</b></p><a name=\"ihris-job\"> </a><a name=\"hcihris-job\"> </a><p><b>Properties</b></p><p><b>This code system defines the following properties for its concepts</b></p><table class=\"grid\"><tr><td><b>Name</b></td><td><b>Code</b></td><td><b>URI</b></td><td><b>Type</b></td><td><b>Description</b></td></tr><tr><td>cadre</td><td>cadre</td><td>http://ihris.org/fhir/ValueSet/ihris-cadre</td><td>Coding</td><td>The cadre of this job.</td></tr><tr><td>classification</td><td>classification</td><td>http://ihris.org/fhir/ValueSet/ihris-classification</td><td>Coding</td><td>The classification of this job.</td></tr><tr><td>salary-grade</td><td>salary-grade</td><td>http://ihris.org/fhir/ValueSet/ihris-salary-grade</td><td>Coding</td><td>The salary grade of this job.</td></tr></table><p><b>Concepts</b></p><p>This  code system <code>http://ihris.org/fhir/CodeSystem/ihris-job</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td><td><b>cadre</b></td><td><b>classification</b></td><td><b>salary-grade</b></td></tr><tr><td style=\"white-space:nowrap\">1231-1C<a name=\"ihris-job-1231-1C\"> </a></td><td>Manager</td><td>Department managers plan, direct and coordinate the internal administration or financial operations of the enterprise or organisation, under the broad guidance of the directors.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification non-health}\">Non-Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-mid-level}\">Professional Mid-Level or Managerial</a></td></tr><tr><td style=\"white-space:nowrap\">1420-A<a name=\"ihris-job-1420-A\"> </a></td><td>Administrative Assistant</td><td/><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification non-health}\">Non-Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">2221-1D<a name=\"ihris-job-2221-1D\"> </a></td><td>Medical Doctor</td><td>Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification doctor}\">Medical Doctor</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade doctor}\">Doctor</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade director}\">Director</a></td></tr><tr><td style=\"white-space:nowrap\">2221-2D<a name=\"ihris-job-2221-2D\"> </a></td><td>Specialized Doctor</td><td>Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification doctor}\">Medical Doctor</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade doctor}\">Doctor</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade director}\">Director</a></td></tr><tr><td style=\"white-space:nowrap\">2221-3D<a name=\"ihris-job-2221-3D\"> </a></td><td>Opthalmologist</td><td>Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification doctor}\">Medical Doctor</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade doctor}\">Doctor</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade director}\">Director</a></td></tr><tr><td style=\"white-space:nowrap\">2221-4D<a name=\"ihris-job-2221-4D\"> </a></td><td>Orthopedist</td><td>Lab technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification doctor}\">Medical Doctor</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade doctor}\">Doctor</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade director}\">Director</a></td></tr><tr><td style=\"white-space:nowrap\">2221-5D<a name=\"ihris-job-2221-5D\"> </a></td><td>Surgeon</td><td>Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification doctor}\">Medical Doctor</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade doctor}\">Doctor</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade director}\">Director</a></td></tr><tr><td style=\"white-space:nowrap\">2222-2D<a name=\"ihris-job-2222-2D\"> </a></td><td>Dentist</td><td>Dentists conduct research, improve or develop concepts, theories and operational methods, and apply medical knowledge in the field of dentistry.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade director}\">Director</a></td></tr><tr><td style=\"white-space:nowrap\">2224-1D<a name=\"ihris-job-2224-1D\"> </a></td><td>Pharmacist</td><td>Pharmacists apply pharmaceutical concepts and theories by preparing and dispensing or selling medicaments and drugs.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade director}\">Director</a></td></tr><tr><td style=\"white-space:nowrap\">2229-3C<a name=\"ihris-job-2229-3C\"> </a></td><td>Epidemiologist</td><td>Epidemiologists conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures in epidemiology.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-mid-level}\">Professional Mid-Level or Managerial</a></td></tr><tr><td style=\"white-space:nowrap\">2230-1B<a name=\"ihris-job-2230-1B\"> </a></td><td>Nurse</td><td>Nursing and midwifery professionals assist medical doctors in their tasks, deal with emergencies in their absence, and provide professional nursing care for the sick, injured, physically and mentally disabled, and others in need of such care.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">2230-1C<a name=\"ihris-job-2230-1C\"> </a></td><td>Deputy Chief Nurse</td><td>Nursing and midwifery professionals assist medical doctors in their tasks, deal with emergencies in their absence, and provide professional nursing care for the sick, injured, physically and mentally disabled, and others in need of such care.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-mid-level}\">Professional Mid-Level or Managerial</a></td></tr><tr><td style=\"white-space:nowrap\">2230-1D<a name=\"ihris-job-2230-1D\"> </a></td><td>Chief Nurse</td><td>Nursing and midwifery professionals assist medical doctors in their tasks, deal with emergencies in their absence, and provide professional nursing care for the sick, injured, physically and mentally disabled, and others in need of such care.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade director}\">Director</a></td></tr><tr><td style=\"white-space:nowrap\">2230-2B<a name=\"ihris-job-2230-2B\"> </a></td><td>Midwife</td><td>Midwifery professionals deliver or assist in the delivery of babies, provide antenatal and post-natal care and instruct parents in baby care.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">2411-1B<a name=\"ihris-job-2411-1B\"> </a></td><td>Accountant</td><td>Accountants advise on accounting matters and perform accountancy services or audits.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification non-health}\">Non-Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">2432-1B<a name=\"ihris-job-2432-1B\"> </a></td><td>Archivist</td><td>Medical archivists collect and store recorded or published material, and retrieve and provide information as requested.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">2445-1B<a name=\"ihris-job-2445-1B\"> </a></td><td>Counselor</td><td/><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification non-health}\">Non-Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">2445-1C<a name=\"ihris-job-2445-1C\"> </a></td><td>Clinical Psychologist</td><td>Psychologists research into and study mental processes and behaviour of human beings as individuals or in groups, and apply this knowledge to promote personal, social, educational or occupational adjustment and development.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-mid-level}\">Professional Mid-Level or Managerial</a></td></tr><tr><td style=\"white-space:nowrap\">2446-1C<a name=\"ihris-job-2446-1C\"> </a></td><td>Social Worker</td><td>Social work professionals provide guidance to clients in social and related matters to enable them to find and use resources to overcome difficulties and achieve particular goals.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-mid-level}\">Professional Mid-Level or Managerial</a></td></tr><tr><td style=\"white-space:nowrap\">3211-1A<a name=\"ihris-job-3211-1A\"> </a></td><td>Technician</td><td>Lab technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3211-1C<a name=\"ihris-job-3211-1C\"> </a></td><td>Lab Technician</td><td>Lab technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-mid-level}\">Professional Mid-Level or Managerial</a></td></tr><tr><td style=\"white-space:nowrap\">3211-2A<a name=\"ihris-job-3211-2A\"> </a></td><td>Lab Assistant</td><td>Lab assistants carry out laboratory tasks, more limited in scope and complexity than those carried out by Lab Technicians.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3211-3B<a name=\"ihris-job-3211-3B\"> </a></td><td>Radiology Technician</td><td>Radiologist technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results in radiology.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3211-4B<a name=\"ihris-job-3211-4B\"> </a></td><td>Orthopedist Aide</td><td>Medical assistants carry out advisory, diagnostic, preventive and curative medical tasks, more limited in scope and complexity than those carried out by Medical doctors.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3221-1C<a name=\"ihris-job-3221-1C\"> </a></td><td>Medical Assistant</td><td>Medical assistants carry out advisory, diagnostic, preventive and curative medical tasks, more limited in scope and complexity than those carried out by Medical doctors.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-mid-level}\">Professional Mid-Level or Managerial</a></td></tr><tr><td style=\"white-space:nowrap\">3221-2B<a name=\"ihris-job-3221-2B\"> </a></td><td>Anesthesiology Assistant</td><td>Anesthesiologist techs carry out advisory, diagnostic, preventive and curative medical tasks, more limited in scope and complexity than those carried out by Anesthesiologists.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3222-1A<a name=\"ihris-job-3222-1A\"> </a></td><td>Hygienist Aide</td><td>Sanitarians provide technical assistance and advice on measures to restore or improve sanitary conditions, and supervise their implementation.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3222-1B<a name=\"ihris-job-3222-1B\"> </a></td><td>Hygienist</td><td>Sanitarians provide technical assistance and advice on measures to restore or improve sanitary conditions, and supervise their implementation.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3223-1B<a name=\"ihris-job-3223-1B\"> </a></td><td>Nutritionist</td><td>Nutritionists conduct research and improve or develop concepts and operational methods concerning the preparation and application of diets for general and therapeutic purposes.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3223-1C<a name=\"ihris-job-3223-1C\"> </a></td><td>Anesthesiologist</td><td>Nutritionists conduct research and improve or develop concepts and operational methods concerning the preparation and application of diets for general and therapeutic purposes.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-mid-level}\">Professional Mid-Level or Managerial</a></td></tr><tr><td style=\"white-space:nowrap\">3223-2A<a name=\"ihris-job-3223-2A\"> </a></td><td>Nutritionist Aide</td><td>Nutritionist Aides assist nutritionists with research, concepts and operational methods concerning the preparation and application of diets for general and therapeutic purposes.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3225-1B<a name=\"ihris-job-3225-1B\"> </a></td><td>Dental Technician</td><td>Dental technicians carry out advisory, diagnostic, preventive and curative dental tasks, more limited in scope and complexity than those carried out by Dentists.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3226-1A<a name=\"ihris-job-3226-1A\"> </a></td><td>Physiotherapy Aide</td><td>Physiotherapists and related associate professionals treat disorders of bones, muscles and parts of the circulatory or the nervous system by manipulative methods.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3226-1B<a name=\"ihris-job-3226-1B\"> </a></td><td>Physiotherapist</td><td>Physiotherapists treat disorders of bones, muscles and parts of the circulatory or the nervous system by manipulative methods, and ultrasound, heating, laser or similar techniques.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3228-1B<a name=\"ihris-job-3228-1B\"> </a></td><td>Pharmacy Technician</td><td>Pharmaceutical assistants dispense and prepare medicaments, lotions and mixtures under the guidance of Pharmacists, in pharmacies, hospitals and dispensaries.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-mid-level}\">Professional Mid-Level or Managerial</a></td></tr><tr><td style=\"white-space:nowrap\">3229-3A<a name=\"ihris-job-3229-3A\"> </a></td><td>Environmental Health Worker</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3232-2A<a name=\"ihris-job-3232-2A\"> </a></td><td>Nurse Midwife Aid</td><td>Midwifery assistants deliver or assist doctors or midwifery professionals in the delivery of babies, provide antenatal and post-natal care and instruct parents in baby care.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">3431-1D<a name=\"ihris-job-3431-1D\"> </a></td><td>Administrator</td><td>Administrators implement and support the communication, documentation and internal managerial co-ordination activities of an organisational unit.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification non-health}\">Non-Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade director}\">Director</a></td></tr><tr><td style=\"white-space:nowrap\">3460-1A<a name=\"ihris-job-3460-1A\"> </a></td><td>Social Work Aide</td><td>Social work aides provide guidance to clients in social and related matters to enable them to find and use resources to overcome difficulties and achieve particular goals.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification allied-health}\">Allied Health Professional</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade allied-health}\">Allied Health</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">4115-1A<a name=\"ihris-job-4115-1A\"> </a></td><td>Secretary</td><td>Secretaries use typewriters or word-processing equipment to check and transcribe correspondence and other documents, deal with incoming and outgoing mail, screen requests for meetings or appointments, record and screen leave and other staff entitlements.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification support}\">Non-Health Support Staff</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">4211-1A<a name=\"ihris-job-4211-1A\"> </a></td><td>Cashier</td><td>Cashiers receive payments for goods or services.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification support}\">Non-Health Support Staff</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">4222-1A<a name=\"ihris-job-4222-1A\"> </a></td><td>Receptionist</td><td>Receptionists receive clients or patients, provide information and make appointments on behalf of various establishments including hospitals, medical or dental surgeries.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification support}\">Non-Health Support Staff</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">5121-2A<a name=\"ihris-job-5121-2A\"> </a></td><td>Laundry Staff</td><td>Laundry staff organise, supervise and carry out laundry functions in medical institutions.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification support}\">Non-Health Support Staff</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">5132-1A<a name=\"ihris-job-5132-1A\"> </a></td><td>Nurse Aide</td><td>Institution-based Nurse Aides perform simple tasks to assist medical, nursing, midwifery and dental professionals or associate professionals in their duties.</td><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">5169-1A<a name=\"ihris-job-5169-1A\"> </a></td><td>Guard</td><td>Guards patrol buildings and areas to prevent illegal entry, theft, violence and other unlawful acts, and, if necessary, use force to prevent such acts and apprehend perpetrators, as well as act as bodyguards.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification support}\">Non-Health Support Staff</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">6113-1A<a name=\"ihris-job-6113-1A\"> </a></td><td>Gardener</td><td>Gardeners plan and carry out the necessary operations to grow vegetables by intensive cultivation techniques, to cultivate trees, shrubs, flowers and other plants, and to produce saplings, bulbs and seeds.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification support}\">Non-Health Support Staff</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">7137-1B<a name=\"ihris-job-7137-1B\"> </a></td><td>Electrician</td><td>Building and related electricians install, maintain and repair electrical wiring systems and related equipment.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification support}\">Non-Health Support Staff</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">7231-1B<a name=\"ihris-job-7231-1B\"> </a></td><td>Mechanic</td><td>Motor vehicle mechanics and fitters fit, install, maintain, service and repair engines and the mechanical and related equipment of motor cycles, passenger cars and delivery trucks and other motor vehicles.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification support}\">Non-Health Support Staff</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">8322-1A<a name=\"ihris-job-8322-1A\"> </a></td><td>Driver</td><td>Drivers drive and tend motor cars and vans to transport passengers, mail or goods.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification support}\">Non-Health Support Staff</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade entry-level}\">Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">NURS-I<a name=\"ihris-job-NURS-I\"> </a></td><td>Nurse I</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade nurse}\">Nurse</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr><tr><td style=\"white-space:nowrap\">RM-001<a name=\"ihris-job-RM-001\"> </a></td><td>Records Manager</td><td>Manages medical records.</td><td/><td><a href=\"CodeSystem-ihris-classification.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-classification support}\">Non-Health Support Staff</a></td><td><a href=\"CodeSystem-ihris-salary-grade.html\" title=\"{http://ihris.org/fhir/CodeSystem/ihris-salary-grade prof-entry-level}\">Professional Entry-Level</a></td></tr></table></div>"
+  },
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-job",
+  "version" : "0.1.0",
+  "name" : "IhrisJob",
+  "title" : "iHRIS Job",
+  "status" : "active",
+  "date" : "2020-09-25T20:48:33.646Z",
+  "publisher" : "Luke Duncan",
+  "contact" : [{
+    "name" : "Luke Duncan",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "lduncan@intrahealth.org"
+    }]
+  }],
+  "description" : "Sample iHRIS CodeSystem for: IhrisJob",
+  "content" : "complete",
+  "count" : 51,
+  "property" : [{
+    "code" : "cadre",
+    "uri" : "http://ihris.org/fhir/ValueSet/ihris-cadre",
+    "description" : "The cadre of this job.",
+    "type" : "Coding"
+  },
+  {
+    "code" : "classification",
+    "uri" : "http://ihris.org/fhir/ValueSet/ihris-classification",
+    "description" : "The classification of this job.",
+    "type" : "Coding"
+  },
+  {
+    "code" : "salary-grade",
+    "uri" : "http://ihris.org/fhir/ValueSet/ihris-salary-grade",
+    "description" : "The salary grade of this job.",
+    "type" : "Coding"
+  }],
+  "concept" : [{
+    "code" : "1231-1C",
+    "display" : "Manager",
+    "definition" : "Department managers plan, direct and coordinate the internal administration or financial operations of the enterprise or organisation, under the broad guidance of the directors.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "non-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-mid-level"
+      }
+    }]
+  },
+  {
+    "code" : "1420-A",
+    "display" : "Administrative Assistant",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "non-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "2221-1D",
+    "display" : "Medical Doctor",
+    "definition" : "Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "doctor"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "doctor"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "director"
+      }
+    }]
+  },
+  {
+    "code" : "2221-2D",
+    "display" : "Specialized Doctor",
+    "definition" : "Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "doctor"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "doctor"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "director"
+      }
+    }]
+  },
+  {
+    "code" : "2221-3D",
+    "display" : "Opthalmologist",
+    "definition" : "Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "doctor"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "doctor"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "director"
+      }
+    }]
+  },
+  {
+    "code" : "2221-4D",
+    "display" : "Orthopedist",
+    "definition" : "Lab technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "doctor"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "doctor"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "director"
+      }
+    }]
+  },
+  {
+    "code" : "2221-5D",
+    "display" : "Surgeon",
+    "definition" : "Medical doctors conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "doctor"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "doctor"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "director"
+      }
+    }]
+  },
+  {
+    "code" : "2222-2D",
+    "display" : "Dentist",
+    "definition" : "Dentists conduct research, improve or develop concepts, theories and operational methods, and apply medical knowledge in the field of dentistry.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "director"
+      }
+    }]
+  },
+  {
+    "code" : "2224-1D",
+    "display" : "Pharmacist",
+    "definition" : "Pharmacists apply pharmaceutical concepts and theories by preparing and dispensing or selling medicaments and drugs.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "director"
+      }
+    }]
+  },
+  {
+    "code" : "2229-3C",
+    "display" : "Epidemiologist",
+    "definition" : "Epidemiologists conduct research, improve or develop concepts, theories and operational methods, and apply preventive or curative measures in epidemiology.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-mid-level"
+      }
+    }]
+  },
+  {
+    "code" : "2230-1B",
+    "display" : "Nurse",
+    "definition" : "Nursing and midwifery professionals assist medical doctors in their tasks, deal with emergencies in their absence, and provide professional nursing care for the sick, injured, physically and mentally disabled, and others in need of such care.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "2230-1C",
+    "display" : "Deputy Chief Nurse",
+    "definition" : "Nursing and midwifery professionals assist medical doctors in their tasks, deal with emergencies in their absence, and provide professional nursing care for the sick, injured, physically and mentally disabled, and others in need of such care.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-mid-level"
+      }
+    }]
+  },
+  {
+    "code" : "2230-1D",
+    "display" : "Chief Nurse",
+    "definition" : "Nursing and midwifery professionals assist medical doctors in their tasks, deal with emergencies in their absence, and provide professional nursing care for the sick, injured, physically and mentally disabled, and others in need of such care.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "director"
+      }
+    }]
+  },
+  {
+    "code" : "2230-2B",
+    "display" : "Midwife",
+    "definition" : "Midwifery professionals deliver or assist in the delivery of babies, provide antenatal and post-natal care and instruct parents in baby care.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "2411-1B",
+    "display" : "Accountant",
+    "definition" : "Accountants advise on accounting matters and perform accountancy services or audits.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "non-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "2432-1B",
+    "display" : "Archivist",
+    "definition" : "Medical archivists collect and store recorded or published material, and retrieve and provide information as requested.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "2445-1B",
+    "display" : "Counselor",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "non-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "2445-1C",
+    "display" : "Clinical Psychologist",
+    "definition" : "Psychologists research into and study mental processes and behaviour of human beings as individuals or in groups, and apply this knowledge to promote personal, social, educational or occupational adjustment and development.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-mid-level"
+      }
+    }]
+  },
+  {
+    "code" : "2446-1C",
+    "display" : "Social Worker",
+    "definition" : "Social work professionals provide guidance to clients in social and related matters to enable them to find and use resources to overcome difficulties and achieve particular goals.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-mid-level"
+      }
+    }]
+  },
+  {
+    "code" : "3211-1A",
+    "display" : "Technician",
+    "definition" : "Lab technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3211-1C",
+    "display" : "Lab Technician",
+    "definition" : "Lab technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-mid-level"
+      }
+    }]
+  },
+  {
+    "code" : "3211-2A",
+    "display" : "Lab Assistant",
+    "definition" : "Lab assistants carry out laboratory tasks, more limited in scope and complexity than those carried out by Lab Technicians.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3211-3B",
+    "display" : "Radiology Technician",
+    "definition" : "Radiologist technicians perform technical tasks connected with the development of medical, public health and other practical applications of research results in radiology.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3211-4B",
+    "display" : "Orthopedist Aide",
+    "definition" : "Medical assistants carry out advisory, diagnostic, preventive and curative medical tasks, more limited in scope and complexity than those carried out by Medical doctors.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3221-1C",
+    "display" : "Medical Assistant",
+    "definition" : "Medical assistants carry out advisory, diagnostic, preventive and curative medical tasks, more limited in scope and complexity than those carried out by Medical doctors.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-mid-level"
+      }
+    }]
+  },
+  {
+    "code" : "3221-2B",
+    "display" : "Anesthesiology Assistant",
+    "definition" : "Anesthesiologist techs carry out advisory, diagnostic, preventive and curative medical tasks, more limited in scope and complexity than those carried out by Anesthesiologists.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3222-1A",
+    "display" : "Hygienist Aide",
+    "definition" : "Sanitarians provide technical assistance and advice on measures to restore or improve sanitary conditions, and supervise their implementation.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3222-1B",
+    "display" : "Hygienist",
+    "definition" : "Sanitarians provide technical assistance and advice on measures to restore or improve sanitary conditions, and supervise their implementation.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3223-1B",
+    "display" : "Nutritionist",
+    "definition" : "Nutritionists conduct research and improve or develop concepts and operational methods concerning the preparation and application of diets for general and therapeutic purposes.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3223-1C",
+    "display" : "Anesthesiologist",
+    "definition" : "Nutritionists conduct research and improve or develop concepts and operational methods concerning the preparation and application of diets for general and therapeutic purposes.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-mid-level"
+      }
+    }]
+  },
+  {
+    "code" : "3223-2A",
+    "display" : "Nutritionist Aide",
+    "definition" : "Nutritionist Aides assist nutritionists with research, concepts and operational methods concerning the preparation and application of diets for general and therapeutic purposes.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3225-1B",
+    "display" : "Dental Technician",
+    "definition" : "Dental technicians carry out advisory, diagnostic, preventive and curative dental tasks, more limited in scope and complexity than those carried out by Dentists.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3226-1A",
+    "display" : "Physiotherapy Aide",
+    "definition" : "Physiotherapists and related associate professionals treat disorders of bones, muscles and parts of the circulatory or the nervous system by manipulative methods.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3226-1B",
+    "display" : "Physiotherapist",
+    "definition" : "Physiotherapists treat disorders of bones, muscles and parts of the circulatory or the nervous system by manipulative methods, and ultrasound, heating, laser or similar techniques.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3228-1B",
+    "display" : "Pharmacy Technician",
+    "definition" : "Pharmaceutical assistants dispense and prepare medicaments, lotions and mixtures under the guidance of Pharmacists, in pharmacies, hospitals and dispensaries.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-mid-level"
+      }
+    }]
+  },
+  {
+    "code" : "3229-3A",
+    "display" : "Environmental Health Worker",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3232-2A",
+    "display" : "Nurse Midwife Aid",
+    "definition" : "Midwifery assistants deliver or assist doctors or midwifery professionals in the delivery of babies, provide antenatal and post-natal care and instruct parents in baby care.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "3431-1D",
+    "display" : "Administrator",
+    "definition" : "Administrators implement and support the communication, documentation and internal managerial co-ordination activities of an organisational unit.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "non-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "director"
+      }
+    }]
+  },
+  {
+    "code" : "3460-1A",
+    "display" : "Social Work Aide",
+    "definition" : "Social work aides provide guidance to clients in social and related matters to enable them to find and use resources to overcome difficulties and achieve particular goals.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "allied-health"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "4115-1A",
+    "display" : "Secretary",
+    "definition" : "Secretaries use typewriters or word-processing equipment to check and transcribe correspondence and other documents, deal with incoming and outgoing mail, screen requests for meetings or appointments, record and screen leave and other staff entitlements.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "support"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "4211-1A",
+    "display" : "Cashier",
+    "definition" : "Cashiers receive payments for goods or services.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "support"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "4222-1A",
+    "display" : "Receptionist",
+    "definition" : "Receptionists receive clients or patients, provide information and make appointments on behalf of various establishments including hospitals, medical or dental surgeries.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "support"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "5121-2A",
+    "display" : "Laundry Staff",
+    "definition" : "Laundry staff organise, supervise and carry out laundry functions in medical institutions.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "support"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "5132-1A",
+    "display" : "Nurse Aide",
+    "definition" : "Institution-based Nurse Aides perform simple tasks to assist medical, nursing, midwifery and dental professionals or associate professionals in their duties.",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "5169-1A",
+    "display" : "Guard",
+    "definition" : "Guards patrol buildings and areas to prevent illegal entry, theft, violence and other unlawful acts, and, if necessary, use force to prevent such acts and apprehend perpetrators, as well as act as bodyguards.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "support"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "6113-1A",
+    "display" : "Gardener",
+    "definition" : "Gardeners plan and carry out the necessary operations to grow vegetables by intensive cultivation techniques, to cultivate trees, shrubs, flowers and other plants, and to produce saplings, bulbs and seeds.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "support"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "7137-1B",
+    "display" : "Electrician",
+    "definition" : "Building and related electricians install, maintain and repair electrical wiring systems and related equipment.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "support"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "7231-1B",
+    "display" : "Mechanic",
+    "definition" : "Motor vehicle mechanics and fitters fit, install, maintain, service and repair engines and the mechanical and related equipment of motor cycles, passenger cars and delivery trucks and other motor vehicles.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "support"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "8322-1A",
+    "display" : "Driver",
+    "definition" : "Drivers drive and tend motor cars and vans to transport passengers, mail or goods.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "support"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "NURS-I",
+    "display" : "Nurse I",
+    "property" : [{
+      "code" : "cadre",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "nurse"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  },
+  {
+    "code" : "RM-001",
+    "display" : "Records Manager",
+    "definition" : "Manages medical records.",
+    "property" : [{
+      "code" : "classification",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-classification",
+        "code" : "support"
+      }
+    },
+    {
+      "code" : "salary-grade",
+      "valueCoding" : {
+        "system" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+        "code" : "prof-entry-level"
+      }
+    }]
+  }]
+}
