@@ -10,6 +10,10 @@
 //    there was nothing to scroll to.
 // 3. Back, forward and reload return to where the reader was. The browser's
 //    own restore ran before the drawn content existed and stopped short.
+// 4. A bar whose page made its BODY the centred column (a replica page's own
+//    `body{max-width:…;margin:0 auto}`) is drawn full width anyway, from the
+//    rail's edge to the window's and flush with the top, as on every other
+//    page (owner, 2026-10-15: "the top bar must be FULL WIDTH").
 (function () {
   "use strict";
   var root = document.documentElement;
@@ -84,7 +88,52 @@
     if (t) t.scrollIntoView();
   }
 
+  var bleedQueued = false;
+  function fullBleed() {
+    bleedQueued = false;
+    var b = bar();
+    if (!b || b.parentElement !== document.body) return;
+    var bs = window.getComputedStyle(document.body);
+    if (bs.maxWidth === "none" && parseFloat(bs.paddingTop) === 0 && parseFloat(bs.marginLeft) === 0) return;
+    b.style.marginLeft = ""; b.style.width = ""; b.style.maxWidth = ""; b.style.marginTop = "";
+    var nav = document.querySelector("nav.fa-nav");
+    // At rest the rail is a strip, and the bar starts at its edge; opened over
+    // the page it covers the bar's start, as it covers the content's.
+    var edge = nav ? Math.max(0, Math.min(nav.getBoundingClientRect().right, parseFloat(bs.paddingLeft) + parseFloat(bs.marginLeft) || 0)) : 0;
+    var r = b.getBoundingClientRect();
+    var vw = root.clientWidth;
+    b.style.maxWidth = "none";
+    b.style.width = (vw - edge) + "px";
+    b.style.marginLeft = (edge - r.left) + "px";
+    b.style.marginTop = "-" + bs.paddingTop;
+  }
+  function queueBleed() {
+    if (bleedQueued) return;
+    bleedQueued = true;
+    (window.requestAnimationFrame || setTimeout)(fullBleed);
+  }
+
   function start() {
+    fullBleed();
+    window.addEventListener("resize", queueBleed);
+    if (bar() && bar().parentElement === document.body) {
+      // The bar's start is the rail's edge, and the rail MOVES it: pointed
+      // at, focused or pinned, the rail opens and `navbar.css` widens body's
+      // padding-left to match (56px to 264px, with a transition). A body
+      // whose own max-width fixes its content box does not resize when only
+      // its padding does, so watching the content box alone left the bar
+      // where the closed rail ended, under the open one (measured: bar at
+      // 264..1488 in a 1280px window). So the border box, the rail itself,
+      // and the end of a padding transition each re-place it.
+      if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(queueBleed).observe(document.body, { box: "border-box" });
+        var rail = document.querySelector("nav.fa-nav");
+        if (rail) new ResizeObserver(queueBleed).observe(rail);
+      }
+      document.body.addEventListener("transitionend", function (e) {
+        if (e.target === document.body) queueBleed();
+      });
+    }
     measure();
     var b = bar();
     if (b && typeof ResizeObserver !== "undefined") new ResizeObserver(measure).observe(b);

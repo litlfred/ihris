@@ -58,6 +58,16 @@
     }
   })();
 
+  /* The address this document was fetched from: what a page-relative base
+   * resolves against, even after a `history.replaceState` (see `absoluteBase`). */
+  var LOADED_FROM = (function () {
+    try {
+      var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+      if (nav && nav.name) return nav.name;
+    } catch (_e) { /* older engines: the address bar at load is the best there is */ }
+    return location.href;
+  })();
+
   var ZOOM_STEPS = [0.5, 0.67, 0.8, 1, 1.25, 1.5, 2, 3, 4];
   var DEFAULT_STEP = 3; // index of 1.0
 
@@ -274,7 +284,7 @@
     "fr": "Fran\u00E7ais", "ru": "\u0420\u0443\u0441\u0441\u043A\u0438\u0439", "es": "Espa\u00F1ol"
   };
 
-  /* The six UN languages, matching `UN_LOCALES` in `schemas/translation.ts`.
+  /* The six UN languages, matching `UN_LOCALES` in `schemas/content/translation.ts`.
 
      A FALLBACK, never the answer: `fa-translation-meta` carries the instance's
      own `supportedLocales`, and an instance may support more or fewer. This is
@@ -677,6 +687,20 @@
     }
   }
 
+  /**
+   * Is just-the-docs' switchable sheet on THIS page? `jtd.setTheme` swaps the
+   * page's FIRST stylesheet. On a page the theme did not lay out, the theme's
+   * script can still be present — the top bar's search loads it (cat-harness-tools
+   * `lib/site-bar.ts`, 2026-10-15) — and its first stylesheet is the rail's
+   * own: swapped, the rail lost its style. So the switch is the theme's only
+   * where its sheet comes first.
+   */
+  function themeSheet() {
+    if (!window.jtd || typeof window.jtd.setTheme !== "function" || typeof window.jtd.getTheme !== "function") return false;
+    var first = document.querySelector('[rel="stylesheet"]');
+    return !!first && /just-the-docs-[a-z]+\.css/.test(first.getAttribute("href") || "");
+  }
+
   function osScheme() {
     try {
       return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
@@ -699,7 +723,7 @@
     // later, weaker guess — that re-decision IS a flash.
     var painted = document.documentElement.getAttribute("data-fa-scheme");
     if (painted === "light" || painted === "dark") return painted;
-    if (window.jtd && typeof window.jtd.getTheme === "function") {
+    if (themeSheet()) {
       var t = window.jtd.getTheme();
       if (t === "light" || t === "dark") return t;
     }
@@ -715,7 +739,7 @@
     // own sheet, which follows `data-fa-scheme` (`lib/scheme-css.ts`), so the
     // attribute alone IS the switch there. Owner, 2026-10-05, on smart-ra:
     // the light bulb did nothing, because this returned before setting it.
-    if (!window.jtd || typeof window.jtd.setTheme !== "function") {
+    if (!themeSheet()) {
       document.documentElement.setAttribute("data-fa-scheme", name);
       return true;
     }
@@ -782,7 +806,7 @@
     // choice — because the first-paint snippet may have decided from the OS.
     // `applyScheme` leaves a sheet that already shows the scheme alone, so
     // this costs no swap in the common case.
-    if (window.jtd && typeof window.jtd.setTheme === "function") applyScheme(scheme);
+    if (themeSheet()) applyScheme(scheme);
     else document.documentElement.setAttribute("data-fa-scheme", scheme);
   }
 
@@ -2127,6 +2151,25 @@
     var searchHome = null;
     var searchToggle = null;
     var adopted = firstMatch(SEARCH_SELECTORS);
+    /* IN THE PAGE'S TOP BAR, IT STAYS THERE — owner, 2026-10-15, "Top bar,
+     * like IG sites". cat-harness-tools' rail pass makes the theme's header
+     * every page's top bar (`.fa-page-bar`, `lib/site-bar.ts`) with the search
+     * box in it, so it is not moved into the band behind a magnifier. What
+     * still applies here: the reader's text and the results are `dir="auto"`,
+     * and the theme's scroll-to-top on every keystroke is refused while the
+     * field has focus (#1732), since the bar is sticky. */
+    var barSearch = adopted && typeof adopted.closest === "function" ? adopted.closest(".fa-page-bar") : null;
+    if (barSearch) {
+      Array.prototype.forEach.call(
+        adopted.querySelectorAll("input, #search-results, .search-results"),
+        function (n) { n.setAttribute("dir", "auto"); });
+      var barNativeScroll = window.scroll;
+      window.scroll = function (x, y) {
+        if (arguments.length === 2 && x === 0 && (y === 0 || y === -1) && adopted.contains(document.activeElement)) return undefined;
+        return barNativeScroll.apply(window, arguments);
+      };
+      adopted = null;
+    }
     if (adopted) {
       searchHolder = el("div", { class: "fa-search-holder", id: "fa-search-holder" });
       searchHolder.appendChild(adopted);
@@ -2254,7 +2297,7 @@
       glassBandItem("search", function () { closeSearch(false); });
 
       paintSearchOpen(false);
-    } else {
+    } else if (!barSearch) {
       console.warn("docs-ui: no site search found (tried " + SEARCH_SELECTORS.join(", ") +
                    "); search was not mounted and no magnifier was drawn.");
     }
@@ -2777,6 +2820,36 @@
     return natural / column >= AUTO_MIN_RATIO;
   }
 
+  /* THE BAND A FULL-WIDTH FIGURE MAY USE: the viewport minus the nav rail.
+     Owner, 2026-10-31, with a screenshot of a BPMN pool whose lane labels
+     were under the rail: "full width images/diagrma/etc should not be cut off
+     by LHS nav". Full width used to run from x=0, but from 50rem up the rail
+     is `position: fixed` over that strip, so the figure's start edge was
+     hidden. Below 50rem the theme's sidebar is an in-flow bar on top, takes
+     no strip, and the band is the whole viewport, as before. The rail is
+     MEASURED rather than read from `--fa-nav-collapsed`, so an open, pinned
+     or RTL rail is right without knowing which state it is in. */
+  function navRail() {
+    return document.querySelector(".side-bar") || document.querySelector("nav.fa-nav");
+  }
+
+  function fullWidthBand() {
+    var vw = document.documentElement.clientWidth;
+    var band = { left: 0, right: vw };
+    var rail = navRail();
+    if (!rail) return band;
+    var pos = getComputedStyle(rail).position;
+    if (pos !== "fixed" && pos !== "sticky") return band;
+    var r = rail.getBoundingClientRect();
+    if (r.width <= 0 || r.height <= 0) return band;
+    // A rail at the start edge (left in LTR, right in RTL). A rail that spans
+    // most of the width is a top bar, not a side rail, and takes nothing.
+    if (r.width >= vw / 2) return band;
+    if (r.left <= 1) band.left = Math.max(0, r.right);
+    else if (r.right >= vw - 1) band.right = Math.min(vw, r.left);
+    return band;
+  }
+
   function markFullWidthOnRoot() {
     document.documentElement.classList.toggle(
       "fa-has-fullwidth",
@@ -2861,7 +2934,7 @@
    * and this file must never turn that into a number: with no declaration
    * every card keeps its words, and the console says why once.
    *
-   * ## This mirrors `schemas/window-stack.ts`, and that is a real cost
+   * ## This mirrors `schemas/ui/window-stack.ts`, and that is a real cost
    *
    * The model is specified and unit-tested there; this is a browser script and
    * cannot import it. Two implementations of one rule can drift, so the
@@ -2887,7 +2960,7 @@
    * cannot perform 404s for exactly the reader who cannot edit, which reads as
    * "this page is broken" rather than "you cannot do this".
    *
-   * Mirrors `schemas/panel-chrome.ts`, which this file cannot import. Same
+   * Mirrors `schemas/ui/panel-chrome.ts`, which this file cannot import. Same
    * cost, same mitigation as `window-stack.ts`: the e2e asserts the browser's
    * answer against the model's, case for case.
    */
@@ -2963,7 +3036,7 @@
    * Owner: *"be able to filter out by kind properties things on miror board"*.
    *
    * TWO FILTERS, AND THEY MUST NOT BECOME ONE FIELD. A board carries a
-   * DECLARED filter (`schemas/board.ts`) that says what the board IS, and it
+   * DECLARED filter (`schemas/ui/board.ts`) that says what the board IS, and it
    * lives in `boards/<id>.json` where everyone opening that board gets it.
    * This is the other one: a reader narrowing their own view, at view time.
    * Conflating them would make one reader's temporary view edit the board
@@ -2974,7 +3047,7 @@
    * persists. It is session state, like the window stack, and the absence is
    * the design rather than an omission.
    *
-   * Mirrors `schemas/reader-filter.ts`, which this file cannot import — same
+   * Mirrors `schemas/content/reader-filter.ts`, which this file cannot import — same
    * cost and same mitigation as its siblings: the e2e checks the browser's
    * answer against the model's.
    */
@@ -3071,7 +3144,36 @@
   function siteBaseurl() {
     var meta = document.querySelector('meta[name="fa-baseurl"]');
     var v = (meta && meta.getAttribute("content")) || "";
-    return v ? v.replace(/\/+$/, "") : (baseurlFromTodoSrc() || SCRIPT_BASE);
+    return v ? absoluteBase(v) : (absoluteBase(baseurlFromTodoSrc()) || SCRIPT_BASE);
+  }
+
+  /**
+   * A base the page wrote RELATIVE to itself (`.`, `../..`), as the absolute
+   * path every caller of `siteBaseurl` has always been given.
+   *
+   * Since bean `g196` (2026-10-23) a Jekyll page writes its same-site links
+   * relative to itself, so a page that did not change is byte-identical in
+   * every STAGING preview and on the live site; `fa-baseurl` and
+   * `fa-todo-src` are relative too. Resolving here, once, keeps every
+   * consumer's arithmetic as it was (`withBase`, `baseurlResolved`'s
+   * prefix guard, `navKey`'s strip).
+   *
+   * Resolved against the address the document was LOADED from, not the
+   * address bar: a page may `history.replaceState` to a different depth
+   * before this runs, and a relative base resolved after that is one level
+   * off (the same trap `navbar-row.js`'s `loadedFrom` records).
+   * An absolute value, or `""`, comes back as it was, trailing slash dropped.
+   */
+  function absoluteBase(v) {
+    if (!v) return "";
+    if (v.charAt(0) === "/" || /^[a-z][a-z0-9+.-]*:/i.test(v)) return v.replace(/\/+$/, "");
+    try {
+      var u = new URL(v.replace(/\/*$/, "/"), LOADED_FROM);
+      var path = u.pathname.replace(/\/+$/, "");
+      return u.origin === location.origin ? path : u.origin + path;
+    } catch (_e) {
+      return v.replace(/\/+$/, "");
+    }
   }
 
   /* ── Is this a STAGING preview? ──────────────────────────────────────
@@ -3141,6 +3243,25 @@
    * path genuinely begins with the base's spelling is a directory somebody
    * named that way, and skipping it would be this bug with the sign flipped.
    */
+  /**
+   * The PLATFORM DATA this script reads — themes, avatars, tiles, the glass
+   * strip, the semantic zoom — from the site's own pinned copy when the page
+   * says it has one (`<meta name="fa-pinned-data" content="<to root>">`,
+   * written by cat-harness-tools' rail pass on a foreign site). Owner,
+   * 2026-10-15, "Yes, ship with each site": a site never changes until it is
+   * republished. Without the meta, the platform's base, as before.
+   */
+  function pinnedData(path) {
+    var m = document.querySelector('meta[name="fa-pinned-data"]');
+    var root = m && m.getAttribute("content");
+    if (!root) return withBase(path);
+    try {
+      return new URL(root.replace(/\/?$/, "/") + String(path).replace(/^\//, ""), document.baseURI).href;
+    } catch (_e) {
+      return withBase(path);
+    }
+  }
+
   function withBase(href) {
     if (typeof href !== "string" || href.charAt(0) !== "/") return href;
     return siteBaseurl() + href;
@@ -3166,7 +3287,7 @@
    *
    * ## Absent is not zero, and this function is where that is enforced
    *
-   * `schemas/tile-count.ts` carries the argument: a projection that declares
+   * `schemas/ui/tile-count.ts` carries the argument: a projection that declares
    * no count, declares a malformed one, or could not be read is NOT a
    * projection over an empty graph. They are opposite facts, and `dh4f` is
    * this repository's name for scanning nothing and calling it clean.
@@ -3194,6 +3315,13 @@
   function declaredTilesFromMeta() {
     var meta = document.querySelector('meta[name="fa-tiles"]');
     var raw = meta && meta.getAttribute("content");
+    // Filled by `assets/js/harness-data.js` (bean `gp2f`). Still named and
+    // empty: that file did not load, which is not "declared no tiles".
+    if (!raw && meta && meta.hasAttribute("data-fa-src")) {
+      console.warn("docs-ui: the tiles' shared data (" + meta.getAttribute("data-fa-src") +
+                   ".js) did not load; no tiles were mounted.");
+      return null;
+    }
     if (!raw) return null;
     try {
       var tiles = JSON.parse(raw);
@@ -3298,7 +3426,7 @@
 
   /* ═══ Which URL schemes may reach an `href` ══════════════════════════
    *
-   * R17, the owner: *"skill tool hints for XSSrsiction"*. `schemas/safe-url.ts`
+   * R17, the owner: *"skill tool hints for XSSrsiction"*. `schemas/ui/safe-url.ts`
    * carries the argument; this is its mirror, and the rule is one line long:
    * **default-deny**. A blocklist has to enumerate every dangerous scheme and
    * is wrong the day a browser ships a new one; an allow-list is wrong only
@@ -3331,7 +3459,7 @@
    * A todo's values for one property, as a list. MULTI-VALUED properties — the
    * assignees and beans `todos.jsonld` gives a todo — are lists already; a
    * single value is a list of one; absent or empty is the empty list.
-   * Mirrors `haveOf` in `schemas/reader-filter.ts`.
+   * Mirrors `haveOf` in `schemas/content/reader-filter.ts`.
    */
   function valuesOf(todo, name) {
     var v = todo[name];
@@ -3389,7 +3517,7 @@
    *
    * ## SESSION-ONLY, like the stack above it
    *
-   * `schemas/board-positions.ts` is where a move becomes durable, and
+   * `schemas/ui/board-positions.ts` is where a move becomes durable, and
    * `moveBy` is the function that does it — for a tool or an agent, against
    * the repository. A published page cannot write that file, and the lesson
    * `db7g` settled applies unchanged: it is better to be a control over this
@@ -3851,7 +3979,7 @@
    * The declared threshold for a kind, with where it came from — or null.
    *
    * Returns the SOURCE alongside the number for the reason
-   * `schemas/semantic-zoom.ts` gives: an inherited value is still a fact
+   * `schemas/kg/semantic-zoom.ts` gives: an inherited value is still a fact
    * somebody must be able to trace, and a reviewer looking at a card that
    * flipped too early needs to tell a deliberate override from the folio's
    * default landing somewhere it does not fit.
@@ -4231,6 +4359,139 @@
       last = re.lastIndex;
     }
     if (last < text.length) parent.appendChild(document.createTextNode(text.slice(last)));
+  }
+
+  /**
+   * Browser mirror of `schemas/ui/render-output.ts` (`renderToolOutput`, bean
+   * `q2wm`, R17): renders one tool/skill output value according to its declared
+   * `RENDER_AS` hint (`text`, `url`, `markdown`, `json`) as DOM nodes with no
+   * raw HTML injection.
+   */
+  function renderToolOutput(value, hint) {
+    var str = String(value == null ? "" : value);
+    var as = (hint && hint.as) || "text";
+    if (as === "url") {
+      var outUrl = safeHref(str);
+      return outUrl
+        ? el("a", { href: outUrl, rel: "noopener noreferrer" }, str)
+        : el("span", { class: "fa-tool-output-refused" }, str);
+    }
+    if (as === "markdown") {
+      var md = el("div", { class: "fa-tool-output-markdown" });
+      renderMarkdownInto(md, str);
+      return md;
+    }
+    if (as === "json") {
+      return el("pre", { class: "fa-tool-output-json" }, str);
+    }
+    return el("span", { class: "fa-tool-output-text" }, str);
+  }
+
+  function renderWindowOutputs(outputs) {
+    if (!Array.isArray(outputs) || outputs.length === 0) return null;
+    var box = el("div", { class: "fa-sticky-outputs" });
+    for (var i = 0; i < outputs.length; i++) {
+      var item = outputs[i];
+      if (!item) continue;
+      var as = (item.render && item.render.as) || "text";
+      var row = el("div", { class: "fa-sticky-output", "data-render-as": as });
+      if (item.name) {
+        row.appendChild(el("span", { class: "fa-sticky-output-name" }, String(item.name)));
+      }
+      row.appendChild(renderToolOutput(item.value, item.render));
+      box.appendChild(row);
+    }
+    return box;
+  }
+
+  /**
+   * Lazy window detail fetch — bean `q2wm`:
+   *
+   * Rendering the board with `N` cards makes 0 per-card detail fetches up
+   * front (`todoSlot` renders only the avatar/tile). When a reader opens a
+   * card window (`openCard`), `fetchCardDetail` fetches that card's detail URL
+   * once, caches the result by `todo.id`, and renders any body/tool outputs
+   * through `renderBody(..., { markdown: true })` and `renderToolOutput`.
+   */
+  var cardDetailCache = {};
+  var cardDetailPending = {};
+
+  function cardDetailUrl(todo) {
+    if (!todo) return undefined;
+    return (
+      todo.detailHref ||
+      todo.bodyHref ||
+      todo.artifactHref ||
+      (!todo.comment ? todo.jsonldHref : undefined)
+    );
+  }
+
+  function fetchCardDetail(todo, done) {
+    if (!todo || !todo.id) return done(null, false);
+    if (Object.prototype.hasOwnProperty.call(cardDetailCache, todo.id)) {
+      return done(cardDetailCache[todo.id], true);
+    }
+    var rawUrl = cardDetailUrl(todo);
+    if (!rawUrl) return done(null, false);
+    var safeUrl = safeHref(rawUrl);
+    if (!safeUrl) {
+      var refused = {
+        outputs: [{ name: "detail", value: rawUrl, render: { as: "url" } }],
+      };
+      cardDetailCache[todo.id] = refused;
+      return done(refused, false);
+    }
+    if (cardDetailPending[todo.id]) {
+      cardDetailPending[todo.id].push(done);
+      return;
+    }
+    cardDetailPending[todo.id] = [done];
+    fetch(safeUrl, { credentials: "same-origin" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      })
+      .then(function (raw) {
+        var parsed;
+        var trimmed = String(raw || "").trim();
+        if (trimmed.charAt(0) === "{") {
+          try {
+            parsed = JSON.parse(trimmed);
+          } catch (_e) {
+            parsed = { body: raw };
+          }
+        } else {
+          parsed = { body: raw };
+        }
+        cardDetailCache[todo.id] = parsed;
+        var waiters = cardDetailPending[todo.id] || [];
+        delete cardDetailPending[todo.id];
+        for (var w = 0; w < waiters.length; w++) waiters[w](parsed, false);
+      })
+      .catch(function (e) {
+        console.warn("docs-ui: could not read detail for " + todo.id + " (" + e.message + ")");
+        var waiters = cardDetailPending[todo.id] || [];
+        delete cardDetailPending[todo.id];
+        for (var w = 0; w < waiters.length; w++) waiters[w](null, false);
+      });
+  }
+
+  function applyWindowDetail(cardEl, todo, detail) {
+    var bodyText =
+      (detail && (detail.comment || detail.description || detail.body)) ||
+      todo.comment ||
+      "";
+    var oldBody = cardEl.querySelector(".fa-sticky-body");
+    if (bodyText && oldBody && oldBody.parentNode) {
+      var nextBody = renderBody(bodyText, { markdown: true });
+      if (oldBody.hasAttribute("hidden")) nextBody.setAttribute("hidden", "hidden");
+      oldBody.parentNode.replaceChild(nextBody, oldBody);
+    }
+    var outputs = (detail && detail.outputs) || todo.outputs;
+    var oldOut = cardEl.querySelector(".fa-sticky-outputs");
+    if (oldOut && oldOut.parentNode) oldOut.parentNode.removeChild(oldOut);
+    var outBox = renderWindowOutputs(outputs);
+    if (outBox) cardEl.appendChild(outBox);
   }
 
 
@@ -5497,7 +5758,7 @@
     }
     document.head.appendChild(el("link", {
       rel: "stylesheet",
-      href: safeHref(withBase("/assets/css/avatars.css")),
+      href: safeHref(pinnedData("/assets/css/avatars.css")),
       "data-fa-glass-avatars-css": "",
     }));
   }
@@ -5517,7 +5778,7 @@
     }
     document.head.appendChild(el("link", {
       rel: "stylesheet",
-      href: safeHref(withBase("/assets/css/themes.css")),
+      href: safeHref(pinnedData("/assets/css/themes.css")),
       "data-fa-glass-themes-css": "",
     }));
   }
@@ -5591,7 +5852,7 @@
   function glassTileList(done) {
     var fromMeta = declaredTilesFromMeta();
     if (fromMeta) return done(fromMeta);
-    fetch(withBase("/assets/harness/tiles.json"))
+    fetch(pinnedData("/assets/harness/tiles.json"))
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
       .then(function (t) { done(Array.isArray(t) ? t : null); })
       .catch(function (e) {
@@ -5845,7 +6106,7 @@
     // stays null, which keeps every card's words (see `zoomState`).
     if (!zoomState.zoom) {
       var zm = document.querySelector('meta[name="fa-zoom-src"]');
-      var zurl = (zm && zm.getAttribute("content")) || withBase("/assets/semantic-zoom.json");
+      var zurl = (zm && zm.getAttribute("content")) || pinnedData("/assets/semantic-zoom.json");
       fetch(zurl)
         .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
         .then(function (doc) {
@@ -6509,6 +6770,11 @@
     function libraryMetaRows(a, key, entry) {
       var rows = [["Title", (entry && entry.title && entry.title !== entry.id) ? entry.title : a.title]];
       if (!entry) {
+        if (key.indexOf("linked/") === 0) {
+          rows.push(["Disposition", "referenced (linked by URL)"]);
+          if (a && a.href) rows.push(["URL", a.href]);
+          return rows;
+        }
         rows.push(["Library", key.split("/")[0]]);
         return rows;
       }
@@ -6587,6 +6853,7 @@
       var i = key.indexOf("/");
       if (i <= 0 || i === key.length - 1) return null;
       var instance = key.slice(0, i);
+      if (instance === "linked") return null;
       var id = key.slice(i + 1);
       var library = withBase("/cat-harness/library/" + encodeURIComponent(instance) + "/");
       return { instance: instance, id: id, library: library,
@@ -6700,6 +6967,10 @@
       var label = String(a.title || "").replace(/\s+/g, " ").trim();
       var isLibrary = zoomKindOf(a) === "library";
       var place = isLibrary ? libraryPlaceOf(key) : null;
+      var href = place ? place.entry : safeHref(a.href);
+      // WHERE A PRESS GOES: the entry page until the index names a visualizer,
+      // or the external URL for a linked document (R28).
+      var opens = place ? place.entry : (isLibrary ? href || "" : "");
       var card = el("article", {
         class: "fa-glass-asset",
         "data-fa-asset": key,
@@ -6709,22 +6980,13 @@
         // A library card OPENS (issue #1900), so it is a stop in the tab
         // order: zoomed to its cover the title link is not drawn, and Enter on
         // the card is then the only key into the entry.
-        tabindex: place ? "0" : "-1",
+        tabindex: opens ? "0" : "-1",
       });
-      // WHERE A PRESS GOES: the entry page until the index names a visualizer.
-      var opens = place ? place.entry : "";
-      if (place) card.setAttribute("data-fa-opens", opens);
+      if (opens) card.setAttribute("data-fa-opens", opens);
       var live = el("span", { class: "fa-sr-only", "aria-live": "polite" });
       var face = el("div", { class: "fa-glass-asset-face", "data-fa-grip": "" });
       var ava = glassAvatarFor(a, prefs.avatars);
       if (ava) face.appendChild(ava);
-      // CHECKED AGAIN AT RENDER, and that is not belt-and-braces. The
-      // store is `localStorage`, which the reader's own devtools can
-      // rewrite, so a value sanitised on the way in is not a value that is
-      // safe on the way out. The boundary is where the URL reaches an
-      // `href`, and that is here. A LIBRARY card's title links its entry —
-      // the address composed from its key, the same one a click opens.
-      var href = place ? place.entry : safeHref(a.href);
       face.appendChild(href
         ? el("a", { class: "fa-glass-asset-name", href: href }, a.title)
         : el("span", { class: "fa-glass-asset-name" }, a.title));
@@ -6811,7 +7073,7 @@
         if (card.getAttribute("data-fa-moving") === "true") return;
         // ENTER OPENS a library card — the keyboard half of the click below.
         // Not in move mode: there Enter is "done moving" (`wireMove`).
-        if (place && e.key === "Enter" && !e.defaultPrevented) {
+        if (opens && e.key === "Enter" && !e.defaultPrevented) {
           e.preventDefault();
           window.location.assign(opens);
         }
@@ -6866,7 +7128,7 @@
       var pressAt = null;
       card.addEventListener("pointerdown", function (e) { pressAt = { x: e.clientX, y: e.clientY }; });
       card.addEventListener("click", function (e) {
-        if (!place) return;
+        if (!opens) return;
         if (e.button !== 0 || e.defaultPrevented) return;
         if (e.target.closest && e.target.closest("button, a, [data-fa-control], input, select, textarea")) return;
         if (card.getAttribute("data-fa-moving") === "true") return;
@@ -6889,6 +7151,26 @@
             card.setAttribute("data-fa-opens", opens);
             var link = card.querySelector("a.fa-glass-asset-name");
             if (link) link.setAttribute("href", opens);
+          }
+          /* THE EYE — owner, 2026-10-16: *"if somehting on folio has a viewer
+           * (e.g. PDF) then there should be [eye] icon to look at it"*. Only
+           * when the index says the entry's source has a viewer (`viewable`,
+           * written by the library generator); it opens the entry page's own
+           * view panel (`#lib-view`), which loads the viewer on arrival. */
+          var viewable = entry.viewable === "pdf" || entry.viewable === "image" ? entry.viewable : "";
+          var lookAt = safeHref(opens + "#lib-view");
+          if (viewable && lookAt && !tools.querySelector('[data-fa-control="view"]')) {
+            var word = viewable === "pdf" ? "the PDF" : "the image";
+            var named = String(entry.title && entry.title !== entry.id ? entry.title : label).replace(/\s+/g, " ").trim();
+            var eye = el("a", {
+              class: "fa-glass-asset-tool",
+              "data-fa-control": "view",
+              href: lookAt,
+              "aria-label": "View " + word + " of " + named,
+              title: "View " + word,
+            });
+            eye.innerHTML = EYE_GLYPH;
+            tools.insertBefore(eye, tools.firstChild);
           }
           /* THE INDEX'S TITLE WINS whenever it has a real one — issue #1900:
            * *"Title in popup is right but not avatar"*. The popover already
@@ -7537,8 +7819,175 @@
      * panel's own header row, and the strip below it is the tiles. Hidden,
      * the panel slides down to that header row — still the panel, still
      * holding the way back. */
+    /* LINK A DOCUMENT (bean `95sk`, R28) — a reader action on the glass that
+     * links an external document by URL onto their folio glass and shows the
+     * `bun run cat folio:create --link` command that records it as a
+     * `referenced` node in `library/<slug>/`. */
+    function slugifyLinkTitle(s) {
+      return String(s || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    }
+    function buildLinkDocument(body) {
+      body.appendChild(el("p", { class: "fa-glass-panel-status" },
+        "Link an external document by URL onto your folio glass. To commit it into the repository's library as a referenced source, run the command shown below."));
+      var form = el("form", { class: "fa-glass-link-form", novalidate: "novalidate" });
+
+      var urlField = el("div", { class: "fa-glass-link-field" });
+      urlField.appendChild(el("label", { class: "fa-glass-choice-label", for: "fa-glass-link-url" }, "Document URL"));
+      var urlInput = el("input", {
+        type: "url",
+        id: "fa-glass-link-url",
+        class: "fa-glass-link-input",
+        placeholder: "https://example.org/guideline",
+        required: "required",
+      });
+      urlField.appendChild(urlInput);
+      form.appendChild(urlField);
+
+      var titleField = el("div", { class: "fa-glass-link-field" });
+      titleField.appendChild(el("label", { class: "fa-glass-choice-label", for: "fa-glass-link-title" }, "Title"));
+      var titleInput = el("input", {
+        type: "text",
+        id: "fa-glass-link-title",
+        class: "fa-glass-link-input",
+        placeholder: "Document title",
+        required: "required",
+      });
+      titleField.appendChild(titleInput);
+      form.appendChild(titleField);
+
+      var slugField = el("div", { class: "fa-glass-link-field" });
+      slugField.appendChild(el("label", { class: "fa-glass-choice-label", for: "fa-glass-link-slug" }, "Slug (optional)"));
+      var slugInput = el("input", {
+        type: "text",
+        id: "fa-glass-link-slug",
+        class: "fa-glass-link-input",
+        placeholder: "my-guideline",
+      });
+      slugField.appendChild(slugInput);
+      form.appendChild(slugField);
+
+      var cmdWrap = el("p", { class: "fa-glass-panel-status fa-glass-link-cmd-wrap" }, "Repository command: ");
+      var cmdCode = el("code", { "data-fa-link-command": "" });
+      cmdWrap.appendChild(cmdCode);
+      form.appendChild(cmdWrap);
+
+      function resolvedSlug() {
+        var raw = slugInput.value.trim();
+        if (raw) return raw;
+        var fromTitle = slugifyLinkTitle(titleInput.value);
+        if (fromTitle) return fromTitle;
+        return "linked-doc";
+      }
+      function updateCommandPreview() {
+        var u = urlInput.value.trim() || "<url>";
+        var t = (titleInput.value.trim() || "<title>").replace(/"/g, "\\\"");
+        var s = resolvedSlug();
+        cmdCode.textContent = "bun run cat folio:create --link \"" + u + "\" --slug " + s + " --title \"" + t + "\"";
+      }
+      urlInput.addEventListener("input", updateCommandPreview);
+      titleInput.addEventListener("input", updateCommandPreview);
+      slugInput.addEventListener("input", updateCommandPreview);
+      updateCommandPreview();
+
+      var err = el("p", { class: "fa-glass-link-error", role: "alert", hidden: "hidden" });
+      form.appendChild(err);
+
+      var submit = el("button", { type: "submit", class: "fa-glass-reset fa-glass-link-submit" }, "Link document");
+      form.appendChild(submit);
+
+      var listHost = el("div", { class: "fa-glass-linked-host" });
+      function renderLinkedList() {
+        while (listHost.firstChild) listHost.removeChild(listHost.firstChild);
+        var all = folioAssets();
+        var keys = Object.keys(all).filter(function (k) { return k.indexOf("linked/") === 0; }).sort();
+        if (keys.length === 0) return;
+        var ul = el("ul", { class: "fa-glass-todo-list fa-glass-linked-list" });
+        keys.forEach(function (k) {
+          var item = all[k];
+          var li = el("li", {
+            class: "fa-glass-todo",
+            "data-fa-library-item": k,
+            "data-fa-library-title": item.title || k,
+            "data-fa-library-href": safeHref(item.href) || "",
+            "data-fa-library-kind": "library",
+          });
+          var row = el("div", { class: "fa-glass-todo-row", "data-fa-pullout-host": "" });
+          var a = safeHref(item.href)
+            ? el("a", { class: "fa-glass-todo-summary", href: safeHref(item.href) }, item.title || k)
+            : el("span", { class: "fa-glass-todo-summary" }, item.title || k);
+          row.appendChild(a);
+          li.appendChild(row);
+          ul.appendChild(li);
+        });
+        listHost.appendChild(ul);
+        paintLibraryRows();
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var rawUrl = urlInput.value.trim();
+        var rawTitle = titleInput.value.trim();
+        var slug = resolvedSlug();
+        // Bound straight from safeHref, so the `href: safe` below is checked by
+        // construction (scripts/tests/href-safety.test.ts); safeHref(undefined)
+        // is undefined, so a non-http(s) URL is still refused.
+        var safe = safeHref(/^https?:\/\/\S+$/i.test(rawUrl) ? rawUrl : undefined);
+        if (!safe) {
+          err.textContent = "Enter an http:// or https:// URL to link a document.";
+          err.removeAttribute("hidden");
+          urlInput.focus();
+          return;
+        }
+        if (!rawTitle) {
+          err.textContent = "Enter a title for the linked document.";
+          err.removeAttribute("hidden");
+          titleInput.focus();
+          return;
+        }
+        if (!/^[a-z0-9][a-z0-9-]*$/.test(slug)) {
+          err.textContent = "Slug must use lower-case letters, digits and hyphens.";
+          err.removeAttribute("hidden");
+          slugInput.focus();
+          return;
+        }
+        err.setAttribute("hidden", "hidden");
+        err.textContent = "";
+        displayInFolio("linked/" + slug, {
+          title: rawTitle,
+          href: safe,
+          kind: "library",
+        });
+        glassLive.textContent = "Linked " + rawTitle + " onto your folio glass.";
+        urlInput.value = "";
+        titleInput.value = "";
+        slugInput.value = "";
+        updateCommandPreview();
+        renderLinkedList();
+      });
+
+      body.appendChild(form);
+      body.appendChild(listHost);
+      renderLinkedList();
+    }
+
     var dock = el("div", { class: "fa-glass-dock" });
     var dockHead = el("div", { class: "fa-glass-dock-head" });
+    var linkDocBtn = el("button", {
+      type: "button",
+      class: "fa-glass-link-doc",
+      "data-fa-glass-action": "link-document",
+      "aria-expanded": "false",
+      "aria-controls": "fa-glass-panel",
+      title: "Link an external document by URL into your folio",
+    }, "Link a document");
+    panelButtons["glass-link-document"] = linkDocBtn;
+    linkDocBtn.addEventListener("click", function () {
+      openPanel("glass-link-document", "Link a document", buildLinkDocument);
+    });
+    dockHead.appendChild(linkDocBtn);
     var stripToggle = el("button", {
       type: "button",
       class: "fa-glass-strip-toggle",
@@ -7823,7 +8272,10 @@
           status.textContent = "The harness configuration could not be read. That is not the same as there being none.";
           return;
         }
-        status.textContent = c.harnesses.length + " harnesses here, " + c.associated.length + " associated.";
+        // `subscribed` (issue #1719) is absent from a harness.json built before
+        // the field existed; absent reads as none, never as an error.
+        var subscribed = c.subscribed || [];
+        status.textContent = c.harnesses.length + " harnesses here, " + c.associated.length + " associated, " + subscribed.length + " subscribed.";
         var wrap = el("div", { class: "fa-hc", "data-fa-hc-view": selected ? "detail" : "list" });
         var list = el("div", { class: "fa-hc-list" });
         var detail = el("div", { class: "fa-hc-detail", "aria-live": "polite" });
@@ -7888,7 +8340,28 @@
           h.appendChild(el("code", {}, item.name));
           detail.appendChild(h);
           var acts = el("p", { class: "fa-hc-actions" });
-          if (kind === "associated") {
+          if (kind === "subscribed") {
+            acts.appendChild(link(item.url, "Open at the pin ↗", "Open " + item.title + " at its pinned commit"));
+            acts.appendChild(editLink(link(item.editHref, "✎ Its repository", "Edit " + item.title + " in its own repository")));
+            detail.appendChild(acts);
+            var srows = [
+              { key: "name", value: item.name },
+              { key: "repository", value: item.repository },
+              { key: "ref", value: item.ref },
+              { key: "subscription", value: item.subscription },
+              { key: "harness", value: item.chosen ? "chosen, not yet instantiated" : "not chosen: referenced only" },
+            ];
+            if (item.note) srows.push({ key: "note", value: item.note });
+            srows.push({ key: "declared by", value: item.declaredBy.join(", ") });
+            var st = table(srows);
+            // The rows of a subscription are edited where it is DECLARED.
+            Array.prototype.forEach.call(st.querySelectorAll("tbody td.fa-hc-skills"), function (td) {
+              td.appendChild(link(withBase("/reference/skill-instructions/kg-subscription.html"), "kg-subscription"));
+            });
+            detail.appendChild(st);
+            detail.appendChild(el("p", { class: "fa-hc-note" },
+              "Subscribed: pinned, and not instantiated here. Its parts are copied only when chosen, through the five gates."));
+          } else if (kind === "associated") {
             acts.appendChild(link(item.url, "Open ↗", "Open " + item.title + " (its own site)"));
             if (item.editHref) acts.appendChild(editLink(link(item.editHref, "✎ Its repository", "Edit " + item.title + " in its own repository")));
             detail.appendChild(acts);
@@ -7930,6 +8403,7 @@
           { id: "instantiated", label: "Instantiated here", items: c.harnesses.filter(function (x) { return x.group === "instantiated"; }) },
           { id: "checkout", label: "In this checkout", items: c.harnesses.filter(function (x) { return x.group === "checkout"; }) },
           { id: "associated", label: "Associated ↗ remote", items: c.associated },
+          { id: "subscribed", label: "Subscribed ↗ remote", items: subscribed },
         ];
         var chosen = null;
         groups.forEach(function (g) {
@@ -7942,7 +8416,7 @@
             var li = el("li", {});
             var b = el("button", { type: "button", class: "fa-hc-item", "aria-current": "false" }, item.title);
             if (item.title !== item.name) b.appendChild(el("code", {}, item.name));
-            var kind = g.id === "associated" ? "associated" : "local";
+            var kind = g.id === "associated" || g.id === "subscribed" ? g.id : "local";
             b.addEventListener("click", function () { show(kind, item, b); });
             buttons.push(b);
             li.appendChild(b);
@@ -8078,7 +8552,7 @@
       Array.prototype.slice.call(strip.querySelectorAll("[data-fa-strip-item]")).forEach(function (n) {
         strip.removeChild(n);
       });
-      Object.keys(panelButtons).forEach(function (k) { if (k !== "glass-more") delete panelButtons[k]; });
+      Object.keys(panelButtons).forEach(function (k) { if (k !== "glass-more" && k !== "glass-link-document") delete panelButtons[k]; });
       var waiting = false;
       stripIds.forEach(function (id) {
         var node = null;
@@ -8423,7 +8897,7 @@
     // A page no Jekyll wrote has no meta: read the published pins, unless the
     // reader has arranged the strip in the meantime.
     if (!stripArranged && !document.querySelector('meta[name="fa-glass-strip"]')) {
-      fetch(withBase("/assets/harness/glass-strip.json"))
+      fetch(pinnedData("/assets/harness/glass-strip.json"))
         .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
         .then(function (v) {
           var ids = stripIdList(v);
@@ -9460,7 +9934,18 @@
       // already carries the frame's `[x]` — a second Close inside it would be
       // two controls for one act, and they would not agree about what they
       // close. Which controls a kind may declare here is `t4my`'s.
-      panel.appendChild(buildSticky(todo));
+      var cardEl = buildSticky(todo);
+      panel.appendChild(cardEl);
+      if (todo.outputs && todo.outputs.length) {
+        applyWindowDetail(cardEl, todo, null);
+      }
+      if (cardDetailUrl(todo)) {
+        panel.setAttribute("data-fa-detail-state", "loading");
+        fetchCardDetail(todo, function (detail, fromCache) {
+          if (detail) applyWindowDetail(cardEl, todo, detail);
+          panel.setAttribute("data-fa-detail-state", fromCache ? "cached" : "loaded");
+        });
+      }
       // SELECTING ANY PART RAISES — the owner's words, so the listener is on
       // the panel rather than on its title bar. `mousedown` and not `click`,
       // so the raise happens before a control inside the panel acts on it.
@@ -9608,7 +10093,7 @@
   function mountPageStickies(items, board) {
     /* ── The two relations, from ONE pass ─────────────────────────────────
      *
-     * Mirrors `notesAt()` in `schemas/note-anchor.ts`, including the rule
+     * Mirrors `notesAt()` in `schemas/ui/note-anchor.ts`, including the rule
      * that decides the overlap: a note both attached here AND also-about
      * here counts ONCE, as attached — the stronger relation wins, so a
      * self-referential declaration cannot inflate a badge past the length of
@@ -9856,6 +10341,11 @@
         return r.text();
       });
     }
+    return Promise.resolve(inlineSvgText(art));
+  }
+
+  /** An inline <svg> serialised as a standalone file, at its own size. */
+  function inlineSvgText(art) {
     var clone = art.cloneNode(true);
     clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     clone.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
@@ -9864,7 +10354,7 @@
     var size = svgSize(art);
     clone.setAttribute("width", String(size.w));
     clone.setAttribute("height", String(size.h));
-    return Promise.resolve('<?xml version="1.0" encoding="UTF-8"?>\n' + new window.XMLSerializer().serializeToString(clone));
+    return '<?xml version="1.0" encoding="UTF-8"?>\n' + new window.XMLSerializer().serializeToString(clone);
   }
 
   /** The drawing's own size: its viewBox, else its width/height, else its box. */
@@ -9918,6 +10408,49 @@
         img.src = url;
       });
     });
+  }
+
+  /**
+   * The address of a figure's source .svg file, absolute, or "" when the
+   * drawing has no file of its own (#915). The file is the committed
+   * artefact, so its address can be bookmarked and shared.
+   */
+  function figureFileUrl(scope) {
+    var art = figureArt(scope);
+    if (!art) return "";
+    var isImg = String(art.nodeName).toLowerCase() === "img";
+    var src = art.getAttribute("data-fa-src") || (isImg ? art.getAttribute("src") : "") || "";
+    if (!src) return "";
+    try { return new URL(src, document.baseURI).href; } catch (_e) { return ""; }
+  }
+
+  /**
+   * Set up a figure's "Open" link (#915). With a source file it is a plain
+   * link to it, so a click, a middle-click and "Open link in new tab" all
+   * work. A drawing with no file has nothing to link to, so the link acts as
+   * a button instead and opens the serialised drawing as a blob: in a new tab.
+   */
+  function figureOpenTarget(scope, link) {
+    var url = figureFileUrl(scope);
+    if (url && safeHref(url)) {
+      link.href = safeHref(url);
+      link.removeAttribute("role");
+      link.removeAttribute("tabindex");
+      return;
+    }
+    link.removeAttribute("href");
+    link.setAttribute("role", "button");
+    link.setAttribute("tabindex", "0");
+  }
+
+  /** Open a figure with no file of its own as a blob: in a new tab. */
+  function openFigureBlob(scope) {
+    var art = figureArt(scope);
+    if (!art || String(art.nodeName).toLowerCase() !== "svg") return false;
+    var url = URL.createObjectURL(new Blob([inlineSvgText(art)], { type: "image/svg+xml" }));
+    window.open(url, "_blank", "noopener");
+    setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
+    return true;
   }
 
   /** Save a blob under a filename, through a transient link. */
@@ -9992,8 +10525,28 @@
       });
     }
 
+    // Owner, 2026-11-01, after the drag grew the figure ("dragging now
+    // rescales", "i want it to pan"): a drag never changes the size. On an
+    // axis with scroll room it scrolls the figure; on an axis where the
+    // drawing fits its card, it moves the drawing inside the card, by
+    // `translate`, up to PAN_KEEP of the card from where it was drawn so it
+    // cannot be lost. Zoom and Reset put the drawing back.
+    var PAN_KEEP = 0.75;
+    var shift = { x: 0, y: 0 };
+    function art() { return scope.querySelector("svg, img, object"); }
+    function setShift(x, y) {
+      shift.x = x; shift.y = y;
+      var a = art();
+      if (a) a.style.translate = (x || y) ? x + "px " + y + "px" : "";
+      // A moved drawing must not grow the card's scroll room, or the next
+      // drag would scroll where it should move.
+      scope.classList.toggle("is-shifted", !!(x || y));
+    }
+    function clampShift(v, room) { return Math.max(-room * PAN_KEEP, Math.min(room * PAN_KEEP, v)); }
+
     function apply() {
       var z = ZOOM_STEPS[step];
+      setShift(0, 0);
       scope.style.setProperty("--fa-zoom", String(z));
       level.textContent = Math.round(z * 100) + "%";
       out.disabled = step === 0;
@@ -10047,16 +10600,21 @@
     // theme's geometry, and clientWidth excludes the scrollbar, which 100vw
     // does not.
     function applyFullWidth() {
-      if (!scope.classList.contains("is-fullwidth")) {
-        scope.style.marginLeft = "";
-        scope.style.width = "";
-        return;
-      }
       scope.style.marginLeft = "";
+      scope.style.marginRight = "";
       scope.style.width = "";
-      var left = scope.getBoundingClientRect().left;
-      scope.style.marginLeft = -left + "px";
-      scope.style.width = document.documentElement.clientWidth + "px";
+      if (!scope.classList.contains("is-fullwidth")) return;
+      var box = scope.getBoundingClientRect();
+      var band = fullWidthBand();
+      // A block with a set width anchors to its START edge and ignores the
+      // other margin, so RTL moves the right margin. Moving the left one in
+      // RTL did nothing and the figure ran off the left of the window.
+      if (getComputedStyle(scope).direction === "rtl") {
+        scope.style.marginRight = (box.right - band.right) + "px";
+      } else {
+        scope.style.marginLeft = (band.left - box.left) + "px";
+      }
+      scope.style.width = (band.right - band.left) + "px";
       markPannable();
     }
     wide.addEventListener("click", function () {
@@ -10070,6 +10628,17 @@
     });
     // The measured offset is only right for the width it was measured at.
     window.addEventListener("resize", applyFullWidth);
+    // Opening the rail pushes the content column over, so the band moves
+    // without the window resizing, and both slide on a CSS transition. Watch
+    // the rail and the column: each fires on every frame of the slide, and
+    // the last one lands after it, so the figure settles where they do.
+    if (typeof ResizeObserver === "function") {
+      var ro = new ResizeObserver(applyFullWidth);
+      var rail = navRail();
+      var column = document.querySelector(".main");
+      if (rail) ro.observe(rail);
+      if (column) ro.observe(column);
+    }
 
     // Scroll pass-through in full width.
     //
@@ -10128,13 +10697,42 @@
     // events rather than mouse events, so a touch drag works the same way.
     var drag = null;
     var panned = false;
-
     scope.addEventListener("pointerdown", function (e) {
       if (e.button !== 0) return;
       // A control or a link owns its own press.
       if (e.target.closest && e.target.closest("a, button, input, select, textarea")) return;
-      drag = { x: e.clientX, y: e.clientY, sl: scope.scrollLeft, st: scope.scrollTop, moved: false };
+      // Which axes scroll and which move the drawing is fixed for the drag,
+      // measured without the drawing's own move, which adds scroll room.
+      var a = art(), was = a ? a.style.translate : "";
+      if (a) a.style.translate = "";
+      var canX = scope.scrollWidth > scope.clientWidth + 1;
+      var canY = scope.scrollHeight > scope.clientHeight + 1;
+      if (a) a.style.translate = was;
+      drag = {
+        x: e.clientX, y: e.clientY, sl: scope.scrollLeft, st: scope.scrollTop, py: e.clientY, moved: false,
+        canX: canX, canY: canY, tx: shift.x, ty: shift.y, touch: e.pointerType === "touch",
+      };
       try { scope.setPointerCapture(e.pointerId); } catch (_e) { /* not captureable */ }
+      // Owner, 2026-10-31, with a screenshot: *"i cant drag Figure"*. A mouse
+      // press on an inline SVG's text started a text selection before the 4px
+      // threshold put `is-panning` (and its `user-select: none`) on the scope,
+      // so the drag selected labels instead. Cancelling the press stops the
+      // selection from starting; it also cancels the focus the press would
+      // give, so focus is taken here, without scrolling, to keep the arrow
+      // keys working after a click.
+      if (e.pointerType === "mouse") {
+        e.preventDefault();
+        try { scope.focus({ preventScroll: true }); } catch (_e) { /* not focusable */ }
+      }
+    });
+
+    // Safari and Firefox fire `selectstart` from the compatibility mousedown
+    // even when the pointerdown was cancelled. A selection never starts
+    // inside a figure, except in a form control.
+    scope.addEventListener("selectstart", function (e) {
+      var t = e.target && e.target.nodeType === 3 ? e.target.parentNode : e.target;
+      if (t && t.closest && t.closest("input, textarea")) return;
+      e.preventDefault();
     });
 
     scope.addEventListener("pointermove", function (e) {
@@ -10144,8 +10742,19 @@
       if (!drag.moved && Math.abs(dx) + Math.abs(dy) < 4) return;
       drag.moved = true;
       scope.classList.add("is-panning");
-      scope.scrollLeft = drag.sl - dx;
-      scope.scrollTop = drag.st - dy;
+      if (drag.canX) scope.scrollLeft = drag.sl - dx;
+      if (drag.canY) scope.scrollTop = drag.st - dy;
+      if (!drag.canX || (!drag.canY && !drag.touch)) {
+        setShift(drag.canX ? 0 : clampShift(drag.tx + dx, scope.clientWidth),
+          drag.canY || drag.touch ? 0 : clampShift(drag.ty + dy, scope.clientHeight));
+      }
+      // A finger on a figure that cannot scroll down still scrolls the page,
+      // so a phone reader is never stuck on a figure.
+      if (drag.touch && !drag.canY) {
+        var dyStep = e.clientY - drag.py;
+        drag.py = e.clientY;
+        if (dyStep !== 0) window.scrollBy(0, -dyStep);
+      }
       e.preventDefault();
     });
 
@@ -10192,8 +10801,82 @@
     });
     copyBtn.addEventListener("click", function () { copyFigure(scope).then(say); });
 
-    [out, level, into, reset, wide, svgBtn, pngBtn, copyBtn, said].forEach(function (n) { tools.appendChild(n); });
-    scope.parentNode.insertBefore(tools, scope);
+    // Open in a new tab (#915, owner: "with SVGs and such there is no 'view in
+    // new tab' option"). Inlining an <img> as <svg> takes away the browser's
+    // own "Open image in new tab", so this puts it back. It is a LINK, not a
+    // button, so a click, a middle-click and the right-click "Open link in new
+    // tab" all work.
+    var openLink = el("a", { class: "fa-figure-open", target: "_blank", rel: "noopener", "aria-label": "Open this diagram in a new tab" }, "Open ↗");
+    figureOpenTarget(scope, openLink);
+    function openNoFile(e) {
+      if (openLink.hasAttribute("href")) return;
+      e.preventDefault();
+      if (!openFigureBlob(scope)) say("Could not open this diagram");
+    }
+    openLink.addEventListener("click", openNoFile);
+    openLink.addEventListener("keydown", function (e) {
+      if (!openLink.hasAttribute("href") && (e.key === "Enter" || e.key === " ")) openNoFile(e);
+    });
+
+    [out, level, into, reset, wide, svgBtn, pngBtn, copyBtn, openLink, said].forEach(function (n) { tools.appendChild(n); });
+    // One host holds the controls and the figure, so on a laptop the
+    // controls can float over the figure and show only on hover (owner,
+    // 2026-11-01: "controls should only appear ... on mouse hover", "tighten
+    // up ... vertical space"). A touch screen keeps them in a row above.
+    var host = el("div", { class: "fa-figure-host" });
+    scope.parentNode.insertBefore(host, scope);
+    host.appendChild(tools);
+    host.appendChild(scope);
+
+    // Drag the bottom edge down to make the figure longer (owner,
+    // 2026-11-01: "you should also be able to drag bottom of figure down to
+    // make longer"). The card is as tall as its drawing, so a longer card is
+    // a bigger drawing: the handle sets the zoom so the drawing's height
+    // follows the pointer, and up makes it shorter again. A full-width bar,
+    // not the browser's corner grip, so it is easy to hit; focusable, so the
+    // arrow keys do the same in zoom steps.
+    var grip = el("div", {
+      class: "fa-figure-grip", role: "separator", tabindex: "0",
+      "aria-orientation": "horizontal", "aria-label": "Drag down to make the figure longer, up to make it shorter",
+      title: "Drag down to make the figure longer",
+    });
+    host.appendChild(grip);
+    var sizing = null;
+    function setZoom(z) {
+      z = Math.max(ZOOM_STEPS[0], Math.min(ZOOM_STEPS[ZOOM_STEPS.length - 1], z));
+      scope.style.setProperty("--fa-zoom", String(z));
+      level.textContent = Math.round(z * 100) + "%";
+      step = 0;
+      while (step < ZOOM_STEPS.length - 1 && ZOOM_STEPS[step + 1] <= z + 1e-9) step++;
+      out.disabled = z <= ZOOM_STEPS[0];
+      into.disabled = z >= ZOOM_STEPS[ZOOM_STEPS.length - 1];
+      markPannable();
+    }
+    grip.addEventListener("pointerdown", function (e) {
+      if (e.button !== 0) return;
+      var art = scope.querySelector("svg, img, object");
+      var h = art ? art.getBoundingClientRect().height : scope.clientHeight;
+      if (!(h > 0)) return;
+      var cur = parseFloat(scope.style.getPropertyValue("--fa-zoom")) || ZOOM_STEPS[step];
+      sizing = { y: e.clientY, h: h, z: cur };
+      try { grip.setPointerCapture(e.pointerId); } catch (_e) { /* not captureable */ }
+      grip.classList.add("is-sizing");
+      e.preventDefault();
+    });
+    grip.addEventListener("pointermove", function (e) {
+      if (!sizing) return;
+      setZoom(sizing.z * Math.max(0.1, sizing.h + (e.clientY - sizing.y)) / sizing.h);
+      e.preventDefault();
+    });
+    function endSizing() { sizing = null; grip.classList.remove("is-sizing"); }
+    grip.addEventListener("pointerup", endSizing);
+    grip.addEventListener("pointercancel", endSizing);
+    grip.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown" && step < ZOOM_STEPS.length - 1) { step++; apply(); }
+      else if (e.key === "ArrowUp" && step > 0) { step--; apply(); }
+      else return;
+      e.preventDefault();
+    });
     apply();
 
     // After insertion, so `clientWidth` is the real column width rather than 0.
@@ -10233,7 +10916,12 @@
     // image the column has SHRUNK qualifies: one shown at its own size is
     // already readable and gains nothing but chrome.
     var rasterOk = !!document.querySelector("[data-fa-figure-images]");
-    var sel = ".main-content img[src$='.svg'], .main-content svg, .main-content object[data$='.svg']" +
+    // A rendered DOCUMENT (`.fa-doc`, a handbook or guideline page) says the
+    // same thing by being one: its images are the publication's figures, never
+    // card faces, so every large one gets the controls, shrunk or not. A
+    // reader still wants to zoom, pan and copy a figure shown at its own size.
+    var docFigures = ".fa-doc img";
+    var sel = ".main-content img[src$='.svg'], .main-content svg, .main-content object[data$='.svg'], " + docFigures +
       (rasterOk ? ", .main-content img" : "");
 
     document.querySelectorAll(sel).forEach(function (node) {
@@ -10255,7 +10943,8 @@
         }
         var shown = node.getBoundingClientRect().width;
         var column = node.parentElement ? node.parentElement.clientWidth : 0;
-        if (shown < MIN_FIGURE_PX || node.naturalWidth <= shown + 1 || shown < 0.9 * column) return;
+        if (shown < MIN_FIGURE_PX) return;
+        if (!node.closest(".fa-doc") && (node.naturalWidth <= shown + 1 || shown < 0.9 * column)) return;
       }
       var box = node.getBoundingClientRect();
       if (box.width < MIN_FIGURE_PX && box.height < MIN_FIGURE_PX) return;
@@ -10661,6 +11350,297 @@
     try { return JSON.parse(node.textContent); } catch (_e) { return null; }
   }
 
+  /* ── Translation drawer — bean `cat-tools-bbnd` ──────────────────────
+   *
+   * Owner, 2026-10-10: *"i want to see in the translations warning somewhere
+   * the ability to open panel w/ more translation info … on content blocks,
+   * on a harnessed (sub)graph, etc."* Rulings: an inline drawer reusing the
+   * QA panel (`fa-qa-panel`, `qaToggle`'s open/close contract); rendered by
+   * JavaScript from data the page already points at, so the HTML stays slim;
+   * officiality read from BOTH the PO headers and `status.json`, and a
+   * disagreement shown as one (2026-10-11: one drawer per harness instance).
+   *
+   * Two scopes in one panel: THIS PAGE (from `fa-translation-meta`, already
+   * inline) and THIS SITE (the instance's `folio-translation-status/v1`
+   * projection, fetched on open). The projection's officiality is computed by
+   * `check-translation-officiality.ts`'s own reader, so the drawer and the
+   * gate cannot answer differently.
+   */
+  var TR_STATUS = {};
+  var TR_SEQ = 0;
+
+  var TR_PAGE_STATE = {
+    unverified: "translated automatically; not reviewed by a subject-matter expert",
+    verified: "reviewed and signed off",
+    stale: "the source changed after this translation was made",
+    missing: "not translated"
+  };
+
+  /** One line on who signed a locale off — the same words as the status page. */
+  function trOfficialityLabel(o) {
+    if (!o) return "not recorded";
+    if (o.state === "official") return "official, signed off by " + (o.signedOffBy || "?") + " on " + (o.signedOffAt || "?");
+    if (o.state === "disagree") return "records disagree (" + o.findings + "); run check:translation-officiality";
+    if (o.state === "unreadable") return "status.json unreadable: could not determine";
+    return "not signed off (machine or agent translation)";
+  }
+
+  function trPct(n, d) {
+    return d > 0 ? Math.round((100 * n) / d) + "%" : "–";
+  }
+
+  /** The THIS-SITE half, from the fetched projection (or why it is absent). */
+  function trSiteSection(status, src, err) {
+    var sec = el("section", { class: "fa-tr-drawer__site" });
+    sec.appendChild(el("h3", null, "This site’s translations"));
+    if (err) {
+      // 404 is a real state, "this site publishes no translation status";
+      // anything else is "could not determine", and the two are kept apart.
+      sec.appendChild(el("p", { class: "fa-qa-absent" }, err === "HTTP 404"
+        ? "This site publishes no translation status."
+        : "Could not load the translation status (" + err + ")."));
+      sec.appendChild(el("code", null, src));
+      return sec;
+    }
+    var locales = (status && status.locales) || [];
+    if (!locales.length) {
+      sec.appendChild(el("p", { class: "fa-qa-absent" }, "No locale is translated on this site."));
+      return sec;
+    }
+    var table = el("table", { class: "fa-tr-drawer__table" });
+    var head = el("tr");
+    ["locale", "strings translated", "fuzzy", "signed off"].forEach(function (h) {
+      head.appendChild(el("th", { scope: "col" }, h));
+    });
+    var thead = el("thead"); thead.appendChild(head); table.appendChild(thead);
+    var tbody = el("tbody");
+    locales.forEach(function (l) {
+      var tr = el("tr", { "data-fa-tr-locale": l.locale });
+      tr.appendChild(el("th", { scope: "row" }, l.locale));
+      tr.appendChild(el("td", null, l.translated + " / " + l.entries + " (" + trPct(l.translated, l.entries) + ")"));
+      tr.appendChild(el("td", null, String(l.fuzzy)));
+      tr.appendChild(el("td", { "data-fa-tr-officiality": (l.officiality && l.officiality.state) || "absent" },
+        trOfficialityLabel(l.officiality)));
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    sec.appendChild(table);
+    if (status.page) {
+      var root = src.replace(/assets\/translation-status\/index\.json$/, "");
+      var more = el("p", { class: "fa-tr-drawer__more" });
+      more.appendChild(el("a", { href: safeHref(root + status.page) }, "Full translation status \u2192"));
+      sec.appendChild(more);
+    }
+    return sec;
+  }
+
+  /** The THIS-PAGE half, from the inline meta. */
+  function trPageSection(meta, available, supported) {
+    var sec = el("section", { class: "fa-tr-drawer__page" });
+    sec.appendChild(el("h3", null, "This page"));
+    var dl = el("dl", { class: "fa-tr-drawer__facts" });
+    function fact(k, v) { dl.appendChild(el("dt", null, k)); dl.appendChild(el("dd", null, v)); }
+    fact("Language", meta.lang || "en");
+    if (meta.translationSource) fact("Translation of", meta.translationSource);
+    if (meta.translationStatus) {
+      fact("State", meta.translationStatus + (TR_PAGE_STATE[meta.translationStatus] ? " — " + TR_PAGE_STATE[meta.translationStatus] : ""));
+    }
+    var missing = supported.filter(function (l) { return available.indexOf(l) < 0; });
+    fact("Available in", available.length ? available.join(", ") : "its source language only");
+    if (missing.length) fact("Not yet in", missing.join(", "));
+    sec.appendChild(dl);
+    return sec;
+  }
+
+  function trBuildDrawer(meta, available, supported, panelId, toggle, status, err) {
+    var panel = chromeText(el("div", {
+      class: "fa-qa-panel fa-tr-drawer",
+      id: panelId,
+      role: "region",
+      "aria-label": "Translation details",
+      tabindex: "-1"
+    }));
+    var head = el("div", { class: "fa-qa-panel-head" });
+    head.appendChild(el("strong", null, "Translations"));
+    var close = el("button", { type: "button", class: "fa-qa-close", title: "Close this panel" }, "✕ Close");
+    close.addEventListener("click", function () { trToggle(toggle, meta, available, supported); });
+    head.appendChild(close);
+    panel.appendChild(head);
+    panel.appendChild(trPageSection(meta, available, supported));
+    panel.appendChild(trSiteSection(status, meta.statusSrc || "", err));
+    return panel;
+  }
+
+  /** The instance's status projection, fetched once per page: `cb(doc, err)`. */
+  function trStatusFetch(src, cb) {
+    if (!src) { cb(null, "no status path on this page"); return; }
+    if (TR_STATUS[src]) { cb(TR_STATUS[src].doc || null, TR_STATUS[src].err || null); return; }
+    fetch(src, { credentials: "same-origin" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (doc) { TR_STATUS[src] = { doc: doc }; cb(doc, null); })
+      .catch(function (e) { TR_STATUS[src] = { err: e.message }; cb(null, e.message); });
+  }
+
+  /**
+   * THE BLOCK SCOPE (bean `cat-tools-bbnd`): what a `TR` panel adds, per
+   * locale its verdicts cover. Whether the verdict is STALE (a witness whose
+   * `freshness` is not `fresh` judged a source that has since moved), and the
+   * locale's signed-off state from the same projection the page drawer reads.
+   * Plus the control that opens the page drawer, so a block reaches the rest.
+   */
+  function trBlockSection(doc) {
+    var byLocale = {};
+    (doc.criteria || []).forEach(function (c) {
+      if (!c.locale) return;
+      var e = byLocale[c.locale] || (byLocale[c.locale] = { stale: 0, witnesses: 0 });
+      (c.witnesses || []).forEach(function (w) {
+        e.witnesses += 1;
+        if (w.freshness && w.freshness !== "fresh") e.stale += 1;
+      });
+    });
+    var locales = Object.keys(byLocale).sort();
+    var sec = el("section", { class: "fa-tr-drawer__block" });
+    sec.appendChild(el("h3", null, "Translation of this block"));
+    if (!locales.length) {
+      sec.appendChild(el("p", { class: "fa-qa-absent" }, "No verdict here names a locale."));
+      return sec;
+    }
+    var dl = el("dl", { class: "fa-tr-drawer__facts" });
+    var cells = {};
+    locales.forEach(function (l) {
+      var e = byLocale[l];
+      dl.appendChild(el("dt", null, l));
+      var dd = el("dd", { "data-fa-tr-locale": l });
+      dd.appendChild(el("span", { class: "fa-tr-drawer__fresh", "data-fa-tr-fresh": e.stale ? "stale" : "fresh" },
+        e.stale
+          ? "stale: the source changed after " + e.stale + " of " + e.witnesses + " verdict(s) were reached"
+          : "current: every verdict was reached on the source as it is now"));
+      var off = el("span", { class: "fa-tr-drawer__official" }, " \u00B7 signed off: \u2026");
+      dd.appendChild(off);
+      cells[l] = off;
+      dl.appendChild(dd);
+    });
+    sec.appendChild(dl);
+    var meta = getTranslationMeta() || {};
+    trStatusFetch(meta.statusSrc, function (status, err) {
+      var byL = {};
+      ((status && status.locales) || []).forEach(function (x) { byL[x.locale] = x; });
+      locales.forEach(function (l) {
+        var x = byL[l];
+        cells[l].textContent = " \u00B7 signed off: " +
+          (err ? (err === "HTTP 404" ? "not published for this site" : "could not determine (" + err + ")")
+               : x ? trOfficialityLabel(x.officiality) : "this site has no catalogue for " + l);
+        if (x && x.officiality) cells[l].setAttribute("data-fa-tr-officiality", x.officiality.state);
+      });
+    });
+    var open = el("button", { type: "button", class: "fa-translation-warning__details" }, "Open translation details");
+    open.addEventListener("click", function () {
+      var t = document.querySelector(".fa-tr-drawer-toggle");
+      if (t && t.getAttribute("aria-expanded") !== "true") t.click();
+      else if (t) { var d = document.getElementById(t.getAttribute("aria-controls")); if (d) d.focus(); }
+    });
+    sec.appendChild(open);
+    return sec;
+  }
+
+  /** Open or close the drawer: `qaToggle`'s contract, so one behaviour for both. */
+  function trToggle(toggle, meta, available, supported) {
+    var panelId = toggle.getAttribute("aria-controls");
+    var open = panelId && document.getElementById(panelId);
+    if (open) {
+      open.parentNode.removeChild(open);
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.focus();
+      return;
+    }
+    if (!panelId) {
+      panelId = "fa-tr-drawer-" + (++TR_SEQ);
+      toggle.setAttribute("aria-controls", panelId);
+    }
+    toggle.setAttribute("aria-expanded", "true");
+    var anchor = toggle.closest(".fa-translation-badges") || toggle;
+    function mount(node) {
+      toggle.removeAttribute("aria-busy");
+      if (anchor.nextSibling) anchor.parentNode.insertBefore(node, anchor.nextSibling);
+      else anchor.parentNode.appendChild(node);
+      node.focus();
+    }
+    toggle.setAttribute("aria-busy", "true");
+    trStatusFetch(meta.statusSrc, function (doc, err) {
+      mount(trBuildDrawer(meta, available, supported, panelId, toggle, doc, err));
+    });
+  }
+
+  /**
+   * THE STATUS PAGE'S PER-ROW DRAWER (bean `cat-tools-bbnd`): each locale row
+   * the translation-status visualiser draws (`tr[data-fa-tr-locale]`) gets a
+   * control that opens, under it, the catalogues behind the row's numbers,
+   * each with its own counts and `X-Folio-Official` header. Read from the same
+   * projection as every other scope, so the row and its drawer cannot differ.
+   */
+  function mountTranslationStatusRows() {
+    var rows = document.querySelectorAll(".ts-page tr[data-fa-tr-locale]");
+    if (!rows.length) return;
+    var meta = getTranslationMeta() || {};
+    rows.forEach(function (row) {
+      var locale = row.getAttribute("data-fa-tr-locale");
+      var cell = row.querySelector("th");
+      if (!cell || row.querySelector(".fa-tr-row-toggle")) return;
+      var btn = chromeText(el("button", {
+        type: "button", class: "fa-tr-drawer-toggle fa-tr-row-toggle", "aria-expanded": "false",
+        title: "Catalogues behind the " + locale + " numbers"
+      }, "ⓘ Details"));
+      cell.appendChild(document.createTextNode(" "));
+      cell.appendChild(btn);
+      btn.addEventListener("click", function () {
+        var next = row.nextElementSibling;
+        if (next && next.classList.contains("fa-tr-row-drawer")) {
+          next.parentNode.removeChild(next);
+          btn.setAttribute("aria-expanded", "false");
+          btn.focus();
+          return;
+        }
+        btn.setAttribute("aria-expanded", "true");
+        trStatusFetch(meta.statusSrc, function (status, err) {
+          var tr = el("tr", { class: "fa-tr-row-drawer" });
+          var td = el("td", { colspan: String(row.children.length) });
+          var panel = chromeText(el("div", { class: "fa-qa-panel fa-tr-drawer", role: "region", "aria-label": "Catalogues for " + locale, tabindex: "-1" }));
+          var loc = null;
+          ((status && status.locales) || []).forEach(function (x) { if (x.locale === locale) loc = x; });
+          if (err || !loc) {
+            panel.appendChild(el("p", { class: "fa-qa-absent" }, err ? "Could not load the catalogue detail (" + err + ")." : "The status projection has no row for " + locale + "."));
+          } else if (!loc.files) {
+            panel.appendChild(el("p", { class: "fa-qa-absent" }, "This projection predates per-catalogue detail; regenerate it with translation:status."));
+          } else {
+            panel.appendChild(el("p", null, trOfficialityLabel(loc.officiality)));
+            var t = el("table", { class: "fa-tr-drawer__table" });
+            var h = el("tr");
+            ["catalogue", "translated", "fuzzy", "X-Folio-Official"].forEach(function (x) { h.appendChild(el("th", { scope: "col" }, x)); });
+            var th = el("thead"); th.appendChild(h); t.appendChild(th);
+            var tb = el("tbody");
+            loc.files.forEach(function (f) {
+              var r = el("tr");
+              r.appendChild(el("th", { scope: "row" }, f.path));
+              r.appendChild(el("td", null, f.translated + " / " + f.entries + " (" + trPct(f.translated, f.entries) + ")"));
+              r.appendChild(el("td", null, String(f.fuzzy)));
+              r.appendChild(el("td", null, f.official || "(absent)"));
+              tb.appendChild(r);
+            });
+            t.appendChild(tb);
+            panel.appendChild(t);
+            if (loc.unreadable && loc.unreadable.length) {
+              panel.appendChild(el("p", { class: "fa-qa-absent" }, "Unreadable, so not counted: " + loc.unreadable.join(", ")));
+            }
+          }
+          td.appendChild(panel);
+          tr.appendChild(td);
+          row.parentNode.insertBefore(tr, row.nextSibling);
+          panel.focus();
+        });
+      });
+    });
+  }
+
   function mountTranslationBadges() {
     var meta = getTranslationMeta();
     if (!meta) return;
@@ -10784,6 +11764,18 @@
     chromeText(sweepBadge);
     container.appendChild(sweepBadge);
 
+    // The drawer's control (bean `cat-tools-bbnd`). A separate BUTTON, not the
+    // coverage badge made clickable: the badges stay inert spans (`cursor:
+    // default`, see docs-ui.css), and a control should look like one.
+    var trToggleBtn = chromeText(el("button", {
+      type: "button",
+      class: "fa-tr-drawer-toggle",
+      "aria-expanded": "false",
+      title: "Translation details for this page and this site"
+    }, "\u24D8 Translation details"));
+    trToggleBtn.addEventListener("click", function () { trToggle(trToggleBtn, meta, available, supported); });
+    container.appendChild(trToggleBtn);
+
     /* Unverified translation notice — ONE LINE, opening to the detail.
      *
      * Owner, 2026-09-21, on a translated page: *"should be a slim one line
@@ -10862,6 +11854,18 @@
       howP.appendChild(el("code", null, "translation_validate"));
       howP.appendChild(document.createTextNode(" to check for staleness and coverage."));
       warnBody.appendChild(howP);
+      // THE WARNING OPENS THE DRAWER (bean `cat-tools-bbnd`, owner 2026-10-10:
+      // "in the translations warning … the ability to open panel w/ more
+      // translation info"). The control is looked up at click time: it is
+      // built further down this function, after the badge row exists.
+      var openDrawer = el("button", { type: "button", class: "fa-translation-warning__details" },
+        "Open translation details");
+      openDrawer.addEventListener("click", function () {
+        var t = document.querySelector(".fa-tr-drawer-toggle");
+        if (t && t.getAttribute("aria-expanded") !== "true") t.click();
+        else if (t) { var d = document.getElementById(t.getAttribute("aria-controls")); if (d) d.focus(); }
+      });
+      warnBody.appendChild(openDrawer);
       warning.appendChild(warnBody);
 
       if (meta.translationQa && meta.translationQa.src) {
@@ -11329,6 +12333,12 @@
       panel.appendChild(el("p", { class: "fa-qa-absent" },
         "The sidecar holds no criteria — nothing about this subject has been checked."));
     }
+    // A TRANSLATION panel is also the translation drawer's block scope (bean
+    // `cat-tools-bbnd`): staleness and officiality per locale, one more control.
+    if (doc.family === "translation" || badge.getAttribute("data-qa-family") === "translation") {
+      panel.classList.add("fa-tr-drawer");
+      panel.appendChild(trBlockSection(doc));
+    }
     return panel;
   }
 
@@ -11639,126 +12649,17 @@
 
 
 
-  /* ── THE OPEN DOCUMENT'S INDEX, in the navbar's fixed top ────────────────
+  /* ── RETIRED 2026-10-15: the theme sidebar's own sections ─────────────────
    *
-   * Owner, 2026-09-21: *"when a document or other indexed object is opened,
-   * the document index/idices are shown in a navbar tab/menu."*
-   *
-   * `navbar.ts` has carried a `documentIndex` region since it was written and
-   * NOTHING SUPPLIED ONE -- a repo-wide search on 2026-09-22 found the type,
-   * the render branch and a single test. `documentIndexOf` now supplies it on
-   * every mounted page, server-side, from the HTML being injected into.
-   *
-   * THIS HALF IS SCRIPTED AND THAT ASYMMETRY IS DELIBERATE, not an oversight.
-   * The rail is injected into documents copied verbatim from instances the
-   * harness does not control, where "injecting a nav is one claim and
-   * injecting script is a larger one" -- so it must be server-side. This site
-   * is ours, already loads this file, and Jekyll hands Liquid no way to see a
-   * page's rendered headings: kramdown assigns the ids downstream of the
-   * template. A build step that re-parsed our own output to learn what
-   * kramdown had just done would be a second renderer.
-   *
-   * The SELECTION RULE is `navbar.ts`'s, restated rather than approximated:
-   * `h2`/`h3` that carry an `id`, because a heading with no id is not a
-   * destination (`pb04`); nested by level; and the region is ABSENT rather
-   * than empty below two rows, since a "Contents" holding the one section the
-   * reader is looking at is a row that buys nothing in a region that does not
-   * scroll.
-   *
-   * It mounts as a `.side-bar` child so the region rules in docs-ui.css make
-   * it fixed-top with no further styling: `.side-bar > * { flex: 0 0 auto }`.
-   */
-  function mountDocumentIndex() {
-    var bar = document.querySelector(".side-bar");
-    var main = document.querySelector(".main-content");
-    if (!bar || !main) return;
-    if (bar.querySelector(".fa-doc-index")) return;
-
-    var heads = main.querySelectorAll("h2[id], h3[id]");
-    var rows = [];
-    for (var i = 0; i < heads.length; i++) {
-      var text = (heads[i].textContent || "").replace(/\s+/g, " ").trim();
-      if (!text) continue;
-      rows.push({ id: heads[i].id, text: text, depth: heads[i].tagName === "H3" ? 1 : 0 });
-    }
-    if (rows.length < 2) return;
-
-    var box = document.createElement("details");
-    box.className = "fa-doc-index";
-    // ENGLISH HEADING, PAGE'S ROWS (bean `giiw`). "On this page" and "N
-    // sub-sections" are this script's English; the rows are the page's own
-    // headings, which on a translated page are in its language. So the two
-    // summaries are marked, never the box: marking the box would call an
-    // Arabic heading English and lay it out left-to-right.
-    var sum = chromeText(document.createElement("summary"));
-    sum.className = "fa-doc-index__heading";
-    // textContent throughout: a heading is page content, and this script's own
-    // header records that nothing here interpolates into markup.
-    sum.textContent = "On this page";
-    var count = document.createElement("span");
-    count.className = "fa-doc-index__count";
-    count.textContent = String(rows.length);
-    sum.appendChild(count);
-    box.appendChild(sum);
-
-    /* SUB-SECTIONS FOLD UNDER THEIR SECTION — owner, 2026-10-05: *"on this
-     * page should have sub-sections collapsible"* (bean `r2ld`). An h3 goes
-     * into a closed "N sub-sections" disclosure BELOW its h2's link, never
-     * around it: the shape the folders' "Sub-graphs of …" fold has, and the
-     * rail's (`navbar.ts` `fold`, same wording from `subSections`). An h3
-     * before any h2 has no section to sit in and stays a row of its own. */
-    var subSections = function (n) { return n === 1 ? "1 sub-section" : n + " sub-sections"; };
-    var list = document.createElement("ul");
-    list.className = "fa-doc-index__list";
-    var section = null;
-    for (var j = 0; j < rows.length; j++) {
-      var li = document.createElement("li");
-      li.className = "fa-doc-index__item";
-      if (rows[j].depth) li.className += " fa-doc-index__item--sub";
-      var a = document.createElement("a");
-      a.className = "fa-doc-index__link";
-      a.setAttribute("href", "#" + rows[j].id);
-      a.textContent = rows[j].text;
-      li.appendChild(a);
-      if (!rows[j].depth) {
-        section = { li: li, fold: null, sum: null, ul: null, n: 0 };
-        list.appendChild(li);
-      } else if (section) {
-        if (!section.fold) {
-          section.fold = document.createElement("details");
-          section.fold.className = "fa-doc-index__fold";
-          section.sum = chromeText(document.createElement("summary"));
-          section.sum.className = "fa-doc-index__fold-heading";
-          section.ul = document.createElement("ul");
-          section.ul.className = "fa-doc-index__list fa-doc-index__list--sub";
-          section.fold.appendChild(section.sum);
-          section.fold.appendChild(section.ul);
-          section.li.appendChild(section.fold);
-        }
-        section.ul.appendChild(li);
-        section.n += 1;
-        section.sum.textContent = subSections(section.n);
-      } else {
-        list.appendChild(li);
-      }
-    }
-    box.appendChild(list);
-    mirrorExpanded(box);
-
-    // AFTER the header, BEFORE the nav -- the fixed top, with the instance.
-    // It is about the thing the reader is looking at rather than about the
-    // graph they are in, which is `navbar.ts`'s reason for the same placement.
-    // Inserted relative to the nav's OWN parent, whatever that is. `.site-nav`
-    // is a direct child of `.side-bar` until `mountInstanceGraphs` wraps it,
-    // and an `insertBefore` that assumes the old shape throws and takes the
-    // rest of init() with it. The fixed top is where this belongs either way:
-    // if the nav has been wrapped, the wrapper is in the middle and inserting
-    // before IT is still the fixed top.
-    var nav = bar.querySelector(".site-nav");
-    var host = nav && nav.parentNode === bar ? nav : bar.querySelector(".fa-nav-middle");
-    if (host && host.parentNode === bar) bar.insertBefore(box, host);
-    else bar.appendChild(box);
-  }
+   * Owner, 2026-10-15, "folio rail everywhere" (option A): a pass after Jekyll
+   * (cat-harness-tools `rail-standalone-pages.ts --theme-source`) replaces the
+   * theme's `.side-bar` with the folio rail, built on the server. Its "On this
+   * page", "Pages", "Folders" and "Harnesses" are the rail's own sections
+   * (`lib/navbar.ts`, `lib/jekyll-pages-nav.ts`), so the browser no longer
+   * builds them here: `mountDocumentIndex`, `mountInstanceGraphs`,
+   * `scopeSiteNav` / `readRailScope` (#1902), `mountNavPagesHeading`,
+   * `sortNavByLocale` and `mountSidebarRail` are gone, with their
+   * `.side-bar` rules in `docs-ui.css`. */
 
   /* ── THE NAVBAR ICON ROW — line 2 of the fixed top ───────────────────────
    *
@@ -11789,7 +12690,7 @@
    * already makes — the row is a layout, and a control does not have to be
    * built by the thing that positions it.
    */
-  function readNavbarRow() {
+  function _readNavbarRow() {
     var node = document.getElementById("fa-navbar-row");
     if (!node) return undefined;
     var text = (node.textContent || "").trim();
@@ -11880,553 +12781,6 @@
     document.head.appendChild(s);
   }
 
-  /* ── THE MIDDLE: this instance's controlled folders, then its navigation ──
-   *
-   * Owner, 2026-09-22: *"next on navbar then is is library docs/ and other
-   * controlled folders next would the navigation for the current harness (per
-   * its rules)."*
-   *
-   * Two blocks, ONE SCROLL. The owner's three-region layout is explicit that
-   * the middle is *"a scrollable stacks between fixed top an bottom parts"* —
-   * singular. Leaving the folders outside the scroll would make a fourth fixed
-   * region and take the space from the navigation; giving each its own scroll
-   * would put two scrollbars in a 248px column.
-   *
-   * WHY A WRAPPER RATHER THAN TWO SIBLINGS. `.site-nav` is the theme's
-   * element and `sidebar.html` is not ours to override — this file's own rules
-   * refuse that for a placement. So the wrapper is built here and `.site-nav`
-   * is moved into it, which is a move within our own site's DOM rather than a
-   * fork of a theme file.
-   *
-   * IT DEGRADES. If this never runs, `.site-nav` stays a direct child of
-   * `.side-bar` and keeps the middle's flex rule, so the navbar is the
-   * previous round's — three regions, no folder block — rather than broken.
-   * The stylesheet carries both selectors for that reason.
-   *
-   * THE FOLDERS COME FROM THE DECLARATION, via this instance's own tile in
-   * `_data/harness.json`. A kind with no published viewer is rendered as a
-   * NON-LINK rather than dropped — `pb04`, and the same choice the harness
-   * tabs and the rail already make.
-   */
-  function mountInstanceGraphs() {
-    var bar = document.querySelector(".side-bar");
-    // `:scope >` ON PURPOSE: if the nav is already inside a wrapper this has
-    // nothing to do, and a descendant match would move it a second time.
-    var nav = bar && bar.querySelector(":scope > .site-nav");
-    if (!bar || !nav || bar.querySelector(".fa-nav-middle")) return;
-
-    var row = readNavbarRow();
-    // `undefined` is "could not read", `null` is "declared none" — and NEITHER
-    // is a reason to draw an empty folder list. Both leave the middle as the
-    // navigation alone, which is what it was.
-    if (row === undefined || row === null) return;
-    // SCOPED TO THE INSTANCE BEING VIEWED (#1902): inside an instance's own
-    // themed root the folders are THAT instance's declared graphs, not the
-    // site owner's. Outside every instance, the row's own list, as before.
-    var scope = readRailScope();
-    var graphs = scope && Array.isArray(scope.folders)
-      ? scope.folders
-      : Array.isArray(row.folders) ? row.folders : [];
-
-    var middle = el("div", { class: "fa-nav-middle" });
-    if (graphs.length > 0) {
-      // CLOSED ON ARRIVAL. Owner, 2026-09-23: *"any indices/toc should be
-      // closed."* It arrived open, on the argument that the graphs are what
-      // the navbar is FOR — but the thing a reader meets first is then a
-      // 24-row list above the navigation they came for, and in the collapsed
-      // strip it was 24 clipped words. The count on the summary still says
-      // how many there are, so nothing is hidden, only folded.
-      //
-      // THE RAIL'S EQUIVALENT GROUP STAYS OPEN, and that is not drift. On a
-      // mounted page `navbar.ts`'s `graphs` IS the middle — closing it leaves
-      // the region genuinely empty, which is the argument `harness-rail.ts`
-      // records against its own `open: true`. Here the block sits ABOVE the
-      // theme's `.site-nav`, so folding it uncovers the navigation rather
-      // than emptying the column. Same rule, different content below it.
-      // English at the root (bean `giiw`): "Folders" and every row are the
-      // declarations' labels, which no locale translates.
-      var box = chromeText(el("details", { class: "fa-nav-folders" }));
-      if (scope) box.setAttribute("data-fa-scope", scope.name);
-      var sum = el("summary", { class: "fa-nav-folders__heading" }, "Folders");
-      var count = el("span", { class: "fa-nav-folders__count" }, String(graphs.length));
-      sum.appendChild(count);
-      box.appendChild(sum);
-      var list = el("ul", { class: "fa-nav-folders__list" });
-      /* AN INERT ROW IS SHOWN, AND IT SAYS WHICH CASE IT IS.
-       *
-       * Owner ruling, recorded on #1036: a declared graph with no viewer is
-       * shown rather than omitted, because a reader cannot otherwise tell "no
-       * viewer yet" from "no such graph". Two obligations come with it:
-       *
-       * - `gjli` — it must not read as a CONTROL. A `<span>`, never an `<a>`
-       *   or a `<button>`, and nothing that takes focus: a greyed thing that
-       *   accepts a tab and then does nothing costs a keyboard user an
-       *   interaction to discover it is dead.
-       * - The state is in TEXT. This row carried it as `opacity: 0.35`, a
-       *   strikethrough and a `title` tooltip — a channel a keyboard or
-       *   screen-reader user never reaches, and a hover a touch user cannot
-       *   produce.
-       *
-       * AND THE WORDING IS CARRIED, NOT COMPOSED. `note` comes from
-       * `harness-tiles.ts`, which computes it where the FOUR inert states are
-       * already told apart — staging-only, exempt by declaration, built but
-       * unreachable, nobody built it. The single string this used to write was
-       * one wording for four states and wrong for two of them, which is the
-       * defect `HarnessVisualisation.note`'s own docstring names. The harness
-       * tabs and the rail have rendered this note as text all along; only this
-       * row did not.
-       */
-      var inert = function (label, note) {
-        var span = el("span", { class: "fa-nav-folders__link fa-nav-folders__link--dead" }, label);
-        // A REAL SPACE, in the DOM. `margin-left` separates the two visually
-        // and does nothing to the text content, so the accessible name came
-        // out as "codeno viewer yet" — measured in a browser. A screen reader
-        // reads the string, not the gap.
-        // ABSENT `note` IS NOT A DETERMINED STATE. It means this page's data
-        // predates the note being carried, and saying "no viewer yet" for it
-        // would be inventing the answer the whole rule is about. Say that
-        // instead of guessing.
-        span.appendChild(document.createTextNode(" "));
-        span.appendChild(el("span", { class: "fa-nav-folders__note" }, note || "reason not recorded"));
-        return span;
-      };
-
-      /* SUB-GRAPHS NEST, FOLDED — owner, 2026-09-23 (issue #1164): a
-       * sub-graph such as `docs/proposals/` *"starts closed in navbar,
-       * general behavior"*. GENERAL: any folder whose kind declares `within`
-       * is drawn inside its parent's row, under a `<details>` with no `open`,
-       * so the parent reads as one row until the reader opens it. Parents are
-       * drawn first so a child always finds its row; a child whose parent is
-       * not listed stands on its own rather than disappearing. */
-      var rowOf = {};
-      var nameOfKind = {};
-      graphs.forEach(function (x) { if (x && x.kind) nameOfKind[x.kind] = x.label || x.kind; });
-      var nestOf = function (parentKind) {
-        var row = rowOf[parentKind];
-        if (!row) return null;
-        var sub = row.querySelector(":scope > .fa-nav-folders__sub > ul");
-        if (sub) return sub;
-        var d = el("details", { class: "fa-nav-folders__sub" });
-        d.appendChild(el("summary", { class: "fa-nav-folders__sub-heading" }, "Sub-graphs of " + (nameOfKind[parentKind] || parentKind)));
-        var ul = el("ul", { class: "fa-nav-folders__list fa-nav-folders__list--sub" });
-        d.appendChild(ul);
-        row.appendChild(d);
-        return ul;
-      };
-      var ordered = graphs.filter(function (x) { return !(x && x.within); })
-        .concat(graphs.filter(function (x) { return x && x.within; }));
-      /* ONE NAME PER DESTINATION — owner, 2026-10-01, bean `ob3m` finding 6.
-       * A row says the `label` `harness-tiles.ts` gave it, never the bare
-       * kind word, and is never composed here: a second implementation in
-       * this file would be a second answer free to disagree. The kind word
-       * is the fallback for data that predates the label. */
-      var nameOf = function (g) { return (g && (g.label || g.kind)) || "?"; };
-      for (var j = 0; j < ordered.length; j++) {
-        var g = ordered[j];
-        var li = el("li", { class: "fa-nav-folders__item" });
-        if (g && g.kind) rowOf[g.kind] = li;
-        if (g && g.path && g.stagingOnly && !isStagingPreview()) {
-          /* WITHHELD FROM THIS DEPLOY — a path that resolves and a page that
-           * is not there.
-           *
-           * `compose-docs.ts` lays a `publish: "staging-only"` page into the
-           * site only under `--staging`, and `path` is resolved against the
-           * SOURCE tree, so on the canonical build it is present, correct and
-           * dead. The graph TILE has skipped such a page since it was written
-           * — *"Conflating them would let 'show hidden' resurrect a link to a
-           * 404"* — and this list linked it. Measured on a canonical-shaped
-           * local build: `fsh-guts`, 1 of 387 sidebar links.
-           *
-           * SHOWN, not skipped, unlike the tile. The owner's ruling on #1036
-           * is that a graph a reader cannot open is rendered inert and
-           * labelled, and this list is the one surface that enumerates every
-           * declared kind — dropping a row here would answer "what is in this
-           * KG" with a shorter and wronger list. `inertNote`'s own
-           * `staging-only` wording says which case it is; until now that
-           * bucket had no live case at all. */
-          li.appendChild(inert(nameOf(g), "staging only"));
-        } else if (g && g.path) {
-          // `safeHref` for the same reason as the icon row above, and applied
-          // AFTER `withBase` so what is checked is the href that is actually
-          // written -- checking the bare path would clear a value the baseurl
-          // could still turn into something else.
-          var at = safeHref(withBase(g.path));
-          if (at) {
-            li.appendChild(el("a", { class: "fa-nav-folders__link", href: at }, nameOf(g)));
-          } else {
-            // A DIFFERENT CASE from "no viewer declared", and it stays
-            // different: the graph HAS a published path and this page refused
-            // it. That is a defect in the declaration, not a gap in the
-            // corpus, and `flh4` is about exactly this distinction surviving
-            // to the last step.
-            li.appendChild(inert(nameOf(g), "path refused by this page"));
-          }
-        } else {
-          li.appendChild(inert(nameOf(g), g && g.note));
-        }
-        var into = (g && g.within && nestOf(g.within)) || list;
-        into.appendChild(li);
-      }
-      box.appendChild(list);
-      mirrorExpanded(box);
-      middle.appendChild(box);
-    }
-
-    bar.insertBefore(middle, nav);
-    middle.appendChild(nav);
-  }
-
-  /* ── THE RAIL'S SCOPE — issue #1902 ─────────────────────────────────────
-   *
-   * Owner, viewing `/smart-trust/`: *"there are also 101 pages under
-   * .../smart-trust/, which I would have expected only those in the IG TOC.
-   * i think it is showing all the folio pages, not the harnessed
-   * smart-trust's pages ... same for 'folders'."*
-   *
-   * WHICH INSTANCE IS NOT DECIDED HERE. `head_custom.html` emits
-   * `#fa-rail-scope` -- the one entry of `railScopes` (`sync-docs-harness.ts`)
-   * whose href is the innermost prefix of `page.url` -- or nothing. Liquid
-   * holds `page.url` without the baseurl, so the staging prefix that makes
-   * "which instance am I" hard from `location` cannot make it miss there.
-   * Absent is "inside no instance" and the rail lists the whole site, which is
-   * what it did before.
-   */
-  var railScopeRead = false;
-  var railScopeValue = null;
-  function readRailScope() {
-    if (railScopeRead) return railScopeValue;
-    railScopeRead = true;
-    var node = document.getElementById("fa-rail-scope");
-    if (!node) return null;
-    try {
-      var parsed = JSON.parse((node.textContent || "").trim());
-      // Read, never rendered: the href is compared against page links below.
-      var at = parsed && typeof parsed === "object" && parsed.href;
-      if (typeof at === "string" && typeof parsed.name === "string") {
-        railScopeValue = parsed;
-      }
-    } catch (_e) {
-      console.warn("docs-ui: #fa-rail-scope is not valid JSON; the rail lists the whole site.");
-    }
-    return railScopeValue;
-  }
-
-  /** A path with a trailing `index.html` dropped, so `/x/` and `/x/index.html` are one page. */
-  function railPath(p) {
-    return String(p || "").replace(/index\.html$/, "");
-  }
-
-  /**
-   * PAGES, scoped: the theme's page list cut to the instance's own subtree --
-   * the row that links the instance's root and everything nested under it,
-   * which for an IG is its table of contents. Rows outside it are marked
-   * `data-fa-out-of-scope` (hidden by docs-ui.css) rather than removed, so
-   * the theme's own script still finds every node it expects.
-   *
-   * The instance's root row is opened, since its children ARE the list: on a
-   * page the theme does not mark active -- an artefact leaf under the IG --
-   * the scoped list was otherwise one folded row.
-   *
-   * NO ROW FOR THE ROOT, NO SCOPE. If the theme's list carries no link to the
-   * instance's root, there is no subtree to cut to, and an empty PAGES would
-   * report "this instance has no pages". The whole list stays.
-   */
-  function scopeSiteNav() {
-    var scope = readRailScope();
-    var nav = document.querySelector(".side-bar .site-nav");
-    if (!scope || !nav || nav.hasAttribute("data-fa-scope")) return;
-    var want = railPath(withBase(scope.href));
-    var links = nav.querySelectorAll("a.nav-list-link");
-    var root = null;
-    for (var i = 0; i < links.length; i++) {
-      // An in-page anchor resolves to THIS page's path, which on the
-      // instance's root is the root's path too -- a row that is not the
-      // instance's would be taken for it. Only a link to a page counts.
-      if ((links[i].getAttribute("href") || "").charAt(0) === "#") continue;
-      if (railPath(links[i].pathname) === want) { root = links[i].closest(".nav-list-item"); break; }
-    }
-    if (!root) {
-      console.warn("docs-ui: no page-list row links " + want + "; PAGES lists the whole site.");
-      return;
-    }
-    nav.setAttribute("data-fa-scope", scope.name);
-    var items = nav.querySelectorAll(".nav-list-item");
-    for (var j = 0; j < items.length; j++) {
-      var it = items[j];
-      if (it === root || root.contains(it) || it.contains(root)) continue;
-      it.setAttribute("data-fa-out-of-scope", "");
-    }
-    for (var up = root; up && up !== nav; up = up.parentNode) {
-      if (!up.classList || !up.classList.contains("nav-list-item")) continue;
-      up.classList.add("active");
-      var exp = up.querySelector(":scope > .nav-list-expander");
-      if (exp) exp.setAttribute("aria-expanded", "true");
-    }
-  }
-
-  /**
-   * ONE DISCLOSURE, ONE STATE IN THE TREE (#1902: *"all three are collapsible
-   * but only one has the arrow thing"*). The Pages heading is a button with
-   * `aria-expanded`; the other headings are `<summary>`s. axe gives a summary
-   * the button role and Chrome exposes its open state, but the ATTRIBUTE was
-   * only on Pages, so a test -- or a script -- asking "is it open" got an
-   * answer from one heading in three. Mirrored here, kept in step by the
-   * element's own `toggle` event. The caret itself is one rule in docs-ui.css.
-   */
-  function mirrorExpanded(details) {
-    var sum = details && details.querySelector(":scope > summary");
-    if (!sum) return;
-    var sync = function () { sum.setAttribute("aria-expanded", details.open ? "true" : "false"); };
-    sync();
-    details.addEventListener("toggle", sync);
-  }
-
-  /**
-   * A TITLED, FOLDABLE PAGE LIST — owner, 2026-09-27: *"no title on the
-   * navbar component w/ pages"* and *"cant minimize them either"*. The two
-   * regions above it ("On this page", "Folders") are disclosures with a
-   * count; the theme's page list was bare. This puts a heading button in
-   * front of `.site-nav`, wherever the nav now lives, and folds the list with
-   * it. Open by default, since the pages are what most readers came for;
-   * a fold is remembered per browser (`fa-nav-pages`), guarded like every
-   * other storage call here.
-   */
-  var NAV_PAGES_KEY = "fa-nav-pages";
-  function mountNavPagesHeading() {
-    var nav = document.querySelector(".side-bar .site-nav");
-    if (!nav || !nav.parentNode || nav.parentNode.querySelector(":scope > .fa-nav-pages")) return;
-    if (!nav.id) nav.id = "site-nav";
-    // Scoped (#1902), the count is every page row left in the scope -- the
-    // instance's root and its table of contents -- because the instance's
-    // pages ARE that subtree. Unscoped, the site's top-level pages, as before.
-    var scoped = nav.hasAttribute("data-fa-scope");
-    var top = scoped
-      ? nav.querySelectorAll(".nav-list-item:not([data-fa-out-of-scope])").length
-      : nav.querySelectorAll(":scope > .nav-list > .nav-list-item").length;
-    // The button is English; the list it folds (`.site-nav`) is the page
-    // titles, translated per locale, so only the button is marked (`giiw`).
-    var btn = chromeText(el("button", {
-      type: "button",
-      class: "fa-nav-pages",
-      "aria-controls": nav.id,
-      "aria-expanded": "true",
-    }, "Pages"));
-    btn.appendChild(el("span", { class: "fa-nav-pages__count" }, String(top)));
-    var scope = scoped ? readRailScope() : null;
-    if (scope) btn.title = "Pages of " + (scope.title || scope.name);
-    function set(open) {
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
-      if (open) nav.removeAttribute("data-fa-folded");
-      else nav.setAttribute("data-fa-folded", "");
-    }
-    var stored = null;
-    try { stored = window.localStorage.getItem(NAV_PAGES_KEY); } catch (_e) { /* default open */ }
-    set(stored !== "closed");
-    btn.addEventListener("click", function () {
-      var open = btn.getAttribute("aria-expanded") !== "true";
-      set(open);
-      try {
-        if (open) window.localStorage.removeItem(NAV_PAGES_KEY);
-        else window.localStorage.setItem(NAV_PAGES_KEY, "closed");
-      } catch (_e) { /* this page only */ }
-    });
-    nav.parentNode.insertBefore(btn, nav);
-  }
-
-  /* ── THE RAIL'S LAYOUT, ON A THEME PAGE ──────────────────────────────────
-   *
-   * Owner ruling on bean ob3m finding 7, 2026-10-01, option 1 of 4: *"Use the
-   * viewer-rail layout on Jekyll pages."* The generated viewer rail
-   * (`lib/navbar.ts`, #1762) has ONE scroller holding the page's own section
-   * first and a folded "Graphs" group after it. This sidebar had three
-   * regions that each capped and scrolled on their own, and the measurement
-   * that settled it was taken on the built landing page at 1280x800 with
-   * every group unfolded: the middle at its 128px floor, 0 of the 430 page
-   * links visible because FOLDERS (789px) sat above them, the harness group
-   * scrolling inside the footer, and `.side-bar` clipping 2108px of content
-   * into 800. Two nested scrollers and a column that hid what it could not fit.
-   *
-   * So, inside the one middle region and in this order:
-   *
-   *   1. "On this page" -- first, as the ruling says, and still folded on
-   *      arrival (*"any indices/toc should be closed"*, 2026-09-23).
-   *   2. The page list -- the only group open on arrival, so it gets the
-   *      height. The rail's `single-open` rule, applied to this surface.
-   *   3. "Folders" -- a TOP-LEVEL section of its own, folded on arrival,
-   *      with no "Graphs" wrapper around it. Owner's ruling on #2150,
-   *      2026-10-05, option (a): *"Folders becomes its own top-level section
-   *      on the Jekyll sidebar, next to "On this page" and "Pages". Drop the
-   *      Jekyll Graphs wrapper, which would otherwise be empty."* That
-   *      SUPERSEDES this ruling's original step 3, which put FOLDERS inside a
-   *      folded "Graphs" group -- so a folded Graphs hid Folders, and the
-   *      owner read it as gone (*"there used to be"*). Its heading takes the
-   *      slot Graphs had: pinned to the scroller's bottom while folded, above
-   *      ▦, so it is one row away however long the page list is.
-   *   4. "▦ Harnesses" -- the harness group, moved out of the footer, folded,
-   *      LAST and BESIDE Folders rather than inside it. That is where the
-   *      viewer rail keeps it too (`navbarHtml`: graphs in the middle,
-   *      harnesses below them), and it is what keeps the owner's ruling on
-   *      finding 1 (#1805): *"Make ▦ Harnesses visible on the landing page
-   *      too"* -- ▦ is a mark in the 56px strip at rest and ONE click shows
-   *      the harnesses. Folded inside another group it would be invisible at rest and
-   *      two clicks away, which is the state that ruling removed. Both folded
-   *      headings are pinned to the scroller's bottom edge, ▦ lowest, so the
-   *      one-scroller property of this ruling is unchanged.
-   *
-   * MOVED, never re-rendered: the folder rows and the harness rows are the
-   * nodes the generators already wrote, so their labels, notes and tooltips
-   * are exactly what those generators say. This changes WHERE, not WHAT --
-   * which is why the harness rows' `data-fa-tip` (#1805) still names their ⚙
-   * after the move: `.side-bar [data-fa-tip]::after` is `position: fixed`, so
-   * the scroller's `overflow` does not clip it.
-   *
-   * The footer keeps home, which is the one destination `navbar.ts` pins below
-   * everything (*"keep home at bottom"*). Only the sidebar's own footer is
-   * touched: just-the-docs renders the same include a second time for the
-   * phone layout, outside `.side-bar`, and that copy is not this region.
-   */
-  /** A path as the Folders section compares it: no `index.html`, one trailing slash. */
-  function foldersPathKey(path) {
-    return String(path || "").replace(/index\.html$/, "").replace(/\/*$/, "/");
-  }
-
-  /* ── THE PAGES LIST IN THE READER'S ALPHABETICAL ORDER ───────────────────
-   *
-   * Owner, 2026-10-05 (bean `xka5`): pages grouped by the docs graph's named
-   * sub-graphs (`_config.yml` `defaults`, one `parent` per folder), *"and
-   * alphabetization//locale dependent"*. just-the-docs orders by `nav_order`
-   * then title in the BUILD's collation, which is a hand-kept number and one
-   * language for every reader. So each level is re-sorted here with
-   * `Intl.Collator` in the page's own `lang`: Arabic, Chinese and Russian
-   * readers get their order, not English's. Home stays first — it is the
-   * root, not an entry in the alphabet. Reordering only: no node is made,
-   * dropped or relabelled, so every link and its state are the theme's.
-   */
-  function sortNavByLocale() {
-    var nav = document.querySelector(".side-bar .site-nav");
-    if (!nav || typeof Intl === "undefined" || !Intl.Collator) return;
-    // A list SCOPED to one harness (#1902, `scopeSiteNav`) is that harness's
-    // own table of contents, in the order it declares: the owner's ruling is
-    // that "each harness is responsible for managing its own sub doc graphs".
-    // Only the site's own list is put into the reader's alphabet.
-    if (nav.hasAttribute("data-fa-scope")) return;
-    var lang = document.documentElement.getAttribute("lang") || undefined;
-    var collator;
-    try { collator = new Intl.Collator(lang, { sensitivity: "base", numeric: true }); }
-    catch (_e) { collator = new Intl.Collator(undefined, { sensitivity: "base", numeric: true }); }
-    var label = function (li) {
-      var a = li.querySelector(":scope > a.nav-list-link");
-      return a ? (a.textContent || "").replace(/\s+/g, " ").trim() : "";
-    };
-    var isHome = function (li) {
-      var a = li.querySelector(":scope > a.nav-list-link");
-      if (!a) return false;
-      try {
-        var to = new URL(a.getAttribute("href"), window.location.href).pathname.replace(/index\.html$/, "");
-        return to === withBase("/").replace(/index\.html$/, "") || to === withBase("") + "/";
-      } catch (_e) { return false; }
-    };
-    Array.prototype.forEach.call(nav.querySelectorAll("ul.nav-list"), function (ul) {
-      var items = Array.prototype.filter.call(ul.children, function (c) { return c.tagName === "LI"; });
-      if (items.length < 2) return;
-      var sorted = items.slice().sort(function (x, y) {
-        var hx = isHome(x), hy = isHome(y);
-        if (hx !== hy) return hx ? -1 : 1;
-        return collator.compare(label(x), label(y));
-      });
-      sorted.forEach(function (li) { ul.appendChild(li); });
-    });
-  }
-
-  function mountSidebarRail() {
-    var bar = document.querySelector(".side-bar");
-    var nav = bar && bar.querySelector(".site-nav");
-    if (!bar || !nav) return;
-    if (bar.querySelector(".fa-nav-folders--rail, .fa-nav-harness-group")) return;
-
-    // THE ONE SCROLLER. `mountInstanceGraphs` builds it when the folder row
-    // could be read; when it could not, the nav still needs a region to share
-    // with the page index, or the index keeps a scroll box of its own.
-    var middle = bar.querySelector(":scope > .fa-nav-middle");
-    if (!middle) {
-      middle = el("div", { class: "fa-nav-middle" });
-      var first = bar.querySelector(":scope > .fa-nav-pages") || nav;
-      if (first.parentNode !== bar) return;
-      bar.insertBefore(middle, first);
-      if (first !== nav) middle.appendChild(first);
-      middle.appendChild(nav);
-    }
-
-    var index = bar.querySelector(".fa-doc-index");
-    if (index) middle.insertBefore(index, middle.firstChild);
-
-    var folders = middle.querySelector(":scope > .fa-nav-folders");
-    var foot = bar.querySelector(":scope > .site-footer .fa-nav-bottom");
-    var harnesses = foot && foot.querySelector(":scope > details.fa-nav-group");
-    if (!folders && !harnesses) return;
-
-    // OPENED FROM THE BOTTOM EDGE, a heading is pinned there while folded
-    // (docs-ui.css), so what it reveals lands below the fold. Bring the group
-    // to the top of the one scroller so opening it visibly does something.
-    function toTopOnOpen(d) {
-      d.addEventListener("toggle", function () {
-        if (!d.open) return;
-        var by = d.getBoundingClientRect().top - middle.getBoundingClientRect().top;
-        if (by > 0) middle.scrollTop += by;
-      });
-    }
-
-    if (folders) {
-      // MOVED to the end of the scroller, after the page list, and marked so
-      // a second run finds it done. Its fold, its count and its
-      // `aria-expanded` are the ones `mountInstanceGraphs` already gave it:
-      // folded on arrival and not remembered, as before the ruling.
-      folders.classList.add("fa-nav-folders--rail");
-      middle.appendChild(folders);
-      // UNLESS THE PAGE BEING READ IS ONE OF ITS ROWS: a folded default must
-      // not hide where the reader is (#2150). Then it opens, with any
-      // "Sub-graphs of" fold that holds the row, and the row says so to
-      // assistive technology.
-      var here = foldersPathKey(window.location.pathname);
-      var mine = null;
-      Array.prototype.forEach.call(folders.querySelectorAll("a[href]"), function (a) {
-        if (mine) return;
-        var to;
-        try { to = new URL(a.getAttribute("href"), window.location.href).pathname; } catch (_e) { return; }
-        if (foldersPathKey(to) === here) mine = a;
-      });
-      if (mine) {
-        mine.setAttribute("aria-current", "page");
-        for (var up = mine.parentNode; up && up !== middle; up = up.parentNode) {
-          if (up.tagName === "DETAILS") up.open = true;
-        }
-      }
-      toTopOnOpen(folders);
-    }
-
-    if (harnesses) {
-      harnesses.classList.add("fa-nav-harness-group");
-      // Server-rendered by `navbar.ts` in English — harness names, graph
-      // labels and their descriptions — and marked here, where it is moved
-      // into the scroller, rather than in the generated bundle (`giiw`).
-      chromeText(harnesses);
-      middle.appendChild(harnesses);
-      mirrorExpanded(harnesses);
-      toTopOnOpen(harnesses);
-      // THE FOLDED FOLDERS HEADING SITS ON TOP OF ▦, not under it: both are
-      // pinned to the bottom edge, so Folders is offset by ▦'s height. That
-      // height changes between the strip and the open bar, so it is measured
-      // rather than restated (`--fa-nav-harness-rest`, read by docs-ui.css).
-      // The FOLDED box is what sits under Folders, so it is read only while
-      // folded; the stylesheet stops reading it once ▦ is opened.
-      var setRest = function () {
-        if (!harnesses.open) middle.style.setProperty("--fa-nav-harness-rest", harnesses.offsetHeight + "px");
-      };
-      setRest();
-      if (typeof ResizeObserver === "function") new ResizeObserver(setRest).observe(harnesses);
-    }
-  }
-
   /* ── STAY CLOSED, REMEMBERED ─────────────────────────────────────────────
    *
    * Owner, 2026-09-23: *"need mechansim for closing harness navabar (e.g. w/
@@ -12501,7 +12855,7 @@
 
     var box = document.getElementById("fa-nav-open");
     // NO ☰ AND NO [x] (#1757 on the rail, ob3m finding 8 here). The avatar
-    // below is the one control: it pins the bar open and closes it.
+    // below pins a closed bar open, and goes home from an open one.
 
     /* THE AVATAR OPENS AND CLOSES THE BAR — owner, 2026-09-27: *"navbar
      * starts hidden, click avatar opens for a split second then returns to
@@ -12511,7 +12865,8 @@
      *
      * From 50rem up it is now the bar's toggle: pin open (lifting stay-closed),
      * or close (setting it, so the hover peek does not hold it open under the
-     * pointer). Home is still one click away, as ⌂ at the foot of the bar and
+     * pointer). (Superseded 2026-10-30, below: the ⌂ row is gone and an open
+     * bar's avatar goes home.) Home was one click away, as ⌂ at the foot and
      * as the first page. Below 50rem the theme's ☰ owns the menu and the
      * avatar stays the home link. With no script it is the home link too. */
     var avatar = bar.querySelector(".site-title");
@@ -12525,29 +12880,27 @@
         }
         avatar.setAttribute("aria-controls", bar.id || "");
         avatar.setAttribute("aria-expanded", box.checked ? "true" : "false");
-        avatar.title = box.checked ? "Close navigation" : "Open navigation";
+        avatar.title = box.checked ? "Go to the landing page" : "Open navigation, or go to the landing page once it is open";
       };
       if (!bar.id) bar.id = "fa-side-bar";
       label();
       box.addEventListener("change", label);
+      /* AN OPEN BAR'S AVATAR GOES HOME -- owner, 2026-10-30: *"who eblmen not
+       * clicable to go to landing page. also dont need home on bottomof
+       * harnes navbars."* The ⌂ row at the foot is gone, so the avatar is the
+       * way home. It still pins a CLOSED bar open, which is the touch case
+       * (no hover to peek it open); once the bar is open, by hover, focus or
+       * the pin, the click is the theme's home link. */
       avatar.addEventListener("click", function (e) {
         if (!wide.matches) return;
+        // `(hover: hover)`: a touch screen reports :hover on the tap itself,
+        // which would send its first tap home instead of opening the bar.
+        var canHover = window.matchMedia("(hover: hover)").matches;
+        if (box.checked || (canHover && bar.matches(":hover")) || bar.matches(":focus-visible, :has(:focus-visible)")) return;
         e.preventDefault();
-        box.checked = !box.checked;
-        // Closed under the pointer, the hover peek would hold it open, so the
-        // peek is withheld -- until the pointer leaves the bar, not for good.
-        applyNavPref(box.checked ? null : "closed");
-        if (!box.checked) {
-          bar.addEventListener("pointerleave", function release() {
-            bar.removeEventListener("pointerleave", release);
-            if (!box.checked) applyNavPref(null);
-          });
-        }
+        box.checked = true;
+        applyNavPref(null);
         label();
-        // Closing must drop focus too: the bar also opens on `:focus-within`
-        // (the keyboard path), so a focused avatar held it open after the
-        // click that closed it. Measured: 264px wide with the pointer away.
-        if (!box.checked) avatar.blur();
       });
     }
   }
@@ -12618,6 +12971,44 @@
     anchor.parentNode.insertBefore(box, anchor);
   }
 
+  /* ── The footer's build stamp, filled from build.json ─────────────────
+   *
+   * `footer_custom.html` renders the stamp CONSTANTLY ("deployed dev") on
+   * every build, the live site included, so a page that did not change is
+   * byte-identical on every deploy and in every preview. A stamp baked in at
+   * build time changed every page on every main deploy, which is what kept a
+   * preview from sharing main's unchanged files and the cone deploy from
+   * skipping anything (owner, 2026-10-31: "if asset not changed in staging
+   * then link to main asset").
+   *
+   * The live site's facts are in `<base>/build.json`, which `docs-site.yml`
+   * writes for client-side readers. A preview's are in `staging.json`, and
+   * the staging banner's own script fills the stamp from it, so this leaves a
+   * preview alone. A failed fetch leaves "dev" and says the details are
+   * unavailable: it never shows a stamp it could not read.
+   */
+  function fillBuildStamp() {
+    if (isStagingPreview()) return;
+    var p = document.querySelector(".fa-build-stamp");
+    if (!p || typeof fetch !== "function") return;
+    fetch(withBase("/build.json"), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function (b) {
+        var sha = typeof b.sha === "string" ? b.sha : "";
+        if (!/^[0-9a-f]{7,40}$/.test(sha)) return;
+        while (p.firstChild) p.removeChild(p.firstChild);
+        p.appendChild(document.createTextNode("deployed "));
+        var a = document.createElement("a");
+        a.href = (/^https:\/\//.test(b.runUrl || "") && safeHref(b.runUrl)) || "https://github.com/litlfred/folio-assistant/actions";
+        var code = document.createElement("code");
+        code.textContent = sha.slice(0, 7);
+        a.appendChild(code);
+        p.appendChild(a);
+        if (typeof b.built === "string" && b.built) p.appendChild(document.createTextNode(" \u00b7 " + b.built));
+      })
+      .catch(function () { p.setAttribute("title", "build details unavailable"); });
+  }
+
   function init() {
     // RTL detection — Arabic pages get dir="rtl" on <html> which
     // triggers the CSS rules in docs-ui.css for smooth sidebar slide.
@@ -12633,6 +13024,7 @@
     // BEFORE the tiles and the rows: it adds the class the stylesheet keys the
     // close control on, and a control offered before its handler exists is a
     // control that does the wrong thing if pressed in that window.
+    fillBuildStamp();
     mountNavPreference();
     // BEFORE the tiles: Page settings drops its own Discarded control when the
     // navbar already carries fsh-guts (#1925), and asks by looking for it.
@@ -12644,26 +13036,7 @@
     // AGAIN, now that the row exists: the row's fsh-guts button is built by
     // `mountNavIconRow`, after the first call. Idempotent per button.
     mountFshGutsNav();
-    // BEFORE `mountInstanceGraphs`, and the order is load-bearing rather than
-    // tidy: that function MOVES `.site-nav` into a wrapper, and this one
-    // inserts before `.site-nav`. Run the other way round, `insertBefore` gets
-    // a reference node that is no longer a child of `.side-bar` and throws
-    // `NotFoundError` -- which took down the REST of init() with it, so the
-    // document index, the QA panels and the figures all silently vanished from
-    // one DOM move. Measured with a pageerror listener, not reasoned about.
-    //
-    // The insert below is also defensive now, so this ordering is a second
-    // line rather than the only one.
-    mountDocumentIndex();
-    mountInstanceGraphs();
-    // BEFORE the heading: its count is read off what the scope left (#1902).
-    scopeSiteNav();
-    // AFTER the wrapper exists, so the heading lands beside the nav inside it.
-    mountNavPagesHeading();
-    // LAST of the sidebar mounts: it MOVES the index, the folders and the
-    // harness group into the one middle, so all three must already exist.
-    sortNavByLocale();
-    mountSidebarRail();
+    // The theme sidebar's sections are the rail's now (see RETIRED above).
     // AFTER THE SITE INDEX, which is fetched rather than inlined since
     // 2026-10-02 — see the site-index block at the top of this file. It is the
     // ONE deferred call in this sequence: `mountNavLocale` sets attributes on
@@ -12678,6 +13051,7 @@
     // was a preference about paint rather than a dependency.
     withSiteIndex(mountNavLocale);
     mountTranslationBadges();
+    mountTranslationStatusRows();
     mountQaPanels();
     paintQaBadges();
     // THE GLASS FIRST, and unconditionally. It is the reader's folio rather
