@@ -1,0 +1,78 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-csd_info_manager",
+      "@type": "skos:ConceptScheme",
+      "skos:prefLabel": "iHRIS 4.3.3 code list: csd_info_manager",
+      "skos:definition": "The `csd_info_manager` code list as iHRIS 4.3.3 ships it by default: 4 codes from ihris-common/module/csd-infoman-storage. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+      "dcterms:hasVersion": "4.3.3",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/csd_info_manager.json (iHRIS 4.3.3, MD5-verified release)",
+      "dcterms:license": "https://www.gnu.org/licenses/gpl-3.0.html"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-csd_info_manager/organization_connectathon",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-csd_info_manager"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "localhost connect-a-thon organizations"
+        }
+      ],
+      "skos:notation": "organization_connectathon",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/csd_info_manager.json#/records/0",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-csd_info_manager/facility_connectathon",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-csd_info_manager"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "localhost connect-a-thon facilities"
+        }
+      ],
+      "skos:notation": "facility_connectathon",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/csd_info_manager.json#/records/1",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-csd_info_manager/service_connectathon",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-csd_info_manager"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "localhost connect-a-thon services"
+        }
+      ],
+      "skos:notation": "service_connectathon",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/csd_info_manager.json#/records/2",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-csd_info_manager/provider_connectathon",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-csd_info_manager"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "localhost connect-a-thon providers"
+        }
+      ],
+      "skos:notation": "provider_connectathon",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/csd_info_manager.json#/records/3",
+      "skos:note": "candidate"
+    }
+  ]
+}

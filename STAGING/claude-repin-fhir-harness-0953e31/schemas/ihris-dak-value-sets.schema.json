@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-dak-value-sets.schema.json",
+  "title": "ihris-dak-value-sets/v1",
+  "description": "Which iHRIS list backs each value set, which data elements use it, and how many default and sample codes ship (src/ihris-data-dictionary/value-sets.json).",
+  "type": "object",
+  "required": [
+    "valueSets"
+  ],
+  "properties": {
+    "note": {
+      "type": "string"
+    },
+    "valueSets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "form",
+          "class",
+          "displayName",
+          "canonical",
+          "usedBy",
+          "defaultCodes",
+          "sampleCodes",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^IHRIS\\.DE\\.VS\\."
+          },
+          "form": {
+            "type": "string"
+          },
+          "class": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "canonical": {
+            "type": "string",
+            "format": "uri"
+          },
+          "usedBy": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "defaultCodes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sampleCodes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

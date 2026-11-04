@@ -1,0 +1,644 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms",
+      "@type": "skos:ConceptScheme",
+      "skos:prefLabel": "iHRIS Implementation Toolkit: technical terms",
+      "skos:definition": "The technical terms each stage of the iHRIS Implementation Toolkit defines, term and definition verbatim from the stage pages captured in uploads/toolkit/ (ingested to library/ihris-toolkit/stages/).",
+      "dcterms:source": "From the iHRIS Implementation Toolkit, toolkit.ihris.org. https://toolkit.ihris.org/",
+      "dcterms:license": "LicenseRef-owner-permission: granted 2026-09-23 by the folio owner (litlfred), asked in the building session; library/ihris-toolkit/ihris-toolkit.json#/licence"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/human-resources-information-system-hris",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "human resources information system (HRIS)"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A human resources information system (HRIS) collects and manages information used in HR decision making. A complete HRIS links all HR data from the time professionals enter preservice training until they leave the workforce. Typically, the system is computerized and consists of a database for storing the information, software for entering and updating data, and reporting and analysis tools."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 0: Assess.",
+      "dcterms:source": "library/ihris-toolkit/stages/0-assess.json#/technicalTerms/0"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/health-information-system-his",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "health information system (HIS)"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The health information system (HIS) includes all computerized systems for collecting, processing, and reporting health information to influence policy and decision making."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 0: Assess.",
+      "dcterms:source": "library/ihris-toolkit/stages/0-assess.json#/technicalTerms/1"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/ehealth",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "eHealth"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "eHealth refers to the use of information and communications technologies (ICT) to support health. mHealth is a subset of eHealth, referring to the use of mobile devices, including phones, tablets, and PDAs, to support health."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 0: Assess.",
+      "dcterms:source": "library/ihris-toolkit/stages/0-assess.json#/technicalTerms/2"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/infrastructure",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "infrastructure"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Information technology infrastructure includes all of the computer hardware, software, and networks required for the information system to operate, as well as supporting resources, such as physical space and reliable electricity."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 0: Assess.",
+      "dcterms:source": "library/ihris-toolkit/stages/0-assess.json#/technicalTerms/3"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/early-adopter",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "early adopter"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "An early adopter is someone who embraces or advocates for technology before it is widely accepted."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 0: Assess.",
+      "dcterms:source": "library/ihris-toolkit/stages/0-assess.json#/technicalTerms/4"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/stakeholder",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "stakeholder"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A stakeholder is a person or organization with an interest or concern in the HRIS. All of the producers and consumers of health worker information, as well as those who make decisions based on that information, are stakeholders in iHRIS."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 0: Assess.",
+      "dcterms:source": "library/ihris-toolkit/stages/0-assess.json#/technicalTerms/5"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/policy-and-management-questions",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Policy and management questions"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Policy and management questions are questions about the health workforce that stakeholders need to answer. They inform health workforce policy and day-to-day HR management issues."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 0: Assess.",
+      "dcterms:source": "library/ihris-toolkit/stages/0-assess.json#/technicalTerms/6"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/business-case",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "business case"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The business case describes the desired benefits of the system and the “why” of implementing it. It should compare these benefits to estimated costs."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 0: Assess.",
+      "dcterms:source": "library/ihris-toolkit/stages/0-assess.json#/technicalTerms/7"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/health-workforce-observatory",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Health Workforce Observatory"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A Health Workforce Observatory is a cooperative mechanism that brings together institutions aiming at HRH development and improvement based on evidence."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 0: Assess.",
+      "dcterms:source": "library/ihris-toolkit/stages/0-assess.json#/technicalTerms/8"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/interoperability",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Interoperability"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Interoperability refers to the ability of two information systems to exchange data and interpret the shared data."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 0: Assess.",
+      "dcterms:source": "library/ihris-toolkit/stages/0-assess.json#/technicalTerms/9"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/stakeholder-leadership-group-slg",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Stakeholder Leadership Group (SLG)"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The Stakeholder Leadership Group (SLG)is a committee of representatives from all of the stakeholder organizations; the purpose of the group is to agree on the goals for iHRIS and oversee its implementation."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 1: Plan.",
+      "dcterms:source": "library/ihris-toolkit/stages/1-plan.json#/technicalTerms/0"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/system-requirements",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "System requirements"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "System requirements tell the software developers how to customize the software in order to fulfill the stakeholders’ needs for collecting, sharing, reporting, and ensuring quality of data."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 1: Plan.",
+      "dcterms:source": "library/ihris-toolkit/stages/1-plan.json#/technicalTerms/1"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/principles-of-operation",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Principles of operation"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Principles of operation define how the group will work together and the values that underlie the group’s operations."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 1: Plan.",
+      "dcterms:source": "library/ihris-toolkit/stages/1-plan.json#/technicalTerms/2"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/terms-of-reference",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Terms of reference"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Terms of reference describe the group’s purpose, vision, and goals, and they often assign roles and responsibilities to group members."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 1: Plan.",
+      "dcterms:source": "library/ihris-toolkit/stages/1-plan.json#/technicalTerms/3"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/dataset",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "dataset"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A dataset is a collection of related sets of information composed of separate elements that can be manipulated as a unit."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 1: Plan.",
+      "dcterms:source": "library/ihris-toolkit/stages/1-plan.json#/technicalTerms/4"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/field",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "field"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A field records a unit of data in the database."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 2: Deploy.",
+      "dcterms:source": "library/ihris-toolkit/stages/2-deploy.json#/technicalTerms/0"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/form",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "form"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A form contains numerous fields, or spaces to enter data. Records are stored in iHRIS as forms."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 2: Deploy.",
+      "dcterms:source": "library/ihris-toolkit/stages/2-deploy.json#/technicalTerms/1"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/module",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "module"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A module is software code that provides a set of related features for the system. Modules serve as the building blocks of iHRIS and are grouped according to the functionality they provide."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 2: Deploy.",
+      "dcterms:source": "library/ihris-toolkit/stages/2-deploy.json#/technicalTerms/2"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/production-code",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Production code"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Production code, also called deployment code,is a version of the software code in which all changes have been tested, no errors or bugs have been found, and the software is ready for use."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 2: Deploy.",
+      "dcterms:source": "library/ihris-toolkit/stages/2-deploy.json#/technicalTerms/3"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/source-code-repository",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "source code repository"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A source code repository is a place where source code is kept, either publicly or privately. The source code repository handles different versions of the software code and resolves conflicts arising from developers submitting modifications to the code."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 2: Deploy.",
+      "dcterms:source": "library/ihris-toolkit/stages/2-deploy.json#/technicalTerms/4"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/development-code",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Development code"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Development code is a version of the software to which changes are being made; this code will be merged into the production code branch once the changes have been tested and are ready for release."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 2: Deploy.",
+      "dcterms:source": "library/ihris-toolkit/stages/2-deploy.json#/technicalTerms/5"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/standard-operating-procedures",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Standard operating procedures"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Standard operating procedures document how business tasks should be performed."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 2: Deploy.",
+      "dcterms:source": "library/ihris-toolkit/stages/2-deploy.json#/technicalTerms/6"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/pilot",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "pilot"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A pilot is a trial deployment of software on a small scale intended to test the software’s functionality in a real-world situation."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 3: Pilot.",
+      "dcterms:source": "library/ihris-toolkit/stages/3-pilot.json#/technicalTerms/0"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/user-group",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "user group"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A user group is an organization of users of a specific software program. Members share experiences and ideas to improve their understanding of the software and to influence its development."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 3: Pilot.",
+      "dcterms:source": "library/ihris-toolkit/stages/3-pilot.json#/technicalTerms/1"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/usability",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Usability"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Usability refers to the ease of use of a software program or information system, as well as to how easy it is to learn to use the system."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 3: Pilot.",
+      "dcterms:source": "library/ihris-toolkit/stages/3-pilot.json#/technicalTerms/2"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/iterative-development",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Iterative development"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Iterative development means working on small sets of tasks or new features at a time and frequently turning out new iterations, or versions of the software, that users can react to."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 3: Pilot.",
+      "dcterms:source": "library/ihris-toolkit/stages/3-pilot.json#/technicalTerms/3"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/phased-rollout",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Phased rollout"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Phased rollout is the process of deploying a computer system to multiple offices or facilities in an incremental way. Because it isn’t rolled out at once, the organization doesn’t have to deal with potential issues at the same time. Furthermore, information learned from early stages can be applied to the rest of the process, so there are fewer issues as the implementation continues. A phased rollout also allows users to adjust to the new system gradually."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 4: Scale-up.",
+      "dcterms:source": "library/ihris-toolkit/stages/4-scale-up.json#/technicalTerms/0"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/monitoring-and-evaluation",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Monitoring and evaluation"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Monitoring and evaluation refers to processes of monitoring a program and evaluating the impact it has in order to assess the success of and gaps in program implementation."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 5: Sustain.",
+      "dcterms:source": "library/ihris-toolkit/stages/5-sustain.json#/technicalTerms/0"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/business-process",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "business process"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A business process is a set of tasks to accomplish a specific organizational goal. Examples of business processes include processes that govern the operation of iHRIS and operational processes such as recruitment, accounting, and employee professional development. The process can usually be visualized as a flowchart."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 5: Sustain.",
+      "dcterms:source": "library/ihris-toolkit/stages/5-sustain.json#/technicalTerms/1"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/indicator",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "indicator"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "An indicator is a measure that is used to demonstrate progress in or results of an activity."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 5: Sustain.",
+      "dcterms:source": "library/ihris-toolkit/stages/5-sustain.json#/technicalTerms/2"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/data-audit",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "data audit"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A data audit refers to the auditing of data to assess quality or utility. Auditing data involves looking at key metrics to come to conclusions about the properties of a dataset."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 5: Sustain.",
+      "dcterms:source": "library/ihris-toolkit/stages/5-sustain.json#/technicalTerms/3"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/helpdesk",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "helpdesk"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A helpdesk is a service within an organization providing information and support to computer users."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 5: Sustain.",
+      "dcterms:source": "library/ihris-toolkit/stages/5-sustain.json#/technicalTerms/4"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms/frequently-asked-questions",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-toolkit/ns#glossary/toolkit-technical-terms"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Frequently Asked Questions"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Frequently Asked Questions, or a FAQ, is a list of questions and their answers pertaining to a particular piece of software or another topic, which are commonly asked."
+        }
+      ],
+      "skos:scopeNote": "Toolkit stage 5: Sustain.",
+      "dcterms:source": "library/ihris-toolkit/stages/5-sustain.json#/technicalTerms/5"
+    }
+  ]
+}

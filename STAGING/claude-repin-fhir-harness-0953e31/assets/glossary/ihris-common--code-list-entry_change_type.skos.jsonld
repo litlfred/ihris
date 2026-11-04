@@ -1,0 +1,78 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-entry_change_type",
+      "@type": "skos:ConceptScheme",
+      "skos:prefLabel": "iHRIS 4.3.3 code list: entry_change_type",
+      "skos:definition": "The `entry_change_type` code list as iHRIS 4.3.3 ships it by default: 4 codes from ihris-common/module/UserStatistics. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+      "dcterms:hasVersion": "4.3.3",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/entry_change_type.json (iHRIS 4.3.3, MD5-verified release)",
+      "dcterms:license": "https://www.gnu.org/licenses/gpl-3.0.html"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-entry_change_type/1",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-entry_change_type"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Initial Entry"
+        }
+      ],
+      "skos:notation": "1",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/entry_change_type.json#/records/0",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-entry_change_type/2",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-entry_change_type"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Verified Value"
+        }
+      ],
+      "skos:notation": "2",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/entry_change_type.json#/records/1",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-entry_change_type/3",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-entry_change_type"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Corrected Value"
+        }
+      ],
+      "skos:notation": "3",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/entry_change_type.json#/records/2",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-entry_change_type/4",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-entry_change_type"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Updated Value"
+        }
+      ],
+      "skos:notation": "4",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/entry_change_type.json#/records/3",
+      "skos:note": "candidate"
+    }
+  ]
+}

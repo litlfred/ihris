@@ -1,0 +1,3163 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency",
+      "@type": "skos:ConceptScheme",
+      "skos:prefLabel": "iHRIS 4.3.3 code list: currency",
+      "skos:definition": "The `currency` code list as iHRIS 4.3.3 ships it by default: 162 codes from ihris-common/module/iso-currency. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate. The 4 sample record(s) illustrate one example deployment and are left out. 143 term(s) link to EU Publications Office authority table: currencies, from the verified ConceptMap currency-to-iso-4217 (equal only); the IRIs follow the publisher's pattern and were not dereferenced.",
+      "dcterms:hasVersion": "4.3.3",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json (iHRIS 4.3.3, MD5-verified release)",
+      "dcterms:license": "https://www.gnu.org/licenses/gpl-3.0.html"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/afn",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Afghani"
+        }
+      ],
+      "skos:notation": "AFN",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/AFN"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/4",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/all",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Lek"
+        }
+      ],
+      "skos:notation": "ALL",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/ALL"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/5",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/dzd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Algerian Dinar"
+        }
+      ],
+      "skos:notation": "DZD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/DZD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/6",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/aoa",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Kwanza"
+        }
+      ],
+      "skos:notation": "AOA",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/AOA"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/7",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/xcd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "East Caribbean Dollar"
+        }
+      ],
+      "skos:notation": "XCD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/XCD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/8",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/ars",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Argentine Peso"
+        }
+      ],
+      "skos:notation": "ARS",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/ARS"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/10",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/amd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Armenian Dram"
+        }
+      ],
+      "skos:notation": "AMD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/AMD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/11",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/awg",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Aruban Guilder"
+        }
+      ],
+      "skos:notation": "AWG",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/AWG"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/12",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/aud",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Australian Dollar"
+        }
+      ],
+      "skos:notation": "AUD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/AUD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/13",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/eur",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Euro"
+        }
+      ],
+      "skos:notation": "EUR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/EUR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/14",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/azm",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Azerbaijanian Manat"
+        }
+      ],
+      "skos:notation": "AZM",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/15",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bsd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Bahamian Dollar"
+        }
+      ],
+      "skos:notation": "BSD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BSD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/16",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bhd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Bahraini Dinar"
+        }
+      ],
+      "skos:notation": "BHD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BHD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/17",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bdt",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Taka"
+        }
+      ],
+      "skos:notation": "BDT",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BDT"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/18",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bbd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Barbados Dollar"
+        }
+      ],
+      "skos:notation": "BBD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BBD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/19",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/byr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Belarussian Ruble"
+        }
+      ],
+      "skos:notation": "BYR",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/20",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bzd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Belize Dollar"
+        }
+      ],
+      "skos:notation": "BZD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BZD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/21",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/xof",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Cfa Franc Bceao"
+        }
+      ],
+      "skos:notation": "XOF",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/XOF"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/22",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bmd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Bermudian Dollar"
+        }
+      ],
+      "skos:notation": "BMD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BMD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/23",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/btn",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Ngultrum"
+        }
+      ],
+      "skos:notation": "BTN",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BTN"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/24",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bob",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Boliviano"
+        }
+      ],
+      "skos:notation": "BOB",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BOB"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/25",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bam",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Convertible Marks"
+        }
+      ],
+      "skos:notation": "BAM",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BAM"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/26",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bwp",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Pula"
+        }
+      ],
+      "skos:notation": "BWP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BWP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/27",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/nok",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Norwegian Krone"
+        }
+      ],
+      "skos:notation": "NOK",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/NOK"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/28",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/brl",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Brazilian Real"
+        }
+      ],
+      "skos:notation": "BRL",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BRL"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/29",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bnd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Brunei Dollar"
+        }
+      ],
+      "skos:notation": "BND",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BND"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/30",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bgn",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Bulgarian Lev"
+        }
+      ],
+      "skos:notation": "BGN",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BGN"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/31",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/bif",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Burundi Franc"
+        }
+      ],
+      "skos:notation": "BIF",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/BIF"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/33",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/khr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Riel"
+        }
+      ],
+      "skos:notation": "KHR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/KHR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/34",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/xaf",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Cfa Franc Beac"
+        }
+      ],
+      "skos:notation": "XAF",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/XAF"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/35",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/cad",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Canadian Dollar"
+        }
+      ],
+      "skos:notation": "CAD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/CAD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/36",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/cve",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Cape Verde Escudo"
+        }
+      ],
+      "skos:notation": "CVE",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/CVE"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/37",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/kyd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Cayman Islands Dollar"
+        }
+      ],
+      "skos:notation": "KYD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/KYD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/38",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/clp",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Chilean Peso"
+        }
+      ],
+      "skos:notation": "CLP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/CLP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/41",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/cny",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Yuan Renminbi"
+        }
+      ],
+      "skos:notation": "CNY",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/CNY"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/42",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/cop",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Colombian Peso"
+        }
+      ],
+      "skos:notation": "COP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/COP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/43",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/kmf",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Comoro Franc"
+        }
+      ],
+      "skos:notation": "KMF",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/KMF"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/44",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/cdf",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Franc Congolais"
+        }
+      ],
+      "skos:notation": "CDF",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/CDF"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/46",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/nzd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "New Zealand Dollar"
+        }
+      ],
+      "skos:notation": "NZD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/NZD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/47",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/crc",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Costa Rican Colon"
+        }
+      ],
+      "skos:notation": "CRC",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/CRC"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/48",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/hrk",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Croatian Kuna"
+        }
+      ],
+      "skos:notation": "HRK",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/HRK"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/49",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/cup",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Cuban Peso"
+        }
+      ],
+      "skos:notation": "CUP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/CUP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/50",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/cyp",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Cyprus Pound"
+        }
+      ],
+      "skos:notation": "CYP",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/51",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/czk",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Czech Koruna"
+        }
+      ],
+      "skos:notation": "CZK",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/CZK"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/52",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/dkk",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Danish Krone"
+        }
+      ],
+      "skos:notation": "DKK",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/DKK"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/53",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/djf",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Djibouti Franc"
+        }
+      ],
+      "skos:notation": "DJF",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/DJF"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/54",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/dop",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Dominican Peso"
+        }
+      ],
+      "skos:notation": "DOP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/DOP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/56",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/egp",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Egyptian Pound"
+        }
+      ],
+      "skos:notation": "EGP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/EGP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/57",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/svc",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "El Salvador Colon"
+        }
+      ],
+      "skos:notation": "SVC",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SVC"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/58",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/ern",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Nakfa"
+        }
+      ],
+      "skos:notation": "ERN",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/ERN"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/60",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/eek",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Kroon"
+        }
+      ],
+      "skos:notation": "EEK",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/61",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/etb",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Ethiopian Birr"
+        }
+      ],
+      "skos:notation": "ETB",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/ETB"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/62",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/fkp",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Falkland Islands Pound"
+        }
+      ],
+      "skos:notation": "FKP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/FKP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/63",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/fjd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Fiji Dollar"
+        }
+      ],
+      "skos:notation": "FJD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/FJD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/65",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/xpf",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Cfp Franc"
+        }
+      ],
+      "skos:notation": "XPF",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/XPF"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/66",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/gmd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Dalasi"
+        }
+      ],
+      "skos:notation": "GMD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/GMD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/68",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/gel",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Lari"
+        }
+      ],
+      "skos:notation": "GEL",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/GEL"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/69",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/ghc",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Cedi"
+        }
+      ],
+      "skos:notation": "GHC",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/70",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/gip",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Gibraltar Pound"
+        }
+      ],
+      "skos:notation": "GIP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/GIP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/71",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/gtq",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Quetzal"
+        }
+      ],
+      "skos:notation": "GTQ",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/GTQ"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/74",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/gnf",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Guinea Franc"
+        }
+      ],
+      "skos:notation": "GNF",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/GNF"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/75",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/gyd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Guyana Dollar"
+        }
+      ],
+      "skos:notation": "GYD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/GYD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/77",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/htg",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Gourde"
+        }
+      ],
+      "skos:notation": "HTG",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/HTG"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/78",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/hnl",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Lempira"
+        }
+      ],
+      "skos:notation": "HNL",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/HNL"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/79",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/hkd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Hong Kong Dollar"
+        }
+      ],
+      "skos:notation": "HKD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/HKD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/80",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/huf",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Forint"
+        }
+      ],
+      "skos:notation": "HUF",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/HUF"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/81",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/isk",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Iceland Krona"
+        }
+      ],
+      "skos:notation": "ISK",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/ISK"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/82",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/inr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Indian Rupee"
+        }
+      ],
+      "skos:notation": "INR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/INR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/83",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/idr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Rupiah"
+        }
+      ],
+      "skos:notation": "IDR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/IDR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/84",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/irr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Iranian Rial"
+        }
+      ],
+      "skos:notation": "IRR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/IRR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/85",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/iqd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Iraqi Dinar"
+        }
+      ],
+      "skos:notation": "IQD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/IQD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/86",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/ils",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "New Israeli Sheqel"
+        }
+      ],
+      "skos:notation": "ILS",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/ILS"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/87",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/jmd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Jamaican Dollar"
+        }
+      ],
+      "skos:notation": "JMD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/JMD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/88",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/jpy",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Yen"
+        }
+      ],
+      "skos:notation": "JPY",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/JPY"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/89",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/jod",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Jordanian Dinar"
+        }
+      ],
+      "skos:notation": "JOD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/JOD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/90",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/kzt",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Tenge"
+        }
+      ],
+      "skos:notation": "KZT",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/KZT"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/91",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/kes",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Kenyan Shilling"
+        }
+      ],
+      "skos:notation": "KES",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/KES"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/92",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/kpw",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "North Korean Won"
+        }
+      ],
+      "skos:notation": "KPW",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/KPW"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/93",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/krw",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Won"
+        }
+      ],
+      "skos:notation": "KRW",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/KRW"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/94",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/kwd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Kuwaiti Dinar"
+        }
+      ],
+      "skos:notation": "KWD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/KWD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/95",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/kgs",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Som"
+        }
+      ],
+      "skos:notation": "KGS",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/KGS"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/96",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/lak",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Kip"
+        }
+      ],
+      "skos:notation": "LAK",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/LAK"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/97",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/lvl",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Latvian Lats"
+        }
+      ],
+      "skos:notation": "LVL",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/98",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/lbp",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Lebanese Pound"
+        }
+      ],
+      "skos:notation": "LBP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/LBP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/99",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/lsl",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Loti"
+        }
+      ],
+      "skos:notation": "LSL",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/LSL"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/100",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/lrd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Liberian Dollar"
+        }
+      ],
+      "skos:notation": "LRD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/LRD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/101",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/lyd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Libyan Dinar"
+        }
+      ],
+      "skos:notation": "LYD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/LYD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/102",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/chf",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Swiss Franc"
+        }
+      ],
+      "skos:notation": "CHF",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/CHF"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/103",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/ltl",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Lithuanian Litas"
+        }
+      ],
+      "skos:notation": "LTL",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/104",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mop",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Pataca"
+        }
+      ],
+      "skos:notation": "MOP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MOP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/105",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mkd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Denar"
+        }
+      ],
+      "skos:notation": "MKD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MKD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/106",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mga",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Malagasy Ariary"
+        }
+      ],
+      "skos:notation": "MGA",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MGA"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/107",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mwk",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Kwacha"
+        }
+      ],
+      "skos:notation": "MWK",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MWK"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/108",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/myr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Malaysian Ringgit"
+        }
+      ],
+      "skos:notation": "MYR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MYR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/109",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mvr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Rufiyaa"
+        }
+      ],
+      "skos:notation": "MVR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MVR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/110",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mtl",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Maltese Lira"
+        }
+      ],
+      "skos:notation": "MTL",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/112",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mro",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Ouguiya"
+        }
+      ],
+      "skos:notation": "MRO",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/113",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mur",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Mauritius Rupee"
+        }
+      ],
+      "skos:notation": "MUR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MUR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/114",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mxn",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Mexican Peso"
+        }
+      ],
+      "skos:notation": "MXN",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MXN"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/115",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mdl",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Moldovan Leu"
+        }
+      ],
+      "skos:notation": "MDL",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MDL"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/116",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mnt",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Tugrik"
+        }
+      ],
+      "skos:notation": "MNT",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MNT"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/117",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mad",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Moroccan Dirham"
+        }
+      ],
+      "skos:notation": "MAD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MAD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/119",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mzm",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Merical"
+        }
+      ],
+      "skos:notation": "MZM",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/120",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/mmk",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Kyat"
+        }
+      ],
+      "skos:notation": "MMK",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/MMK"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/121",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/nad",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Namibian Dollar"
+        }
+      ],
+      "skos:notation": "NAD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/NAD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/122",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/npr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Nepalese Rupee"
+        }
+      ],
+      "skos:notation": "NPR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/NPR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/123",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/ang",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Netherlands Antillian Guikder"
+        }
+      ],
+      "skos:notation": "ANG",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/ANG"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/124",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/nio",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Cordoba Oro"
+        }
+      ],
+      "skos:notation": "NIO",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/NIO"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/127",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/ngn",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Naira"
+        }
+      ],
+      "skos:notation": "NGN",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/NGN"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/129",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/omr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Rial Omani"
+        }
+      ],
+      "skos:notation": "OMR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/OMR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/132",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/pkr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Pakistan Rupee"
+        }
+      ],
+      "skos:notation": "PKR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/PKR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/133",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/pab",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Balboa"
+        }
+      ],
+      "skos:notation": "PAB",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/PAB"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/134",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/pgk",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Kina"
+        }
+      ],
+      "skos:notation": "PGK",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/PGK"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/135",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/pyg",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Guarani"
+        }
+      ],
+      "skos:notation": "PYG",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/PYG"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/136",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/pen",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Nuevo Sol"
+        }
+      ],
+      "skos:notation": "PEN",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/PEN"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/137",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/php",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Philippine Peso"
+        }
+      ],
+      "skos:notation": "PHP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/PHP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/138",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/pln",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Zloty"
+        }
+      ],
+      "skos:notation": "PLN",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/PLN"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/140",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/qar",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Qatari Rial"
+        }
+      ],
+      "skos:notation": "QAR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/QAR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/141",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/ron",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "New Leu"
+        }
+      ],
+      "skos:notation": "RON",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/RON"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/142",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/rub",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Russian Ruble"
+        }
+      ],
+      "skos:notation": "RUB",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/RUB"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/143",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/rwf",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Rwanda Franc"
+        }
+      ],
+      "skos:notation": "RWF",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/RWF"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/144",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/shp",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Saint Helena Pound"
+        }
+      ],
+      "skos:notation": "SHP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SHP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/145",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/wst",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Tala"
+        }
+      ],
+      "skos:notation": "WST",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/WST"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/149",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/std",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Dobra"
+        }
+      ],
+      "skos:notation": "STD",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/150",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/sar",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Saudi Riyal"
+        }
+      ],
+      "skos:notation": "SAR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SAR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/151",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/csd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Serbian Dinar"
+        }
+      ],
+      "skos:notation": "CSD",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/153",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/scr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Seychelles Rupee"
+        }
+      ],
+      "skos:notation": "SCR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SCR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/154",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/sll",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Leone"
+        }
+      ],
+      "skos:notation": "SLL",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SLL"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/155",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/sgd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Singapore Dollar"
+        }
+      ],
+      "skos:notation": "SGD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SGD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/156",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/skk",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Slovak Koruna"
+        }
+      ],
+      "skos:notation": "SKK",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/157",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/sit",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Tolar"
+        }
+      ],
+      "skos:notation": "SIT",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/158",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/sbd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Solomon Islands Dollar"
+        }
+      ],
+      "skos:notation": "SBD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SBD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/159",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/sos",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Somali Shilling"
+        }
+      ],
+      "skos:notation": "SOS",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SOS"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/160",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/zar",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Rand"
+        }
+      ],
+      "skos:notation": "ZAR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/ZAR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/161",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/lkr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Sri Lanka Rupee"
+        }
+      ],
+      "skos:notation": "LKR",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/LKR"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/162",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/sdd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Sudanese Dinar"
+        }
+      ],
+      "skos:notation": "SDD",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/163",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/srd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Surinam Dollar"
+        }
+      ],
+      "skos:notation": "SRD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SRD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/164",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/szl",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Lilangeni"
+        }
+      ],
+      "skos:notation": "SZL",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SZL"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/166",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/sek",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Swedish Krona"
+        }
+      ],
+      "skos:notation": "SEK",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SEK"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/167",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/syp",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Syrian Pound"
+        }
+      ],
+      "skos:notation": "SYP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/SYP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/169",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/twd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "New Taiwan Dollar"
+        }
+      ],
+      "skos:notation": "TWD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/TWD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/170",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/tjs",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Somoni"
+        }
+      ],
+      "skos:notation": "TJS",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/TJS"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/171",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/tzs",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Tanzanian Shilling"
+        }
+      ],
+      "skos:notation": "TZS",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/TZS"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/172",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/thb",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Baht"
+        }
+      ],
+      "skos:notation": "THB",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/THB"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/173",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/top",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Pa'Anga"
+        }
+      ],
+      "skos:notation": "TOP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/TOP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/176",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/ttd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Trinidad And Tobago Dollar"
+        }
+      ],
+      "skos:notation": "TTD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/TTD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/177",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/tnd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Tunisian Dinar"
+        }
+      ],
+      "skos:notation": "TND",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/TND"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/178",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/try",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "New Turkish Lira"
+        }
+      ],
+      "skos:notation": "TRY",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/TRY"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/179",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/tmm",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Manat"
+        }
+      ],
+      "skos:notation": "TMM",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/180",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/ugx",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Uganda Shilling"
+        }
+      ],
+      "skos:notation": "UGX",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/UGX"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/181",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/uah",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Hryvnia"
+        }
+      ],
+      "skos:notation": "UAH",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/UAH"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/182",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/aed",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "UAE Dirham"
+        }
+      ],
+      "skos:notation": "AED",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/AED"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/183",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/gbp",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Pound Sterling"
+        }
+      ],
+      "skos:notation": "GBP",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/GBP"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/184",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/usd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "US Dollar"
+        }
+      ],
+      "skos:notation": "USD",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/USD"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/185",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/uyu",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Peso Uruguayo"
+        }
+      ],
+      "skos:notation": "UYU",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/UYU"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/186",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/uzs",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Uzbekistan Sum"
+        }
+      ],
+      "skos:notation": "UZS",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/UZS"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/187",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/vuv",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Vatu"
+        }
+      ],
+      "skos:notation": "VUV",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/VUV"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/188",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/veb",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Bolivar"
+        }
+      ],
+      "skos:notation": "VEB",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/189",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/vnd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Dong"
+        }
+      ],
+      "skos:notation": "VND",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/VND"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/190",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/yer",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Yemeni Rial"
+        }
+      ],
+      "skos:notation": "YER",
+      "skos:exactMatch": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/currency/YER"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/193",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/zmk",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Kwacha"
+        }
+      ],
+      "skos:notation": "ZMK",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/194",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency/zwd",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-currency"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Zimbabwe Dollar"
+        }
+      ],
+      "skos:notation": "ZWD",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/currency.json#/records/195",
+      "skos:note": "candidate"
+    }
+  ]
+}

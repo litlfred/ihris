@@ -1,0 +1,573 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre",
+      "@type": "skos:ConceptScheme",
+      "skos:prefLabel": "iHRIS 4.3.3 code list: who_cadre",
+      "skos:definition": "The `who_cadre` code list as iHRIS 4.3.3 ships it by default: 37 codes from ihris-common/module/who_cadre. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+      "dcterms:hasVersion": "4.3.3",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json (iHRIS 4.3.3, MD5-verified release)",
+      "dcterms:license": "https://www.gnu.org/licenses/gpl-3.0.html"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2211",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Generalist medical practitioners"
+        }
+      ],
+      "skos:notation": "2211",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/0",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2212",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Specialist medical practitioners"
+        }
+      ],
+      "skos:notation": "2212",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/1",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2221",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Nursing professionals"
+        }
+      ],
+      "skos:notation": "2221",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/2",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2222",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Midwifery professionals"
+        }
+      ],
+      "skos:notation": "2222",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/3",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2230",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Traditional and complementary medicine professionals"
+        }
+      ],
+      "skos:notation": "2230",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/4",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2240",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Paramedical practitioners"
+        }
+      ],
+      "skos:notation": "2240",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/5",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2261",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Dentists"
+        }
+      ],
+      "skos:notation": "2261",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/6",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2262",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Pharmacists"
+        }
+      ],
+      "skos:notation": "2262",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/7",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2263",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Environmental and occupational health & hygiene workers"
+        }
+      ],
+      "skos:notation": "2263",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/8",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2264",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Physiotherapists and physiotherapy assistants"
+        }
+      ],
+      "skos:notation": "2264",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/9",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2265",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Dieticians and Nutritionists"
+        }
+      ],
+      "skos:notation": "2265",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/10",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2266",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Audiologists and speech therapists"
+        }
+      ],
+      "skos:notation": "2266",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/11",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2267",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Optometrists and ophthalmic opticians"
+        }
+      ],
+      "skos:notation": "2267",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/12",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3211",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Medical imaging and therapeutic equipment technicians"
+        }
+      ],
+      "skos:notation": "3211",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/13",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3212",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Medical and pathology laboratory technicians"
+        }
+      ],
+      "skos:notation": "3212",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/14",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3213",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Pharmaceutical technicians and assistants"
+        }
+      ],
+      "skos:notation": "3213",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/15",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3214",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Medical and dental prosthetic and related technicians"
+        }
+      ],
+      "skos:notation": "3214",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/16",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3221",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Nursing associate professionals"
+        }
+      ],
+      "skos:notation": "3221",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/17",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3222",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Midwifery associate professionals"
+        }
+      ],
+      "skos:notation": "3222",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/18",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3230",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Traditional and complementary medicine associate practitioners"
+        }
+      ],
+      "skos:notation": "3230",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/19",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3251",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Dental assistants and therapists"
+        }
+      ],
+      "skos:notation": "3251",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/20",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3252",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Medical records and health information technicians"
+        }
+      ],
+      "skos:notation": "3252",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/21",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3253",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Community health workers"
+        }
+      ],
+      "skos:notation": "3253",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/22",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3254",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Dispensing opticians"
+        }
+      ],
+      "skos:notation": "3254",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/23",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3255",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Physiotherapy technicians and assistants"
+        }
+      ],
+      "skos:notation": "3255",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/24",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3256",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Medical assistants"
+        }
+      ],
+      "skos:notation": "3256",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/25",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3257",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Environmental and occupational health inspectors and associates workers"
+        }
+      ],
+      "skos:notation": "3257",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/26",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3258",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Ambulance workers"
+        }
+      ],
+      "skos:notation": "3258",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/27",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3259",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Health associate professionals (n.o.c.)"
+        }
+      ],
+      "skos:notation": "3259",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/28",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/5321",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Health care assistants"
+        }
+      ],
+      "skos:notation": "5321",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/29",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/5322",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Home-based personal care workers"
+        }
+      ],
+      "skos:notation": "5322",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/30",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/5329",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Personal care workers in health services (n.o.c.)"
+        }
+      ],
+      "skos:notation": "5329",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/31",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/1342",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Health service managers"
+        }
+      ],
+      "skos:notation": "1342",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/32",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/1343",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Aged care service managers"
+        }
+      ],
+      "skos:notation": "1343",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/33",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2634",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Psychologists"
+        }
+      ],
+      "skos:notation": "2634",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/34",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/2635",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Social worker and counselling professionals"
+        }
+      ],
+      "skos:notation": "2635",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/35",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre/3344",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-who_cadre"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Medical secretaries"
+        }
+      ],
+      "skos:notation": "3344",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/who_cadre.json#/records/36",
+      "skos:note": "candidate"
+    }
+  ]
+}
