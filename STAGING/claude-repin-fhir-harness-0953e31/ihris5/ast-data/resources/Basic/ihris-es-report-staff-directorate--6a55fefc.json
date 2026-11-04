@@ -1,0 +1,176 @@
+{
+  "resourceType" : "Basic",
+  "id" : "ihris-es-report-staff-directorate",
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Basic ihris-es-report-staff-directorate</b></p><a name=\"ihris-es-report-staff-directorate\"> </a><a name=\"hcihris-es-report-staff-directorate\"> </a><blockquote><p><b>Details of a report</b></p><blockquote><p><b>url</b></p>label</blockquote><p><b>value</b>: Staff Directorate</p><blockquote><p><b>url</b></p>displayCheckbox</blockquote><p><b>value</b>: false</p><blockquote><p><b>url</b></p>name</blockquote><p><b>value</b>: staffdirectorate</p><blockquote><p><b>url</b></p>locationBasedConstraint</blockquote><p><b>value</b>: true</p><blockquote><p><b>url</b></p>resource</blockquote><p><b>value</b>: Practitioner</p><blockquote><p><b>url</b></p>resourcePage</blockquote><p><b>value</b>: practitioner</p><p><b>Display Name</b>: Fullname</p><p><b>name</b>: fullname</p><blockquote><p><b>displayformat</b></p><ul><li>format: %s, %s</li><li>order: given, family</li><li>paths:given:fhirpath: name.where(use='official').given</li><li>paths:given:join: -</li><li>paths:family:fhirpath: name.where(use='official').family</li></ul></blockquote><p><b>filter</b>: true</p><p><b>dropDownFilter</b>: false</p><p><b>order</b>: 0</p><blockquote><p><b>url</b></p><a href=\"StructureDefinition-iHRISReportElement.html\">Resource Fields</a></blockquote><p><b>Display Name</b>: Gender</p><p><b>name</b>: gender</p><p><b>fhirpath</b>: gender</p><p><b>filter</b>: true</p><p><b>dropDownFilter</b>: true</p><p><b>order</b>: 1</p><blockquote><p><b>url</b></p><a href=\"StructureDefinition-iHRISReportElement.html\">Resource Fields</a></blockquote><p><b>Display Name</b>: Date of Birth</p><p><b>name</b>: dob</p><p><b>fhirpath</b>: birthDate</p><p><b>filter</b>: true</p><p><b>dropDownFilter</b>: false</p><p><b>order</b>: 4</p><blockquote><p><b>url</b></p><a href=\"StructureDefinition-iHRISReportElement.html\">Resource Fields</a></blockquote><p><b>Display Name</b>: Phone Number</p><p><b>name</b>: phone</p><p><b>fhirpath</b>: telecom.where(system='phone').value</p><p><b>filter</b>: true</p><p><b>order</b>: 2</p><blockquote><p><b>url</b></p><a href=\"StructureDefinition-iHRISReportElement.html\">Resource Fields</a></blockquote><p><b>name</b>: ihris-related-group</p><p><b>fhirpath</b>: extension.where(url='http://ihris.org/fhir/StructureDefinition/ihris-related-group').extension.where(url='location').valueString</p><blockquote><p><b>url</b></p><a href=\"StructureDefinition-iHRISReportElement.html\">Resource Fields</a></blockquote></blockquote><p><b>code</b>: <span title=\"Codes:{http://ihris.org/fhir/ValueSet/ihris-resource iHRISRelationship}\">iHRISRelationship</span></p></div>"
+  },
+  "extension" : [{
+    "extension" : [{
+      "url" : "label",
+      "valueString" : "Staff Directorate"
+    },
+    {
+      "url" : "displayCheckbox",
+      "valueBoolean" : false
+    },
+    {
+      "url" : "name",
+      "valueString" : "staffdirectorate"
+    },
+    {
+      "url" : "locationBasedConstraint",
+      "valueBoolean" : true
+    },
+    {
+      "url" : "resource",
+      "valueString" : "Practitioner"
+    },
+    {
+      "url" : "resourcePage",
+      "valueString" : "practitioner"
+    },
+    {
+      "extension" : [{
+        "url" : "display",
+        "valueString" : "Fullname"
+      },
+      {
+        "url" : "name",
+        "valueString" : "fullname"
+      },
+      {
+        "extension" : [{
+          "url" : "format",
+          "valueString" : "%s, %s"
+        },
+        {
+          "url" : "order",
+          "valueString" : "given, family"
+        },
+        {
+          "url" : "paths:given:fhirpath",
+          "valueString" : "name.where(use='official').given"
+        },
+        {
+          "url" : "paths:given:join",
+          "valueString" : "-"
+        },
+        {
+          "url" : "paths:family:fhirpath",
+          "valueString" : "name.where(use='official').family"
+        }],
+        "url" : "displayformat"
+      },
+      {
+        "url" : "filter",
+        "valueBoolean" : true
+      },
+      {
+        "url" : "dropDownFilter",
+        "valueBoolean" : false
+      },
+      {
+        "url" : "order",
+        "valueInteger" : 0
+      }],
+      "url" : "http://ihris.org/fhir/StructureDefinition/iHRISReportElement"
+    },
+    {
+      "extension" : [{
+        "url" : "display",
+        "valueString" : "Gender"
+      },
+      {
+        "url" : "name",
+        "valueString" : "gender"
+      },
+      {
+        "url" : "fhirpath",
+        "valueString" : "gender"
+      },
+      {
+        "url" : "filter",
+        "valueBoolean" : true
+      },
+      {
+        "url" : "dropDownFilter",
+        "valueBoolean" : true
+      },
+      {
+        "url" : "order",
+        "valueInteger" : 1
+      }],
+      "url" : "http://ihris.org/fhir/StructureDefinition/iHRISReportElement"
+    },
+    {
+      "extension" : [{
+        "url" : "display",
+        "valueString" : "Date of Birth"
+      },
+      {
+        "url" : "name",
+        "valueString" : "dob"
+      },
+      {
+        "url" : "fhirpath",
+        "valueString" : "birthDate"
+      },
+      {
+        "url" : "filter",
+        "valueBoolean" : true
+      },
+      {
+        "url" : "dropDownFilter",
+        "valueBoolean" : false
+      },
+      {
+        "url" : "order",
+        "valueInteger" : 4
+      }],
+      "url" : "http://ihris.org/fhir/StructureDefinition/iHRISReportElement"
+    },
+    {
+      "extension" : [{
+        "url" : "display",
+        "valueString" : "Phone Number"
+      },
+      {
+        "url" : "name",
+        "valueString" : "phone"
+      },
+      {
+        "url" : "fhirpath",
+        "valueString" : "telecom.where(system='phone').value"
+      },
+      {
+        "url" : "filter",
+        "valueBoolean" : true
+      },
+      {
+        "url" : "order",
+        "valueInteger" : 2
+      }],
+      "url" : "http://ihris.org/fhir/StructureDefinition/iHRISReportElement"
+    },
+    {
+      "extension" : [{
+        "url" : "name",
+        "valueString" : "ihris-related-group"
+      },
+      {
+        "url" : "fhirpath",
+        "valueString" : "extension.where(url='http://ihris.org/fhir/StructureDefinition/ihris-related-group').extension.where(url='location').valueString"
+      }],
+      "url" : "http://ihris.org/fhir/StructureDefinition/iHRISReportElement"
+    }],
+    "url" : "http://ihris.org/fhir/StructureDefinition/iHRISReportDetails"
+  }],
+  "code" : {
+    "coding" : [{
+      "system" : "http://ihris.org/fhir/ValueSet/ihris-resource",
+      "code" : "iHRISRelationship"
+    }],
+    "text" : "iHRISRelationship"
+  }
+}

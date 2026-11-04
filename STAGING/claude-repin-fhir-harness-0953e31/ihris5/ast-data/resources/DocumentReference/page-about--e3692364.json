@@ -1,0 +1,28 @@
+{
+  "resourceType" : "DocumentReference",
+  "id" : "page-about",
+  "meta" : {
+    "profile" : ["http://ihris.org/fhir/StructureDefinition/ihris-document"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: DocumentReference page-about</b></p><a name=\"page-about\"> </a><a name=\"hcpage-about\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ihris-document.html\">iHRIS Document</a></p></div><p><b>status</b>: Current</p><p><b>docStatus</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://ihris.org/fhir/CodeSystem/ihris-document-category open}\">Open Access</span></p><p><b>date</b>: 2020-06-07 14:54:00+0000</p><blockquote><p><b>content</b></p><h3>Attachments</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>ContentType</b></td><td><b>Data</b></td><td><b>Title</b></td></tr><tr><td style=\"display: none\">*</td><td>text/markdown</td><td><code>IyBBYm91dCBpSFJJUwoKVGhpcyBpcyBhIHRlc3RpbmcgYWJvdXQgcGFnZS4K</code></td><td>About iHRIS</td></tr></table></blockquote></div>"
+  },
+  "status" : "current",
+  "docStatus" : "final",
+  "category" : [{
+    "coding" : [{
+      "system" : "http://ihris.org/fhir/CodeSystem/ihris-document-category",
+      "code" : "open",
+      "display" : "Open Access"
+    }]
+  }],
+  "date" : "2020-06-07T14:54:00Z",
+  "content" : [{
+    "attachment" : {
+      "contentType" : "text/markdown",
+      "data" : "IyBBYm91dCBpSFJJUwoKVGhpcyBpcyBhIHRlc3RpbmcgYWJvdXQgcGFnZS4K",
+      "title" : "About iHRIS"
+    }
+  }]
+}
