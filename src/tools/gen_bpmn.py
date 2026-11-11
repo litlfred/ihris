@@ -30,7 +30,8 @@ from xml.sax.saxutils import escape, quoteattr
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 LANE_H, COL_W, X0, POOL_X, LANE_X = 170, 190, 250, 160, 190
-SIZE = {"task": (140, 80), "callActivity": (140, 80), "startEvent": (36, 36), "endEvent": (36, 36), "exclusiveGateway": (50, 50)}
+# Tasks are a fixed 120 x 120 square, as in every harness diagram (bpmn-detangle).
+SIZE = {"task": (120, 120), "callActivity": (120, 120), "startEvent": (36, 36), "endEvent": (36, 36), "exclusiveGateway": (50, 50)}
 
 
 def generate(spec):
