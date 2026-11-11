@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-use-case-crosswalk.schema.json",
+  "title": "ihris-use-case-crosswalk/v1",
+  "description": "Each 2009 iHRIS use case linked to the forms of the iHRIS 4.3.3 data model in this repository, by name matching only; unmatched use cases keep matches: null (library/ihris-use-cases/crosswalk.json, src/tools/ingest_use_cases.py).",
+  "type": "object",
+  "required": ["$schema", "release", "method", "scope", "excludedForms", "noDataModel", "counts", "entries"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {"const": "ihris-use-case-crosswalk/v1"},
+    "release": {"type": "string"},
+    "method": {"type": "string", "minLength": 1},
+    "scope": {
+      "type": "object",
+      "additionalProperties": {"type": "array", "items": {"enum": ["i2ce", "ihris-common", "ihris-manage", "ihris-qualify", "ihris-plan"]}}
+    },
+    "excludedForms": {"type": "string"},
+    "noDataModel": {"type": "object", "additionalProperties": {"type": "string"}},
+    "counts": {
+      "type": "object", "required": ["matched", "unmatched", "no-data-model", "links"], "additionalProperties": false,
+      "properties": {
+        "matched": {"type": "integer", "minimum": 0}, "unmatched": {"type": "integer", "minimum": 0},
+        "no-data-model": {"type": "integer", "minimum": 0}, "links": {"type": "integer", "minimum": 0}
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["useCase", "product", "title", "status", "matches"], "additionalProperties": false,
+        "properties": {
+          "useCase": {"type": "string", "pattern": "^UC-[A-Z]+\\d+$"},
+          "product": {"enum": ["common", "manage", "qualify", "plan"]},
+          "title": {"type": "string"},
+          "status": {"enum": ["matched", "unmatched", "no-data-model"]},
+          "matches": {
+            "type": ["array", "null"],
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["form", "class", "package", "formClass", "modules", "matchedOn", "matchedText", "derivedBy"],
+              "additionalProperties": false,
+              "properties": {
+                "form": {"type": "string"},
+                "class": {"type": ["string", "null"]},
+                "package": {"type": "string"},
+                "formClass": {"type": ["string", "null"], "description": "the ihris-form-class/v1 node id, when the class has one in src/<package>/data-model"},
+                "modules": {"type": "array", "items": {"type": "string"}},
+                "matchedOn": {"enum": ["form name", "display name"]},
+                "matchedText": {"type": "string"},
+                "derivedBy": {"const": "name-match"}
+              }
+            }
+          }
+        },
+        "allOf": [
+          {"if": {"properties": {"status": {"const": "matched"}}}, "then": {"properties": {"matches": {"type": "array"}}}},
+          {"if": {"properties": {"status": {"enum": ["unmatched", "no-data-model"]}}}, "then": {"properties": {"matches": {"type": "null"}}}}
+        ]
+      }
+    }
+  }
+}

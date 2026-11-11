@@ -1,0 +1,218 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major",
+      "@type": "skos:ConceptScheme",
+      "skos:prefLabel": "iHRIS 4.3.3 code list: isco_08_major",
+      "skos:definition": "The `isco_08_major` code list as iHRIS 4.3.3 ships it by default: 10 codes from ihris-common/module/isco-08-major-00, ihris-common/module/isco-08-major-01, ihris-common/module/isco-08-major-02, ihris-common/module/isco-08-major-03, ihris-common/module/isco-08-major-04, ihris-common/module/isco-08-major-05, ihris-common/module/isco-08-major-06, ihris-common/module/isco-08-major-07, ihris-common/module/isco-08-major-08, ihris-common/module/isco-08-major-09. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate. 10 term(s) have exactMatch to ISCO-08 in ESCO (European Commission) by ValueSet identity: the ValueSet ihris-isco-08-major binds this list to http://www.ilo.org/public/english/bureau/stat/isco/isco08/, so each code is that system's code. No ConceptMap records it; the basis was accepted by the owner's ruling of 2026-09-24 (ihris PR #19). The IRIs follow the publisher's pattern and were not dereferenced.",
+      "dcterms:hasVersion": "4.3.3",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/isco_08_major.json (iHRIS 4.3.3, MD5-verified release)",
+      "dcterms:license": "https://www.gnu.org/licenses/gpl-3.0.html"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major/0",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Armed forces occupations"
+        }
+      ],
+      "skos:notation": "0",
+      "skos:exactMatch": [
+        {
+          "@id": "http://data.europa.eu/esco/isco/C0"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/isco_08_major.json#/records/0",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major/1",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Managers"
+        }
+      ],
+      "skos:notation": "1",
+      "skos:exactMatch": [
+        {
+          "@id": "http://data.europa.eu/esco/isco/C1"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/isco_08_major.json#/records/1",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major/2",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Professionals"
+        }
+      ],
+      "skos:notation": "2",
+      "skos:exactMatch": [
+        {
+          "@id": "http://data.europa.eu/esco/isco/C2"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/isco_08_major.json#/records/2",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major/3",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Technicians and associate professionals"
+        }
+      ],
+      "skos:notation": "3",
+      "skos:exactMatch": [
+        {
+          "@id": "http://data.europa.eu/esco/isco/C3"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/isco_08_major.json#/records/3",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major/4",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Clerical support workers"
+        }
+      ],
+      "skos:notation": "4",
+      "skos:exactMatch": [
+        {
+          "@id": "http://data.europa.eu/esco/isco/C4"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/isco_08_major.json#/records/4",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major/5",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Service and sales workers"
+        }
+      ],
+      "skos:notation": "5",
+      "skos:exactMatch": [
+        {
+          "@id": "http://data.europa.eu/esco/isco/C5"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/isco_08_major.json#/records/5",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major/6",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Skilled agricultural, forestry and fishery workers"
+        }
+      ],
+      "skos:notation": "6",
+      "skos:exactMatch": [
+        {
+          "@id": "http://data.europa.eu/esco/isco/C6"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/isco_08_major.json#/records/6",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major/7",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Craft and related trades workers"
+        }
+      ],
+      "skos:notation": "7",
+      "skos:exactMatch": [
+        {
+          "@id": "http://data.europa.eu/esco/isco/C7"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/isco_08_major.json#/records/7",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major/8",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Plant and machine operators, and assemblers"
+        }
+      ],
+      "skos:notation": "8",
+      "skos:exactMatch": [
+        {
+          "@id": "http://data.europa.eu/esco/isco/C8"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/isco_08_major.json#/records/8",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major/9",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-isco_08_major"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Elementary occupations"
+        }
+      ],
+      "skos:notation": "9",
+      "skos:exactMatch": [
+        {
+          "@id": "http://data.europa.eu/esco/isco/C9"
+        }
+      ],
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/isco_08_major.json#/records/9",
+      "skos:note": "candidate"
+    }
+  ]
+}
