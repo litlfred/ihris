@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-wireframe-authors.schema.json",
+  "title": "ihris-wireframe-authors/v1",
+  "description": "Who made each candidate. Kept apart so reviewers stay blind (wireframe-design-review §2).",
+  "type": "object",
+  "required": [
+    "note"
+  ],
+  "properties": {
+    "note": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": {
+    "type": "string"
+  }
+}

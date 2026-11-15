@@ -1,0 +1,63 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-competency_evaluation",
+      "@type": "skos:ConceptScheme",
+      "skos:prefLabel": "iHRIS 4.3.3 code list: competency_evaluation",
+      "skos:definition": "The `competency_evaluation` code list as iHRIS 4.3.3 ships it by default: 3 codes from ihris-common/module/person-simple-competency. Each term's notation is the iHRIS record id and its label the record's `name`. The source gives no definitions, so every term is a candidate.",
+      "dcterms:hasVersion": "4.3.3",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/competency_evaluation.json (iHRIS 4.3.3, MD5-verified release)",
+      "dcterms:license": "https://www.gnu.org/licenses/gpl-3.0.html"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-competency_evaluation/not_evaluated",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-competency_evaluation"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Not Evaluated"
+        }
+      ],
+      "skos:notation": "not_evaluated",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/competency_evaluation.json#/records/0",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-competency_evaluation/competent",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-competency_evaluation"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Competent"
+        }
+      ],
+      "skos:notation": "competent",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/competency_evaluation.json#/records/1",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-competency_evaluation/not_competent",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/ihris/ihris-common/ns#glossary/code-list-competency_evaluation"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Not Competent"
+        }
+      ],
+      "skos:notation": "not_competent",
+      "dcterms:source": "src/ihris-common/data-lists/4.3.3/competency_evaluation.json#/records/2",
+      "skos:note": "candidate"
+    }
+  ]
+}
