@@ -1,0 +1,84 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "ihris-salary-grade",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem ihris-salary-grade</b></p><a name=\"ihris-salary-grade\"> </a><a name=\"hcihris-salary-grade\"> </a><p><b>Properties</b></p><p><b>This code system defines the following properties for its concepts</b></p><table class=\"grid\"><tr><td><b>Name</b></td><td><b>Code</b></td><td><b>Type</b></td><td><b>Description</b></td></tr><tr><td>start</td><td>start</td><td>Coding</td><td>The starting salary for this grade.</td></tr><tr><td>midpoint</td><td>midpoint</td><td>Coding</td><td>The midpoint salary for this grade.</td></tr><tr><td>end</td><td>end</td><td>Coding</td><td>The end point salary for this grade.</td></tr><tr><td>currency</td><td>currency</td><td>Coding</td><td>The currency used (urn:iso:std:iso:4217).</td></tr></table><p><b>Concepts</b></p><p>This  code system <code>http://ihris.org/fhir/CodeSystem/ihris-salary-grade</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">entry-level<a name=\"ihris-salary-grade-entry-level\"> </a></td><td>Entry-Level</td><td>Entry-level and support positions.</td></tr><tr><td style=\"white-space:nowrap\">prof-entry-level<a name=\"ihris-salary-grade-prof-entry-level\"> </a></td><td>Professional Entry-Level</td><td>Professional first grade.</td></tr><tr><td style=\"white-space:nowrap\">prof-mid-level<a name=\"ihris-salary-grade-prof-mid-level\"> </a></td><td>Professional Mid-Level or Managerial</td><td/></tr><tr><td style=\"white-space:nowrap\">director<a name=\"ihris-salary-grade-director\"> </a></td><td>Director</td><td>Director</td></tr><tr><td style=\"white-space:nowrap\">specialist<a name=\"ihris-salary-grade-specialist\"> </a></td><td>Technical Specialist</td><td>Not included in any standard salary grades.</td></tr><tr><td style=\"white-space:nowrap\">nurse<a name=\"ihris-salary-grade-nurse\"> </a></td><td>Nurse</td><td>Nurse</td></tr><tr><td style=\"white-space:nowrap\">allied-health<a name=\"ihris-salary-grade-allied-health\"> </a></td><td>Allied Health</td><td>Allied Health Professionals</td></tr><tr><td style=\"white-space:nowrap\">doctor<a name=\"ihris-salary-grade-doctor\"> </a></td><td>Doctor</td><td>Doctor</td></tr></table></div>"
+  },
+  "url" : "http://ihris.org/fhir/CodeSystem/ihris-salary-grade",
+  "version" : "0.1.0",
+  "name" : "IhrisSalaryGrade",
+  "title" : "iHRIS Salary Grade",
+  "status" : "active",
+  "date" : "2020-09-25T20:48:33.646Z",
+  "publisher" : "Luke Duncan",
+  "contact" : [{
+    "name" : "Luke Duncan",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "lduncan@intrahealth.org"
+    }]
+  }],
+  "description" : "Sample iHRIS CodeSystem for: iHRISSalaryGrade",
+  "content" : "complete",
+  "count" : 8,
+  "property" : [{
+    "code" : "start",
+    "description" : "The starting salary for this grade.",
+    "type" : "Coding"
+  },
+  {
+    "code" : "midpoint",
+    "description" : "The midpoint salary for this grade.",
+    "type" : "Coding"
+  },
+  {
+    "code" : "end",
+    "description" : "The end point salary for this grade.",
+    "type" : "Coding"
+  },
+  {
+    "code" : "currency",
+    "description" : "The currency used (urn:iso:std:iso:4217).",
+    "type" : "Coding"
+  }],
+  "concept" : [{
+    "code" : "entry-level",
+    "display" : "Entry-Level",
+    "definition" : "Entry-level and support positions."
+  },
+  {
+    "code" : "prof-entry-level",
+    "display" : "Professional Entry-Level",
+    "definition" : "Professional first grade."
+  },
+  {
+    "code" : "prof-mid-level",
+    "display" : "Professional Mid-Level or Managerial"
+  },
+  {
+    "code" : "director",
+    "display" : "Director",
+    "definition" : "Director"
+  },
+  {
+    "code" : "specialist",
+    "display" : "Technical Specialist",
+    "definition" : "Not included in any standard salary grades."
+  },
+  {
+    "code" : "nurse",
+    "display" : "Nurse",
+    "definition" : "Nurse"
+  },
+  {
+    "code" : "allied-health",
+    "display" : "Allied Health",
+    "definition" : "Allied Health Professionals"
+  },
+  {
+    "code" : "doctor",
+    "display" : "Doctor",
+    "definition" : "Doctor"
+  }]
+}
