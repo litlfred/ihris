@@ -4,6 +4,7 @@
 <script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
 
 <meta charset="utf-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>iHRIS Test Questionnaire — form — iHRIS 5 Implementation Guide</title>
 <link rel="canonical" href="./Questionnaire-ihris-test-form.html">
@@ -20,12 +21,13 @@
 
 <div class="ig-topbar fa-page-bar" role="navigation" aria-label="iHRIS Implementation Guide menu"><a class="ig-topbar-home" href="./index.html">iHRIS Implementation Guide</a></div>
 <main class="ig-main main-content fa-page-main" id="main-content">
+
 <span hidden data-fa-figure-images="ig"></span>
 
 
 <div id="fa-qform" class="fa-qform" data-json="questionnaires/Questionnaire-ihris-test.json" data-lhc="assets/lhc-forms/44.1.0/" data-fhir="R4" data-src="fsh-generated/resources/Questionnaire-ihris-test.json" data-suggest-text="questionnaires/Questionnaire-ihris-test.source.json" data-block="questionnaire:ihris-test" data-suggest-mode="questionnaire">
 <h1>iHRIS Test Questionnaire: the form</h1>
-<p class="fa-qform-about">How <a href="Questionnaire-ihris-test.html">Questionnaire/ihris-test</a> looks to the person filling it in, drawn from its built JSON by NLM LHC-Forms 44.1.0, served from this site.</p>
+<p class="fa-qform-about">How <a href="artifact/Questionnaire-ihris-test.html">Questionnaire/ihris-test</a> looks to the person filling it in, drawn from its built JSON by NLM LHC-Forms 44.1.0, served from this site.</p>
 <p class="fa-qform-links">
 <a href="questionnaires/Questionnaire-ihris-test.json" download>the JSON</a>
 <a href="https://smartforms.csiro.au/playground" rel="noopener" target="_blank" title="CSIRO Smart Forms: load the JSON there to cross-check the rendering">open in CSIRO Smart Forms</a>
@@ -34,7 +36,7 @@
 <div class="fa-qform-view"></div>
 <div id="fa-qform-editor" class="fa-qform-editor"></div>
 </div>
-<script type="application/json" id="fa-edit-cfg">{"suggest":{"profiles":[{"id":"questionnaire","module":"assets/js/questionnaire-mode.js","extensions":[".json"],"kinds":["questionnaire"]}],"fhirVersion":"R4","builder":"assets/formbuilder/12.9.0/window-open","sw":{"url":"assets/formbuilder/12.9.0/fa-terminology-sw.js?index=..%2F..%2Fterminology%2Findex.json&ucum=..%2F..%2Fterminology%2Fucum.json&lhc=..%2F..%2Flhc-forms%2F44.1.0%2F&v=44.1.0","scope":"assets/formbuilder/12.9.0/"},"source":"fsh-generated/resources/Questionnaire-ihris-test.json","slug":"ihris"}}</script>
+<script type="application/json" id="fa-edit-cfg">{"suggest":{"profiles":[{"id":"questionnaire","module":"assets/js/questionnaire-mode.js","extensions":[".json"],"kinds":["questionnaire"]}],"fhirVersion":"R4","builder":"assets/formbuilder/12.9.0/window-open","sw":{"url":"assets/formbuilder/12.9.0/fa-terminology-sw.js?index=..%2F..%2Fterminology%2Findex.json&ucum=..%2F..%2Fterminology%2Fucum.json&lhc=..%2F..%2Flhc-forms%2F44.1.0%2F&v=44.1.0&bundle=..%2F..%2Fformbuilder-bundle%2F12.9.0%2F","scope":"assets/formbuilder/12.9.0/"},"source":"fsh-generated/resources/Questionnaire-ihris-test.json","slug":"ihris"}}</script>
 <script src="assets/js/questionnaire-edit-links.js"></script>
 <script src="assets/js/questionnaire-form.js" defer></script>
 
@@ -42,7 +44,65 @@
 
 
 
-
+<script>(function(){
+var f=document.querySelector("#main-content .pt-diagram[data-panel]");
+if(!f||window.__igTaskPanel)return;
+var p=f.getAttribute("data-panel")||"";
+if(!/^[A-Za-z0-9._-][A-Za-z0-9._/-]*[.]tasks[.]json$/.test(p)||p.indexOf("//")>=0)return;
+window.__igTaskPanel=1;
+var dir=p.replace(/[^/]*$/,"");
+var l=document.createElement("link");l.rel="stylesheet";l.href=dir+"task-panel.css";document.head.appendChild(l);
+var s=document.createElement("script");s.src=dir+"task-panel.js";document.body.appendChild(s);
+})();</script>
+<script>(function(){
+var main=document.getElementById("main-content");
+if(!main||main.querySelector(".igi-contents"))return;
+var rowsOf=function igContentsRows(hs) {
+  let top = 0;
+  for (const h of hs)
+    if (h.level >= 2 && h.level <= 4 && (top === 0 || h.level < top))
+      top = h.level;
+  if (top === 0)
+    return [];
+  const rows = [];
+  let count = 0;
+  for (const h of hs)
+    if (h.level === top) {
+      rows.push({ i: h.i, sub: [] });
+      count++;
+    } else if (h.level === top + 1) {
+      const last = rows[rows.length - 1];
+      if (last)
+        last.sub.push(h.i);
+      else
+        rows.push({ i: h.i, sub: [] });
+      count++;
+    }
+  return count < 2 ? [] : rows;
+};
+var hs=Array.prototype.filter.call(main.querySelectorAll("h2,h3,h4"),function(h){return !h.closest(".igi-contents,#ig-footer,.ig-edit,.ig-metadata")&&h.textContent.trim();});
+var rows=rowsOf(hs.map(function(h,i){return {level:+h.tagName.charAt(1),i:i};}));
+if(!rows.length)return;
+var used={};
+function slug(t){var b=t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"section",s=b,i=1;while(used[s]||document.getElementById(s))s=b+"-"+(++i);used[s]=1;return s;}
+function item(h){if(!h.id)h.id=slug(h.textContent);var li=document.createElement("li"),a=document.createElement("a");a.href="#"+h.id;
+var c=h.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll(".anchor-heading,.fa-sec-box,svg,button"),function(n){n.remove();});
+a.textContent=c.textContent.replace(/\s+/g," ").trim();li.appendChild(a);return li;}
+var nav=document.createElement("nav");nav.className="igi-contents";nav.setAttribute("aria-label","Contents");
+var t=document.createElement("p");t.className="igi-contents-title";t.textContent="Contents";nav.appendChild(t);
+var ul=document.createElement("ul");
+rows.forEach(function(r){var li=item(hs[r.i]);if(r.sub.length){var sub=document.createElement("ul");sub.className="igi-contents-sub";r.sub.forEach(function(k){sub.appendChild(item(hs[k]));});li.appendChild(sub);}ul.appendChild(li);});
+nav.appendChild(ul);
+var h1=main.querySelector("h1"),meta=main.querySelector(":scope > .ig-metadata");
+if(h1&&h1.parentNode===main)h1.insertAdjacentElement("afterend",nav);else if(meta)meta.insertAdjacentElement("afterend",nav);else main.insertBefore(nav,main.firstChild);
+})();</script>
 </main>
+<link rel="stylesheet" href="assets/ig-pages.css">
+<footer id="ig-footer">
+<p class="ig-footer-nav"><a href="#">top</a></p>
+<p class="ig-footer-band">IG © 2020+ Luke Duncan. Package <code>ihris#0.1.0</code> based on <a href="http://hl7.org/fhir/R4/" rel="external">FHIR 4.0.1</a>. Generated 2026-11-15</p>
+<p class="ig-footer-links">Links: <a href="toc.html">Table of Contents</a> | <a href="https://spdx.org/licenses/CC0-1.0.html" rel="external">License</a></p>
+</footer>
+
 </body>
 </html>
