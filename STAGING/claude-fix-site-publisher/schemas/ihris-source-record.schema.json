@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-source-record.schema.json",
+  "title": "ihris-source-record/v1",
+  "description": "What a version-control host says about one node of a source catalogue: a project, a release series (and its branch), a release (and its files, with checksums), or a git repository pinned at a commit. It is the companion of a `folio-catalogue-node/v1` node (reached through that node's `metadataRef`), and it exists because the catalogue-node schema is strict and has no field for an `lp:` branch, an MD5 or a commit. Nothing here is the source itself. Everything is a statement about a source that stays upstream.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "id", "node", "host", "level", "capturedFrom"],
+  "properties": {
+    "$schema": { "const": "ihris-source-record/v1" },
+    "id": { "type": "string", "minLength": 1 },
+    "node": { "type": "string", "minLength": 1, "description": "id of the folio-catalogue-node/v1 this record describes" },
+    "host": { "enum": ["launchpad", "github"] },
+    "vcs": { "enum": ["bzr", "git"] },
+    "level": { "enum": ["project-group", "project", "series", "milestone", "release", "repository"] },
+    "refs": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "lp": { "type": "string", "pattern": "^lp:", "description": "Bazaar branch spec, e.g. lp:i2ce or lp:~intrahealth+informatics/i2ce/4.3-dev" },
+        "web": { "type": "string", "format": "uri" },
+        "git": { "type": "string", "description": "clone URL" }
+      }
+    },
+    "project": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" }, "title": { "type": "string" },
+        "summary": { "type": ["string", "null"] }, "description": { "type": ["string", "null"] },
+        "registered": { "type": ["string", "null"] },
+        "licences": { "type": "array", "items": { "type": "string" } },
+        "languages": { "type": "array", "items": { "type": "string" } },
+        "homepage": { "type": ["string", "null"] }, "wiki": { "type": ["string", "null"] },
+        "maintainer": { "type": ["object", "null"] },
+        "partOf": { "type": ["string", "null"] },
+        "classification": { "enum": ["core", "country-customization", "tool", "related"], "description": "Owner ruling 2026-09-22: core = i2ce, ihris-common, ihris-manage, ihris-qualify, ihris-plan, openhie-pr." },
+        "describedBy": { "type": ["string", "null"], "description": "repo-relative path of the instance that describes this project in depth, when there is one" }
+      }
+    },
+    "series": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "isDevelopmentFocus": { "type": "boolean" },
+        "branches": { "type": "array", "items": { "type": "string", "pattern": "^lp:" } },
+        "milestones": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "release": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" }, "series": { "type": ["string", "null"] },
+        "released": { "type": ["string", "null"] }, "expected": { "type": ["string", "null"] },
+        "registrant": { "type": ["string", "null"] },
+        "releaseNotes": { "type": ["string", "null"] }, "changelog": { "type": ["string", "null"] },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["name", "url"],
+            "properties": {
+              "name": { "type": "string" }, "url": { "type": "string", "format": "uri" },
+              "md5": { "type": "string", "pattern": "^[0-9a-f]{32}$" },
+              "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+              "bytes": { "type": "integer", "minimum": 0 },
+              "verifiedCopy": { "type": "string", "description": "path of a manifest recording that a copy was received and its checksum matched" }
+            }
+          }
+        }
+      }
+    },
+    "repository": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "url": { "type": "string", "format": "uri" }, "branch": { "type": "string" },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" }, "committedAt": { "type": "string" },
+        "licence": { "type": ["string", "null"] }
+      }
+    },
+    "capturedFrom": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "uploads/ paths (or URLs) this record was transcribed from" },
+    "capturedAt": { "type": "string" },
+    "note": { "type": "string" }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-wiki-help-structure.schema.json",
+  "title": "ihris-wiki-help-structure/v1",
+  "description": "The user-manual help pages a release ships, and the figures they reference, each pinned by sha256 and listed with every path it ships at (library/ihris-wiki/osi-help-*/structure.json).",
+  "type": "object",
+  "required": [
+    "source",
+    "sourceSha256",
+    "pages"
+  ],
+  "properties": {
+    "source": {
+      "type": "string"
+    },
+    "sourceSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "sha256",
+          "shippedIn"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "shippedIn": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "file",
+          "sha256",
+          "shippedIn"
+        ],
+        "properties": {
+          "file": {
+            "type": "string",
+            "pattern": "^images/"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "shippedIn": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "variantsDiffer": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

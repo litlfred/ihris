@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/litlfred/ihris/src/schemas/ihris-site-theme.schema.json",
+  "title": "ihris-site-theme/v1",
+  "description": "Design tokens for the ihris site, MEASURED from the stylesheets of a checksum-verified iHRIS release (src/tools/extract_theme.py). New because folio-assistant's ThemeSchema (cat-harness/schemas/theme.ts) describes card art and layouts, not colours measured from a source stylesheet with their provenance and WCAG substitutions.",
+  "type": "object",
+  "required": ["$schema", "id", "title", "derivedFrom", "licence", "wcag", "measured", "applied", "adjustments", "logo"],
+  "properties": {
+    "$schema": {"const": "ihris-site-theme/v1"},
+    "id": {"type": "string"},
+    "title": {"type": "string"},
+    "derivedFrom": {
+      "type": "object",
+      "required": ["release", "tarballSha256", "files", "cascade"],
+      "properties": {
+        "release": {"type": "string"},
+        "tarballSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "files": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+        "cascade": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      }
+    },
+    "licence": {"type": "object", "required": ["id", "basis", "attribution"]},
+    "wcag": {"type": "object", "required": ["target", "ratio"]},
+    "measured": {
+      "type": "object",
+      "additionalProperties": {"type": "object", "required": ["value", "from"], "properties": {"value": {"type": "string"}, "from": {"type": "string", "minLength": 1}}}
+    },
+    "applied": {"type": "object", "additionalProperties": {"type": "string"}},
+    "adjustments": {
+      "type": "array",
+      "items": {"type": "object", "required": ["role", "measured", "contrast", "on", "applied", "appliedContrast", "reason"]}
+    },
+    "logo": {"type": "object", "required": ["file", "from", "sha256", "attribution"], "properties": {"sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}}
+  }
+}
